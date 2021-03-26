@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using System.Diagnostics;
+using RadSaDatotekama;
 
 namespace PrviProgram
 {
@@ -28,7 +31,14 @@ namespace PrviProgram
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window1 win2 = new Window1();
+            DatotekaUpravnik a = new DatotekaUpravnik();
+            a.UpisivanjeUFajl(new Sala(), "aa");
             win2.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

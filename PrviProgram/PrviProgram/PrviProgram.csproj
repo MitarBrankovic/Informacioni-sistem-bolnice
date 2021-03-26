@@ -12,8 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="hospital-2.jpg" />
-    <Resource Include="upravnik.jpg" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

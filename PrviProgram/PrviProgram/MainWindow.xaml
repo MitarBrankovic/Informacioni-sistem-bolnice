@@ -12,7 +12,7 @@
         <Button Content="Upravnik" Margin="50,349,622,26" Click="Button_Click"/>
         <Button Content="Doktor" Margin="244,349,428,26"/>
         <Button Content="Pacijent" Margin="443,349,229,26"/>
-        <Button Content="Sekretar" Margin="630,349,42,26"/>
+        <Button Content="Sekretar" Margin="630,349,42,26" Click="Button_Click_1"/>
 
 
     </Grid>

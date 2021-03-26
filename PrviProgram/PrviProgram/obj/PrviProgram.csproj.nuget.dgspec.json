@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Saska\\Desktop\\PrviProgram\\PrviProgram\\PrviProgram.csproj": {}
+    "C:\\Users\\Darko\\Desktop\\sims\\Informacioni-sistem-bolnice\\PrviProgram\\PrviProgram\\PrviProgram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Saska\\Desktop\\PrviProgram\\PrviProgram\\PrviProgram.csproj": {
+    "C:\\Users\\Darko\\Desktop\\sims\\Informacioni-sistem-bolnice\\PrviProgram\\PrviProgram\\PrviProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Saska\\Desktop\\PrviProgram\\PrviProgram\\PrviProgram.csproj",
+        "projectUniqueName": "C:\\Users\\Darko\\Desktop\\sims\\Informacioni-sistem-bolnice\\PrviProgram\\PrviProgram\\PrviProgram.csproj",
         "projectName": "PrviProgram",
-        "projectPath": "C:\\Users\\Saska\\Desktop\\PrviProgram\\PrviProgram\\PrviProgram.csproj",
-        "packagesPath": "C:\\Users\\Saska\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Saska\\Desktop\\PrviProgram\\PrviProgram\\obj\\",
+        "projectPath": "C:\\Users\\Darko\\Desktop\\sims\\Informacioni-sistem-bolnice\\PrviProgram\\PrviProgram\\PrviProgram.csproj",
+        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Darko\\Desktop\\sims\\Informacioni-sistem-bolnice\\PrviProgram\\PrviProgram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Saska\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
