@@ -1,0 +1,29 @@
+﻿<Window x:Class="PrviProgram.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram"
+        mc:Ignorable="d"
+        Title="Upravnik" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image Source="C:\Users\Saska\source\repos\PrviProgram\PrviProgram\bin\Debug\Slike\upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>
+        <DataGrid Margin="142,55,142,55" SelectionChanged="DataGrid_SelectionChanged" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+        <DataGrid.Columns>
+                <DataGridTextColumn Header="Sifra" Width="102"/>
+                <DataGridTextColumn Header="Tip sale" Width="102"/>
+                <DataGridTextColumn Header="Naziv" Width="102"/>
+                <DataGridTextColumn Header="Sprat" Width="102"/>
+                <DataGridTextColumn Header="Dostupnost" Width="102"/>
+            </DataGrid.Columns>
+      </DataGrid>
+
+    </Grid>
+</Window>
