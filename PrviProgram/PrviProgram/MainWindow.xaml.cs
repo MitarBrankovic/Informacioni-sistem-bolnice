@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using Logika.LogikaSekretar;
 using Model;
-using System.Diagnostics;
 using RadSaDatotekama;
+using System.Windows;
 
 namespace PrviProgram
 {
@@ -31,14 +18,19 @@ namespace PrviProgram
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window1 win2 = new Window1();
-            DatotekaUpravnik a = new DatotekaUpravnik();
-            a.UpisivanjeUFajl(new Sala(), "aa");
+            DatotekaUpravnik a = new DatotekaUpravnik("output.json");
+            a.UpisivanjeUFajl(new Sala());
+            UpravljanjePacijentima up = new UpravljanjePacijentima();
+            Pacijent p = new Pacijent();
+            p.Jmbg = "12234";
+            p.kartonPacijenta = new KartonPacijenta();
+            up.DodavanjePacijenta(p);
             win2.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

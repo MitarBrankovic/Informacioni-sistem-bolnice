@@ -1,34 +1,39 @@
 using Model;
-using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 
 namespace RadSaDatotekama
 {
-   public class DatotekaUpravnik
-   {
-        public void UpisivanjeUFajl(Sala sala, string nazivFajla)
+    public class DatotekaUpravnik
+    {
+        private string path;
+
+        public DatotekaUpravnik(string nazivFajla)
         {
-
-            Osoba a = new Osoba();
-            a.Ime = "DArko";
-            String JsonResult = JsonConvert.SerializeObject(a, Formatting.Indented);
-
-            string currentDir = Environment.CurrentDirectory;
-            DirectoryInfo directory = new DirectoryInfo(
-            Path.GetFullPath(Path.Combine(currentDir, @"..\..\" + "a.json")));
-            string path =  directory.ToString();
-            a.Prezime = directory.ToString();
-
-            using (var writer = new StreamWriter(@"C:\Users\Darko\Desktop\sims\Informacioni-sistem-bolnice\PrviProgram\PrviProgram\a.json"))
-            {
-                writer.Write(JsonResult);
-            }
+            this.path = @"..\..\..\data\" + nazivFajla;
         }
-            public void CitanjeIzFajla(string nazivFajla)
-      {
-         // TODO: implement
-      }
-   
-   }
+
+        public void UpisivanjeUFajl(Sala sala)
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            StreamWriter writer = new StreamWriter(path);
+            JsonWriter jWriter = new JsonTextWriter(writer);
+            serializer.Serialize(jWriter, sala);
+            writer.Close();
+        }
+        public List<Sala> CitanjeIzFajla()
+        {
+            List<Sala> sale = new List<Sala>();
+            if (File.Exists(path))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                StreamReader reader = new StreamReader(path);
+                JsonReader jReader = new JsonTextReader(reader);
+                sale = (List<Sala>)serializer.Deserialize(jReader);
+            }
+            return sale;
+        }
+
+    }
 }

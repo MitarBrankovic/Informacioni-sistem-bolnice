@@ -1,0 +1,60 @@
+[
+  {
+    "termin": null,
+    "kartonPacijenta": null,
+    "MestoRodjenja": null,
+    "Korisnik": null,
+    "AdresaStanovanja": null,
+    "Ime": null,
+    "Prezime": null,
+    "Email": null,
+    "Jmbg": "1241245",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0
+  },
+  {
+    "termin": null,
+    "kartonPacijenta": null,
+    "MestoRodjenja": null,
+    "Korisnik": null,
+    "AdresaStanovanja": null,
+    "Ime": null,
+    "Prezime": null,
+    "Email": null,
+    "Jmbg": "123",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0
+  },
+  {
+    "termin": null,
+    "kartonPacijenta": null,
+    "MestoRodjenja": null,
+    "Korisnik": null,
+    "AdresaStanovanja": null,
+    "Ime": null,
+    "Prezime": null,
+    "Email": null,
+    "Jmbg": "1234",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0
+  },
+  {
+    "termin": null,
+    "kartonPacijenta": {
+      "Sifra": null,
+      "Terapija": null,
+      "Alergeni": null,
+      "IstorijaBolesti": null,
+      "pacijent": null
+    },
+    "MestoRodjenja": null,
+    "Korisnik": null,
+    "AdresaStanovanja": null,
+    "Ime": null,
+    "Prezime": null,
+    "Email": null,
+    "Jmbg": "12234",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0
+  }
+]

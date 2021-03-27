@@ -1,8 +1,6 @@
-using System;
-
 namespace Model
 {
-   public class Sekretar : Osoba
-   {
-   }
+    public class Sekretar : Osoba
+    {
+    }
 }
