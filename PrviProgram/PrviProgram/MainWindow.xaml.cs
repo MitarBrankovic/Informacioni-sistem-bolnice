@@ -18,9 +18,9 @@ namespace PrviProgram
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 win2 = new Window1();
+            WindowUpravnik win2 = new WindowUpravnik();
             DatotekaUpravnik a = new DatotekaUpravnik("output.json");
-            a.UpisivanjeUFajl(new Sala());
+            //a.UpisivanjeUFajl(new Sala());
             UpravljanjePacijentima up = new UpravljanjePacijentima();
             Pacijent p = new Pacijent();
             p.Jmbg = "12234";
