@@ -1,6 +1,7 @@
 ﻿using Logika.LogikaSekretar;
 using Model;
 using PrviProgram.Izgled.Pacijent;
+using PrviProgram.Izgled.Sekretar;
 using RadSaDatotekama;
 using System.Windows;
 
@@ -31,7 +32,8 @@ namespace PrviProgram
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            WindowSekretar win = new WindowSekretar();
+            win.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
