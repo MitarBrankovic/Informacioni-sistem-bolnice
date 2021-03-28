@@ -1,4 +1,5 @@
 ﻿using Logika.LogikaSekretar;
+using Logika.LogikaUpravnik;
 using Model;
 using PrviProgram.Izgled.Pacijent;
 using RadSaDatotekama;
@@ -26,6 +27,12 @@ namespace PrviProgram
             p.Jmbg = "12234";
             p.kartonPacijenta = new KartonPacijenta();
             up.DodavanjePacijenta(p);
+
+            UpravljanjeSalama upravlj = new UpravljanjeSalama();
+            Sala s = new Sala();
+            s.Sifra = "12234";
+            upravlj.DodavanjeSale(s);
+
             win2.Show();
         }
 

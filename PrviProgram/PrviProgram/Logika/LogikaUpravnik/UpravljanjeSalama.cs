@@ -5,34 +5,92 @@
  ***********************************************************************/
 
 using Model;
+using RadSaDatotekama;
+using System.Collections.Generic;
 
 namespace Logika.LogikaUpravnik
 {
     public class UpravljanjeSalama
     {
-        public void DodavanjeSale(Sala sala)
+        private static UpravljanjeSalama instance = null;
+        public static UpravljanjeSalama getInstance()
         {
-            // TODO: implement
+            if (instance == null)
+            {
+                instance = new UpravljanjeSalama();
+            }
+            return instance;
         }
 
-        public void PregledSale(string sifraSale)
+        public bool DodavanjeSale(Sala sala)
         {
-            // TODO: implement
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> sale = datoteka.CitanjeIzFajla();
+            foreach (Sala s in sale)
+            {
+                if (s.Sifra.Equals(sala.Sifra))
+                {
+                    return false;
+                }
+            }
+            sale.Add(sala);
+            datoteka.UpisivanjeUFajl(sale);
+
+            return true;
         }
 
-        public void BrisanjeSale(string sifraSale)
+        public Sala PregledSale(string sifraSale)
         {
-            // TODO: implement
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> pacijenti = datoteka.CitanjeIzFajla();
+            foreach (Sala s in pacijenti)
+            {
+                if (s.Sifra.Equals(sifraSale))
+                {
+                    return s;
+                }
+            }
+            return null;
         }
 
-        public void IzmenaSale(string sifraSale)
+        public bool BrisanjeSale(string sifraSale)
         {
-            // TODO: implement
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> sale = datoteka.CitanjeIzFajla();
+            foreach (Sala s in sale)
+            {
+                if (s.Sifra.Equals(sifraSale))
+                {
+                    sale.Remove(s);
+                    datoteka.UpisivanjeUFajl(sale);
+                    return true;
+                }
+            }
+            return false;
         }
 
-        public void PregledSvihSala()
+        public bool IzmenaSale(Sala sala)
         {
-            // TODO: implement
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> sale = datoteka.CitanjeIzFajla();
+            foreach (Sala s in sale)
+            {
+                if (s.Sifra.Equals(sala.Sifra))
+                {
+                    sale.Remove(s);
+                    sale.Add(sala);
+                    datoteka.UpisivanjeUFajl(sale);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<Sala> PregledSvihSala()
+        {
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> sale = datoteka.CitanjeIzFajla();
+            return sale;
         }
 
     }

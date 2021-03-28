@@ -1,0 +1,86 @@
+[
+  {
+    "Tip": 0,
+    "Naziv": null,
+    "Sprat": 0,
+    "Dostupnost": false,
+    "Sifra": "12234"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "Nesto",
+    "Sprat": 2,
+    "Dostupnost": false,
+    "Sifra": "ala"
+  },
+  {
+    "Tip": 3,
+    "Naziv": "sds",
+    "Sprat": 21,
+    "Dostupnost": false,
+    "Sifra": "ad"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "axdsfasd",
+    "Sprat": 1231,
+    "Dostupnost": false,
+    "Sifra": "asdasdasd"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "asd",
+    "Sprat": 1231313131,
+    "Dostupnost": false,
+    "Sifra": "asd"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "AAAAAAAAAAAAAAA",
+    "Sprat": 123,
+    "Dostupnost": false,
+    "Sifra": "asdasd"
+  },
+  {
+    "Tip": 4,
+    "Naziv": "AASD",
+    "Sprat": 2323,
+    "Dostupnost": true,
+    "Sifra": "wqe"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "DSSSSSSSSSSSSSSSSSSSSS",
+    "Sprat": 2323,
+    "Dostupnost": true,
+    "Sifra": "sSSSS"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "asd",
+    "Sprat": 23,
+    "Dostupnost": true,
+    "Sifra": "asd23"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "ADADADADAD",
+    "Sprat": 2323,
+    "Dostupnost": true,
+    "Sifra": "DADADADAD"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "asd@",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "asd2"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "as",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "sa"
+  }
+]
