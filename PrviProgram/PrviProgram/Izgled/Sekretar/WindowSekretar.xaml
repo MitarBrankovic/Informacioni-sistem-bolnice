@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WindowSekretar" Height="450" Width="800">
     <Grid>
-        <DataGrid Margin="143,86,143,28" SelectionChanged="DataGrid_SelectionChanged" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503">
+        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="143,86,143,28" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -16,11 +16,11 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime" Width="102"/>
-                <DataGridTextColumn Header="Prezime" Width="102"/>
-                <DataGridTextColumn Header="Jmbg" Width="102"/>
-                <DataGridTextColumn Header="Datum rodjenja" Width="102"/>
-                <DataGridTextColumn Header="Pol" Width="102"/>
+                <DataGridTextColumn Header="Ime" Width="102" Binding="{Binding Ime}"/>
+                <DataGridTextColumn Header="Prezime" Width="102" Binding="{Binding Prezime}"/>
+                <DataGridTextColumn Header="Jmbg" Width="102" Binding="{Binding Jmbg}"/>
+                <DataGridTextColumn Header="Datum rodjenja" Width="102" Binding="{Binding DatumRodjenja}"/>
+                <DataGridTextColumn Header="Pol" Width="*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="143,38,0,0" VerticalAlignment="Top" Width="98" />

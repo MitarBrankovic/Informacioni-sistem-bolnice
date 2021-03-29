@@ -1,45 +1,6 @@
 [
   {
-    "termin": null,
-    "kartonPacijenta": null,
-    "MestoRodjenja": null,
-    "Korisnik": null,
-    "AdresaStanovanja": null,
-    "Ime": null,
-    "Prezime": null,
-    "Email": null,
-    "Jmbg": "1241245",
-    "DatumRodjenja": "0001-01-01T00:00:00",
-    "Pol": 0
-  },
-  {
-    "termin": null,
-    "kartonPacijenta": null,
-    "MestoRodjenja": null,
-    "Korisnik": null,
-    "AdresaStanovanja": null,
-    "Ime": null,
-    "Prezime": null,
-    "Email": null,
-    "Jmbg": "123",
-    "DatumRodjenja": "0001-01-01T00:00:00",
-    "Pol": 0
-  },
-  {
-    "termin": null,
-    "kartonPacijenta": null,
-    "MestoRodjenja": null,
-    "Korisnik": null,
-    "AdresaStanovanja": null,
-    "Ime": null,
-    "Prezime": null,
-    "Email": null,
-    "Jmbg": "1234",
-    "DatumRodjenja": "0001-01-01T00:00:00",
-    "Pol": 0
-  },
-  {
-    "termin": null,
+    "termin": [],
     "kartonPacijenta": {
       "Sifra": null,
       "Terapija": null,
@@ -47,14 +8,28 @@
       "IstorijaBolesti": null,
       "pacijent": null
     },
-    "MestoRodjenja": null,
-    "Korisnik": null,
-    "AdresaStanovanja": null,
-    "Ime": null,
-    "Prezime": null,
-    "Email": null,
-    "Jmbg": "12234",
+    "MestoRodjenja": {
+      "Ime": null,
+      "drzava": null
+    },
+    "Korisnik": {
+      "KorisnickoIme": "d",
+      "Lozinka": "d",
+      "TipKorisnika": 0,
+      "osoba": null
+    },
+    "AdresaStanovanja": {
+      "Ulica": null,
+      "Broj": 0,
+      "Zgrada": 0,
+      "Sprat": 0,
+      "grad": null
+    },
+    "Ime": "d",
+    "Prezime": "d",
+    "Email": "d",
+    "Jmbg": "d",
     "DatumRodjenja": "0001-01-01T00:00:00",
-    "Pol": 0
+    "Pol": 1
   }
 ]
