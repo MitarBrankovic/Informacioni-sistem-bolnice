@@ -29,14 +29,20 @@ namespace PrviProgram.Izgled.Sekretar
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            upravljanje.BrisanjePacijenta((Model.Pacijent) dgDataBinding.SelectedItem);
-            pacijenti.Remove((Model.Pacijent)dgDataBinding.SelectedItem);
+            if ((Model.Pacijent)dgDataBinding.SelectedItem != null)
+            {
+                upravljanje.BrisanjePacijenta((Model.Pacijent) dgDataBinding.SelectedItem);
+                pacijenti.Remove((Model.Pacijent)dgDataBinding.SelectedItem);
+            }
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            IzmenaPacijenta d = new IzmenaPacijenta(pacijenti, (Model.Pacijent)dgDataBinding.SelectedItem);
-            d.Show();
+            if ((Model.Pacijent)dgDataBinding.SelectedItem != null)
+            {
+                IzmenaPacijenta d = new IzmenaPacijenta(pacijenti, (Model.Pacijent)dgDataBinding.SelectedItem);
+                d.Show();
+            }
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)

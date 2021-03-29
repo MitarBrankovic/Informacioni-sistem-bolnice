@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WindowSekretar" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="143,86,143,28" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold">
+        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="143,86,143,28" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
