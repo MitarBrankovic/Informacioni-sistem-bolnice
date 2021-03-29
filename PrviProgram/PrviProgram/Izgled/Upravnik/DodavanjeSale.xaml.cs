@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
@@ -18,28 +19,22 @@ namespace PrviProgram.Izgled.Upravnik
     /// <summary>
     /// Interaction logic for DodavanjeSale.xaml
     /// </summary>
-    public partial class DodavanjeSale : Window, INotifyPropertyChanged
+    public partial class DodavanjeSale : Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public virtual void OnPropertyChanged(string v)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
-            }
-        }
+        private Logika.LogikaUpravnik.UpravljanjeSalama upr;
+        private ObservableCollection<Model.Sala> sale;
 
-
-        public DodavanjeSale()
+        public DodavanjeSale(ObservableCollection<Model.Sala> sale)
         {
             InitializeComponent();
-
+            upr = new Logika.LogikaUpravnik.UpravljanjeSalama();
+            this.sale = sale;
         }
 
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -65,7 +60,7 @@ namespace PrviProgram.Izgled.Upravnik
             }
             else if (tip.Equals("Sala sa krevetima"))
             {
-                tempSala.Tip = TipSale.SalaSaKrevetrima;
+                tempSala.Tip = TipSale.SalaSaKrevetima;
             }
             else if (tip.Equals("Prostorija"))
             {
@@ -82,10 +77,14 @@ namespace PrviProgram.Izgled.Upravnik
                 tempSala.Dostupnost = false;
             }
 
-            UpravljanjeSalama.getInstance().DodavanjeSale(tempSala);
-            WindowUpravnik.getInstance().dataGridUpravnik.Items.Refresh();
+            if (upr.DodavanjeSale(tempSala) == true)
+            {
+                this.sale.Add(tempSala);
+            }
 
-            this.Hide();
+            //UpravljanjeSalama.getInstance().DodavanjeSale(tempSala);
+
+            this.Close();
         }
     }
 }

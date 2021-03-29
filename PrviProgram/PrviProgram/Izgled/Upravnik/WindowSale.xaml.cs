@@ -2,6 +2,8 @@
 using Model;
 using PrviProgram.Izgled.Upravnik;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,23 +25,20 @@ namespace PrviProgram
         }
 
 
+        public UpravljanjeSalama upravljanje;
+        public ObservableCollection<Model.Sala> sale; 
 
-
-        List<Sala> sale = new List<Sala>();
 
 
         public WindowUpravnik()
         {
             InitializeComponent();
 
-
-            sale = UpravljanjeSalama.getInstance().PregledSvihSala();
+            upravljanje = new UpravljanjeSalama();
+            sale = new ObservableCollection<Model.Sala>(upravljanje.PregledSvihSala());
 
 
             dataGridUpravnik.ItemsSource = sale;
-            /*foreach (Sala sa in sale) {
-                dataGridUpravnik.Items.Add(sa);
-            }*/
 
         }
 
@@ -50,23 +49,23 @@ namespace PrviProgram
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            DodavanjeSale dodavanje = new DodavanjeSale();
-            dataGridUpravnik.Items.Refresh();
+            DodavanjeSale dodavanje = new DodavanjeSale(sale);
             dodavanje.Show();
 
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            //int trenutniRed = dataGridUpravnik.SelectedIndex;
-            //string oznaceniProfesor = (string)dataGridUpravnik.GetV(trenutniRed, 0);
-            //UpravljanjeSalama.getInstance().BrisanjeSale(dataGridUpravnik.SelectedValuePath);
+            upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
+            sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);
             MessageBox.Show("Uspesno ste obrisali salu!");
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-
+            IzmenaSale izmena = new IzmenaSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
+            izmena.Show();
         }
+
     }
 }

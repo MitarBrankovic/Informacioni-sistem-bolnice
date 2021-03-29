@@ -8,7 +8,7 @@
         Title="Upravnik" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Source="\Slike\upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>
-        <DataGrid x:Name="dataGridUpravnik" Margin="143,104,143,10" SelectionChanged="DataGrid_SelectionChanged" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" ItemsSource="{Binding sale}">
+        <DataGrid x:Name="dataGridUpravnik" Margin="143,104,143,10" SelectionChanged="DataGrid_SelectionChanged" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" ItemsSource="{Binding dataSale}">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>

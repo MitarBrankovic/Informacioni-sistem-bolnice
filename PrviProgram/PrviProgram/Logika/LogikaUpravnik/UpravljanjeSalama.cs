@@ -53,13 +53,13 @@ namespace Logika.LogikaUpravnik
             return null;
         }
 
-        public bool BrisanjeSale(string sifraSale)
+        public bool BrisanjeSale(Sala sala)
         {
             DatotekaSala datoteka = new DatotekaSala();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
             {
-                if (s.Sifra.Equals(sifraSale))
+                if (s.Sifra.Equals(sala.Sifra))
                 {
                     sale.Remove(s);
                     datoteka.UpisivanjeUFajl(sale);
@@ -91,6 +91,22 @@ namespace Logika.LogikaUpravnik
             DatotekaSala datoteka = new DatotekaSala();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             return sale;
+        }
+
+
+        public Sala NadjiSalu(string sifraSale)
+        {
+            Sala sala = null;
+            DatotekaSala datoteka = new DatotekaSala();
+            List<Sala> sale = datoteka.CitanjeIzFajla();
+            foreach (Sala s in sale)
+            {
+                if (s.Sifra.Equals(sifraSale))
+                {
+                    sala = s;
+                }
+            }
+            return sala;
         }
 
     }

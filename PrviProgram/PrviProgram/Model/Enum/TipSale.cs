@@ -6,7 +6,7 @@ namespace Model
         SalaZaOdmor,
         Prostorije,
         Kancelarija,
-        SalaSaKrevetrima
+        SalaSaKrevetima
 
     }
 }
