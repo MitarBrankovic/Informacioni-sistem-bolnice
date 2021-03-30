@@ -26,9 +26,28 @@
       "grad": null
     },
     "Ime": "Darko",
-    "Prezime": "d",
+    "Prezime": "ds",
     "Email": "d",
     "Jmbg": "d",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0
+  },
+  {
+    "termin": null,
+    "kartonPacijenta": {
+      "Sifra": null,
+      "Terapija": null,
+      "Alergeni": null,
+      "IstorijaBolesti": null,
+      "pacijent": null
+    },
+    "MestoRodjenja": null,
+    "Korisnik": null,
+    "AdresaStanovanja": null,
+    "Ime": null,
+    "Prezime": null,
+    "Email": null,
+    "Jmbg": "12234",
     "DatumRodjenja": "0001-01-01T00:00:00",
     "Pol": 0
   }

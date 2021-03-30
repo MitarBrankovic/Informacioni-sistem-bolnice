@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+//using System.Windows.Forms;
 
 namespace PrviProgram.Izgled.Upravnik
 {
@@ -40,51 +41,81 @@ namespace PrviProgram.Izgled.Upravnik
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Sala tempSala = new Sala();
-            tempSala.Naziv = Naziv.Text;
-            tempSala.Sifra = Sifra.Text;
-            tempSala.Sprat = int.Parse(Sprat.Text);
 
+            if (Naziv.Text == "" && Sifra.Text == "" && Sprat.Text == "")
+            {
+                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
+            {
+                MessageBox.Show("Naziv nije dobro unet!", "Greska");
+                Naziv.Text.Remove(Naziv.Text.Length - 1);
+            }
+            else if (isNumber(Sprat.Text) == false)
+            {
+                MessageBox.Show("Sprat nije dobro unet!", "Greska");
+            }
+            else
+            {
 
-            String tip = Tip.Text;
-            if (tip.Equals("Operaciona"))
-            {
-                tempSala.Tip = TipSale.Operaciona;
-            }
-            else if (tip.Equals("Kancelarija"))
-            {
-                tempSala.Tip = TipSale.Kancelarija;
-            }
-            else if (tip.Equals("Sala za odmor"))
-            {
-                tempSala.Tip = TipSale.SalaZaOdmor;
-            }
-            else if (tip.Equals("Sala sa krevetima"))
-            {
-                tempSala.Tip = TipSale.SalaSaKrevetima;
-            }
-            else if (tip.Equals("Prostorija"))
-            {
-                tempSala.Tip = TipSale.Prostorije;
-            }
+                tempSala.Naziv = Naziv.Text;
+                tempSala.Sifra = Sifra.Text;
+                tempSala.Sprat = int.Parse(Sprat.Text);
 
-            String dostupnost = Dostupnost.Text;
-            if (dostupnost.Equals("Da"))
-            {
-                tempSala.Dostupnost = true;
-            }
-            else if (dostupnost.Equals("Ne"))
-            {
-                tempSala.Dostupnost = false;
-            }
+                String tip = Tip.Text;
+                if (tip.Equals("Operaciona"))
+                {
+                    tempSala.Tip = TipSale.Operaciona;
+                }
+                else if (tip.Equals("Kancelarija"))
+                {
+                    tempSala.Tip = TipSale.Kancelarija;
+                }
+                else if (tip.Equals("Sala za odmor"))
+                {
+                    tempSala.Tip = TipSale.SalaZaOdmor;
+                }
+                else if (tip.Equals("Sala sa krevetima"))
+                {
+                    tempSala.Tip = TipSale.SalaSaKrevetima;
+                }
+                else if (tip.Equals("Prostorija"))
+                {
+                    tempSala.Tip = TipSale.Prostorije;
+                }
 
-            if (upr.DodavanjeSale(tempSala) == true)
-            {
-                this.sale.Add(tempSala);
+                String dostupnost = Dostupnost.Text;
+                if (dostupnost.Equals("Da"))
+                {
+                    tempSala.Dostupnost = true;
+                }
+                else if (dostupnost.Equals("Ne"))
+                {
+                    tempSala.Dostupnost = false;
+                }
+
+                if (upr.DodavanjeSale(tempSala) == true)
+                {
+                    this.sale.Add(tempSala);
+                }
+
+                //UpravljanjeSalama.getInstance().DodavanjeSale(tempSala);
+
+                this.Close();
             }
+        }
 
-            //UpravljanjeSalama.getInstance().DodavanjeSale(tempSala);
-
-            this.Close();
+        public bool isNumber(String st)
+        {
+            try
+            {
+                int.Parse(st);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

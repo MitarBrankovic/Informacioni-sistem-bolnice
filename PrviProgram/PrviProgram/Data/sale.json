@@ -7,41 +7,6 @@
     "Sifra": "DADADADAD"
   },
   {
-    "Tip": 0,
-    "Naziv": null,
-    "Sprat": 0,
-    "Dostupnost": false,
-    "Sifra": "12234"
-  },
-  {
-    "Tip": 0,
-    "Naziv": "BBBB",
-    "Sprat": 23,
-    "Dostupnost": true,
-    "Sifra": "VVVV"
-  },
-  {
-    "Tip": 0,
-    "Naziv": "ADAD",
-    "Sprat": 23,
-    "Dostupnost": true,
-    "Sifra": "SED"
-  },
-  {
-    "Tip": 3,
-    "Naziv": "DDD",
-    "Sprat": 123,
-    "Dostupnost": true,
-    "Sifra": "DDD"
-  },
-  {
-    "Tip": 1,
-    "Naziv": "asd",
-    "Sprat": 123,
-    "Dostupnost": true,
-    "Sifra": "asd"
-  },
-  {
     "Tip": 4,
     "Naziv": "DAD",
     "Sprat": 213123,
@@ -50,9 +15,37 @@
   },
   {
     "Tip": 2,
-    "Naziv": "AA",
+    "Naziv": "AAasd",
     "Sprat": 213,
     "Dostupnost": true,
     "Sifra": "SS"
+  },
+  {
+    "Tip": 3,
+    "Naziv": "1231232A",
+    "Sprat": 123,
+    "Dostupnost": true,
+    "Sifra": "DDD"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "123123B",
+    "Sprat": 0,
+    "Dostupnost": false,
+    "Sifra": "12234"
+  },
+  {
+    "Tip": 0,
+    "Naziv": "BBBB2",
+    "Sprat": 23,
+    "Dostupnost": true,
+    "Sifra": "VVVV"
+  },
+  {
+    "Tip": 1,
+    "Naziv": "SDs2",
+    "Sprat": 23,
+    "Dostupnost": true,
+    "Sifra": "asd"
   }
 ]

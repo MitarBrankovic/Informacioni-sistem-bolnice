@@ -76,57 +76,89 @@ namespace PrviProgram.Izgled.Upravnik
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            this.sale.Remove(this.sala);
 
-            this.sala.Naziv = Naziv.Text;
-            this.sala.Sifra = Sifra.Text;
-            this.sala.Sprat = int.Parse(Sprat.Text);
+            if (Naziv.Text == "" && Sifra.Text == "" && Sprat.Text == "")
+            {
+                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
+            {
+                MessageBox.Show("Naziv nije dobro unet!", "Greska");
+                Naziv.Text.Remove(Naziv.Text.Length - 1);
+            }
+            else if (isNumber(Sprat.Text) == false)
+            {
+                MessageBox.Show("Sprat nije dobro unet!", "Greska");
+            }
+            else
+            {
 
+                this.sale.Remove(this.sala);
 
-            String tip = Tip.Text;
-            if (tip.Equals("Operaciona"))
-            {
-                this.sala.Tip = TipSale.Operaciona;
-            }
-            else if (tip.Equals("Kancelarija"))
-            {
-                this.sala.Tip = TipSale.Kancelarija;
-            }
-            else if (tip.Equals("Sala za odmor"))
-            {
-                this.sala.Tip = TipSale.SalaZaOdmor;
-            }
-            else if (tip.Equals("Sala sa krevetima"))
-            {
-                this.sala.Tip = TipSale.SalaSaKrevetima;
-            }
-            else if (tip.Equals("Prostorija"))
-            {
-                this.sala.Tip = TipSale.Prostorije;
-            }
-
-            String dostupnost = Dostupnost.Text;
-            if (dostupnost.Equals("Da"))
-            {
-                this.sala.Dostupnost = true;
-            }
-            else if (dostupnost.Equals("Ne"))
-            {
-                 this.sala.Dostupnost = false;
-            }
+                this.sala.Naziv = Naziv.Text;
+                this.sala.Sifra = Sifra.Text;
+                this.sala.Sprat = int.Parse(Sprat.Text);
 
 
-            if (upr.IzmenaSale(this.sala) == true)
-            {
-                this.sale.Add(this.sala);
-            }
+                String tip = Tip.Text;
+                if (tip.Equals("Operaciona"))
+                {
+                    this.sala.Tip = TipSale.Operaciona;
+                }
+                else if (tip.Equals("Kancelarija"))
+                {
+                    this.sala.Tip = TipSale.Kancelarija;
+                }
+                else if (tip.Equals("Sala za odmor"))
+                {
+                    this.sala.Tip = TipSale.SalaZaOdmor;
+                }
+                else if (tip.Equals("Sala sa krevetima"))
+                {
+                    this.sala.Tip = TipSale.SalaSaKrevetima;
+                }
+                else if (tip.Equals("Prostorija"))
+                {
+                    this.sala.Tip = TipSale.Prostorije;
+                }
 
-            this.Close();
+                String dostupnost = Dostupnost.Text;
+                if (dostupnost.Equals("Da"))
+                {
+                    this.sala.Dostupnost = true;
+                }
+                else if (dostupnost.Equals("Ne"))
+                {
+                    this.sala.Dostupnost = false;
+                }
+
+
+                if (upr.IzmenaSale(this.sala) == true)
+                {
+                    this.sale.Add(this.sala);
+                }
+
+                this.Close();
+            }
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+
+        public bool isNumber(String st)
+        {
+            try
+            {
+                int.Parse(st);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

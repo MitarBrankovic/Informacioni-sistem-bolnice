@@ -56,15 +56,23 @@ namespace PrviProgram
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
-            sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);
-            MessageBox.Show("Uspesno ste obrisali salu!");
+            if (dataGridUpravnik.SelectedIndex != -1)
+            {
+                upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
+                sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);
+            }
+            else { MessageBox.Show("Morate izabrati salu!"); }
+
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            IzmenaSale izmena = new IzmenaSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
-            izmena.Show();
+            if (dataGridUpravnik.SelectedIndex != -1)
+            {
+                IzmenaSale izmena = new IzmenaSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
+                izmena.Show();
+            }
+            else { MessageBox.Show("Morate izabrati salu!"); }
         }
 
     }
