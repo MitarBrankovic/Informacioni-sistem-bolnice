@@ -58,7 +58,7 @@ namespace PrviProgram
             DatotekaLekar lek = new DatotekaLekar();
             UpravljanjePregledima up = new UpravljanjePregledima();
             Termin t = new Termin();
-            t.Sifra = "asda2";
+            t.SifraTermina = "asda2";
 
             UpravljanjePregledima upr = new UpravljanjePregledima();
             //upr.DodavanjePregleda(t);

@@ -80,7 +80,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.noviTermin.lekar = l;
             this.noviTermin.Datum = (DateTime)(DatumText.SelectedDate);
             this.noviTermin.Vreme = vremeText.Text;
-            noviTermin.Sifra = t.Sifra;
+            noviTermin.SifraTermina = t.SifraTermina;
             noviTermin.sala = t.sala;
 
 

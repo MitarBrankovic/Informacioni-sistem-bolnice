@@ -6,7 +6,7 @@ namespace Model
     {
         public DateTime Datum { get; set; }
         public TipTermina TipTermina { get; set; }
-        public string Sifra { get; set; }
+        public string SifraTermina { get; set; }
         public Sala sala { get; set; }
         public string Vreme { get; set; }
 
@@ -47,7 +47,7 @@ namespace Model
                 }
             }
         }
-        public Pacijent pacijent;
+        public Pacijent pacijent { get; set; }
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Pacijent GetPacijent()

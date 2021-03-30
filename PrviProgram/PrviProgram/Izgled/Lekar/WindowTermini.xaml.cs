@@ -53,7 +53,7 @@ namespace PrviProgram.Izgled.Lekar
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).Sifra);
+            upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).SifraTermina);
             termini.Remove((Termin)dataGridLekar.SelectedItem);
             MessageBox.Show("Uspesno ste obrisali termin!");
         }

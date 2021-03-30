@@ -1,5 +1,7 @@
 ﻿using Logika.LogikaLekar;
 using Logika.LogikaPacijent;
+using Logika.LogikaSekretar;
+using Logika.LogikaUpravnik;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -22,22 +24,61 @@ namespace PrviProgram.Izgled.Lekar
     public partial class IzmenaTermina : Window
     {
 
+        private UpravljanjePacijentima uprPac;
+        private UpravljanjeSalama uprSal;
         private UpravljanjePregledima upr;
         private ObservableCollection<Termin> termini;
         private Termin termin;
+        int index;
+        string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30" };
+
 
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();
 
+            uprPac = new UpravljanjePacijentima();
+            uprSal = new UpravljanjeSalama();
             upr = new UpravljanjePregledima();
+            
             this.termini = termini;
             this.termin = termin;
 
-            Pacijent.Text = termin.pacijent.Jmbg;
-            Sifra.Text = termin.Sifra;
-            Datum.Text = termin.Datum.ToString();
-            Sala.Text = termin.sala.Sifra;
+
+            if (termin.pacijent != null)
+            {
+                if (uprPac.PregledPacijenta(termin.pacijent.Jmbg) != null)
+                {
+                    Pacijent.Text = termin.pacijent.Jmbg;
+                }
+            }
+
+            Sifra.Text = termin.SifraTermina;
+            DatumText.SelectedDate = termin.Datum;
+            //Datum.Text = termin.Datum.ToString();
+
+            if (termin.sala != null)
+            {
+                if (uprSal.PregledSale(termin.sala.Sifra) != null)
+                {
+                    //if (uprSal.PregledSale(termin.sala.Sifra).Dostupnost == true)
+                    //{
+                        Sala.Text = termin.sala.Sifra;
+                    //}
+                }
+            }
+
+
+            string v = termin.Vreme;
+            for (int i = 0; i < niz.Length; i++)
+            {
+                if (niz[i].Equals(v))
+                {
+                    index = i;
+                }
+            }
+            vremeText.SelectedIndex = index;
+
 
             String tip = termin.TipTermina.ToString();
             if (tip.Equals("Pregled"))
@@ -58,16 +99,25 @@ namespace PrviProgram.Izgled.Lekar
         {
             this.termini.Remove(this.termin);
 
+            
             Sala tempSala = new Sala();
-            tempSala.Sifra = Sifra.Text;
+            tempSala = uprSal.PregledSale(Sala.Text);
+            termin.sala = tempSala;
+            //tempSala.Sifra = Sifra.Text;
             this.termin.sala = tempSala;
 
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent.Jmbg = Pacijent.Text;
-            this.termin.pacijent = tempPacijent;
+            tempPacijent = uprPac.PregledPacijenta(Pacijent.Text);
+            termin.pacijent = tempPacijent;
 
-            this.termin.Sifra = Sifra.Text;
+
+            
+
+            this.termin.SifraTermina = Sifra.Text;
             //this.termin.Datum = Datum.Text;
+
+            this.termin.Datum = (DateTime)DatumText.SelectedDate;
+            this.termin.Vreme = vremeText.Text;
 
             String tip = TipTerm.Text;
             if (tip.Equals("Pregled"))
@@ -94,6 +144,16 @@ namespace PrviProgram.Izgled.Lekar
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void vremeText_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

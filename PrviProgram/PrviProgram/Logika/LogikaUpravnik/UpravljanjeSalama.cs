@@ -92,22 +92,5 @@ namespace Logika.LogikaUpravnik
             List<Sala> sale = datoteka.CitanjeIzFajla();
             return sale;
         }
-
-
-        public Sala NadjiSalu(string sifraSale)
-        {
-            Sala sala = null;
-            DatotekaSala datoteka = new DatotekaSala();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
-            {
-                if (s.Sifra.Equals(sifraSale))
-                {
-                    sala = s;
-                }
-            }
-            return sala;
-        }
-
     }
 }

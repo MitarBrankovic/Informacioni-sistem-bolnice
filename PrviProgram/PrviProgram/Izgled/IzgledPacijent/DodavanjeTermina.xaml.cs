@@ -153,7 +153,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
 
                 var finalString = new String(stringChars);
-                t.Sifra = finalString;
+                t.SifraTermina = finalString;
 
                 String tip = TipTerminaText.Text;
                 if (tip.Equals("Pregled"))

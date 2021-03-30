@@ -1,4 +1,5 @@
 ﻿using Logika.LogikaLekar;
+using Logika.LogikaSekretar;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using RadSaDatotekama;
+using Logika.LogikaUpravnik;
+//using Logika.LogikaSekretar;
 
 namespace PrviProgram.Izgled.Lekar
 {
@@ -23,6 +26,8 @@ namespace PrviProgram.Izgled.Lekar
     {
 
         private UpravljanjePregledima upr;
+        private UpravljanjePacijentima uprPac;
+        private UpravljanjeSalama uprSal;
         private ObservableCollection<Termin> termini;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini)
@@ -30,32 +35,61 @@ namespace PrviProgram.Izgled.Lekar
             InitializeComponent();
 
             upr = new UpravljanjePregledima();
+            uprPac = new UpravljanjePacijentima();
+            uprSal = new UpravljanjeSalama();
             this.termini = termini;
+
+        }
+
+        bool datum = false;
+        bool vreme = false;
+
+        private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var datum1 = sender as DatePicker;
+
+            if (datum1 == null)
+            {
+                datum = false;
+            }
+            else
+            {
+                datum = true;
+            }
+
+        }
+
+        private void vreme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var vreme1 = sender as ComboBox;
+            if (vreme1 == null)
+            {
+                vreme = false;
+            }
+            else
+            {
+                vreme = true;
+            }
+
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin tempTermin = new Termin();
-            tempTermin.Sifra = Sifra.Text;
-            //tempTermin.sala = PregledSale(Sala.Text);
-
-            /*DatotekaSala datoteka = new DatotekaSala();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
-            {
-                if (s.Sifra.Equals(sala.Sifra))
-                {
-                    return false;
-                }
-            }*/
+            tempTermin.SifraTermina = Sifra.Text;
+            
 
             Sala tempSala = new Sala();
-            tempSala.Sifra = Sifra.Text;
+            tempSala = uprSal.PregledSale(Sala.Text);
             tempTermin.sala = tempSala;
+            
 
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent.Jmbg = Pacijent.Text;
+            tempPacijent = uprPac.PregledPacijenta(Pacijent.Text);
             tempTermin.pacijent = tempPacijent;
+
+            tempTermin.Vreme = vremeText.Text;
+            tempTermin.Datum = (DateTime)(DatumText.SelectedDate);
 
             String tip = TipTerm.Text;
             if (tip.Equals("Pregled"))
@@ -75,11 +109,6 @@ namespace PrviProgram.Izgled.Lekar
             this.termini.Add(tempTermin);
             
             this.Close();
-        }
-
-        private Sala PregledSale(object sala)
-        {
-            throw new NotImplementedException();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)

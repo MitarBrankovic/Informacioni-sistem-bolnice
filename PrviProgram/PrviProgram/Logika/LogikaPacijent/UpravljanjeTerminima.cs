@@ -54,7 +54,7 @@ namespace Logika.LogikaPacijent
                     foreach (Termin tt in pp.GetTermin())
                     {
                         termini.Add(tt);
-                        if (tt.Sifra.Equals(t.Sifra))
+                        if (tt.SifraTermina.Equals(t.SifraTermina))
                         {
                             termini.Remove(tt);
                         }
@@ -86,7 +86,7 @@ namespace Logika.LogikaPacijent
                     foreach (Termin tt in pp.GetTermin())
                     {
                         list.Add(tt);
-                        if (tt.Sifra.Equals(t.Sifra))
+                        if (tt.SifraTermina.Equals(t.SifraTermina))
                         {
                             list.Remove(tt);
                         }

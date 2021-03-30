@@ -24,7 +24,7 @@ namespace Logika.LogikaLekar
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
-                if (s.Sifra.Equals(sifraTermina))
+                if (s.SifraTermina.Equals(sifraTermina))
                 {
                     return s;
                 }
@@ -45,7 +45,7 @@ namespace Logika.LogikaLekar
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
-                if (s.Sifra.Equals(sifraTermina))
+                if (s.SifraTermina.Equals(sifraTermina))
                 {
                     termini.Remove(s);
                     datoteka.UpisivanjeUFajl(termini);
@@ -61,7 +61,7 @@ namespace Logika.LogikaLekar
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
-                if (s.Sifra.Equals(termin.Sifra))
+                if (s.SifraTermina.Equals(termin.SifraTermina))
                 {
                     termini.Remove(s);
                     termini.Add(termin);
@@ -78,7 +78,7 @@ namespace Logika.LogikaLekar
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
-                if (s.Sifra.Equals(termin.Sifra))
+                if (s.SifraTermina.Equals(termin.SifraTermina))
                 {
                     
                 }
