@@ -1,8 +1,3 @@
-/***********************************************************************
- * Module:  UpravljanjeSalama.cs
- * Author:  Saska
- * Purpose: Definition of the Class Logika.LogikaLekar.UpravljanjeSalama
- ***********************************************************************/
 
 using Model;
 using RadSaDatotekama;

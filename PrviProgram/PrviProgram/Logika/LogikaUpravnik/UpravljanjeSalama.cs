@@ -69,16 +69,16 @@ namespace Logika.LogikaUpravnik
             return false;
         }
 
-        public bool IzmenaSale(Sala sala)
+        public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
             DatotekaSala datoteka = new DatotekaSala();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (s.Sifra.Equals(staraSala.Sifra))
                 {
                     sale.Remove(s);
-                    sale.Add(sala);
+                    sale.Add(novaSala);
                     datoteka.UpisivanjeUFajl(sale);
                     return true;
                 }

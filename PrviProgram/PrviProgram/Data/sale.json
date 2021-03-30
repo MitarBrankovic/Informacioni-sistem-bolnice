@@ -4,41 +4,47 @@
     "Naziv": "ADADADADAD",
     "Sprat": 2323,
     "Dostupnost": true,
-    "Sifra": "DADADADAD"
+    "Sifra": "DADADADAD",
+    "NazivSprat": "ADADADADAD 2323"
   },
   {
     "Tip": 2,
     "Naziv": "AAasd",
     "Sprat": 213,
     "Dostupnost": true,
-    "Sifra": "SS"
+    "Sifra": "SS",
+    "NazivSprat": "AAasd 213"
   },
   {
     "Tip": 3,
     "Naziv": "1231232A",
     "Sprat": 123,
     "Dostupnost": true,
-    "Sifra": "DDD"
+    "Sifra": "DDD",
+    "NazivSprat": "1231232A 123"
   },
   {
     "Tip": 0,
     "Naziv": "123123B",
     "Sprat": 0,
     "Dostupnost": false,
-    "Sifra": "12234"
+    "Sifra": "12234",
+    "NazivSprat": "123123B 0"
   },
   {
     "Tip": 0,
     "Naziv": "BBBB2",
     "Sprat": 23,
     "Dostupnost": true,
-    "Sifra": "VVVV"
+    "Sifra": "VVVV",
+    "NazivSprat": "BBBB2 23"
   },
   {
     "Tip": 1,
-    "Naziv": "SDs2",
+    "Naziv": "SDs2a",
     "Sprat": 23,
     "Dostupnost": true,
-    "Sifra": "asd"
+    "Sifra": "asd",
+    "NazivSprat": "SDs2a 23"
   }
 ]

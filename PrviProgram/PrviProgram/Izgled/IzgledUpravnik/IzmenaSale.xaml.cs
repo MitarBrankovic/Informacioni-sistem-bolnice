@@ -92,50 +92,51 @@ namespace PrviProgram.Izgled.Upravnik
             }
             else
             {
+                Sala novaSala = new Sala();
 
-                this.sale.Remove(this.sala);
 
-                this.sala.Naziv = Naziv.Text;
-                this.sala.Sifra = Sifra.Text;
-                this.sala.Sprat = int.Parse(Sprat.Text);
+                novaSala.Naziv = Naziv.Text;
+                novaSala.Sifra = Sifra.Text;
+                novaSala.Sprat = int.Parse(Sprat.Text);
 
 
                 String tip = Tip.Text;
                 if (tip.Equals("Operaciona"))
                 {
-                    this.sala.Tip = TipSale.Operaciona;
+                    novaSala.Tip = TipSale.Operaciona;
                 }
                 else if (tip.Equals("Kancelarija"))
                 {
-                    this.sala.Tip = TipSale.Kancelarija;
+                    novaSala.Tip = TipSale.Kancelarija;
                 }
                 else if (tip.Equals("Sala za odmor"))
                 {
-                    this.sala.Tip = TipSale.SalaZaOdmor;
+                    novaSala.Tip = TipSale.SalaZaOdmor;
                 }
                 else if (tip.Equals("Sala sa krevetima"))
                 {
-                    this.sala.Tip = TipSale.SalaSaKrevetima;
+                    novaSala.Tip = TipSale.SalaSaKrevetima;
                 }
                 else if (tip.Equals("Prostorija"))
                 {
-                    this.sala.Tip = TipSale.Prostorije;
+                    novaSala.Tip = TipSale.Prostorije;
                 }
 
                 String dostupnost = Dostupnost.Text;
                 if (dostupnost.Equals("Da"))
                 {
-                    this.sala.Dostupnost = true;
+                    novaSala.Dostupnost = true;
                 }
                 else if (dostupnost.Equals("Ne"))
                 {
-                    this.sala.Dostupnost = false;
+                    novaSala.Dostupnost = false;
                 }
 
 
-                if (upr.IzmenaSale(this.sala) == true)
+                if (upr.IzmenaSale(this.sala, novaSala) == true)
                 {
-                    this.sale.Add(this.sala);
+                    this.sale.Remove(this.sala);
+                    this.sale.Add(novaSala);
                 }
 
                 this.Close();
