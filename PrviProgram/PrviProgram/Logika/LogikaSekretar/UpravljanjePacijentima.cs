@@ -58,16 +58,16 @@ namespace Logika.LogikaSekretar
             return false;
         }
 
-        public bool IzmenaPacijenta(Pacijent pacijent)
+        public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
         {
             DatotekaPacijent datoteka = new DatotekaPacijent();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
-                if (p.Jmbg.Equals(pacijent.Jmbg))
+                if (p.Jmbg.Equals(stariPacijent.Jmbg))
                 {
                     pacijenti.Remove(p);
-                    pacijenti.Add(pacijent);
+                    pacijenti.Add(noviPacijent);
                     datoteka.UpisivanjeUFajl(pacijenti);
                     return true;
                 }

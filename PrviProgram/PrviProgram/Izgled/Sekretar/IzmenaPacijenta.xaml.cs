@@ -42,22 +42,27 @@ namespace PrviProgram.Izgled.Sekretar
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            this.pacijenti.Remove(this.pacijent);
+            Model.Korisnik korisnik = new Model.Korisnik();
+            korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
+            korisnik.Lozinka = textBoxLozinka.Password;
+
+            Model.Pacijent noviPacijent = new Model.Pacijent();
+            noviPacijent.Ime = textBoxIme.Text;
+            noviPacijent.Prezime = textBoxPrezime.Text;
+            noviPacijent.Jmbg = textBoxJMBG.Text;
+            noviPacijent.Email = textBoxEmail.Text;
+            noviPacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
             
-            this.pacijent.Korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
-            this.pacijent.Korisnik.Lozinka = textBoxLozinka.Password;
+            noviPacijent.AdresaStanovanja = this.pacijent.AdresaStanovanja;
+            noviPacijent.MestoRodjenja = this.pacijent.MestoRodjenja;
+            noviPacijent.termin = this.pacijent.termin;
+            noviPacijent.kartonPacijenta = this.pacijent.kartonPacijenta;
+            noviPacijent.Korisnik = korisnik;
 
-            this.pacijent.Ime = textBoxIme.Text;
-            this.pacijent.Prezime = textBoxPrezime.Text;
-            this.pacijent.Jmbg = textBoxJMBG.Text;
-            this.pacijent.Email = textBoxEmail.Text;
-            this.pacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
-            this.pacijent.AdresaStanovanja = new Model.Adresa();
-            this.pacijent.MestoRodjenja = new Model.Grad();
-
-            if (up.IzmenaPacijenta(this.pacijent) == true)
+            if (up.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
             {
-                this.pacijenti.Add(this.pacijent);
+                this.pacijenti.Remove(this.pacijent);
+                this.pacijenti.Add(noviPacijent);
             }
             this.Close();
         }
