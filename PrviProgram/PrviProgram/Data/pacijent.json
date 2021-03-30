@@ -1,6 +1,28 @@
 [
   {
-    "termin": [],
+    "termin": [
+      {
+        "pacijent": null,
+        "Datum": "2021-04-08T00:00:00",
+        "TipTermina": 1,
+        "Sifra": "nTKrcEdy",
+        "sala": null,
+        "Vreme": "17:00",
+        "lekar": {
+          "termin": null,
+          "ImePrezime": "Aleksandra Mirkovic",
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": "Aleksandra",
+          "Prezime": "Mirkovic",
+          "Email": null,
+          "Jmbg": null,
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0
+        }
+      }
+    ],
     "kartonPacijenta": {
       "Sifra": null,
       "Terapija": null,

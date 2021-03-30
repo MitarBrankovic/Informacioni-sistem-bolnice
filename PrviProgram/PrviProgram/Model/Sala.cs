@@ -18,5 +18,17 @@ namespace Model
         public bool Dostupnost { get; set; }
         public string Sifra { get; set; }
 
+        public string NazivSprat
+        {
+            get
+            {
+                return Naziv + " " + Sprat.ToString();
+            }
+            set
+            {
+
+            }
+        }
+
     }
 }

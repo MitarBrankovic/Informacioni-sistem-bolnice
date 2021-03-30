@@ -40,7 +40,7 @@ namespace PrviProgram.Izgled.Sekretar
             pacijent.AdresaStanovanja = new Model.Adresa();
             pacijent.MestoRodjenja = new Model.Grad();
 
-            pacijent.termin = new System.Collections.ArrayList();
+            pacijent.termin = new List<Model.Termin>();
             pacijent.kartonPacijenta = new Model.KartonPacijenta();
             pacijent.Korisnik = korisnik;
 

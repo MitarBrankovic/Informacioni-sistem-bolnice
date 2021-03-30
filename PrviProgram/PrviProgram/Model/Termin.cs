@@ -21,15 +21,6 @@ namespace Model
             return sala.Sifra;
         }
 
-        public Termin()
-        { 
-            
-        }
-
-        ~Termin() 
-        { 
-            
-        }
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Lekar GetLekar()
