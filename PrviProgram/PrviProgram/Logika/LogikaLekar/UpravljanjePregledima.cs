@@ -1,32 +1,92 @@
 using Model;
+using PrviProgram.RadSaDatotekama;
+using RadSaDatotekama;
+using System;
+using System.Collections.Generic;
 
 namespace Logika.LogikaLekar
 {
     public class UpravljanjePregledima
     {
-        public void PregledPregleda(string sifraTermina)
+
+        private static UpravljanjePregledima instance = null;
+        public static UpravljanjePregledima getInstance()
         {
-            // TODO: implement
+            if (instance == null)
+            {
+                instance = new UpravljanjePregledima();
+            }
+            return instance;
+        }
+        public Termin PregledPregleda(string sifraTermina)
+        {
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            foreach (Termin s in termini)
+            {
+                if (s.Sifra.Equals(sifraTermina))
+                {
+                    return s;
+                }
+            }
+            return null;
         }
 
-        public void PregledSvihPregleda()
+        public List<Termin> PregledSvihPregleda()
         {
-            // TODO: implement
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            return termini;
         }
 
         public void BrisanjePregleda(string sifraTermina)
         {
-            // TODO: implement
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            foreach (Termin s in termini)
+            {
+                if (s.Sifra.Equals(sifraTermina))
+                {
+                    termini.Remove(s);
+                    datoteka.UpisivanjeUFajl(termini);
+                    break;
+                }
+            }
+            
         }
 
-        public void IzmenaPregleda(string sifraTermina)
+        public void IzmenaPregleda(Termin termin)
         {
-            // TODO: implement
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            foreach (Termin s in termini)
+            {
+                if (s.Sifra.Equals(termin.Sifra))
+                {
+                    termini.Remove(s);
+                    termini.Add(termin);
+                    datoteka.UpisivanjeUFajl(termini);
+                    break;
+                }
+            }
+            
         }
 
         public void DodavanjePregleda(Termin termin)
         {
-            // TODO: implement
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            foreach (Termin s in termini)
+            {
+                if (s.Sifra.Equals(termin.Sifra))
+                {
+                    
+                }
+            }
+            termini.Add(termin);
+            datoteka.UpisivanjeUFajl(termini);
+
+            
         }
 
     }

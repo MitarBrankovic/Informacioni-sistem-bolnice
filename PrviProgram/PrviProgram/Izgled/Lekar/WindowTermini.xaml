@@ -1,0 +1,32 @@
+﻿<Window x:Class="PrviProgram.Izgled.Lekar.WindowTermini"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.Lekar"
+        mc:Ignorable="d"
+        Title="WindowTermini" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="134,28,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="Izmeni" Click="Izmeni_Click"  Content="Izmeni" HorizontalAlignment="Center" Height="26" Margin="0,28,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="1.105,-0.451"/>
+        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="566,28,0,0" VerticalAlignment="Top" Width="98"/>
+
+        <DataGrid x:Name="dataGridLekar" Margin="143,91,143,63" SelectionChanged="DataGrid_SelectionChanged"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" ItemsSource="{Binding dataTermin}" AutoGenerateColumns="False">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sifra termina" Binding="{Binding Sifra}"  Width="102"/>
+                <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="102"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" Width="102"/>
+
+                <DataGridTextColumn Header="Pacijent" Binding="{Binding pacijent.Jmbg}" Width="102"/>
+                <DataGridTextColumn Header="Sala" Binding="{ Binding sala.Sifra }"  Width="102"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

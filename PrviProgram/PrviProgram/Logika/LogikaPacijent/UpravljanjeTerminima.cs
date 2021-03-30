@@ -1,4 +1,5 @@
 using Model;
+using System;
 
 namespace Logika.LogikaPacijent
 {
@@ -28,5 +29,9 @@ namespace Logika.LogikaPacijent
             return "";
         }
 
+        internal static void getInstance()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

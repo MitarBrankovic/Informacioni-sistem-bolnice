@@ -1,4 +1,6 @@
 ﻿using Logika.LogikaSekretar;
+using Logika.LogikaLekar;
+using PrviProgram.Izgled.Lekar;
 using Logika.LogikaUpravnik;
 using Model;
 using PrviProgram.Izgled.Pacijent;
@@ -47,6 +49,20 @@ namespace PrviProgram
         {
             Logovanje win = new Logovanje();
             win.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            WindowTermini winTermini = new WindowTermini();
+            DatotekaLekar lek = new DatotekaLekar();
+            UpravljanjePregledima up = new UpravljanjePregledima();
+            Termin t = new Termin();
+            t.Sifra = "asda2";
+
+            UpravljanjePregledima upr = new UpravljanjePregledima();
+            //upr.DodavanjePregleda(t);
+
+            winTermini.Show();
         }
     }
 }

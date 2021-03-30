@@ -1,0 +1,158 @@
+[
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "2323323",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 1,
+    "Sifra": "sadasdda",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "sadasdda"
+    }
+  },
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "2323s",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 1,
+    "Sifra": "sdadsa",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "sdadsa"
+    }
+  },
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "2134124123",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 2,
+    "Sifra": "03ttt",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "03ttt"
+    }
+  },
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "ssss",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 2,
+    "Sifra": "fasdas",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "fasdas"
+    }
+  },
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "mirko23232",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 0,
+    "Sifra": "sadasd",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "sadasd"
+    }
+  },
+  {
+    "lekar": null,
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "1231233",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "Datum": "0001-01-01T00:00:00",
+    "TipTermina": 0,
+    "Sifra": "termin operacija",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "termin operacija"
+    }
+  }
+]

@@ -11,6 +11,22 @@ namespace Model
 
         public Lekar lekar;
 
+
+        public string getSalaSifra()
+        {
+            return sala.Sifra;
+        }
+
+        public Termin()
+        { 
+            
+        }
+
+        ~Termin() 
+        { 
+            
+        }
+
         /// <pdGenerated>default parent getter</pdGenerated>
         public Lekar GetLekar()
         {
@@ -64,5 +80,10 @@ namespace Model
             }
         }
 
+
+        public string getPacijentJmbg()
+        {
+            return pacijent.Jmbg;
+        }
     }
 }
