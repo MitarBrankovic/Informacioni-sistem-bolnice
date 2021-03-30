@@ -3,10 +3,11 @@ using Logika.LogikaLekar;
 using PrviProgram.Izgled.Lekar;
 using Logika.LogikaUpravnik;
 using Model;
-using PrviProgram.Izgled.Pacijent;
+
 using PrviProgram.Izgled.Sekretar;
 using RadSaDatotekama;
 using System.Windows;
+using PrviProgram.Izgled.IzgledPacijent;
 
 namespace PrviProgram
 {
@@ -47,7 +48,7 @@ namespace PrviProgram
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Logovanje win = new Logovanje();
+            LogovanjePacijenta win = new LogovanjePacijenta();
             win.Show();
         }
 

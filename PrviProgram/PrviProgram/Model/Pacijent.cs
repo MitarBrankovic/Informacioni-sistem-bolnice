@@ -1,14 +1,16 @@
+using System.Collections.Generic;
+
 namespace Model
 {
     public class Pacijent : Osoba
     {
-        public System.Collections.ArrayList termin;
+        public List<Termin> termin;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetTermin()
+        public List<Termin> GetTermin()
         {
             if (termin == null)
-                termin = new System.Collections.ArrayList();
+                termin = new List<Termin>();
             return termin;
         }
 
@@ -26,7 +28,7 @@ namespace Model
             if (newTermin == null)
                 return;
             if (this.termin == null)
-                this.termin = new System.Collections.ArrayList();
+                this.termin = new List<Termin>();
             if (!this.termin.Contains(newTermin))
             {
                 this.termin.Add(newTermin);

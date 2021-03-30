@@ -4,6 +4,17 @@ namespace Model
 {
     public class Lekar : Osoba
     {
+        public string ImePrezime
+        {
+            get
+            {
+                return this.Ime + " " + this.Prezime;
+            }
+            set
+            {
+
+            }
+        }
         public System.Collections.ArrayList termin;
         List<Termin> termini = new List<Termin>();
         /// <pdGenerated>default getter</pdGenerated>

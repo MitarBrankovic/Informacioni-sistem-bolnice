@@ -8,8 +8,12 @@ namespace Model
         public TipTermina TipTermina { get; set; }
         public string Sifra { get; set; }
         public Sala sala { get; set; }
+        public string Vreme { get; set; }
 
-        public Lekar lekar;
+        public Lekar lekar
+        {
+            get; set;
+        }
 
 
         public string getSalaSifra()

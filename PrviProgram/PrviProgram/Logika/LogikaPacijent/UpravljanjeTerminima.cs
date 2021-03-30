@@ -1,37 +1,132 @@
 using Model;
-using System;
+using RadSaDatotekama;
+using System.Collections.Generic;
 
 namespace Logika.LogikaPacijent
 {
     public class UpravljanjeTerminima
     {
-        public string DodavanjeTermina(Termin termin)
+        private static UpravljanjeTerminima instance = null;
+        public static UpravljanjeTerminima getInstance()
         {
-            // TODO: implement
-            return "";
+            if (instance == null)
+            {
+                instance = new UpravljanjeTerminima();
+            }
+            return instance;
+        }
+        public void DodavanjeTermina(Termin t, Pacijent p)
+        {
+            DatotekaPacijent datoteka = new DatotekaPacijent();
+            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Termin> termini = new List<Termin>();
+            termini.Add(t);
+
+            foreach (Pacijent pp in pacijenti)
+            {
+                if (pp.Jmbg.Equals(p.Jmbg))
+                {
+                    foreach (Termin tt in pp.GetTermin())
+                    {
+                        termini.Add(tt);
+                    }
+
+                    pp.termin = termini;
+                    break;
+
+                }
+            }
+            datoteka.UpisivanjeUFajl(pacijenti);
+
+
         }
 
-        public string BrisanjeTermina(string sifraTermina)
+        public void BrisanjeTermina(Termin t, Pacijent p)
         {
-            // TODO: implement
-            return "";
+            DatotekaPacijent datoteka = new DatotekaPacijent();
+            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Termin> termini = new List<Termin>();
+
+            foreach (Pacijent pp in pacijenti)
+            {
+                if (pp.Jmbg.Equals(p.Jmbg))
+                {
+                    foreach (Termin tt in pp.GetTermin())
+                    {
+                        termini.Add(tt);
+                        if (tt.Sifra.Equals(t.Sifra))
+                        {
+                            termini.Remove(tt);
+                        }
+
+                    }
+
+                    pp.termin = termini;
+                    break;
+
+                }
+
+            }
+            datoteka.UpisivanjeUFajl(pacijenti);
+
+
         }
 
-        public string IzmenaTermina(string sifraTermina)
+
+
+        public bool IzmenaTermina(Termin t, Pacijent p)
         {
-            // TODO: implement
-            return "";
+            DatotekaPacijent datoteka = new DatotekaPacijent();
+            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Termin> list = new List<Termin>();
+            foreach (Pacijent pp in pacijenti)
+            {
+                if (pp.Jmbg.Equals(p.Jmbg))
+                {
+                    foreach (Termin tt in pp.GetTermin())
+                    {
+                        list.Add(tt);
+                        if (tt.Sifra.Equals(t.Sifra))
+                        {
+                            list.Remove(tt);
+                        }
+                    }
+
+                    list.Add(t);
+                    pp.termin = list;
+                    datoteka.UpisivanjeUFajl(pacijenti);
+                    return true;
+
+                }
+            }
+            return false;
+
         }
 
-        public string PregledTermina(string sifraTermina)
+        public List<Termin> PregledTermina(Pacijent p)
         {
-            // TODO: implement
-            return "";
+
+            DatotekaPacijent datoteka = new DatotekaPacijent();
+            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Termin> list = new List<Termin>();
+
+            foreach (Pacijent pp in pacijenti)
+            {
+                if (pp.Jmbg.Equals(p.Jmbg))
+                {
+                    foreach (Termin t in pp.GetTermin())
+                    {
+                        list.Add(t);
+
+                    }
+
+                }
+
+            }
+            return list;
+
+
         }
 
-        internal static void getInstance()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
