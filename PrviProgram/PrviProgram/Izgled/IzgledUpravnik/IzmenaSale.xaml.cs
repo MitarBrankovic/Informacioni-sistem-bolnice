@@ -1,4 +1,6 @@
-﻿using Logika.LogikaUpravnik;
+﻿using Logika.LogikaLekar;
+using Logika.LogikaPacijent;
+using Logika.LogikaUpravnik;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -137,6 +139,8 @@ namespace PrviProgram.Izgled.Upravnik
                 {
                     this.sale.Remove(this.sala);
                     this.sale.Add(novaSala);
+                    UpravljanjeTerminima.getInstance().IzmenaSale(this.sala, novaSala);
+                    UpravljanjePregledima.getInstance().IzmenaSale(this.sala, novaSala);
                 }
 
                 this.Close();

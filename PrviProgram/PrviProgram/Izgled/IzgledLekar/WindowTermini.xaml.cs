@@ -48,18 +48,34 @@ namespace PrviProgram.Izgled.Lekar
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
-            izmena.Show();
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
+                izmena.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+            }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).SifraTermina);
-            UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridLekar.SelectedItem, ((Model.Termin)dataGridLekar.SelectedItem).pacijent);
-            //UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridLekar.SelectedItem).SifraTermina);
-            
-            termini.Remove((Termin)dataGridLekar.SelectedItem);
-            MessageBox.Show("Uspesno ste obrisali termin!");
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).SifraTermina);
+                UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridLekar.SelectedItem, ((Model.Termin)dataGridLekar.SelectedItem).pacijent);
+                //UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridLekar.SelectedItem).SifraTermina);
+
+                termini.Remove((Termin)dataGridLekar.SelectedItem);
+                MessageBox.Show("Uspesno ste obrisali termin!");
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+            }
+
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

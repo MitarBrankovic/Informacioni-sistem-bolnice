@@ -26,7 +26,7 @@
         </ComboBox>
 
         <TextBox x:Name="Pacijent" HorizontalAlignment="Left" Margin="262,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sifra" HorizontalAlignment="Left" Margin="262,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"/>
+        <TextBox x:Name="Sifra" HorizontalAlignment="Left" IsEnabled="False" Margin="262,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"/>
         <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,220,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="DatumText_SelectedDateChanged"/>
         <TextBox x:Name="Sala" HorizontalAlignment="Left" Margin="262,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="25"/>
 

@@ -72,7 +72,8 @@ namespace PrviProgram
                 IzmenaSale izmena = new IzmenaSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
                 izmena.Show();
             }
-            else { MessageBox.Show("Morate izabrati salu!"); }
+            else { MessageBox.Show("Morate izabrati salu!"); 
+            }
         }
 
     }

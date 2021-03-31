@@ -128,5 +128,34 @@ namespace Logika.LogikaPacijent
 
         }
 
+
+        public bool IzmenaSale(Sala staraSala, Sala novaSala)
+        {
+            DatotekaPacijent datoteka = new DatotekaPacijent();
+            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Termin> list = new List<Termin>();
+            Sala s = new Sala();
+            foreach (Pacijent pp in pacijenti)
+            {    
+                foreach (Termin tt in pp.GetTermin())
+                {
+                    list.Add(tt);
+                    if (tt.sala.Sifra.Equals(staraSala.Sifra))
+                    {
+                        list.Remove(tt);
+                        tt.sala = novaSala;
+                        list.Add(tt);
+                    }
+                }
+                pp.termin = list;
+                datoteka.UpisivanjeUFajl(pacijenti);
+                return true;
+
+                
+            }
+            return false;
+
+        }
+
     }
 }

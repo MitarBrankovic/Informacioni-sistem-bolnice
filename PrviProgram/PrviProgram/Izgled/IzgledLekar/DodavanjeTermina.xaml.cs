@@ -77,7 +77,6 @@ namespace PrviProgram.Izgled.Lekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin tempTermin = new Termin();
-            tempTermin.SifraTermina = Sifra.Text;
             
 
             Sala tempSala = new Sala();
@@ -91,6 +90,20 @@ namespace PrviProgram.Izgled.Lekar
 
             tempTermin.Vreme = vremeText.Text;
             tempTermin.Datum = (DateTime)(DatumText.SelectedDate);
+
+
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var Random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[Random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+            tempTermin.SifraTermina = finalString;
+
 
             String tip = TipTerm.Text;
             if (tip.Equals("Pregled"))
@@ -106,12 +119,26 @@ namespace PrviProgram.Izgled.Lekar
                 tempTermin.TipTermina = TipTermina.Kontrola;
             }
 
-            UpravljanjePregledima.getInstance().DodavanjePregleda(tempTermin);
-            UpravljanjeTerminima.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
+            bool vecPostoji = false;
 
-            this.termini.Add(tempTermin);
-            
-            this.Close();
+            foreach (Termin t in this.termini)
+            {
+                if (tempTermin.sala.Sifra.Equals(t.sala.Sifra) && tempTermin.Vreme.Equals(t.Vreme) && tempTermin.Datum.Equals(t.Datum)) {
+                    vecPostoji = true;
+                    break;
+                }
+            }
+            if (vecPostoji == false)
+            {
+                UpravljanjePregledima.getInstance().DodavanjePregleda(tempTermin);
+                UpravljanjeTerminima.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
+
+                this.termini.Add(tempTermin);
+                this.Close();
+            }
+            else {
+                MessageBox.Show("Ta sala je vec zauzeta!");
+            }
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)

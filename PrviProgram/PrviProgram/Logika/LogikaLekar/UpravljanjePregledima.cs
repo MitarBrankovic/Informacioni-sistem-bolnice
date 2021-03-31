@@ -89,5 +89,27 @@ namespace Logika.LogikaLekar
             
         }
 
+
+        public bool IzmenaSale(Sala staraSala, Sala novaSala)
+        {
+            DatotekaTermini datoteka = new DatotekaTermini();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            List<Termin> list = new List<Termin>();
+            
+            foreach (Termin tt in termini)
+            {
+                if (tt.sala.Sifra.Equals(staraSala.Sifra))
+                {
+                    termini.Remove(tt);
+                    tt.sala = novaSala;
+                    termini.Add(tt);
+                    datoteka.UpisivanjeUFajl(termini);
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
     }
 }
