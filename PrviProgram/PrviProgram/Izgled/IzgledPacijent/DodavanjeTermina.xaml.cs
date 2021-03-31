@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logika.LogikaPacijent;
 using System.Collections.ObjectModel;
+using Logika.LogikaUpravnik;
+using Logika.LogikaLekar;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
@@ -20,12 +22,16 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class DodavanjeTermina : Window
     {
+        private UpravljanjeSalama uprSal;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini, Pacijent p)
         {
             this.pacijent = p;
             this.term = termini;
             InitializeComponent();
+
+            uprSal = new UpravljanjeSalama();
+
         }
         private ObservableCollection<Termin> term;
         private Pacijent pacijent;
@@ -132,15 +138,22 @@ namespace PrviProgram.Izgled.IzgledPacijent
             if (ime == true && prezime == true && datum == true && vreme == true && tipPregleda == true)
             {
                 t.Datum = (DateTime)(DatumText.SelectedDate);
-                Model.Lekar l = new Model.Lekar();
-                Random rnd = new Random();
                 t.Vreme = vremeText.Text;
+
+                Model.Lekar l = new Model.Lekar();
                 l.Ime = ImeLekara.Text;
                 l.Prezime = PrezimeLekara.Text;
-                Sala s = new Sala();
-                s.Naziv = GenerateName(1);
-                s.Sprat = rnd.Next(100, 300);
-                t.sala = s;
+
+                t.pacijent = this.pacijent;
+
+                Random rnd = new Random();
+
+                List<Sala> sale = new List<Sala>();
+                sale = uprSal.PregledSvihSala();
+
+                Sala tempSala = new Sala();
+                tempSala = sale[0];
+                t.sala = tempSala;
 
                 t.lekar = l;
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -166,7 +179,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
 
                 UpravljanjeTerminima.getInstance().DodavanjeTermina(t, pacijent);
-                term.Add(t);
+                //term.Add(t);
+
+                UpravljanjePregledima.getInstance().DodavanjePregleda(t);
+                this.term.Add(t);
+
                 this.Close();
             }
             else

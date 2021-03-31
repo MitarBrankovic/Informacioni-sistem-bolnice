@@ -44,12 +44,13 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     {
                         PregledTermina win = PregledTermina.getInstance(p);
                         win.Show();
+                        break;
                     }
 
                 }
 
             }
-
+            this.Close();
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using Logika.LogikaPacijent;
+﻿using Logika.LogikaLekar;
+using Logika.LogikaPacijent;
 using Model;
 using RadSaDatotekama;
 using System;
@@ -68,6 +69,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             if (dataGridPacijenta.SelectedItem != null)
             {
                 UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem, pacijent);
+                UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
                 termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
             }
             else

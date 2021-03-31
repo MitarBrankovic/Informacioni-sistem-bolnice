@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using RadSaDatotekama;
 using Logika.LogikaUpravnik;
+using Logika.LogikaPacijent;
 //using Logika.LogikaSekretar;
 
 namespace PrviProgram.Izgled.Lekar
@@ -106,6 +107,8 @@ namespace PrviProgram.Izgled.Lekar
             }
 
             UpravljanjePregledima.getInstance().DodavanjePregleda(tempTermin);
+            UpravljanjeTerminima.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
+
             this.termini.Add(tempTermin);
             
             this.Close();

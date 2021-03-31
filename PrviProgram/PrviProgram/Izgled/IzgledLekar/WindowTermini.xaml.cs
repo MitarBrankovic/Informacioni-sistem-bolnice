@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using Logika.LogikaLekar;
+using Logika.LogikaPacijent;
 using Model;
 using PrviProgram.Izgled.Lekar;
 namespace PrviProgram.Izgled.Lekar
@@ -54,6 +55,9 @@ namespace PrviProgram.Izgled.Lekar
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
             upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).SifraTermina);
+            UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridLekar.SelectedItem, ((Model.Termin)dataGridLekar.SelectedItem).pacijent);
+            //UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridLekar.SelectedItem).SifraTermina);
+            
             termini.Remove((Termin)dataGridLekar.SelectedItem);
             MessageBox.Show("Uspesno ste obrisali termin!");
         }

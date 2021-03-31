@@ -26,8 +26,11 @@ namespace PrviProgram.Izgled.Lekar
 
         private UpravljanjePacijentima uprPac;
         private UpravljanjeSalama uprSal;
+        private UpravljanjeTerminima uprTer;
         private UpravljanjePregledima upr;
         private ObservableCollection<Termin> termini;
+
+        private ObservableCollection<Termin> terminiPacijent;
         private Termin termin;
         int index;
         string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30" };
@@ -39,10 +42,14 @@ namespace PrviProgram.Izgled.Lekar
 
             uprPac = new UpravljanjePacijentima();
             uprSal = new UpravljanjeSalama();
+            uprTer = new UpravljanjeTerminima();
             upr = new UpravljanjePregledima();
-            
+
+
             this.termini = termini;
             this.termin = termin;
+
+            this.terminiPacijent = new ObservableCollection<Termin>(uprTer.PregledTermina(this.termin.pacijent));
 
 
             if (termin.pacijent != null)
@@ -98,8 +105,9 @@ namespace PrviProgram.Izgled.Lekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             this.termini.Remove(this.termin);
+            //this.terminiPacijent.Remove(this.termin);
 
-            
+
             Sala tempSala = new Sala();
             tempSala = uprSal.PregledSale(Sala.Text);
             termin.sala = tempSala;
@@ -136,7 +144,10 @@ namespace PrviProgram.Izgled.Lekar
             }
 
             upr.IzmenaPregleda(this.termin);
+            UpravljanjeTerminima.getInstance().IzmenaTermina(this.termin, tempPacijent);
+
             this.termini.Add(this.termin);
+            //this.terminiPacijent.Add(this.termin);
 
             this.Close();
         }

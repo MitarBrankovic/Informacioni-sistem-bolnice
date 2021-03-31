@@ -1,4 +1,5 @@
-﻿using Logika.LogikaPacijent;
+﻿using Logika.LogikaLekar;
+using Logika.LogikaPacijent;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
             InitializeComponent();
 
-            ImeLekara.Text = selektovaniTermin.lekar.Ime;
-            PrezimeLekara.Text = selektovaniTermin.lekar.Prezime;
+            if (selektovaniTermin.lekar != null)
+            {
+                if (selektovaniTermin.lekar.Ime != null && selektovaniTermin.lekar.Prezime != null)
+                {
+                    ImeLekara.Text = selektovaniTermin.lekar.Ime;
+                    PrezimeLekara.Text = selektovaniTermin.lekar.Prezime;
+                }
+            }
+            
             DatumText.SelectedDate = selektovaniTermin.Datum;
             var s = vremeText as ComboBox;
             //s.SelectedIndex = Convert.ToInt32(selektovaniTermin.Vreme);
@@ -83,6 +91,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             noviTermin.SifraTermina = t.SifraTermina;
             noviTermin.sala = t.sala;
 
+            this.noviTermin.pacijent = this.pacijent;
 
             String tip = TipTerminaText.Text;
             if (tip.Equals("Pregled"))
@@ -95,6 +104,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             if (UpravljanjeTerminima.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
             {
+                UpravljanjePregledima.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);
             }
             this.Close();
