@@ -137,7 +137,7 @@ namespace Logika.LogikaPacijent
             Sala s = new Sala();
             foreach (Pacijent pp in pacijenti)
             {    
-                foreach (Termin tt in pp.GetTermin())
+                foreach (Termin tt in pp.termin)
                 {
                     list.Add(tt);
                     if (tt.sala.Sifra.Equals(staraSala.Sifra))

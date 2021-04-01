@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logika.LogikaSekretar;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -15,13 +16,13 @@ namespace PrviProgram.Izgled.Sekretar
 {
     public partial class Registracija : Window
     {
-        private Logika.LogikaSekretar.UpravljanjePacijentima up;
+        private UpravljanjePacijentima up;
         private ObservableCollection<Model.Pacijent> pacijenti;
 
         public Registracija(ObservableCollection<Model.Pacijent> pacijenti)
         {
             InitializeComponent();
-            up = new Logika.LogikaSekretar.UpravljanjePacijentima();
+            up = new UpravljanjePacijentima();
             this.pacijenti = pacijenti;
         }
 

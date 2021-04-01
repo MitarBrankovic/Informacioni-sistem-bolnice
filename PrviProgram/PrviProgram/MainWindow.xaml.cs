@@ -21,6 +21,7 @@ namespace PrviProgram
             InitializeComponent();
         }
 
+        //Dugme Upravnik
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowUpravnik win2 = new WindowUpravnik();
@@ -30,28 +31,31 @@ namespace PrviProgram
             Pacijent p = new Pacijent();
             p.Jmbg = "12234";
             p.kartonPacijenta = new KartonPacijenta();
-            up.DodavanjePacijenta(p);
+            //up.DodavanjePacijenta(p);
 
             UpravljanjeSalama upravlj = new UpravljanjeSalama();
             Sala s = new Sala();
             s.Sifra = "12234";
-            upravlj.DodavanjeSale(s);
+            //upravlj.DodavanjeSale(s);
 
             win2.Show();
         }
 
+        //Dugme Sekretar
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WindowSekretar win = new WindowSekretar();
             win.Show();
         }
 
+        //Dugme Pacijent
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             LogovanjePacijenta win = new LogovanjePacijenta();
             win.Show();
         }
 
+        //Dugme Lekar
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             WindowTermini winTermini = new WindowTermini();

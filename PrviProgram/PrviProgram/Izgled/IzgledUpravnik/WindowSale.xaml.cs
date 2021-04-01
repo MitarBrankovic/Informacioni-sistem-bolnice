@@ -1,6 +1,7 @@
 ﻿using Logika.LogikaUpravnik;
 using Model;
 using PrviProgram.Izgled.Upravnik;
+using PrviProgram.Logika;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -58,8 +59,11 @@ namespace PrviProgram
         {
             if (dataGridUpravnik.SelectedIndex != -1)
             {
-                upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
-                sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);
+                Sala sala = new Sala();
+                sala = (Model.Sala)dataGridUpravnik.SelectedItem;
+                /*upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
+                sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);*/
+                ControllerUpravnik.getInstance().BrisanjeSale(sala, sale);
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
 

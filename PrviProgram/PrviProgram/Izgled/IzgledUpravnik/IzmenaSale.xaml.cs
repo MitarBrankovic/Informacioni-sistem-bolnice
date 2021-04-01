@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.Upravnik
     public partial class IzmenaSale : Window
     {
 
-        private Logika.LogikaUpravnik.UpravljanjeSalama upr;
+        private UpravljanjeSalama upr;
         private ObservableCollection<Model.Sala> sale;
         private Model.Sala sala;
 
@@ -32,7 +32,7 @@ namespace PrviProgram.Izgled.Upravnik
         {
             InitializeComponent();
 
-            upr = new Logika.LogikaUpravnik.UpravljanjeSalama();
+            upr = new UpravljanjeSalama();
             this.sale = sale;
             this.sala = sala;
 

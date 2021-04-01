@@ -22,13 +22,13 @@ namespace PrviProgram.Izgled.Upravnik
     /// </summary>
     public partial class DodavanjeSale : Window
     {
-        private Logika.LogikaUpravnik.UpravljanjeSalama upr;
+        private UpravljanjeSalama upr;
         private ObservableCollection<Model.Sala> sale;
 
         public DodavanjeSale(ObservableCollection<Model.Sala> sale)
         {
             InitializeComponent();
-            upr = new Logika.LogikaUpravnik.UpravljanjeSalama();
+            upr = new UpravljanjeSalama();
             this.sale = sale;
         }
 

@@ -152,8 +152,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 sale = uprSal.PregledSvihSala();
 
                 Sala tempSala = new Sala();
-                tempSala = sale[0];
-                t.sala = tempSala;
+                if (sale[0] != null)
+                {
+                    tempSala = sale[0];
+                    t.sala = tempSala;
+                }
 
                 t.lekar = l;
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
