@@ -6,6 +6,9 @@ using Logika.LogikaLekar;
 using Logika.LogikaPacijent;
 using Model;
 using PrviProgram.Izgled.Lekar;
+using PrviProgram.Logika;
+using PrviProgram.Logika.Controllers;
+
 namespace PrviProgram.Izgled.Lekar
 {
     /// <summary>
@@ -26,7 +29,7 @@ namespace PrviProgram.Izgled.Lekar
         //List<Termin> termini = new List<Termin>();
         public UpravljanjePregledima upravljanje;
         public ObservableCollection<Termin> termini;
-
+        public ControllerLekar controllerLekar;
 
         public WindowTermini()
         {
@@ -34,7 +37,7 @@ namespace PrviProgram.Izgled.Lekar
 
             upravljanje = new UpravljanjePregledima();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregleda());
-
+            controllerLekar = new ControllerLekar();
             dataGridLekar.ItemsSource = termini;
             //termini = UpravljanjePregledima.getInstance().PregledSvihPregleda();
             //dataGridLekar.ItemsSource = termini;
@@ -63,11 +66,7 @@ namespace PrviProgram.Izgled.Lekar
         {
             if (dataGridLekar.SelectedIndex != -1)
             {
-                upravljanje.BrisanjePregleda(((Termin)dataGridLekar.SelectedItem).SifraTermina);
-                UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridLekar.SelectedItem, ((Model.Termin)dataGridLekar.SelectedItem).pacijent);
-                //UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridLekar.SelectedItem).SifraTermina);
-
-                termini.Remove((Termin)dataGridLekar.SelectedItem);
+                ControllerLekar.getInstance().BrisanjeTermina(((Termin)dataGridLekar.SelectedItem), termini);
                 MessageBox.Show("Uspesno ste obrisali termin!");
             }
             else

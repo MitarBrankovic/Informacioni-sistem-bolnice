@@ -3,6 +3,7 @@ using Logika.LogikaPacijent;
 using Logika.LogikaSekretar;
 using Logika.LogikaUpravnik;
 using Model;
+using PrviProgram.Logika.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,10 +25,10 @@ namespace PrviProgram.Izgled.Lekar
     public partial class IzmenaTermina : Window
     {
 
-        private UpravljanjePacijentima uprPac;
-        private UpravljanjeSalama uprSal;
-        private UpravljanjeTerminima uprTer;
-        private UpravljanjePregledima upr;
+        private UpravljanjePacijentima UpravljanjePacijentima;
+        private UpravljanjeSalama UpravljanjeSalama;
+        private UpravljanjeTerminima UpravljanjeTerminima;
+        private UpravljanjePregledima UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
 
         private ObservableCollection<Termin> terminiPacijent;
@@ -40,21 +41,20 @@ namespace PrviProgram.Izgled.Lekar
         {
             InitializeComponent();
 
-            uprPac = new UpravljanjePacijentima();
-            uprSal = new UpravljanjeSalama();
-            uprTer = new UpravljanjeTerminima();
-            upr = new UpravljanjePregledima();
-
+            UpravljanjePacijentima = new UpravljanjePacijentima();
+            UpravljanjeSalama = new UpravljanjeSalama();
+            UpravljanjeTerminima = new UpravljanjeTerminima();
+            UpravljanjePregledima = new UpravljanjePregledima();
 
             this.termini = termini;
             this.termin = termin;
 
-            this.terminiPacijent = new ObservableCollection<Termin>(uprTer.PregledTermina(this.termin.pacijent));
+            this.terminiPacijent = new ObservableCollection<Termin>(UpravljanjeTerminima.PregledTermina(this.termin.pacijent));
 
 
             if (termin.pacijent != null)
             {
-                if (uprPac.PregledPacijenta(termin.pacijent.Jmbg) != null)
+                if (UpravljanjePacijentima.PregledPacijenta(termin.pacijent.Jmbg) != null)
                 {
                     Pacijent.Text = termin.pacijent.Jmbg;
                 }
@@ -66,7 +66,7 @@ namespace PrviProgram.Izgled.Lekar
 
             if (termin.sala != null)
             {
-                if (uprSal.PregledSale(termin.sala.Sifra) != null)
+                if (UpravljanjeSalama.PregledSale(termin.sala.Sifra) != null)
                 {
                     //if (uprSal.PregledSale(termin.sala.Sifra).Dostupnost == true)
                     //{
@@ -105,26 +105,20 @@ namespace PrviProgram.Izgled.Lekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             this.termini.Remove(this.termin);
-            //this.terminiPacijent.Remove(this.termin);
-
 
             Sala tempSala = new Sala();
-            tempSala = uprSal.PregledSale(Sala.Text);
+            tempSala = UpravljanjeSalama.PregledSale(Sala.Text);
             termin.sala = tempSala;
-            //tempSala.Sifra = Sifra.Text;
             this.termin.sala = tempSala;
 
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent = uprPac.PregledPacijenta(Pacijent.Text);
+            tempPacijent = UpravljanjePacijentima.PregledPacijenta(Pacijent.Text);
             termin.pacijent = tempPacijent;
 
-
-            
-
             this.termin.SifraTermina = Sifra.Text;
-            //this.termin.Datum = Datum.Text;
 
             this.termin.Datum = (DateTime)DatumText.SelectedDate;
+            
             this.termin.Vreme = vremeText.Text;
 
             String tip = TipTerm.Text;
@@ -143,11 +137,9 @@ namespace PrviProgram.Izgled.Lekar
 
             }
 
-            upr.IzmenaPregleda(this.termin);
-            UpravljanjeTerminima.getInstance().IzmenaTermina(this.termin, tempPacijent);
+            ControllerLekar.getInstance().IzmenaTermina(this.termin, tempPacijent);
 
             this.termini.Add(this.termin);
-            //this.terminiPacijent.Add(this.termin);
 
             this.Close();
         }

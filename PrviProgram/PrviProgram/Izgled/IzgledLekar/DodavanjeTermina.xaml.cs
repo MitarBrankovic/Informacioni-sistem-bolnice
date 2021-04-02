@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using RadSaDatotekama;
 using Logika.LogikaUpravnik;
 using Logika.LogikaPacijent;
+using PrviProgram.Logika.Controllers;
 //using Logika.LogikaSekretar;
 
 namespace PrviProgram.Izgled.Lekar
@@ -42,8 +43,8 @@ namespace PrviProgram.Izgled.Lekar
 
         }
 
-        bool datum = false;
-        bool vreme = false;
+        private bool datum = false;
+        private bool vreme = false;
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -130,8 +131,7 @@ namespace PrviProgram.Izgled.Lekar
             }
             if (vecPostoji == false)
             {
-                UpravljanjePregledima.getInstance().DodavanjePregleda(tempTermin);
-                UpravljanjeTerminima.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
+                ControllerLekar.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
 
                 this.termini.Add(tempTermin);
                 this.Close();
