@@ -1,343 +1,53 @@
 [
   {
-    "Datum": "2021-03-15T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "ODJfutLA",
-    "sala": {
-      "Tip": 0,
-      "Naziv": "ADADADADAD",
-      "Sprat": 2323,
-      "Dostupnost": true,
-      "Sifra": "DADADADAD",
-      "NazivSprat": "ADADADADAD 2323"
-    },
-    "Vreme": "09:30",
-    "lekar": {
-      "termin": null,
-      "ImePrezime": "s s",
-      "MestoRodjenja": null,
-      "Korisnik": null,
-      "AdresaStanovanja": null,
-      "Ime": "s",
-      "Prezime": "s",
-      "Email": null,
-      "Jmbg": null,
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
-    },
-    "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
-        "Sifra": null,
-        "Terapija": null,
-        "Alergeni": null,
-        "IstorijaBolesti": null,
-        "pacijent": null
-      },
-      "MestoRodjenja": {
-        "Ime": null,
-        "drzava": null
-      },
-      "Korisnik": {
-        "KorisnickoIme": "d",
-        "Lozinka": "d",
-        "TipKorisnika": 0,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": null,
-        "Broj": 0,
-        "Zgrada": 0,
-        "Sprat": 0,
-        "grad": null
-      },
-      "Ime": "Darko",
-      "Prezime": "ddd",
-      "Email": "sadasd",
-      "Jmbg": "sadasdsa",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 1
-    }
-  },
-  {
-    "Datum": "2021-03-08T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "ONQg9LrL",
-    "sala": {
-      "Tip": 0,
-      "Naziv": "ADADADADAD",
-      "Sprat": 2323,
-      "Dostupnost": true,
-      "Sifra": "DADADADAD",
-      "NazivSprat": "ADADADADAD 2323"
-    },
-    "Vreme": "09:00",
-    "lekar": {
-      "termin": null,
-      "ImePrezime": "s s",
-      "MestoRodjenja": null,
-      "Korisnik": null,
-      "AdresaStanovanja": null,
-      "Ime": "s",
-      "Prezime": "s",
-      "Email": null,
-      "Jmbg": null,
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
-    },
-    "pacijent": {
-      "termin": [
-        {
-          "Datum": "2021-03-16T00:00:00",
-          "TipTermina": 1,
-          "SifraTermina": "ONQg9LrL",
-          "sala": {
-            "Tip": 0,
-            "Naziv": "ADADADADAD",
-            "Sprat": 2323,
-            "Dostupnost": true,
-            "Sifra": "DADADADAD",
-            "NazivSprat": "ADADADADAD 2323"
-          },
-          "Vreme": "09:00",
-          "lekar": {
-            "termin": null,
-            "ImePrezime": "s s",
-            "MestoRodjenja": null,
-            "Korisnik": null,
-            "AdresaStanovanja": null,
-            "Ime": "s",
-            "Prezime": "s",
-            "Email": null,
-            "Jmbg": null,
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0
-          },
-          "pacijent": {
-            "termin": [
-              {
-                "Datum": "2021-03-15T00:00:00",
-                "TipTermina": 1,
-                "SifraTermina": "ODJfutLA",
-                "sala": {
-                  "Tip": 0,
-                  "Naziv": "ADADADADAD",
-                  "Sprat": 2323,
-                  "Dostupnost": true,
-                  "Sifra": "DADADADAD",
-                  "NazivSprat": "ADADADADAD 2323"
-                },
-                "Vreme": "09:30",
-                "lekar": {
-                  "termin": null,
-                  "ImePrezime": "s s",
-                  "MestoRodjenja": null,
-                  "Korisnik": null,
-                  "AdresaStanovanja": null,
-                  "Ime": "s",
-                  "Prezime": "s",
-                  "Email": null,
-                  "Jmbg": null,
-                  "DatumRodjenja": "0001-01-01T00:00:00",
-                  "Pol": 0
-                },
-                "pacijent": {
-                  "termin": [],
-                  "kartonPacijenta": {
-                    "Sifra": null,
-                    "Terapija": null,
-                    "Alergeni": null,
-                    "IstorijaBolesti": null,
-                    "pacijent": null
-                  },
-                  "MestoRodjenja": {
-                    "Ime": null,
-                    "drzava": null
-                  },
-                  "Korisnik": {
-                    "KorisnickoIme": "d",
-                    "Lozinka": "d",
-                    "TipKorisnika": 0,
-                    "osoba": null
-                  },
-                  "AdresaStanovanja": {
-                    "Ulica": null,
-                    "Broj": 0,
-                    "Zgrada": 0,
-                    "Sprat": 0,
-                    "grad": null
-                  },
-                  "Ime": "Darko",
-                  "Prezime": "ddd",
-                  "Email": "sadasd",
-                  "Jmbg": "sadasdsa",
-                  "DatumRodjenja": "0001-01-01T00:00:00",
-                  "Pol": 1
-                }
-              }
-            ],
-            "kartonPacijenta": {
-              "Sifra": null,
-              "Terapija": null,
-              "Alergeni": null,
-              "IstorijaBolesti": null,
-              "pacijent": null
-            },
-            "MestoRodjenja": {
-              "Ime": null,
-              "drzava": null
-            },
-            "Korisnik": {
-              "KorisnickoIme": "d",
-              "Lozinka": "d",
-              "TipKorisnika": 0,
-              "osoba": null
-            },
-            "AdresaStanovanja": {
-              "Ulica": null,
-              "Broj": 0,
-              "Zgrada": 0,
-              "Sprat": 0,
-              "grad": null
-            },
-            "Ime": "Darko",
-            "Prezime": "ddd",
-            "Email": "sadasd",
-            "Jmbg": "sadasdsa",
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 1
-          }
-        },
-        {
-          "Datum": "2021-03-15T00:00:00",
-          "TipTermina": 1,
-          "SifraTermina": "ODJfutLA",
-          "sala": {
-            "Tip": 0,
-            "Naziv": "ADADADADAD",
-            "Sprat": 2323,
-            "Dostupnost": true,
-            "Sifra": "DADADADAD",
-            "NazivSprat": "ADADADADAD 2323"
-          },
-          "Vreme": "09:30",
-          "lekar": {
-            "termin": null,
-            "ImePrezime": "s s",
-            "MestoRodjenja": null,
-            "Korisnik": null,
-            "AdresaStanovanja": null,
-            "Ime": "s",
-            "Prezime": "s",
-            "Email": null,
-            "Jmbg": null,
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0
-          },
-          "pacijent": {
-            "termin": [],
-            "kartonPacijenta": {
-              "Sifra": null,
-              "Terapija": null,
-              "Alergeni": null,
-              "IstorijaBolesti": null,
-              "pacijent": null
-            },
-            "MestoRodjenja": {
-              "Ime": null,
-              "drzava": null
-            },
-            "Korisnik": {
-              "KorisnickoIme": "d",
-              "Lozinka": "d",
-              "TipKorisnika": 0,
-              "osoba": null
-            },
-            "AdresaStanovanja": {
-              "Ulica": null,
-              "Broj": 0,
-              "Zgrada": 0,
-              "Sprat": 0,
-              "grad": null
-            },
-            "Ime": "Darko",
-            "Prezime": "ddd",
-            "Email": "sadasd",
-            "Jmbg": "sadasdsa",
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 1
-          }
-        }
-      ],
-      "kartonPacijenta": {
-        "Sifra": null,
-        "Terapija": null,
-        "Alergeni": null,
-        "IstorijaBolesti": null,
-        "pacijent": null
-      },
-      "MestoRodjenja": {
-        "Ime": null,
-        "drzava": null
-      },
-      "Korisnik": {
-        "KorisnickoIme": "d",
-        "Lozinka": "d",
-        "TipKorisnika": 0,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": null,
-        "Broj": 0,
-        "Zgrada": 0,
-        "Sprat": 0,
-        "grad": null
-      },
-      "Ime": "Darko",
-      "Prezime": "ddd",
-      "Email": "sadasd",
-      "Jmbg": "sadasdsa",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 1
-    }
-  },
-  {
-    "Datum": "2021-02-22T00:00:00",
+    "Datum": "2021-04-27T00:00:00",
     "TipTermina": 2,
-    "SifraTermina": "Uz3JYWju",
+    "SifraTermina": "9taUzsUH",
     "sala": {
       "Tip": 0,
-      "Naziv": "BBBB2",
-      "Sprat": 23,
-      "Dostupnost": true,
-      "Sifra": "VVV",
-      "NazivSprat": "BBBB2 23"
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "12234",
+      "NazivSprat": " 0"
     },
-    "Vreme": "18:30",
-    "lekar": null,
+    "Vreme": "12:30",
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "Mirko Matkovic",
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": "Mirko",
+      "Prezime": "Matkovic",
+      "Email": null,
+      "Jmbg": null,
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
     "pacijent": {
       "termin": [
         {
-          "Datum": "2021-03-01T00:00:00",
+          "Datum": "2021-05-06T00:00:00",
           "TipTermina": 1,
-          "SifraTermina": "TTAo53bx",
+          "SifraTermina": "HFI9M1Oq",
           "sala": {
             "Tip": 0,
-            "Naziv": "NTP",
-            "Sprat": 23,
+            "Naziv": null,
+            "Sprat": 0,
             "Dostupnost": false,
-            "Sifra": "122342",
-            "NazivSprat": "NTP 23"
+            "Sifra": "12234",
+            "NazivSprat": " 0"
           },
-          "Vreme": "10:00",
+          "Vreme": "12:30",
           "lekar": {
             "termin": null,
-            "ImePrezime": "asd asds",
+            "ImePrezime": "Marko Mitrovic",
             "MestoRodjenja": null,
             "Korisnik": null,
             "AdresaStanovanja": null,
-            "Ime": "asd",
-            "Prezime": "asds",
+            "Ime": "Marko",
+            "Prezime": "Mitrovic",
             "Email": null,
             "Jmbg": null,
             "DatumRodjenja": "0001-01-01T00:00:00",
@@ -357,8 +67,8 @@
               "drzava": null
             },
             "Korisnik": {
-              "KorisnickoIme": "d",
-              "Lozinka": "d",
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
               "TipKorisnika": 0,
               "osoba": null
             },
@@ -369,35 +79,35 @@
               "Sprat": 0,
               "grad": null
             },
-            "Ime": "Darko",
-            "Prezime": "ddd",
-            "Email": "sadasd",
-            "Jmbg": "sadasdsa",
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
             "DatumRodjenja": "0001-01-01T00:00:00",
             "Pol": 1
           }
         },
         {
-          "Datum": "2021-03-10T00:00:00",
-          "TipTermina": 1,
-          "SifraTermina": "fXMrhNfN",
+          "Datum": "2021-04-09T00:00:00",
+          "TipTermina": 2,
+          "SifraTermina": "ujFcMOFu",
           "sala": {
             "Tip": 0,
-            "Naziv": "NTP",
-            "Sprat": 23,
+            "Naziv": null,
+            "Sprat": 0,
             "Dostupnost": false,
-            "Sifra": "122342",
-            "NazivSprat": "NTP 23"
+            "Sifra": "12234",
+            "NazivSprat": " 0"
           },
-          "Vreme": "10:30",
+          "Vreme": "12:00",
           "lekar": {
             "termin": null,
-            "ImePrezime": "asd asd",
+            "ImePrezime": "Marko Markovic",
             "MestoRodjenja": null,
             "Korisnik": null,
             "AdresaStanovanja": null,
-            "Ime": "asd",
-            "Prezime": "asd",
+            "Ime": "Marko",
+            "Prezime": "Markovic",
             "Email": null,
             "Jmbg": null,
             "DatumRodjenja": "0001-01-01T00:00:00",
@@ -417,8 +127,8 @@
               "drzava": null
             },
             "Korisnik": {
-              "KorisnickoIme": "d",
-              "Lozinka": "d",
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
               "TipKorisnika": 0,
               "osoba": null
             },
@@ -429,10 +139,10 @@
               "Sprat": 0,
               "grad": null
             },
-            "Ime": "Darko",
-            "Prezime": "ddd",
-            "Email": "sadasd",
-            "Jmbg": "sadasdsa",
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
             "DatumRodjenja": "0001-01-01T00:00:00",
             "Pol": 1
           }
@@ -450,8 +160,8 @@
         "drzava": null
       },
       "Korisnik": {
-        "KorisnickoIme": "d",
-        "Lozinka": "d",
+        "KorisnickoIme": "alex",
+        "Lozinka": "1719",
         "TipKorisnika": 0,
         "osoba": null
       },
@@ -462,10 +172,372 @@
         "Sprat": 0,
         "grad": null
       },
-      "Ime": "Darko",
-      "Prezime": "ddd",
-      "Email": "sadasd",
-      "Jmbg": "sadasdsa",
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "123456789",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 1
+    }
+  },
+  {
+    "Datum": "2021-04-27T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "zY4ImxxM",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "12234",
+      "NazivSprat": " 0"
+    },
+    "Vreme": "12:30",
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "SASKA MIRKOVIC",
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": "SASKA",
+      "Prezime": "MIRKOVIC",
+      "Email": null,
+      "Jmbg": null,
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "pacijent": {
+      "termin": [
+        {
+          "Datum": "2021-05-06T00:00:00",
+          "TipTermina": 1,
+          "SifraTermina": "HFI9M1Oq",
+          "sala": {
+            "Tip": 0,
+            "Naziv": null,
+            "Sprat": 0,
+            "Dostupnost": false,
+            "Sifra": "12234",
+            "NazivSprat": " 0"
+          },
+          "Vreme": "12:30",
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "Marko Mitrovic",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "Marko",
+            "Prezime": "Mitrovic",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "Sifra": null,
+              "Terapija": null,
+              "Alergeni": null,
+              "IstorijaBolesti": null,
+              "pacijent": null
+            },
+            "MestoRodjenja": {
+              "Ime": null,
+              "drzava": null
+            },
+            "Korisnik": {
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
+              "TipKorisnika": 0,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": null,
+              "Broj": 0,
+              "Zgrada": 0,
+              "Sprat": 0,
+              "grad": null
+            },
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 1
+          }
+        },
+        {
+          "Datum": "2021-04-09T00:00:00",
+          "TipTermina": 2,
+          "SifraTermina": "ujFcMOFu",
+          "sala": {
+            "Tip": 0,
+            "Naziv": null,
+            "Sprat": 0,
+            "Dostupnost": false,
+            "Sifra": "12234",
+            "NazivSprat": " 0"
+          },
+          "Vreme": "12:00",
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "Marko Markovic",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "Marko",
+            "Prezime": "Markovic",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "Sifra": null,
+              "Terapija": null,
+              "Alergeni": null,
+              "IstorijaBolesti": null,
+              "pacijent": null
+            },
+            "MestoRodjenja": {
+              "Ime": null,
+              "drzava": null
+            },
+            "Korisnik": {
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
+              "TipKorisnika": 0,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": null,
+              "Broj": 0,
+              "Zgrada": 0,
+              "Sprat": 0,
+              "grad": null
+            },
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 1
+          }
+        }
+      ],
+      "kartonPacijenta": {
+        "Sifra": null,
+        "Terapija": null,
+        "Alergeni": null,
+        "IstorijaBolesti": null,
+        "pacijent": null
+      },
+      "MestoRodjenja": {
+        "Ime": null,
+        "drzava": null
+      },
+      "Korisnik": {
+        "KorisnickoIme": "alex",
+        "Lozinka": "1719",
+        "TipKorisnika": 0,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": null,
+        "Broj": 0,
+        "Zgrada": 0,
+        "Sprat": 0,
+        "grad": null
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "123456789",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 1
+    }
+  },
+  {
+    "Datum": "2021-05-04T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "oPggchEn",
+    "sala": {
+      "Tip": 0,
+      "Naziv": null,
+      "Sprat": 0,
+      "Dostupnost": false,
+      "Sifra": "12234",
+      "NazivSprat": " 0"
+    },
+    "Vreme": "19:00",
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "Marko Markovic",
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": null,
+      "Jmbg": null,
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0
+    },
+    "pacijent": {
+      "termin": [
+        {
+          "Datum": "2021-05-06T00:00:00",
+          "TipTermina": 1,
+          "SifraTermina": "HFI9M1Oq",
+          "sala": {
+            "Tip": 0,
+            "Naziv": null,
+            "Sprat": 0,
+            "Dostupnost": false,
+            "Sifra": "12234",
+            "NazivSprat": " 0"
+          },
+          "Vreme": "12:30",
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "Marko Mitrovic",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "Marko",
+            "Prezime": "Mitrovic",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "Sifra": null,
+              "Terapija": null,
+              "Alergeni": null,
+              "IstorijaBolesti": null,
+              "pacijent": null
+            },
+            "MestoRodjenja": {
+              "Ime": null,
+              "drzava": null
+            },
+            "Korisnik": {
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
+              "TipKorisnika": 0,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": null,
+              "Broj": 0,
+              "Zgrada": 0,
+              "Sprat": 0,
+              "grad": null
+            },
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 1
+          }
+        },
+        {
+          "Datum": "2021-04-09T00:00:00",
+          "TipTermina": 2,
+          "SifraTermina": "ujFcMOFu",
+          "sala": {
+            "Tip": 0,
+            "Naziv": null,
+            "Sprat": 0,
+            "Dostupnost": false,
+            "Sifra": "12234",
+            "NazivSprat": " 0"
+          },
+          "Vreme": "12:00",
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "Marko Markovic",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "Marko",
+            "Prezime": "Markovic",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "Sifra": null,
+              "Terapija": null,
+              "Alergeni": null,
+              "IstorijaBolesti": null,
+              "pacijent": null
+            },
+            "MestoRodjenja": {
+              "Ime": null,
+              "drzava": null
+            },
+            "Korisnik": {
+              "KorisnickoIme": "alex",
+              "Lozinka": "1719",
+              "TipKorisnika": 0,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": null,
+              "Broj": 0,
+              "Zgrada": 0,
+              "Sprat": 0,
+              "grad": null
+            },
+            "Ime": "Aleksandra",
+            "Prezime": "Mirkovic",
+            "Email": "alex@gmail.com",
+            "Jmbg": "123456789",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 1
+          }
+        }
+      ],
+      "kartonPacijenta": {
+        "Sifra": null,
+        "Terapija": null,
+        "Alergeni": null,
+        "IstorijaBolesti": null,
+        "pacijent": null
+      },
+      "MestoRodjenja": {
+        "Ime": null,
+        "drzava": null
+      },
+      "Korisnik": {
+        "KorisnickoIme": "alex",
+        "Lozinka": "1719",
+        "TipKorisnika": 0,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": null,
+        "Broj": 0,
+        "Zgrada": 0,
+        "Sprat": 0,
+        "grad": null
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "123456789",
       "DatumRodjenja": "0001-01-01T00:00:00",
       "Pol": 1
     }

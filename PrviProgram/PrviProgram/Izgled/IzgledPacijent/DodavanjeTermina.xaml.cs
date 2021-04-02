@@ -181,7 +181,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 UpravljanjeTerminima.getInstance().DodavanjeTermina(t, pacijent);
                 //term.Add(t);
 
-                UpravljanjePregledima.getInstance().DodavanjePregleda(t);
+                //UpravljanjePregledima.getInstance().DodavanjePregleda(t);
                 this.term.Add(t);
 
                 this.Close();

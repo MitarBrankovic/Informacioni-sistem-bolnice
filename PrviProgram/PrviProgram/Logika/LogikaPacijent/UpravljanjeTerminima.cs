@@ -1,4 +1,5 @@
 using Model;
+using PrviProgram.RadSaDatotekama;
 using RadSaDatotekama;
 using System.Collections.Generic;
 
@@ -18,11 +19,22 @@ namespace Logika.LogikaPacijent
         public void DodavanjeTermina(Termin t, Pacijent p)
         {
             DatotekaPacijent datoteka = new DatotekaPacijent();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
-            List<Termin> termini = new List<Termin>();
+            DatotekaTermini datoteka1 = new DatotekaTermini();
+
+            List<Termin> termini = datoteka1.CitanjeIzFajla();
+
+
+            foreach(Termin tt in termini)
+            {
+                if(tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
+                {
+
+                }
+            }
+            t.pacijent = p;
             termini.Add(t);
 
-            foreach (Pacijent pp in pacijenti)
+            /*foreach (Pacijent pp in pacijenti)
             {
                 if (pp.Jmbg.Equals(p.Jmbg))
                 {
@@ -35,19 +47,33 @@ namespace Logika.LogikaPacijent
                     break;
 
                 }
-            }
-            datoteka.UpisivanjeUFajl(pacijenti);
+            }*/
+            datoteka1.UpisivanjeUFajl(termini);
 
 
         }
 
         public void BrisanjeTermina(Termin t, Pacijent p)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
-            List<Termin> termini = new List<Termin>();
 
-            foreach (Pacijent pp in pacijenti)
+
+            DatotekaTermini datoteka1 = new DatotekaTermini();
+
+            List<Termin> termini = datoteka1.CitanjeIzFajla();
+
+            foreach (Termin tt in termini)
+            {
+                if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
+                {
+                    termini.Remove(t);
+                }
+            }
+            datoteka1.UpisivanjeUFajl(termini);
+        }
+
+    
+
+            /*foreach (Pacijent pp in pacijenti)
             {
                 if (pp.Jmbg.Equals(p.Jmbg))
                 {
@@ -59,18 +85,12 @@ namespace Logika.LogikaPacijent
                             termini.Remove(tt);
                         }
 
-                    }
+                    }*/
 
-                    pp.termin = termini;
-                    break;
+            //        pp.termin = termini;
+              //      break;
 
-                }
-
-            }
-            datoteka.UpisivanjeUFajl(pacijenti);
-
-
-        }
+    
 
 
 
@@ -109,23 +129,19 @@ namespace Logika.LogikaPacijent
             DatotekaPacijent datoteka = new DatotekaPacijent();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
+            DatotekaTermini datotek1 = new DatotekaTermini();
+            List<Termin> termini = datotek1.CitanjeIzFajla();
 
-            foreach (Pacijent pp in pacijenti)
+            foreach (Termin pp in termini)
             {
-                if (pp.Jmbg.Equals(p.Jmbg))
+                if (pp.pacijent.Jmbg.Equals(p.Jmbg))
                 {
-                    foreach (Termin t in pp.GetTermin())
-                    {
-                        list.Add(t);
-
-                    }
+                        list.Add(pp);
 
                 }
 
             }
             return list;
-
-
         }
 
 

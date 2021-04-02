@@ -62,6 +62,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 var s = new IzmenaTermina(t, pacijent, termini);
                 s.Show();
             }
+            else
+            {
+
+                MessageBox.Show("Niste selektovali termin koji zelite da izmenite!!");
+            }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)

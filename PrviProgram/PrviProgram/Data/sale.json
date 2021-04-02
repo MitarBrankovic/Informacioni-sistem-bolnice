@@ -8,35 +8,27 @@
     "NazivSprat": " 0"
   },
   {
-    "Tip": 4,
-    "Naziv": "ssd",
-    "Sprat": 123,
+    "Tip": 3,
+    "Naziv": "NTP",
+    "Sprat": 2,
     "Dostupnost": true,
-    "Sifra": "DD",
-    "NazivSprat": "ssd 123"
-  },
-  {
-    "Tip": 2,
-    "Naziv": "AAasd",
-    "Sprat": 213,
-    "Dostupnost": true,
-    "Sifra": "S",
-    "NazivSprat": "AAasd 213"
+    "Sifra": "1",
+    "NazivSprat": "NTP 2"
   },
   {
     "Tip": 0,
-    "Naziv": "ADADADADAD",
-    "Sprat": 2323,
-    "Dostupnost": true,
-    "Sifra": "DAD",
-    "NazivSprat": "ADADADADAD 2323"
+    "Naziv": "NTP12",
+    "Sprat": 4,
+    "Dostupnost": false,
+    "Sifra": "2",
+    "NazivSprat": "NTP12 4"
   },
   {
-    "Tip": 1,
-    "Naziv": "SDs2a",
-    "Sprat": 1111111111,
+    "Tip": 4,
+    "Naziv": "NTP14",
+    "Sprat": 1,
     "Dostupnost": true,
-    "Sifra": "as",
-    "NazivSprat": "SDs2a 1111111111"
+    "Sifra": "3",
+    "NazivSprat": "NTP14 1"
   }
 ]
