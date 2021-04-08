@@ -13,6 +13,7 @@ namespace Model
         public string Jmbg { get; set; }
         public DateTime DatumRodjenja { get; set; }
         public Pol Pol { get; set; }
+        public string KontaktTelefon { get; set; }
 
     }
 }

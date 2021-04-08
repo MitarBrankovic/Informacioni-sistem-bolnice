@@ -1,25 +1,18 @@
 ﻿using Logika.LogikaSekretar;
-using System;
+using Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System;
 
 namespace PrviProgram.Izgled.Sekretar
 {
     public partial class Registracija : Window
     {
         private UpravljanjePacijentima up;
-        private ObservableCollection<Model.Pacijent> pacijenti;
+        private ObservableCollection<Pacijent> pacijenti;
 
-        public Registracija(ObservableCollection<Model.Pacijent> pacijenti)
+        public Registracija(ObservableCollection<Pacijent> pacijenti)
         {
             InitializeComponent();
             up = new UpravljanjePacijentima();
@@ -28,21 +21,44 @@ namespace PrviProgram.Izgled.Sekretar
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Model.Korisnik korisnik = new Model.Korisnik();
+            Korisnik korisnik = new Korisnik();
             korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
             korisnik.Lozinka = textBoxLozinka.Password;
 
-            Model.Pacijent pacijent = new Model.Pacijent();
+            Pacijent pacijent = new Pacijent();
             pacijent.Ime = textBoxIme.Text;
             pacijent.Prezime = textBoxPrezime.Text;
             pacijent.Jmbg = textBoxJMBG.Text;
-            pacijent.Email = textBoxEmail.Text;
-            pacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
-            pacijent.AdresaStanovanja = new Model.Adresa();
-            pacijent.MestoRodjenja = new Model.Grad();
+            pacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
 
-            pacijent.termin = new List<Model.Termin>();
-            pacijent.kartonPacijenta = new Model.KartonPacijenta();
+            Drzava drzavaRodjenja = new Drzava();
+            drzavaRodjenja.Ime = textBoxMestoRodjenjaDrzava.Text;
+            Grad gradRodjenja = new Grad();
+            gradRodjenja.Ime = textBoxMestoRodjenjaGrad.Text;
+            gradRodjenja.drzava = drzavaRodjenja;
+
+            pacijent.MestoRodjenja = gradRodjenja;
+
+            Drzava drzava = new Drzava();
+            drzava.Ime = textBoxDrzava.Text;
+            Grad grad = new Grad();
+            grad.Ime = textBoxGrad.Text;
+            grad.drzava = drzava;
+            Adresa adresa = new Adresa();
+            adresa.Ulica = textBoxUlica.Text;
+            adresa.Broj = int.Parse(textBoxBroj.Text);
+            adresa.Sprat = int.Parse(textBoxSprat.Text);
+            adresa.Stan = int.Parse(textBoxStan.Text);
+            adresa.grad = grad;
+
+            pacijent.AdresaStanovanja = adresa;
+
+            pacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
+            pacijent.Email = textBoxEmail.Text;
+            pacijent.KontaktTelefon = textBoxKontaktTelefon.Text;
+
+            pacijent.termin = new List<Termin>();
+            pacijent.kartonPacijenta = new KartonPacijenta();
             pacijent.Korisnik = korisnik;
 
             if (up.DodavanjePacijenta(pacijent) == true)

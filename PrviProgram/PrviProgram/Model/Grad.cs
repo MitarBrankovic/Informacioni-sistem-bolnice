@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  Grad.cs
- * Author:  Darko
- * Purpose: Definition of the Class Grad
- ***********************************************************************/
-
 namespace Model
 {
     public class Grad
