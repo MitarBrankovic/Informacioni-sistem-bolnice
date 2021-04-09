@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Logika.LogikaSekretar;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Logika.LogikaSekretar;
 
 namespace PrviProgram.Izgled.Sekretar
 {
@@ -31,7 +21,7 @@ namespace PrviProgram.Izgled.Sekretar
         {
             if ((Model.Pacijent)dgDataBinding.SelectedItem != null)
             {
-                upravljanje.BrisanjePacijenta((Model.Pacijent) dgDataBinding.SelectedItem);
+                upravljanje.BrisanjePacijenta((Model.Pacijent)dgDataBinding.SelectedItem);
                 pacijenti.Remove((Model.Pacijent)dgDataBinding.SelectedItem);
             }
         }

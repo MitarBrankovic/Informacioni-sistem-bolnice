@@ -1,5 +1,7 @@
-﻿using Logika.LogikaSekretar;
+﻿using Logika.LogikaGeneralna;
+using Logika.LogikaSekretar;
 using Model;
+using PrviProgram.Logika.LogikaGeneralna;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -8,16 +10,24 @@ namespace PrviProgram.Izgled.Sekretar
 {
     public partial class IzmenaPacijenta : Window
     {
-        private UpravljanjePacijentima up;
+        private UpravljanjePacijentima upravljanjePacijentima;
+        private UpravljanjeGradovima upravljanjeGradovima;
+        private UpravljanjeDrzavama upravljanjeDrzavama;
         private ObservableCollection<Model.Pacijent> pacijenti;
         private Model.Pacijent pacijent;
 
         public IzmenaPacijenta(ObservableCollection<Model.Pacijent> pacijenti, Model.Pacijent pacijent)
         {
             InitializeComponent();
-            up = new UpravljanjePacijentima();
+            upravljanjePacijentima = new UpravljanjePacijentima();
+            upravljanjeGradovima = new UpravljanjeGradovima();
+            upravljanjeDrzavama = new UpravljanjeDrzavama();
             this.pacijenti = pacijenti;
             this.pacijent = pacijent;
+            textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
+            textBoxGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
+            textBoxMestoRodjenjaDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
+            textBoxDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
 
             textBoxIme.Text = pacijent.Ime;
             textBoxPrezime.Text = pacijent.Prezime;
@@ -63,12 +73,18 @@ namespace PrviProgram.Izgled.Sekretar
             gradRodjenja.drzava = drzavaRodjenja;
 
             noviPacijent.MestoRodjenja = gradRodjenja;
+            upravljanjeDrzavama.DodavanjeDrzave(drzavaRodjenja);
+            upravljanjeGradovima.DodavanjeGrada(gradRodjenja);
 
             Drzava drzava = new Drzava();
             drzava.Ime = textBoxDrzava.Text;
             Grad grad = new Grad();
             grad.Ime = textBoxGrad.Text;
             grad.drzava = drzava;
+
+            upravljanjeDrzavama.DodavanjeDrzave(drzava);
+            upravljanjeGradovima.DodavanjeGrada(grad);
+
             Adresa adresa = new Adresa();
             adresa.Ulica = textBoxUlica.Text;
             adresa.Broj = int.Parse(textBoxBroj.Text);
@@ -86,7 +102,7 @@ namespace PrviProgram.Izgled.Sekretar
             noviPacijent.kartonPacijenta = this.pacijent.kartonPacijenta;
             noviPacijent.Korisnik = korisnik;
 
-            if (up.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
+            if (upravljanjePacijentima.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
             {
                 int index = this.pacijenti.IndexOf(this.pacijent);
                 this.pacijenti.Remove(this.pacijent);

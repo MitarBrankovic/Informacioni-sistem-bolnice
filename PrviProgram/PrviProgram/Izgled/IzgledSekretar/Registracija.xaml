@@ -27,13 +27,13 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,75,0,0" x:Name="textBoxPrezime" VerticalAlignment="Top" Width="222" Grid.Column="1" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,105,0,0" x:Name="textBoxJMBG" VerticalAlignment="Top" Width="222" Grid.Column="1" />
         <DatePicker Height="23" HorizontalAlignment="Left" Margin="175,135,0,0" x:Name="datePickerDatumRodjenja" VerticalAlignment="Top" Width="222" Grid.Column="1" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="175,165,0,0" x:Name="textBoxMestoRodjenjaGrad" VerticalAlignment="Top" Width="105" IsEditable="True" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="175,165,0,0" x:Name="textBoxMestoRodjenjaGrad" VerticalAlignment="Top" Width="105" IsEditable="True" SelectionChanged="textBoxMestoRodjenjaGrad_SelectionChanged" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="292,165,0,0" x:Name="textBoxMestoRodjenjaDrzava" VerticalAlignment="Top" Width="105" IsEditable="True" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,195,0,0" x:Name="textBoxUlica" VerticalAlignment="Top" Width="160" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="347,195,0,0" x:Name="textBoxBroj" VerticalAlignment="Top" Width="50" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,225,0,0" x:Name="textBoxSprat" VerticalAlignment="Top" Width="50" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="240,225,0,0" x:Name="textBoxStan" VerticalAlignment="Top" Width="50" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="175,255,0,0" x:Name="textBoxGrad" VerticalAlignment="Top" Width="105" IsEditable="True" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="175,255,0,0" x:Name="textBoxGrad" VerticalAlignment="Top" Width="105" IsEditable="True" SelectionChanged="textBoxGrad_SelectionChanged" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="292,255,0,0" x:Name="textBoxDrzava" VerticalAlignment="Top" Width="105" IsEditable="True" />
         <RadioButton Height="23" Content="Muski" HorizontalAlignment="Center" Margin="0,285,0,0" x:Name="radioButtonPolM" VerticalAlignment="Top" VerticalContentAlignment="Center" IsChecked="True" Width="50" />
         <RadioButton Height="23" Content="Zenski" HorizontalAlignment="Left" Margin="309,285,0,0" x:Name="radioButtonPolZ" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="53"/>
