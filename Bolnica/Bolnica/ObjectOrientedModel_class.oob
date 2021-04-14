@@ -2955,8 +2955,8 @@ Shadow=0</a:DisplayPreferences>
 <o:GeneralizationSymbol Id="o13">
 <a:CreationDate>1616598661</a:CreationDate>
 <a:ModificationDate>1616868360</a:ModificationDate>
-<a:Rect>((-16678,26207), (363,29373))</a:Rect>
-<a:ListOfPoints>((-16678,29373),(-11710,29373),(-11710,26207),(363,26207))</a:ListOfPoints>
+<a:Rect>((-16678,26235), (351,29373))</a:Rect>
+<a:ListOfPoints>((-16678,29373),(-11710,29373),(-11710,26235),(351,26235))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2975,8 +2975,8 @@ Shadow=0</a:DisplayPreferences>
 <o:GeneralizationSymbol Id="o17">
 <a:CreationDate>1616598663</a:CreationDate>
 <a:ModificationDate>1616868360</a:ModificationDate>
-<a:Rect>((-14333,12494), (-2968,21757))</a:Rect>
-<a:ListOfPoints>((-14333,12494),(-14333,21757),(-2968,21757))</a:ListOfPoints>
+<a:Rect>((-14333,12494), (-3001,21389))</a:Rect>
+<a:ListOfPoints>((-14333,12494),(-14333,21389),(-3001,21389))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2995,8 +2995,8 @@ Shadow=0</a:DisplayPreferences>
 <o:GeneralizationSymbol Id="o20">
 <a:CreationDate>1616598664</a:CreationDate>
 <a:ModificationDate>1616868360</a:ModificationDate>
-<a:Rect>((-2669,10208), (2331,22058))</a:Rect>
-<a:ListOfPoints>((-2669,10208),(2331,10208),(2331,22058))</a:ListOfPoints>
+<a:Rect>((-2669,10208), (2331,21717))</a:Rect>
+<a:ListOfPoints>((-2669,10208),(2331,10208),(2331,21717))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -3015,8 +3015,8 @@ Shadow=0</a:DisplayPreferences>
 <o:GeneralizationSymbol Id="o23">
 <a:CreationDate>1616598687</a:CreationDate>
 <a:ModificationDate>1616868360</a:ModificationDate>
-<a:Rect>((4748,10449), (13419,24182))</a:Rect>
-<a:ListOfPoints>((13419,10449),(4748,10449),(4748,24182))</a:ListOfPoints>
+<a:Rect>((4748,10449), (13419,24030))</a:Rect>
+<a:ListOfPoints>((13419,10449),(4748,10449),(4763,24030))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -3098,7 +3098,7 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o34">
 <a:CreationDate>1616779663</a:CreationDate>
 <a:ModificationDate>1616779676</a:ModificationDate>
-<a:Rect>((964,47445), (14430,49793))</a:Rect>
+<a:Rect>((964,47395), (14430,49843))</a:Rect>
 <a:ListOfPoints>((964,48619),(14430,48619))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -3119,7 +3119,7 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o38">
 <a:CreationDate>1616779663</a:CreationDate>
 <a:ModificationDate>1616779676</a:ModificationDate>
-<a:Rect>((15753,47257), (28933,49605))</a:Rect>
+<a:Rect>((15753,47207), (28933,49655))</a:Rect>
 <a:ListOfPoints>((15753,48431),(28933,48431))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -3161,8 +3161,8 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o43">
 <a:CreationDate>1616789074</a:CreationDate>
 <a:ModificationDate>1616868360</a:ModificationDate>
-<a:Rect>((2394,24692), (41012,26990))</a:Rect>
-<a:ListOfPoints>((2394,25766),(41012,25766))</a:ListOfPoints>
+<a:Rect>((2394,24686), (41012,26934))</a:Rect>
+<a:ListOfPoints>((2394,25760),(41012,25760))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -3182,8 +3182,8 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o46">
 <a:CreationDate>1616868365</a:CreationDate>
 <a:ModificationDate>1616868365</a:ModificationDate>
-<a:Rect>((-3855,29422), (5143,49222))</a:Rect>
-<a:ListOfPoints>((-1981,29422),(-1981,49222))</a:ListOfPoints>
+<a:Rect>((-3878,29736), (5139,49222))</a:Rect>
+<a:ListOfPoints>((-2008,29736),(-1981,49222))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -3424,7 +3424,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:CreationDate>1616598306</a:CreationDate>
 <a:ModificationDate>1616869002</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-3807,20422), (8449,31360))</a:Rect>
+<a:Rect>((-3845,19935), (8487,31847))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3928,7 +3928,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Osoba</a:Code>
 <a:CreationDate>1616598306</a:CreationDate>
 <a:Creator>Darko</a:Creator>
-<a:ModificationDate>1616868472</a:ModificationDate>
+<a:ModificationDate>1617913296</a:ModificationDate>
 <a:Modifier>Darko</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -4022,6 +4022,16 @@ LABL 0 Arial,8,N</a:FontList>
 <c:ObjectDataType>
 <o:Class Ref="o70"/>
 </c:ObjectDataType>
+</o:Attribute>
+<o:Attribute Id="o97">
+<a:ObjectID>32D3D50E-5888-4BA3-B149-0E23BC8FAE24</a:ObjectID>
+<a:Name>Kontakt Telefon</a:Name>
+<a:Code>KontaktTelefon</a:Code>
+<a:CreationDate>1617913245</a:CreationDate>
+<a:Creator>Darko</a:Creator>
+<a:ModificationDate>1617913296</a:ModificationDate>
+<a:Modifier>Darko</a:Modifier>
+<a:DataType>string</a:DataType>
 </o:Attribute>
 </c:Attributes>
 </o:Class>
