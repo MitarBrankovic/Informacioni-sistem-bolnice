@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header="Ime" Width="102" Binding="{Binding Ime}"/>
                 <DataGridTextColumn Header="Prezime" Width="102" Binding="{Binding Prezime}"/>
                 <DataGridTextColumn Header="Jmbg" Width="102" Binding="{Binding Jmbg}"/>
-                <DataGridTextColumn Header="Datum rodjenja" Width="102" Binding="{Binding DatumRodjenja}"/>
+                <DataGridTextColumn Header="Datum rodjenja" Width="102" Binding="{Binding DatumRodjenja, StringFormat={}{0:dd.MM.yyyy.}}"/>
                 <DataGridTextColumn Header="Pol" Width="*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>

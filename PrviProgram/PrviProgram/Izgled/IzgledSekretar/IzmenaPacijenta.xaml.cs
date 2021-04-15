@@ -1,44 +1,57 @@
-﻿using Logika.LogikaSekretar;
+﻿using Logika.LogikaGeneralna;
+using Logika.LogikaSekretar;
+using Model;
+using PrviProgram.Logika.LogikaGeneralna;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.Sekretar
 {
-    /// <summary>
-    /// Interaction logic for IzmenaPacijenta.xaml
-    /// </summary>
     public partial class IzmenaPacijenta : Window
     {
-        private UpravljanjePacijentima up;
+        private UpravljanjePacijentima upravljanjePacijentima;
+        private UpravljanjeGradovima upravljanjeGradovima;
+        private UpravljanjeDrzavama upravljanjeDrzavama;
         private ObservableCollection<Model.Pacijent> pacijenti;
         private Model.Pacijent pacijent;
 
         public IzmenaPacijenta(ObservableCollection<Model.Pacijent> pacijenti, Model.Pacijent pacijent)
         {
             InitializeComponent();
-            up = new UpravljanjePacijentima();
+            upravljanjePacijentima = new UpravljanjePacijentima();
+            upravljanjeGradovima = new UpravljanjeGradovima();
+            upravljanjeDrzavama = new UpravljanjeDrzavama();
             this.pacijenti = pacijenti;
             this.pacijent = pacijent;
-
-            textBoxKorisnickoIme.Text = pacijent.Korisnik.KorisnickoIme;
-            textBoxLozinka.Password = pacijent.Korisnik.Lozinka;
+            textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
+            textBoxGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
+            textBoxMestoRodjenjaDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
+            textBoxDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
 
             textBoxIme.Text = pacijent.Ime;
             textBoxPrezime.Text = pacijent.Prezime;
             textBoxJMBG.Text = pacijent.Jmbg;
+            datePickerDatumRodjenja.SelectedDate = pacijent.DatumRodjenja;
+
+            textBoxMestoRodjenjaGrad.Text = pacijent.MestoRodjenja.Ime;
+            textBoxMestoRodjenjaDrzava.Text = pacijent.MestoRodjenja.drzava.Ime;
+
+            textBoxUlica.Text = pacijent.AdresaStanovanja.Ulica;
+            textBoxBroj.Text = pacijent.AdresaStanovanja.Broj.ToString();
+            textBoxSprat.Text = pacijent.AdresaStanovanja.Sprat.ToString();
+            textBoxStan.Text = pacijent.AdresaStanovanja.Stan.ToString();
+            textBoxGrad.Text = pacijent.AdresaStanovanja.grad.Ime;
+            textBoxDrzava.Text = pacijent.AdresaStanovanja.grad.drzava.Ime;
+
+            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Model.Pol.Muski);
+            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Model.Pol.Zenski);
             textBoxEmail.Text = pacijent.Email;
-            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Model.Pol.Muski) ? true : false;
-            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Model.Pol.Zenski) ? true : false;
+            textBoxKontaktTelefon.Text = pacijent.KontaktTelefon;
+
+            textBoxKorisnickoIme.Text = pacijent.Korisnik.KorisnickoIme;
+            textBoxLozinka.Password = pacijent.Korisnik.Lozinka;
+
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -51,19 +64,49 @@ namespace PrviProgram.Izgled.Sekretar
             noviPacijent.Ime = textBoxIme.Text;
             noviPacijent.Prezime = textBoxPrezime.Text;
             noviPacijent.Jmbg = textBoxJMBG.Text;
-            noviPacijent.Email = textBoxEmail.Text;
+            noviPacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+
+            Drzava drzavaRodjenja = new Drzava();
+            drzavaRodjenja.Ime = textBoxMestoRodjenjaDrzava.Text;
+            Grad gradRodjenja = new Grad();
+            gradRodjenja.Ime = textBoxMestoRodjenjaGrad.Text;
+            gradRodjenja.drzava = drzavaRodjenja;
+
+            noviPacijent.MestoRodjenja = gradRodjenja;
+            upravljanjeDrzavama.DodavanjeDrzave(drzavaRodjenja);
+            upravljanjeGradovima.DodavanjeGrada(gradRodjenja);
+
+            Drzava drzava = new Drzava();
+            drzava.Ime = textBoxDrzava.Text;
+            Grad grad = new Grad();
+            grad.Ime = textBoxGrad.Text;
+            grad.drzava = drzava;
+
+            upravljanjeDrzavama.DodavanjeDrzave(drzava);
+            upravljanjeGradovima.DodavanjeGrada(grad);
+
+            Adresa adresa = new Adresa();
+            adresa.Ulica = textBoxUlica.Text;
+            adresa.Broj = int.Parse(textBoxBroj.Text);
+            adresa.Sprat = int.Parse(textBoxSprat.Text);
+            adresa.Stan = int.Parse(textBoxStan.Text);
+            adresa.grad = grad;
+
+            noviPacijent.AdresaStanovanja = adresa;
+
             noviPacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
-            
-            noviPacijent.AdresaStanovanja = this.pacijent.AdresaStanovanja;
-            noviPacijent.MestoRodjenja = this.pacijent.MestoRodjenja;
+            noviPacijent.Email = textBoxEmail.Text;
+            noviPacijent.KontaktTelefon = textBoxKontaktTelefon.Text;
+
             noviPacijent.termin = this.pacijent.termin;
             noviPacijent.kartonPacijenta = this.pacijent.kartonPacijenta;
             noviPacijent.Korisnik = korisnik;
 
-            if (up.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
+            if (upravljanjePacijentima.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
             {
+                int index = this.pacijenti.IndexOf(this.pacijent);
                 this.pacijenti.Remove(this.pacijent);
-                this.pacijenti.Add(noviPacijent);
+                this.pacijenti.Insert(index, noviPacijent);
             }
             this.Close();
         }
