@@ -2,7 +2,7 @@ using Model;
 using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace PrviProgram.Service.PacijentService
+namespace Service.PacijentService
 {
     public class TerminiService
     {

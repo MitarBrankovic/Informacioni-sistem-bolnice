@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service.LekarService;
+using Service.PacijentService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -92,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 this.noviTermin.TipTermina = TipTermina.Kontrola;
             }
-            if (Service.PacijentService.TerminiService.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
+            if (TerminiService.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
             {
                 PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);

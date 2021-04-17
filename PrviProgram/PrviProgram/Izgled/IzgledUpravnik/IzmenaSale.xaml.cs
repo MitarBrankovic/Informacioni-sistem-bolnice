@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service.LekarService;
+using Service.PacijentService;
 using Service.UpravnikService;
 using System;
 using System.Collections.ObjectModel;
@@ -129,7 +130,7 @@ namespace PrviProgram.Izgled.Upravnik
                 {
                     this.sale.Remove(this.sala);
                     this.sale.Add(novaSala);
-                    Service.PacijentService.TerminiService.getInstance().IzmenaSale(this.sala, novaSala);
+                    TerminiService.getInstance().IzmenaSale(this.sala, novaSala);
                     PreglediService.getInstance().IzmenaSale(this.sala, novaSala);
                 }
 

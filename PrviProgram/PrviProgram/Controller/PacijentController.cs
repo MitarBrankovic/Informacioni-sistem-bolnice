@@ -40,7 +40,7 @@ namespace Controller
          return false;
       }
    
-      public PrviProgram.Service.PacijentService.TerminiService terminiService;
+      public Service.PacijentService.TerminiService terminiService;
    
    }
 }

@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service.LekarService;
+using Service.PacijentService;
 using Service.SekretarService;
 using Service.UpravnikService;
 using System.Collections.ObjectModel;
@@ -21,14 +22,14 @@ namespace PrviProgram.Logika.Controllers
         public SaleService upravljanjeSalama;
         public PacijentiService upravljanjePacijentima;
         public PreglediService upravljanjePregledima;
-        public PrviProgram.Service.PacijentService.TerminiService UpravljanjeTerminima;
+        public TerminiService UpravljanjeTerminima;
 
         public ControllerLekar()
         {
             upravljanjeSalama = new SaleService();
             upravljanjePacijentima = new PacijentiService();
             upravljanjePregledima = new PreglediService();
-            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
+            UpravljanjeTerminima = new TerminiService();
 
         }
 

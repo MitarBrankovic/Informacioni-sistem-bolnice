@@ -1,7 +1,7 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
 using Service.LekarService;
-using PrviProgram.Service.PacijentService;
+using Service.PacijentService;
 using Service.SekretarService;
 using Service.UpravnikService;
 using System;
@@ -35,7 +35,7 @@ namespace PrviProgram.Izgled.Lekar
 
             UpravljanjePacijentima = new PacijentiService();
             UpravljanjeSalama = new SaleService();
-            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
+            UpravljanjeTerminima = new TerminiService();
             UpravljanjePregledima = new PreglediService();
 
             this.termini = termini;

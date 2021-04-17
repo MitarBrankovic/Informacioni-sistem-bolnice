@@ -1,6 +1,7 @@
 ﻿using Model;
 using PrviProgram.Repository;
 using Service.LekarService;
+using Service.PacijentService;
 using Service.SekretarService;
 using Service.UpravnikService;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace PrviProgram.Logika
         public SaleService upravljanjeSalama;
         public PacijentiService upravljanjePacijentima;
         public PreglediService upravljanjePregledima;
-        public Service.PacijentService.TerminiService UpravljanjeTerminima;
+        public TerminiService UpravljanjeTerminima;
 
         public TerminiRepository datotekaTermini;
 
@@ -32,7 +33,7 @@ namespace PrviProgram.Logika
             upravljanjeSalama = new SaleService();
             upravljanjePacijentima = new PacijentiService();
             upravljanjePregledima = new PreglediService();
-            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
+            UpravljanjeTerminima = new TerminiService();
 
             datotekaTermini = new TerminiRepository();
         }

@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service.LekarService;
+using Service.PacijentService;
 using Service.UpravnikService;
 using System;
 using System.Collections.Generic;
@@ -173,7 +174,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     t.TipTermina = TipTermina.Kontrola;
                 }
 
-                Service.PacijentService.TerminiService.getInstance().DodavanjeTermina(t, pacijent);
+                TerminiService.getInstance().DodavanjeTermina(t, pacijent);
                 //term.Add(t);
 
                 PreglediService.getInstance().DodavanjePregleda(t);
