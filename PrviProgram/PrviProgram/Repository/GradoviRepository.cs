@@ -1,9 +1,9 @@
-using Model;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using Model;
+using Newtonsoft.Json;
 
-namespace PrviProgram.Repository
+namespace Repository
 {
     public class GradoviRepository
     {
@@ -37,6 +37,11 @@ namespace PrviProgram.Repository
                 }
             }
 
+            return gradovi;
+        }
+        public List<Grad> PregledSvihGradova()
+        {
+            List<Grad> gradovi = this.CitanjeIzFajla();
             return gradovi;
         }
 

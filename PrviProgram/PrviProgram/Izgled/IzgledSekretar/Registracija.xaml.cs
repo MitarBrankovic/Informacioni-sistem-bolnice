@@ -1,5 +1,5 @@
 ﻿using Model;
-using PrviProgram.Service.LogikaGeneralno;
+using Service.LogikaGeneralno;
 using Service.SekretarService;
 using System;
 using System.Collections.Generic;

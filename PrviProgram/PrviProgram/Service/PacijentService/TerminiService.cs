@@ -1,5 +1,5 @@
 using Model;
-using PrviProgram.Repository;
+using Repository;
 using System.Collections.Generic;
 
 namespace Service.PacijentService

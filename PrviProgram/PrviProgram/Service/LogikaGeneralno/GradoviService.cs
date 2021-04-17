@@ -1,15 +1,16 @@
-﻿using Model;
-using PrviProgram.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Model;
+using Repository;
 
-namespace PrviProgram.Service.LogikaGeneralno
+namespace Service.LogikaGeneralno
 {
     class GradoviService
     {
+        private GradoviRepository gradoviRepository = new GradoviRepository();
+
         public bool DodavanjeGrada(Grad grad)
         {
-            GradoviRepository datoteka = new GradoviRepository();
-            List<Grad> gradovi = datoteka.CitanjeIzFajla();
+            List<Grad> gradovi = gradoviRepository.CitanjeIzFajla();
             foreach (Grad g in gradovi)
             {
                 if (g.Ime.Equals(grad.Ime))
@@ -18,14 +19,12 @@ namespace PrviProgram.Service.LogikaGeneralno
                 }
             }
             gradovi.Add(grad);
-            datoteka.UpisivanjeUFajl(gradovi);
+            gradoviRepository.UpisivanjeUFajl(gradovi);
             return true;
         }
-
         public List<Grad> PregledSvihGradova()
         {
-            GradoviRepository datoteka = new GradoviRepository();
-            List<Grad> gradovi = datoteka.CitanjeIzFajla();
+            List<Grad> gradovi = gradoviRepository.CitanjeIzFajla();
             return gradovi;
         }
 

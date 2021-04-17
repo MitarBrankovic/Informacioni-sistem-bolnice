@@ -5,8 +5,8 @@ namespace Model
     public class Pacijent : Osoba
     {
         public List<Termin> termin;
+        public KartonPacijenta kartonPacijenta;
 
-        /// <pdGenerated>default getter</pdGenerated>
         public List<Termin> GetTermin()
         {
             if (termin == null)
@@ -14,7 +14,6 @@ namespace Model
             return termin;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetTermin(System.Collections.ArrayList newTermin)
         {
             RemoveAllTermin();
@@ -22,7 +21,6 @@ namespace Model
                 AddTermin(oTermin);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddTermin(Termin newTermin)
         {
             if (newTermin == null)
@@ -36,7 +34,6 @@ namespace Model
             }
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveTermin(Termin oldTermin)
         {
             if (oldTermin == null)
@@ -49,7 +46,6 @@ namespace Model
                 }
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllTermin()
         {
             if (termin != null)
@@ -63,7 +59,6 @@ namespace Model
                 tmpTermin.Clear();
             }
         }
-        public KartonPacijenta kartonPacijenta;
 
     }
 }

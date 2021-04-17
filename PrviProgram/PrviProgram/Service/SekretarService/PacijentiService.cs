@@ -1,15 +1,16 @@
-using Model;
-using PrviProgram.Repository;
 using System.Collections.Generic;
+using Model;
+using Repository;
 
 namespace Service.SekretarService
 {
     public class PacijentiService
     {
+        public PacijentRepository pacijentRepository = new PacijentRepository();
+
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
-            PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
                 if (p.Jmbg.Equals(pacijent.Jmbg))
@@ -18,14 +19,43 @@ namespace Service.SekretarService
                 }
             }
             pacijenti.Add(pacijent);
-            datoteka.UpisivanjeUFajl(pacijenti);
+            pacijentRepository.UpisivanjeUFajl(pacijenti);
             return true;
         }
 
+        public bool BrisanjePacijenta(Pacijent pacijent)
+        {
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Jmbg.Equals(pacijent.Jmbg))
+                {
+                    pacijenti.Remove(p);
+                    pacijentRepository.UpisivanjeUFajl(pacijenti);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
+        {
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Jmbg.Equals(stariPacijent.Jmbg))
+                {
+                    pacijenti.Remove(p);
+                    pacijenti.Add(noviPacijent);
+                    pacijentRepository.UpisivanjeUFajl(pacijenti);
+                    return true;
+                }
+            }
+            return false;
+        }
         public Pacijent PregledPacijenta(string jmbg)
         {
-            PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
                 if (p.Jmbg.Equals(jmbg))
@@ -36,43 +66,9 @@ namespace Service.SekretarService
             return null;
         }
 
-        public bool BrisanjePacijenta(Pacijent pacijent)
-        {
-            PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
-            foreach (Pacijent p in pacijenti)
-            {
-                if (p.Jmbg.Equals(pacijent.Jmbg))
-                {
-                    pacijenti.Remove(p);
-                    datoteka.UpisivanjeUFajl(pacijenti);
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
-        {
-            PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
-            foreach (Pacijent p in pacijenti)
-            {
-                if (p.Jmbg.Equals(stariPacijent.Jmbg))
-                {
-                    pacijenti.Remove(p);
-                    pacijenti.Add(noviPacijent);
-                    datoteka.UpisivanjeUFajl(pacijenti);
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public List<Pacijent> PregledSvihPacijenata()
         {
-            PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
             return pacijenti;
         }
 
