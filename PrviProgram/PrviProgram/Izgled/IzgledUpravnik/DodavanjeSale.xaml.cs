@@ -1,18 +1,8 @@
-﻿using Logika.LogikaUpravnik;
-using Model;
+﻿using Model;
+using Service.UpravnikService;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 //using System.Windows.Forms;
 
 namespace PrviProgram.Izgled.Upravnik
@@ -22,13 +12,13 @@ namespace PrviProgram.Izgled.Upravnik
     /// </summary>
     public partial class DodavanjeSale : Window
     {
-        private UpravljanjeSalama upr;
+        private SaleService upr;
         private ObservableCollection<Model.Sala> sale;
 
         public DodavanjeSale(ObservableCollection<Model.Sala> sale)
         {
             InitializeComponent();
-            upr = new UpravljanjeSalama();
+            upr = new SaleService();
             this.sale = sale;
         }
 

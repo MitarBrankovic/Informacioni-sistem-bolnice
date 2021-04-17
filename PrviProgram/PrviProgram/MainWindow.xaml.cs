@@ -1,13 +1,12 @@
-﻿using Logika.LogikaSekretar;
-using Logika.LogikaLekar;
-using PrviProgram.Izgled.Lekar;
-using Logika.LogikaUpravnik;
-using Model;
-
-using PrviProgram.Izgled.Sekretar;
-using RadSaDatotekama;
-using System.Windows;
+﻿using Model;
 using PrviProgram.Izgled.IzgledPacijent;
+using PrviProgram.Izgled.Lekar;
+using PrviProgram.Izgled.Sekretar;
+using PrviProgram.Repository;
+using Service.LekarService;
+using Service.SekretarService;
+using Service.UpravnikService;
+using System.Windows;
 
 namespace PrviProgram
 {
@@ -25,15 +24,15 @@ namespace PrviProgram
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowUpravnik win2 = new WindowUpravnik();
-            DatotekaUpravnik a = new DatotekaUpravnik("output.json");
+            UpravnikRepository a = new UpravnikRepository("output.json");
             //a.UpisivanjeUFajl(new Sala());
-            UpravljanjePacijentima up = new UpravljanjePacijentima();
+            PacijentiService up = new PacijentiService();
             Pacijent p = new Pacijent();
             p.Jmbg = "12234";
             p.kartonPacijenta = new KartonPacijenta();
             //up.DodavanjePacijenta(p);
 
-            UpravljanjeSalama upravlj = new UpravljanjeSalama();
+            SaleService upravlj = new SaleService();
             Sala s = new Sala();
             s.Sifra = "12234";
             //upravlj.DodavanjeSale(s);
@@ -59,12 +58,12 @@ namespace PrviProgram
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             WindowTermini winTermini = new WindowTermini();
-            DatotekaLekar lek = new DatotekaLekar();
-            UpravljanjePregledima up = new UpravljanjePregledima();
+            LekarRepository lek = new LekarRepository();
+            PreglediService up = new PreglediService();
             Termin t = new Termin();
             t.SifraTermina = "asda2";
 
-            UpravljanjePregledima upr = new UpravljanjePregledima();
+            PreglediService upr = new PreglediService();
             //upr.DodavanjePregleda(t);
 
             winTermini.Show();

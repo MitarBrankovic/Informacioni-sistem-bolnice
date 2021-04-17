@@ -3,39 +3,42 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 
-namespace RadSaDatotekama
+namespace PrviProgram.Repository
 {
-    public class DatotekaPacijent
+    public class GradoviRepository
     {
         private string path;
 
-        public DatotekaPacijent()
+        public GradoviRepository()
         {
-            this.path = @"..\..\..\data\pacijent.json";
+            path = @"..\..\..\data\gradovi.json";
         }
 
-        public void UpisivanjeUFajl(List<Pacijent> pacijenti)
+        public void UpisivanjeUFajl(List<Grad> gradovi)
         {
             JsonSerializer serializer = new JsonSerializer();
             serializer.Formatting = Formatting.Indented;
             StreamWriter writer = new StreamWriter(path);
             JsonWriter jWriter = new JsonTextWriter(writer);
-            serializer.Serialize(jWriter, pacijenti);
+            serializer.Serialize(jWriter, gradovi);
             jWriter.Close();
             writer.Close();
         }
-        public List<Pacijent> CitanjeIzFajla()
+
+        public List<Grad> CitanjeIzFajla()
         {
-            List<Pacijent> pacijenti = new List<Pacijent>();
+            List<Grad> gradovi = new List<Grad>();
             if (File.Exists(path))
             {
                 string jsonText = File.ReadAllText(path);
                 if (!string.IsNullOrEmpty(jsonText))
                 {
-                    pacijenti = JsonConvert.DeserializeObject<List<Pacijent>>(jsonText);
+                    gradovi = JsonConvert.DeserializeObject<List<Grad>>(jsonText);
                 }
             }
-            return pacijenti;
+
+            return gradovi;
         }
+
     }
 }

@@ -1,19 +1,8 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Model;
-using RadSaDatotekama;
-using System;
-using System.Collections.Generic;
+﻿using Model;
+using Service.LekarService;
+using PrviProgram.Service.PacijentService;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 
 namespace PrviProgram.Izgled.IzgledPacijent
@@ -42,7 +31,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             InitializeComponent();
 
             this.pacijent = p;
-            termini = new ObservableCollection<Termin>(UpravljanjeTerminima.getInstance().PregledTermina(p));
+            termini = new ObservableCollection<Termin>(TerminiService.getInstance().PregledTermina(p));
 
             dataGridPacijenta.ItemsSource = termini;
 
@@ -68,8 +57,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
         {
             if (dataGridPacijenta.SelectedItem != null)
             {
-                UpravljanjeTerminima.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem, pacijent);
-                UpravljanjePregledima.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
+                TerminiService.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem, pacijent);
+                PreglediService.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
                 termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
             }
             else

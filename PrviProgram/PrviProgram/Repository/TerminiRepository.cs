@@ -1,18 +1,17 @@
 ﻿using Model;
-using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 
-namespace PrviProgram.RadSaDatotekama
+namespace PrviProgram.Repository
 {
-    class DatotekaTermini
+    class TerminiRepository
     {
         private string path;
 
-        public DatotekaTermini() 
+        public TerminiRepository()
         {
-            this.path = @"..\..\..\data\termini.json";
+            path = @"..\..\..\data\termini.json";
         }
 
         public void UpisivanjeUFajl(List<Termin> termini)

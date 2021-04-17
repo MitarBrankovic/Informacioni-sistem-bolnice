@@ -1,8 +1,8 @@
 using Model;
 
-namespace RadSaDatotekama
+namespace PrviProgram.Repository
 {
-    public class DatotekaSekretar
+    public class SekretarRepository
     {
         public void UpisivanjeUFajl(Pacijent pacijent, string nazivFajla)
         {

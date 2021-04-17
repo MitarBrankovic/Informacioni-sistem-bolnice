@@ -1,19 +1,9 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Logika.LogikaUpravnik;
-using Model;
+﻿using Model;
+using Service.LekarService;
+using Service.UpravnikService;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.Upravnik
 {
@@ -23,7 +13,7 @@ namespace PrviProgram.Izgled.Upravnik
     public partial class IzmenaSale : Window
     {
 
-        private UpravljanjeSalama upr;
+        private SaleService upr;
         private ObservableCollection<Model.Sala> sale;
         private Model.Sala sala;
 
@@ -32,7 +22,7 @@ namespace PrviProgram.Izgled.Upravnik
         {
             InitializeComponent();
 
-            upr = new UpravljanjeSalama();
+            upr = new SaleService();
             this.sale = sale;
             this.sala = sala;
 
@@ -139,8 +129,8 @@ namespace PrviProgram.Izgled.Upravnik
                 {
                     this.sale.Remove(this.sala);
                     this.sale.Add(novaSala);
-                    UpravljanjeTerminima.getInstance().IzmenaSale(this.sala, novaSala);
-                    UpravljanjePregledima.getInstance().IzmenaSale(this.sala, novaSala);
+                    Service.PacijentService.TerminiService.getInstance().IzmenaSale(this.sala, novaSala);
+                    PreglediService.getInstance().IzmenaSale(this.sala, novaSala);
                 }
 
                 this.Close();

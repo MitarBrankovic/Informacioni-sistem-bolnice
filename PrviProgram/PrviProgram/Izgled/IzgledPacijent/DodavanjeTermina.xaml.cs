@@ -1,19 +1,11 @@
 ﻿using Model;
+using Service.LekarService;
+using Service.UpravnikService;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Logika.LogikaPacijent;
-using System.Collections.ObjectModel;
-using Logika.LogikaUpravnik;
-using Logika.LogikaLekar;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
@@ -22,7 +14,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class DodavanjeTermina : Window
     {
-        private UpravljanjeSalama uprSal;
+        private SaleService uprSal;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini, Pacijent p)
         {
@@ -30,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.term = termini;
             InitializeComponent();
 
-            uprSal = new UpravljanjeSalama();
+            uprSal = new SaleService();
 
         }
         private ObservableCollection<Termin> term;
@@ -181,10 +173,10 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     t.TipTermina = TipTermina.Kontrola;
                 }
 
-                UpravljanjeTerminima.getInstance().DodavanjeTermina(t, pacijent);
+                Service.PacijentService.TerminiService.getInstance().DodavanjeTermina(t, pacijent);
                 //term.Add(t);
 
-                UpravljanjePregledima.getInstance().DodavanjePregleda(t);
+                PreglediService.getInstance().DodavanjePregleda(t);
                 this.term.Add(t);
 
                 this.Close();

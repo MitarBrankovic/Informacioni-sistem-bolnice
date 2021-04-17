@@ -5,26 +5,26 @@
  ***********************************************************************/
 
 using Model;
-using RadSaDatotekama;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Logika.LogikaUpravnik
+namespace Service.UpravnikService
 {
-    public class UpravljanjeSalama
+    public class SaleService
     {
-        private static UpravljanjeSalama instance = null;
-        public static UpravljanjeSalama getInstance()
+        private static SaleService instance = null;
+        public static SaleService getInstance()
         {
             if (instance == null)
             {
-                instance = new UpravljanjeSalama();
+                instance = new SaleService();
             }
             return instance;
         }
 
         public bool DodavanjeSale(Sala sala)
         {
-            DatotekaSala datoteka = new DatotekaSala();
+            SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
             {
@@ -41,7 +41,7 @@ namespace Logika.LogikaUpravnik
 
         public Sala PregledSale(string sifraSale)
         {
-            DatotekaSala datoteka = new DatotekaSala();
+            SalaRepository datoteka = new SalaRepository();
             List<Sala> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Sala s in pacijenti)
             {
@@ -55,7 +55,7 @@ namespace Logika.LogikaUpravnik
 
         public bool BrisanjeSale(Sala sala)
         {
-            DatotekaSala datoteka = new DatotekaSala();
+            SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
             {
@@ -71,7 +71,7 @@ namespace Logika.LogikaUpravnik
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            DatotekaSala datoteka = new DatotekaSala();
+            SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
             {
@@ -88,7 +88,7 @@ namespace Logika.LogikaUpravnik
 
         public List<Sala> PregledSvihSala()
         {
-            DatotekaSala datoteka = new DatotekaSala();
+            SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             return sale;
         }

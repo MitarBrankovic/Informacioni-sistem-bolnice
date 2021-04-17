@@ -1,7 +1,6 @@
-﻿using Logika.LogikaGeneralna;
-using Logika.LogikaSekretar;
-using Model;
-using PrviProgram.Logika.LogikaGeneralna;
+﻿using Model;
+using PrviProgram.Service.LogikaGeneralno;
+using Service.SekretarService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,17 +10,17 @@ namespace PrviProgram.Izgled.Sekretar
 {
     public partial class Registracija : Window
     {
-        private UpravljanjePacijentima upravljanjePacijentima;
-        private UpravljanjeGradovima upravljanjeGradovima;
-        private UpravljanjeDrzavama upravljanjeDrzavama;
+        private PacijentiService upravljanjePacijentima;
+        private GradoviService upravljanjeGradovima;
+        private DrzaveService upravljanjeDrzavama;
         private ObservableCollection<Pacijent> pacijenti;
 
         public Registracija(ObservableCollection<Pacijent> pacijenti)
         {
             InitializeComponent();
-            upravljanjePacijentima = new UpravljanjePacijentima();
-            upravljanjeGradovima = new UpravljanjeGradovima();
-            upravljanjeDrzavama = new UpravljanjeDrzavama();
+            upravljanjePacijentima = new PacijentiService();
+            upravljanjeGradovima = new GradoviService();
+            upravljanjeDrzavama = new DrzaveService();
             this.pacijenti = pacijenti;
             textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
             textBoxGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();

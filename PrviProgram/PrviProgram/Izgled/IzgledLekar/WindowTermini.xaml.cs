@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Model;
+using PrviProgram.Logika.Controllers;
+using Service.LekarService;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Model;
-using PrviProgram.Izgled.Lekar;
-using PrviProgram.Logika;
-using PrviProgram.Logika.Controllers;
 
 namespace PrviProgram.Izgled.Lekar
 {
@@ -27,7 +23,7 @@ namespace PrviProgram.Izgled.Lekar
         }
 
         //List<Termin> termini = new List<Termin>();
-        public UpravljanjePregledima upravljanje;
+        public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         public ControllerLekar controllerLekar;
 
@@ -35,7 +31,7 @@ namespace PrviProgram.Izgled.Lekar
         {
             InitializeComponent();
 
-            upravljanje = new UpravljanjePregledima();
+            upravljanje = new PreglediService();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregleda());
             controllerLekar = new ControllerLekar();
             dataGridLekar.ItemsSource = termini;

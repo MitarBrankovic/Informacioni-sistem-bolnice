@@ -1,19 +1,9 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Model;
+﻿using Model;
+using Service.LekarService;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
@@ -46,7 +36,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     PrezimeLekara.Text = selektovaniTermin.lekar.Prezime;
                 }
             }
-            
+
             DatumText.SelectedDate = selektovaniTermin.Datum;
             var s = vremeText as ComboBox;
             //s.SelectedIndex = Convert.ToInt32(selektovaniTermin.Vreme);
@@ -102,9 +92,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 this.noviTermin.TipTermina = TipTermina.Kontrola;
             }
-            if (UpravljanjeTerminima.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
+            if (Service.PacijentService.TerminiService.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
             {
-                UpravljanjePregledima.getInstance().IzmenaPregleda(this.noviTermin);
+                PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);
             }
             this.Close();

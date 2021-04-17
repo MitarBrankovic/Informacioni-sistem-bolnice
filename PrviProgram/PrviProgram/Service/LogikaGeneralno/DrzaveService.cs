@@ -1,14 +1,14 @@
 ﻿using Model;
-using PrviProgram.RadSaDatotekama;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace PrviProgram.Logika.LogikaGeneralna
+namespace PrviProgram.Service.LogikaGeneralno
 {
-    class UpravljanjeDrzavama
+    class DrzaveService
     {
         public bool DodavanjeDrzave(Drzava drzava)
         {
-            DatotekaDrzave datoteka = new DatotekaDrzave();
+            DrzaveRepository datoteka = new DrzaveRepository();
             List<Drzava> drzave = datoteka.CitanjeIzFajla();
             foreach (Drzava d in drzave)
             {
@@ -24,7 +24,7 @@ namespace PrviProgram.Logika.LogikaGeneralna
 
         public List<Drzava> PregledSvihDrzava()
         {
-            DatotekaDrzave datoteka = new DatotekaDrzave();
+            DrzaveRepository datoteka = new DrzaveRepository();
             List<Drzava> drzave = datoteka.CitanjeIzFajla();
             return drzave;
         }

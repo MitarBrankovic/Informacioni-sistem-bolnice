@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Model;
+using PrviProgram.Repository;
+using Service.LekarService;
+using Service.SekretarService;
+using Service.UpravnikService;
 using System.Collections.Generic;
-using System.Text;
-using Logika.LogikaUpravnik;
-using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Logika.LogikaSekretar;
-using Model;
-using PrviProgram.RadSaDatotekama;
 using System.Collections.ObjectModel;
 
 namespace PrviProgram.Logika
@@ -23,31 +20,31 @@ namespace PrviProgram.Logika
             return instance;
         }
 
-        public UpravljanjeSalama upravljanjeSalama;
-        public UpravljanjePacijentima upravljanjePacijentima;
-        public UpravljanjePregledima upravljanjePregledima;
-        public UpravljanjeTerminima UpravljanjeTerminima;
+        public SaleService upravljanjeSalama;
+        public PacijentiService upravljanjePacijentima;
+        public PreglediService upravljanjePregledima;
+        public Service.PacijentService.TerminiService UpravljanjeTerminima;
 
-        public DatotekaTermini datotekaTermini;
+        public TerminiRepository datotekaTermini;
 
         public ControllerUpravnik()
         {
-            upravljanjeSalama = new UpravljanjeSalama();
-            upravljanjePacijentima = new UpravljanjePacijentima();
-            upravljanjePregledima = new UpravljanjePregledima();
-            UpravljanjeTerminima = new UpravljanjeTerminima();
+            upravljanjeSalama = new SaleService();
+            upravljanjePacijentima = new PacijentiService();
+            upravljanjePregledima = new PreglediService();
+            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
 
-            datotekaTermini = new DatotekaTermini();
+            datotekaTermini = new TerminiRepository();
         }
 
         public void BrisanjeSale(Sala sala, ObservableCollection<Model.Sala> sale)
         {
-            UpravljanjeSalama.getInstance().BrisanjeSale(sala);
+            SaleService.getInstance().BrisanjeSale(sala);
             sale.Remove(sala);
 
             List<Termin> termini = new List<Termin>();
             termini = upravljanjePregledima.PregledSvihPregleda();
-            foreach(Termin t in termini)
+            foreach (Termin t in termini)
             {
                 if (t != null)
                 {
@@ -61,7 +58,7 @@ namespace PrviProgram.Logika
 
             List<Pacijent> pacijenti = new List<Pacijent>();
             pacijenti = upravljanjePacijentima.PregledSvihPacijenata();
-            foreach (Pacijent p in pacijenti) 
+            foreach (Pacijent p in pacijenti)
             {
                 if (p != null)
                 {

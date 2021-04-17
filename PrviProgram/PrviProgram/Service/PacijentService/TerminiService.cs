@@ -1,23 +1,23 @@
 using Model;
-using RadSaDatotekama;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Logika.LogikaPacijent
+namespace PrviProgram.Service.PacijentService
 {
-    public class UpravljanjeTerminima
+    public class TerminiService
     {
-        private static UpravljanjeTerminima instance = null;
-        public static UpravljanjeTerminima getInstance()
+        private static TerminiService instance = null;
+        public static TerminiService getInstance()
         {
             if (instance == null)
             {
-                instance = new UpravljanjeTerminima();
+                instance = new TerminiService();
             }
             return instance;
         }
         public void DodavanjeTermina(Termin t, Pacijent p)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> termini = new List<Termin>();
             termini.Add(t);
@@ -43,7 +43,7 @@ namespace Logika.LogikaPacijent
 
         public void BrisanjeTermina(Termin t, Pacijent p)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> termini = new List<Termin>();
 
@@ -76,7 +76,7 @@ namespace Logika.LogikaPacijent
 
         public bool IzmenaTermina(Termin t, Pacijent p)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
             foreach (Pacijent pp in pacijenti)
@@ -106,7 +106,7 @@ namespace Logika.LogikaPacijent
         public List<Termin> PregledTermina(Pacijent p)
         {
 
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
 
@@ -131,12 +131,12 @@ namespace Logika.LogikaPacijent
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
             Sala s = new Sala();
             foreach (Pacijent pp in pacijenti)
-            {    
+            {
                 foreach (Termin tt in pp.termin)
                 {
                     list.Add(tt);
@@ -151,7 +151,7 @@ namespace Logika.LogikaPacijent
                 datoteka.UpisivanjeUFajl(pacijenti);
                 return true;
 
-                
+
             }
             return false;
 

@@ -1,12 +1,8 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Logika.LogikaSekretar;
-using Logika.LogikaUpravnik;
-using Model;
-using System;
-using System.Collections.Generic;
+﻿using Model;
+using Service.LekarService;
+using Service.SekretarService;
+using Service.UpravnikService;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace PrviProgram.Logika.Controllers
 {
@@ -22,17 +18,17 @@ namespace PrviProgram.Logika.Controllers
             return instance;
         }
 
-        public UpravljanjeSalama upravljanjeSalama;
-        public UpravljanjePacijentima upravljanjePacijentima;
-        public UpravljanjePregledima upravljanjePregledima;
-        public UpravljanjeTerminima UpravljanjeTerminima;
+        public SaleService upravljanjeSalama;
+        public PacijentiService upravljanjePacijentima;
+        public PreglediService upravljanjePregledima;
+        public PrviProgram.Service.PacijentService.TerminiService UpravljanjeTerminima;
 
         public ControllerLekar()
         {
-            upravljanjeSalama = new UpravljanjeSalama();
-            upravljanjePacijentima = new UpravljanjePacijentima();
-            upravljanjePregledima = new UpravljanjePregledima();
-            UpravljanjeTerminima = new UpravljanjeTerminima();
+            upravljanjeSalama = new SaleService();
+            upravljanjePacijentima = new PacijentiService();
+            upravljanjePregledima = new PreglediService();
+            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
 
         }
 

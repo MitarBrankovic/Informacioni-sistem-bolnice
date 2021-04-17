@@ -1,15 +1,14 @@
-
 using Model;
-using RadSaDatotekama;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Logika.LogikaSekretar
+namespace Service.SekretarService
 {
-    public class UpravljanjePacijentima
+    public class PacijentiService
     {
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
@@ -25,7 +24,7 @@ namespace Logika.LogikaSekretar
 
         public Pacijent PregledPacijenta(string jmbg)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
@@ -39,7 +38,7 @@ namespace Logika.LogikaSekretar
 
         public bool BrisanjePacijenta(Pacijent pacijent)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
@@ -55,7 +54,7 @@ namespace Logika.LogikaSekretar
 
         public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             foreach (Pacijent p in pacijenti)
             {
@@ -72,7 +71,7 @@ namespace Logika.LogikaSekretar
 
         public List<Pacijent> PregledSvihPacijenata()
         {
-            DatotekaPacijent datoteka = new DatotekaPacijent();
+            PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             return pacijenti;
         }

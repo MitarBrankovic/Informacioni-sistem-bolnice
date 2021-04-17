@@ -1,14 +1,14 @@
 ﻿using Model;
-using RadSaDatotekama;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Logika.LogikaGeneralna
+namespace PrviProgram.Service.LogikaGeneralno
 {
-    class UpravljanjeGradovima
+    class GradoviService
     {
         public bool DodavanjeGrada(Grad grad)
         {
-            DatotekaGradovi datoteka = new DatotekaGradovi();
+            GradoviRepository datoteka = new GradoviRepository();
             List<Grad> gradovi = datoteka.CitanjeIzFajla();
             foreach (Grad g in gradovi)
             {
@@ -24,7 +24,7 @@ namespace Logika.LogikaGeneralna
 
         public List<Grad> PregledSvihGradova()
         {
-            DatotekaGradovi datoteka = new DatotekaGradovi();
+            GradoviRepository datoteka = new GradoviRepository();
             List<Grad> gradovi = datoteka.CitanjeIzFajla();
             return gradovi;
         }

@@ -1,42 +1,41 @@
-﻿using Model;
+using Model;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 
-namespace PrviProgram.RadSaDatotekama
+namespace PrviProgram.Repository
 {
-    class DatotekaDrzave
+    public class UpravnikRepository
     {
         private string path;
 
-        public DatotekaDrzave()
+        public UpravnikRepository(string nazivFajla)
         {
-            this.path = @"..\..\..\data\drzave.json";
+            path = @"..\..\..\data\upravnik.json";
         }
 
-        public void UpisivanjeUFajl(List<Drzava> drzave)
+        public void UpisivanjeUFajl(List<Upravnik> upravnici)
         {
             JsonSerializer serializer = new JsonSerializer();
             serializer.Formatting = Formatting.Indented;
             StreamWriter writer = new StreamWriter(path);
             JsonWriter jWriter = new JsonTextWriter(writer);
-            serializer.Serialize(jWriter, drzave);
+            serializer.Serialize(jWriter, upravnici);
             jWriter.Close();
             writer.Close();
         }
-        public List<Drzava> CitanjeIzFajla()
+        public List<Upravnik> CitanjeIzFajla()
         {
-            List<Drzava> drzave = new List<Drzava>();
+            List<Upravnik> upravnici = new List<Upravnik>();
             if (File.Exists(path))
             {
                 string jsonText = File.ReadAllText(path);
                 if (!string.IsNullOrEmpty(jsonText))
                 {
-                    drzave = JsonConvert.DeserializeObject<List<Drzava>>(jsonText);
+                    upravnici = JsonConvert.DeserializeObject<List<Upravnik>>(jsonText);
                 }
             }
-
-            return drzave;
+            return upravnici;
         }
 
     }

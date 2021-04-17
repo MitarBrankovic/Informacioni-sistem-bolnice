@@ -1,4 +1,4 @@
-﻿using Logika.LogikaSekretar;
+﻿using Service.SekretarService;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -6,13 +6,13 @@ namespace PrviProgram.Izgled.Sekretar
 {
     public partial class WindowSekretar : Window
     {
-        public UpravljanjePacijentima upravljanje;
+        public PacijentiService upravljanje;
         public ObservableCollection<Model.Pacijent> pacijenti;
 
         public WindowSekretar()
         {
             InitializeComponent();
-            upravljanje = new UpravljanjePacijentima();
+            upravljanje = new PacijentiService();
             pacijenti = new ObservableCollection<Model.Pacijent>(upravljanje.PregledSvihPacijenata());
             dgDataBinding.ItemsSource = pacijenti;
         }

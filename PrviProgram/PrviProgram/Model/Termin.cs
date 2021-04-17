@@ -9,6 +9,7 @@ namespace Model
         public string SifraTermina { get; set; }
         public Sala sala { get; set; }
         public string Vreme { get; set; }
+        public GuestPacijent guestPacijent { get; set; }
 
         public Lekar lekar
         {

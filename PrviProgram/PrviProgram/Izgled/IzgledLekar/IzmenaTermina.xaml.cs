@@ -1,21 +1,13 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaPacijent;
-using Logika.LogikaSekretar;
-using Logika.LogikaUpravnik;
-using Model;
+﻿using Model;
 using PrviProgram.Logika.Controllers;
+using Service.LekarService;
+using PrviProgram.Service.PacijentService;
+using Service.SekretarService;
+using Service.UpravnikService;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.Lekar
 {
@@ -25,10 +17,10 @@ namespace PrviProgram.Izgled.Lekar
     public partial class IzmenaTermina : Window
     {
 
-        private UpravljanjePacijentima UpravljanjePacijentima;
-        private UpravljanjeSalama UpravljanjeSalama;
-        private UpravljanjeTerminima UpravljanjeTerminima;
-        private UpravljanjePregledima UpravljanjePregledima;
+        private PacijentiService UpravljanjePacijentima;
+        private SaleService UpravljanjeSalama;
+        private TerminiService UpravljanjeTerminima;
+        private PreglediService UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
 
         private ObservableCollection<Termin> terminiPacijent;
@@ -41,10 +33,10 @@ namespace PrviProgram.Izgled.Lekar
         {
             InitializeComponent();
 
-            UpravljanjePacijentima = new UpravljanjePacijentima();
-            UpravljanjeSalama = new UpravljanjeSalama();
-            UpravljanjeTerminima = new UpravljanjeTerminima();
-            UpravljanjePregledima = new UpravljanjePregledima();
+            UpravljanjePacijentima = new PacijentiService();
+            UpravljanjeSalama = new SaleService();
+            UpravljanjeTerminima = new Service.PacijentService.TerminiService();
+            UpravljanjePregledima = new PreglediService();
 
             this.termini = termini;
             this.termin = termin;
@@ -70,7 +62,7 @@ namespace PrviProgram.Izgled.Lekar
                 {
                     //if (uprSal.PregledSale(termin.sala.Sifra).Dostupnost == true)
                     //{
-                        Sala.Text = termin.sala.Sifra;
+                    Sala.Text = termin.sala.Sifra;
                     //}
                 }
             }
@@ -118,7 +110,7 @@ namespace PrviProgram.Izgled.Lekar
             this.termin.SifraTermina = Sifra.Text;
 
             this.termin.Datum = (DateTime)DatumText.SelectedDate;
-            
+
             this.termin.Vreme = vremeText.Text;
 
             String tip = TipTerm.Text;

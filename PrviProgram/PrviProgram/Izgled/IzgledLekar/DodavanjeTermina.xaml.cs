@@ -1,22 +1,12 @@
-﻿using Logika.LogikaLekar;
-using Logika.LogikaSekretar;
-using Model;
+﻿using Model;
+using PrviProgram.Logika.Controllers;
+using Service.LekarService;
+using Service.SekretarService;
+using Service.UpravnikService;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using RadSaDatotekama;
-using Logika.LogikaUpravnik;
-using Logika.LogikaPacijent;
-using PrviProgram.Logika.Controllers;
 //using Logika.LogikaSekretar;
 
 namespace PrviProgram.Izgled.Lekar
@@ -27,18 +17,18 @@ namespace PrviProgram.Izgled.Lekar
     public partial class DodavanjeTermina : Window
     {
 
-        private UpravljanjePregledima upr;
-        private UpravljanjePacijentima uprPac;
-        private UpravljanjeSalama uprSal;
+        private PreglediService upr;
+        private PacijentiService uprPac;
+        private SaleService uprSal;
         private ObservableCollection<Termin> termini;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini)
         {
             InitializeComponent();
 
-            upr = new UpravljanjePregledima();
-            uprPac = new UpravljanjePacijentima();
-            uprSal = new UpravljanjeSalama();
+            upr = new PreglediService();
+            uprPac = new PacijentiService();
+            uprSal = new SaleService();
             this.termini = termini;
 
         }
@@ -78,12 +68,12 @@ namespace PrviProgram.Izgled.Lekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin tempTermin = new Termin();
-            
+
 
             Sala tempSala = new Sala();
             tempSala = uprSal.PregledSale(Sala.Text);
             tempTermin.sala = tempSala;
-            
+
 
             Model.Pacijent tempPacijent = new Model.Pacijent();
             tempPacijent = uprPac.PregledPacijenta(Pacijent.Text);
@@ -124,7 +114,8 @@ namespace PrviProgram.Izgled.Lekar
 
             foreach (Termin t in this.termini)
             {
-                if (tempTermin.sala.Sifra.Equals(t.sala.Sifra) && tempTermin.Vreme.Equals(t.Vreme) && tempTermin.Datum.Equals(t.Datum)) {
+                if (tempTermin.sala.Sifra.Equals(t.sala.Sifra) && tempTermin.Vreme.Equals(t.Vreme) && tempTermin.Datum.Equals(t.Datum))
+                {
                     vecPostoji = true;
                     break;
                 }
@@ -136,7 +127,8 @@ namespace PrviProgram.Izgled.Lekar
                 this.termini.Add(tempTermin);
                 this.Close();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Ta sala je vec zauzeta!");
             }
         }

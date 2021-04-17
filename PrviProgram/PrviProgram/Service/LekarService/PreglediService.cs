@@ -1,26 +1,24 @@
 using Model;
-using PrviProgram.RadSaDatotekama;
-using RadSaDatotekama;
-using System;
+using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Logika.LogikaLekar
+namespace Service.LekarService
 {
-    public class UpravljanjePregledima
+    public class PreglediService
     {
 
-        private static UpravljanjePregledima instance = null;
-        public static UpravljanjePregledima getInstance()
+        private static PreglediService instance = null;
+        public static PreglediService getInstance()
         {
             if (instance == null)
             {
-                instance = new UpravljanjePregledima();
+                instance = new PreglediService();
             }
             return instance;
         }
         public Termin PregledPregleda(string sifraTermina)
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
@@ -34,14 +32,14 @@ namespace Logika.LogikaLekar
 
         public List<Termin> PregledSvihPregleda()
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             return termini;
         }
 
         public void BrisanjePregleda(string sifraTermina)
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
@@ -52,12 +50,12 @@ namespace Logika.LogikaLekar
                     break;
                 }
             }
-            
+
         }
 
         public void IzmenaPregleda(Termin termin)
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
@@ -69,33 +67,33 @@ namespace Logika.LogikaLekar
                     break;
                 }
             }
-            
+
         }
 
         public void DodavanjePregleda(Termin termin)
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             foreach (Termin s in termini)
             {
                 if (s.SifraTermina.Equals(termin.SifraTermina))
                 {
-                    
+
                 }
             }
             termini.Add(termin);
             datoteka.UpisivanjeUFajl(termini);
 
-            
+
         }
 
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            DatotekaTermini datoteka = new DatotekaTermini();
+            TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
-            
+
             foreach (Termin tt in termini)
             {
                 if (tt.sala.Sifra.Equals(staraSala.Sifra))

@@ -1,10 +1,8 @@
-﻿using Logika.LogikaUpravnik;
-using Model;
+﻿using Model;
 using PrviProgram.Izgled.Upravnik;
 using PrviProgram.Logika;
-using System.Collections.Generic;
+using Service.UpravnikService;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -26,8 +24,8 @@ namespace PrviProgram
         }
 
 
-        public UpravljanjeSalama upravljanje;
-        public ObservableCollection<Model.Sala> sale; 
+        public SaleService upravljanje;
+        public ObservableCollection<Model.Sala> sale;
 
 
 
@@ -35,7 +33,7 @@ namespace PrviProgram
         {
             InitializeComponent();
 
-            upravljanje = new UpravljanjeSalama();
+            upravljanje = new SaleService();
             sale = new ObservableCollection<Model.Sala>(upravljanje.PregledSvihSala());
 
 
@@ -76,7 +74,9 @@ namespace PrviProgram
                 IzmenaSale izmena = new IzmenaSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
                 izmena.Show();
             }
-            else { MessageBox.Show("Morate izabrati salu!"); 
+            else
+            {
+                MessageBox.Show("Morate izabrati salu!");
             }
         }
 

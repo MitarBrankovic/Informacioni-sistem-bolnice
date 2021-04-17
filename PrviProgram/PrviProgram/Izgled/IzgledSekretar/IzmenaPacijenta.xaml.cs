@@ -1,7 +1,6 @@
-﻿using Logika.LogikaGeneralna;
-using Logika.LogikaSekretar;
-using Model;
-using PrviProgram.Logika.LogikaGeneralna;
+﻿using Model;
+using PrviProgram.Service.LogikaGeneralno;
+using Service.SekretarService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -10,18 +9,18 @@ namespace PrviProgram.Izgled.Sekretar
 {
     public partial class IzmenaPacijenta : Window
     {
-        private UpravljanjePacijentima upravljanjePacijentima;
-        private UpravljanjeGradovima upravljanjeGradovima;
-        private UpravljanjeDrzavama upravljanjeDrzavama;
+        private PacijentiService upravljanjePacijentima;
+        private GradoviService upravljanjeGradovima;
+        private DrzaveService upravljanjeDrzavama;
         private ObservableCollection<Model.Pacijent> pacijenti;
         private Model.Pacijent pacijent;
 
         public IzmenaPacijenta(ObservableCollection<Model.Pacijent> pacijenti, Model.Pacijent pacijent)
         {
             InitializeComponent();
-            upravljanjePacijentima = new UpravljanjePacijentima();
-            upravljanjeGradovima = new UpravljanjeGradovima();
-            upravljanjeDrzavama = new UpravljanjeDrzavama();
+            upravljanjePacijentima = new PacijentiService();
+            upravljanjeGradovima = new GradoviService();
+            upravljanjeDrzavama = new DrzaveService();
             this.pacijenti = pacijenti;
             this.pacijent = pacijent;
             textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
