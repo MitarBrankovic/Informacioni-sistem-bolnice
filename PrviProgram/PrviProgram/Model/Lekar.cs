@@ -16,6 +16,7 @@ namespace Model
             }
         }
         public System.Collections.ArrayList termin;
+
         List<Termin> termini = new List<Termin>();
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetTermin()

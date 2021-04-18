@@ -72,7 +72,46 @@ namespace Service.PacijentService
 
         public bool IzmenaTermina(Termin t, Pacijent p)
         {
-            PacijentRepository datoteka = new PacijentRepository();
+
+            TerminiRepository datoteka1 = new TerminiRepository();
+
+            List<Termin> termini = datoteka1.CitanjeIzFajla();
+            List<Termin> list = new List<Termin>();
+            foreach(Termin tt in termini)
+            {
+                list.Add(tt);
+                /*if (tt.pacijent.Jmbg.Equals(p.Jmbg))
+                {
+                   
+                    if (tt.SifraTermina.Equals(t.SifraTermina))
+                    {
+                        list.Remove(tt);
+                        list.Add(t);
+                        datoteka1.UpisivanjeUFajl()
+                    }*/
+
+
+                }
+
+            foreach(Termin t1 in termini)
+            {
+                if (t1.pacijent.Jmbg.Equals(p.Jmbg))
+                {
+                    if (t1.SifraTermina.Equals(t.SifraTermina))
+                    {
+                        list.Remove(t1);
+                        list.Add(t);
+                        datoteka1.UpisivanjeUFajl(list);
+                        return true;
+
+                    }
+                }
+            }
+            return false;
+
+            
+
+            /*PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
             foreach (Pacijent pp in pacijenti)
@@ -95,7 +134,7 @@ namespace Service.PacijentService
 
                 }
             }
-            return false;
+            return false;*/
 
         }
 

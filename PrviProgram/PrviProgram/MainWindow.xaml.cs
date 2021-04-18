@@ -50,8 +50,9 @@ namespace PrviProgram
         //Dugme Pacijent
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            LogovanjePacijenta win = new LogovanjePacijenta();
+            LogovanjePacijenta win = LogovanjePacijenta.getInstance();
             win.Show();
+            
         }
 
         //Dugme Lekar

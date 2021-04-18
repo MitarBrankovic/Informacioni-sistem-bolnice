@@ -1,0 +1,12 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledPacijent.PomeranjeZakazanogTermina"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
+        mc:Ignorable="d"
+        Title="PomeranjeZakazanogTermina" Height="450" Width="506">
+    <Grid Margin="0,0,264,0">
+        
+    </Grid>
+</Window>

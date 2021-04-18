@@ -70,5 +70,77 @@
       "Pol": 1,
       "KontaktTelefon": "069652253"
     }
+  },
+  {
+    "Datum": "2021-04-30T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "khhEcvxk",
+    "sala": {
+      "oprema": null,
+      "Tip": 4,
+      "Naziv": "NTP2",
+      "Sprat": 3,
+      "Dostupnost": false,
+      "Sifra": "ntp1",
+      "NazivSprat": "NTP2 3"
+    },
+    "Vreme": "12:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "Marko Mirkovic",
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": "Marko",
+      "Prezime": "Mirkovic",
+      "Email": null,
+      "Jmbg": null,
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "Sifra": null,
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "pacijent": null
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "alex",
+        "Lozinka": "123",
+        "TipKorisnika": 0,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 21000,
+        "Stan": 21000,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706199",
+      "DatumRodjenja": "1999-06-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "069652253"
+    }
   }
 ]

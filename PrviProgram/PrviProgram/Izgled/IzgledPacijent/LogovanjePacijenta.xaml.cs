@@ -2,6 +2,7 @@
 using Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledPacijent
@@ -11,9 +12,33 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class LogovanjePacijenta : Window
     {
+        private static LogovanjePacijenta instance = null;
+
+        public static LogovanjePacijenta getInstance()
+        {
+            if (instance == null)
+            {
+
+                instance = new LogovanjePacijenta();
+            }
+            return instance;
+        }
+
         public LogovanjePacijenta()
         {
             InitializeComponent();
+          
+           
+        }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = false;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            instance = null;
         }
 
         private void LogovanjeButton_Click(object sender, RoutedEventArgs e)
@@ -42,6 +67,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
 
             }
+            this.Close();
+            instance = null;
         }
 
     }

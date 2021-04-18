@@ -10,9 +10,9 @@
         <Image Source="/Slike/upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>
 
 
-        <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="26" Margin="187,56,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="26" Margin="367,56,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="556,56,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="26" Margin="83,50,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="26" Margin="227,52,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="374,52,0,0" VerticalAlignment="Top" Width="98"/>
 
         <DataGrid x:Name="dataGridPacijenta" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="66,101,54,10">
             <DataGrid.Resources>
