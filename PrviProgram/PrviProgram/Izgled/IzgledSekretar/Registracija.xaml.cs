@@ -38,7 +38,10 @@ namespace PrviProgram.Izgled.Sekretar
             pacijent.Ime = textBoxIme.Text;
             pacijent.Prezime = textBoxPrezime.Text;
             pacijent.Jmbg = textBoxJMBG.Text;
-            pacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+            if (datePickerDatumRodjenja.SelectedDate != null)
+            {
+                pacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+            }
 
             Drzava drzavaRodjenja = new Drzava();
             drzavaRodjenja.Ime = textBoxMestoRodjenjaDrzava.Text;
@@ -61,9 +64,10 @@ namespace PrviProgram.Izgled.Sekretar
 
             Adresa adresa = new Adresa();
             adresa.Ulica = textBoxUlica.Text;
-            adresa.Broj = int.Parse(textBoxBroj.Text);
-            adresa.Sprat = int.Parse(textBoxSprat.Text);
-            adresa.Stan = int.Parse(textBoxStan.Text);
+            int temp;
+            adresa.Broj = int.TryParse(textBoxBroj.Text, out temp) ? temp : default;
+            adresa.Sprat = int.TryParse(textBoxSprat.Text, out temp) ? temp : default;
+            adresa.Stan = int.TryParse(textBoxStan.Text, out temp) ? temp : default;
             adresa.grad = grad;
 
             pacijent.AdresaStanovanja = adresa;
