@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Izgled.IzgledLekar;
 using PrviProgram.Logika.Controllers;
 using Service.LekarService;
 using System.Collections.ObjectModel;
@@ -72,10 +73,25 @@ namespace PrviProgram.Izgled.Lekar
 
 
         }
+        private void Informacije_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                InformacijePacijent info = new InformacijePacijent(termini, (Termin)dataGridLekar.SelectedItem);
+                info.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+
+            }
+        }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        
     }
 }

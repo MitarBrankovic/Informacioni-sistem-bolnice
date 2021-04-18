@@ -4,6 +4,7 @@
     "TipTermina": 2,
     "SifraTermina": "XAoTZZF4",
     "sala": {
+      "oprema": null,
       "Tip": 0,
       "Naziv": "NTP 1",
       "Sprat": 1,
@@ -12,6 +13,7 @@
       "NazivSprat": "NTP 1 1"
     },
     "Vreme": "10:00",
+    "guestPacijent": null,
     "lekar": {
       "termin": null,
       "ImePrezime": "d d",
@@ -23,40 +25,123 @@
       "Email": null,
       "Jmbg": null,
       "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
+      "Pol": 0,
+      "KontaktTelefon": null
     },
     "pacijent": {
-      "termin": [],
+      "termin": [
+        {
+          "Datum": "2021-04-21T00:00:00",
+          "TipTermina": 2,
+          "SifraTermina": "XAoTZZF4",
+          "sala": {
+            "oprema": null,
+            "Tip": 0,
+            "Naziv": "NTP 1",
+            "Sprat": 1,
+            "Dostupnost": true,
+            "Sifra": "ntp1",
+            "NazivSprat": "NTP 1 1"
+          },
+          "Vreme": "10:00",
+          "guestPacijent": null,
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "d d",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "d",
+            "Prezime": "d",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "Sifra": null,
+              "alergen": null,
+              "pacijent": null,
+              "anamneza": null,
+              "recept": null,
+              "terapija": null
+            },
+            "MestoRodjenja": {
+              "Ime": "Zrenjanin",
+              "drzava": {
+                "Ime": "Srbija"
+              }
+            },
+            "Korisnik": {
+              "KorisnickoIme": "darko",
+              "Lozinka": "darko",
+              "TipKorisnika": 0,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": "nekaulica",
+              "Broj": 32,
+              "Sprat": 4,
+              "Stan": 12,
+              "grad": {
+                "Ime": "Novi Sad",
+                "drzava": {
+                  "Ime": "Srbija"
+                }
+              }
+            },
+            "Ime": "Darko",
+            "Prezime": "Vrbaski",
+            "Email": "darko@uns.ac.rs",
+            "Jmbg": "125125125",
+            "DatumRodjenja": "1999-05-04T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": "06412515152"
+          }
+        }
+      ],
       "kartonPacijenta": {
         "Sifra": null,
-        "Terapija": null,
-        "Alergeni": null,
-        "IstorijaBolesti": null,
-        "pacijent": null
+        "alergen": null,
+        "pacijent": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null
       },
       "MestoRodjenja": {
-        "Ime": null,
-        "drzava": null
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
       },
       "Korisnik": {
-        "KorisnickoIme": "s",
-        "Lozinka": "s",
+        "KorisnickoIme": "darko",
+        "Lozinka": "darko",
         "TipKorisnika": 0,
         "osoba": null
       },
       "AdresaStanovanja": {
-        "Ulica": null,
-        "Broj": 0,
-        "Zgrada": 0,
-        "Sprat": 0,
-        "grad": null
+        "Ulica": "nekaulica",
+        "Broj": 32,
+        "Sprat": 4,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
       },
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": "s@g.c",
-      "Jmbg": "srdjanJMBG",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": "darko@uns.ac.rs",
+      "Jmbg": "125125125",
+      "DatumRodjenja": "1999-05-04T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06412515152"
     }
   }
 ]
