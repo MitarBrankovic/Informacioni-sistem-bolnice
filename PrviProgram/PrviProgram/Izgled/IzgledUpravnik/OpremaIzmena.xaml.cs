@@ -76,6 +76,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     this.opreme.Remove(this.oprema);
                     this.opreme.Add(novaOprema);
+
+                    foreach (Oprema o in sala.oprema.ToArray())
+                    {
+                        if (o.Naziv.Equals(this.oprema.Naziv))
+                        {
+                            sala.GetOprema().Remove(o);
+                        }
+                    }
+                    sala.oprema.Add(novaOprema);
                 }
 
                 this.Close();

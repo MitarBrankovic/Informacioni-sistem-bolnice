@@ -91,6 +91,8 @@ namespace PrviProgram.Izgled.Upravnik
                 novaSala.Naziv = Naziv.Text;
                 novaSala.Sifra = Sifra.Text;
                 novaSala.Sprat = int.Parse(Sprat.Text);
+                //novaSala.oprema = sala.GetOprema();
+                novaSala.SetOprema(sala.GetOprema());
 
 
                 String tip = Tip.Text;

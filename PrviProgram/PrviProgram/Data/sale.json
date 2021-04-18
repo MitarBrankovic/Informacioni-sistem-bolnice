@@ -11,26 +11,16 @@
   {
     "oprema": [
       {
-        "Naziv": "zavoji",
-        "Kolicina": 22,
-        "Tip": 1
-      },
-      {
-        "Naziv": "rukavice",
-        "Kolicina": 1313,
-        "Tip": 1
-      },
-      {
-        "Naziv": "kreveti",
-        "Kolicina": 15,
+        "Naziv": "BBBBB",
+        "Kolicina": 111111,
         "Tip": 0
       }
     ],
-    "Tip": 0,
-    "Naziv": "NTP 2",
-    "Sprat": 232,
+    "Tip": 2,
+    "Naziv": "Magacin",
+    "Sprat": 2222,
     "Dostupnost": true,
-    "Sifra": "asdasd",
-    "NazivSprat": "NTP 2 232"
+    "Sifra": "mag11",
+    "NazivSprat": "Magacin 2222"
   }
 ]

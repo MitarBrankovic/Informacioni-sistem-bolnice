@@ -73,6 +73,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (upr.DodavanjeOpreme(tempOprema, sala) == true)
                 {
                     this.opreme.Add(tempOprema);
+                    sala.oprema.Add(tempOprema);
                 }
 
                 this.Close();

@@ -56,6 +56,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (dataGridOprema.SelectedIndex != -1)
             {
                 Oprema op = (Oprema)dataGridOprema.SelectedItem;
+                foreach (Oprema o in sala.oprema.ToArray()) {
+                    if (o.Naziv.Equals(op.Naziv)) {
+                        sala.GetOprema().Remove(o);
+                    }
+                }
                 opremaService.BrisanjeOpreme(op, sala);
                 opreme.Remove(op);
             }
