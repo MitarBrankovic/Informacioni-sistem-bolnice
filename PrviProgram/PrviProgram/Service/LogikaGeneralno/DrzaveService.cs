@@ -1,15 +1,16 @@
-﻿using Model;
-using PrviProgram.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Model;
+using Repository;
 
-namespace PrviProgram.Service.LogikaGeneralno
+namespace Service.LogikaGeneralno
 {
     class DrzaveService
     {
+        private DrzaveRepository drzaveRepository = new DrzaveRepository();
+
         public bool DodavanjeDrzave(Drzava drzava)
         {
-            DrzaveRepository datoteka = new DrzaveRepository();
-            List<Drzava> drzave = datoteka.CitanjeIzFajla();
+            List<Drzava> drzave = drzaveRepository.CitanjeIzFajla();
             foreach (Drzava d in drzave)
             {
                 if (d.Ime.Equals(drzava.Ime))
@@ -18,14 +19,12 @@ namespace PrviProgram.Service.LogikaGeneralno
                 }
             }
             drzave.Add(drzava);
-            datoteka.UpisivanjeUFajl(drzave);
+            drzaveRepository.UpisivanjeUFajl(drzave);
             return false;
         }
-
         public List<Drzava> PregledSvihDrzava()
         {
-            DrzaveRepository datoteka = new DrzaveRepository();
-            List<Drzava> drzave = datoteka.CitanjeIzFajla();
+            List<Drzava> drzave = drzaveRepository.CitanjeIzFajla();
             return drzave;
         }
 

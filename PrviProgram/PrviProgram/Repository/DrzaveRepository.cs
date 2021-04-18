@@ -1,9 +1,9 @@
-﻿using Model;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Model;
+using Newtonsoft.Json;
 
-namespace PrviProgram.Repository
+namespace Repository
 {
     class DrzaveRepository
     {
@@ -35,7 +35,11 @@ namespace PrviProgram.Repository
                     drzave = JsonConvert.DeserializeObject<List<Drzava>>(jsonText);
                 }
             }
-
+            return drzave;
+        }
+        public List<Drzava> PregledSvihDrzava()
+        {
+            List<Drzava> drzave = this.CitanjeIzFajla();
             return drzave;
         }
 
