@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using PrviProgram.Izgled.Sekretar;
+using PrviProgram.Izgled.IzgledSekretar;
 using Service.SekretarService;
 
-namespace PrviProgram.Izgled.IzgledSekretar
+namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class PrikazPacijenta : Window
     {

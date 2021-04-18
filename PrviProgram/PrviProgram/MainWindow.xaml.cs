@@ -2,7 +2,6 @@
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
 using PrviProgram.Izgled.Lekar;
-using PrviProgram.Izgled.Sekretar;
 using PrviProgram.Repository;
 using Service.LekarService;
 using Service.SekretarService;

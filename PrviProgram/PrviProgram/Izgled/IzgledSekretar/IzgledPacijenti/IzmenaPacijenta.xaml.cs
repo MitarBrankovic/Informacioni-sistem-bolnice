@@ -5,7 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace PrviProgram.Izgled.Sekretar
+namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class IzmenaPacijenta : Window
     {

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace PrviProgram.Izgled.Sekretar
+namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class Registracija : Window
     {
