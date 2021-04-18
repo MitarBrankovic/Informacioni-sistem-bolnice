@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using PrviProgram.Izgled.IzgledSekretar;
+using PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni;
 
 namespace PrviProgram.Izgled.IzgledSekretar
 {
