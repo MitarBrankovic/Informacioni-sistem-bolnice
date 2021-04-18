@@ -1,15 +1,16 @@
-﻿using Service.SekretarService;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
+using PrviProgram.Izgled.Sekretar;
+using Service.SekretarService;
 
-namespace PrviProgram.Izgled.Sekretar
+namespace PrviProgram.Izgled.IzgledSekretar
 {
-    public partial class WindowSekretar : Window
+    public partial class PrikazPacijenta : Window
     {
         public PacijentiService upravljanje;
         public ObservableCollection<Model.Pacijent> pacijenti;
 
-        public WindowSekretar()
+        public PrikazPacijenta()
         {
             InitializeComponent();
             upravljanje = new PacijentiService();

@@ -1,5 +1,6 @@
 ﻿using Model;
 using PrviProgram.Izgled.IzgledPacijent;
+using PrviProgram.Izgled.IzgledSekretar;
 using PrviProgram.Izgled.Lekar;
 using PrviProgram.Izgled.Sekretar;
 using PrviProgram.Repository;
@@ -43,7 +44,7 @@ namespace PrviProgram
         //Dugme Sekretar
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowSekretar win = new WindowSekretar();
+            PocetniPrikaz win = new PocetniPrikaz();
             win.Show();
         }
 
