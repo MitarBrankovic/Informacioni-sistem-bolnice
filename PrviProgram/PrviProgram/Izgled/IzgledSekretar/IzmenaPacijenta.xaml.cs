@@ -64,7 +64,10 @@ namespace PrviProgram.Izgled.Sekretar
             noviPacijent.Ime = textBoxIme.Text;
             noviPacijent.Prezime = textBoxPrezime.Text;
             noviPacijent.Jmbg = textBoxJMBG.Text;
-            noviPacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+            if (datePickerDatumRodjenja.SelectedDate != null)
+            {
+                noviPacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+            }
 
             Drzava drzavaRodjenja = new Drzava();
             drzavaRodjenja.Ime = textBoxMestoRodjenjaDrzava.Text;
@@ -87,9 +90,10 @@ namespace PrviProgram.Izgled.Sekretar
 
             Adresa adresa = new Adresa();
             adresa.Ulica = textBoxUlica.Text;
-            adresa.Broj = int.Parse(textBoxBroj.Text);
-            adresa.Sprat = int.Parse(textBoxSprat.Text);
-            adresa.Stan = int.Parse(textBoxStan.Text);
+            int temp;
+            adresa.Broj = int.TryParse(textBoxBroj.Text, out temp) ? temp : default;
+            adresa.Sprat = int.TryParse(textBoxSprat.Text, out temp) ? temp : default;
+            adresa.Stan = int.TryParse(textBoxStan.Text, out temp) ? temp : default;
             adresa.grad = grad;
 
             noviPacijent.AdresaStanovanja = adresa;
@@ -115,5 +119,24 @@ namespace PrviProgram.Izgled.Sekretar
         {
             this.Close();
         }
+
+        private void textBoxGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Grad grad = (Grad)textBoxGrad.SelectedItem;
+            if (grad != null)
+            {
+                textBoxDrzava.Text = grad.drzava.Ime;
+            }
+        }
+
+        private void textBoxMestoRodjenjaGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Grad grad = (Grad)textBoxMestoRodjenjaGrad.SelectedItem;
+            if (grad != null)
+            {
+                textBoxMestoRodjenjaDrzava.Text = grad.drzava.Ime;
+            }
+        }
+
     }
 }
