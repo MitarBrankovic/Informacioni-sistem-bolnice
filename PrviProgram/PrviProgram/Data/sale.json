@@ -1,11 +1,36 @@
 [
   {
-    "oprema": null,
+    "oprema": [],
     "Tip": 0,
     "Naziv": "NTP 1",
     "Sprat": 1,
     "Dostupnost": true,
     "Sifra": "ntp1",
     "NazivSprat": "NTP 1 1"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "zavoji",
+        "Kolicina": 22,
+        "Tip": 1
+      },
+      {
+        "Naziv": "rukavice",
+        "Kolicina": 1313,
+        "Tip": 1
+      },
+      {
+        "Naziv": "kreveti",
+        "Kolicina": 15,
+        "Tip": 0
+      }
+    ],
+    "Tip": 0,
+    "Naziv": "NTP 2",
+    "Sprat": 232,
+    "Dostupnost": true,
+    "Sifra": "asdasd",
+    "NazivSprat": "NTP 2 232"
   }
 ]

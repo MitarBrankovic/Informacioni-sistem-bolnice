@@ -1,18 +1,21 @@
-/***********************************************************************
- * Module:  Oprema.cs
- * Author:  Darko
- * Purpose: Definition of the Class Model.Oprema
- ***********************************************************************/
-
-using System;
-
 namespace Model
 {
    public class Oprema
    {
-      private String Naziv;
-      private int Kolicina;
-      private TipOpreme Tip;
-   
-   }
+        public Oprema()
+        {
+            // TODO: implement
+        }
+
+        ~Oprema()
+        {
+            // TODO: implement
+        }
+
+
+        public string Naziv { get; set; }
+        public int Kolicina { get; set; }
+        public TipOpreme Tip { get; set; }
+
+    }
 }

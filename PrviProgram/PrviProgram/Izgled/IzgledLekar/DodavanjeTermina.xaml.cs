@@ -1,5 +1,6 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
+using PrviProgram.Repository;
 using Service.LekarService;
 using Service.SekretarService;
 using Service.UpravnikService;
@@ -20,6 +21,7 @@ namespace PrviProgram.Izgled.Lekar
         private PreglediService upr;
         private PacijentiService uprPac;
         private SaleService uprSal;
+        private SalaRepository saleRep;
         private ObservableCollection<Termin> termini;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini)
@@ -71,7 +73,7 @@ namespace PrviProgram.Izgled.Lekar
 
 
             Sala tempSala = new Sala();
-            tempSala = uprSal.PregledSale(Sala.Text);
+            tempSala = saleRep.PregledSale(Sala.Text);
             tempTermin.sala = tempSala;
 
 

@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  UpravljanjeSalama.cs
- * Author:  Saska
- * Purpose: Definition of the Class Logika.LogikaLekar.UpravljanjeSalama
- ***********************************************************************/
-
 using Model;
 using PrviProgram.Repository;
 using System.Collections.Generic;
@@ -39,20 +33,6 @@ namespace Service.UpravnikService
             return true;
         }
 
-        public Sala PregledSale(string sifraSale)
-        {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> pacijenti = datoteka.CitanjeIzFajla();
-            foreach (Sala s in pacijenti)
-            {
-                if (s.Sifra.Equals(sifraSale))
-                {
-                    return s;
-                }
-            }
-            return null;
-        }
-
         public bool BrisanjeSale(Sala sala)
         {
             SalaRepository datoteka = new SalaRepository();
@@ -86,11 +66,6 @@ namespace Service.UpravnikService
             return false;
         }
 
-        public List<Sala> PregledSvihSala()
-        {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            return sale;
-        }
+
     }
 }

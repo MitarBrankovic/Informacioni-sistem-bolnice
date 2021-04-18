@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Service.LekarService;
 using Service.PacijentService;
 using Service.UpravnikService;
@@ -16,6 +17,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
     public partial class DodavanjeTermina : Window
     {
         private SaleService uprSal;
+        private SalaRepository saleRep;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini, Pacijent p)
         {
@@ -142,7 +144,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 Random rnd = new Random();
 
                 List<Sala> sale = new List<Sala>();
-                sale = uprSal.PregledSvihSala();
+                sale = saleRep.PregledSvihSala();
 
                 Sala tempSala = new Sala();
                 if (sale[0] != null)

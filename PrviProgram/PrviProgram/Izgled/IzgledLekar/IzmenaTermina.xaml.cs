@@ -1,5 +1,6 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
+using PrviProgram.Repository;
 using Service.LekarService;
 using Service.PacijentService;
 using Service.SekretarService;
@@ -19,6 +20,7 @@ namespace PrviProgram.Izgled.Lekar
 
         private PacijentiService UpravljanjePacijentima;
         private SaleService UpravljanjeSalama;
+        private SalaRepository saleRep;
         private TerminiService UpravljanjeTerminima;
         private PreglediService UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
@@ -58,7 +60,7 @@ namespace PrviProgram.Izgled.Lekar
 
             if (termin.sala != null)
             {
-                if (UpravljanjeSalama.PregledSale(termin.sala.Sifra) != null)
+                if (saleRep.PregledSale(termin.sala.Sifra) != null)
                 {
                     //if (uprSal.PregledSale(termin.sala.Sifra).Dostupnost == true)
                     //{
@@ -99,7 +101,7 @@ namespace PrviProgram.Izgled.Lekar
             this.termini.Remove(this.termin);
 
             Sala tempSala = new Sala();
-            tempSala = UpravljanjeSalama.PregledSale(Sala.Text);
+            tempSala = saleRep.PregledSale(Sala.Text);
             termin.sala = tempSala;
             this.termin.sala = tempSala;
 

@@ -24,9 +24,10 @@
                 <DataGridTextColumn Header="Dostupnost" Binding="{Binding Dostupnost}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="187,56,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="311,56,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="436,56,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="151,57,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="275,57,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="400,57,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Oprema" Click="Oprema_Click"  Content="Oprema" HorizontalAlignment="Left" Height="26" Margin="527,57,0,0" VerticalAlignment="Top" Width="98" />
 
     </Grid>
 </Window>
