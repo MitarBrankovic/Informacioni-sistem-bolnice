@@ -61,6 +61,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     {
                         PregledTermina win = PregledTermina.getInstance(p);
                         win.Show();
+                        instance = null;
                         break;
                     }
 

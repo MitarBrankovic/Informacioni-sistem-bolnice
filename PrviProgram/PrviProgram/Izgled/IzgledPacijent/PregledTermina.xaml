@@ -9,7 +9,7 @@
     <Grid>
         <Image Source="/Slike/upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>
 
-
+        <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click"  Content="Pomeranje zakazanog termina" HorizontalAlignment="Left" Height="26" Margin="508,53,0,0" VerticalAlignment="Top" Width="232" />
         <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="26" Margin="83,50,0,0" VerticalAlignment="Top" Width="98" />
         <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="26" Margin="227,52,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="374,52,0,0" VerticalAlignment="Top" Width="98"/>
@@ -31,6 +31,7 @@
                 <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar.ImePrezime}"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
 
     </Grid>
 </Window>
