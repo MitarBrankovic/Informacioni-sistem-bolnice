@@ -42,7 +42,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
 
             }
-            this.Close();
         }
 
     }

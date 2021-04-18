@@ -27,7 +27,7 @@
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}"  Width="102"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}"  Width="102"/>
                 <DataGridTextColumn Header="Vreme" Binding="{Binding Vreme, StringFormat='HH:mm:ss'}"  Width="102"/>
-                <DataGridTextColumn Header="Sala"  Binding="{Binding  sala.Sifra}"  Width="102"/>
+                <DataGridTextColumn Header="Sala"  Binding="{Binding  sala.Naziv}"  Width="102"/>
                 <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar.ImePrezime}"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

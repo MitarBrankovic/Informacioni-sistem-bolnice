@@ -1,11 +1,11 @@
 [
   {
     "oprema": null,
-    "Tip": 0,
-    "Naziv": "NTP 1",
-    "Sprat": 1,
-    "Dostupnost": true,
+    "Tip": 4,
+    "Naziv": "NTP2",
+    "Sprat": 3,
+    "Dostupnost": false,
     "Sifra": "ntp1",
-    "NazivSprat": "NTP 1 1"
+    "NazivSprat": "NTP2 3"
   }
 ]

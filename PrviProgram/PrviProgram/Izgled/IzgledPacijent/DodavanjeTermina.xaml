@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Dodavanje Termina" Height="350" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-6" HorizontalAlignment="Center" Width="567">
@@ -52,7 +53,7 @@
         </ComboBox>
         <TextBox x:Name="ImeLekara" HorizontalAlignment="Left" Margin="262,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"  TextChanged="ImeLekara_TextChanged"/>
         <TextBox x:Name="PrezimeLekara" HorizontalAlignment="Left" Margin="264,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"  TextChanged="PrezimeLekara_TextChanged" Grid.Row="1"/>
-        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,34,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="datum_SelectedDateChanged"/>
+        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,34,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="datum_SelectedDateChanged" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
         <Label Content="Vreme"  HorizontalAlignment="Left" Height="25" Margin="115,79,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.495,0.562"/>
         <Button Content="Otkazi" HorizontalAlignment="Left" Height="27" Margin="244,99,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
     </Grid>

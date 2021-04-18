@@ -1,62 +1,74 @@
 [
   {
-    "Datum": "2021-04-21T00:00:00",
+    "Datum": "2021-04-30T00:00:00",
     "TipTermina": 2,
-    "SifraTermina": "XAoTZZF4",
+    "SifraTermina": "a4LvUyXU",
     "sala": {
-      "Tip": 0,
-      "Naziv": "NTP 1",
-      "Sprat": 1,
-      "Dostupnost": true,
+      "oprema": null,
+      "Tip": 4,
+      "Naziv": "NTP2",
+      "Sprat": 3,
+      "Dostupnost": false,
       "Sifra": "ntp1",
-      "NazivSprat": "NTP 1 1"
+      "NazivSprat": "NTP2 3"
     },
-    "Vreme": "10:00",
+    "Vreme": "09:30",
+    "guestPacijent": null,
     "lekar": {
       "termin": null,
-      "ImePrezime": "d d",
+      "ImePrezime": "Marko Markovic",
       "MestoRodjenja": null,
       "Korisnik": null,
       "AdresaStanovanja": null,
-      "Ime": "d",
-      "Prezime": "d",
+      "Ime": "Marko",
+      "Prezime": "Markovic",
       "Email": null,
       "Jmbg": null,
       "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
+      "Pol": 0,
+      "KontaktTelefon": null
     },
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
         "Sifra": null,
-        "Terapija": null,
-        "Alergeni": null,
-        "IstorijaBolesti": null,
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
         "pacijent": null
       },
       "MestoRodjenja": {
-        "Ime": null,
-        "drzava": null
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
       },
       "Korisnik": {
-        "KorisnickoIme": "s",
-        "Lozinka": "s",
+        "KorisnickoIme": "alex",
+        "Lozinka": "123",
         "TipKorisnika": 0,
         "osoba": null
       },
       "AdresaStanovanja": {
-        "Ulica": null,
-        "Broj": 0,
-        "Zgrada": 0,
-        "Sprat": 0,
-        "grad": null
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 21000,
+        "Stan": 21000,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
       },
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": "s@g.c",
-      "Jmbg": "srdjanJMBG",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706199",
+      "DatumRodjenja": "1999-06-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "069652253"
     }
   }
 ]

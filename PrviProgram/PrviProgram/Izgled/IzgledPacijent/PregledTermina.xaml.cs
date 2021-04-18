@@ -58,7 +58,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             if (dataGridPacijenta.SelectedItem != null)
             {
                 TerminiService.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem, pacijent);
-                PreglediService.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
+                //PreglediService.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
                 termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
             }
             else

@@ -95,7 +95,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             if (TerminiService.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
             {
-                PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
+              //  PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);
             }
             this.Close();
