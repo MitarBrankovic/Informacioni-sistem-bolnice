@@ -1,0 +1,23 @@
+[
+  {
+    "alergen": null,
+    "izvrseniPregled": [
+      {
+        "Termin": null,
+        "anamneza": {
+          "Opis": "anamneza"
+        },
+        "recept": {
+          "VremenskiPeriodUzimanjaLeka": "0001-01-01T00:00:00",
+          "Lekovi": "lekovi"
+        },
+        "terapija": {
+          "Opis": "terapija",
+          "Datum": "0001-01-01T00:00:00"
+        }
+      }
+    ],
+    "Sifra": "sifraKartona",
+    "pacijent": null
+  }
+]

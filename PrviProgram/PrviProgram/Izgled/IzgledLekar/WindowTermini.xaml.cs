@@ -87,6 +87,22 @@ namespace PrviProgram.Izgled.Lekar
             }
         }
 
+
+        private void Anamneza_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(termini, (Termin)dataGridLekar.SelectedItem);
+                anamneza.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+
+            }
+        }
+
+
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

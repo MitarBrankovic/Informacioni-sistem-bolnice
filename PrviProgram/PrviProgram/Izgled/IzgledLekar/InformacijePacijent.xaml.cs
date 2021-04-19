@@ -51,7 +51,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void zdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-
+            ZdravstveniKarton zdravstveniKarton = new ZdravstveniKarton(termin.pacijent);
+            zdravstveniKarton.Show();
         }
 
         private void zatviri_Click(object sender, RoutedEventArgs e)

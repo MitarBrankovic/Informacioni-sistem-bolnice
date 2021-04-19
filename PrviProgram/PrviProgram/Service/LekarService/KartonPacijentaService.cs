@@ -26,6 +26,12 @@ namespace Service.LekarService
          // TODO: implement
       }
    
+
+        public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, KartonPacijenta kartonPacijenta)
+        {
+            kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+        }
+
       public Repository.KartonPacijentaRepository kartonPacijentaRepository;
    
    }

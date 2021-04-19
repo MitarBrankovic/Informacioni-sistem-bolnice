@@ -9,207 +9,101 @@ using System.Collections.Generic;
 
 namespace Model
 {
-   public class KartonPacijenta
-   {
-      public string Sifra;
-      
-      public System.Collections.ArrayList alergen;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetAlergen()
-      {
-         if (alergen == null)
-            alergen = new System.Collections.ArrayList();
-         return alergen;
-      }
-      
-      /// <pdGenerated>default setter</pdGenerated>
-      public void SetAlergen(System.Collections.ArrayList newAlergen)
-      {
-         RemoveAllAlergen();
-         foreach (Alergen oAlergen in newAlergen)
-            AddAlergen(oAlergen);
-      }
-      
-      /// <pdGenerated>default Add</pdGenerated>
-      public void AddAlergen(Alergen newAlergen)
-      {
-         if (newAlergen == null)
-            return;
-         if (this.alergen == null)
-            this.alergen = new System.Collections.ArrayList();
-         if (!this.alergen.Contains(newAlergen))
-            this.alergen.Add(newAlergen);
-      }
-      
-      /// <pdGenerated>default Remove</pdGenerated>
-      public void RemoveAlergen(Alergen oldAlergen)
-      {
-         if (oldAlergen == null)
-            return;
-         if (this.alergen != null)
-            if (this.alergen.Contains(oldAlergen))
-               this.alergen.Remove(oldAlergen);
-      }
-      
-      /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllAlergen()
-      {
-         if (alergen != null)
-            alergen.Clear();
-      }
+    public class KartonPacijenta
+    {
+        public string Sifra { get; set; }
 
-
-      //public Anamneza anamneza;
-      //public Recept recept;
-      //public Terapija terapija;
-      public Pacijent pacijent;
-
-        public List<Anamneza> anamneza;
-        public List<Recept> recept;
-        public List<Terapija> terapija;
-
-        /*public System.Collections.ArrayList anamneza;
+        public System.Collections.ArrayList alergen;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetAnamneza()
+        public System.Collections.ArrayList GetAlergen()
         {
-            if (anamneza == null)
-                anamneza = new System.Collections.ArrayList();
-            return anamneza;
+            if (alergen == null)
+                alergen = new System.Collections.ArrayList();
+            return alergen;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetAnamneza(System.Collections.ArrayList newAnamneza)
+        public void SetAlergen(System.Collections.ArrayList newAlergen)
         {
-            RemoveAllAnamneza();
-            foreach (Anamneza oAnamneza in newAnamneza)
-                AddAnamneza(oAnamneza);
+            RemoveAllAlergen();
+            foreach (Alergen oAlergen in newAlergen)
+                AddAlergen(oAlergen);
         }
 
         /// <pdGenerated>default Add</pdGenerated>
-        public void AddAnamneza(Anamneza newAnamneza)
+        public void AddAlergen(Alergen newAlergen)
         {
-            if (newAnamneza == null)
+            if (newAlergen == null)
                 return;
-            if (this.anamneza == null)
-                this.anamneza = new System.Collections.ArrayList();
-            if (!this.anamneza.Contains(newAnamneza))
-                this.anamneza.Add(newAnamneza);
+            if (this.alergen == null)
+                this.alergen = new System.Collections.ArrayList();
+            if (!this.alergen.Contains(newAlergen))
+                this.alergen.Add(newAlergen);
         }
 
         /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveAnamneza(Anamneza oldAnamneza)
+        public void RemoveAlergen(Alergen oldAlergen)
         {
-            if (oldAnamneza == null)
+            if (oldAlergen == null)
                 return;
-            if (this.anamneza != null)
-                if (this.anamneza.Contains(oldAnamneza))
-                    this.anamneza.Remove(oldAnamneza);
+            if (this.alergen != null)
+                if (this.alergen.Contains(oldAlergen))
+                    this.alergen.Remove(oldAlergen);
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>
-        public void RemoveAllAnamneza()
+        public void RemoveAllAlergen()
         {
-            if (anamneza != null)
-                anamneza.Clear();
+            if (alergen != null)
+                alergen.Clear();
         }
-        
-
-
-
-
-        public System.Collections.ArrayList terapija;
+        public List<IzvrseniPregled> izvrseniPregled;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetTerapija()
+        public List<IzvrseniPregled> GetIzvrseniPregled()
         {
-            if (terapija == null)
-                terapija = new System.Collections.ArrayList();
-            return terapija;
+            if (izvrseniPregled == null)
+                izvrseniPregled = new List<IzvrseniPregled>();
+            return izvrseniPregled;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetTerapija(System.Collections.ArrayList newTerapija)
+        public void SetIzvrseniPregled(List<IzvrseniPregled> newIzvrseniPregled)
         {
-            RemoveAllTerapija();
-            foreach (Terapija oTerapija in newTerapija)
-                AddTerapija(oTerapija);
+            RemoveAllIzvrseniPregled();
+            foreach (IzvrseniPregled oIzvrseniPregled in newIzvrseniPregled)
+                AddIzvrseniPregled(oIzvrseniPregled);
         }
 
         /// <pdGenerated>default Add</pdGenerated>
-        public void AddTerapija(Terapija newTerapija)
+        public void AddIzvrseniPregled(IzvrseniPregled newIzvrseniPregled)
         {
-            if (newTerapija == null)
+            if (newIzvrseniPregled == null)
                 return;
-            if (this.terapija == null)
-                this.terapija = new System.Collections.ArrayList();
-            if (!this.terapija.Contains(newTerapija))
-                this.terapija.Add(newTerapija);
+            if (this.izvrseniPregled == null)
+                this.izvrseniPregled = new List<IzvrseniPregled>();
+            if (!this.izvrseniPregled.Contains(newIzvrseniPregled))
+                this.izvrseniPregled.Add(newIzvrseniPregled);
         }
 
         /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveTerapija(Terapija oldTerapija)
+        public void RemoveIzvrseniPregled(IzvrseniPregled oldIzvrseniPregled)
         {
-            if (oldTerapija == null)
+            if (oldIzvrseniPregled == null)
                 return;
-            if (this.terapija != null)
-                if (this.terapija.Contains(oldTerapija))
-                    this.terapija.Remove(oldTerapija);
+            if (this.izvrseniPregled != null)
+                if (this.izvrseniPregled.Contains(oldIzvrseniPregled))
+                    this.izvrseniPregled.Remove(oldIzvrseniPregled);
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>
-        public void RemoveAllTerapija()
+        public void RemoveAllIzvrseniPregled()
         {
-            if (terapija != null)
-                terapija.Clear();
+            if (izvrseniPregled != null)
+                izvrseniPregled.Clear();
         }
+        public Pacijent pacijent { get; set; }
 
-
-        public System.Collections.ArrayList recept;
-
-        /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetRecept()
-        {
-            if (recept == null)
-                recept = new System.Collections.ArrayList();
-            return recept;
-        }
-
-        /// <pdGenerated>default setter</pdGenerated>
-        public void SetRecpet(System.Collections.ArrayList newRecept)
-        {
-            RemoveAllRecept();
-            foreach (Recept oRecept in newRecept)
-                AddRecept(oRecept);
-        }
-
-        /// <pdGenerated>default Add</pdGenerated>
-        public void AddRecept(Recept newRecept)
-        {
-            if (newRecept == null)
-                return;
-            if (this.recept == null)
-                this.recept = new System.Collections.ArrayList();
-            if (!this.recept.Contains(newRecept))
-                this.recept.Add(newRecept);
-        }
-
-        /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveRecept(Recept oldRecept)
-        {
-            if (oldRecept == null)
-                return;
-            if (this.recept != null)
-                if (this.recept.Contains(oldRecept))
-                    this.recept.Remove(oldRecept);
-        }
-
-        /// <pdGenerated>default removeAll</pdGenerated>
-        public void RemoveAllRecept()
-        {
-            if (recept != null)
-                recept.Clear();
-        }*/
     }
 }
