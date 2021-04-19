@@ -33,6 +33,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             Korisnik korisnik = new Korisnik();
             korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
             korisnik.Lozinka = textBoxLozinka.Password;
+            korisnik.TipKorisnika = TipKorisnika.Pacijent;
 
             Pacijent pacijent = new Pacijent();
             pacijent.Ime = textBoxIme.Text;

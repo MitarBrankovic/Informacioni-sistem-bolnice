@@ -7,9 +7,6 @@ using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
-    /// <summary>
-    /// Interaction logic for LogovanjePacijenta.xaml
-    /// </summary>
     public partial class LogovanjePacijenta : Window
     {
         private static LogovanjePacijenta instance = null;
@@ -29,17 +26,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             InitializeComponent();
           
            
-        }
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            instance = null;
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.Close();
-            instance = null;
         }
 
         private void LogovanjeButton_Click(object sender, RoutedEventArgs e)
@@ -62,7 +48,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     {
                         PregledTermina win = new PregledTermina(p);
                         win.Show();
-                        //instance = null;
                         break;
                     }
 

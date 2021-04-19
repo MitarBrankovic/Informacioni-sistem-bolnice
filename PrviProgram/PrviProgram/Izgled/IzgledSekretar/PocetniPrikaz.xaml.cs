@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Model;
 using PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni;
 using PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti;
 
@@ -6,7 +7,7 @@ namespace PrviProgram.Izgled.IzgledSekretar
 {
     public partial class PocetniPrikaz : Window
     {
-        public PocetniPrikaz()
+        public PocetniPrikaz(Sekretar sekretar)
         {
             InitializeComponent();
         }

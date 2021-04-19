@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Model;
 using Newtonsoft.Json;
 
@@ -55,6 +56,13 @@ namespace Repository
         {
             List<Pacijent> pacijenti = this.CitanjeIzFajla();
             return pacijenti;
+        }
+
+        public List<Korisnik> PregledSvihKorisnika()
+        {
+            List<Pacijent> pacijenti = this.CitanjeIzFajla();
+            List<Korisnik> korisnici = pacijenti.Select(o => o.Korisnik).ToList();
+            return korisnici;
         }
 
     }

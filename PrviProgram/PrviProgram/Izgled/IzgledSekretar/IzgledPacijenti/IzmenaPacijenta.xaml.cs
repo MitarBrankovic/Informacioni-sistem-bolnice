@@ -58,6 +58,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             Model.Korisnik korisnik = new Model.Korisnik();
             korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
             korisnik.Lozinka = textBoxLozinka.Password;
+            korisnik.TipKorisnika = this.pacijent.Korisnik.TipKorisnika;
 
             Model.Pacijent noviPacijent = new Model.Pacijent();
             noviPacijent.Ime = textBoxIme.Text;

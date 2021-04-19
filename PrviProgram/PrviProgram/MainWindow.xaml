@@ -9,10 +9,7 @@
     <Grid>
 
         <Image Source ="\Slike\hospital-2.jpg" Stretch="UniformToFill" Margin="-20,0,0,0"/>
-        <Button Content="Upravnik" Margin="50,349,622,26" Click="Button_Click"/>
-        <Button Content="Doktor" Margin="244,349,428,26" Click="Button_Click_3"/>
-        <Button Content="Pacijent" Margin="443,349,229,26" Click="Button_Click_2"/>
-        <Button Content="Sekretar" Margin="630,349,42,26" Click="Button_Click_1"/>
+        <Button Content="Prijavite se" Margin="336,353,336,22" Click="Prijavi_se_Click"/>
 
 
     </Grid>

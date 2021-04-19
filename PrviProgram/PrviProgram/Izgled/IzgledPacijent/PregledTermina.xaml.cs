@@ -10,9 +10,6 @@ using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
-    /// <summary>
-    /// Interaction logic for PregledTermina.xaml
-    /// </summary>
     public partial class PregledTermina : Window
     {
         public DateTime trenutniDatum { get; set; }
@@ -21,29 +18,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime trenutnoVreme { get; set; }
         public DateTime vremeTermina { get; set; }
 
-        private static PregledTermina instance = null;
-
-        public static PregledTermina getInstance(Pacijent p)
-        {
-            if (instance == null)
-            {
-
-                instance = new PregledTermina(p);
-            }
-            return instance;
-        }
         ObservableCollection<Termin> termini { get; set; }
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            instance = null;
-        }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.Close();
-            instance = null;
-        }
         public PregledTermina(Pacijent p)
         {
 
