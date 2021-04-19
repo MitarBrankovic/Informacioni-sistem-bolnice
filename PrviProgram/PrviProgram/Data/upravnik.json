@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "MestoRodjenja": null,
+    "Korisnik": {
+      "KorisnickoIme": "mitar",
+      "Lozinka": "mitar",
+      "TipKorisnika": 0,
+      "osoba": null
+    },
+    "AdresaStanovanja": null,
+    "Ime": "Mitar",
+    "Prezime": "Brankovic",
+    "Email": null,
+    "Jmbg": "1241254125",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0,
+    "KontaktTelefon": null
+  }
+]

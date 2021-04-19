@@ -1,18 +1,13 @@
-﻿using Model;
-using PrviProgram.Izgled.IzgledUpravnik;
-using PrviProgram.Izgled.Upravnik;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+using Model;
 using PrviProgram.Logika;
 using PrviProgram.Repository;
 using Service.UpravnikService;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
 
-namespace PrviProgram
+namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class WindowUpravnik : Window
     {
         private static WindowUpravnik instance = null;

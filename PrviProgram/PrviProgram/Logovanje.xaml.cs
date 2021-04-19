@@ -4,6 +4,7 @@ using System.Windows;
 using Model;
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
+using PrviProgram.Izgled.IzgledUpravnik;
 using Repository;
 
 namespace PrviProgram
@@ -55,8 +56,8 @@ namespace PrviProgram
                         Model.Upravnik upravnik = upravnikRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (upravnik != null)
                         {
-                            //PregledTermina win = PregledTermina.getInstance(pacijent);
-                            //win.Show();
+                            PocetniProzor win = new PocetniProzor(upravnik);
+                            win.Show();
                         }
                         break;
                     }

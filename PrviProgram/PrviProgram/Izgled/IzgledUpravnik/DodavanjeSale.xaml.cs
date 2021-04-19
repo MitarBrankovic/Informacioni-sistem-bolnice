@@ -1,15 +1,11 @@
-﻿using Model;
-using Service.UpravnikService;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
-//using System.Windows.Forms;
+using Model;
+using Service.UpravnikService;
 
-namespace PrviProgram.Izgled.Upravnik
+namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for DodavanjeSale.xaml
-    /// </summary>
     public partial class DodavanjeSale : Window
     {
         private SaleService upr;

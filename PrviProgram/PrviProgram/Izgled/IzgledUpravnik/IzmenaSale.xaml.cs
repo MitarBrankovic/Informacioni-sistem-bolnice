@@ -1,16 +1,13 @@
-﻿using Model;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+using Model;
 using Service.LekarService;
 using Service.PacijentService;
 using Service.UpravnikService;
-using System;
-using System.Collections.ObjectModel;
-using System.Windows;
 
-namespace PrviProgram.Izgled.Upravnik
+namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for IzmenaSale.xaml
-    /// </summary>
     public partial class IzmenaSale : Window
     {
 
