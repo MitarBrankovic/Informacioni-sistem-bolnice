@@ -1,6 +1,7 @@
 ﻿using Model;
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
+using PrviProgram.Izgled.IzgledUpravnik;
 using PrviProgram.Izgled.Lekar;
 using PrviProgram.Repository;
 using Service.LekarService;
@@ -23,20 +24,7 @@ namespace PrviProgram
         //Dugme Upravnik
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowUpravnik win2 = new WindowUpravnik();
-            UpravnikRepository a = new UpravnikRepository("output.json");
-            //a.UpisivanjeUFajl(new Sala());
-            PacijentiService up = new PacijentiService();
-            Pacijent p = new Pacijent();
-            p.Jmbg = "12234";
-            p.kartonPacijenta = new KartonPacijenta();
-            //up.DodavanjePacijenta(p);
-
-            SaleService upravlj = new SaleService();
-            Sala s = new Sala();
-            s.Sifra = "12234";
-            //upravlj.DodavanjeSale(s);
-
+            PocetniProzor win2 = new PocetniProzor();
             win2.Show();
         }
 
