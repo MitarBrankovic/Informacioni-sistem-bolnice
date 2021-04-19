@@ -33,6 +33,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = false;
+            instance = null;
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -59,9 +60,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 {
                     if (p.Korisnik.KorisnickoIme.Equals(ime) && p.Korisnik.Lozinka.Equals(sifra))
                     {
-                        PregledTermina win = PregledTermina.getInstance(p);
+                        PregledTermina win = new PregledTermina(p);
                         win.Show();
-                        instance = null;
+                        //instance = null;
                         break;
                     }
 
@@ -69,7 +70,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
             }
             this.Close();
-            instance = null;
         }
 
     }

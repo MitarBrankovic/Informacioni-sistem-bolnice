@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
         mc:Ignorable="d"
+        Closing="Window_Closing" Closed="Window_Closed"
         Title="Pregled Termina" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Image Source="/Slike/upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>

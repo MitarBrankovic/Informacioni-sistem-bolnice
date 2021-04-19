@@ -29,7 +29,7 @@
                 <ComboBoxItem>Kontrola</ComboBoxItem>
 
             </ComboBox>
-            <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="264,76,0,0" Height="26" >
+            <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="264,76,0,0" Height="26" SelectionChanged="vremeText_SelectionChanged" >
                 <ComboBoxItem>08:00:00</ComboBoxItem>
                 <ComboBoxItem>08:30:00</ComboBoxItem>
                 <ComboBoxItem>09:00:00</ComboBoxItem>
@@ -54,13 +54,14 @@
                 <ComboBoxItem>18:30:00</ComboBoxItem>
                 <ComboBoxItem>19:00:00</ComboBoxItem>
                 <ComboBoxItem>19:30:00</ComboBoxItem>
-
             </ComboBox>
             <TextBox x:Name="ImeLekara"  IsReadOnly="True" HorizontalAlignment="Left" Margin="262,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25" />
             <TextBox x:Name="PrezimeLekara" IsReadOnly="True" HorizontalAlignment="Left" Margin="264,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"  Grid.Row="1"/>
-            <DatePicker x:Name="DatumText"  HorizontalAlignment="Left" Height="25" Margin="262,34,0,0" VerticalAlignment="Top" Width="167"   DisplayDateStart="{x:Static sys:DateTime.Today}">
+            <DatePicker x:Name="DatumText"  HorizontalAlignment="Left" Height="25" Margin="262,34,0,0" VerticalAlignment="Top" Width="167"   DisplayDateStart="{x:Static sys:DateTime.Today}" SelectedDateChanged="DatumText_SelectedDateChanged">
             </DatePicker>
             <Label Content="Vreme"  HorizontalAlignment="Left" Height="25" Margin="115,79,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.495,0.562"/>
+            <Button x:Name="PotvrdiDugme" Content="Potvrdi" HorizontalAlignment="Left" Height="45" Margin="122,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Button_Click_1"/>
+            <Button Content="Otkazi" HorizontalAlignment="Left" Height="45" Margin="282,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102"/>
         </Grid>
 
     </Grid>

@@ -3,6 +3,7 @@ using Service.LekarService;
 using Service.PacijentService;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 
@@ -32,7 +33,17 @@ namespace PrviProgram.Izgled.IzgledPacijent
             return instance;
         }
         ObservableCollection<Termin> termini { get; set; }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = false;
+            instance = null;
+        }
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            instance = null;
+        }
         public PregledTermina(Pacijent p)
         {
 
