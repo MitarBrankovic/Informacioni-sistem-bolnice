@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WindowSekretar" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="143,86,143,28" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
+        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="83,86,203,28" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,9 +23,10 @@
                 <DataGridTextColumn Header="Pol" Width="*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="143,38,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Center" Height="26" Margin="0,38,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="559,38,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="83,38,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="291,38,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="499,38,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Zdravstveni_karton" Click="Zdravstveni_karton_Click"  Content="Zdravstveni&#xD;&#xA;karton" HorizontalAlignment="Left" Height="47" Margin="648,106,0,0" VerticalAlignment="Top" Width="98" />
 
     </Grid>
 </Window>

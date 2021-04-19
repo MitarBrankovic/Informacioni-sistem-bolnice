@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using PrviProgram.Izgled.IzgledSekretar;
+using Model;
 using Service.SekretarService;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
@@ -40,6 +40,15 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
         {
             Registracija d = new Registracija(pacijenti);
             d.Show();
+        }
+
+        private void Zdravstveni_karton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgDataBinding.SelectedItem != null)
+            {
+                ZdravstveniKartonPacijenta zdravstveniKarton = new ZdravstveniKartonPacijenta((Pacijent)dgDataBinding.SelectedItem);
+                zdravstveniKarton.Show();
+            }
         }
     }
 }

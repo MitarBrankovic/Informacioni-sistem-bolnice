@@ -33,11 +33,11 @@
         "pacijent": {
           "termin": [],
           "kartonPacijenta": {
-            "Sifra": null,
             "alergen": null,
             "anamneza": null,
             "recept": null,
             "terapija": null,
+            "Sifra": null,
             "pacijent": null
           },
           "MestoRodjenja": {
@@ -75,11 +75,18 @@
       }
     ],
     "kartonPacijenta": {
-      "Sifra": null,
-      "alergen": null,
+      "alergen": [
+        {
+          "Naziv": "Polen"
+        },
+        {
+          "Naziv": "Jaja"
+        }
+      ],
       "anamneza": null,
       "recept": null,
       "terapija": null,
+      "Sifra": null,
       "pacijent": null
     },
     "MestoRodjenja": {
@@ -109,7 +116,7 @@
     "Ime": "Darko",
     "Prezime": "Vrbaski",
     "Email": "darko@uns.ac.rs",
-    "Jmbg": "125125125",
+    "Jmbg": "12512512",
     "DatumRodjenja": "1999-05-04T00:00:00",
     "Pol": 0,
     "KontaktTelefon": "06412515152"
