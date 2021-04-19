@@ -154,7 +154,7 @@ namespace Service.UpravnikService
       }
 
 
-        public bool dodavanjeTermina(Sala novaSala, Oprema oprema, DateTime datumTermina) {
+        public bool dodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina) {
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
 
@@ -163,6 +163,7 @@ namespace Service.UpravnikService
             termin.oprema = oprema;
             termin.sala = novaSala;
             termin.datumPremestaja = datumTermina;
+            termin.staraSala = stara;
 
             termini.Add(termin);
             datoteka.UpisivanjeUFajl(termini);

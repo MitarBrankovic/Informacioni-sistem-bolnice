@@ -3,15 +3,7 @@
     "Datum": "2021-04-19T00:00:00",
     "TipTermina": 2,
     "SifraTermina": "Qh0efwND",
-    "sala": {
-      "oprema": null,
-      "Tip": 4,
-      "Naziv": "NTP2",
-      "Sprat": 3,
-      "Dostupnost": false,
-      "Sifra": "ntp1",
-      "NazivSprat": "NTP2 3"
-    },
+    "sala": null,
     "Vreme": "08:00:00",
     "guestPacijent": null,
     "lekar": {
@@ -75,15 +67,7 @@
     "Datum": "2021-04-20T00:00:00",
     "TipTermina": 1,
     "SifraTermina": "R8OMHbCM",
-    "sala": {
-      "oprema": null,
-      "Tip": 4,
-      "Naziv": "NTP2",
-      "Sprat": 3,
-      "Dostupnost": false,
-      "Sifra": "ntp1",
-      "NazivSprat": "NTP2 3"
-    },
+    "sala": null,
     "Vreme": "11:00:00",
     "guestPacijent": null,
     "lekar": {
@@ -103,11 +87,11 @@
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
-        "Sifra": null,
         "alergen": null,
         "anamneza": null,
         "recept": null,
         "terapija": null,
+        "Sifra": null,
         "pacijent": null
       },
       "MestoRodjenja": {
@@ -147,15 +131,7 @@
     "Datum": "2021-04-28T00:00:00",
     "TipTermina": 2,
     "SifraTermina": "BrmjdZMK",
-    "sala": {
-      "oprema": null,
-      "Tip": 4,
-      "Naziv": "NTP2",
-      "Sprat": 3,
-      "Dostupnost": false,
-      "Sifra": "ntp1",
-      "NazivSprat": "NTP2 3"
-    },
+    "sala": null,
     "Vreme": "10:30:00",
     "guestPacijent": null,
     "lekar": {
@@ -175,11 +151,11 @@
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
-        "Sifra": null,
         "alergen": null,
         "anamneza": null,
         "recept": null,
         "terapija": null,
+        "Sifra": null,
         "pacijent": null
       },
       "MestoRodjenja": {
@@ -219,15 +195,7 @@
     "Datum": "2021-04-28T00:00:00",
     "TipTermina": 1,
     "SifraTermina": "pFQhWPhl",
-    "sala": {
-      "oprema": null,
-      "Tip": 4,
-      "Naziv": "NTP2",
-      "Sprat": 3,
-      "Dostupnost": false,
-      "Sifra": "ntp1",
-      "NazivSprat": "NTP2 3"
-    },
+    "sala": null,
     "Vreme": "10:00:00",
     "guestPacijent": null,
     "lekar": {
@@ -291,15 +259,7 @@
     "Datum": "2021-04-30T00:00:00",
     "TipTermina": 1,
     "SifraTermina": "vZPYf7sz",
-    "sala": {
-      "oprema": null,
-      "Tip": 4,
-      "Naziv": "NTP2",
-      "Sprat": 3,
-      "Dostupnost": false,
-      "Sifra": "ntp1",
-      "NazivSprat": "NTP2 3"
-    },
+    "sala": null,
     "Vreme": "10:30",
     "guestPacijent": null,
     "lekar": {

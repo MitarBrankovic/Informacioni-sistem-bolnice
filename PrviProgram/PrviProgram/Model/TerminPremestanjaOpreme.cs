@@ -58,6 +58,7 @@ namespace Model
       public Oprema oprema { get; set; }
 
       public Sala sala { get; set; }
+      public Sala staraSala { get; set; }
    
       public DateTime datumPremestaja { get; set; }
    

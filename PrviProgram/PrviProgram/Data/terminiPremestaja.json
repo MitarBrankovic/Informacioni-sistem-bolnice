@@ -1,35 +1,98 @@
 [
   {
     "oprema": {
-      "Naziv": "BBBBB",
-      "Kolicina": 110948,
-      "Tip": 1
+      "Naziv": "Kreveti",
+      "Kolicina": 10,
+      "Tip": 0
     },
     "sala": {
       "oprema": [
         {
-          "Naziv": "AVA",
-          "Kolicina": 22,
-          "Tip": 1
-        },
-        {
-          "Naziv": "NNNN",
-          "Kolicina": 1,
-          "Tip": 1
-        },
-        {
-          "Naziv": "BBBBB",
-          "Kolicina": 142,
-          "Tip": 1
+          "Naziv": "Rukavice",
+          "Kolicina": 5,
+          "Tip": 0
         }
       ],
-      "Tip": 0,
-      "Naziv": "NTP 1",
+      "Tip": 4,
+      "Naziv": "NTP3",
+      "Sprat": 3,
+      "Dostupnost": true,
+      "Sifra": "ntp3",
+      "NazivSprat": "NTP3 3"
+    },
+    "staraSala": {
+      "oprema": [
+        {
+          "Naziv": "Rukavice",
+          "Kolicina": 1,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 20,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 10,
+          "Tip": 0
+        }
+      ],
+      "Tip": 1,
+      "Naziv": "NTP1",
       "Sprat": 1,
       "Dostupnost": true,
       "Sifra": "ntp1",
-      "NazivSprat": "NTP 1 1"
+      "NazivSprat": "NTP1 1"
     },
-    "datumPremestaja": "2021-04-20T00:00:00"
+    "datumPremestaja": "2021-04-19T00:00:00"
+  },
+  {
+    "oprema": {
+      "Naziv": "Rukavice",
+      "Kolicina": 3,
+      "Tip": 0
+    },
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Rukavice",
+          "Kolicina": 1,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 10,
+          "Tip": 0
+        }
+      ],
+      "Tip": 1,
+      "Naziv": "NTP1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp1",
+      "NazivSprat": "NTP1 1"
+    },
+    "staraSala": {
+      "oprema": [
+        {
+          "Naziv": "Rukavice",
+          "Kolicina": 4,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Rukavice",
+          "Kolicina": 3,
+          "Tip": 0
+        }
+      ],
+      "Tip": 1,
+      "Naziv": "NTP2",
+      "Sprat": 2,
+      "Dostupnost": true,
+      "Sifra": "ntp2",
+      "NazivSprat": "NTP2 2"
+    },
+    "datumPremestaja": "2021-04-19T00:00:00"
   }
 ]

@@ -31,7 +31,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             InitializeComponent();
 
-            TerminDatum.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, DateTime.Today));
+            //TerminDatum.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, DateTime.Today));
 
             upr = new OpremaService();
             this.opreme = opreme;
@@ -70,14 +70,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 Oprema oprema = new Oprema();
                 oprema.Naziv = NazivOpreme.Text;
                 oprema.Kolicina = int.Parse(Kolicina.Text);
-                oprema.Tip = TipOpreme.Dinamicka;
+                oprema.Tip = TipOpreme.Staticka;
                 this.datumPremestaja = (DateTime)(TerminDatum.SelectedDate);
 
                 Sala novaSala = new Sala();
                 novaSala = (Sala)ComboSala.SelectedItem;
 
 
-                if (upr.PremestanjeOpreme(oprema, sala, novaSala) == true)
+               /* if (upr.PremestanjeOpreme(oprema, sala, novaSala) == true)
                 {
                     if (oprema.Kolicina == 0)
                     {
@@ -101,7 +101,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                             sala.GetOprema().Remove(o);
                             //sala.GetOprema().Add(oprema);
                         }
-                    }
+                    }*/
                     Oprema opr = new Oprema();
                     opr.Naziv = oprema.Naziv;
                     opr.Tip = oprema.Tip;
@@ -109,13 +109,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     sala.oprema.Add(opr);
 
 
-                    upr.dodavanjeTermina(novaSala, opr, this.datumPremestaja);
+                    upr.dodavanjeTermina(novaSala,sala,opr, this.datumPremestaja);
 
-                }
-                else
+                //}
+               /* else
                 {
                     MessageBox.Show("Uneli ste pogresnu kolicinu!");
-                }
+                }*/
 
                 this.Close();
             }
