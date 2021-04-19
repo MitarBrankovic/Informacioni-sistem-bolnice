@@ -34,6 +34,11 @@ namespace Model
             }
         }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
         //List<Oprema> opreme = new List<Oprema>();
 
         /// <pdGenerated>default getter</pdGenerated>

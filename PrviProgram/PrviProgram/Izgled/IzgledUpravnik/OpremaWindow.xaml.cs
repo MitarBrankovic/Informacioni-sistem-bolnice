@@ -48,6 +48,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Prebaci_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGridOprema.SelectedIndex != -1)
+            {
+                Oprema op = (Oprema)dataGridOprema.SelectedItem;
+                OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, op, sala, sale);
+                win.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati opremu!");
+            }
 
         }
 
@@ -75,7 +85,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 OpremaIzmena win = new OpremaIzmena(opreme, op, sala);
                 win.Show();
             }
-            else { MessageBox.Show("Morate izabrati opremu!"); }
+            else { MessageBox.Show("Morate izabrati opremu!");
+            }
 
         }
 

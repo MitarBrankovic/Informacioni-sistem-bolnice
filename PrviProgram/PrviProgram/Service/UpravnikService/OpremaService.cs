@@ -108,11 +108,43 @@ namespace Service.UpravnikService
                         if (o.Naziv.Equals(oprema.Naziv))
                         {
                             s.oprema.Remove(o);
-                            novaSala.oprema.Add(o);
+                            Oprema op = new Oprema();   // ako postoji vec ta oprema, da se izmeni kolicina
+                            op.Naziv = o.Naziv;
+                            op.Tip = o.Tip;
+                            op.Kolicina = o.Kolicina - oprema.Kolicina;
+                            if (op.Kolicina != 0)
+                            {
+                                s.oprema.Add(op);
+                            }
+
+                            datoteka.UpisivanjeUFajl(sale);
+                            break;
+                        }
+                    }
+                }
+            }
+            foreach (Sala s in sale)
+            {
+                if (s.Sifra.Equals(novaSala.Sifra))
+                {
+                    foreach (Oprema o in s.oprema)
+                    {
+                        if (o.Naziv.Equals(oprema.Naziv))
+                        {
+                            s.oprema.Remove(o);
+                            Oprema op = new Oprema();   // ako postoji vec ta oprema, da se izmeni kolicina
+                            op.Naziv = oprema.Naziv;
+                            op.Tip = oprema.Tip;
+                            op.Kolicina = o.Kolicina + oprema.Kolicina;
+
+                            s.oprema.Add(op);
                             datoteka.UpisivanjeUFajl(sale);
                             return true;
                         }
                     }
+                    s.oprema.Add(oprema);
+                    datoteka.UpisivanjeUFajl(sale);
+                    return true;
                 }
             }
             return false;
