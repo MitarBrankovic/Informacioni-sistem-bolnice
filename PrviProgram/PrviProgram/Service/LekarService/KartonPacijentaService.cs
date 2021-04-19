@@ -5,15 +5,33 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
 using Model;
+using PrviProgram.Izgled.Sekretar;
+using Service.SekretarService;
 
 namespace Service.LekarService
 {
    public class KartonPacijentaService
    {
-      public void BrisanjeKartona(string sifraKartona)
+
+
+        private PacijentiService pacijentiService;
+
+        private static KartonPacijentaService instance = null;
+        public static KartonPacijentaService getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new KartonPacijentaService();
+            }
+            return instance;
+        }
+
+        public void BrisanjeKartona(string sifraKartona)
       {
-         // TODO: implement
+            // TODO: implement
+            pacijentiService = new PacijentiService();
       }
       
       public void IzmenaKartona(KartonPacijenta karton)
@@ -27,9 +45,17 @@ namespace Service.LekarService
       }
    
 
-        public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, KartonPacijenta kartonPacijenta)
+        public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Termin termin)
         {
-            kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+            
+            Pacijent pacijentStari = termin.pacijent;
+            Pacijent pacijentNovi = termin.pacijent;
+            pacijentNovi.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+            termin.pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+
+            pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
+            PreglediService.getInstance().IzmenaPregleda(termin);
+
         }
 
       public Repository.KartonPacijentaRepository kartonPacijentaRepository;

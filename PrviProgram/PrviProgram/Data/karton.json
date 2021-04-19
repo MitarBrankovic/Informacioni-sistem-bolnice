@@ -18,6 +18,19 @@
       }
     ],
     "Sifra": "sifraKartona",
-    "pacijent": null
+    "pacijent": {
+      "termin": null,
+      "kartonPacijenta": null,
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": null,
+      "Prezime": null,
+      "Email": null,
+      "Jmbg": "12345678",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    }
   }
 ]

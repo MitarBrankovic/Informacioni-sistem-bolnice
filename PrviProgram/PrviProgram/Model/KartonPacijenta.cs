@@ -58,7 +58,7 @@ namespace Model
             if (alergen != null)
                 alergen.Clear();
         }
-        public List<IzvrseniPregled> izvrseniPregled;
+        public List<IzvrseniPregled> izvrseniPregled = new List<IzvrseniPregled>();
 
         /// <pdGenerated>default getter</pdGenerated>
         public List<IzvrseniPregled> GetIzvrseniPregled()

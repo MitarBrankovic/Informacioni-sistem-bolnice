@@ -1,4 +1,5 @@
 ﻿using Model;
+using Service.LekarService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             Anamneza anamneza = new Anamneza();
             anamneza.Opis = TextboxAnamneza.Text;
             izvrseniPregled.anamneza = anamneza;
+
+            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, termin);
 
             this.Close();
         }

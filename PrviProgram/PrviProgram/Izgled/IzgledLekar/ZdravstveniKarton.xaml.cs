@@ -27,7 +27,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             InitializeComponent();
 
-            IzvrseniPregled izvrseni = new IzvrseniPregled();
+            /*IzvrseniPregled izvrseni = new IzvrseniPregled();
             Anamneza anamneza = new Anamneza();
             anamneza.Opis = "anamneza";
 
@@ -45,7 +45,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             pacijent.kartonPacijenta.Sifra = "sifraKartona";
             List<KartonPacijenta> kartoni = new List<KartonPacijenta>();
             kartoni.Add(pacijent.kartonPacijenta);
-            KartonPacijentaRepository.getInstance().UpisivanjeUFajl(kartoni);
+            KartonPacijentaRepository.getInstance().UpisivanjeUFajl(kartoni);*/
 
 
             //izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(KartonPacijentaRepository.getInstance().PregledSvihIzvrsenihPregleda(pacijent.kartonPacijenta));
