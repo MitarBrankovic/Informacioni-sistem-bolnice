@@ -1,7 +1,4 @@
 ﻿using System.Windows;
-using PrviProgram.Izgled.IzgledPacijent;
-using PrviProgram.Izgled.IzgledSekretar;
-using PrviProgram.Izgled.Lekar;
 
 namespace PrviProgram
 {
@@ -9,9 +6,8 @@ namespace PrviProgram
     {
         private void Prijavi_se_Click(object sender, RoutedEventArgs e)
         {
-            LogovanjePacijenta win = LogovanjePacijenta.getInstance();
+            Logovanje win = new Logovanje();
             win.Show();
-        
         }
     }
 }

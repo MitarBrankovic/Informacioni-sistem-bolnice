@@ -12,17 +12,17 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class PregledTermina : Window
     {
-        private static PregledTermina instance = null;
-
-        public static PregledTermina getInstance(Pacijent p)
-        {
-            if (instance == null)
-            {
-
-                instance = new PregledTermina(p);
-            }
-            return instance;
-        }
+        //private static PregledTermina instance = null;
+        //
+        //public static PregledTermina getInstance(Pacijent p)
+        //{
+        //    if (instance == null)
+        //    {
+        //
+        //        instance = new PregledTermina(p);
+        //    }
+        //    return instance;
+        //}
         ObservableCollection<Termin> termini { get; set; }
 
         public PregledTermina(Pacijent p)

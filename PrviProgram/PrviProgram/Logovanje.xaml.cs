@@ -1,53 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using Model;
+using PrviProgram.Izgled.IzgledPacijent;
+using PrviProgram.Izgled.IzgledSekretar;
 using Repository;
 
-namespace PrviProgram.Izgled.IzgledPacijent
+namespace PrviProgram
 {
-    public partial class LogovanjePacijenta : Window
+    public partial class Logovanje : Window
     {
-        private static LogovanjePacijenta instance = null;
-
-        public static LogovanjePacijenta getInstance()
-        {
-            if (instance == null)
-            {
-
-                instance = new LogovanjePacijenta();
-            }
-            return instance;
-        }
-
-        public LogovanjePacijenta()
+        public Logovanje()
         {
             InitializeComponent();
-
-
-        }
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.Close();
-            instance = null;
         }
 
         private void LogovanjeButton_Click(object sender, RoutedEventArgs e)
         {
-
-
             string ime = korisnickoImeText.Text;
-
-            Console.WriteLine(ime);
             string sifra = sifraText.Text;
-            Console.WriteLine(sifra);
 
             List<Korisnik> korisnici = new List<Korisnik>();
             PacijentRepository pacijentRepository = new PacijentRepository();
@@ -74,7 +45,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                         Pacijent pacijent = pacijentRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (pacijent != null)
                         {
-                            PregledTermina win = PregledTermina.getInstance(pacijent);
+                            PregledTermina win = new PregledTermina(pacijent);
                             win.Show();
                         }
                         break;
@@ -94,8 +65,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                         Sekretar sekretar = sekretarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (sekretar != null)
                         {
-                            //PregledTermina win = PregledTermina.getInstance(pacijent);
-                            //win.Show();
+                            PocetniPrikaz win = new PocetniPrikaz(sekretar);
+                            win.Show();
                         }
                         break;
                     }
@@ -113,7 +84,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
 
             this.Close();
-            instance = null;
         }
 
     }
