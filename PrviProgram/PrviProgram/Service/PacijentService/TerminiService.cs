@@ -1,6 +1,8 @@
 using Model;
 using PrviProgram.Repository;
 using Repository;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Service.PacijentService
@@ -62,13 +64,36 @@ namespace Service.PacijentService
             {
                 if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
                 {
-                    termini.Remove(t);
+                    termini.Remove(tt);
+                    datoteka1.UpisivanjeUFajl(termini);
+                    break;
                 }
             }
-            datoteka1.UpisivanjeUFajl(termini);
+           
         }
+        public int[] proveraZauzetostiLekara(Lekar l, DateTime selektovaniDatum, string[] niz)
+        {
+            int[] popunjeniNiz = new int[24] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+            TerminiRepository datoteka1 = new TerminiRepository();
+            List<Termin> termini = datoteka1.CitanjeIzFajla();
 
+            foreach(Termin t in termini)
+            {
+                if(l.Ime.Equals(t.lekar.Ime) && l.Prezime.Equals(t.lekar.Prezime) && selektovaniDatum.Equals(t.Datum))
+                {
+                    for(int i=0;i<niz.Length;i++)
+                    {
+                        if(t.Vreme.Equals(niz[i]))
+                        {
+                            popunjeniNiz[i] = 1;
+                        }
+                    }
+                }
+            }
 
+           
+            return popunjeniNiz;
+        }
 
         public bool IzmenaTermina(Termin t, Pacijent p)
         {

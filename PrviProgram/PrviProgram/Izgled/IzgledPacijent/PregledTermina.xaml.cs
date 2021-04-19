@@ -1,7 +1,10 @@
 ﻿using Model;
 using Service.LekarService;
 using Service.PacijentService;
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 
 
@@ -12,6 +15,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class PregledTermina : Window
     {
+        public DateTime trenutniDatum { get; set; }
+        public DateTime datumTermina { get; set; }
+
+        public DateTime trenutnoVreme { get; set; }
+        public DateTime vremeTermina { get; set; }
+
         private static PregledTermina instance = null;
 
         public static PregledTermina getInstance(Pacijent p)
@@ -24,7 +33,17 @@ namespace PrviProgram.Izgled.IzgledPacijent
             return instance;
         }
         ObservableCollection<Termin> termini { get; set; }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = false;
+            instance = null;
+        }
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            instance = null;
+        }
         public PregledTermina(Pacijent p)
         {
 
@@ -65,6 +84,33 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
 
                 MessageBox.Show("Niste selektovali termin koji zelite da izbrisete!!");
+            }
+
+        }
+
+        private void Pomeraj_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridPacijenta.SelectedIndex != -1)
+            {
+                Termin selektovaniTermin = (Termin)dataGridPacijenta.SelectedItem;
+                this.trenutniDatum = DateTime.Now;
+                this.datumTermina = selektovaniTermin.Datum;
+                this.vremeTermina = Convert.ToDateTime(selektovaniTermin.Vreme);
+                this.trenutnoVreme = DateTime.Now;
+                DateTime ceoDatumTermina = new DateTime(datumTermina.Year, datumTermina.Month, datumTermina.Day, vremeTermina.Hour, vremeTermina.Minute, vremeTermina.Second);
+                DateTime ceoTrenutniDatum = new DateTime(trenutniDatum.Year, trenutniDatum.Month, trenutniDatum.Day, trenutnoVreme.Hour, trenutnoVreme.Minute, trenutnoVreme.Second);
+                TimeSpan razlika = ceoDatumTermina - ceoTrenutniDatum;
+                if (razlika.TotalDays>1)
+                {
+
+                    var s = new PomeranjeZakazanogTermina(selektovaniTermin, pacijent, termini);
+                    s.Show();
+                }
+                else
+                {
+                    MessageBox.Show("NE MOZETE DA POMERITE OVAJ DATUM",
+              "Error");
+                }
             }
 
         }
