@@ -1,0 +1,28 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti.ZdravstveniKartonPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti"
+        mc:Ignorable="d"
+        Title="ZdravstveniKartonPacijenta" Height="471" Width="568">
+    <Grid>
+        <Label HorizontalAlignment="Left" Margin="50,35,0,0" Content="Zdravstveni karton pacijenta:" VerticalAlignment="Top" Height="26"/>
+        <DataGrid Name="dgDataBinding" AutoGenerateColumns="False" Margin="131,76,227,76" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Alergeni" Width="*" Binding="{Binding Naziv}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Dodaj" Height="23" HorizontalAlignment="Left" Margin="417,123,0,0" x:Name="Submit" VerticalAlignment="Top" Width="70" Click="Dodaj_Click" />
+        <Button Content="Obrisi" Height="23" HorizontalAlignment="Left" Margin="417,182,0,0" x:Name="button3" VerticalAlignment="Top" Width="70" Click="Obrisi_Click" />
+        <Button Content="Potvrdi" Height="23" HorizontalAlignment="Left" Margin="175,392,0,0" x:Name="Submit_Copy" VerticalAlignment="Top" Width="70" Click="Potvrdi_Click" />
+        <Button Content="Odustani" Height="23" HorizontalAlignment="Left" Margin="327,392,0,0" x:Name="button3_Copy" VerticalAlignment="Top" Width="70" Click="Odustani_Click" />
+    </Grid>
+</Window>

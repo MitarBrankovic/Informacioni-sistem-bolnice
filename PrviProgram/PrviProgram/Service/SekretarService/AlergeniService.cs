@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Model;
 using Repository;
 
@@ -9,19 +10,47 @@ namespace Service.SekretarService
 
         public bool DodavanjeAlegena(Alergen alergen)
         {
-            // TODO: implement
-            return false;
+            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            foreach (Alergen a in alergeni)
+            {
+                if (a.Naziv.Equals(alergen.Naziv))
+                {
+                    return false;
+                }
+            }
+            alergeni.Add(alergen);
+            alergeniRepository.UpisivanjeUFajl(alergeni);
+            return true;
         }
 
         public bool BrisanjeAlergena(Alergen alergen)
         {
-            // TODO: implement
+            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            foreach (Alergen a in alergeni)
+            {
+                if (a.Naziv.Equals(alergen.Naziv))
+                {
+                    alergeni.Remove(a);
+                    alergeniRepository.UpisivanjeUFajl(alergeni);
+                    return true;
+                }
+            }
             return false;
         }
 
-        public bool IzmenaAlergena(Alergen alergen)
+        public bool IzmenaAlergena(Alergen stariAlergen, Alergen noviAlergen)
         {
-            // TODO: implement
+            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            foreach (Alergen a in alergeni)
+            {
+                if (a.Naziv.Equals(stariAlergen.Naziv))
+                {
+                    alergeni.Remove(stariAlergen);
+                    alergeni.Add(noviAlergen);
+                    alergeniRepository.UpisivanjeUFajl(alergeni);
+                    return true;
+                }
+            }
             return false;
         }
 

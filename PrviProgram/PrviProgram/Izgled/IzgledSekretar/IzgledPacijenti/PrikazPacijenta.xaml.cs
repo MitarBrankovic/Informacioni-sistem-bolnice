@@ -1,15 +1,16 @@
-﻿using Service.SekretarService;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
+using Model;
+using Service.SekretarService;
 
-namespace PrviProgram.Izgled.Sekretar
+namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
-    public partial class WindowSekretar : Window
+    public partial class PrikazPacijenta : Window
     {
         public PacijentiService upravljanje;
         public ObservableCollection<Model.Pacijent> pacijenti;
 
-        public WindowSekretar()
+        public PrikazPacijenta()
         {
             InitializeComponent();
             upravljanje = new PacijentiService();
@@ -39,6 +40,15 @@ namespace PrviProgram.Izgled.Sekretar
         {
             Registracija d = new Registracija(pacijenti);
             d.Show();
+        }
+
+        private void Zdravstveni_karton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgDataBinding.SelectedItem != null)
+            {
+                ZdravstveniKartonPacijenta zdravstveniKarton = new ZdravstveniKartonPacijenta((Pacijent)dgDataBinding.SelectedItem);
+                zdravstveniKarton.Show();
+            }
         }
     }
 }
