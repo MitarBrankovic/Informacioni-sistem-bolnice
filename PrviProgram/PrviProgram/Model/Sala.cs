@@ -1,10 +1,14 @@
+using System.Collections.Generic;
+
 namespace Model
 {
     public class Sala
     {
+        public List<Oprema> oprema;
+
         public Sala()
         {
-            // TODO: implement
+            oprema = new List<Oprema>();
         }
 
         ~Sala()
@@ -30,18 +34,23 @@ namespace Model
             }
         }
 
-        public System.Collections.ArrayList oprema;
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
+        //List<Oprema> opreme = new List<Oprema>();
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetOprema()
+        public List<Oprema> GetOprema()
         {
             if (oprema == null)
-                oprema = new System.Collections.ArrayList();
+                oprema = new List<Oprema>();
             return oprema;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetOprema(System.Collections.ArrayList newOprema)
+        public void SetOprema(List<Oprema> newOprema)
         {
             RemoveAllOprema();
             foreach (Oprema oOprema in newOprema)
@@ -54,7 +63,7 @@ namespace Model
             if (newOprema == null)
                 return;
             if (this.oprema == null)
-                this.oprema = new System.Collections.ArrayList();
+                this.oprema = new List<Oprema>();
             if (!this.oprema.Contains(newOprema))
                 this.oprema.Add(newOprema);
         }

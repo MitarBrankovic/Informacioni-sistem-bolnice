@@ -1,6 +1,8 @@
 ﻿using Model;
+using PrviProgram.Izgled.IzgledUpravnik;
 using PrviProgram.Izgled.Upravnik;
 using PrviProgram.Logika;
+using PrviProgram.Repository;
 using Service.UpravnikService;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -25,6 +27,7 @@ namespace PrviProgram
 
 
         public SaleService upravljanje;
+        public SalaRepository saleRep;
         public ObservableCollection<Model.Sala> sale;
 
 
@@ -34,7 +37,8 @@ namespace PrviProgram
             InitializeComponent();
 
             upravljanje = new SaleService();
-            sale = new ObservableCollection<Model.Sala>(upravljanje.PregledSvihSala());
+            saleRep = new SalaRepository();
+            sale = new ObservableCollection<Model.Sala>(saleRep.PregledSvihSala());
 
 
             dataGridUpravnik.ItemsSource = sale;
@@ -59,8 +63,6 @@ namespace PrviProgram
             {
                 Sala sala = new Sala();
                 sala = (Model.Sala)dataGridUpravnik.SelectedItem;
-                /*upravljanje.BrisanjeSale((Model.Sala)dataGridUpravnik.SelectedItem);
-                sale.Remove((Model.Sala)dataGridUpravnik.SelectedItem);*/
                 ControllerUpravnik.getInstance().BrisanjeSale(sala, sale);
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
@@ -78,6 +80,17 @@ namespace PrviProgram
             {
                 MessageBox.Show("Morate izabrati salu!");
             }
+        }
+
+        private void Oprema_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridUpravnik.SelectedIndex != -1)
+            {
+                OpremaWindow win = new OpremaWindow(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
+                win.Show();
+            }
+            else { MessageBox.Show("Morate izabrati salu!"); }
+
         }
 
     }

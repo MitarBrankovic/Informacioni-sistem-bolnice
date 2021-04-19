@@ -1,0 +1,35 @@
+[
+  {
+    "oprema": {
+      "Naziv": "BBBBB",
+      "Kolicina": 110948,
+      "Tip": 1
+    },
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "AVA",
+          "Kolicina": 22,
+          "Tip": 1
+        },
+        {
+          "Naziv": "NNNN",
+          "Kolicina": 1,
+          "Tip": 1
+        },
+        {
+          "Naziv": "BBBBB",
+          "Kolicina": 142,
+          "Tip": 1
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "datumPremestaja": "2021-04-20T00:00:00"
+  }
+]
