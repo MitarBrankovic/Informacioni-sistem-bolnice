@@ -1,15 +1,16 @@
-using Model;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Model;
+using Newtonsoft.Json;
 
-namespace PrviProgram.Repository
+namespace Repository
 {
     public class UpravnikRepository
     {
         private string path;
 
-        public UpravnikRepository(string nazivFajla)
+        public UpravnikRepository()
         {
             path = @"..\..\..\data\upravnik.json";
         }
@@ -36,6 +37,31 @@ namespace PrviProgram.Repository
                 }
             }
             return upravnici;
+        }
+        public Upravnik PregledUpravnika(string jmbg)
+        {
+            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            foreach (Upravnik u in upravnici)
+            {
+                if (u.Jmbg.Equals(jmbg))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
+        public List<Upravnik> PregledSvihUpravnika()
+        {
+            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            return upravnici;
+        }
+
+        public List<Korisnik> PregledSvihKorisnika()
+        {
+            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            List<Korisnik> korisnici = upravnici.Select(o => o.Korisnik).ToList();
+            return korisnici;
         }
 
     }

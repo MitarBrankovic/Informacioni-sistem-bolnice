@@ -49,7 +49,7 @@
           "Korisnik": {
             "KorisnickoIme": "darko",
             "Lozinka": "darko",
-            "TipKorisnika": 0,
+            "TipKorisnika": 2,
             "osoba": null
           },
           "AdresaStanovanja": {
@@ -98,7 +98,7 @@
     "Korisnik": {
       "KorisnickoIme": "alex",
       "Lozinka": "123",
-      "TipKorisnika": 0,
+      "TipKorisnika": 2,
       "osoba": null
     },
     "AdresaStanovanja": {

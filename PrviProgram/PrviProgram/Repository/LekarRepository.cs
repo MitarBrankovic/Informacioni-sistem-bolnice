@@ -1,9 +1,10 @@
-using Model;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Model;
+using Newtonsoft.Json;
 
-namespace PrviProgram.Repository
+namespace Repository
 {
     public class LekarRepository
     {
@@ -38,6 +39,32 @@ namespace PrviProgram.Repository
             }
 
             return lekari;
+        }
+
+        public Lekar PregledLekara(string jmbg)
+        {
+            List<Lekar> lekari = this.CitanjeIzFajla();
+            foreach (Lekar l in lekari)
+            {
+                if (l.Jmbg.Equals(jmbg))
+                {
+                    return l;
+                }
+            }
+            return null;
+        }
+
+        public List<Lekar> PregledSvihLekara()
+        {
+            List<Lekar> lekari = this.CitanjeIzFajla();
+            return lekari;
+        }
+
+        public List<Korisnik> PregledSvihKorisnika()
+        {
+            List<Lekar> lekari = this.CitanjeIzFajla();
+            List<Korisnik> korisnici = lekari.Select(o => o.Korisnik).ToList();
+            return korisnici;
         }
 
     }

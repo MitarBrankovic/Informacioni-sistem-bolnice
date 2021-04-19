@@ -31,11 +31,11 @@
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
-        "Sifra": null,
         "alergen": null,
         "anamneza": null,
         "recept": null,
         "terapija": null,
+        "Sifra": null,
         "pacijent": null
       },
       "MestoRodjenja": {
@@ -103,11 +103,11 @@
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
-        "Sifra": null,
         "alergen": null,
         "anamneza": null,
         "recept": null,
         "terapija": null,
+        "Sifra": null,
         "pacijent": null
       },
       "MestoRodjenja": {
@@ -141,6 +141,158 @@
       "DatumRodjenja": "1999-06-17T00:00:00",
       "Pol": 1,
       "KontaktTelefon": "069652253"
+    }
+  },
+  {
+    "Datum": "2021-04-30T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "vZPYf7sz",
+    "sala": {
+      "oprema": null,
+      "Tip": 4,
+      "Naziv": "NTP2",
+      "Sprat": 3,
+      "Dostupnost": false,
+      "Sifra": "ntp1",
+      "NazivSprat": "NTP2 3"
+    },
+    "Vreme": "10:30",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "da da",
+      "MestoRodjenja": null,
+      "Korisnik": null,
+      "AdresaStanovanja": null,
+      "Ime": "da",
+      "Prezime": "da",
+      "Email": null,
+      "Jmbg": null,
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [
+        {
+          "Datum": "2021-04-21T00:00:00",
+          "TipTermina": 2,
+          "SifraTermina": "XAoTZZF4",
+          "sala": {
+            "oprema": null,
+            "Tip": 0,
+            "Naziv": "NTP 1",
+            "Sprat": 1,
+            "Dostupnost": true,
+            "Sifra": "ntp1",
+            "NazivSprat": "NTP 1 1"
+          },
+          "Vreme": "10:00",
+          "guestPacijent": null,
+          "lekar": {
+            "termin": null,
+            "ImePrezime": "d d",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "d",
+            "Prezime": "d",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "pacijent": {
+            "termin": [],
+            "kartonPacijenta": {
+              "alergen": null,
+              "anamneza": null,
+              "recept": null,
+              "terapija": null,
+              "Sifra": null,
+              "pacijent": null
+            },
+            "MestoRodjenja": {
+              "Ime": "Zrenjanin",
+              "drzava": {
+                "Ime": "Srbija"
+              }
+            },
+            "Korisnik": {
+              "KorisnickoIme": "darko",
+              "Lozinka": "darko",
+              "TipKorisnika": 2,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": "nekaulica",
+              "Broj": 32,
+              "Sprat": 4,
+              "Stan": 12,
+              "grad": {
+                "Ime": "Novi Sad",
+                "drzava": {
+                  "Ime": "Srbija"
+                }
+              }
+            },
+            "Ime": "Darko",
+            "Prezime": "Vrbaski",
+            "Email": "darko@uns.ac.rs",
+            "Jmbg": "125125125",
+            "DatumRodjenja": "1999-05-04T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": "06412515152"
+          }
+        }
+      ],
+      "kartonPacijenta": {
+        "alergen": [
+          {
+            "Naziv": "Polen"
+          },
+          {
+            "Naziv": "Jaja"
+          }
+        ],
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "Sifra": null,
+        "pacijent": null
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "alex",
+        "Lozinka": "123",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 21000,
+        "Stan": 21000,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": "darko@uns.ac.rs",
+      "Jmbg": "12512512",
+      "DatumRodjenja": "1999-05-04T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06412515152"
     }
   }
 ]
