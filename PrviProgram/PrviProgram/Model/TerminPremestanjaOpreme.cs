@@ -10,7 +10,7 @@ namespace Model
 {
    public class TerminPremestanjaOpreme
    {
-      public System.Collections.ArrayList sala;
+      /*public System.Collections.ArrayList sala;
       
       /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetSala()
@@ -54,10 +54,12 @@ namespace Model
       {
          if (sala != null)
             sala.Clear();
-      }
-      public Oprema oprema;
+      }*/
+      public Oprema oprema { get; set; }
+
+      public Sala sala { get; set; }
    
-      private DateTime DatumPremestaja;
+      public DateTime datumPremestaja { get; set; }
    
    }
 }

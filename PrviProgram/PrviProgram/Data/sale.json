@@ -1,6 +1,22 @@
 [
   {
-    "oprema": [],
+    "oprema": [
+      {
+        "Naziv": "NNNN",
+        "Kolicina": 1,
+        "Tip": 1
+      },
+      {
+        "Naziv": "BBBBB",
+        "Kolicina": 163,
+        "Tip": 1
+      },
+      {
+        "Naziv": "AVA",
+        "Kolicina": 22,
+        "Tip": 0
+      }
+    ],
     "Tip": 0,
     "Naziv": "NTP 1",
     "Sprat": 1,
@@ -11,8 +27,13 @@
   {
     "oprema": [
       {
+        "Naziv": "NNNN",
+        "Kolicina": 43,
+        "Tip": 1
+      },
+      {
         "Naziv": "BBBBB",
-        "Kolicina": 111111,
+        "Kolicina": 110948,
         "Tip": 0
       }
     ],

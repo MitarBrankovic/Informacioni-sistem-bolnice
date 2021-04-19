@@ -16,20 +16,22 @@ using System.Windows.Shapes;
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
     /// <summary>
-    /// Interaction logic for OpremaDinPremestanje.xaml
+    /// Interaction logic for OpremaStatPremestanje.xaml
     /// </summary>
-    public partial class OpremaDinPremestanje : Window
+    public partial class OpremaStatPremestanje : Window
     {
         private OpremaService upr;
         private ObservableCollection<Model.Oprema> opreme;
         private Sala sala;
         private Oprema opremaa;
         private ObservableCollection<Model.Sala> sale;
+        private DateTime datumPremestaja;
 
-
-        public OpremaDinPremestanje(ObservableCollection<Model.Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Model.Sala> sale)
+        public OpremaStatPremestanje(ObservableCollection<Model.Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Model.Sala> sale)
         {
             InitializeComponent();
+
+            TerminDatum.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, DateTime.Today));
 
             upr = new OpremaService();
             this.opreme = opreme;
@@ -69,6 +71,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 oprema.Naziv = NazivOpreme.Text;
                 oprema.Kolicina = int.Parse(Kolicina.Text);
                 oprema.Tip = TipOpreme.Dinamicka;
+                this.datumPremestaja = (DateTime)(TerminDatum.SelectedDate);
 
                 Sala novaSala = new Sala();
                 novaSala = (Sala)ComboSala.SelectedItem;
@@ -104,8 +107,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     opr.Tip = oprema.Tip;
                     opr.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
                     sala.oprema.Add(opr);
+
+
+                    upr.dodavanjeTermina(novaSala, opr, this.datumPremestaja);
+
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Uneli ste pogresnu kolicinu!");
                 }
 
@@ -118,6 +126,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             this.Close();
         }
 
+        private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         public bool isNumber(String st)
         {

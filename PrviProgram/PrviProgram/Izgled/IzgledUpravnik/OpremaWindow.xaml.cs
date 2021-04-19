@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
@@ -27,6 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         public Sala sala;
         OpremaService opremaService;
         public ObservableCollection<Model.Sala> sale;
+        public DispatcherTimer timer;
 
         public OpremaWindow(ObservableCollection<Model.Sala> sale, Model.Sala sala)
         {
@@ -42,8 +44,44 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             opreme = new ObservableCollection<Model.Oprema>(saleRep.PregledSvihOpremaPoSali(sala));
 
             dataGridOprema.ItemsSource = opreme;
+
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Start();
+            //timer.Tick += new EventHandler(timer_Tick);
         }
 
+
+        /*private DispatcherTimer timer;
+        timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Start();
+            timer.Tick += new EventHandler(timer_Tick);
+
+
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+
+        }
+
+        */
+        public void lala() {
+            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
+            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
+
+
+
+            foreach (TerminPremestanjaOpreme t in termini) {
+                if (DateTime.Today.Equals(t.datumPremestaja)) {
+                    
+                }
+            
+            }
+        }
 
 
         private void Prebaci_Click(object sender, RoutedEventArgs e)
@@ -51,8 +89,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (dataGridOprema.SelectedIndex != -1)
             {
                 Oprema op = (Oprema)dataGridOprema.SelectedItem;
-                OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, op, sala, sale);
-                win.Show();
+                if (op.Tip == TipOpreme.Dinamicka)
+                {
+                    OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, op, sala, sale);
+                    win.Show();
+                }
+                else {
+                    OpremaStatPremestanje win = new OpremaStatPremestanje(opreme, op, sala, sale);
+                    win.Show();
+                }
             }
             else
             {

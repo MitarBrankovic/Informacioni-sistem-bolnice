@@ -112,9 +112,12 @@ namespace Service.UpravnikService
                             op.Naziv = o.Naziv;
                             op.Tip = o.Tip;
                             op.Kolicina = o.Kolicina - oprema.Kolicina;
-                            if (op.Kolicina != 0)
+                            if (op.Kolicina > 0)
                             {
                                 s.oprema.Add(op);
+                            }
+                            else {
+                                return false;
                             }
 
                             datoteka.UpisivanjeUFajl(sale);
@@ -149,6 +152,23 @@ namespace Service.UpravnikService
             }
             return false;
       }
+
+
+        public bool dodavanjeTermina(Sala novaSala, Oprema oprema, DateTime datumTermina) {
+            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
+            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
+
+
+            TerminPremestanjaOpreme termin = new TerminPremestanjaOpreme();
+            termin.oprema = oprema;
+            termin.sala = novaSala;
+            termin.datumPremestaja = datumTermina;
+
+            termini.Add(termin);
+            datoteka.UpisivanjeUFajl(termini);
+
+            return true;
+        }
 
       
       public bool KolicinaIsValid()
