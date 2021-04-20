@@ -77,7 +77,7 @@ namespace Model
         }
         public override string ToString()
         {
-            return Ime + " " + Prezime + " ";
+            return "dr. " + Ime + " " + Prezime + " ";
         }
 
     }

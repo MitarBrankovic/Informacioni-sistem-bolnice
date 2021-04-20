@@ -27,7 +27,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar.ImePrezime}"  Width="102"/>
+                <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar}"  Width="102"/>
                 <DataGridTextColumn Header="Sala"  Binding="{Binding  sala.Naziv}"  Width="102"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}"  Width="102"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}"  Width="102"/>

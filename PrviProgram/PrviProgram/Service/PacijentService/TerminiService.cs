@@ -120,8 +120,8 @@ namespace Service.PacijentService
 
             foreach(Termin t1 in termini)
             {
-                if (t1.pacijent.Jmbg.Equals(p.Jmbg))
-                {
+                //if (t1.pacijent.Jmbg.Equals(p.Jmbg))
+                //{
                     if (t1.SifraTermina.Equals(t.SifraTermina))
                     {
                         list.Remove(t1);
@@ -130,7 +130,7 @@ namespace Service.PacijentService
                         return true;
 
                     }
-                }
+                //}
             }
             return false;
 

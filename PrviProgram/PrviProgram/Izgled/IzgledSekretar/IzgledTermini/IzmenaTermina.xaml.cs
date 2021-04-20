@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using Model;
 using Repository;
@@ -10,11 +11,12 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {
     public partial class IzmenaTermina : Window
     {
-        private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
         private Repository.SalaRepository salaRepository = new Repository.SalaRepository();
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Termin> termini;
+        private ObservableCollection<string> vreme = new ObservableCollection<string> { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        private ObservableCollection<string> tipTermina = new ObservableCollection<string> { "Operacija", "Pregled", "Kontrola" };
         private Termin termin;
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
         {
@@ -22,15 +24,38 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             this.termini = termini;
             this.termin = termin;
             comboBoxLekari.ItemsSource = lekarRepository.PregledSvihLekara();
-            comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
-            string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30" };
-            vremeText.ItemsSource = niz;
+
+            if (termin.pacijent != null)
+            {
+                ObservableCollection<Pacijent> pacijents = new ObservableCollection<Pacijent>();
+                pacijents.Add(termin.pacijent);
+                comboBoxPacijenti.ItemsSource = pacijents;
+            }
+            else
+            {
+                ObservableCollection<GuestPacijent> guestPacijents = new ObservableCollection<GuestPacijent>();
+                guestPacijents.Add(termin.guestPacijent);
+                comboBoxPacijenti.ItemsSource = guestPacijents;
+            }
+            comboBoxPacijenti.SelectedIndex = 0;
+            comboBoxPacijenti.IsEnabled = false;
+
+            vremeText.ItemsSource = vreme;
+            TipTerminaText.ItemsSource = tipTermina;
 
             datePicker.SelectedDate = termin.Datum;
-            comboBoxPacijenti.SelectedItem = termin.pacijent;
-            comboBoxLekari.SelectedItem = termin.lekar;
-            TipTerminaText.SelectedItem = termin.TipTermina;
-            vremeText.SelectedItem = termin.Vreme;
+            TipTerminaText.SelectedIndex = tipTermina.IndexOf(termin.TipTermina.ToString());
+            vremeText.SelectedIndex = vreme.IndexOf(termin.Vreme);
+
+            int i = 0;
+            foreach(Model.Lekar a in comboBoxLekari.Items.Cast<Model.Lekar>())
+            {
+                if (a.Jmbg.Equals(termin.lekar.Jmbg))
+                {
+                    comboBoxLekari.SelectedIndex = i;
+                }
+                i++;
+            }
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -39,7 +64,14 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             termin.Datum = (DateTime)(datePicker.SelectedDate);
             termin.Vreme = vremeText.Text;
             termin.lekar = (Model.Lekar)comboBoxLekari.SelectedItem;
-            termin.pacijent = (Pacijent)comboBoxPacijenti.SelectedItem;
+            if (this.termin.pacijent != null)
+            {
+                termin.pacijent = (Pacijent)comboBoxPacijenti.SelectedItem;
+            }
+            else
+            {
+                termin.guestPacijent = (GuestPacijent) comboBoxPacijenti.SelectedItem;
+            }
 
             Random rnd = new Random();
             List<Sala> sale = new List<Sala>();
@@ -60,7 +92,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             var finalString = new String(stringChars);
             termin.SifraTermina = finalString;
 
-            String tip = TipTerminaText.Text;
+            String tip = (String)TipTerminaText.SelectedItem;
             if (tip.Equals("Pregled"))
             {
                 termin.TipTermina = TipTermina.Pregled;
@@ -69,8 +101,13 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.TipTermina = TipTermina.Kontrola;
             }
+            else if (tip.Equals("Operacija"))
+            {
+                termin.TipTermina = TipTermina.Operacija;
+            }
 
-            terminiService.DodavanjeTermina(termin, termin.pacijent);
+            terminiService.IzmenaTermina(termin, termin.pacijent);
+            this.termini.Remove(this.termin);
             this.termini.Add(termin);
 
             this.Close();

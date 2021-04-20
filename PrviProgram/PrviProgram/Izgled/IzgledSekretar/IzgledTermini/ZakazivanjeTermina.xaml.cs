@@ -16,14 +16,16 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
+        private ObservableCollection<string> vreme = new ObservableCollection<string> { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        private ObservableCollection<string> tipTermina = new ObservableCollection<string> { "Operacija", "Pregled", "Kontrola" };
         public ZakazivanjeTermina(ObservableCollection<Termin> termini)
         {
             InitializeComponent();
             this.termini = termini;
             comboBoxLekari.ItemsSource = lekarRepository.PregledSvihLekara();
             comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
-            string[] niz = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
-            vremeText.ItemsSource = niz;
+            vremeText.ItemsSource = vreme;
+            TipTerminaText.ItemsSource = tipTermina;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -68,6 +70,10 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             else if (tip.Equals("Kontrola"))
             {
                 termin.TipTermina = TipTermina.Kontrola;
+            }
+            else if (tip.Equals("Operacija"))
+            {
+                termin.TipTermina = TipTermina.Operacija;
             }
 
             terminiService.DodavanjeTermina(termin, termin.pacijent);
