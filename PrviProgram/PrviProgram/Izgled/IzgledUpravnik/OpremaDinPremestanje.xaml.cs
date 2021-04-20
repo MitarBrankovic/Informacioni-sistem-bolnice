@@ -63,6 +63,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
+            else if(int.Parse(Kolicina.Text) < 0) {
+                MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
+            }
             else
             {
                 Oprema oprema = new Oprema();
@@ -108,6 +111,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     opr.Tip = oprema.Tip;
                     opr.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
                     sala.oprema.Add(opr);
+                    //this.sala.oprema.Add(opr);
+
+                    foreach (Sala s in sale) {
+                        if (s.Sifra.Equals(novaSala.Sifra)) {
+                            s.oprema.Add(oprema);
+                        }
+                    }
+
                 }
                 else {
                     MessageBox.Show("Uneli ste pogresnu kolicinu!");
