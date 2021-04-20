@@ -26,6 +26,7 @@
         <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="275,57,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="400,57,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name ="Prebaci" Click="Prebaci_Click"  Content="Prebaci" HorizontalAlignment="Left" Height="26" Margin="527,57,0,0" VerticalAlignment="Top" Width="98" />
+        <Label x:Name = "labela" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Height="34" Margin="0,10,0,0" VerticalAlignment="Top" Width="194" FontSize="20" FontFamily="Bahnschrift Light"/>
 
     </Grid>
 </Window>

@@ -17,9 +17,7 @@ using System.Windows.Threading;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for OpremaWindow.xaml
-    /// </summary>
+
     public partial class OpremaWindow : Window
     {
         public SaleService upravljanje;
@@ -49,27 +47,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             dataGridOprema.ItemsSource = opreme;
 
 
-            
+            labela.Content = sala.Naziv;
         }
-
-
-        /*private DispatcherTimer timer;
-        timer = new DispatcherTimer();
-        timer.Interval = TimeSpan.FromMilliseconds(50);
-            timer.Start();
-            timer.Tick += new EventHandler(timer_Tick);
-
-
-
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-
-
-        }
-
-        */
-
 
 
         private void Prebaci_Click(object sender, RoutedEventArgs e)

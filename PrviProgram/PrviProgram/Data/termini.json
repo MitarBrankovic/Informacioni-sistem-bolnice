@@ -6,11 +6,11 @@
     "sala": {
       "oprema": [],
       "Tip": 0,
-      "Naziv": "ntp 1",
+      "Naziv": "NTP 1",
       "Sprat": 1,
       "Dostupnost": true,
       "Sifra": "ntp 1",
-      "NazivSprat": "ntp 1 1"
+      "NazivSprat": "NTP 1 1"
     },
     "Vreme": "16:00:00",
     "guestPacijent": null,

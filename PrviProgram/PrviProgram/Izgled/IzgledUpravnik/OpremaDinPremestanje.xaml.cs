@@ -88,7 +88,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                         op.Tip = oprema.Tip;
                         op.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
 
-                        this.opreme.Add(op);
+
+                        if (op.Kolicina != 0)
+                        {
+                            this.opreme.Add(op);
+                        }
                     }
 
                     foreach (Oprema o in sala.oprema.ToArray())

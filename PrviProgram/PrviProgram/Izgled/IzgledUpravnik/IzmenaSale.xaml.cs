@@ -47,7 +47,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Tip.SelectedIndex = 3;
             }
-            else if (tip.Equals("Prostorije"))
+            else if (tip.Equals("Magacin"))
             {
                 Tip.SelectedIndex = 4;
             }
@@ -109,9 +109,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     novaSala.Tip = TipSale.SalaSaKrevetima;
                 }
-                else if (tip.Equals("Prostorija"))
+                else if (tip.Equals("Magacin"))
                 {
-                    novaSala.Tip = TipSale.Prostorije;
+                    novaSala.Tip = TipSale.Magacin;
                 }
 
                 String dostupnost = Dostupnost.Text;

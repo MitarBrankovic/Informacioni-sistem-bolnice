@@ -38,6 +38,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             Kolicina.Text = oprema.Kolicina.ToString();
             Sala.Text = sala.Naziv;
 
+            String tip = oprema.Tip.ToString();
+
+            if (tip.Equals("Staticka"))
+            {
+                Tip.SelectedIndex = 0;
+            }
+            else if (tip.Equals("Dinamicka"))
+            {
+                Tip.SelectedIndex = 1;
+            }
+
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)

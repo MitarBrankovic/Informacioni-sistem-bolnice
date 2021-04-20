@@ -4,7 +4,7 @@ namespace Model
     {
         Operaciona,
         SalaZaOdmor,
-        Prostorije,
+        Magacin,
         Kancelarija,
         SalaSaKrevetima
 

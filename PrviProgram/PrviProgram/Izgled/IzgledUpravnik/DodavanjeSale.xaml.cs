@@ -65,9 +65,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     tempSala.Tip = TipSale.SalaSaKrevetima;
                 }
-                else if (tip.Equals("Prostorija"))
+                else if (tip.Equals("Magacin"))
                 {
-                    tempSala.Tip = TipSale.Prostorije;
+                    tempSala.Tip = TipSale.Magacin;
                 }
 
                 String dostupnost = Dostupnost.Text;
@@ -84,8 +84,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     this.sale.Add(tempSala);
                 }
-
-                //UpravljanjeSalama.getInstance().DodavanjeSale(tempSala);
 
                 this.Close();
             }

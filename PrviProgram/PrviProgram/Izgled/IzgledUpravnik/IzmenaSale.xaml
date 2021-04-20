@@ -23,7 +23,7 @@
             <ComboBoxItem Content="Kancelarija"/>
             <ComboBoxItem Content="Sala za odmor"/>
             <ComboBoxItem Content="Sala sa krevetima"/>
-            <ComboBoxItem Content="Prostorija"/>
+            <ComboBoxItem Content="Magacin"/>
         </ComboBox>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="250,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <TextBox x:Name="Sifra" HorizontalAlignment="Left" Margin="250,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>

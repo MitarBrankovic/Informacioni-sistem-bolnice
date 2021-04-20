@@ -116,7 +116,10 @@ namespace Service.UpravnikService
                             {
                                 s.oprema.Add(op);
                             }
-                            else {
+                            else if (op.Kolicina == 0) {
+                            }
+                            else
+                            {
                                 return false;
                             }
 

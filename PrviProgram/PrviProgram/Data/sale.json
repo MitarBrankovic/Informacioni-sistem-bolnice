@@ -1,11 +1,56 @@
 [
   {
+    "oprema": [
+      {
+        "Naziv": "Stolice",
+        "Kolicina": 30,
+        "Tip": 0
+      },
+      {
+        "Naziv": "Gaze",
+        "Kolicina": 20,
+        "Tip": 1
+      },
+      {
+        "Naziv": "Zavoji",
+        "Kolicina": 20,
+        "Tip": 1
+      },
+      {
+        "Naziv": "Kreveti",
+        "Kolicina": 30,
+        "Tip": 0
+      }
+    ],
+    "Tip": 2,
+    "Naziv": "Magacin",
+    "Sprat": 1,
+    "Dostupnost": true,
+    "Sifra": "mag",
+    "NazivSprat": "Magacin 1"
+  },
+  {
     "oprema": [],
     "Tip": 0,
-    "Naziv": "ntp 1",
+    "Naziv": "NTP 1",
     "Sprat": 1,
     "Dostupnost": true,
     "Sifra": "ntp 1",
-    "NazivSprat": "ntp 1 1"
+    "NazivSprat": "NTP 1 1"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "Kreveti",
+        "Kolicina": 10,
+        "Tip": 0
+      }
+    ],
+    "Tip": 4,
+    "Naziv": "NTP 2",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "ntp2",
+    "NazivSprat": "NTP 2 2"
   }
 ]

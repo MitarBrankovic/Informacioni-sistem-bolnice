@@ -75,15 +75,24 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 Sala novaSala = new Sala();
                 novaSala = (Sala)ComboSala.SelectedItem;
 
-
-                
-                upr.dodavanjeTermina(novaSala,this.sala,oprema, this.datumPremestaja);
-
-                //}
-               /* else
+                if (this.opremaa.Kolicina - oprema.Kolicina > -1)
                 {
+                    this.opreme.Remove(this.opremaa);       //refresovanje tabele stare sale
+                    Oprema op = new Oprema();
+                    op.Naziv = oprema.Naziv;
+                    op.Tip = oprema.Tip;
+                    op.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
+                    if (op.Kolicina != 0)
+                    {
+                        this.opreme.Add(op);
+                    }
+
+
+                    upr.dodavanjeTermina(novaSala, this.sala, oprema, this.datumPremestaja);
+                }
+                else {
                     MessageBox.Show("Uneli ste pogresnu kolicinu!");
-                }*/
+                }
 
                 this.Close();
             }
