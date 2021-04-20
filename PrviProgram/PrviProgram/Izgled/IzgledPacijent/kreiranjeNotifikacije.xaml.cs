@@ -24,31 +24,26 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public NotifikacijePacijenta notifikacija = new NotifikacijePacijenta();
         public NotifikacijeService not = new NotifikacijeService();
         public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();
+        List<Pacijent> pacijenti = new List<Pacijent>();
+        List<Recept> recepti = new List<Recept>();
         
         public kreiranjeNotifikacije(Pacijent p)
         {
 
             
             InitializeComponent();
-            LekText.Text = "Brufen";
-            OpisLeka.Text = "Morate ga koristiti svaki dan u 18h";
+            
             endDate.IsEnabled = false;
             potvrdiButton.IsEnabled = false;
             this.pp = p;
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
-            List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
-            foreach (NotifikacijePacijenta n in notifikacije)
+            this.recepti=not.pregledRecepata(p);
+            foreach(Recept r in recepti)
             {
-                if (n.pacijent.Jmbg.Equals(this.pp.Jmbg))
-                {
-                    MessageBox.Show(n.opisNotifikacije);
-                }
+                listaLekova.Items.Add(r.Lekovi);
             }
-
+            OpisLeka.IsEnabled = false;
+            potvrdiButton.IsEnabled = false;
+            
         }
 
         private void startDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -80,20 +75,34 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            notifikacija.pacijent = this.pp;
+            this.notifikacija.pacijent = this.pp;
             Recept r = new Recept();
-            r.Lekovi = LekText.Text;
+            r.Lekovi = listaLekova.SelectedItem.ToString();
             r.OpisLeka = OpisLeka.Text;
-            notifikacija.recept = r;
-            notifikacija.KrajDatuma = end;
-            notifikacija.PocetakDatuma = start;
-            notifikacija.vremeObavestenja = comboBoxVreme.Text;
-            notifikacija.opisNotifikacije="Morate popiti"+LekText.Text+" za 1h.";
-            this.notifikacije.Add(notifikacija);
-            not.DodavanjeNotifikacije(notifikacije);
+            this.notifikacija.recept = r;
+            this. notifikacija.KrajDatuma = end;
+           this. notifikacija.PocetakDatuma = start;
+           this.notifikacija.vremeObavestenja = comboBoxVreme.Text;
+           this. notifikacija.opisNotifikacije="Morate popiti "+listaLekova.SelectedItem.ToString()+" za 1h.";
+     
+            not.DodavanjeNotifikacije(notifikacija);
             this.Close();
-             
 
+        }
+
+        private void listaLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(listaLekova.SelectedItem.ToString().Equals(""))
+            {
+                OpisLeka.IsEnabled = false;
+            }
+            else
+            {
+                Recept r1 = new Recept();
+                r1.Lekovi = listaLekova.SelectedItem.ToString();
+                OpisLeka.IsEnabled = true;
+                OpisLeka.Text = not.PronadjiOpis(r1, this.pp);
+            }
         }
     }
 }

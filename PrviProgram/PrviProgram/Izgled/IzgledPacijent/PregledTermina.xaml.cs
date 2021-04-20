@@ -19,38 +19,32 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         public DateTime trenutnoVreme { get; set; }
         public DateTime vremeTermina { get; set; }
+        public DateTime vremenotifikacije { get; set; }
 
         ObservableCollection<Termin> termini { get; set; }
 
-
+        public NotifikacijeObavestenjaRepository not = new NotifikacijeObavestenjaRepository();
+        public List<NotifikacijePacijenta> notifikacije = new List<NotifikacijePacijenta>();
+        public List<NotifikacijePacijenta> trenutna = new List<NotifikacijePacijenta>();
         public DispatcherTimer timer;
-        //timer = new DispatcherTimer();
-        //timer.Interval = TimeSpan.FromMilliseconds(50);
-        //    timer.Start();
-        //    timer.Tick += new EventHandler(timer_Tick);
-
-
-
-
-        //private void timer_Tick(object sender, EventArgs e)
-        //{
-
-
-        //}
+        public DispatcherTimer timer1;
 
         public PregledTermina(Pacijent p)
         {
 
             InitializeComponent();
 
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(0.5);
-            timer.Start();
-            timer.Tick += new EventHandler(timer_Tick);
 
+            this.notifikacije = not.CitanjeIzFajla();
 
+          
             this.pacijent = p;
             termini = new ObservableCollection<Termin>(TerminiService.getInstance().PregledTermina(p));
+
+            timer1 = new DispatcherTimer();
+            timer1.Interval = TimeSpan.FromSeconds(1);
+            timer1.Start();
+            timer1.Tick += new EventHandler(timer_Tick);
 
             dataGridPacijenta.ItemsSource = termini;
 
@@ -58,17 +52,61 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
-            List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
-            foreach(NotifikacijePacijenta n in notifikacije)
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            int tim = 0;
+            foreach (NotifikacijePacijenta n in this.notifikacije)
             {
-                if(n.pacijent.Jmbg.Equals(this.pacijent.Jmbg))
+
+                if (n.pacijent.Jmbg.Equals(this.pacijent.Jmbg))
                 {
-                    MessageBox.Show(n.opisNotifikacije);
+                    if (DateTime.Today >= n.PocetakDatuma && DateTime.Today <= n.KrajDatuma)
+                    {
+                        this.vremenotifikacije = Convert.ToDateTime(n.vremeObavestenja);
+
+                        if ((DateTime.Now.Hour == vremenotifikacije.Hour) && (DateTime.Now.Minute == vremenotifikacije.Minute))
+                        {
+                            this.trenutna.Add(n);
+                            if (tim <1)
+                            {
+                                timer.Start();
+                                timer.Tick += new EventHandler(timer_Tick1);
+                                ++tim;
+                               // timer1.Stop();
+                            }
+                        }
+                   
+                    }
+                    else
+                    {
+                        timer1.Stop();
+                    }
                 }
             }
-
+            //timer1.Stop();
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void timer_Tick1(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            string nova="";
+            foreach (NotifikacijePacijenta n in trenutna)
+            {
+                nova += n.opisNotifikacije + " ";
+                
+            }
+            MessageBox.Show(nova);
+            timer.Stop();
+            timer1.Interval = TimeSpan.FromMinutes(1);
+            timer1.Start();
+            
+        }
+     
         private Pacijent pacijent;
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {

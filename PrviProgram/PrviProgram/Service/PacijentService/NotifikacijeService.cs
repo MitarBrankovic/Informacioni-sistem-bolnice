@@ -13,11 +13,14 @@ namespace Service.PacijentService
 {
    public class NotifikacijeService
    {
-      public void DodavanjeNotifikacije(List<NotifikacijePacijenta> notifikacija)
+        public void DodavanjeNotifikacije(NotifikacijePacijenta notifikacija)
       {
 
             NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
-            datoteka.UpisivanjeUFajl(notifikacija);
+            List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
+            notifikacije.Add(notifikacija);
+
+            datoteka.UpisivanjeUFajl(notifikacije);
 
       }
       
@@ -26,9 +29,47 @@ namespace Service.PacijentService
          
       }
    
-      public List<NotifikacijePacijenta> notifikacijeObavestenjaRepository;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      
-   }
+     
+
+        public List<Recept> pregledRecepata(Pacijent p)
+        {
+            PacijentRepository datotetka = new PacijentRepository();
+            List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
+            List<Recept> recepti = new List<Recept>();
+
+            foreach(Pacijent pp in pacijenti)
+            {
+                if(pp.Jmbg.Equals(p.Jmbg))
+                {
+                    foreach(IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    {
+                        recepti.Add(i.recept);
+                    }
+                }
+            }
+            return recepti;
+        }
+        public String PronadjiOpis(Recept r, Pacijent p)
+        {
+            PacijentRepository datotetka = new PacijentRepository();
+            List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
+            foreach(Pacijent pp in pacijenti)
+            {
+                if(p.Jmbg.Equals(pp.Jmbg))
+                {
+                    foreach(IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    {
+                        if (i.recept.Lekovi.Equals(r.Lekovi))
+                        {
+                            return i.terapija.Opis.ToString();
+                        }
+                    }
+                }
+            }
+            return "";
+        }
+
+        /// <pdGenerated>default getter</pdGenerated>
+
+    }
 }
