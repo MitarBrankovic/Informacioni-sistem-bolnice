@@ -47,11 +47,11 @@ namespace Service.LekarService
       }
    
 
-        public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Termin termin)
+        public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
             
-            Pacijent pacijentStari = termin.pacijent;
-            Pacijent pacijentNovi = termin.pacijent;
+            Pacijent pacijentStari = pacijent;
+            Pacijent pacijentNovi = pacijent;
             //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
             pacijentNovi.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
             //termin.pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);

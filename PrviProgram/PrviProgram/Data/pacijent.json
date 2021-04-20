@@ -87,7 +87,66 @@
     ],
     "kartonPacijenta": {
       "alergen": null,
-      "izvrseniPregled": [],
+      "izvrseniPregled": [
+        {
+          "Datum": "2021-04-21T00:00:00",
+          "TipTermina": 2,
+          "Lekar": {
+            "termin": null,
+            "ImePrezime": "d d",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "d",
+            "Prezime": "d",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "asfasfasf"
+          },
+          "recept": {
+            "VremenskiPeriodUzimanjaLeka": "0001-01-01T00:00:00",
+            "Lekovi": "safasfasfasfas"
+          },
+          "terapija": {
+            "Opis": "sasfasfasfafs",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Datum": "2021-04-13T00:00:00",
+          "TipTermina": 2,
+          "Lekar": {
+            "termin": null,
+            "ImePrezime": "d d",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "d",
+            "Prezime": "d",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "ooooooooooo"
+          },
+          "recept": {
+            "VremenskiPeriodUzimanjaLeka": "0001-01-01T00:00:00",
+            "Lekovi": "ooooooooooooo"
+          },
+          "terapija": {
+            "Opis": "oooooooooooo",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        }
+      ],
       "Sifra": null,
       "pacijent": {
         "termin": null,

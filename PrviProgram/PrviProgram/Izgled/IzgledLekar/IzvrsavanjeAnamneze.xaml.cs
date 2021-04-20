@@ -1,5 +1,6 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
+using Repository;
 using Service.LekarService;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private Termin termin;
         private IzvrseniPregled izvrseniPregled;
-
+        private PacijentRepository pacijentRepository = new PacijentRepository();
         public IzvrsavanjeAnamneze(ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             anamneza.Opis = TextboxAnamneza.Text;
             izvrseniPregled.anamneza = anamneza;
 
-            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, termin);
+            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(termin.pacijent.Jmbg));
             //ControllerLekar.getInstance().BrisanjeTermina(termin, (Termin)dataGridLekar.SelectedItem));
             this.Close();
         }
