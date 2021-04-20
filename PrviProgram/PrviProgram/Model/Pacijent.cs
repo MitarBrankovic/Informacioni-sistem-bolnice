@@ -6,6 +6,7 @@ namespace Model
     {
         public List<Termin> termin;
         public KartonPacijenta kartonPacijenta;
+        public NotifikacijePacijenta notifikacija;
 
         public List<Termin> GetTermin()
         {

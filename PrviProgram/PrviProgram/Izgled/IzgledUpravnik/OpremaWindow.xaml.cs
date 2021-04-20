@@ -39,10 +39,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             this.sale = sale;
             this.sala = sala;
 
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Start();
-            timer.Tick += new EventHandler(lala);
 
             upravljanje = new SaleService();
             opremaService = new OpremaService();
@@ -73,34 +69,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         }
 
         */
-        public void lala(object sender, EventArgs e) {
-            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
-            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
-            SalaRepository datoteka1 = new SalaRepository();
-            Sala staraSala= new Sala();
-            foreach (TerminPremestanjaOpreme t in termini) {
-                if (DateTime.Today.Equals(t.datumPremestaja)) {
-                    if (sala.Sifra.Equals(t.sala.Sifra))
-                    {
-                        Service.UpravnikService.OpremaService.getInstance().PremestanjeOpreme(t.oprema, t.staraSala, t.sala);
-                    }
-                    /*foreach(Sala s in sale)
-                    {
-                        if(s.Sifra.Equals(t.sala.Sifra))
-                        {
-                            s1.oprema = s.oprema;
-                            sale.Remove(s);
-                            s1.oprema.Add(t.oprema);
-                            sale.Add(s1);
-                            datoteka1.UpisivanjeUFajl(sale);
-                            break;
-                        }
-                    }*/
-                    
-                }
-            
-            }
-        }
+
 
 
         private void Prebaci_Click(object sender, RoutedEventArgs e)

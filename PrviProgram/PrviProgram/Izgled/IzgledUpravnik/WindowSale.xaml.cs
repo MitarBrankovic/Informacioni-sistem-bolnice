@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using Model;
 using PrviProgram.Logika;
 using PrviProgram.Repository;
@@ -24,6 +27,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         public SaleService upravljanje;
         public SalaRepository saleRep;
         public ObservableCollection<Model.Sala> sale;
+        public DispatcherTimer timer;
 
 
 
@@ -33,11 +37,40 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
             upravljanje = new SaleService();
             saleRep = new SalaRepository();
+            //sale = new ObservableCollection<Model.Sala>(saleRep.PregledSvihSala());
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += new EventHandler(lala);
+
             sale = new ObservableCollection<Model.Sala>(saleRep.PregledSvihSala());
 
 
             dataGridUpravnik.ItemsSource = sale;
 
+        }
+
+        public void lala(object sender, EventArgs e)
+        {
+            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
+            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
+
+            SalaRepository datoteka1 = new SalaRepository();
+          
+            foreach (TerminPremestanjaOpreme t in termini)
+            {
+                if (DateTime.Today.Equals(t.datumPremestaja))
+                {
+                    OpremaService.getInstance().PremestanjeOpreme(t.oprema, t.staraSala, t.sala);
+                    timer.Stop();
+                    termini.Remove(t);
+                    datoteka.UpisivanjeUFajl(termini);
+                    break;
+
+                }
+
+            }
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

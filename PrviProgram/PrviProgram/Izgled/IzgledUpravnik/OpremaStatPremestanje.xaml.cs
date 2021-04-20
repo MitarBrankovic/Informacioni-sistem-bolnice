@@ -72,44 +72,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 oprema.Kolicina = int.Parse(Kolicina.Text);
                 oprema.Tip = TipOpreme.Staticka;
                 this.datumPremestaja = (DateTime)(TerminDatum.SelectedDate);
-
                 Sala novaSala = new Sala();
                 novaSala = (Sala)ComboSala.SelectedItem;
 
 
-               /* if (upr.PremestanjeOpreme(oprema, sala, novaSala) == true)
-                {
-                    if (oprema.Kolicina == 0)
-                    {
-                        this.opreme.Remove(this.opremaa);
-                    }
-                    else
-                    {
-                        this.opreme.Remove(this.opremaa);
-                        Oprema op = new Oprema();
-                        op.Naziv = oprema.Naziv;
-                        op.Tip = oprema.Tip;
-                        op.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
-
-                        this.opreme.Add(op);
-                    }
-
-                    foreach (Oprema o in sala.oprema.ToArray())
-                    {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            sala.GetOprema().Remove(o);
-                            //sala.GetOprema().Add(oprema);
-                        }
-                    }*/
-                    Oprema opr = new Oprema();
-                    opr.Naziv = oprema.Naziv;
-                    opr.Tip = oprema.Tip;
-                    opr.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
-                    sala.oprema.Add(opr);
-
-
-                    upr.dodavanjeTermina(novaSala,sala,opr, this.datumPremestaja);
+                
+                upr.dodavanjeTermina(novaSala,this.sala,oprema, this.datumPremestaja);
 
                 //}
                /* else

@@ -9,12 +9,12 @@
     <Grid>
         <Image Source="/Slike/upravnik.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Width="800"/>
 
-        <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click"  Content="Pomeranje zakazanog termina" HorizontalAlignment="Left" Height="26" Margin="508,53,0,0" VerticalAlignment="Top" Width="232" />
-        <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="26" Margin="83,50,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="26" Margin="227,52,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="374,52,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click"  Content="Pomeranje zakazanog termina" HorizontalAlignment="Left" Height="26" Margin="387,56,0,0" VerticalAlignment="Top" Width="232" />
+        <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="26" Margin="18,56,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="26" Margin="143,56,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="259,55,0,0" VerticalAlignment="Top" Width="98"/>
 
-        <DataGrid x:Name="dataGridPacijenta" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="66,101,54,10">
+        <DataGrid x:Name="dataGridPacijenta" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="100,105,97,44">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -31,6 +31,7 @@
                 <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar.ImePrezime}"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Kreiranje notifikacije" HorizontalAlignment="Left" Height="26" Margin="639,56,0,0" VerticalAlignment="Top" Width="129" Click="Button_Click"/>
 
 
     </Grid>
