@@ -19,11 +19,11 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class PrepisiLek : Window
     {
         private IzvrseniPregled izvrseniPregled;
-        public PrepisiLek(IzvrseniPregled izvrseniPregled)
+        public PrepisiLek(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
             InitializeComponent();
             this.izvrseniPregled = izvrseniPregled;
-            TextboxPacijent.Text = izvrseniPregled.Termin.pacijent.Ime + " " + izvrseniPregled.Termin.pacijent.Prezime;
+            TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
 
         }
 

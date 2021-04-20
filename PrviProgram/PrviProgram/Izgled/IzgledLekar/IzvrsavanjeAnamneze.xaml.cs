@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Logika.Controllers;
 using Service.LekarService;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,9 @@ namespace PrviProgram.Izgled.IzgledLekar
             TextboxPacijent.Text = termin.pacijent.Ime + " " + termin.pacijent.Prezime;
             //Kreiranje praznog objekta izvrsenog pregleda
             izvrseniPregled = new IzvrseniPregled();
-            izvrseniPregled.Termin = termin;
+            izvrseniPregled.Lekar = termin.lekar;
+            izvrseniPregled.Datum = termin.Datum;
+            izvrseniPregled.TipTermina = termin.TipTermina;
         }
 
         private void ZavrsiAnamnezu_Click(object sender, RoutedEventArgs e)
@@ -41,19 +44,19 @@ namespace PrviProgram.Izgled.IzgledLekar
             izvrseniPregled.anamneza = anamneza;
 
             KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, termin);
-
+            //ControllerLekar.getInstance().BrisanjeTermina(termin, (Termin)dataGridLekar.SelectedItem));
             this.Close();
         }
 
         private void PrepisiTerapiju_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled);
+            PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled, termin.pacijent);
             prepisi.Show();
         }
 
         private void PrepisiLek_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiLek prepisi = new PrepisiLek(izvrseniPregled);
+            PrepisiLek prepisi = new PrepisiLek(izvrseniPregled, termin.pacijent);
             prepisi.Show();
         }
 

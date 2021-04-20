@@ -6,8 +6,10 @@
 
 using System;
 using System.Collections.Generic;
+using Controller;
 using Model;
 using PrviProgram.Izgled.Sekretar;
+using Repository;
 using Service.SekretarService;
 
 namespace Service.LekarService
@@ -16,7 +18,8 @@ namespace Service.LekarService
    {
 
 
-        private PacijentiService pacijentiService;
+        private PacijentiService pacijentiService = new PacijentiService();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
 
         private static KartonPacijentaService instance = null;
         public static KartonPacijentaService getInstance()
@@ -31,7 +34,6 @@ namespace Service.LekarService
         public void BrisanjeKartona(string sifraKartona)
       {
             // TODO: implement
-            pacijentiService = new PacijentiService();
       }
       
       public void IzmenaKartona(KartonPacijenta karton)
@@ -50,11 +52,12 @@ namespace Service.LekarService
             
             Pacijent pacijentStari = termin.pacijent;
             Pacijent pacijentNovi = termin.pacijent;
+            //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
             pacijentNovi.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
-            termin.pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+            //termin.pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
 
             pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
-            PreglediService.getInstance().IzmenaPregleda(termin);
+            //PreglediService.getInstance().IzmenaPregleda(termin);
 
         }
 

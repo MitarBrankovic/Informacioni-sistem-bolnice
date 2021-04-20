@@ -5,7 +5,7 @@ namespace Model
     public class Pacijent : Osoba
     {
         public List<Termin> termin;
-        public KartonPacijenta kartonPacijenta;
+        public KartonPacijenta kartonPacijenta { get; set; }
 
         public List<Termin> GetTermin()
         {

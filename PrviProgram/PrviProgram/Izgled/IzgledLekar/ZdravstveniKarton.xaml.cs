@@ -22,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
 
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
+        public PacijentRepository pacijentRepository = new PacijentRepository();
         private Pacijent pacijent;
         public ZdravstveniKarton(Pacijent pacijent)
         {
@@ -49,8 +50,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
 
             //izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(KartonPacijentaRepository.getInstance().PregledSvihIzvrsenihPregleda(pacijent.kartonPacijenta));
-
-            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijent.kartonPacijenta.izvrseniPregled);
+            //pacijentRepository.PregledPacijenta(pacijent.Jmbg);
+            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
             dataGridKarton.ItemsSource = izvrseniPregledi;
         }
 

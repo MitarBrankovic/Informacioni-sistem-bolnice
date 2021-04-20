@@ -10,7 +10,12 @@ namespace Model
 {
     public class IzvrseniPregled
     {
-        public Termin Termin { get; set; }
+        //public Termin Termin { get; set; }
+
+        public DateTime Datum { get; set; }
+        public TipTermina TipTermina { get; set; }
+
+        public Lekar Lekar { get; set; }
         public Anamneza anamneza { get; set; }
         public Recept recept { get; set; }
         public Terapija terapija { get; set; }

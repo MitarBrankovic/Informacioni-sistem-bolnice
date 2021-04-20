@@ -16,9 +16,9 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum" Binding="{Binding termin.Datum, StringFormat=\{0:dd/MM/yyyy\}}"  Width="102"/>
-                <DataGridTextColumn Header="Tip termina" Binding="{Binding termin.TipTermina}" Width="102"/>
-                <DataGridTextColumn Header="Lekar" Binding="{Binding termin.lekar.ImePrezime}" Width="102"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=\{0:dd/MM/yyyy\}}"  Width="102"/>
+                <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="102"/>
+                <DataGridTextColumn Header="Lekar" Binding="{Binding Lekar.ImePrezime}" Width="102"/>
                 <DataGridTextColumn Header="Anamneza" Binding="{Binding anamneza.Opis }" Width="102"/>
                 <DataGridTextColumn Header="Terapija" Binding="{Binding terapija.Opis}" Width="102" />
                 <DataGridTextColumn Header="Recept" Binding="{Binding recept.Lekovi}"  Width="102"/>
