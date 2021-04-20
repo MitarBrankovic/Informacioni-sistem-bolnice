@@ -12,42 +12,39 @@ namespace Controller
 {
    public class UpravnikController
    {
-      public void DodavanjeOpreme()
+      public void DodavanjeOpreme(Oprema oprema, Sala sala)
       {
-         // TODO: implement
+            OpremaService.getInstance().DodavanjeOpreme(oprema, sala);
       }
       
-      public void BrisanjeOpreme()
+      public void BrisanjeOpreme(Oprema oprema, Sala sala)
       {
-         // TODO: implement
+            OpremaService.getInstance().BrisanjeOpreme(oprema, sala);
       }
       
-      public void IzmenaOpreme()
+      public void IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
       {
-         // TODO: implement
+            OpremaService.getInstance().IzmenaOpreme(staraOprema, novaOprema, sala);
       }
       
-      public void PremestanjeOpreme()
+      public void PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
       {
-         // TODO: implement
+            OpremaService.getInstance().PremestanjeOpreme(oprema, staraSala, novaSala);
       }
       
-      public bool DodavanjeSale(Sala sala)
+      public void DodavanjeSale(Sala sala)
       {
-         // TODO: implement
-         return false;
+            SaleService.getInstance().DodavanjeSale(sala);
       }
       
-      public bool BrisanjeSale(Sala sala)
+      public void BrisanjeSale(Sala sala)
       {
-         // TODO: implement
-         return false;
+            SaleService.getInstance().BrisanjeSale(sala);
       }
       
-      public bool IzmenaSale(Sala stara, Sala nova)
+      public void IzmenaSale(Sala stara, Sala nova)
       {
-         // TODO: implement
-         return false;
+            SaleService.getInstance().IzmenaSale(stara, nova);
       }
    
       public SaleService saleService;

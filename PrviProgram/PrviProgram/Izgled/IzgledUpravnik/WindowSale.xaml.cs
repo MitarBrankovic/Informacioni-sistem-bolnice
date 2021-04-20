@@ -63,7 +63,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (DateTime.Today.Equals(t.datumPremestaja))
                 {
                     OpremaService.getInstance().PremestanjeOpreme(t.oprema, t.staraSala, t.sala);
-                    timer.Stop();
+                    //timer.Stop();
                     termini.Remove(t);
                     datoteka.UpisivanjeUFajl(termini);
                     break;
