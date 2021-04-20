@@ -10,8 +10,8 @@ namespace Model
 {
    public class Terapija
    {
-      private string Opis;
-      private DateTime Datum;
-   
-   }
+      public string Opis { get; set; }
+      public DateTime Datum { get; set; }
+
+    }
 }

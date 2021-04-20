@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 //using Logika.LogikaSekretar;
 
-namespace PrviProgram.Izgled.Lekar
+namespace PrviProgram.Izgled.IzgledLekar
 {
     /// <summary>
     /// Interaction logic for DodavanjeTermina.xaml

@@ -79,8 +79,13 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 
             pacijent.termin = new List<Termin>();
             pacijent.kartonPacijenta = new KartonPacijenta();
+            
             pacijent.Korisnik = korisnik;
-
+            Pacijent tmpPacijent = new Pacijent();
+            tmpPacijent.Jmbg = pacijent.Jmbg;
+            pacijent.kartonPacijenta.pacijent = tmpPacijent;
+            
+            
             if (upravljanjePacijentima.DodavanjePacijenta(pacijent) == true)
             {
                 this.pacijenti.Add(pacijent);

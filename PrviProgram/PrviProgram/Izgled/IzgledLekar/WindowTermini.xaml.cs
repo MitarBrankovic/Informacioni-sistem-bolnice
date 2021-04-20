@@ -1,33 +1,24 @@
 ﻿using Model;
+using PrviProgram.Izgled.IzgledLekar;
 using PrviProgram.Logika.Controllers;
 using Service.LekarService;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace PrviProgram.Izgled.Lekar
+namespace PrviProgram.Izgled.IzgledLekar
 {
     /// <summary>
     /// Interaction logic for WindowTermini.xaml
     /// </summary>
     public partial class WindowTermini : Window
     {
-        private static WindowTermini instance = null;
-        public static WindowTermini getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new WindowTermini();
-            }
-            return instance;
-        }
-
         //List<Termin> termini = new List<Termin>();
         public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         public ControllerLekar controllerLekar;
 
-        public WindowTermini()
+        public WindowTermini(Lekar lekar)
         {
             InitializeComponent();
 
@@ -72,10 +63,41 @@ namespace PrviProgram.Izgled.Lekar
 
 
         }
+        private void Informacije_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                InformacijePacijent info = new InformacijePacijent(termini, (Termin)dataGridLekar.SelectedItem);
+                info.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+
+            }
+        }
+
+
+        private void Anamneza_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(termini, (Termin)dataGridLekar.SelectedItem);
+                anamneza.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+
+            }
+        }
+
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        
     }
 }

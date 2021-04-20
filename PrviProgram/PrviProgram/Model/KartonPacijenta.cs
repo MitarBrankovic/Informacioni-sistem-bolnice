@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Model
@@ -5,6 +6,7 @@ namespace Model
     public class KartonPacijenta
     {
         public string Sifra { get; set; }
+
         public List<Alergen> alergen;
         public Anamneza anamneza;
         public Recept recept;
@@ -48,6 +50,52 @@ namespace Model
         {
             if (alergen != null)
                 alergen.Clear();
+        }
+
+        public List<IzvrseniPregled> izvrseniPregled = new List<IzvrseniPregled>();
+
+        /// <pdGenerated>default getter</pdGenerated>
+        public List<IzvrseniPregled> GetIzvrseniPregled()
+        {
+            if (izvrseniPregled == null)
+                izvrseniPregled = new List<IzvrseniPregled>();
+            return izvrseniPregled;
+        }
+
+        /// <pdGenerated>default setter</pdGenerated>
+        public void SetIzvrseniPregled(List<IzvrseniPregled> newIzvrseniPregled)
+        {
+            RemoveAllIzvrseniPregled();
+            foreach (IzvrseniPregled oIzvrseniPregled in newIzvrseniPregled)
+                AddIzvrseniPregled(oIzvrseniPregled);
+        }
+
+        /// <pdGenerated>default Add</pdGenerated>
+        public void AddIzvrseniPregled(IzvrseniPregled newIzvrseniPregled)
+        {
+            if (newIzvrseniPregled == null)
+                return;
+            if (this.izvrseniPregled == null)
+                this.izvrseniPregled = new List<IzvrseniPregled>();
+            if (!this.izvrseniPregled.Contains(newIzvrseniPregled))
+                this.izvrseniPregled.Add(newIzvrseniPregled);
+        }
+
+        /// <pdGenerated>default Remove</pdGenerated>
+        public void RemoveIzvrseniPregled(IzvrseniPregled oldIzvrseniPregled)
+        {
+            if (oldIzvrseniPregled == null)
+                return;
+            if (this.izvrseniPregled != null)
+                if (this.izvrseniPregled.Contains(oldIzvrseniPregled))
+                    this.izvrseniPregled.Remove(oldIzvrseniPregled);
+        }
+
+        /// <pdGenerated>default removeAll</pdGenerated>
+        public void RemoveAllIzvrseniPregled()
+        {
+            if (izvrseniPregled != null)
+                izvrseniPregled.Clear();
         }
 
     }

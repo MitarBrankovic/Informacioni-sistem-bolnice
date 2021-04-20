@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram"
         mc:Ignorable="d"
-        Title="Logovanje Pacijenta" Height="274" Width="570" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Logovanje" Height="274" Width="570" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-81,0" RenderTransformOrigin="0.519,0.97" Height="275" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="33*"/>

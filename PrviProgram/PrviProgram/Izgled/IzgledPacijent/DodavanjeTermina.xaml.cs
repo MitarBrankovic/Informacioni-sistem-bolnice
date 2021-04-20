@@ -17,7 +17,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
     public partial class DodavanjeTermina : Window
     {
         private SaleService uprSal;
-        private SalaRepository saleRep;
+        private SalaRepository saleRep = new SalaRepository();
 
         public DodavanjeTermina(ObservableCollection<Termin> termini, Pacijent p)
         {

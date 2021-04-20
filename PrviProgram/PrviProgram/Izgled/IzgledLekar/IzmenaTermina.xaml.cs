@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace PrviProgram.Izgled.Lekar
+namespace PrviProgram.Izgled.IzgledLekar
 {
     /// <summary>
     /// Interaction logic for IzmenaTermina.xaml

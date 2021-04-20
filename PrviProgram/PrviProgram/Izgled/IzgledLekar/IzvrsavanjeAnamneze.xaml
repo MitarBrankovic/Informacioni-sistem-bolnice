@@ -1,0 +1,19 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.IzvrsavanjeAnamneze"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        mc:Ignorable="d"
+        Title="Anamneza pacijenta" Height="450" Width="800">
+    <Grid>
+        <TextBox  x:Name = "TextboxAnamneza" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="288" Margin="77,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449"/>
+        <TextBox  x:Name = "TextboxPacijent" HorizontalAlignment="Left" Height="34" Margin="77,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" IsReadOnly="True"/>
+        <Button x:Name ="ZavrsiAnamnezu" Click="ZavrsiAnamnezu_Click"   Content="Zavrsi &#xa;Anamnezu" HorizontalAlignment="Left" Height="57" Margin="639,336,0,0" VerticalAlignment="Top" Width="104" />
+        <Button x:Name ="PrepisiTerapiju" Click="PrepisiTerapiju_Click"  Content="Prepisi &#xa;Terapiju" HorizontalAlignment="Left" Height="57" Margin="639,249,0,0" VerticalAlignment="Top" Width="104" />
+        <Button x:Name ="PrepisiLek" Click="PrepisiLek_Click"  Content="Prepisi&#xa;Lek" HorizontalAlignment="Left" Height="57" Margin="639,160,0,0" VerticalAlignment="Top" Width="104" />
+        <Button x:Name ="ZdravstveniKarton" Click="ZdravstveniKarton_Click"  Content="Zdravstveni&#xa;Karton" HorizontalAlignment="Left" Height="57" Margin="639,72,0,0" VerticalAlignment="Top" Width="104" />
+        <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="95,74,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

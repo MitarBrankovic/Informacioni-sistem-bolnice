@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using Model;
+using PrviProgram.Izgled.IzgledLekar;
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
 using PrviProgram.Izgled.IzgledUpravnik;
@@ -76,8 +77,8 @@ namespace PrviProgram
                         Model.Lekar lekar = lekarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (lekar != null)
                         {
-                            //PregledTermina win = PregledTermina.getInstance(pacijent);
-                            //win.Show();
+                            WindowTermini win = new WindowTermini(lekar);
+                            win.Show();
                         }
                         break;
                     }

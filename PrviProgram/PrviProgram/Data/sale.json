@@ -1,61 +1,11 @@
 [
   {
-    "oprema": [
-      {
-        "Naziv": "Kreveti",
-        "Kolicina": 3,
-        "Tip": 0
-      }
-    ],
-    "Tip": 1,
-    "Naziv": "NTP1",
-    "Sprat": 1,
-    "Dostupnost": true,
-    "Sifra": "ntp1",
-    "NazivSprat": "NTP1 1"
-  },
-  {
-    "oprema": [
-      {
-        "Naziv": "Kreveti",
-        "Kolicina": 2,
-        "Tip": 0
-      }
-    ],
-    "Tip": 1,
-    "Naziv": "NTP2",
-    "Sprat": 4,
-    "Dostupnost": true,
-    "Sifra": "ntp2",
-    "NazivSprat": "NTP2 4"
-  },
-  {
-    "oprema": [
-      {
-        "Naziv": "Rukavice",
-        "Kolicina": 5,
-        "Tip": 0
-      },
-      {
-        "Naziv": "Kreveti",
-        "Kolicina": 5,
-        "Tip": 0
-      }
-    ],
-    "Tip": 4,
-    "Naziv": "NTP3",
-    "Sprat": 2,
-    "Dostupnost": true,
-    "Sifra": "ntp3",
-    "NazivSprat": "NTP3 2"
-  },
-  {
     "oprema": [],
     "Tip": 0,
-    "Naziv": "NTP4",
-    "Sprat": 9,
+    "Naziv": "ntp 1",
+    "Sprat": 1,
     "Dostupnost": true,
-    "Sifra": "ntp4",
-    "NazivSprat": "NTP4 9"
+    "Sifra": "ntp 1",
+    "NazivSprat": "ntp 1 1"
   }
 ]

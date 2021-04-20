@@ -1,93 +1,59 @@
 [
   {
-    "termin": [
-      {
-        "Datum": "2021-04-21T00:00:00",
-        "TipTermina": 2,
-        "SifraTermina": "XAoTZZF4",
-        "sala": {
-          "oprema": null,
-          "Tip": 0,
-          "Naziv": "NTP 1",
-          "Sprat": 1,
-          "Dostupnost": true,
-          "Sifra": "ntp1",
-          "NazivSprat": "NTP 1 1"
-        },
-        "Vreme": "10:00",
-        "guestPacijent": null,
-        "lekar": {
-          "termin": null,
-          "ImePrezime": "d d",
-          "MestoRodjenja": null,
-          "Korisnik": null,
-          "AdresaStanovanja": null,
-          "Ime": "d",
-          "Prezime": "d",
-          "Email": null,
-          "Jmbg": null,
-          "DatumRodjenja": "0001-01-01T00:00:00",
-          "Pol": 0,
-          "KontaktTelefon": null
-        },
-        "pacijent": {
-          "termin": [],
-          "kartonPacijenta": {
-            "alergen": null,
-            "anamneza": null,
-            "recept": null,
-            "terapija": null,
-            "Sifra": null,
-            "pacijent": null
-          },
-          "MestoRodjenja": {
-            "Ime": "Zrenjanin",
-            "drzava": {
-              "Ime": "Srbija"
-            }
-          },
-          "Korisnik": {
-            "KorisnickoIme": "darko",
-            "Lozinka": "darko",
-            "TipKorisnika": 2,
-            "osoba": null
-          },
-          "AdresaStanovanja": {
-            "Ulica": "nekaulica",
-            "Broj": 32,
-            "Sprat": 4,
-            "Stan": 12,
-            "grad": {
-              "Ime": "Novi Sad",
-              "drzava": {
-                "Ime": "Srbija"
-              }
-            }
-          },
-          "Ime": "Darko",
-          "Prezime": "Vrbaski",
-          "Email": "darko@uns.ac.rs",
-          "Jmbg": "125125125",
-          "DatumRodjenja": "1999-05-04T00:00:00",
-          "Pol": 0,
-          "KontaktTelefon": "06412515152"
-        }
-      }
-    ],
+    "termin": [],
     "kartonPacijenta": {
-      "alergen": [
-        {
-          "Naziv": "Polen"
-        },
-        {
-          "Naziv": "Jaja"
-        }
-      ],
+      "alergen": null,
       "anamneza": null,
       "recept": null,
       "terapija": null,
+      "izvrseniPregled": [
+        {
+          "Datum": "2021-04-22T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "ImePrezime": "Srdjan Beric",
+            "MestoRodjenja": null,
+            "Korisnik": null,
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": null,
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "glavobolja"
+          },
+          "recept": {
+            "Lekovi": "brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "manje nerviranja",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        }
+      ],
       "Sifra": null,
-      "pacijent": null
+      "pacijent": {
+        "termin": null,
+        "kartonPacijenta": null,
+        "MestoRodjenja": null,
+        "Korisnik": null,
+        "AdresaStanovanja": null,
+        "Ime": null,
+        "Prezime": null,
+        "Email": null,
+        "Jmbg": "4444455555",
+        "DatumRodjenja": "0001-01-01T00:00:00",
+        "Pol": 0,
+        "KontaktTelefon": null
+      }
     },
     "MestoRodjenja": {
       "Ime": "Novi Sad",
@@ -96,16 +62,16 @@
       }
     },
     "Korisnik": {
-      "KorisnickoIme": "alex",
-      "Lozinka": "123",
+      "KorisnickoIme": "saska",
+      "Lozinka": "saska",
       "TipKorisnika": 2,
       "osoba": null
     },
     "AdresaStanovanja": {
-      "Ulica": "Tolstojeva",
-      "Broj": 10,
-      "Sprat": 21000,
-      "Stan": 21000,
+      "Ulica": "sssss",
+      "Broj": 23,
+      "Sprat": 4,
+      "Stan": 23,
       "grad": {
         "Ime": "Novi Sad",
         "drzava": {
@@ -113,12 +79,12 @@
         }
       }
     },
-    "Ime": "Darko",
-    "Prezime": "Vrbaski",
-    "Email": "darko@uns.ac.rs",
-    "Jmbg": "12512512",
-    "DatumRodjenja": "1999-05-04T00:00:00",
-    "Pol": 0,
-    "KontaktTelefon": "06412515152"
+    "Ime": "Aleksandra",
+    "Prezime": "Mirkovic",
+    "Email": "sssss@gmail.com",
+    "Jmbg": "4444455555",
+    "DatumRodjenja": "2021-04-15T00:00:00",
+    "Pol": 1,
+    "KontaktTelefon": "665435"
   }
 ]

@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Anamneza.cs
- * Author:  Brankovic
+ * Author:  Nesa
  * Purpose: Definition of the Class Model.Anamneza
  ***********************************************************************/
 
@@ -8,10 +8,9 @@ using System;
 
 namespace Model
 {
-   public class Anamneza
-   {
-      private String Opis;
-      private DateTime Datum;
-   
-   }
+    public class Anamneza
+    {
+        public String Opis { get; set; }
+
+    }
 }
