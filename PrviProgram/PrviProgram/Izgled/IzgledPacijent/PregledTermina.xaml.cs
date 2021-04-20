@@ -1,12 +1,14 @@
 ﻿using Model;
+using Repository;
 using Service.LekarService;
 using Service.PacijentService;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
-
+using System.Windows.Threading;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
@@ -20,15 +22,51 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         ObservableCollection<Termin> termini { get; set; }
 
+
+        public DispatcherTimer timer;
+        //timer = new DispatcherTimer();
+        //timer.Interval = TimeSpan.FromMilliseconds(50);
+        //    timer.Start();
+        //    timer.Tick += new EventHandler(timer_Tick);
+
+
+
+
+        //private void timer_Tick(object sender, EventArgs e)
+        //{
+
+
+        //}
+
         public PregledTermina(Pacijent p)
         {
 
             InitializeComponent();
 
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMinutes(0.5);
+            timer.Start();
+            timer.Tick += new EventHandler(timer_Tick);
+
+
             this.pacijent = p;
             termini = new ObservableCollection<Termin>(TerminiService.getInstance().PregledTermina(p));
 
             dataGridPacijenta.ItemsSource = termini;
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
+            List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
+            foreach(NotifikacijePacijenta n in notifikacije)
+            {
+                if(n.pacijent.Jmbg.Equals(this.pacijent.Jmbg))
+                {
+                    MessageBox.Show(n.opisNotifikacije);
+                }
+            }
 
         }
         private Pacijent pacijent;
@@ -89,6 +127,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
             }
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            kreiranjeNotifikacije kr = new kreiranjeNotifikacije(this.pacijent);
+            kr.Show();
         }
     }
 

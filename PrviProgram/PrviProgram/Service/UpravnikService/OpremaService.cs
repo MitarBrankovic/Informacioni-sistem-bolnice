@@ -155,6 +155,7 @@ namespace Service.UpravnikService
 
 
         public bool dodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina) {
+
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
 

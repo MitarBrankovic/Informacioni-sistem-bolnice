@@ -10,8 +10,12 @@ namespace Model
 {
    public class Recept
    {
-      private String Lekovi;
-      private DateTime DatumIzdavanja;
-   
-   }
+      public String Lekovi { get; set; }
+      public DateTime DatumIzdavanja { get; set; }
+      public int VremenskiPeriodUzimanjaLeka { get; set; }
+      public String OpisLeka { get; set; }
+      
+
+
+    }
 }
