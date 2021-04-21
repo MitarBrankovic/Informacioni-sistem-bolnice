@@ -127,7 +127,7 @@
       "VremenskiPeriodUzimanjaLeka": 0,
       "OpisLeka": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04"
     },
-    "vremeObavestenja": "17:50:00",
+    "vremeObavestenja": "18:06:00",
     "opisNotifikacije": "Morate popitiParacetamol za 1h."
   },
   {
@@ -258,7 +258,7 @@
       "VremenskiPeriodUzimanjaLeka": 0,
       "OpisLeka": "Uzimati brufen svaki dan u 17h"
     },
-    "vremeObavestenja": "17:50:00",
+    "vremeObavestenja": "18:06:00",
     "opisNotifikacije": "Morate popitiBrufen za 1h."
   }
 ]

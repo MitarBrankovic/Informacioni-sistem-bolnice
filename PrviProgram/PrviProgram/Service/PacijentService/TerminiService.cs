@@ -21,9 +21,8 @@ namespace Service.PacijentService
         public void DodavanjeTermina(Termin t, Pacijent p)
         {
             TerminiRepository datoteka = new TerminiRepository();
-
             List<Termin> termini = datoteka.CitanjeIzFajla();
-            termini.Add(t);
+           // termini.Add(t);
 
             //foreach (Termin tt in termini)
             //{
@@ -33,6 +32,7 @@ namespace Service.PacijentService
             //    }
             //}
             t.pacijent = p;
+            termini.Add(t);
             datoteka.UpisivanjeUFajl(termini);
 
             /* foreach (Pacijent pp in pacijenti)
@@ -54,6 +54,36 @@ namespace Service.PacijentService
 
         }
 
+        public List<Lekar> proveraVremenaKodLekara(string vreme,DateTime datum)
+        {
+            LekarRepository datoteka = new LekarRepository();
+            List<Lekar> lekari = datoteka.CitanjeIzFajla();
+            TerminiRepository datoteka1 = new TerminiRepository();
+            //string var = vreme.ToString();
+
+            List<Termin> termini = datoteka1.CitanjeIzFajla();
+            List<Lekar> lekari1 = new List<Lekar>();
+            foreach (Lekar l1 in lekari)
+            {
+                lekari1.Add(l1);
+            }
+
+            foreach( Lekar l in lekari)
+            {
+                foreach(Termin t in termini)
+                {
+                    if(t.Vreme.Equals(vreme) && t.lekar.Jmbg.Equals(l.Jmbg) && t.Datum.Equals(datum))
+                    {
+                        lekari1.Remove(l);
+                        break;
+                    }
+                }
+            }
+
+
+            return lekari1;
+
+        }
         public void BrisanjeTermina(Termin t, Pacijent p)
         {
             TerminiRepository datoteka1 = new TerminiRepository();
@@ -71,7 +101,7 @@ namespace Service.PacijentService
             }
            
         }
-        public int[] proveraZauzetostiLekara(Lekar l, DateTime selektovaniDatum, string[] niz)
+        public int[] proveraZauzetostiLekara(string jmbg, DateTime selektovaniDatum,string [] niz)
         {
             int[] popunjeniNiz = new int[24] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
             TerminiRepository datoteka1 = new TerminiRepository();
@@ -79,7 +109,7 @@ namespace Service.PacijentService
 
             foreach(Termin t in termini)
             {
-                if(l.Ime.Equals(t.lekar.Ime) && l.Prezime.Equals(t.lekar.Prezime) && selektovaniDatum.Equals(t.Datum))
+                if(jmbg.Equals(t.lekar.Jmbg) && selektovaniDatum.Equals(t.Datum))
                 {
                     for(int i=0;i<niz.Length;i++)
                     {

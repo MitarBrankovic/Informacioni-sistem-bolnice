@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}"  Width="102"/>
                 <DataGridTextColumn Header="Vreme" Binding="{Binding Vreme, StringFormat='HH:mm:ss'}"  Width="102"/>
                 <DataGridTextColumn Header="Sala"  Binding="{Binding  sala.Naziv}"  Width="102"/>
-                <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar.ImePrezime}"  Width="*"/>
+                <DataGridTextColumn Header="Lekar"  Binding="{Binding lekar}"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Kreiranje notifikacije" HorizontalAlignment="Left" Height="26" Margin="639,56,0,0" VerticalAlignment="Top" Width="129" Click="Button_Click"/>
