@@ -43,6 +43,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.pacijent = p;
             this.l.Ime = selektovaniTermin.lekar.Ime;
             this.l.Prezime = selektovaniTermin.lekar.Prezime;
+            this.l.Jmbg = selektovaniTermin.lekar.Jmbg;
             DatumText.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, datumTermina.AddDays(-3)));
             DatumText.BlackoutDates.Add(new CalendarDateRange(datumTermina,datumTermina));
             DatumText.BlackoutDates.Add(new CalendarDateRange(datumTermina.AddDays(3), DateTime.MaxValue));
@@ -77,11 +78,18 @@ namespace PrviProgram.Izgled.IzgledPacijent
         }
         public void brisanjeComboBoxova(int[] niz)
         {
-            for(int i=0;i<niz.Length;i++)
+            int j = 0;
+            int k = 0;
+            for (int i = 0; i < niz.Length; i++)
             {
-                if(niz[i]==1)
+
+                if (niz[i] == 1)
                 {
-                    vremeText.Items.RemoveAt(i);
+                    j = i + k;
+                    vremeText.Items.RemoveAt(j);
+
+                    k--;
+
                 }
             }
 
@@ -95,7 +103,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             else
             {
-                int[] noviNiz = (int[])TerminiService.getInstance().proveraZauzetostiLekara(l, (DateTime)DatumText.SelectedDate, niz);
+                string jmbg = this.l.Jmbg;
+                int[] noviNiz = (int[])TerminiService.getInstance().proveraZauzetostiLekara(jmbg, (DateTime)DatumText.SelectedDate, niz);
                 brisanjeComboBoxova(noviNiz);
                 vremeText.IsEnabled = true;
             }

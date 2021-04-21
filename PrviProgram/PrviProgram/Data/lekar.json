@@ -15,5 +15,40 @@
     "DatumRodjenja": "0001-01-01T00:00:00",
     "Pol": 0,
     "KontaktTelefon": null
+  },
+  {
+    "MestoRodjenja": null,
+    "Korisnik": {
+      "KorisnickoIme": "mitar",
+      "Lozinka": "m",
+      "TipKorisnika": 3,
+      "osoba": null
+    },
+    "AdresaStanovanja": null,
+    "Ime": "Mitar",
+    "Prezime": "Brankovic",
+    "Email": null,
+    "Jmbg": "170892634",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0,
+    "KontaktTelefon": null
+  },
+
+  {
+    "MestoRodjenja": null,
+    "Korisnik": {
+      "KorisnickoIme": "d",
+      "Lozinka": "v",
+      "TipKorisnika": 3,
+      "osoba": null
+    },
+    "AdresaStanovanja": null,
+    "Ime": "Darko",
+    "Prezime": "Vrbaski",
+    "Email": null,
+    "Jmbg": "423234256",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Pol": 0,
+    "KontaktTelefon": null
   }
 ]

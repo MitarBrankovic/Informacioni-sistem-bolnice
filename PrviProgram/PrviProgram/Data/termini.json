@@ -2,7 +2,7 @@
   {
     "Datum": "2021-04-22T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "2ll00TUS",
+    "SifraTermina": "BfIzou3T",
     "sala": {
       "oprema": [],
       "Tip": 0,
@@ -12,18 +12,22 @@
       "Sifra": "ntp 1",
       "NazivSprat": "ntp 1 1"
     },
-    "Vreme": "16:00:00",
+    "Vreme": "08:30:00",
     "guestPacijent": null,
     "lekar": {
       "termin": null,
-      "ImePrezime": "Srdjan Beric",
       "MestoRodjenja": null,
-      "Korisnik": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
       "AdresaStanovanja": null,
       "Ime": "Srdjan",
       "Prezime": "Beric",
       "Email": null,
-      "Jmbg": null,
+      "Jmbg": "00012312",
       "DatumRodjenja": "0001-01-01T00:00:00",
       "Pol": 0,
       "KontaktTelefon": null
@@ -35,7 +39,1125 @@
         "anamneza": null,
         "recept": null,
         "terapija": null,
-        "izvrseniPregled": [],
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-25T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "8839NaEM",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "11:00:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-30T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "vthPnM9h",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "11:30:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-24T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "1gBOGwNV",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "10:00:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-24T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "TrSanFcI",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "09:30:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-24T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "fFI1J80o",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "12:30:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-22T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "gLUKqHFH",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "11:00:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "4444455555",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "sssss",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "sssss@gmail.com",
+      "Jmbg": "4444455555",
+      "DatumRodjenja": "2021-04-15T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "665435"
+    }
+  },
+  {
+    "Datum": "2021-04-22T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "GXbkn5EP",
+    "sala": {
+      "oprema": [],
+      "Tip": 0,
+      "Naziv": "ntp 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "ntp 1 1"
+    },
+    "Vreme": "11:30:00",
+    "guestPacijent": null,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "glavobolja"
+            },
+            "recept": {
+              "Lekovi": "Paracetamol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Datum": "2021-04-22T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": null,
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": null,
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ruci"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Uzimati brufen svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
         "Sifra": null,
         "pacijent": {
           "termin": null,

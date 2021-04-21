@@ -4,16 +4,9 @@ namespace Model
 {
     public class Lekar : Osoba
     {
-        public string ImePrezime
+        public override string ToString()
         {
-            get
-            {
-                return this.Ime + " " + this.Prezime;
-            }
-            set
-            {
-
-            }
+            return "dr. " +Ime+ " "+Prezime;
         }
         public System.Collections.ArrayList termin;
 
