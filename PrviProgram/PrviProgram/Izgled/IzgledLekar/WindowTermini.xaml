@@ -27,7 +27,17 @@
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="102"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}" Width="102"/>
                 <DataGridTextColumn Header="Vreme" Binding="{Binding Vreme, StringFormat='HH:mm:ss'}" Width="102"/>
-                <DataGridTextColumn Header="Pacijent" Binding="{Binding pacijent.Jmbg}" Width="102" />
+                <DataGridTemplateColumn Header="Pacijent" Width="102">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding pacijent}"/>
+                                <TextBlock Text="{Binding guestPacijent}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
                 <DataGridTextColumn Header="Sala" Binding="{ Binding sala.Sifra }"  Width="102"/>
             </DataGrid.Columns>
         </DataGrid>

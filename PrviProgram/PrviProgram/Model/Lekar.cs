@@ -4,10 +4,7 @@ namespace Model
 {
     public class Lekar : Osoba
     {
-        public override string ToString()
-        {
-            return "dr. " +Ime+ " "+Prezime;
-        }
+       
         public System.Collections.ArrayList termin;
 
         List<Termin> termini = new List<Termin>();

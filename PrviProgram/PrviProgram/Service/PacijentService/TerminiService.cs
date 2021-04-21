@@ -201,17 +201,17 @@ namespace Service.PacijentService
             List<Termin> list = new List<Termin>();
             foreach (Termin pp in termini)
             {
-                if (pp.pacijent.Jmbg.Equals(p.Jmbg))
+                if (pp.pacijent != null)
                 {
-                    list.Add(pp);
+                    if (pp.pacijent.Jmbg.Equals(p.Jmbg))
+                    {
+                        list.Add(pp);
 
+                    }
                 }
 
             }
             return list;
-
-
-
         }
 
 

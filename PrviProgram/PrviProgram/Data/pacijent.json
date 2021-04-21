@@ -2,7 +2,7 @@
   {
     "termin": [],
     "kartonPacijenta": {
-      "alergen": null,
+      "alergen": [],
       "anamneza": null,
       "recept": null,
       "terapija": null,
@@ -12,7 +12,6 @@
           "TipTermina": 1,
           "Lekar": {
             "termin": null,
-            "ImePrezime": "Srdjan Beric",
             "MestoRodjenja": null,
             "Korisnik": null,
             "AdresaStanovanja": null,
@@ -43,7 +42,6 @@
           "TipTermina": 1,
           "Lekar": {
             "termin": null,
-            "ImePrezime": "Srdjan Beric",
             "MestoRodjenja": null,
             "Korisnik": null,
             "AdresaStanovanja": null,

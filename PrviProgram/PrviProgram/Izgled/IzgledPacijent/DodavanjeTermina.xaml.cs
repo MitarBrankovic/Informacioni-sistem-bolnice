@@ -105,7 +105,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 Sala tempSala = new Sala();
                 foreach(Sala s in sale)
                 {
-                    if (s.Dostupnost.Equals(true))
+                    if (s.Dostupnost.Equals(true) && !s.Naziv.Equals("Magacin"))
                     {
                         tempSala = s;
                         this.t.sala = tempSala;
@@ -158,7 +158,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 Sala tempSala = new Sala();
                 foreach (Sala s in sale)
                 {
-                    if (s.Dostupnost.Equals(true))
+                    if (s.Dostupnost.Equals(true) && !s.Naziv.Equals("Magacin"))
                     {
                         tempSala = s;
                         this.t.sala = tempSala;
@@ -212,7 +212,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 Sala tempSala = new Sala();
                 foreach (Sala s in sale)
                 {
-                    if (s.Dostupnost.Equals(true))
+                    if (s.Dostupnost.Equals(true) && !s.Naziv.Equals("Magacin"))
                     {
                         tempSala = s;
                         this.t.sala = tempSala;

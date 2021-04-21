@@ -13,12 +13,12 @@
       },
       {
         "Naziv": "Zavoji",
-        "Kolicina": 20,
+        "Kolicina": 15,
         "Tip": 1
       },
       {
         "Naziv": "Kreveti",
-        "Kolicina": 30,
+        "Kolicina": 25,
         "Tip": 0
       }
     ],
@@ -30,7 +30,18 @@
     "NazivSprat": "Magacin 1"
   },
   {
-    "oprema": [],
+    "oprema": [
+      {
+        "Naziv": "Zavoji",
+        "Kolicina": 5,
+        "Tip": 1
+      },
+      {
+        "Naziv": "Kreveti",
+        "Kolicina": 5,
+        "Tip": 0
+      }
+    ],
     "Tip": 0,
     "Naziv": "NTP 1",
     "Sprat": 1,
