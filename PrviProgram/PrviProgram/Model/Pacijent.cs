@@ -60,5 +60,10 @@ namespace Model
             }
         }
 
+        public override string ToString()
+        {
+            return Ime + " " + Prezime + " ";
+        }
+
     }
 }

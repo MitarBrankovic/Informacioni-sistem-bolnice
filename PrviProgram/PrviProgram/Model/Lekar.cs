@@ -75,6 +75,10 @@ namespace Model
                 tmpTermin.Clear();
             }
         }
+        public override string ToString()
+        {
+            return "dr. " + Ime + " " + Prezime + " ";
+        }
 
     }
 }

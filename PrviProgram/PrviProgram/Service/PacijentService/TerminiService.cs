@@ -25,13 +25,13 @@ namespace Service.PacijentService
             List<Termin> termini = datoteka.CitanjeIzFajla();
             termini.Add(t);
 
-            foreach (Termin tt in termini)
-            {
-                if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
-                {
-
-                }
-            }
+            //foreach (Termin tt in termini)
+            //{
+            //    if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
+            //    {
+            //
+            //    }
+            //}
             t.pacijent = p;
             datoteka.UpisivanjeUFajl(termini);
 
@@ -62,7 +62,7 @@ namespace Service.PacijentService
 
             foreach (Termin tt in termini)
             {
-                if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
+                if (t.SifraTermina.Equals(tt.SifraTermina))
                 {
                     termini.Remove(tt);
                     datoteka1.UpisivanjeUFajl(termini);
@@ -120,8 +120,8 @@ namespace Service.PacijentService
 
             foreach(Termin t1 in termini)
             {
-                if (t1.pacijent.Jmbg.Equals(p.Jmbg))
-                {
+                //if (t1.pacijent.Jmbg.Equals(p.Jmbg))
+                //{
                     if (t1.SifraTermina.Equals(t.SifraTermina))
                     {
                         list.Remove(t1);
@@ -130,7 +130,7 @@ namespace Service.PacijentService
                         return true;
 
                     }
-                }
+                //}
             }
             return false;
 

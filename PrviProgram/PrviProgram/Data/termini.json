@@ -82,7 +82,60 @@
       "Jmbg": "4444455555",
       "DatumRodjenja": "2021-04-15T00:00:00",
       "Pol": 1,
-      "KontaktTelefon": "665435"
+      "KontaktTelefon": "069652253"
     }
+  },
+  {
+    "Datum": "2021-04-16T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "SNQSspx0",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 10,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Rukavice",
+          "Kolicina": 4,
+          "Tip": 0
+        }
+      ],
+      "Tip": 1,
+      "Naziv": "NTP1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp1",
+      "NazivSprat": "NTP1 1"
+    },
+    "Vreme": "15:30:00",
+    "guestPacijent": {
+      "Ime": "ghhhh",
+      "Prezime": "ggg",
+      "Jmbg": "1234",
+      "KontaktTelefon": "gsg2t",
+      "Pol": 0
+    },
+    "lekar": {
+      "termin": null,
+      "ImePrezime": "Srdjan Beric",
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": null
   }
 ]

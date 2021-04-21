@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using Model;
-using Repository;
+﻿using System.Windows;
 
 namespace PrviProgram
 {
@@ -9,9 +6,8 @@ namespace PrviProgram
     {
         private void Prijavi_se_Click(object sender, RoutedEventArgs e)
         {
-
             Logovanje win = new Logovanje();
-           win.Show();
+            win.Show();
         }
     }
 }
