@@ -106,7 +106,14 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 string jmbg = this.l.Jmbg;
                 int[] noviNiz = (int[])TerminiService.getInstance().proveraZauzetostiLekara(jmbg, (DateTime)DatumText.SelectedDate, niz);
                 brisanjeComboBoxova(noviNiz);
-                vremeText.IsEnabled = true;
+                if (vremeText.Items.IsEmpty)
+                {
+                    vremeText.IsEnabled = false;
+                }
+                else
+                {
+                    vremeText.IsEnabled = true;
+                }
             }
 
         }
