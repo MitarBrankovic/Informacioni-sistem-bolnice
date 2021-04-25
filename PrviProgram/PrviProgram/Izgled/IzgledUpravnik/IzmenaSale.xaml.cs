@@ -2,9 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
-using Service.UpravnikService;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {

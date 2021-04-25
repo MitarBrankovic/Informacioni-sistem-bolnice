@@ -9,12 +9,12 @@ using Repository;
 using System;
 using System.Collections.Generic;
 
-namespace Service.PacijentService
+namespace Service
 {
-   public class NotifikacijeService
-   {
+    public class NotifikacijeService
+    {
         public void DodavanjeNotifikacije(NotifikacijePacijenta notifikacija)
-      {
+        {
 
             NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
             List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
@@ -22,14 +22,14 @@ namespace Service.PacijentService
 
             datoteka.UpisivanjeUFajl(notifikacije);
 
-      }
-      
-      public void IzmeniNotifikaciju(KartonPacijenta karton)
-      {
-         
-      }
-   
-     
+        }
+
+        public void IzmeniNotifikaciju(KartonPacijenta karton)
+        {
+
+        }
+
+
 
         public List<Recept> pregledRecepata(Pacijent p)
         {
@@ -37,11 +37,11 @@ namespace Service.PacijentService
             List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
             List<Recept> recepti = new List<Recept>();
 
-            foreach(Pacijent pp in pacijenti)
+            foreach (Pacijent pp in pacijenti)
             {
-                if(pp.Jmbg.Equals(p.Jmbg))
+                if (pp.Jmbg.Equals(p.Jmbg))
                 {
-                    foreach(IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    foreach (IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
                     {
                         recepti.Add(i.recept);
                     }
@@ -49,15 +49,15 @@ namespace Service.PacijentService
             }
             return recepti;
         }
-        public String PronadjiOpis(Recept r, Pacijent p)
+        public string PronadjiOpis(Recept r, Pacijent p)
         {
             PacijentRepository datotetka = new PacijentRepository();
             List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
-            foreach(Pacijent pp in pacijenti)
+            foreach (Pacijent pp in pacijenti)
             {
-                if(p.Jmbg.Equals(pp.Jmbg))
+                if (p.Jmbg.Equals(pp.Jmbg))
                 {
-                    foreach(IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    foreach (IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
                     {
                         if (i.recept.Lekovi.Equals(r.Lekovi))
                         {

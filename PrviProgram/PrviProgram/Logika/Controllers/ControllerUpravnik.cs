@@ -1,9 +1,7 @@
 ﻿using Model;
 using PrviProgram.Repository;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
-using Service.SekretarService;
-using Service.UpravnikService;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 

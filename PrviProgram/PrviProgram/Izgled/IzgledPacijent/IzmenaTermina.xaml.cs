@@ -1,6 +1,6 @@
 ﻿using Model;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;

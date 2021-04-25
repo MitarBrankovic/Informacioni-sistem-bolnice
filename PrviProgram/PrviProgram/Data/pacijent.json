@@ -2,7 +2,11 @@
   {
     "termin": [],
     "kartonPacijenta": {
-      "alergen": [],
+      "alergen": [
+        {
+          "Naziv": "Macija dlaka"
+        }
+      ],
       "anamneza": null,
       "recept": null,
       "terapija": null,
@@ -64,6 +68,41 @@
           },
           "terapija": {
             "Opis": "Uzimati brufen svaki dan u 17h",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Datum": "2021-04-24T00:00:00",
+          "TipTermina": 2,
+          "Lekar": {
+            "termin": null,
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "d",
+              "Lozinka": "v",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Darko",
+            "Prezime": "Vrbaski",
+            "Email": null,
+            "Jmbg": "423234256",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "hahaagsf"
+          },
+          "recept": {
+            "Lekovi": "brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "whhhdis",
             "Datum": "0001-01-01T00:00:00"
           }
         }

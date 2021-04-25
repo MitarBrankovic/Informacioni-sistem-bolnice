@@ -4,11 +4,12 @@
  * Purpose: Definition of the Class Service.LogikaLekar.TerminiService
  ***********************************************************************/
 using Model;
+using Service;
 using System;
 
 namespace Controller
 {
-   public class LekarController
+    public class LekarController
    {
       public void BrisanjePregleda(string sifraTermina)
       {
@@ -46,7 +47,7 @@ namespace Controller
          // TODO: implement
       }
    
-      public Service.LekarService.KartonPacijentaService kartonPacijentaService;
+      public KartonPacijentaService kartonPacijentaService;
    
    }
 }

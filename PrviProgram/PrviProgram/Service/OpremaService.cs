@@ -10,10 +10,10 @@ using Repository;
 using System;
 using System.Collections.Generic;
 
-namespace Service.UpravnikService
+namespace Service
 {
-   public class OpremaService
-   {
+    public class OpremaService
+    {
         private static OpremaService instance = null;
         public static OpremaService getInstance()
         {
@@ -27,7 +27,7 @@ namespace Service.UpravnikService
 
 
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
-      {
+        {
             SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
@@ -49,9 +49,9 @@ namespace Service.UpravnikService
 
             return true;
         }
-      
-      public bool BrisanjeOpreme(Oprema oprema, Sala sala)
-      {
+
+        public bool BrisanjeOpreme(Oprema oprema, Sala sala)
+        {
             SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
@@ -71,9 +71,9 @@ namespace Service.UpravnikService
             }
             return false;
         }
-      
-      public bool IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
-      {
+
+        public bool IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
+        {
             SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
@@ -93,10 +93,10 @@ namespace Service.UpravnikService
                 }
             }
             return false;
-      }
-      
-      public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
-      {
+        }
+
+        public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
+        {
             SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             foreach (Sala s in sale)
@@ -116,7 +116,8 @@ namespace Service.UpravnikService
                             {
                                 s.oprema.Add(op);
                             }
-                            else if (op.Kolicina == 0) {
+                            else if (op.Kolicina == 0)
+                            {
                             }
                             else
                             {
@@ -154,10 +155,11 @@ namespace Service.UpravnikService
                 }
             }
             return false;
-      }
+        }
 
 
-        public bool dodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina) {
+        public bool dodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
+        {
 
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
@@ -175,25 +177,25 @@ namespace Service.UpravnikService
             return true;
         }
 
-      
-      public bool KolicinaIsValid()
-      {
-         // TODO: implement
-         return false;
-      }
-      
-      /*public TipOpreme ProveraTipa()
-      {
-            return TipOpreme;
-            //IZMENI OVO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      }*/
-      
-      public void ZakazivanjePremestajaOpreme()
-      {
-         // TODO: implement
-      }
-   
-      public Repository.OpremaRepository opremaRepository;
-   
-   }
+
+        public bool KolicinaIsValid()
+        {
+            // TODO: implement
+            return false;
+        }
+
+        /*public TipOpreme ProveraTipa()
+        {
+              return TipOpreme;
+              //IZMENI OVO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        }*/
+
+        public void ZakazivanjePremestajaOpreme()
+        {
+            // TODO: implement
+        }
+
+        public OpremaRepository opremaRepository;
+
+    }
 }

@@ -1,0 +1,75 @@
+[
+  {
+    "oprema": {
+      "Naziv": "Kreveti",
+      "Kolicina": 4,
+      "Tip": 0
+    },
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 4,
+          "Tip": 0
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "staraSala": {
+      "oprema": [
+        {
+          "Naziv": "Stolice",
+          "Kolicina": 30,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Gaze",
+          "Kolicina": 20,
+          "Tip": 1
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 25,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 13,
+          "Tip": 1
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 20,
+          "Tip": 0
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 16,
+          "Tip": 0
+        }
+      ],
+      "Tip": 2,
+      "Naziv": "Magacin",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "mag",
+      "NazivSprat": "Magacin 1"
+    },
+    "datumPremestaja": "2021-04-22T00:00:00"
+  }
+]

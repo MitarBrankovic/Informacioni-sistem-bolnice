@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using Model;
 using Repository;
-using Service.PacijentService;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {

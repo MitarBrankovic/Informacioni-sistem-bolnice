@@ -1,7 +1,7 @@
 ﻿using Model;
 using Repository;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,7 +42,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             termini = new ObservableCollection<Termin>(TerminiService.getInstance().PregledTermina(p));
 
             timer1 = new DispatcherTimer();
-            timer1.Interval = TimeSpan.FromSeconds(100000);
+            timer1.Interval = TimeSpan.FromSeconds(1);
             timer1.Start();
             timer1.Tick += new EventHandler(timer_Tick);
 

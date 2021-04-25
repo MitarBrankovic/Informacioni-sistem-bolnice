@@ -6,11 +6,11 @@
 
 using System;
 using Model;
-using Service.UpravnikService;
+using Service;
 
 namespace Controller
 {
-   public class UpravnikController
+    public class UpravnikController
    {
       public void DodavanjeOpreme(Oprema oprema, Sala sala)
       {

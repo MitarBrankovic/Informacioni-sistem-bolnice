@@ -5,7 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Service.PacijentService
+namespace Service
 {
     public class TerminiService
     {
@@ -22,7 +22,7 @@ namespace Service.PacijentService
         {
             TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
-           // termini.Add(t);
+            // termini.Add(t);
 
             //foreach (Termin tt in termini)
             //{
@@ -54,7 +54,7 @@ namespace Service.PacijentService
 
         }
 
-        public List<Lekar> proveraVremenaKodLekara(string vreme,DateTime datum)
+        public List<Lekar> proveraVremenaKodLekara(string vreme, DateTime datum)
         {
             LekarRepository datoteka = new LekarRepository();
             List<Lekar> lekari = datoteka.CitanjeIzFajla();
@@ -68,11 +68,11 @@ namespace Service.PacijentService
                 lekari1.Add(l1);
             }
 
-            foreach( Lekar l in lekari)
+            foreach (Lekar l in lekari)
             {
-                foreach(Termin t in termini)
+                foreach (Termin t in termini)
                 {
-                    if(t.Vreme.Equals(vreme) && t.lekar.Jmbg.Equals(l.Jmbg) && t.Datum.Equals(datum))
+                    if (t.Vreme.Equals(vreme) && t.lekar.Jmbg.Equals(l.Jmbg) && t.Datum.Equals(datum))
                     {
                         lekari1.Remove(l);
                         break;
@@ -99,21 +99,21 @@ namespace Service.PacijentService
                     break;
                 }
             }
-           
+
         }
-        public int[] proveraZauzetostiLekara(string jmbg, DateTime selektovaniDatum,string [] niz)
+        public int[] proveraZauzetostiLekara(string jmbg, DateTime selektovaniDatum, string[] niz)
         {
-            int[] popunjeniNiz = new int[24] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+            int[] popunjeniNiz = new int[24] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             TerminiRepository datoteka1 = new TerminiRepository();
             List<Termin> termini = datoteka1.CitanjeIzFajla();
 
-            foreach(Termin t in termini)
+            foreach (Termin t in termini)
             {
-                if(jmbg.Equals(t.lekar.Jmbg) && selektovaniDatum.Equals(t.Datum))
+                if (jmbg.Equals(t.lekar.Jmbg) && selektovaniDatum.Equals(t.Datum))
                 {
-                    for(int i=0;i<niz.Length;i++)
+                    for (int i = 0; i < niz.Length; i++)
                     {
-                        if(t.Vreme.Equals(niz[i]))
+                        if (t.Vreme.Equals(niz[i]))
                         {
                             popunjeniNiz[i] = 1;
                         }
@@ -121,7 +121,7 @@ namespace Service.PacijentService
                 }
             }
 
-           
+
             return popunjeniNiz;
         }
 
@@ -132,7 +132,7 @@ namespace Service.PacijentService
 
             List<Termin> termini = datoteka1.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
-            foreach(Termin tt in termini)
+            foreach (Termin tt in termini)
             {
                 list.Add(tt);
                 /*if (tt.pacijent.Jmbg.Equals(p.Jmbg))
@@ -146,25 +146,25 @@ namespace Service.PacijentService
                     }*/
 
 
-                }
+            }
 
-            foreach(Termin t1 in termini)
+            foreach (Termin t1 in termini)
             {
                 //if (t1.pacijent.Jmbg.Equals(p.Jmbg))
                 //{
-                    if (t1.SifraTermina.Equals(t.SifraTermina))
-                    {
-                        list.Remove(t1);
-                        list.Add(t);
-                        datoteka1.UpisivanjeUFajl(list);
-                        return true;
+                if (t1.SifraTermina.Equals(t.SifraTermina))
+                {
+                    list.Remove(t1);
+                    list.Add(t);
+                    datoteka1.UpisivanjeUFajl(list);
+                    return true;
 
-                    }
+                }
                 //}
             }
             return false;
 
-            
+
 
             /*PacijentRepository datoteka = new PacijentRepository();
             List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
@@ -236,7 +236,7 @@ namespace Service.PacijentService
                 }
             }
             return false;
-         
+
         }
 
     }

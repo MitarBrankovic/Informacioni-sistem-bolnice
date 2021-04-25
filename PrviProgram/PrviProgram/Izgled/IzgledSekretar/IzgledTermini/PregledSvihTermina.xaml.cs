@@ -2,7 +2,7 @@
 using System.Windows;
 using Model;
 using PrviProgram.Repository;
-using Service.PacijentService;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {

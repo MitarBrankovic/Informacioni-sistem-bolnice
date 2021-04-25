@@ -1,6 +1,6 @@
 ﻿using Model;
 using Repository;
-using Service.PacijentService;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
-   
+
     public partial class kreiranjeNotifikacije : Window
     {
         public DateTime end;

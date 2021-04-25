@@ -1,6 +1,5 @@
 ﻿using Model;
-using Service.LogikaGeneralno;
-using Service.SekretarService;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

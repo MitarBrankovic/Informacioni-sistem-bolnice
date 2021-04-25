@@ -1,10 +1,8 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
 using PrviProgram.Repository;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
-using Service.SekretarService;
-using Service.UpravnikService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;

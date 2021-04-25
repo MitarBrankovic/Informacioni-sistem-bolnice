@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
-using Service.UpravnikService;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {

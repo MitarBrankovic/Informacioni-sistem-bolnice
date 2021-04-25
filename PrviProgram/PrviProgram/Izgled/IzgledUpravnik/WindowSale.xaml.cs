@@ -7,7 +7,7 @@ using System.Windows.Threading;
 using Model;
 using PrviProgram.Logika;
 using PrviProgram.Repository;
-using Service.UpravnikService;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {

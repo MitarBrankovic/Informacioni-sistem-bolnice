@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
-using Service.SekretarService;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {

@@ -1,7 +1,7 @@
 ﻿using Model;
 using PrviProgram.Logika.Controllers;
 using Repository;
-using Service.LekarService;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

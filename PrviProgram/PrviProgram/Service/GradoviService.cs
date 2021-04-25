@@ -2,7 +2,7 @@
 using Model;
 using Repository;
 
-namespace Service.LogikaGeneralno
+namespace Service
 {
     class GradoviService
     {

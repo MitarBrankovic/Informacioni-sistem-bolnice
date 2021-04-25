@@ -13,12 +13,12 @@
       },
       {
         "Naziv": "Zavoji",
-        "Kolicina": 15,
+        "Kolicina": 13,
         "Tip": 1
       },
       {
         "Naziv": "Kreveti",
-        "Kolicina": 25,
+        "Kolicina": 20,
         "Tip": 0
       }
     ],
@@ -52,8 +52,13 @@
   {
     "oprema": [
       {
+        "Naziv": "Zavoji",
+        "Kolicina": 2,
+        "Tip": 1
+      },
+      {
         "Naziv": "Kreveti",
-        "Kolicina": 10,
+        "Kolicina": 15,
         "Tip": 0
       }
     ],

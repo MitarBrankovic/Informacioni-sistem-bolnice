@@ -1,8 +1,6 @@
 ﻿using Model;
+using Service;
 using Service.LekarService;
-using Service.PacijentService;
-using Service.SekretarService;
-using Service.UpravnikService;
 using System.Collections.ObjectModel;
 
 namespace PrviProgram.Logika.Controllers

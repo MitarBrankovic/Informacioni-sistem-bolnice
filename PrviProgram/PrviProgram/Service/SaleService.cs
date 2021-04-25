@@ -2,7 +2,7 @@ using Model;
 using PrviProgram.Repository;
 using System.Collections.Generic;
 
-namespace Service.UpravnikService
+namespace Service
 {
     public class SaleService
     {

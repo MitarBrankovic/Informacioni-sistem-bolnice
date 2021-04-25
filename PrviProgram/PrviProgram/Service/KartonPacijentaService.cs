@@ -9,12 +9,11 @@ using System.Collections.Generic;
 using Controller;
 using Model;
 using Repository;
-using Service.SekretarService;
 
-namespace Service.LekarService
+namespace Service
 {
-   public class KartonPacijentaService
-   {
+    public class KartonPacijentaService
+    {
 
 
         private PacijentiService pacijentiService = new PacijentiService();
@@ -31,24 +30,24 @@ namespace Service.LekarService
         }
 
         public void BrisanjeKartona(string sifraKartona)
-      {
+        {
             // TODO: implement
-      }
-      
-      public void IzmenaKartona(KartonPacijenta karton)
-      {
-         // TODO: implement
-      }
-      
-      public void DodavanjeKartona(KartonPacijenta karton)
-      {
-         // TODO: implement
-      }
-   
+        }
+
+        public void IzmenaKartona(KartonPacijenta karton)
+        {
+            // TODO: implement
+        }
+
+        public void DodavanjeKartona(KartonPacijenta karton)
+        {
+            // TODO: implement
+        }
+
 
         public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
-            
+
             Pacijent pacijentStari = pacijent;
             Pacijent pacijentNovi = pacijent;
             //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
@@ -60,7 +59,7 @@ namespace Service.LekarService
 
         }
 
-      public Repository.KartonPacijentaRepository kartonPacijentaRepository;
-   
-   }
+        public KartonPacijentaRepository kartonPacijentaRepository;
+
+    }
 }

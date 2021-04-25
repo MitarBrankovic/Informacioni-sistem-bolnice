@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Model;
 using Repository;
 
-namespace Service.SekretarService
+namespace Service
 {
     public class AlergeniService
     {

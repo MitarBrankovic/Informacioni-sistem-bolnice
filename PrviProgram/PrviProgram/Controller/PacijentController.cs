@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Controller
 {
-   public class PacijentController
+    public class PacijentController
    {
       public void DodavanjeTermina(Termin termin, Pacijent p)
       {
@@ -40,7 +40,7 @@ namespace Controller
          return false;
       }
    
-      public Service.PacijentService.TerminiService terminiService;
+      public TerminiService terminiService;
    
    }
 }

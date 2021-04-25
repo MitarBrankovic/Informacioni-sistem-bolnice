@@ -1,6 +1,6 @@
 ﻿using Model;
 using PrviProgram.Repository;
-using Service.UpravnikService;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -1,13 +1,13 @@
 using Model;
+using Service;
 using Service.LekarService;
-using Service.SekretarService;
 
 namespace Controller
 {
     public class SekretarController
     {
         private PreglediService terminiService = new PreglediService();
-        private GuestPacijentiService guestPacijentiService = new GuestPacijentiService();
+     
         private PacijentiService pacijentiService = new PacijentiService();
         private AlergeniService alergeniService = new AlergeniService();
 
