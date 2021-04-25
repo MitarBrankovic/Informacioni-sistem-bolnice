@@ -18,7 +18,7 @@ namespace Service
             }
             return instance;
         }
-        public void DodavanjeTermina(Termin t, Pacijent p)
+        public void DodavanjeTermina(Termin t)
         {
             TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
@@ -31,7 +31,6 @@ namespace Service
             //
             //    }
             //}
-            t.pacijent = p;
             termini.Add(t);
             datoteka.UpisivanjeUFajl(termini);
 
@@ -84,22 +83,19 @@ namespace Service
             return lekari1;
 
         }
-        public void BrisanjeTermina(Termin t, Pacijent p)
+        public void BrisanjeTermina(Termin termin)
         {
-            TerminiRepository datoteka1 = new TerminiRepository();
-
-            List<Termin> termini = datoteka1.CitanjeIzFajla();
-
-            foreach (Termin tt in termini)
+            TerminiRepository terminiRepository = new TerminiRepository();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
             {
-                if (t.SifraTermina.Equals(tt.SifraTermina))
+                if (t.SifraTermina.Equals(termin.SifraTermina))
                 {
-                    termini.Remove(tt);
-                    datoteka1.UpisivanjeUFajl(termini);
+                    termini.Remove(t);
+                    terminiRepository.UpisivanjeUFajl(termini);
                     break;
                 }
             }
-
         }
         public int[] proveraZauzetostiLekara(string jmbg, DateTime selektovaniDatum, string[] niz)
         {
@@ -125,72 +121,22 @@ namespace Service
             return popunjeniNiz;
         }
 
-        public bool IzmenaTermina(Termin t, Pacijent p)
+        public bool IzmenaTermina(Termin termin)
         {
-
-            TerminiRepository datoteka1 = new TerminiRepository();
-
-            List<Termin> termini = datoteka1.CitanjeIzFajla();
-            List<Termin> list = new List<Termin>();
-            foreach (Termin tt in termini)
+            TerminiRepository terminiRepository = new TerminiRepository();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
             {
-                list.Add(tt);
-                /*if (tt.pacijent.Jmbg.Equals(p.Jmbg))
+                if (t.SifraTermina.Equals(termin.SifraTermina))
                 {
-                   
-                    if (tt.SifraTermina.Equals(t.SifraTermina))
-                    {
-                        list.Remove(tt);
-                        list.Add(t);
-                        datoteka1.UpisivanjeUFajl()
-                    }*/
-
-
-            }
-
-            foreach (Termin t1 in termini)
-            {
-                //if (t1.pacijent.Jmbg.Equals(p.Jmbg))
-                //{
-                if (t1.SifraTermina.Equals(t.SifraTermina))
-                {
-                    list.Remove(t1);
-                    list.Add(t);
-                    datoteka1.UpisivanjeUFajl(list);
+                    termini.Remove(termin);
+                    termini.Add(t);
+                    terminiRepository.UpisivanjeUFajl(termini);
                     return true;
 
                 }
-                //}
             }
             return false;
-
-
-
-            /*PacijentRepository datoteka = new PacijentRepository();
-            List<Pacijent> pacijenti = datoteka.CitanjeIzFajla();
-            List<Termin> list = new List<Termin>();
-            foreach (Pacijent pp in pacijenti)
-            {
-                if (pp.Jmbg.Equals(p.Jmbg))
-                {
-                    foreach (Termin tt in pp.GetTermin())
-                    {
-                        list.Add(tt);
-                        if (tt.SifraTermina.Equals(t.SifraTermina))
-                        {
-                            list.Remove(tt);
-                        }
-                    }
-
-                    list.Add(t);
-                    pp.termin = list;
-                    datoteka.UpisivanjeUFajl(pacijenti);
-                    return true;
-
-                }
-            }
-            return false;*/
-
         }
 
         public List<Termin> PregledTermina(Pacijent p)

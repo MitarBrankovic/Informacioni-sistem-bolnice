@@ -126,9 +126,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridPacijenta.SelectedItem != null)
+            if ((Model.Termin) dataGridPacijenta.SelectedItem != null)
             {
-                TerminiService.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem, pacijent);
+                TerminiService.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem);
                 //PreglediService.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
                 termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
             }

@@ -68,7 +68,7 @@ namespace PrviProgram.Logika
                             if (t.sala.Sifra == sala.Sifra)
                             {
                                 t.sala = null;
-                                UpravljanjeTerminima.IzmenaTermina(t, p);
+                                UpravljanjeTerminima.IzmenaTermina(t);
                             }
                         }
                     }

@@ -1,6 +1,6 @@
 ﻿using Model;
 using PrviProgram.Izgled.IzgledLekar;
-using PrviProgram.Logika.Controllers;
+using Service;
 using Service.LekarService;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -16,7 +16,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         //List<Termin> termini = new List<Termin>();
         public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
-        public ControllerLekar controllerLekar;
+        private TerminiService terminiService = new TerminiService();
 
         public WindowTermini(Lekar lekar)
         {
@@ -24,7 +24,6 @@ namespace PrviProgram.Izgled.IzgledLekar
 
             upravljanje = new PreglediService();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregleda());
-            controllerLekar = new ControllerLekar();
             dataGridLekar.ItemsSource = termini;
             //termini = UpravljanjePregledima.getInstance().PregledSvihPregleda();
             //dataGridLekar.ItemsSource = termini;
@@ -51,9 +50,11 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridLekar.SelectedIndex != -1)
+            if (dataGridLekar.SelectedItem != null)
             {
-                ControllerLekar.getInstance().BrisanjeTermina(((Termin)dataGridLekar.SelectedItem), termini);
+                Termin termin = (Termin)dataGridLekar.SelectedItem;
+                terminiService.BrisanjeTermina(termin);
+                termini.Remove(termin);
                 MessageBox.Show("Uspesno ste obrisali termin!");
             }
             else

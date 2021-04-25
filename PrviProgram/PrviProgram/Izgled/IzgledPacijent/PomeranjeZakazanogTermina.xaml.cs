@@ -140,7 +140,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 this.noviTermin.TipTermina = TipTermina.Kontrola;
             }
-            if (TerminiService.getInstance().IzmenaTermina(this.noviTermin, pacijent) == true)
+            if (TerminiService.getInstance().IzmenaTermina(this.noviTermin) == true)
             {
                 //  PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);

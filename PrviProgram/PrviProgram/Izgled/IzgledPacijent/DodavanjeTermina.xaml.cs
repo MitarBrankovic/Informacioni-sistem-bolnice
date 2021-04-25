@@ -124,7 +124,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 Sala novaSala = new Sala();
                 novaSala = TerminiService.getInstance().dobavljanjeSale(this.t);
                 this.t.sala = novaSala;
-                TerminiService.getInstance().DodavanjeTermina(this.t, pacijent);
+                t.pacijent = pacijent;
+                TerminiService.getInstance().DodavanjeTermina(this.t);
                 this.term.Add(this.t);
             }
            else if (PrioritetComboBox.SelectedIndex == 1)
@@ -176,8 +177,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 {
                     this.t.TipTermina = TipTermina.Kontrola;
                 }
-
-                TerminiService.getInstance().DodavanjeTermina(this.t, pacijent);
+                t.pacijent = pacijent;
+                TerminiService.getInstance().DodavanjeTermina(this.t);
                 this.term.Add(this.t);
             }
             else
@@ -230,8 +231,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 {
                     this.t.TipTermina = TipTermina.Kontrola;
                 }
-
-                TerminiService.getInstance().DodavanjeTermina(this.t, pacijent);
+                t.pacijent = pacijent;
+                TerminiService.getInstance().DodavanjeTermina(this.t);
                 this.term.Add(this.t);
             }
             this.Close();

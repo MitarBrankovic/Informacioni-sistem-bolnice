@@ -76,7 +76,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 termin.TipTermina = TipTermina.Operacija;
             }
 
-            terminiService.DodavanjeTermina(termin, termin.pacijent);
+            terminiService.DodavanjeTermina(termin);
             this.termini.Add(termin);
 
             this.Close();

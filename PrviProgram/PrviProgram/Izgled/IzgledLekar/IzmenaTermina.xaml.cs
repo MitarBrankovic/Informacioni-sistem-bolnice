@@ -1,5 +1,4 @@
 ﻿using Model;
-using PrviProgram.Logika.Controllers;
 using PrviProgram.Repository;
 using Service;
 using Service.LekarService;
@@ -22,6 +21,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private TerminiService UpravljanjeTerminima;
         private PreglediService UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
+        private TerminiService terminiService = new TerminiService();
 
         private ObservableCollection<Termin> terminiPacijent;
         private Termin termin;
@@ -37,6 +37,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             UpravljanjeSalama = new SaleService();
             UpravljanjeTerminima = new TerminiService();
             UpravljanjePregledima = new PreglediService();
+            saleRep = new SalaRepository();
 
             this.termini = termini;
             this.termin = termin;
@@ -129,8 +130,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
             }
 
-            ControllerLekar.getInstance().IzmenaTermina(this.termin, tempPacijent);
-
+            terminiService.IzmenaTermina(this.termin);
             this.termini.Add(this.termin);
 
             this.Close();

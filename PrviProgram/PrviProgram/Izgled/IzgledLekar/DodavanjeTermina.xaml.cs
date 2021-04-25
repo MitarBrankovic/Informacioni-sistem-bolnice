@@ -1,5 +1,4 @@
 ﻿using Model;
-using PrviProgram.Logika.Controllers;
 using PrviProgram.Repository;
 using Service;
 using Service.LekarService;
@@ -22,6 +21,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private SaleService uprSal;
         private SalaRepository saleRep;
         private ObservableCollection<Termin> termini;
+        private TerminiService terminiService = new TerminiService();
 
         public DodavanjeTermina(ObservableCollection<Termin> termini)
         {
@@ -30,6 +30,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             upr = new PreglediService();
             uprPac = new PacijentiService();
             uprSal = new SaleService();
+            saleRep = new SalaRepository();
             this.termini = termini;
 
         }
@@ -123,8 +124,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
             if (vecPostoji == false)
             {
-                ControllerLekar.getInstance().DodavanjeTermina(tempTermin, tempPacijent);
-
+                terminiService.DodavanjeTermina(tempTermin);
                 this.termini.Add(tempTermin);
                 this.Close();
             }

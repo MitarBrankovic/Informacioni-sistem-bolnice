@@ -40,7 +40,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             if (dataGridPacijenta.SelectedItem != null)
             {
                 Termin termin = (Termin)dataGridPacijenta.SelectedItem;
-                terminiService.BrisanjeTermina(termin, termin.pacijent);
+                terminiService.BrisanjeTermina(termin);
                 termini.Remove(termin);
             }
         }
