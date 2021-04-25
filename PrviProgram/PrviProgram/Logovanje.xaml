@@ -5,26 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram"
         mc:Ignorable="d"
-        Title="Logovanje" Height="274" Width="570" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid Margin="0,0,-81,0" RenderTransformOrigin="0.519,0.97" Height="275" VerticalAlignment="Top">
+        Title="Logovanje Pacijenta" Height="274" Width="570" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid RenderTransformOrigin="0.519,0.97" Height="257" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="33*"/>
-            <ColumnDefinition Width="249*"/>
-            <ColumnDefinition Width="57*"/>
-            <ColumnDefinition Width="107*"/>
-            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="181*"/>
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
-        <Label Content="Korisnicko ime" HorizontalAlignment="Left" Height="31" Margin="17,44,0,0" VerticalAlignment="Top" Width="137" FontStyle="Italic" FontWeight="Bold" FontSize="18" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="korisnickoImeText" HorizontalAlignment="Left" Height="30" Margin="137,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Sifra korisnika" HorizontalAlignment="Left" Height="32" Margin="17,102,0,0" VerticalAlignment="Top" Width="138" FontStyle="Italic" FontWeight="Bold" FontSize="18" Grid.ColumnSpan="2"/>
-        <Button x:Name="LogovanjeButton" Content="Uloguj se" HorizontalAlignment="Left" Height="31" Margin="149,177,0,0" VerticalAlignment="Top" Width="110" Click="LogovanjeButton_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="185" Margin="20,28,0,0" VerticalAlignment="Top" Width="216" Source="/Slike/Pacijent.jpg" Grid.Column="3" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="sifraText" HorizontalAlignment="Left" Height="30" Margin="137,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Korisnicko ime" HorizontalAlignment="Left" Height="31" Margin="17,44,0,0" VerticalAlignment="Top" Width="137" FontStyle="Italic" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Sifra korisnika" HorizontalAlignment="Left" Height="32" Margin="17,0,0,0" VerticalAlignment="Center" Width="138" FontStyle="Italic" FontWeight="Bold" FontSize="18"/>
+        <Image HorizontalAlignment="Left" Height="184" Margin="0,28,0,0" VerticalAlignment="Top" Width="216" Source="/Slike/Pacijent.jpg" Grid.Column="1"/>
 
+        <TextBox x:Name="korisnickoImeText" HorizontalAlignment="Left" Height="30" Margin="166,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" />
+        <PasswordBox x:Name="sifraText" HorizontalAlignment="Left" Height="30" Margin="166,105,0,0" VerticalAlignment="Top" Width="154"/>
+
+        <Button x:Name="LogovanjeButton" Content="Uloguj se" HorizontalAlignment="Left" Height="31" Margin="188,181,0,0" VerticalAlignment="Top" Width="110" Click="LogovanjeButton_Click"/>
     </Grid>
 </Window>

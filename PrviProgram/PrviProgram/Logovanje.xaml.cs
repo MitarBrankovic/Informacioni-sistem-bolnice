@@ -15,12 +15,13 @@ namespace PrviProgram
         public Logovanje()
         {
             InitializeComponent();
+            korisnickoImeText.Focus();
         }
 
         private void LogovanjeButton_Click(object sender, RoutedEventArgs e)
         {
             string ime = korisnickoImeText.Text;
-            string sifra = sifraText.Text;
+            string sifra = sifraText.Password;
 
             List<Korisnik> korisnici = new List<Korisnik>();
             PacijentRepository pacijentRepository = new PacijentRepository();
