@@ -239,5 +239,53 @@ namespace Service
 
         }
 
-    }
-}
+        public List<Termin> citanjeTermina()
+        {
+            TerminiRepository datoteka = new TerminiRepository();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+            return termini;
+        }
+        public List<Sala> citanjeSala()
+        {
+            SalaRepository datoteka = new SalaRepository();
+             List<Sala>sale = datoteka.CitanjeIzFajla();
+            return sale;
+        }
+
+        public Sala dobavljanjeSale(Termin noviTermin)
+        {
+            
+            List<Termin> termini = citanjeTermina();
+            List<Sala> sale = citanjeSala();
+            Sala novaSala = new Sala();
+
+            foreach (Sala sala in sale)
+            {
+                if (!sala.Naziv.Equals("Magacin"))
+                {
+                    if (proveraSale(sala, termini, noviTermin))
+                    {
+                        novaSala = sala;
+                        novaSala.Dostupnost = false;
+                        return novaSala;
+                    }
+                }
+            }
+            return null;
+
+        }
+        public bool proveraSale(Sala sala, List<Termin> termini,Termin noviTermin)
+        {
+            foreach (Termin termin in termini)
+                {
+                    if(termin.Datum.Equals(noviTermin.Datum) && termin.Vreme.Equals(noviTermin.Vreme) && termin.sala.Sifra.Equals(sala.Sifra))
+                    {
+                            return false;
+                    }
+                }
+            return true;
+            }
+
+        }
+
+ }

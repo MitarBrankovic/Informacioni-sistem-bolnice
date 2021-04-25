@@ -98,19 +98,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                         break;
                     }
                 }
-                List<Sala> sale = new List<Sala>();
-                sale = saleRep.PregledSvihSala();
-
-                Sala tempSala = new Sala();
-                foreach(Sala s in sale)
-                {
-                    if (s.Dostupnost.Equals(true) && !s.Naziv.Equals("Magacin"))
-                    {
-                        tempSala = s;
-                        this.t.sala = tempSala;
-                        break;
-                    }
-                }
+              
                 this.t.lekar = l;
 
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -133,7 +121,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 {
                     this.t.TipTermina = TipTermina.Kontrola;
                 }
-
+                Sala novaSala = new Sala();
+                novaSala = TerminiService.getInstance().dobavljanjeSale(this.t);
+                this.t.sala = novaSala;
                 TerminiService.getInstance().DodavanjeTermina(this.t, pacijent);
                 this.term.Add(this.t);
             }
