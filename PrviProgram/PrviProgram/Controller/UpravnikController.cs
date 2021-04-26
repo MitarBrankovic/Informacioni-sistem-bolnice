@@ -46,8 +46,14 @@ namespace Controller
       {
             SaleService.getInstance().IzmenaSale(stara, nova);
       }
-   
-      public SaleService saleService;
+
+        public bool RenoviranjeSale(Sala sala)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public SaleService saleService;
       public OpremaService opremaService;
    
    }

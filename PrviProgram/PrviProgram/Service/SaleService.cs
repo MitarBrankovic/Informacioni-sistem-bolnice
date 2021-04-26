@@ -66,6 +66,12 @@ namespace Service
             return false;
         }
 
+        public bool RenoviranjeSale(Sala sala)
+        {
+            // TODO: implement
+            return false;
+        }
+
 
     }
 }
