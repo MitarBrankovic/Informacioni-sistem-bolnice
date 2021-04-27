@@ -28,13 +28,13 @@
         <Label Content="Oprema" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="96" FontSize="24"/>
         <RadioButton x:Name="Staticka" Content="Staticka" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="582,130,0,0" VerticalAlignment="Top" Checked="Staticka_Checked"/>
         <RadioButton x:Name="Dinamicka" Content="Dinamicka" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="582,150,0,0" VerticalAlignment="Top" Checked="Dinamicka_Checked"/>
-        <RadioButton Content="Obe" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="582,170,0,0" VerticalAlignment="Top" Checked="Obe_Checked"/>
+        <RadioButton Content="Sve" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="582,170,0,0" VerticalAlignment="Top" Checked="Obe_Checked"/>
         <RadioButton x:Name="Do5" Content="1-5" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="692,130,0,0" VerticalAlignment="Top" Checked="Do5_Checked"/>
         <RadioButton x:Name="Do10" Content="6-10" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="692,150,0,0" VerticalAlignment="Top" Checked="Do10_Checked"/>
         <RadioButton x:Name="Preko10" Content="10+" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="692,170,0,0" VerticalAlignment="Top" Checked="Preko10_Checked"/>
         <RadioButton Content="Sve" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="691,190,0,0" VerticalAlignment="Top" Checked="Sve_Checked"/>
         <Label Content="Izaberite salu:" HorizontalAlignment="Left" Height="25" Margin="562,258,0,0" VerticalAlignment="Top" Width="82"/>
-        <ComboBox x:Name="ComboSala" HorizontalAlignment="Left" Margin="673,260,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0"/>
+        <ComboBox x:Name="ComboSala" HorizontalAlignment="Left" Margin="673,260,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0" SelectionChanged="ComboSala_SelectionChanged"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="1017,258,0,0" VerticalAlignment="Top"/>
         <Label Content="Tip" HorizontalAlignment="Left" Margin="593,99,0,0" VerticalAlignment="Top"/>
         <Label Content="Kolicina" HorizontalAlignment="Left" Margin="695,99,0,0" VerticalAlignment="Top"/>
