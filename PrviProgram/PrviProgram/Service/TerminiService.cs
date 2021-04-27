@@ -143,6 +143,12 @@ namespace Service
             List<Sala> sale = datoteka.CitanjeIzFajla();
             return sale;
         }
+        public List<Lekar> citanjeLekara()
+        {
+            LekarRepository datoteka = new LekarRepository();
+            List<Lekar> lekari = datoteka.CitanjeIzFajla();
+            return lekari;
+        }
 
         public Sala dobavljanjeSale(Termin noviTermin)
         {
@@ -240,17 +246,59 @@ namespace Service
         public List<Termin> proveraVremenaKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar,string tipTermina)
         {
             List<Termin> terminiSlobodni1 = new List<Termin>();
-            TimeSpan razlika = max - min;
-            DateTime minOd = min.AddDays(-3);
-            DateTime minDo = min.AddDays(-1);
-            DateTime maxOd = max.AddDays(1);
-            DateTime maxDo = max.AddDays(3);
-            terminiSlobodni1 = sviSlobodniTermini(minOd, minDo, selektovaniLekar, tipTermina);
-            terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
+            TimeSpan razlikaDanasnjegDanaiMin = min-DateTime.Today;
 
+            if (razlikaDanasnjegDanaiMin.TotalDays == 0)
+            {
+                DateTime maxOd = max.AddDays(1);
+                DateTime maxDo = max.AddDays(2);
+                terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
+            }
+            else if(razlikaDanasnjegDanaiMin.TotalDays==1)
+            {
+                DateTime minOd = min.AddDays(-1);
+                DateTime minDo = min.AddDays(-1);
+                DateTime maxOd = max.AddDays(1);
+                DateTime maxDo = max.AddDays(2);
+                terminiSlobodni1 = sviSlobodniTermini(minOd, minDo, selektovaniLekar, tipTermina);
+                terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
+            }
+            else
+            {
+                DateTime minOd = min.AddDays(-2);
+                DateTime minDo = min.AddDays(-1);
+                DateTime maxOd = max.AddDays(1);
+                DateTime maxDo = max.AddDays(2);
+                terminiSlobodni1 = sviSlobodniTermini(minOd, minDo, selektovaniLekar, tipTermina);
+                terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
+
+            }
+            
+          
             return this.terminiSlobodni;
 
         }
+        
+        public List<Termin> proveraLekaraKodVremena(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
+        {
+            List<Lekar> lekari = citanjeLekara();
+            List<Termin> termini = new List<Termin>();
+            foreach(Lekar l in lekari)
+            {
+                if (!l.Jmbg.Equals(selektovaniLekar.Jmbg))
+                {
+
+                    if (proveraZauzetostiKodLekara(min, max, l))
+                    {
+                        termini = sviSlobodniTermini(min, max, l, tipTermina);
+                    }
+                }
+            }
+            return this.terminiSlobodni;
+
+
+        }
+
 
 
 
