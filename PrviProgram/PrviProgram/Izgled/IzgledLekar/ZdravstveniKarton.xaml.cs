@@ -80,5 +80,11 @@ namespace PrviProgram.Izgled.IzgledLekar
                 MessageBox.Show("Morate izabrati termin!");
             }
         }
+
+        private void Alergeni_Click(object sender, RoutedEventArgs e)
+        {
+            PregledAlergena pregledAlergena = new PregledAlergena();
+            pregledAlergena.Show();
+        }
     }
 }

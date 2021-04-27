@@ -24,7 +24,8 @@
                 <DataGridTextColumn Header="Recept" Binding="{Binding recept.Lekovi}"  Width="102"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name ="Azuriraj" Click="Azuriraj_Click"  Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="612,41,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="1.105,-0.451"/>
+        <Button x:Name ="Azuriraj" Click="Azuriraj_Click"  Content="Azuriraj" HorizontalAlignment="Center" Height="26" Margin="0,41,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="1.105,-0.451"/>
+        <Button x:Name ="Alergeni" Click="Alergeni_Click"  Content="Alergeni" HorizontalAlignment="Left" Height="26" Margin="612,41,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="1.105,-0.451"/>
 
     </Grid>
 </Window>

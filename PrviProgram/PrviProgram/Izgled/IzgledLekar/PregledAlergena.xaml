@@ -1,0 +1,24 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.PregledAlergena"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        mc:Ignorable="d"
+        Title="Pregled Alergena" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgDataBinding1" AutoGenerateColumns="False" Margin="268,85,268,29" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Alergeni" Width="*" Binding="{Binding Naziv}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
