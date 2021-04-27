@@ -1,0 +1,280 @@
+[
+  {
+    "Datum": "2021-04-27T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "914",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "09:30:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Sifra": "Kt3MOveu",
+            "Datum": "2021-04-29T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "anamneza12"
+            },
+            "recept": {
+              "Lekovi": "recept1",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "terapija1",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "12313123",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "aaaaa",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 44,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "aaa@gmail.com",
+      "Jmbg": "12313123",
+      "DatumRodjenja": "2021-04-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "02130210"
+    }
+  },
+  {
+    "Datum": "2021-04-29T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "paB",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "19:00:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Sifra": "Kt3MOveu",
+            "Datum": "2021-04-29T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "anamneza12"
+            },
+            "recept": {
+              "Lekovi": "recept1",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "terapija1",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "12313123",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "aaaaa",
+        "Broj": 23,
+        "Sprat": 4,
+        "Stan": 44,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "aaa@gmail.com",
+      "Jmbg": "12313123",
+      "DatumRodjenja": "2021-04-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "02130210"
+    }
+  }
+]

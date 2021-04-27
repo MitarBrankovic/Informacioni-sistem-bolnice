@@ -209,13 +209,13 @@ namespace Service
                             termin.TipTermina = TipTermina.Kontrola;
                         }
                         
-                        this.terminiSlobodni.Add(termin);
+                        terminiSlobodni.Add(termin);
                     }
                 }
 
                 min = min.AddDays(+1);
             }
-            return this.terminiSlobodni;
+            return terminiSlobodni;
         }
         public bool proveraTermina(DateTime datum, string vreme)
         {
