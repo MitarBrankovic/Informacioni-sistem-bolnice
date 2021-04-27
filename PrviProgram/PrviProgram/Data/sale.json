@@ -82,5 +82,46 @@
     "Dostupnost": true,
     "Sifra": "ntp2",
     "NazivSprat": "NTP 2 2"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 10,
+        "Tip": 1,
+        "NazivSale": "OP1"
+      }
+    ],
+    "Tip": 0,
+    "Naziv": "OP1",
+    "Sprat": 1,
+    "Dostupnost": true,
+    "Sifra": "op1",
+    "NazivSprat": "OP1 1"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 6,
+        "Tip": 1,
+        "NazivSale": "OP2"
+      }
+    ],
+    "Tip": 0,
+    "Naziv": "OP2",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "op2",
+    "NazivSprat": "OP2 2"
+  },
+  {
+    "oprema": [],
+    "Tip": 0,
+    "Naziv": "OP3",
+    "Sprat": 3,
+    "Dostupnost": true,
+    "Sifra": "op3",
+    "NazivSprat": "OP3 3"
   }
 ]

@@ -16,46 +16,26 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for RenoviranjeSale.xaml
-    /// </summary>
     public partial class RenoviranjeSale : Window
     {
         private SaleService saleService;
-        private SalaRepository saleRep;
-        private ObservableCollection<Model.Oprema> opreme;
         private Sala selektovanaSala;
-        private ObservableCollection<Model.Sala> sveSale;
         private DateTime pocetakRenoviranja;
         private DateTime krajRenoviranja;
+        TerminiRepository datotekaTermini;
 
 
-        public RenoviranjeSale(ObservableCollection<Model.Sala> sale, Model.Sala sala)
+        public RenoviranjeSale(ObservableCollection<Sala> sale, Sala sala)
         {
             InitializeComponent();
 
-            saleRep = new SalaRepository();
             saleService = new SaleService();
+            datotekaTermini = new TerminiRepository();
 
-            this.sveSale = sale;
             this.selektovanaSala = sala;
-
             TrenutnaSala.Text = sala.Naziv;
 
-
-
-
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
-
-            foreach (Termin tt in termini)
-            {
-                if (tt.sala.Sifra.Equals(sala.Sifra))
-                {
-                    PocetakRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
-                    KrajRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
-                }
-            }
+            proveraIIzbacivanjeDatumaPregleda();
 
         }
 
@@ -90,6 +70,23 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void KrajRenoviranja_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+
+        private void proveraIIzbacivanjeDatumaPregleda() 
+        {
+            List<Termin> termini = datotekaTermini.CitanjeIzFajla();
+
+            foreach (Termin tt in termini)
+            {
+                if (tt.sala.Sifra.Equals(selektovanaSala.Sifra))
+                {
+                    PocetakRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
+                    KrajRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
+                }
+            }
+
 
         }
     }

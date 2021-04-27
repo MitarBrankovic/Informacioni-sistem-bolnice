@@ -195,7 +195,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             foreach (Oprema o in pomocnaOprema)
             {
-                if (o.Kolicina < 6 && o.Kolicina > 10)
+                if (o.Kolicina < 6 || o.Kolicina > 10)
                 {
                     opreme.Remove(o);
                 }

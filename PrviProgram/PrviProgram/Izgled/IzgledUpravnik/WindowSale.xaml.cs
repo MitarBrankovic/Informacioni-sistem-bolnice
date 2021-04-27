@@ -38,7 +38,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
             upravljanje = new SaleService();
             saleRep = new SalaRepository();
-            //sale = new ObservableCollection<Model.Sala>(saleRep.PregledSvihSala());
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -57,8 +56,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
-
-            SalaRepository datoteka1 = new SalaRepository();
           
             foreach (TerminPremestanjaOpreme t in termini)
             {
