@@ -10,7 +10,7 @@ namespace Model
         public Sala sala { get; set; }
         public string Vreme { get; set; }
         public GuestPacijent guestPacijent { get; set; }
-
+        public bool izvrsen { get; set; }
         public Lekar lekar
         {
             get; set;

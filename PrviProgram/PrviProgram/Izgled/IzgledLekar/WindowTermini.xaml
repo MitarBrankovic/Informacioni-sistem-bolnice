@@ -14,7 +14,7 @@
         <Button x:Name ="Anamneza" Click="Anamneza_Click"  Content="Anamneza" HorizontalAlignment="Left" Height="26" Margin="219,36,0,0" VerticalAlignment="Top" Width="98" />
 
 
-        <DataGrid x:Name="dataGridLekar" Margin="90,91,90,63" SelectionChanged="DataGrid_SelectionChanged"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="dataGridLekar" Margin="41,91,41,63" SelectionChanged="DataGrid_SelectionChanged"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,11 +23,13 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Izvrsen" Binding="{Binding izvrsen}" Width="102"/>
                 <DataGridTextColumn Header="Sifra termina" Binding="{Binding SifraTermina}"  Width="102"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="102"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}" Width="102"/>
                 <DataGridTextColumn Header="Vreme" Binding="{Binding Vreme, StringFormat='HH:mm:ss'}" Width="102"/>
                 <DataGridTemplateColumn Header="Pacijent" Width="102">
+
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

@@ -8,7 +8,7 @@
       "terapija": null,
       "izvrseniPregled": [
         {
-          "Sifra": "OL5fFimD",
+          "Sifra": "Kt3MOveu",
           "Datum": "2021-04-29T00:00:00",
           "TipTermina": 1,
           "Lekar": {
@@ -30,16 +30,16 @@
             "KontaktTelefon": null
           },
           "anamneza": {
-            "Opis": "ANAMNEZA1"
+            "Opis": "anamneza12"
           },
           "recept": {
-            "Lekovi": "RECEPT",
+            "Lekovi": "recept1",
             "DatumIzdavanja": "0001-01-01T00:00:00",
             "VremenskiPeriodUzimanjaLeka": 0,
             "OpisLeka": null
           },
           "terapija": {
-            "Opis": "TERAPIJA",
+            "Opis": "terapija1",
             "Datum": "0001-01-01T00:00:00"
           }
         }
@@ -54,7 +54,7 @@
         "Ime": null,
         "Prezime": null,
         "Email": null,
-        "Jmbg": "0123131",
+        "Jmbg": "12313123",
         "DatumRodjenja": "0001-01-01T00:00:00",
         "Pol": 0,
         "KontaktTelefon": null
@@ -75,10 +75,10 @@
     "AdresaStanovanja": {
       "Ulica": "aaaaa",
       "Broj": 23,
-      "Sprat": 3,
-      "Stan": 2,
+      "Sprat": 4,
+      "Stan": 44,
       "grad": {
-        "Ime": "Zrenjanin",
+        "Ime": "Novi Sad",
         "drzava": {
           "Ime": "Srbija"
         }
@@ -86,10 +86,10 @@
     },
     "Ime": "Aleksandra",
     "Prezime": "Mirkovic",
-    "Email": "saska@gmail.com",
-    "Jmbg": "0123131",
-    "DatumRodjenja": "2021-04-18T00:00:00",
+    "Email": "aaa@gmail.com",
+    "Jmbg": "12313123",
+    "DatumRodjenja": "2021-04-17T00:00:00",
     "Pol": 1,
-    "KontaktTelefon": "0123123"
+    "KontaktTelefon": "02130210"
   }
 ]

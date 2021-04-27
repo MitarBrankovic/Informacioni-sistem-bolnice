@@ -38,14 +38,23 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridLekar.SelectedIndex != -1)
+            Termin termin = (Termin)dataGridLekar.SelectedItem;
+
+            if (termin.izvrsen != true)
             {
-                IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
-                izmena.Show();
+                if (dataGridLekar.SelectedIndex != -1)
+                {
+                    IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
+                    izmena.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Morate izabrati termin!");
+                }
             }
             else
             {
-                MessageBox.Show("Morate izabrati termin!");
+                MessageBox.Show("Ovaj termin ste vec izvrsili!");
             }
         }
 
@@ -82,22 +91,30 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Anamneza_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridLekar.SelectedIndex != -1)
-            {
-                Termin termin = (Termin)dataGridLekar.SelectedItem;
-                izvrseniPregled = new IzvrseniPregled();
-                izvrseniPregled.Lekar = termin.lekar;
-                izvrseniPregled.Datum = termin.Datum;
-                izvrseniPregled.TipTermina = termin.TipTermina;
-                izvrseniPregled.Sifra = termin.SifraTermina;
+            Termin termin = (Termin)dataGridLekar.SelectedItem;
 
-                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, termin.pacijent);
-                anamneza.Show();
+            if (termin.izvrsen != true)
+            {
+                if (dataGridLekar.SelectedIndex != -1)
+                {
+                    izvrseniPregled = new IzvrseniPregled();
+                    izvrseniPregled.Lekar = termin.lekar;
+                    izvrseniPregled.Datum = termin.Datum;
+                    izvrseniPregled.TipTermina = termin.TipTermina;
+                    izvrseniPregled.Sifra = termin.SifraTermina;
+                    termin.izvrsen = true;
+                    terminiService.IzmenaTermina(termin);
+                    IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, termin.pacijent);
+                    anamneza.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Morate izabrati termin!");
+                }
             }
             else
             {
-                MessageBox.Show("Morate izabrati termin!");
-
+                MessageBox.Show("Ovaj termin ste vec izvrsili!");
             }
         }
 
