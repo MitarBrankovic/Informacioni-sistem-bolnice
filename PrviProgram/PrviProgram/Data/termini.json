@@ -1,8 +1,8 @@
 [
   {
-    "Datum": "2021-04-26T00:00:00",
+    "Datum": "2021-04-27T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "sCYcEIDm",
+    "SifraTermina": "tVN",
     "sala": {
       "oprema": [
         {
@@ -19,11 +19,11 @@
       "Tip": 0,
       "Naziv": "NTP 1",
       "Sprat": 1,
-      "Dostupnost": false,
+      "Dostupnost": true,
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "08:00:00",
+    "Vreme": "08:30:00",
     "guestPacijent": null,
     "lekar": {
       "termin": null,
@@ -201,45 +201,45 @@
     }
   },
   {
-    "Datum": "2021-04-26T00:00:00",
-    "TipTermina": 2,
-    "SifraTermina": "zKW4vTNr",
+    "Datum": "2021-04-27T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "IpT",
     "sala": {
       "oprema": [
         {
           "Naziv": "Zavoji",
-          "Kolicina": 2,
+          "Kolicina": 5,
           "Tip": 1
         },
         {
           "Naziv": "Kreveti",
-          "Kolicina": 15,
+          "Kolicina": 5,
           "Tip": 0
         }
       ],
-      "Tip": 4,
-      "Naziv": "NTP 2",
-      "Sprat": 2,
-      "Dostupnost": false,
-      "Sifra": "ntp2",
-      "NazivSprat": "NTP 2 2"
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "08:00:00",
+    "Vreme": "10:30:00",
     "guestPacijent": null,
     "lekar": {
       "termin": null,
       "MestoRodjenja": null,
       "Korisnik": {
-        "KorisnickoIme": "d",
-        "Lozinka": "v",
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
         "TipKorisnika": 3,
         "osoba": null
       },
       "AdresaStanovanja": null,
-      "Ime": "Darko",
-      "Prezime": "Vrbaski",
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
       "Email": null,
-      "Jmbg": "423234256",
+      "Jmbg": "170892634",
       "DatumRodjenja": "0001-01-01T00:00:00",
       "Pol": 0,
       "KontaktTelefon": null

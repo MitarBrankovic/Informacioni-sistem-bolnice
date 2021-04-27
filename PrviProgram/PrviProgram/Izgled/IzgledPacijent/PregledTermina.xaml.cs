@@ -110,7 +110,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private Pacijent pacijent;
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            DodavanjeTermina win = new DodavanjeTermina(termini, pacijent);
+            DodavanjeTerminaKodPacijenta win = new DodavanjeTerminaKodPacijenta(termini, pacijent);
             win.Show();
         }
 

@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="PrviProgram.Izgled.IzgledPacijent.DodavanjeTerminaKodPacijenta"
+        mc:Ignorable="d"
+        Title="Dodavanje Termina Kod Pacijenta" Height="294" Width="348">
+    <Grid Margin="0,0,-1,1">
+
+        <Label Content="Od datuma:"  HorizontalAlignment="Left" Height="25" Margin="19,20,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="OdDatumText" HorizontalAlignment="Left" Height="25" Margin="156,20,0,0" VerticalAlignment="Top" Width="167"  DisplayDateStart="{x:Static System:DateTime.Today}" SelectedDateChanged="OdDatumText_SelectedDateChanged"/>
+        <Label Content="Do datuma:"  HorizontalAlignment="Left" Height="25" Margin="19,68,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="DoDatumText" HorizontalAlignment="Left" Height="25" Margin="156,68,0,0" VerticalAlignment="Top" Width="167"  DisplayDateStart="{x:Static System:DateTime.Today}" SelectedDateChanged="DoDatumText_SelectedDateChanged"/>
+        <Label Content="Lekar:"  HorizontalAlignment="Left" Height="25" Margin="19,109,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.481,0.93"/>
+        <ComboBox x:Name="lekarComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="156,113,0,0" Height="26" SelectionChanged="lekarComboBox_SelectionChanged"/>
+        <Label Content="Prioritet:" HorizontalAlignment="Left" Height="25" Margin="19,184,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="PrioritetComboBox" HorizontalAlignment="Left" Margin="156,184,0,0" VerticalAlignment="Top" Width="167"  SelectionChanged="PrioritetComboBox_SelectionChanged" Height="26" RenderTransformOrigin="0.325,0.648">
+            <ComboBoxItem Content="Lekar"/>
+            <ComboBoxItem Content="Termin"/>
+        </ComboBox>
+        <Button x:Name="PotvrdiButton" Content="Potvrdi" HorizontalAlignment="Left" Height="30" Margin="22,228,0,0" VerticalAlignment="Top" Width="111" Click="Potvrdi_Click"/>
+        <Button x:Name="OtkaziButton"  Content="Otkaži" HorizontalAlignment="Left" Height="30" Margin="181,228,0,0" VerticalAlignment="Top" Width="111" Click="otkazi_Click"/>
+        <Label Content="Tip termina:" HorizontalAlignment="Left" Height="25" Margin="19,150,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="TipTerminaText" HorizontalAlignment="Left" Margin="156,151,0,0" VerticalAlignment="Top" Width="167"  Height="26" >
+            <ComboBoxItem Content="Pregled"/>
+            <ComboBoxItem Content="Kontrola"/>
+        </ComboBox>
+
+    </Grid>
+</Window>
