@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
 
             upravljanje = new PreglediService();
-            termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregleda());
+            termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
             //termini = UpravljanjePregledima.getInstance().PregledSvihPregleda();
             //dataGridLekar.ItemsSource = termini;

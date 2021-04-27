@@ -37,6 +37,22 @@ namespace Service.LekarService
             return termini;
         }
 
+        public List<Termin> PregledSvihPregledaLekara(Lekar lekar)
+        {
+            TerminiRepository datoteka = new TerminiRepository();
+            List<Termin> termini = new List<Termin>();
+
+            foreach(Termin t in datoteka.CitanjeIzFajla())
+            {
+                if(t.lekar.Jmbg == lekar.Jmbg)
+                {
+                    termini.Add(t);
+                }
+            }
+
+            return termini;
+        }
+
         public void BrisanjePregleda(string sifraTermina)
         {
             TerminiRepository datoteka = new TerminiRepository();

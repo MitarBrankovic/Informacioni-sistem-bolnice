@@ -2,111 +2,11 @@
   {
     "termin": [],
     "kartonPacijenta": {
-      "alergen": [
-        {
-          "Naziv": "Macija dlaka"
-        }
-      ],
+      "alergen": null,
       "anamneza": null,
       "recept": null,
       "terapija": null,
-      "izvrseniPregled": [
-        {
-          "Datum": "2021-04-22T00:00:00",
-          "TipTermina": 1,
-          "Lekar": {
-            "termin": null,
-            "MestoRodjenja": null,
-            "Korisnik": null,
-            "AdresaStanovanja": null,
-            "Ime": "Srdjan",
-            "Prezime": "Beric",
-            "Email": null,
-            "Jmbg": null,
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0,
-            "KontaktTelefon": null
-          },
-          "anamneza": {
-            "Opis": "glavobolja"
-          },
-          "recept": {
-            "Lekovi": "Paracetamol",
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 0,
-            "OpisLeka": null
-          },
-          "terapija": {
-            "Opis": "Uzimati paracetamol svaki dan u 17h od 23.04 do 25.04",
-            "Datum": "0001-01-01T00:00:00"
-          }
-        },
-        {
-          "Datum": "2021-04-22T00:00:00",
-          "TipTermina": 1,
-          "Lekar": {
-            "termin": null,
-            "MestoRodjenja": null,
-            "Korisnik": null,
-            "AdresaStanovanja": null,
-            "Ime": "Srdjan",
-            "Prezime": "Beric",
-            "Email": null,
-            "Jmbg": null,
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0,
-            "KontaktTelefon": null
-          },
-          "anamneza": {
-            "Opis": "Bol u ruci"
-          },
-          "recept": {
-            "Lekovi": "Brufen",
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 0,
-            "OpisLeka": null
-          },
-          "terapija": {
-            "Opis": "Uzimati brufen svaki dan u 17h",
-            "Datum": "0001-01-01T00:00:00"
-          }
-        },
-        {
-          "Datum": "2021-04-24T00:00:00",
-          "TipTermina": 2,
-          "Lekar": {
-            "termin": null,
-            "MestoRodjenja": null,
-            "Korisnik": {
-              "KorisnickoIme": "d",
-              "Lozinka": "v",
-              "TipKorisnika": 3,
-              "osoba": null
-            },
-            "AdresaStanovanja": null,
-            "Ime": "Darko",
-            "Prezime": "Vrbaski",
-            "Email": null,
-            "Jmbg": "423234256",
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0,
-            "KontaktTelefon": null
-          },
-          "anamneza": {
-            "Opis": "hahaagsf"
-          },
-          "recept": {
-            "Lekovi": "brufen",
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 0,
-            "OpisLeka": null
-          },
-          "terapija": {
-            "Opis": "whhhdis",
-            "Datum": "0001-01-01T00:00:00"
-          }
-        }
-      ],
+      "izvrseniPregled": [],
       "Sifra": null,
       "pacijent": {
         "termin": null,
@@ -117,7 +17,7 @@
         "Ime": null,
         "Prezime": null,
         "Email": null,
-        "Jmbg": "4444455555",
+        "Jmbg": "0123131",
         "DatumRodjenja": "0001-01-01T00:00:00",
         "Pol": 0,
         "KontaktTelefon": null
@@ -136,12 +36,12 @@
       "osoba": null
     },
     "AdresaStanovanja": {
-      "Ulica": "sssss",
+      "Ulica": "aaaaa",
       "Broj": 23,
-      "Sprat": 4,
-      "Stan": 23,
+      "Sprat": 3,
+      "Stan": 2,
       "grad": {
-        "Ime": "Novi Sad",
+        "Ime": "Zrenjanin",
         "drzava": {
           "Ime": "Srbija"
         }
@@ -149,10 +49,10 @@
     },
     "Ime": "Aleksandra",
     "Prezime": "Mirkovic",
-    "Email": "sssss@gmail.com",
-    "Jmbg": "4444455555",
-    "DatumRodjenja": "2021-04-15T00:00:00",
+    "Email": "saska@gmail.com",
+    "Jmbg": "0123131",
+    "DatumRodjenja": "2021-04-18T00:00:00",
     "Pol": 1,
-    "KontaktTelefon": "665435"
+    "KontaktTelefon": "0123123"
   }
 ]
