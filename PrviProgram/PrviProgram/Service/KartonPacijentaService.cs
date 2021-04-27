@@ -51,9 +51,17 @@ namespace Service
             Pacijent pacijentStari = pacijent;
             Pacijent pacijentNovi = pacijent;
             //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
-            pacijentNovi.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
-            //termin.pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
-
+            
+            foreach(IzvrseniPregled ip in pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled)
+            {
+                if(izvrseniPregled.Sifra == ip.Sifra)
+                {
+                    pacijent.kartonPacijenta.AzurirajIzvrseniPregled(izvrseniPregled);
+                    pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
+                    return;
+                }
+            }
+            pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
             pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
             //PreglediService.getInstance().IzmenaPregleda(termin);
 

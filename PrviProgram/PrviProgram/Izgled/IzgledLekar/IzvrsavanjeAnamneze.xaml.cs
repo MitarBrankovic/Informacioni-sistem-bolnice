@@ -24,17 +24,23 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Termin termin;
         private IzvrseniPregled izvrseniPregled;
         private PacijentRepository pacijentRepository = new PacijentRepository();
-        public IzvrsavanjeAnamneze(ObservableCollection<Termin> termini, Termin termin)
+        private Pacijent pacijent;
+        //public IzvrsavanjeAnamneze(ObservableCollection<Termin> termini, Termin termin)
+        public IzvrsavanjeAnamneze(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
             InitializeComponent();
-            this.termin = termin;
+            this.izvrseniPregled = izvrseniPregled;
+            this.pacijent = pacijent;
+            //this.termin = termin;
 
-            TextboxPacijent.Text = termin.pacijent.Ime + " " + termin.pacijent.Prezime;
+            TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
+            if (izvrseniPregled.anamneza != null)
+                TextboxAnamneza.Text = izvrseniPregled.anamneza.Opis;
             //Kreiranje praznog objekta izvrsenog pregleda
-            izvrseniPregled = new IzvrseniPregled();
+            /*izvrseniPregled = new IzvrseniPregled();
             izvrseniPregled.Lekar = termin.lekar;
             izvrseniPregled.Datum = termin.Datum;
-            izvrseniPregled.TipTermina = termin.TipTermina;
+            izvrseniPregled.TipTermina = termin.TipTermina;*/
         }
 
         private void ZavrsiAnamnezu_Click(object sender, RoutedEventArgs e)
@@ -43,26 +49,26 @@ namespace PrviProgram.Izgled.IzgledLekar
             anamneza.Opis = TextboxAnamneza.Text;
             izvrseniPregled.anamneza = anamneza;
 
-            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(termin.pacijent.Jmbg));
+            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
             //ControllerLekar.getInstance().BrisanjeTermina(termin, (Termin)dataGridLekar.SelectedItem));
             this.Close();
         }
 
         private void PrepisiTerapiju_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled, termin.pacijent);
+            PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled, pacijent);
             prepisi.Show();
         }
 
         private void PrepisiLek_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiLek prepisi = new PrepisiLek(izvrseniPregled, termin.pacijent);
+            PrepisiLek prepisi = new PrepisiLek(izvrseniPregled, pacijent);
             prepisi.Show();
         }
 
         private void ZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            ZdravstveniKarton karton = new ZdravstveniKarton(termin.pacijent);
+            ZdravstveniKarton karton = new ZdravstveniKarton(pacijent);
             karton.Show();
         }
     }

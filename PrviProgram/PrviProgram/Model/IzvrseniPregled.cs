@@ -11,7 +11,7 @@ namespace Model
     public class IzvrseniPregled
     {
         //public Termin Termin { get; set; }
-
+        public String Sifra { get; set; }
         public DateTime Datum { get; set; }
         public TipTermina TipTermina { get; set; }
 

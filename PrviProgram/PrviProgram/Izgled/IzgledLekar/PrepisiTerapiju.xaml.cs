@@ -25,6 +25,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.izvrseniPregled = izvrseniPregled;
 
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
+            if (izvrseniPregled.terapija != null)
+                TextboxTerapija.Text = izvrseniPregled.terapija.Opis;
 
         }
 

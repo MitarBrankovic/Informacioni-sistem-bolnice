@@ -51,6 +51,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
             //izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(KartonPacijentaRepository.getInstance().PregledSvihIzvrsenihPregleda(pacijent.kartonPacijenta));
             //pacijentRepository.PregledPacijenta(pacijent.Jmbg);
+            this.pacijent = pacijent;
             izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
             dataGridKarton.ItemsSource = izvrseniPregledi;
         }
@@ -58,6 +59,26 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void dataGridKarton_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Azuriraj_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridKarton.SelectedIndex != -1)
+            {
+                /*Termin termin = (Termin)dataGridLekar.SelectedItem;
+                izvrseniPregled = new IzvrseniPregled();
+                izvrseniPregled.Lekar = termin.lekar;
+                izvrseniPregled.Datum = termin.Datum;
+                izvrseniPregled.TipTermina = termin.TipTermina;*/
+                IzvrseniPregled izvrseniPregled = (IzvrseniPregled)dataGridKarton.SelectedItem;
+
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent);
+                anamneza.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+            }
         }
     }
 }

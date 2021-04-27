@@ -17,6 +17,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
+        private IzvrseniPregled izvrseniPregled;
 
         public WindowTermini(Lekar lekar)
         {
@@ -83,7 +84,14 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if (dataGridLekar.SelectedIndex != -1)
             {
-                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(termini, (Termin)dataGridLekar.SelectedItem);
+                Termin termin = (Termin)dataGridLekar.SelectedItem;
+                izvrseniPregled = new IzvrseniPregled();
+                izvrseniPregled.Lekar = termin.lekar;
+                izvrseniPregled.Datum = termin.Datum;
+                izvrseniPregled.TipTermina = termin.TipTermina;
+                izvrseniPregled.Sifra = termin.SifraTermina;
+
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, termin.pacijent);
                 anamneza.Show();
             }
             else

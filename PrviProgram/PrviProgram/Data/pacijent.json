@@ -6,7 +6,44 @@
       "anamneza": null,
       "recept": null,
       "terapija": null,
-      "izvrseniPregled": [],
+      "izvrseniPregled": [
+        {
+          "Sifra": "OL5fFimD",
+          "Datum": "2021-04-29T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "ANAMNEZA"
+          },
+          "recept": {
+            "Lekovi": "RECEPT",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "TERAPIJA",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        }
+      ],
       "Sifra": null,
       "pacijent": {
         "termin": null,

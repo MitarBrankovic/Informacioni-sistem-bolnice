@@ -54,6 +54,19 @@ namespace Model
 
         public List<IzvrseniPregled> izvrseniPregled = new List<IzvrseniPregled>();
 
+        public void AzurirajIzvrseniPregled(IzvrseniPregled izvrseni)
+        {
+            foreach(IzvrseniPregled ip in izvrseniPregled)
+            {
+                if(ip.Sifra == izvrseni.Sifra)
+                {
+                    ip.recept = izvrseni.recept;
+                    ip.terapija = izvrseni.terapija;
+                    ip.anamneza = izvrseni.anamneza;
+                }
+            }
+        }
+
         /// <pdGenerated>default getter</pdGenerated>
         public List<IzvrseniPregled> GetIzvrseniPregled()
         {

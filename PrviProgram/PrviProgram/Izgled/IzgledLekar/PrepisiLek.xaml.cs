@@ -24,6 +24,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.izvrseniPregled = izvrseniPregled;
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
+            if (izvrseniPregled.recept != null)
+                TextboxRecept.Text = izvrseniPregled.recept.Lekovi;
 
         }
 
