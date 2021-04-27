@@ -17,6 +17,8 @@ namespace Model
         public int Kolicina { get; set; }
         public TipOpreme Tip { get; set; }
 
+        public string NazivSale { get; set; }
+
         public override string ToString()
         {
             return Naziv;

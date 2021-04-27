@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="PrviProgram.Izgled.IzgledUpravnik.RenoviranjeSale"
+        mc:Ignorable="d"
+        Title="RenoviranjeSale" Height="450" Width="550">
+    <Grid>
+        <Label Content="Trenutna sala:" HorizontalAlignment="Left" Height="25" Margin="153,131,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="173,363,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
+        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="302,363,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
+        <TextBox x:Name="TrenutnaSala" IsEnabled="False" HorizontalAlignment="Left" Margin="300,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <Label Content="Renoviranje sale" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <DatePicker x:Name="KrajRenoviranja" HorizontalAlignment="Left" Height="24" Margin="302,235,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="KrajRenoviranja_SelectedDateChanged" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Kraj:" HorizontalAlignment="Left" Height="24" Margin="153,235,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="PocetakRenoviranja" HorizontalAlignment="Left" Height="25" Margin="302,183,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="PocetakRenoviranja_SelectedDateChanged" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Height="25" Margin="153,183,0,0" VerticalAlignment="Top" Width="122"/>
+
+    </Grid>
+</Window>

@@ -4,22 +4,26 @@
       {
         "Naziv": "Stolice",
         "Kolicina": 30,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "Magacin"
       },
       {
         "Naziv": "Gaze",
         "Kolicina": 20,
-        "Tip": 1
-      },
-      {
-        "Naziv": "Zavoji",
-        "Kolicina": 13,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "Magacin"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 20,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "Magacin"
+      },
+      {
+        "Naziv": "Zavoji",
+        "Kolicina": 13,
+        "Tip": 1,
+        "NazivSale": "Magacin"
       }
     ],
     "Tip": 2,
@@ -34,12 +38,14 @@
       {
         "Naziv": "Zavoji",
         "Kolicina": 5,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "NTP 1"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 5,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "NTP 1"
       }
     ],
     "Tip": 0,
@@ -54,12 +60,20 @@
       {
         "Naziv": "Zavoji",
         "Kolicina": 2,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "NTP 2"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 15,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "NTP 2"
+      },
+      {
+        "Naziv": "spricevi",
+        "Kolicina": 5,
+        "Tip": 1,
+        "NazivSale": "NTP 2"
       }
     ],
     "Tip": 4,
@@ -68,5 +82,46 @@
     "Dostupnost": true,
     "Sifra": "ntp2",
     "NazivSprat": "NTP 2 2"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 10,
+        "Tip": 1,
+        "NazivSale": "OP1"
+      }
+    ],
+    "Tip": 0,
+    "Naziv": "OP1",
+    "Sprat": 1,
+    "Dostupnost": true,
+    "Sifra": "op1",
+    "NazivSprat": "OP1 1"
+  },
+  {
+    "oprema": [
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 6,
+        "Tip": 1,
+        "NazivSale": "OP2"
+      }
+    ],
+    "Tip": 0,
+    "Naziv": "OP2",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "op2",
+    "NazivSprat": "OP2 2"
+  },
+  {
+    "oprema": [],
+    "Tip": 0,
+    "Naziv": "OP3",
+    "Sprat": 3,
+    "Dostupnost": true,
+    "Sifra": "op3",
+    "NazivSprat": "OP3 3"
   }
 ]

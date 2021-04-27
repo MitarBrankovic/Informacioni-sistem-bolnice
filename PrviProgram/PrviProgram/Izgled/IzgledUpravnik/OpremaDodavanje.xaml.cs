@@ -67,7 +67,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     tempOprema.Tip = TipOpreme.Dinamicka;
                 }
 
-
+                tempOprema.NazivSale = sala.Naziv;
 
 
                 if (upr.DodavanjeOpreme(tempOprema, sala) == true)
