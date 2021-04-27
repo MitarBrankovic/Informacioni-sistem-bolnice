@@ -27,7 +27,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime minDatum = new DateTime();
         public DateTime maxDatum = new DateTime();
         public Lekar selektovaniLekar = new Lekar();
-        public string selektovaniPrioritet { get; set; }
+        public string selektovaniPrioritet;
         public DodavanjeTerminaKodPacijenta(ObservableCollection<Termin> termini, Pacijent pacijent)
         {
             InitializeComponent();
@@ -59,7 +59,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             else
             {
-                this.selektovaniPrioritet = PrioritetComboBox.SelectedItem.ToString();
+                
                 PotvrdiButton.IsEnabled = true;
             }
 
@@ -89,11 +89,18 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().sviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,tipTermina));
                 IzborPregleda prozor = new IzborPregleda(termini11,termini,pacijent);
                 prozor.Show();
-                //MessageBox.Show("USLOV JE DOBAR");
             }
             else
             {
-                MessageBox.Show("USLOV NIJE DOBAR");
+                string selektovani = PrioritetComboBox.Text;
+                if(selektovani.Equals("Lekar"))
+                {
+                    string tipTermina = TipTerminaText.Text;
+                    List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().proveraVremenaKodLekara(minDatum, maxDatum, selektovaniLekar, tipTermina));
+                    IzborPregleda prozor = new IzborPregleda(termini11, termini, pacijent);
+                    prozor.Show();
+                }
+              
             }
 
         }
