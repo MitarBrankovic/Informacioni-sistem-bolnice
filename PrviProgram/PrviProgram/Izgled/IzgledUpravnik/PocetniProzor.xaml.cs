@@ -18,7 +18,19 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzlogujteSe_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void Oprema_Click(object sender, RoutedEventArgs e)
+        {
+            CelaOpremaWindow win = new CelaOpremaWindow();
+            win.Show();
+        }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+            LekoviWindow win = new LekoviWindow();
+            win.Show();
         }
     }
 }

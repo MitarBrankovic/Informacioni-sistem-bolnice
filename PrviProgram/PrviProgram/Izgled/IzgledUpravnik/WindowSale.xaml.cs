@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using Model;
 using PrviProgram.Logika;
 using PrviProgram.Repository;
+using Repository;
 using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
@@ -42,7 +43,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Start();
-            timer.Tick += new EventHandler(lala);
+            timer.Tick += new EventHandler(izvrsavanjePremestanjaOpreme);
+            timer.Tick += new EventHandler(brisanjeTerminaRenoviranja);
 
             sale = new ObservableCollection<Model.Sala>(saleRep.PregledSvihSala());
 
@@ -51,7 +53,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         }
 
-        public void lala(object sender, EventArgs e)
+        public void izvrsavanjePremestanjaOpreme(object sender, EventArgs e)
         {
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
@@ -69,7 +71,24 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     break;
 
                 }
+            }
+        }
 
+        public void brisanjeTerminaRenoviranja(object sender, EventArgs e) {
+            TerminiRenoviranjaRepository datoteka = new TerminiRenoviranjaRepository();
+            List<TerminRenoviranjaSale> terminiRenoviranja = datoteka.CitanjeIzFajla();
+
+
+            foreach (TerminRenoviranjaSale t in terminiRenoviranja)
+            {
+                if (DateTime.Today.Equals(t.KrajRenoviranja))
+                {
+                    //timer.Stop();
+                    terminiRenoviranja.Remove(t);
+                    datoteka.UpisivanjeUFajl(terminiRenoviranja);
+                    break;
+
+                }
             }
         }
 
@@ -121,5 +140,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         }
 
+        private void Renoviranje_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridUpravnik.SelectedIndex != -1)
+            {
+                RenoviranjeSale win = new RenoviranjeSale(sale, (Model.Sala)dataGridUpravnik.SelectedItem);
+                win.Show();
+            }
+            else { MessageBox.Show("Morate izabrati salu!"); }
+        }
     }
 }

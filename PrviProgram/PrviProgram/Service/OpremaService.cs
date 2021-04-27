@@ -177,24 +177,6 @@ namespace Service
             return true;
         }
 
-
-        public bool KolicinaIsValid()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        /*public TipOpreme ProveraTipa()
-        {
-              return TipOpreme;
-              //IZMENI OVO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        }*/
-
-        public void ZakazivanjePremestajaOpreme()
-        {
-            // TODO: implement
-        }
-
         public OpremaRepository opremaRepository;
 
     }

@@ -4,22 +4,26 @@
       {
         "Naziv": "Stolice",
         "Kolicina": 30,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "Magacin"
       },
       {
         "Naziv": "Gaze",
         "Kolicina": 20,
-        "Tip": 1
-      },
-      {
-        "Naziv": "Zavoji",
-        "Kolicina": 13,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "Magacin"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 20,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "Magacin"
+      },
+      {
+        "Naziv": "Zavoji",
+        "Kolicina": 13,
+        "Tip": 1,
+        "NazivSale": "Magacin"
       }
     ],
     "Tip": 2,
@@ -34,12 +38,14 @@
       {
         "Naziv": "Zavoji",
         "Kolicina": 5,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "NTP 1"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 5,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "NTP 1"
       }
     ],
     "Tip": 0,
@@ -54,12 +60,20 @@
       {
         "Naziv": "Zavoji",
         "Kolicina": 2,
-        "Tip": 1
+        "Tip": 1,
+        "NazivSale": "NTP 2"
       },
       {
         "Naziv": "Kreveti",
         "Kolicina": 15,
-        "Tip": 0
+        "Tip": 0,
+        "NazivSale": "NTP 2"
+      },
+      {
+        "Naziv": "spricevi",
+        "Kolicina": 5,
+        "Tip": 1,
+        "NazivSale": "NTP 2"
       }
     ],
     "Tip": 4,

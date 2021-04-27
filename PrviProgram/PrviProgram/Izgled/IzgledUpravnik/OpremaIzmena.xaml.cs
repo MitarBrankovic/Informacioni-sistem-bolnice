@@ -82,6 +82,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     novaOprema.Tip = TipOpreme.Dinamicka;
                 }
+                novaOprema.NazivSale = sala.Naziv;
 
                 if (upr.IzmenaOpreme(this.oprema, novaOprema, sala) == true)
                 {

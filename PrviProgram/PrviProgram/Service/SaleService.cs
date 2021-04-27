@@ -1,5 +1,7 @@
 using Model;
 using PrviProgram.Repository;
+using Repository;
+using System;
 using System.Collections.Generic;
 
 namespace Service
@@ -66,12 +68,61 @@ namespace Service
             return false;
         }
 
-        public bool RenoviranjeSale(Sala sala)
+        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
-            // TODO: implement
-            return false;
+            TerminiRenoviranjaRepository datoteka = new TerminiRenoviranjaRepository();
+            List<TerminRenoviranjaSale> terminiRenoviranja = datoteka.CitanjeIzFajla();
+
+            TerminRenoviranjaSale termin = new TerminRenoviranjaSale();
+
+            if (proveraTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
+            {
+                termin.sala = sala;
+                termin.PocetakRenoviranja = pocetakRenoviranja;
+                termin.KrajRenoviranja = krajRenoviranja;
+            }
+            else { return false; }
+
+
+            foreach (TerminRenoviranjaSale t in terminiRenoviranja) {
+                if (t.sala.Sifra.Equals(sala.Sifra))
+                {
+                    return false;
+                    break;
+                }
+            }
+            terminiRenoviranja.Add(termin);
+            datoteka.UpisivanjeUFajl(terminiRenoviranja);
+            return true;
+
         }
 
+        public bool proveraTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja) {
+            TerminiRepository datoteka = new TerminiRepository();
+            List<Termin> termini = datoteka.CitanjeIzFajla();
+
+
+            var intervalRenoviranja = new List<DateTime>();
+
+            for (var dt = pocetakRenoviranja; dt <= krajRenoviranja; dt = dt.AddDays(1))
+            {
+                intervalRenoviranja.Add(dt);
+            }
+
+            foreach (Termin t in termini)
+            {
+                if (t.sala.Sifra.Equals(sala.Sifra))
+                {
+                    if (intervalRenoviranja.Contains(t.Datum))
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+
+        }
 
     }
 }
