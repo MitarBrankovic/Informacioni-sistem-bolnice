@@ -270,12 +270,10 @@ namespace Service
                 DateTime maxOd = max.AddDays(1);
                 DateTime maxDo = max.AddDays(2);
                 terminiSlobodni1 = sviSlobodniTermini(minOd, minDo, selektovaniLekar, tipTermina);
-                terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
-
+                terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina)
             }
-            
           
-            return this.terminiSlobodni;
+         return this.terminiSlobodni;
 
         }
         
@@ -298,7 +296,6 @@ namespace Service
 
 
         }
-
 
 
 

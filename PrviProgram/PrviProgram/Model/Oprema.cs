@@ -2,6 +2,15 @@ namespace Model
 {
    public class Oprema
    {
+
+        public Oprema(string naziv, TipOpreme tip, int kolicina)
+        {
+            this.Naziv = naziv;
+            this.Tip = tip;
+            this.Kolicina = kolicina;
+        }
+
+       
         public Oprema()
         {
             // TODO: implement

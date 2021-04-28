@@ -14,6 +14,7 @@ namespace Service
 {
     public class OpremaService
     {
+        public SalaRepository salaRepository = new SalaRepository();
         private static OpremaService instance = null;
         public static OpremaService getInstance()
         {
@@ -94,11 +95,64 @@ namespace Service
             }
             return false;
         }
+        
 
+        public bool PremestanjeOpremeIzStareSaleUNovuSalu(Oprema oprema, Sala staraSala, Sala novaSala)
+        {
+            List<Sala> sale = salaRepository.PregledSvihSala();
+
+
+
+            return true;
+        }
+        public bool PronalazakOpremeUSali(Sala staraSala, Oprema oprema)
+        {
+            foreach (Oprema o in staraSala.oprema)
+            {
+                if (o.Naziv.Equals(oprema.Naziv))
+                {
+                    staraSala.oprema.Remove(o);
+                    Oprema op = new Oprema(o.Naziv, o.Tip,izracunavanjeKolicine(o,oprema));
+                    dodavanjeOpremeSali(staraSala, op);
+                    return true;
+
+                }
+            }
+            return false;
+        }
+        public int izracunavanjeKolicine(Oprema staraOprema, Oprema novaOprema)
+        {
+            return staraOprema.Kolicina - novaOprema.Kolicina;
+        }
+
+        public void dodavanjeOpremeSali(Sala staraSala, Oprema novaOprema)
+        {
+            if(ProveraKolicine(staraSala,novaOprema))
+            {
+                staraSala.oprema.Add(novaOprema);
+            }
+        }
+            
+        public bool ProveraKolicine(Sala staraSala,Oprema novaOprema)
+        {
+            if (novaOprema.Kolicina > 0)
+            {
+                return true;
+            }
+            else if (novaOprema.Kolicina == 0)
+            {
+
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
         public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
+           
+    
             foreach (Sala s in sale)
             {
                 if (s.Sifra.Equals(staraSala.Sifra))
