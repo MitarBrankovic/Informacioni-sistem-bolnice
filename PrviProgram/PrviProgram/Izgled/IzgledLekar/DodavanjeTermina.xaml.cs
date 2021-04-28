@@ -1,8 +1,10 @@
 ﻿using Model;
 using PrviProgram.Repository;
+using Repository;
 using Service;
 using Service.LekarService;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,17 +23,22 @@ namespace PrviProgram.Izgled.IzgledLekar
         private SaleService uprSal;
         private SalaRepository saleRep;
         private ObservableCollection<Termin> termini;
+        private PacijentRepository pacijentRepository= new PacijentRepository();
+        private SalaRepository salaRepository = new SalaRepository();
         private TerminiService terminiService = new TerminiService();
+        private Lekar lekar;
 
-        public DodavanjeTermina(ObservableCollection<Termin> termini)
+        public DodavanjeTermina(ObservableCollection<Termin> termini, Lekar lekar)
         {
             InitializeComponent();
-
+            this.lekar = lekar;
             upr = new PreglediService();
             uprPac = new PacijentiService();
             uprSal = new SaleService();
             saleRep = new SalaRepository();
             this.termini = termini;
+            ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
+            ComboboxSala.ItemsSource = salaRepository.PregledSvihSala();
 
         }
 
@@ -66,19 +73,16 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
 
         }
-
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin tempTermin = new Termin();
-
-
+            tempTermin.lekar = lekar;
             Sala tempSala = new Sala();
-            tempSala = saleRep.PregledSale(Sala.Text);
+            tempSala = (Sala)ComboboxSala.SelectedItem;
             tempTermin.sala = tempSala;
-
-
+            
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent = uprPac.PregledPacijenta(Pacijent.Text);
+            tempPacijent = (Pacijent)ComboboxPacijent.SelectedItem;
             tempTermin.pacijent = tempPacijent;
 
             tempTermin.Vreme = vremeText.Text;

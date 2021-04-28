@@ -18,11 +18,11 @@ namespace PrviProgram.Izgled.IzgledLekar
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
         private IzvrseniPregled izvrseniPregled;
-
+        private Lekar lekar;
         public WindowTermini(Lekar lekar)
         {
             InitializeComponent();
-
+            this.lekar = lekar;
             upravljanje = new PreglediService();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
@@ -32,7 +32,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            DodavanjeTermina dodavanje = new DodavanjeTermina(termini);
+            DodavanjeTermina dodavanje = new DodavanjeTermina(termini, lekar);
             dodavanje.Show();
         }
 

@@ -25,10 +25,7 @@
             <ComboBoxItem>Operacija</ComboBoxItem>
             <ComboBoxItem>Kontrola</ComboBoxItem>
         </ComboBox>
-
-        <TextBox x:Name="Pacijent" HorizontalAlignment="Left" Margin="262,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,151,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="datum_SelectedDateChanged"/>
-        <TextBox x:Name="Sala" HorizontalAlignment="Left" Margin="262,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="25"/>
 
         <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Center" Width="165" Margin="262,0,0,0" Height="26" SelectionChanged="vreme_SelectionChanged">
             <ComboBoxItem>08:00</ComboBoxItem>
@@ -56,6 +53,10 @@
             <ComboBoxItem>19:00</ComboBoxItem>
             <ComboBoxItem>19:30</ComboBoxItem>
 
+        </ComboBox>
+        <ComboBox x:Name="ComboboxPacijent" HorizontalAlignment="Left" Margin="262,48,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
+        </ComboBox>
+        <ComboBox x:Name="ComboboxSala" HorizontalAlignment="Left" Margin="260,256,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
         </ComboBox>
 
     </Grid>
