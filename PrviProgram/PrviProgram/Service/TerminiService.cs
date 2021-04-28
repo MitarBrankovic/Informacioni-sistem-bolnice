@@ -4,11 +4,14 @@ using Repository;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Service
 {
     public class TerminiService
     {
+        private TerminiRepository terminiRepository = new TerminiRepository();
+
         private static TerminiService instance = null;
         public static TerminiService getInstance()
         {
@@ -20,37 +23,9 @@ namespace Service
         }
         public void DodavanjeTermina(Termin t)
         {
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
-            // termini.Add(t);
-
-            //foreach (Termin tt in termini)
-            //{
-            //    if (tt.pacijent.Jmbg.Equals(p.Jmbg) && t.SifraTermina.Equals(tt.SifraTermina))
-            //    {
-            //
-            //    }
-            //}
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
             termini.Add(t);
-            datoteka.UpisivanjeUFajl(termini);
-
-            /* foreach (Pacijent pp in pacijenti)
-             {
-                 if (pp.Jmbg.Equals(p.Jmbg))
-                 {
-                     foreach (Termin tt in pp.GetTermin())
-                     {
-                         termini.Add(tt);
-                     }
-
-                     pp.termin = termini;
-                     break;
-
-                 }
-             }*/
-            // datoteka.UpisivanjeUFajl(pacijenti);
-
-
+            terminiRepository.UpisivanjeUFajl(termini);
         }
 
         public List<Lekar> proveraVremenaKodLekara(string vreme, DateTime datum)
@@ -119,6 +94,20 @@ namespace Service
 
 
             return popunjeniNiz;
+        }
+
+        public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
+        {
+            List<string> zauzetiTermini = new List<string>();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
+            {
+                if (t.lekar.Jmbg.Equals(lekar.Jmbg) && t.Datum.Equals(datumTermina))
+                {
+                    zauzetiTermini.Add(t.Vreme);
+                }
+            }
+            return zauzetiTermini;
         }
 
         public bool IzmenaTermina(Termin termin)
@@ -231,6 +220,20 @@ namespace Service
                 }
             return true;
             }
+
+        public bool ProvaraZauzatostiTermina(Termin termin)
+        {
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
+            {
+                if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) && t.Datum.Equals(termin.Datum) && t.Vreme.Equals(termin.Vreme))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         }
 

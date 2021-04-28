@@ -8,9 +8,12 @@
         Title="ZakazivanjeTermina" Height="450" Width="640">
     <Grid Margin="0,0,0,-6" HorizontalAlignment="Center" Width="640">
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="292,105,0,0" x:Name="comboBoxPacijenti" VerticalAlignment="Top" Width="162" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="292,176,0,0" x:Name="comboBoxLekari" VerticalAlignment="Top" Width="162" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="292,176,0,0" x:Name="comboBoxLekari" VerticalAlignment="Top" Width="162" SelectionChanged="comboBoxLekari_SelectionChanged" />
 
-        <Label Content="Datum"  HorizontalAlignment="Left" Height="25" Margin="143,58,0,0" VerticalAlignment="Top" Width="122"/>
+        <CheckBox Height="23" HorizontalAlignment="Left" Margin="292,30,0,0" x:Name="checkBoxHitanSlucaj" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="162" Checked="checkBoxHitanSlucaj_Checked" Unchecked="checkBoxHitanSlucaj_Unchecked"/>
+        
+        <Label Content="Hitan slucaj"  HorizontalAlignment="Left" Height="25" Margin="143,30,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Datum"  HorizontalAlignment="Left" Height="25" Margin="143,60,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="143,225,0,0" VerticalAlignment="Top" Width="122"/>
 
         <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="185,349,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
@@ -18,7 +21,7 @@
         <ComboBox Name="TipTerminaText" HorizontalAlignment="Left" Margin="292,222,0,0" VerticalAlignment="Top" Width="168" SelectedIndex="0" Height="28" />
 
         <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="292,270,0,0" Height="26"/>
-        <DatePicker Height="23" HorizontalAlignment="Left" Margin="292,58,0,0" x:Name="datePicker" VerticalAlignment="Top" Width="165" />
+        <DatePicker Height="23" HorizontalAlignment="Left" Margin="292,58,0,0" x:Name="datePicker" VerticalAlignment="Top" Width="165" SelectedDateChanged="datePicker_SelectedDateChanged" />
         <Label Content="Vreme"  HorizontalAlignment="Left" Height="25" Margin="142,273,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.495,0.562"/>
         <Button Content="Otkazi" HorizontalAlignment="Left" Height="27" Margin="314,349,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
         <Label Content="Pacijent"  HorizontalAlignment="Left" Height="25" Margin="142,103,0,0" VerticalAlignment="Top" Width="122"/>

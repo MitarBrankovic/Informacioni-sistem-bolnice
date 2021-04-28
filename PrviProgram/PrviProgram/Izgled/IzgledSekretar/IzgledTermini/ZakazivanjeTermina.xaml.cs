@@ -16,6 +16,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
+        private List<string> constVreme = new List<string>(){ "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
         private ObservableCollection<string> vreme = new ObservableCollection<string> { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
         private ObservableCollection<string> tipTermina = new ObservableCollection<string> { "Operacija", "Pregled", "Kontrola" };
         public ZakazivanjeTermina(ObservableCollection<Termin> termini)
@@ -26,6 +27,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
             vremeText.ItemsSource = vreme;
             TipTerminaText.ItemsSource = tipTermina;
+            vremeText.IsEnabled = false;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -43,15 +45,11 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 termin.guestPacijent = guestPacijent;
             }
 
+            Sala novaSala = new Sala();
+            novaSala = TerminiService.getInstance().dobavljanjeSale(termin);
+            termin.sala = novaSala;
+
             Random rnd = new Random();
-            List<Sala> sale = new List<Sala>();
-            sale = salaRepository.PregledSvihSala();
-            Sala tempSala = new Sala();
-            if (sale[0] != null)
-            {
-                tempSala = sale[0];
-                termin.sala = tempSala;
-            }
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[8];
             var Random = new Random();
@@ -75,11 +73,16 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.TipTermina = TipTermina.Operacija;
             }
-
-            terminiService.DodavanjeTermina(termin);
-            this.termini.Add(termin);
-
-            this.Close();
+            if (terminiService.ProvaraZauzatostiTermina(termin) == false)
+            {
+                terminiService.DodavanjeTermina(termin);
+                this.termini.Add(termin);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Termin zauzet!!");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -93,5 +96,98 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             kreiranjeGuestPacijenta.Show();
         }
 
+        private void comboBoxLekari_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (checkBoxHitanSlucaj.IsChecked == false)
+            {
+                if ((Lekar)comboBoxLekari.SelectedItem != null && datePicker.SelectedDate != null)
+                {
+                    vremeText.IsEnabled = true;
+                    List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+                    foreach (String vremeT in constVreme)
+                    {
+                        foreach (String zauzetiT in zauzetiTermini)
+                        {
+                            if (vremeT.Equals(zauzetiT))
+                            {
+                                vreme.Remove(vremeT);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    vremeText.IsEnabled = false;
+                }
+            }
+            else
+            {
+                vreme = new ObservableCollection<string>(constVreme);
+                vremeText.ItemsSource = vreme;
+                vremeText.IsEnabled = true;
+            }
+        }
+
+        private void datePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (checkBoxHitanSlucaj.IsChecked == false)
+            {
+                if ((Lekar)comboBoxLekari.SelectedItem != null && datePicker.SelectedDate != null)
+                {
+                    vremeText.IsEnabled = true;
+                    List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+                    foreach (String vremeT in constVreme)
+                    {
+                        foreach (String zauzetiT in zauzetiTermini)
+                        {
+                            if (vremeT.Equals(zauzetiT))
+                            {
+                                vreme.Remove(vremeT);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    vremeText.IsEnabled = false;
+                }
+            }
+            else
+            {
+                vreme = new ObservableCollection<string>(constVreme);
+                vremeText.ItemsSource = vreme;
+                vremeText.IsEnabled = true;
+            }
+        }
+
+        private void checkBoxHitanSlucaj_Checked(object sender, RoutedEventArgs e)
+        {
+            vreme = new ObservableCollection<string>(constVreme);
+            vremeText.ItemsSource = vreme;
+            vremeText.IsEnabled = true;
+        }
+
+        private void checkBoxHitanSlucaj_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if ((Lekar)comboBoxLekari.SelectedItem != null && (DateTime)datePicker.SelectedDate != null)
+            {
+                vremeText.IsEnabled = true;
+                List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+                foreach (String vremeT in constVreme)
+                {
+                    foreach (String zauzetiT in zauzetiTermini)
+                    {
+                        if (vremeT.Equals(zauzetiT))
+                        {
+                            vreme.Remove(vremeT);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                vremeText.IsEnabled = false;
+            }
+        }
     }
 }
