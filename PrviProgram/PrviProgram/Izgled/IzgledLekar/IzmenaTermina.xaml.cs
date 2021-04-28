@@ -1,5 +1,6 @@
 ﻿using Model;
 using PrviProgram.Repository;
+using Repository;
 using Service;
 using Service.LekarService;
 using System;
@@ -22,7 +23,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         private PreglediService UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
-
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+        private SalaRepository salaRepository = new SalaRepository();
         private ObservableCollection<Termin> terminiPacijent;
         private Termin termin;
         int index;
@@ -45,29 +47,23 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.terminiPacijent = new ObservableCollection<Termin>(UpravljanjeTerminima.PregledTermina(this.termin.pacijent));
 
 
-            if (termin.pacijent != null)
+            /*if (termin.pacijent != null)
             {
                 if (UpravljanjePacijentima.PregledPacijenta(termin.pacijent.Jmbg) != null)
                 {
                     Pacijent.Text = termin.pacijent.Jmbg;
                 }
-            }
+            }*/
+
+            ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
+            ComboboxSala.ItemsSource = salaRepository.PregledSvihSala();
 
             Sifra.Text = termin.SifraTermina;
             DatumText.SelectedDate = termin.Datum;
             //Datum.Text = termin.Datum.ToString();
 
-            if (termin.sala != null)
-            {
-                if (saleRep.PregledSale(termin.sala.Sifra) != null)
-                {
-                    //if (uprSal.PregledSale(termin.sala.Sifra).Dostupnost == true)
-                    //{
-                    Sala.Text = termin.sala.Sifra;
-                    //}
-                }
-            }
-
+            ComboboxSala.SelectedItem = termin.sala;
+            ComboboxPacijent.SelectedItem = termin.pacijent;
 
             string v = termin.Vreme;
             for (int i = 0; i < niz.Length; i++)
@@ -100,12 +96,12 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.termini.Remove(this.termin);
 
             Sala tempSala = new Sala();
-            tempSala = saleRep.PregledSale(Sala.Text);
+            tempSala = (Sala)ComboboxSala.SelectedItem;
             termin.sala = tempSala;
             this.termin.sala = tempSala;
 
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent = UpravljanjePacijentima.PregledPacijenta(Pacijent.Text);
+            tempPacijent = (Pacijent)ComboboxPacijent.SelectedItem;
             termin.pacijent = tempPacijent;
 
             this.termin.SifraTermina = Sifra.Text;

@@ -288,18 +288,30 @@
     "sala": {
       "oprema": [
         {
-          "Naziv": "Flasteri",
-          "Kolicina": 10,
+          "Naziv": "Zavoji",
+          "Kolicina": 2,
           "Tip": 1,
-          "NazivSale": "OP1"
+          "NazivSale": "NTP 2"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 15,
+          "Tip": 0,
+          "NazivSale": "NTP 2"
+        },
+        {
+          "Naziv": "spricevi",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 2"
         }
       ],
-      "Tip": 0,
-      "Naziv": "OP1",
-      "Sprat": 1,
+      "Tip": 4,
+      "Naziv": "NTP 2",
+      "Sprat": 2,
       "Dostupnost": true,
-      "Sifra": "op1",
-      "NazivSprat": "OP1 1"
+      "Sifra": "ntp2",
+      "NazivSprat": "NTP 2 2"
     },
     "Vreme": "10:00",
     "guestPacijent": null,
