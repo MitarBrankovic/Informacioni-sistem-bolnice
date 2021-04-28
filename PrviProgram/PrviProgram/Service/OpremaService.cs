@@ -105,50 +105,40 @@ namespace Service
 
             return true;
         }
-        public bool PronalazakOpremeUSali(Sala staraSala, Oprema oprema)
+        public Sala PremestanjeOpremeIzStareSale(Sala staraSala, Oprema opremaKojaPremesta)
         {
             foreach (Oprema o in staraSala.oprema)
             {
-                if (o.Naziv.Equals(oprema.Naziv))
+                if (o.Naziv.Equals(opremaKojaPremesta.Naziv))
                 {
                     staraSala.oprema.Remove(o);
-                    Oprema op = new Oprema(o.Naziv, o.Tip,izracunavanjeKolicine(o,oprema));
-                    dodavanjeOpremeSali(staraSala, op);
-                    return true;
-
+                    Oprema op = new Oprema(o.Naziv, o.Tip,izracunavanjeKolicine(o, opremaKojaPremesta));
+                    if (UslovPremestanjeOpremeIzStareSale(staraSala, op) == false)
+                    {
+                        return null;
+                    }
                 }
             }
-            return false;
+            return staraSala;
         }
-        public int izracunavanjeKolicine(Oprema staraOprema, Oprema novaOprema)
+        public int izracunavanjeKolicine(Oprema staraOprema, Oprema opremaKojaPremesta)
         {
-            return staraOprema.Kolicina - novaOprema.Kolicina;
+            return staraOprema.Kolicina - opremaKojaPremesta.Kolicina;
         }
 
-        public void dodavanjeOpremeSali(Sala staraSala, Oprema novaOprema)
+        public bool UslovPremestanjeOpremeIzStareSale(Sala staraSala,Oprema novaOprema)
         {
-            if(ProveraKolicine(staraSala,novaOprema))
-            {
-                staraSala.oprema.Add(novaOprema);
-            }
-        }
-            
-        public bool ProveraKolicine(Sala staraSala,Oprema novaOprema)
-        {
-            if (novaOprema.Kolicina > 0)
-            {
-                return true;
-            }
-            else if (novaOprema.Kolicina == 0)
-            {
-
-            }
-            else
+            if (novaOprema.Kolicina < 0)
             {
                 return false;
             }
+            else if (novaOprema.Kolicina > 0)
+            {
+                staraSala.oprema.Add(novaOprema);
+            }
             return true;
         }
+
         public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
         {
            
