@@ -104,7 +104,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                     izvrseniPregled.Sifra = termin.SifraTermina;
                     termin.izvrsen = true;
                     terminiService.IzmenaTermina(termin);
-                    IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, termin.pacijent);
+                    IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, termin.pacijent, termini);
                     anamneza.Show();
                 }
                 else

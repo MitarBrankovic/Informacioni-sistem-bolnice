@@ -1,19 +1,21 @@
 [
   {
-    "Datum": "2021-04-27T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "914",
+    "Datum": "2021-04-29T00:00:00",
+    "TipTermina": 2,
+    "SifraTermina": "paB",
     "sala": {
       "oprema": [
         {
           "Naziv": "Zavoji",
           "Kolicina": 5,
-          "Tip": 1
+          "Tip": 1,
+          "NazivSale": null
         },
         {
           "Naziv": "Kreveti",
           "Kolicina": 5,
-          "Tip": 0
+          "Tip": 0,
+          "NazivSale": null
         }
       ],
       "Tip": 0,
@@ -23,7 +25,7 @@
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "09:30:00",
+    "Vreme": "19:00:00",
     "guestPacijent": null,
     "izvrsen": false,
     "lekar": {
@@ -139,20 +141,22 @@
     }
   },
   {
-    "Datum": "2021-04-29T00:00:00",
-    "TipTermina": 2,
-    "SifraTermina": "paB",
+    "Datum": "2021-04-27T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "914",
     "sala": {
       "oprema": [
         {
           "Naziv": "Zavoji",
           "Kolicina": 5,
-          "Tip": 1
+          "Tip": 1,
+          "NazivSale": null
         },
         {
           "Naziv": "Kreveti",
           "Kolicina": 5,
-          "Tip": 0
+          "Tip": 0,
+          "NazivSale": null
         }
       ],
       "Tip": 0,
@@ -162,9 +166,9 @@
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "19:00:00",
+    "Vreme": "09:30:00",
     "guestPacijent": null,
-    "izvrsen": false,
+    "izvrsen": true,
     "lekar": {
       "termin": null,
       "MestoRodjenja": null,

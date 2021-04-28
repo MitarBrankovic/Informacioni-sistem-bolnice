@@ -22,36 +22,14 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
 
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
+        public ObservableCollection<Termin> termini;
         public PacijentRepository pacijentRepository = new PacijentRepository();
         private Pacijent pacijent;
-        public ZdravstveniKarton(Pacijent pacijent)
+        public ZdravstveniKarton(Pacijent pacijent, ObservableCollection<Termin> termini)
         {
             InitializeComponent();
-
-            /*IzvrseniPregled izvrseni = new IzvrseniPregled();
-            Anamneza anamneza = new Anamneza();
-            anamneza.Opis = "anamneza";
-
-            Terapija terapija = new Terapija();
-            terapija.Opis = "terapija";
-
-            Recept recept = new Recept();
-            recept.Lekovi = "lekovi";
-
-            izvrseni.anamneza = anamneza;
-            izvrseni.terapija = terapija;
-            izvrseni.recept = recept;
-
-            pacijent.kartonPacijenta.AddIzvrseniPregled(izvrseni);
-            pacijent.kartonPacijenta.Sifra = "sifraKartona";
-            List<KartonPacijenta> kartoni = new List<KartonPacijenta>();
-            kartoni.Add(pacijent.kartonPacijenta);
-            KartonPacijentaRepository.getInstance().UpisivanjeUFajl(kartoni);*/
-
-
-            //izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(KartonPacijentaRepository.getInstance().PregledSvihIzvrsenihPregleda(pacijent.kartonPacijenta));
-            //pacijentRepository.PregledPacijenta(pacijent.Jmbg);
             this.pacijent = pacijent;
+            this.termini = termini;
             izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
             dataGridKarton.ItemsSource = izvrseniPregledi;
         }
@@ -65,14 +43,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if (dataGridKarton.SelectedIndex != -1)
             {
-                /*Termin termin = (Termin)dataGridLekar.SelectedItem;
-                izvrseniPregled = new IzvrseniPregled();
-                izvrseniPregled.Lekar = termin.lekar;
-                izvrseniPregled.Datum = termin.Datum;
-                izvrseniPregled.TipTermina = termin.TipTermina;*/
                 IzvrseniPregled izvrseniPregled = (IzvrseniPregled)dataGridKarton.SelectedItem;
-
-                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent);
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent, termini);
                 anamneza.Show();
             }
             else

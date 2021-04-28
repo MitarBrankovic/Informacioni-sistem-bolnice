@@ -8,8 +8,8 @@
       "terapija": null,
       "izvrseniPregled": [
         {
-          "Sifra": "Kt3MOveu",
-          "Datum": "2021-04-29T00:00:00",
+          "Sifra": "914",
+          "Datum": "2021-04-27T00:00:00",
           "TipTermina": 1,
           "Lekar": {
             "termin": null,
@@ -30,18 +30,10 @@
             "KontaktTelefon": null
           },
           "anamneza": {
-            "Opis": "anamneza12"
+            "Opis": "aaa"
           },
-          "recept": {
-            "Lekovi": "recept1",
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 0,
-            "OpisLeka": null
-          },
-          "terapija": {
-            "Opis": "terapija1",
-            "Datum": "0001-01-01T00:00:00"
-          }
+          "recept": null,
+          "terapija": null
         }
       ],
       "Sifra": null,

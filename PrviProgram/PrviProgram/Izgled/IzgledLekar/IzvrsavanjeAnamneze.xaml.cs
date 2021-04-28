@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Repository;
 using Service;
 using System;
@@ -22,25 +23,20 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class IzvrsavanjeAnamneze : Window
     {
         private Termin termin;
+        private ObservableCollection<Termin> termini;
         private IzvrseniPregled izvrseniPregled;
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private Pacijent pacijent;
-        //public IzvrsavanjeAnamneze(ObservableCollection<Termin> termini, Termin termin)
-        public IzvrsavanjeAnamneze(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
+        public IzvrsavanjeAnamneze(IzvrseniPregled izvrseniPregled, Pacijent pacijent, ObservableCollection<Termin> termini)
         {
             InitializeComponent();
             this.izvrseniPregled = izvrseniPregled;
             this.pacijent = pacijent;
-            //this.termin = termin;
+            this.termini = termini;
 
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
             if (izvrseniPregled.anamneza != null)
                 TextboxAnamneza.Text = izvrseniPregled.anamneza.Opis;
-            //Kreiranje praznog objekta izvrsenog pregleda
-            /*izvrseniPregled = new IzvrseniPregled();
-            izvrseniPregled.Lekar = termin.lekar;
-            izvrseniPregled.Datum = termin.Datum;
-            izvrseniPregled.TipTermina = termin.TipTermina;*/
         }
 
         private void ZavrsiAnamnezu_Click(object sender, RoutedEventArgs e)
@@ -48,10 +44,24 @@ namespace PrviProgram.Izgled.IzgledLekar
             Anamneza anamneza = new Anamneza();
             anamneza.Opis = TextboxAnamneza.Text;
             izvrseniPregled.anamneza = anamneza;
-
+            AzuriranjePrikazaTermina(termini, izvrseniPregled);
             KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
-            //ControllerLekar.getInstance().BrisanjeTermina(termin, (Termin)dataGridLekar.SelectedItem));
             this.Close();
+        }
+
+        private void AzuriranjePrikazaTermina(ObservableCollection<Termin> termini, IzvrseniPregled izvrseniPregled)
+        {
+            foreach (Termin t in termini)
+            {
+                if (t.SifraTermina == izvrseniPregled.Sifra)
+                {
+                    Termin noviTermin = t;
+                    noviTermin.izvrsen = true;
+                    termini.Remove(t);
+                    termini.Add(noviTermin);
+                    break;
+                }
+            }
         }
 
         private void PrepisiTerapiju_Click(object sender, RoutedEventArgs e)
@@ -68,7 +78,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void ZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            ZdravstveniKarton karton = new ZdravstveniKarton(pacijent);
+            ZdravstveniKarton karton = new ZdravstveniKarton(pacijent, termini);
             karton.Show();
         }
     }
