@@ -118,8 +118,8 @@ namespace Service
             {
                 if (t.SifraTermina.Equals(termin.SifraTermina))
                 {
-                    termini.Remove(termin);
-                    termini.Add(t);
+                    termini.Remove(t);
+                    termini.Add(termin);
                     terminiRepository.UpisivanjeUFajl(termini);
                     return true;
 
