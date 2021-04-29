@@ -1,0 +1,121 @@
+[
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "bruh",
+    "Naziv": "Brufen",
+    "Sastojci": "nesto",
+    "Opis": "nesto"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "paracet",
+    "Naziv": "Paracetamol",
+    "Sastojci": "nesa",
+    "Opis": "nes"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "asd",
+    "Naziv": "AA",
+    "Sastojci": "asd",
+    "Opis": "asd"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [],
+        "Sifra": "asd",
+        "Naziv": "AA",
+        "Sastojci": "asd",
+        "Opis": "asd"
+      }
+    ],
+    "Sifra": "B",
+    "Naziv": "B",
+    "Sastojci": "B",
+    "Opis": "B"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "bruh",
+            "Naziv": "Brufen",
+            "Sastojci": "nesto",
+            "Opis": "nesto"
+          },
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "paracet",
+            "Naziv": "Paracetamol",
+            "Sastojci": "nesa",
+            "Opis": "nes"
+          }
+        ],
+        "Sifra": "X",
+        "Naziv": "X",
+        "Sastojci": "X",
+        "Opis": "X"
+      }
+    ],
+    "Sifra": "H",
+    "Naziv": "HHH",
+    "Sastojci": "H",
+    "Opis": "H"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "asd",
+            "Naziv": "AA",
+            "Sastojci": "asd",
+            "Opis": "asd"
+          }
+        ],
+        "Sifra": "B",
+        "Naziv": "B",
+        "Sastojci": "B",
+        "Opis": "B"
+      },
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [
+              {
+                "ZamenaZaLek": [],
+                "Sifra": "bruh",
+                "Naziv": "Brufen",
+                "Sastojci": "nesto",
+                "Opis": "nesto"
+              },
+              {
+                "ZamenaZaLek": [],
+                "Sifra": "paracet",
+                "Naziv": "Paracetamol",
+                "Sastojci": "nesa",
+                "Opis": "nes"
+              }
+            ],
+            "Sifra": "X",
+            "Naziv": "X",
+            "Sastojci": "X",
+            "Opis": "X"
+          }
+        ],
+        "Sifra": "H",
+        "Naziv": "HHH",
+        "Sastojci": "H",
+        "Opis": "H"
+      }
+    ],
+    "Sifra": "X",
+    "Naziv": "X",
+    "Sastojci": "X",
+    "Opis": "X"
+  }
+]

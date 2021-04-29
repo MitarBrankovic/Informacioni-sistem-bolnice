@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LekoviWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGridLekovi" Margin="143,104,115,10" SelectionChanged="dataGridLekovi_SelectionChanged" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+        <DataGrid x:Name="dataGridLekovi" Margin="236,104,236,10" SelectionChanged="dataGridLekovi_SelectionChanged" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -16,11 +16,8 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="110"/>
-                <DataGridTextColumn Header="Tip sale" Binding="{Binding Tip}" Width="110"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="110"/>
-                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}" Width="110"/>
-                <DataGridTextColumn Header="Dostupnost" Binding="{Binding Dostupnost}" Width="*"/>
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="143,57,0,0" VerticalAlignment="Top" Width="98" />
