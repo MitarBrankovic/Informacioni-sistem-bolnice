@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for LekoviWindow.xaml
-    /// </summary>
     public partial class LekoviWindow : Window
     {
         private ObservableCollection<Lek> lekovi;
@@ -42,10 +39,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 LekoviInformacije win = new LekoviInformacije(lekZaPregled);
                 win.Show();
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati lek!");
-            }
+            else{ MessageBox.Show("Morate izabrati lek!"); }
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -62,10 +56,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 LekoviIzmeni win = new LekoviIzmeni(lekovi, lekZaIzmenu);
                 win.Show();
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati lek!");
-            }
+            else{ MessageBox.Show("Morate izabrati lek!"); }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -74,15 +65,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Lek lekZaBrisanje = (Lek)dataGridLekovi.SelectedItem;
                 lekoviService.BrisanjeLeka(lekZaBrisanje);
+                lekoviService.BrisanjeAlternativnihLekova(lekZaBrisanje);
                 lekovi.Remove(lekZaBrisanje);
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
-        }
-
-
-        private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

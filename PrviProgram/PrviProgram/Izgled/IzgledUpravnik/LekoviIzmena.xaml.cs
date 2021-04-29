@@ -20,35 +20,41 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private LekoviService lekoviService;
         private ObservableCollection<Lek> lekovi;
         private Lek lek;
-        private Lek tempLek = new Lek();
-        private List<CheckBoxLek> novalista = new List<CheckBoxLek>();
+        private Lek izmenjenLek = new Lek();
+        private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
 
         public LekoviIzmeni(ObservableCollection<Lek> lekovi, Lek lek)
         {
             InitializeComponent();
             lekoviService = new LekoviService();
-            tempLek.ZamenaZaLek = new List<Lek>();
+            izmenjenLek.ZamenaZaLek = new List<Lek>();
             this.lek = lek;
             this.lekovi = lekovi;
-            Naziv.Text = lek.Naziv;
-            Sifra.Text = lek.Sifra;
-            Opis.Text = lek.Opis;
-            Sastojci.Text = lek.Sastojci;
+            prikazPodatakaLeka();
             inicijalizacijaComboBoxaSala();
+            prikazAlternativnihLekova();
+        }
 
-            foreach (Lek l in lek.ZamenaZaLek) 
+        private void prikazPodatakaLeka() 
+        {
+            Naziv.Text = this.lek.Naziv;
+            Sifra.Text = this.lek.Sifra;
+            Opis.Text = this.lek.Opis;
+            Sastojci.Text = this.lek.Sastojci;
+        }
+
+        private void prikazAlternativnihLekova() 
+        {
+            foreach (Lek l in this.lek.ZamenaZaLek)
             {
-                foreach (var lekBrojac in novalista)
+                foreach (var lekBrojac in alternativniLekovi)
                 {
-                    if (l.Sifra.Equals(lekBrojac.pomocniLek.Sifra)) 
+                    if (l.Sifra.Equals(lekBrojac.selektovanAlternativniLek.Sifra))
                     {
                         lekBrojac.IsSelected = true;
-                        
-                    }    
+                    }
                 }
-
             }
-
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
@@ -60,7 +66,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (Naziv.Text == "" && Sifra.Text == "")
             {
-                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+                MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
             {
@@ -74,82 +80,51 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-
-                tempLek.Naziv = Naziv.Text;
-                tempLek.Sifra = Sifra.Text;
-                tempLek.Opis = Opis.Text;
-                tempLek.Sastojci = Sastojci.Text;
-
-                tempLek.ZamenaZaLek.Clear();
-                foreach (var lekBrojac in novalista)
-                {
-                    if (lekBrojac.IsSelected == true)
-                    {
-                        tempLek.ZamenaZaLek.Add(lekBrojac.pomocniLek);
-                    }
-                }
-
-
-
-                if (lekoviService.IzmenaLeka(lek, tempLek) == true)
+                izmenaPodatakaLeka();
+                if (lekoviService.IzmenaLeka(lek, izmenjenLek) == true)
                 {
                     this.lekovi.Remove(lek);
-                    this.lekovi.Add(tempLek);
+                    this.lekovi.Add(izmenjenLek);
                 }
-
                 this.Close();
             }
         }
 
-        private void CheckBoxLek_Checked(object sender, RoutedEventArgs e)
+        private void izmenaPodatakaLeka() 
         {
-
+            izmenjenLek.Naziv = Naziv.Text;
+            izmenjenLek.Sifra = Sifra.Text;
+            izmenjenLek.Opis = Opis.Text;
+            izmenjenLek.Sastojci = Sastojci.Text;
+            izmenjenLek.ZamenaZaLek.Clear();
+            foreach (var lekBrojac in alternativniLekovi)
+            {
+                if (lekBrojac.IsSelected == true)
+                {
+                    izmenjenLek.ZamenaZaLek.Add(lekBrojac.selektovanAlternativniLek);
+                }
+            }
         }
 
-        private void CheckBoxLek_Unchecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AlternativniLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-
-
-
-        public class CheckBoxLek
+        public class CheckBoxSelektovanLek
         {
             public bool IsSelected { get; set; }
-            public Lek pomocniLek { get; set; }
-
-            /*public CheckBoxLek(Lek lek)
-            {
-                pomocniLek = lek;
-            }
-
-            public CheckBoxLek(Lek lek, bool isSelected)
-            {
-                IsSelected = isSelected;
-                pomocniLek = lek;
-            }*/
+            public Lek selektovanAlternativniLek { get; set; }
         }
-
 
         private void inicijalizacijaComboBoxaSala()
         {
             foreach (Lek lekBrojac in lekovi)
             {
-                CheckBoxLek check = new CheckBoxLek();
-                check.pomocniLek = lekBrojac;
-                novalista.Add(check);
-                if (check.pomocniLek.Naziv.Equals(Naziv.Text))
+                CheckBoxSelektovanLek check = new CheckBoxSelektovanLek();
+                check.selektovanAlternativniLek = lekBrojac;
+                alternativniLekovi.Add(check);
+                if (check.selektovanAlternativniLek.Naziv.Equals(Naziv.Text))
                 {
-                    novalista.Remove(check);
+                    alternativniLekovi.Remove(check);
                 }
             }
-            AlternativniLekovi.ItemsSource = novalista;
+            ComboAlternativni.ItemsSource = alternativniLekovi;
         }
     }
 }

@@ -48,6 +48,25 @@ namespace Service
                 }
             }
             return false;
+      }
+
+
+        public bool BrisanjeAlternativnihLekova(Lek lek)        
+        {
+            List<Lek> lekovi = lekoviRepository.CitanjeIzFajla();
+            foreach (Lek lekBrojac in lekovi)
+            {
+                foreach (Lek alternativniLek in lekBrojac.ZamenaZaLek) 
+                {
+                    if (alternativniLek.Sifra.Equals(lek.Sifra))
+                    {
+                        lekBrojac.ZamenaZaLek.Remove(alternativniLek);
+                        break;
+                    }
+                }
+            }
+            lekoviRepository.UpisivanjeUFajl(lekovi);
+            return true;
         }
       
       public bool IzmenaLeka(Lek stariLek, Lek noviLek)

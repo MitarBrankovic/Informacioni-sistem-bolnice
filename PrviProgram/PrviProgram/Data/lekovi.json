@@ -15,25 +15,39 @@
   },
   {
     "ZamenaZaLek": [],
-    "Sifra": "asd",
-    "Naziv": "AA",
-    "Sastojci": "asd",
-    "Opis": "asd"
+    "Sifra": "asp",
+    "Naziv": "Aspirin",
+    "Sastojci": "a",
+    "Opis": "a"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "bio",
+    "Naziv": "Bio Oil",
+    "Sastojci": "a",
+    "Opis": "a"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "A",
+    "Naziv": "A",
+    "Sastojci": "a",
+    "Opis": "a"
   },
   {
     "ZamenaZaLek": [
       {
         "ZamenaZaLek": [],
-        "Sifra": "asd",
-        "Naziv": "AA",
-        "Sastojci": "asd",
-        "Opis": "asd"
+        "Sifra": "A",
+        "Naziv": "A",
+        "Sastojci": "a",
+        "Opis": "a"
       }
     ],
     "Sifra": "B",
     "Naziv": "B",
-    "Sastojci": "B",
-    "Opis": "B"
+    "Sastojci": "b",
+    "Opis": "b"
   },
   {
     "ZamenaZaLek": [
@@ -41,81 +55,21 @@
         "ZamenaZaLek": [
           {
             "ZamenaZaLek": [],
-            "Sifra": "bruh",
-            "Naziv": "Brufen",
-            "Sastojci": "nesto",
-            "Opis": "nesto"
-          },
-          {
-            "ZamenaZaLek": [],
-            "Sifra": "paracet",
-            "Naziv": "Paracetamol",
-            "Sastojci": "nesa",
-            "Opis": "nes"
-          }
-        ],
-        "Sifra": "X",
-        "Naziv": "X",
-        "Sastojci": "X",
-        "Opis": "X"
-      }
-    ],
-    "Sifra": "H",
-    "Naziv": "HHH",
-    "Sastojci": "H",
-    "Opis": "H"
-  },
-  {
-    "ZamenaZaLek": [
-      {
-        "ZamenaZaLek": [
-          {
-            "ZamenaZaLek": [],
-            "Sifra": "asd",
-            "Naziv": "AA",
-            "Sastojci": "asd",
-            "Opis": "asd"
+            "Sifra": "A",
+            "Naziv": "A",
+            "Sastojci": "a",
+            "Opis": "a"
           }
         ],
         "Sifra": "B",
         "Naziv": "B",
-        "Sastojci": "B",
-        "Opis": "B"
-      },
-      {
-        "ZamenaZaLek": [
-          {
-            "ZamenaZaLek": [
-              {
-                "ZamenaZaLek": [],
-                "Sifra": "bruh",
-                "Naziv": "Brufen",
-                "Sastojci": "nesto",
-                "Opis": "nesto"
-              },
-              {
-                "ZamenaZaLek": [],
-                "Sifra": "paracet",
-                "Naziv": "Paracetamol",
-                "Sastojci": "nesa",
-                "Opis": "nes"
-              }
-            ],
-            "Sifra": "X",
-            "Naziv": "X",
-            "Sastojci": "X",
-            "Opis": "X"
-          }
-        ],
-        "Sifra": "H",
-        "Naziv": "HHH",
-        "Sastojci": "H",
-        "Opis": "H"
+        "Sastojci": "b",
+        "Opis": "b"
       }
     ],
-    "Sifra": "X",
-    "Naziv": "X",
-    "Sastojci": "X",
-    "Opis": "X"
+    "Sifra": "C",
+    "Naziv": "C",
+    "Sastojci": "C",
+    "Opis": "C"
   }
 ]
