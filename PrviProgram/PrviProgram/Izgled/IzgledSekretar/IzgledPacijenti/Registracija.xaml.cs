@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -9,22 +10,21 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class Registracija : Window
     {
-        private PacijentiService upravljanjePacijentima;
-        private GradoviService upravljanjeGradovima;
-        private DrzaveService upravljanjeDrzavama;
+        private DrzaveRepository drzaveRepository = new DrzaveRepository();
+        private GradoviRepository gradoviRepository = new GradoviRepository();
+        private PacijentiService pacijentiService = new PacijentiService();
+        private GradoviService gradoviService = new GradoviService();
+        private DrzaveService drzaveService = new DrzaveService();
         private ObservableCollection<Pacijent> pacijenti;
 
         public Registracija(ObservableCollection<Pacijent> pacijenti)
         {
             InitializeComponent();
-            upravljanjePacijentima = new PacijentiService();
-            upravljanjeGradovima = new GradoviService();
-            upravljanjeDrzavama = new DrzaveService();
             this.pacijenti = pacijenti;
-            textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
-            textBoxGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
-            textBoxMestoRodjenjaDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
-            textBoxDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
+            textBoxMestoRodjenjaGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
+            textBoxGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
+            textBoxMestoRodjenjaDrzava.ItemsSource = drzaveRepository.PregledSvihDrzava();
+            textBoxDrzava.ItemsSource = drzaveRepository.PregledSvihDrzava();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -50,8 +50,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             gradRodjenja.drzava = drzavaRodjenja;
 
             pacijent.MestoRodjenja = gradRodjenja;
-            upravljanjeDrzavama.DodavanjeDrzave(drzavaRodjenja);
-            upravljanjeGradovima.DodavanjeGrada(gradRodjenja);
+            drzaveService.DodavanjeDrzave(drzavaRodjenja);
+            gradoviService.DodavanjeGrada(gradRodjenja);
 
             Drzava drzava = new Drzava();
             drzava.Ime = textBoxDrzava.Text;
@@ -59,8 +59,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             grad.Ime = textBoxGrad.Text;
             grad.drzava = drzava;
 
-            upravljanjeDrzavama.DodavanjeDrzave(drzava);
-            upravljanjeGradovima.DodavanjeGrada(grad);
+            drzaveService.DodavanjeDrzave(drzava);
+            gradoviService.DodavanjeGrada(grad);
 
             Adresa adresa = new Adresa();
             adresa.Ulica = textBoxUlica.Text;
@@ -85,7 +85,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             pacijent.kartonPacijenta.pacijent = tmpPacijent;
             
             
-            if (upravljanjePacijentima.DodavanjePacijenta(pacijent) == true)
+            if (pacijentiService.DodavanjePacijenta(pacijent) == true)
             {
                 this.pacijenti.Add(pacijent);
             }

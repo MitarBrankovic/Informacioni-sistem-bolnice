@@ -40,7 +40,7 @@ namespace Repository
         }
         public Upravnik PregledUpravnika(string jmbg)
         {
-            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            List<Upravnik> upravnici = CitanjeIzFajla();
             foreach (Upravnik u in upravnici)
             {
                 if (u.Jmbg.Equals(jmbg))
@@ -53,13 +53,13 @@ namespace Repository
 
         public List<Upravnik> PregledSvihUpravnika()
         {
-            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            List<Upravnik> upravnici = CitanjeIzFajla();
             return upravnici;
         }
 
         public List<Korisnik> PregledSvihKorisnika()
         {
-            List<Upravnik> upravnici = this.CitanjeIzFajla();
+            List<Upravnik> upravnici = CitanjeIzFajla();
             List<Korisnik> korisnici = upravnici.Select(o => o.Korisnik).ToList();
             return korisnici;
         }

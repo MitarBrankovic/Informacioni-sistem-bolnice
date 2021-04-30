@@ -41,7 +41,7 @@ namespace Repository
         }
         public List<Grad> PregledSvihGradova()
         {
-            List<Grad> gradovi = this.CitanjeIzFajla();
+            List<Grad> gradovi = CitanjeIzFajla();
             return gradovi;
         }
 

@@ -42,7 +42,7 @@ namespace Repository
 
         public Alergen PregledAlergena(String naziv)
         {
-            List<Alergen> alergeni = this.CitanjeIzFajla();
+            List<Alergen> alergeni = CitanjeIzFajla();
             foreach (Alergen a in alergeni)
             {
                 if (a.Naziv.Equals(naziv))
@@ -55,7 +55,7 @@ namespace Repository
 
         public List<Alergen> PregledSvihAlergena()
         {
-            List<Alergen> alergeni = this.CitanjeIzFajla();
+            List<Alergen> alergeni = CitanjeIzFajla();
             return alergeni;
         }
 

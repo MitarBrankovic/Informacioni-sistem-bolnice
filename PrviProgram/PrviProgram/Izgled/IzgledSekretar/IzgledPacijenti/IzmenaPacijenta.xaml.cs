@@ -3,29 +3,29 @@ using Service;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Repository;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class IzmenaPacijenta : Window
     {
-        private PacijentiService upravljanjePacijentima;
-        private GradoviService upravljanjeGradovima;
-        private DrzaveService upravljanjeDrzavama;
+        private DrzaveRepository drzaveRepository = new DrzaveRepository();
+        private GradoviRepository gradoviRepository = new GradoviRepository();
+        private PacijentiService pacijentiService = new PacijentiService();
+        private GradoviService gradoviService = new GradoviService();
+        private DrzaveService drzaveService = new DrzaveService();
         private ObservableCollection<Model.Pacijent> pacijenti;
         private Model.Pacijent pacijent;
 
         public IzmenaPacijenta(ObservableCollection<Model.Pacijent> pacijenti, Model.Pacijent pacijent)
         {
             InitializeComponent();
-            upravljanjePacijentima = new PacijentiService();
-            upravljanjeGradovima = new GradoviService();
-            upravljanjeDrzavama = new DrzaveService();
             this.pacijenti = pacijenti;
             this.pacijent = pacijent;
-            textBoxMestoRodjenjaGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
-            textBoxGrad.ItemsSource = upravljanjeGradovima.PregledSvihGradova();
-            textBoxMestoRodjenjaDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
-            textBoxDrzava.ItemsSource = upravljanjeDrzavama.PregledSvihDrzava();
+            textBoxMestoRodjenjaGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
+            textBoxGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
+            textBoxMestoRodjenjaDrzava.ItemsSource = drzaveRepository.PregledSvihDrzava();
+            textBoxDrzava.ItemsSource = drzaveRepository.PregledSvihDrzava();
 
             textBoxIme.Text = pacijent.Ime;
             textBoxPrezime.Text = pacijent.Prezime;
@@ -75,8 +75,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             gradRodjenja.drzava = drzavaRodjenja;
 
             noviPacijent.MestoRodjenja = gradRodjenja;
-            upravljanjeDrzavama.DodavanjeDrzave(drzavaRodjenja);
-            upravljanjeGradovima.DodavanjeGrada(gradRodjenja);
+            drzaveService.DodavanjeDrzave(drzavaRodjenja);
+            gradoviService.DodavanjeGrada(gradRodjenja);
 
             Drzava drzava = new Drzava();
             drzava.Ime = textBoxDrzava.Text;
@@ -84,8 +84,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             grad.Ime = textBoxGrad.Text;
             grad.drzava = drzava;
 
-            upravljanjeDrzavama.DodavanjeDrzave(drzava);
-            upravljanjeGradovima.DodavanjeGrada(grad);
+            drzaveService.DodavanjeDrzave(drzava);
+            gradoviService.DodavanjeGrada(grad);
 
             Adresa adresa = new Adresa();
             adresa.Ulica = textBoxUlica.Text;
@@ -105,7 +105,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
             noviPacijent.kartonPacijenta = this.pacijent.kartonPacijenta;
             noviPacijent.Korisnik = korisnik;
 
-            if (upravljanjePacijentima.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
+            if (pacijentiService.IzmenaPacijenta(this.pacijent, noviPacijent) == true)
             {
                 int index = this.pacijenti.IndexOf(this.pacijent);
                 this.pacijenti.Remove(this.pacijent);

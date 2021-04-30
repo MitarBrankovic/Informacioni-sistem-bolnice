@@ -6,11 +6,11 @@ namespace Service
 {
     public class PacijentiService
     {
-        public PacijentRepository pacijentRepository = new PacijentRepository();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
 
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
-            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.PregledSvihPacijenata();
             foreach (Pacijent p in pacijenti)
             {
                 if (p.Jmbg.Equals(pacijent.Jmbg))
@@ -25,7 +25,7 @@ namespace Service
 
         public bool BrisanjePacijenta(Pacijent pacijent)
         {
-            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.PregledSvihPacijenata();
             foreach (Pacijent p in pacijenti)
             {
                 if (p.Jmbg.Equals(pacijent.Jmbg))
@@ -40,7 +40,7 @@ namespace Service
 
         public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
         {
-            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.PregledSvihPacijenata();
             foreach (Pacijent p in pacijenti)
             {
                 if (p.Jmbg.Equals(stariPacijent.Jmbg))
@@ -52,24 +52,6 @@ namespace Service
                 }
             }
             return false;
-        }
-        public Pacijent PregledPacijenta(string jmbg)
-        {
-            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
-            foreach (Pacijent p in pacijenti)
-            {
-                if (p.Jmbg.Equals(jmbg))
-                {
-                    return p;
-                }
-            }
-            return null;
-        }
-
-        public List<Pacijent> PregledSvihPacijenata()
-        {
-            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
-            return pacijenti;
         }
 
     }

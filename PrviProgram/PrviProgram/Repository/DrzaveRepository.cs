@@ -39,7 +39,7 @@ namespace Repository
         }
         public List<Drzava> PregledSvihDrzava()
         {
-            List<Drzava> drzave = this.CitanjeIzFajla();
+            List<Drzava> drzave = CitanjeIzFajla();
             return drzave;
         }
 

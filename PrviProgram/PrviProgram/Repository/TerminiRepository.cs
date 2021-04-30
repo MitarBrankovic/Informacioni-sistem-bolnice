@@ -38,5 +38,26 @@ namespace PrviProgram.Repository
             }
             return termini;
         }
+        
+        public Termin PregledTermina(string sifraTermina)
+        {
+            List<Termin> termini = CitanjeIzFajla();
+            foreach (Termin termin in termini)
+            {
+                if (termin.SifraTermina.Equals(sifraTermina))
+                {
+                    return termin;
+                }
+
+            }
+            return null;
+        }
+        
+        public List<Termin> PregledSvihTermina()
+        {
+            List<Termin> termini = CitanjeIzFajla();
+            return termini;
+        }
+
     }
 }

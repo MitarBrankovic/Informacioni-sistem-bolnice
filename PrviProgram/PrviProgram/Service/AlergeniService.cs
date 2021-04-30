@@ -10,7 +10,7 @@ namespace Service
 
         public bool DodavanjeAlegena(Alergen alergen)
         {
-            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
             foreach (Alergen a in alergeni)
             {
                 if (a.Naziv.Equals(alergen.Naziv))
@@ -25,7 +25,7 @@ namespace Service
 
         public bool BrisanjeAlergena(Alergen alergen)
         {
-            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
             foreach (Alergen a in alergeni)
             {
                 if (a.Naziv.Equals(alergen.Naziv))
@@ -40,7 +40,7 @@ namespace Service
 
         public bool IzmenaAlergena(Alergen stariAlergen, Alergen noviAlergen)
         {
-            List<Alergen> alergeni = alergeniRepository.CitanjeIzFajla();
+            List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
             foreach (Alergen a in alergeni)
             {
                 if (a.Naziv.Equals(stariAlergen.Naziv))

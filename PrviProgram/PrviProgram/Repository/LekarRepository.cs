@@ -43,7 +43,7 @@ namespace Repository
 
         public Lekar PregledLekara(string jmbg)
         {
-            List<Lekar> lekari = this.CitanjeIzFajla();
+            List<Lekar> lekari = CitanjeIzFajla();
             foreach (Lekar l in lekari)
             {
                 if (l.Jmbg.Equals(jmbg))
@@ -56,13 +56,13 @@ namespace Repository
 
         public List<Lekar> PregledSvihLekara()
         {
-            List<Lekar> lekari = this.CitanjeIzFajla();
+            List<Lekar> lekari = CitanjeIzFajla();
             return lekari;
         }
 
         public List<Korisnik> PregledSvihKorisnika()
         {
-            List<Lekar> lekari = this.CitanjeIzFajla();
+            List<Lekar> lekari = CitanjeIzFajla();
             List<Korisnik> korisnici = lekari.Select(o => o.Korisnik).ToList();
             return korisnici;
         }

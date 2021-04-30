@@ -4,6 +4,7 @@ using Service;
 using Service.LekarService;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Repository;
 
 namespace PrviProgram.Logika
 {
@@ -19,6 +20,7 @@ namespace PrviProgram.Logika
             return instance;
         }
 
+        private PacijentRepository pacijentRepository = new PacijentRepository();
         public SaleService upravljanjeSalama;
         public PacijentiService upravljanjePacijentima;
         public PreglediService upravljanjePregledima;
@@ -56,7 +58,7 @@ namespace PrviProgram.Logika
             }
 
             List<Pacijent> pacijenti = new List<Pacijent>();
-            pacijenti = upravljanjePacijentima.PregledSvihPacijenata();
+            pacijenti = pacijentRepository.PregledSvihPacijenata();
             foreach (Pacijent p in pacijenti)
             {
                 if (p != null)

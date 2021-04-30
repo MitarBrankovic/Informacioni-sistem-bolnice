@@ -10,7 +10,7 @@ namespace Service
 
         public bool DodavanjeDrzave(Drzava drzava)
         {
-            List<Drzava> drzave = drzaveRepository.CitanjeIzFajla();
+            List<Drzava> drzave = drzaveRepository.PregledSvihDrzava();
             foreach (Drzava d in drzave)
             {
                 if (d.Ime.Equals(drzava.Ime))
@@ -22,11 +22,6 @@ namespace Service
             drzaveRepository.UpisivanjeUFajl(drzave);
             return false;
         }
-        public List<Drzava> PregledSvihDrzava()
-        {
-            List<Drzava> drzave = drzaveRepository.CitanjeIzFajla();
-            return drzave;
-        }
-
+        
     }
 }
