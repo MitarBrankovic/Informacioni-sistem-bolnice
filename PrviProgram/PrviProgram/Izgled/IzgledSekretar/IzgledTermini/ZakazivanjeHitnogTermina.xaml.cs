@@ -52,7 +52,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             }
             else
             {
-
+                PotvrdaZakazivanjaTermina potvrdaZakazivanjaTermina = new PotvrdaZakazivanjaTermina(termini, termin);
+                potvrdaZakazivanjaTermina.Show();
             }
             this.Close();
         }

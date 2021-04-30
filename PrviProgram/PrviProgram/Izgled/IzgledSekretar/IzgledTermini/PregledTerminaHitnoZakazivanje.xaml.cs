@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using Model;
+using Repository;
 using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
@@ -9,6 +11,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
     public partial class PregledTerminaHitnoZakazivanje : Window
     {
         private TerminiService terminiService = new TerminiService();
+        private LekarRepository lekarRepository = new LekarRepository();
         private ObservableCollection<Termin> sviTermini;
         private ObservableCollection<Termin> termini;
         private Termin termin;
@@ -56,7 +59,31 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void ZakaziTerminButton_Click(object sender, RoutedEventArgs e)
         {
+            termin.lekar = PronadjiLekaraSaSlobodnimTerminom(termin);
+            if (termin.lekar != null)
+            {
+                PotvrdaZakazivanjaTermina potvrdaZakazivanjaTermina = new PotvrdaZakazivanjaTermina(sviTermini, termin);
+                potvrdaZakazivanjaTermina.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ne postoji slobodan termin.");
+            }
+        }
 
+        private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
+        {
+            List<Lekar> lekari = lekarRepository.PregledSvihLekara();
+            foreach (Termin t in termini)
+            {
+                if (// Uslov za specijalizaciju lekara termin.lekar.spec != spec ||
+                    t.Vreme == termin.Vreme && t.Datum.ToString("d").Equals(termin.Datum.ToString("d")))
+                {
+                    lekari.Remove(lekari.Single(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
+                }
+            }
+            return lekari.Count() == 0 ? null : lekari.First();
         }
 
         private void OtkaziTerminButton_Click(object sender, RoutedEventArgs e)
