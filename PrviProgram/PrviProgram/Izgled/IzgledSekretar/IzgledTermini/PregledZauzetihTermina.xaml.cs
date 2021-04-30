@@ -2,14 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
-using PrviProgram.Repository;
 using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {
     public partial class PregledZauzetihTermina : Window
     {
-        private TerminiRepository terminiRepository = new TerminiRepository();
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Termin> sviTermini;
         private ObservableCollection<Termin> termini;
@@ -34,7 +32,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 int tSat = int.Parse(tVreme[0]);
                 int tMinut = int.Parse(tVreme[1]);
                 if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) 
-                    && tSat >= terminSat && t.Datum.Equals(termin.Datum) 
+                    && tSat >= terminSat && t.Datum.ToString("d").Equals(termin.Datum.ToString("d"))
                     && !(terminMinut == 30 && tSat == terminSat && tMinut == 0))
                 {
                         terminiZaLekara.Add(t);
