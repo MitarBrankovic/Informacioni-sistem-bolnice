@@ -32,7 +32,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 int tSat = int.Parse(tVreme[0]);
                 int tMinut = int.Parse(tVreme[1]);
                 if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) 
-                    && tSat >= terminSat && t.Datum.ToString("d").Equals(termin.Datum.ToString("d"))
+                    && tSat >= terminSat && t.Datum.Date.Equals(termin.Datum.Date)
                     && !(terminMinut == 30 && tSat == terminSat && tMinut == 0))
                 {
                         terminiZaLekara.Add(t);

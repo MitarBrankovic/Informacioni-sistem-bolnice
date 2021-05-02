@@ -64,7 +64,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             foreach (Termin t in termini)
             {
                 if (// Uslov za specijalizaciju lekara termin.lekar.spec != spec ||
-                    t.Vreme == termin.Vreme && t.Datum.ToString("d").Equals(termin.Datum.ToString("d")))
+                    t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
                 {
                     lekari.Remove(lekari.Single(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
                 }
@@ -75,7 +75,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private Termin PreuzmiTerminIzForme()
         {
             Termin termin = new Termin();
-            termin.Datum = DateTime.Now.AddDays(-1);
+            termin.Datum = DateTime.Now.AddDays(-3);
             termin.Vreme = vremeText.Text;
             if (guestPacijent == null)
             {

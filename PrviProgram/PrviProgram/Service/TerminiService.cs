@@ -102,7 +102,7 @@ namespace Service
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin t in termini)
             {
-                if (t.lekar.Jmbg.Equals(lekar.Jmbg) && t.Datum.Equals(datumTermina))
+                if (t.lekar.Jmbg.Equals(lekar.Jmbg) && t.Datum.Date.Equals(datumTermina.Date))
                 {
                     zauzetiTermini.Add(t.Vreme);
                 }
@@ -226,7 +226,7 @@ namespace Service
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin t in termini)
             {
-                if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) && t.Datum.Equals(termin.Datum) && t.Vreme.Equals(termin.Vreme))
+                if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) && t.Datum.Date.Equals(termin.Datum.Date) && t.Vreme.Equals(termin.Vreme))
                 {
                     return true;
                 }

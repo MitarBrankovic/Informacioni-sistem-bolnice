@@ -114,6 +114,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 vremeText.ItemsSource = vreme;
                 vremeText.IsEnabled = true;
                 ObrisiZauzeteTermineLekara();
+                vremeText.SelectedItem = vremeText.Items[0];
             }
             else
             {
@@ -128,7 +129,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 foreach (String zauzetiT in zauzetiTermini)
                 {
-                    if (vremeT.Equals(zauzetiT) && !this.termin.Vreme.Equals(zauzetiT))
+                    if (vremeT.Equals(zauzetiT))
                     {
                         vreme.Remove(vremeT);
                     }

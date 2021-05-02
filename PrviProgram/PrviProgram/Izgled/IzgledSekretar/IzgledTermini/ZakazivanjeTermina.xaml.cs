@@ -120,6 +120,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 PostaviVremenaNaSlobodna();
                 ObrisiZauzeteTermineLekara();
+                vremeText.SelectedItem = vremeText.Items[0];
             }
             else
             {
