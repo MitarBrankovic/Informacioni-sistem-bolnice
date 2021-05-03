@@ -32,7 +32,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledVesti
             if (dgDataBinding.SelectedItem != null)
             {
                 Vest vest = (Vest)dgDataBinding.SelectedItem;
-                // call izmena
+                IzmenaVesti izmenaVesti = new IzmenaVesti(vesti, vest);
+                izmenaVesti.Show();
             }
         }
 
@@ -43,15 +44,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledVesti
                 Vest vest = (Vest)dgDataBinding.SelectedItem;
                 sekretarController.BrisanjeVesti(vest);
                 vesti.Remove(vest);
-            }
-        }
-
-        private void Prikazi_Click(object sender, RoutedEventArgs e)
-        {
-            if (dgDataBinding.SelectedItem != null)
-            {
-                Vest vest = (Vest)dgDataBinding.SelectedItem;
-                //call prikaz
             }
         }
 

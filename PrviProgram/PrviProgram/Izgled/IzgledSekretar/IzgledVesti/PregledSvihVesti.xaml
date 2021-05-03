@@ -16,15 +16,14 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum" Width="110" Binding="{Binding Datum}"/>
+                <DataGridTextColumn Header="Datum" Width="110" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
                 <DataGridTextColumn Header="Autor" Width="110" Binding="{Binding Autor}"/>
                 <DataGridTextColumn Header="Naslov" Width="*" Binding="{Binding Naslov}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="143,38,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="283,38,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="421,38,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Prikazi" Click="Prikazi_Click"  Content="Prikazi" HorizontalAlignment="Left" Height="26" Margin="559,38,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Center" Height="26" Margin="0,38,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="559,38,0,0" VerticalAlignment="Top" Width="98"/>
 
     </Grid>
 </Window>
