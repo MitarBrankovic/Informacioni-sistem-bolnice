@@ -1,0 +1,17 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.PrimedbaNaLekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        mc:Ignorable="d"
+        Title="Primedba na lek" Height="450" Width="500">
+    <Grid>
+        <TextBox  x:Name = "TextboxNazivLeka" HorizontalAlignment="Left" Height="34" Margin="77,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+        <TextBox  x:Name = "TextboxPrimedba" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="224" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="351"/>
+        <Label Content="Primedba:" HorizontalAlignment="Left" Margin="95,74,0,0" VerticalAlignment="Top"/>
+        <Button x:Name ="Posalji" Click="Posalji_Click"   Content="Posalji" HorizontalAlignment="Left" Height="45" Margin="324,354,0,0" VerticalAlignment="Top" Width="104" />
+        <Button x:Name ="Zatvori" Click="Zatvori_Click"   Content="Zatvori" HorizontalAlignment="Left" Height="45" Margin="77,354,0,0" VerticalAlignment="Top" Width="104" />
+
+    </Grid>
+</Window>

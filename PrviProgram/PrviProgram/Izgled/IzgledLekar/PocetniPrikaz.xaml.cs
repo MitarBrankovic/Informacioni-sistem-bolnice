@@ -33,7 +33,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void PregledLekova_Click(object sender, RoutedEventArgs e)
         {
-            WindowLekovi win = new WindowLekovi();
+            WindowLekovi win = new WindowLekovi(lekar);
             win.Show();
         }
     }

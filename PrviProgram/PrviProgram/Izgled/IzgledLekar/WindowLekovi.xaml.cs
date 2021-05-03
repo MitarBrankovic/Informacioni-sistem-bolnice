@@ -22,22 +22,38 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private ObservableCollection<Lek> lekovi;
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        public WindowLekovi()
+        private Lekar lekar;
+        public WindowLekovi(Lekar lekar)
         {
             InitializeComponent();
+            this.lekar = lekar;
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
             dataGridLekovi.ItemsSource = lekovi;
         }
-
-        private void Komentarisi_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Informacije_Click(object sender, RoutedEventArgs e)
         {
-            InformacijeLek informacijeLek = new InformacijeLek(lekovi, (Lek)dataGridLekovi.SelectedItem);
-            informacijeLek.Show();
+            if (dataGridLekovi.SelectedIndex != -1)
+            {
+                InformacijeLek informacijeLek = new InformacijeLek(lekovi, (Lek)dataGridLekovi.SelectedItem);
+                informacijeLek.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati lek!");
+            }
+        }
+
+        private void Primedba_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekovi.SelectedIndex != -1)
+            {
+                PrimedbaNaLekWindow primedbaNaLek = new PrimedbaNaLekWindow((Lek)dataGridLekovi.SelectedItem, lekar);
+                primedbaNaLek.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati lek!");
+            }
         }
     }
 }

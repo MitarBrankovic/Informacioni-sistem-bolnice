@@ -4,6 +4,7 @@
  * Purpose: Definition of the Class Service.LogikaLekar.TerminiService
  ***********************************************************************/
 using Model;
+using PrviProgram.Service;
 using Service;
 using System;
 
@@ -11,6 +12,7 @@ namespace Controller
 {
     public class LekarController
    {
+        private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
       public void BrisanjePregleda(string sifraTermina)
       {
          // TODO: implement
@@ -46,6 +48,11 @@ namespace Controller
       {
          // TODO: implement
       }
+
+        public void KreiranjePrimedbe(PrimedbaNaLek primedbaNaLek)
+        {
+            primedbeNaLekService.KreiranjePrimedbe(primedbaNaLek);
+        }
    
       public KartonPacijentaService kartonPacijentaService;
    

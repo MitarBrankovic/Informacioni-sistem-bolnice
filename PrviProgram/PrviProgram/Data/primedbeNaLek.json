@@ -1,0 +1,48 @@
+[
+  {
+    "sifra": "8k34huvc",
+    "lekar": {
+      "termin": null,
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "lek": {
+      "ZamenaZaLek": [
+        {
+          "ZamenaZaLek": [
+            {
+              "ZamenaZaLek": [],
+              "Sifra": "A",
+              "Naziv": "A",
+              "Sastojci": "a",
+              "Opis": "a"
+            }
+          ],
+          "Sifra": "B",
+          "Naziv": "B",
+          "Sastojci": "b",
+          "Opis": "b"
+        }
+      ],
+      "Sifra": "C",
+      "Naziv": "C",
+      "Sastojci": "C",
+      "Opis": "C"
+    },
+    "primedba": "lek je budjav",
+    "datum": "2021-05-03T00:00:00+01:00"
+  }
+]
