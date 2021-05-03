@@ -68,7 +68,7 @@ namespace PrviProgram
                         Sekretar sekretar = sekretarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (sekretar != null)
                         {
-                            PocetniPrikaz win = new PocetniPrikaz(sekretar);
+                            Izgled.IzgledSekretar.PocetniPrikaz win = new Izgled.IzgledSekretar.PocetniPrikaz(sekretar);
                             win.Show();
                         }
                         break;
@@ -78,7 +78,7 @@ namespace PrviProgram
                         Model.Lekar lekar = lekarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (lekar != null)
                         {
-                            WindowTermini win = new WindowTermini(lekar);
+                            Izgled.IzgledLekar.PocetniPrikaz win = new Izgled.IzgledLekar.PocetniPrikaz(lekar);
                             win.Show();
                         }
                         break;
