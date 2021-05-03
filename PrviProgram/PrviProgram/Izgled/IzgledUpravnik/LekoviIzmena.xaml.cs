@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class LekoviIzmeni : Window
     {
-        private LekoviService lekoviService;
         private ObservableCollection<Lek> lekovi;
         private Lek lek;
         private Lek izmenjenLek = new Lek();
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
+        private UpravnikController upravnikController = new UpravnikController();
 
         public LekoviIzmeni(ObservableCollection<Lek> lekovi, Lek lek)
         {
             InitializeComponent();
-            lekoviService = new LekoviService();
             izmenjenLek.ZamenaZaLek = new List<Lek>();
             this.lek = lek;
             this.lekovi = lekovi;
@@ -81,7 +81,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 izmenaPodatakaLeka();
-                if (lekoviService.IzmenaLeka(lek, izmenjenLek) == true)
+                if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
                 {
                     this.lekovi.Remove(lek);
                     this.lekovi.Add(izmenjenLek);

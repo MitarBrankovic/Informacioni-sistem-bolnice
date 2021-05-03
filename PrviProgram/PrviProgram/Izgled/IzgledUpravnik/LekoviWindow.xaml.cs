@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Repository;
 using Service;
 using System;
@@ -19,14 +20,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class LekoviWindow : Window
     {
         private ObservableCollection<Lek> lekovi;
-        private LekoviRepository lekoviRepository;
-        private LekoviService lekoviService;
+        private LekoviRepository lekoviRepository = new LekoviRepository();
+        private UpravnikController upravnikController = new UpravnikController();
 
         public LekoviWindow()
         {
             InitializeComponent();
-            lekoviRepository = new LekoviRepository();
-            lekoviService = new LekoviService();
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
             dataGridLekovi.ItemsSource = lekovi;
         }
@@ -64,11 +63,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (dataGridLekovi.SelectedIndex != -1)
             {
                 Lek lekZaBrisanje = (Lek)dataGridLekovi.SelectedItem;
-                lekoviService.BrisanjeLeka(lekZaBrisanje);
-                lekoviService.BrisanjeAlternativnihLekova(lekZaBrisanje);
+                //lekoviService.BrisanjeLeka(lekZaBrisanje);
+                //lekoviService.BrisanjeAlternativnihLekova(lekZaBrisanje);
+                upravnikController.BrisanjeLeka(lekZaBrisanje);
                 lekovi.Remove(lekZaBrisanje);
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
+        }
+
+        private void Neodobreni_Click(object sender, RoutedEventArgs e)
+        {
+            LekoviNeodobreni win = new LekoviNeodobreni();
+            win.Show();
         }
     }
 }

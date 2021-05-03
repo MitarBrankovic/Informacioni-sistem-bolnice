@@ -20,10 +20,11 @@
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="143,57,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="257,57,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="374,57,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="498,57,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="110,53,0,0" VerticalAlignment="Top" Width="98" />
+        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="224,53,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="341,53,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="465,53,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name ="Neodobreni" Click="Neodobreni_Click"  Content="Neodobreni" HorizontalAlignment="Left" Height="26" Margin="594,53,0,0" VerticalAlignment="Top" Width="98"/>
 
     </Grid>
 </Window>
