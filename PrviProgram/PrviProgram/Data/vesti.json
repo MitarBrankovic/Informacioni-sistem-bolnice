@@ -1,0 +1,25 @@
+[
+  {
+    "Datum": "2021-05-03T16:20:03.5593215+02:00",
+    "Tekst": "\"Sekretar\" Darko slavi rodjendan :'D",
+    "SifraVesti": "JKhWdRvR",
+    "Autor": {
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "darko",
+        "Lozinka": "darko",
+        "TipKorisnika": 1,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": null,
+      "Jmbg": "2229292",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "Naslov": "Rodjendan 4.5.2021."
+  }
+]
