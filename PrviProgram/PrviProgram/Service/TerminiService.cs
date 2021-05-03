@@ -9,8 +9,10 @@ namespace Service
 {
     public class TerminiService
     {
+        private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
         public List<Termin> terminiSlobodni = new List<Termin>();
-        string[] nizVremena = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        string[] nizVremena = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00",
+            "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
 
         private static TerminiService instance = null;
         public static TerminiService getInstance()
@@ -64,7 +66,6 @@ namespace Service
 
         public List<Termin> PregledTermina(Pacijent p)
         {
-
             TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
@@ -78,7 +79,6 @@ namespace Service
 
                     }
                 }
-
             }
             return list;
         }
@@ -173,9 +173,30 @@ namespace Service
         }
         public bool proveraSale(Sala sala, List<Termin> termini, Termin noviTermin)
         {
+            List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
+            foreach (TerminRenoviranjaSale terminRenoviranja in terminiRenoviranja) 
+            {
+                if (terminRenoviranja.sala.Naziv.Equals(sala.Naziv))
+                {
+                    var intervalRenoviranja = new List<DateTime>();
+                    for (var dt = terminRenoviranja.PocetakRenoviranja; dt <= terminRenoviranja.KrajRenoviranja; dt = dt.AddDays(1))
+                    {
+                        intervalRenoviranja.Add(dt);
+                    }
+                    if (intervalRenoviranja.Contains(noviTermin.Datum))
+                    {
+                        return false;
+                    }
+                    intervalRenoviranja.Clear();
+                }
+            }
             foreach (Termin termin in termini)
             {
                 if (termin.Datum.Equals(noviTermin.Datum) && termin.Vreme.Equals(noviTermin.Vreme) && termin.sala.Sifra.Equals(sala.Sifra))
+                {
+                    return false;
+                }
+                if (sala.Tip == TipSale.Magacin || sala.Tip == TipSale.Kancelarija || sala.Tip == TipSale.SalaZaOdmor) 
                 {
                     return false;
                 }

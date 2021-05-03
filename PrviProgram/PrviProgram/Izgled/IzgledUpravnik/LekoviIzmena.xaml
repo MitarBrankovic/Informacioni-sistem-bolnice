@@ -23,7 +23,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox x:Name="CheckBoxLek" IsChecked="{Binding IsSelected}" Width="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding selektovanAlternativniLek.Naziv}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding SelektovanAlternativniLek.Naziv}" VerticalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

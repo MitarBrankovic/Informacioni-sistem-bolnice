@@ -154,10 +154,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 OsvezavanjeTabele();
             }
-            else
-            {
-                MessageBox.Show("Uneli ste pogresnu kolicinu!");
-            }
+            else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
         }
 
         public bool IsNumber(String st)

@@ -19,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class LekoviDodaj : Window
     {
         private ObservableCollection<Lek> lekovi;
-        Lek noviLek = new Lek();
+        private Lek noviLek = new Lek();
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
         private UpravnikController upravnikController = new UpravnikController();
 
