@@ -53,8 +53,37 @@ namespace Controller
             return false;
         }
 
+        public bool DodavanjeLeka(Lek lek)
+        {
+            if (LekoviService.getInstance().DodavanjeLeka(lek) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public bool BrisanjeLeka(Lek lek)
+        {
+            if (LekoviService.getInstance().BrisanjeLeka(lek) == true)
+            {
+                LekoviService.getInstance().BrisanjeAlternativnihLekova(lek);
+                return true;
+            }
+            else { return false; }
+        }
+
+        public bool IzmenaLeka(Lek stariLek, Lek noviLek)
+        {
+            if (LekoviService.getInstance().IzmenaLeka(stariLek, noviLek) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
         public SaleService saleService;
-      public OpremaService opremaService;
+        public OpremaService opremaService;
+        public LekoviService lekoviService;
    
    }
 }
