@@ -1,5 +1,7 @@
 [
   {
+    "termin": null,
+    "specijalizacija": [],
     "MestoRodjenja": null,
     "Korisnik": {
       "KorisnickoIme": "srdjan",
@@ -17,6 +19,12 @@
     "KontaktTelefon": null
   },
   {
+    "termin": null,
+    "specijalizacija": [
+      {
+        "Naziv": "Hirurgija"
+      }
+    ],
     "MestoRodjenja": null,
     "Korisnik": {
       "KorisnickoIme": "mitar",
@@ -33,8 +41,13 @@
     "Pol": 0,
     "KontaktTelefon": null
   },
-
   {
+    "termin": null,
+    "specijalizacija": [
+      {
+        "Naziv": "Hirurgija"
+      }
+    ],
     "MestoRodjenja": null,
     "Korisnik": {
       "KorisnickoIme": "d",
@@ -51,4 +64,4 @@
     "Pol": 0,
     "KontaktTelefon": null
   }
-] 
+]

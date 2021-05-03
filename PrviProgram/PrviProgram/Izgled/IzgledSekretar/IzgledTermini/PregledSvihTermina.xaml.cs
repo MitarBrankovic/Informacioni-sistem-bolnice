@@ -44,5 +44,11 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 termini.Remove(termin);
             }
         }
+
+        private void ZakazivanjeHitnogTermina_Click(object sender, RoutedEventArgs e)
+        {
+            ZakazivanjeHitnogTermina zakazivanjeTermina = new ZakazivanjeHitnogTermina(termini);
+            zakazivanjeTermina.Show();
+        }
     }
 }

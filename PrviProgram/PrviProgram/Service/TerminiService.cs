@@ -4,6 +4,7 @@ using Repository;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Service
 {
@@ -11,6 +12,7 @@ namespace Service
     {
         public List<Termin> terminiSlobodni = new List<Termin>();
         string[] nizVremena = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        private TerminiRepository terminiRepository = new TerminiRepository();
 
         private static TerminiService instance = null;
         public static TerminiService getInstance()
@@ -23,10 +25,9 @@ namespace Service
         }
         public void DodavanjeTermina(Termin t)
         {
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
             termini.Add(t);
-            datoteka.UpisivanjeUFajl(termini);
+            terminiRepository.UpisivanjeUFajl(termini);
         }
 
         public void BrisanjeTermina(Termin termin)
@@ -42,6 +43,20 @@ namespace Service
                     break;
                 }
             }
+        }
+
+        public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
+        {
+            List<string> zauzetiTermini = new List<string>();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
+            {
+                if (t.lekar.Jmbg.Equals(lekar.Jmbg) && t.Datum.Date.Equals(datumTermina.Date))
+                {
+                    zauzetiTermini.Add(t.Vreme);
+                }
+            }
+            return zauzetiTermini;
         }
 
         public bool IzmenaTermina(Termin termin)
@@ -243,10 +258,10 @@ namespace Service
             return true;
         }
 
-        public List<Termin> proveraVremenaKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar,string tipTermina)
+        public List<Termin> proveraVremenaKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
         {
             List<Termin> terminiSlobodni1 = new List<Termin>();
-            TimeSpan razlikaDanasnjegDanaiMin = min-DateTime.Today;
+            TimeSpan razlikaDanasnjegDanaiMin = min - DateTime.Today;
 
             if (razlikaDanasnjegDanaiMin.TotalDays == 0)
             {
@@ -254,7 +269,7 @@ namespace Service
                 DateTime maxDo = max.AddDays(2);
                 terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
             }
-            else if(razlikaDanasnjegDanaiMin.TotalDays==1)
+            else if (razlikaDanasnjegDanaiMin.TotalDays == 1)
             {
                 DateTime minOd = min.AddDays(-1);
                 DateTime minDo = min.AddDays(-1);
@@ -273,10 +288,22 @@ namespace Service
                 terminiSlobodni1 = sviSlobodniTermini(maxOd, maxDo, selektovaniLekar, tipTermina);
 
             }
-            
-          
-            return this.terminiSlobodni;
 
+
+            return this.terminiSlobodni;
+        }
+
+        public bool ProvaraZauzatostiTermina(Termin termin)
+        {
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            foreach (Termin t in termini)
+            {
+                if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) && t.Datum.Date.Equals(termin.Datum.Date) && t.Vreme.Equals(termin.Vreme))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         
         public List<Termin> proveraLekaraKodVremena(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
