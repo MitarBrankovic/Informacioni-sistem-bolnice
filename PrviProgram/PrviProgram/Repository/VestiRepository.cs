@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Model;
+using Newtonsoft.Json;
 
 namespace Repository
 {
@@ -8,34 +10,54 @@ namespace Repository
     {
         private string path;
 
-        VestiRepository()
+        public VestiRepository()
         {
             path = @"..\..\..\data\vesti.json";
         }
 
         public void UpisivanjeUFajl(List<Vest> vesti)
         {
-            // TODO: implement
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Formatting = Formatting.Indented;
+            StreamWriter writer = new StreamWriter(path);
+            JsonWriter jWriter = new JsonTextWriter(writer);
+            serializer.Serialize(jWriter, vesti);
+            jWriter.Close();
+            writer.Close();
         }
 
         public List<Vest> CitanjeIzFajla()
         {
-            // TODO: implement
-            return null;
+            List<Vest> vesti = new List<Vest>();
+            if (File.Exists(path))
+            {
+                string jsonText = File.ReadAllText(path);
+                if (!string.IsNullOrEmpty(jsonText))
+                {
+                    vesti = JsonConvert.DeserializeObject<List<Vest>>(jsonText);
+                }
+            }
+            return vesti;
         }
 
         public Vest PregledVesti(String sifra)
         {
-            // TODO: implement
+            List<Vest> vesti = CitanjeIzFajla();
+            foreach (Vest vest in vesti)
+            {
+                if (vest.SifraVesti.Equals(sifra))
+                {
+                    return vest;
+                }
+            }
             return null;
         }
 
         public List<Vest> PregledSvihVesti()
         {
-            // TODO: implement
-            return null;
+            List<Vest> vesti = CitanjeIzFajla();
+            return vesti;
         }
-
 
     }
 }

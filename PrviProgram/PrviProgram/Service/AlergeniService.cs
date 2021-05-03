@@ -8,7 +8,7 @@ namespace Service
     {
         private AlergeniRepository alergeniRepository = new AlergeniRepository();
 
-        public bool DodavanjeAlegena(Alergen alergen)
+        public bool DodavanjeAlergena(Alergen alergen)
         {
             List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
             foreach (Alergen a in alergeni)

@@ -1,37 +1,35 @@
 using Model;
 using Service;
-using Service.LekarService;
 
 namespace Controller
 {
     public class SekretarController
     {
-        private PreglediService terminiService = new PreglediService();
-     
+        private TerminiService terminiService = new TerminiService();
+        private GradoviService gradoviService = new GradoviService();
+        private DrzaveService drzaveService = new DrzaveService();
         private PacijentiService pacijentiService = new PacijentiService();
         private AlergeniService alergeniService = new AlergeniService();
+        private VestiService vestiService = new VestiService();
 
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
-            // TODO: implement
-            return false;
+            return pacijentiService.DodavanjePacijenta(pacijent);
         }
 
-        public bool BrisanjePacijenta(Pacijent p)
+        public bool BrisanjePacijenta(Pacijent pacijent)
         {
-            // TODO: implement
-            return false;
+            return pacijentiService.BrisanjePacijenta(pacijent);
         }
 
-        public bool IzmenaPacijenta(Pacijent stari, Pacijent novi)
+        public bool IzmenaPacijenta(Pacijent stariPacijent, Pacijent noviPacijent)
         {
-            // TODO: implement
-            return false;
+            return pacijentiService.IzmenaPacijenta(stariPacijent, noviPacijent);
         }
 
         public bool DodavanjeAlergena(Alergen alergen)
         {
-            return alergeniService.DodavanjeAlegena(alergen);
+            return alergeniService.DodavanjeAlergena(alergen);
         }
 
         public bool BrisanjeAlergena(Alergen alergen)
@@ -44,28 +42,29 @@ namespace Controller
             return alergeniService.IzmenaAlergena(stariAlergen, noviAlergen);
         }
 
-        public bool ZakazivanjeTermina(Termin termin)
+        public bool DodavanjeVesti(Vest vest)
         {
-            // TODO: implement
-            return false;
+            return vestiService.DodavanjeVesti(vest);
         }
 
-        public bool DodavanjeGuestPacijenta(GuestPacijent guestPacijent)
+        public bool BrisanjeVesti(Vest vest)
         {
-            // TODO: implement
-            return false;
+            return vestiService.BrisanjeVesti(vest);
         }
 
-        public bool BrisanjeGuestPacijenta(GuestPacijent guestPacijent)
+        public bool IzmenaVesti(Vest vest)
         {
-            // TODO: implement
-            return false;
+            return vestiService.IzmenaVesti(vest);
         }
 
-        public bool IzmenaGuestPacijenta(GuestPacijent stari, GuestPacijent novi)
+        public bool DodavanjeGrada(Grad grad)
         {
-            // TODO: implement
-            return false;
+            return gradoviService.DodavanjeGrada(grad);
+        }
+
+        public bool DodavanjeDrzave(Drzava drzava)
+        {
+            return drzaveService.DodavanjeDrzave(drzava);
         }
 
     }
