@@ -36,7 +36,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Informacije_Click(object sender, RoutedEventArgs e)
         {
-
+            InformacijeLek informacijeLek = new InformacijeLek(lekovi, (Lek)dataGridLekovi.SelectedItem);
+            informacijeLek.Show();
         }
     }
 }

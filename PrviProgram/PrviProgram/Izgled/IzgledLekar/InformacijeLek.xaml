@@ -18,22 +18,12 @@
         <Label Content="Opis" HorizontalAlignment="Left" Height="25" Margin="128,255,0,0" VerticalAlignment="Top" Width="122" />
         <TextBox x:Name="Opis" HorizontalAlignment="Left" Height="85" Margin="277,255,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <Label Content="Alternativni lekovi" HorizontalAlignment="Left" Height="25" Margin="128,371,0,0" VerticalAlignment="Top" Width="122" />
-        <ComboBox x:Name="ComboAlternativni" VerticalAlignment="Top" Margin="275,374,358,0" >
+        <ComboBox x:Name="ComboAlternativni" VerticalAlignment="Top" Margin="275,374,108,0" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox x:Name="CheckBoxLek" IsChecked="{Binding IsSelected}" Width="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding selektovanAlternativniLek.Naziv}" VerticalAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ComboBox x:Name="ComboAlternativni_Copy" VerticalAlignment="Top" Margin="275,374,108,0" >
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox x:Name="CheckBoxLek" IsChecked="{Binding IsSelected}" Width="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding selektovanAlternativniLek.Naziv}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding SelektovanAlternativniLek.Naziv}" VerticalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
