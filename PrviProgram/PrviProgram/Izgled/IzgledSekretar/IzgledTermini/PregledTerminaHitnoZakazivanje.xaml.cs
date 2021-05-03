@@ -16,12 +16,14 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private ObservableCollection<Termin> sviTermini;
         private ObservableCollection<Termin> termini;
         private Termin termin;
+        private Specijalizacija specijalizacija;
 
-        public PregledTerminaHitnoZakazivanje(ObservableCollection<Termin> termini, Termin termin)
+        public PregledTerminaHitnoZakazivanje(ObservableCollection<Termin> termini, Termin termin, Specijalizacija specijalizacija)
         {
             InitializeComponent();
             this.termin = termin;
             this.sviTermini = termini;
+            this.specijalizacija = specijalizacija;
             this.termini = InicijalizujTermine();
             dataGridPacijenta.ItemsSource = this.termini;
         }
@@ -44,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 string[] tVreme = t.Vreme.Split(":");
                 int tSat = int.Parse(tVreme[0]);
                 int tMinut = int.Parse(tVreme[1]);
-                if (// Uslov za specijalizaciju lekara termin.lekar.spec == spec
+                if (ProveriSpecijalizacijuLekara(t.lekar) &&
                     tSat >= terminSat && t.Datum.Date.Equals(termin.Datum.Date)
                     && !(terminMinut == 30 && tSat == terminSat && tMinut == 0))
                 {
@@ -119,13 +121,29 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             List<Lekar> lekari = lekarRepository.PregledSvihLekara();
             foreach (Termin t in termini)
             {
-                if (// Uslov za specijalizaciju lekara termin.lekar.spec != spec ||
-                    t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
+                if (ProveriSpecijalizacijuLekara(t.lekar) == false)
                 {
-                    lekari.Remove(lekari.Single(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
+                    lekari.Remove(lekari.SingleOrDefault(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
+                }
+                else if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
+                {
+                    lekari.Remove(lekari.SingleOrDefault(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
                 }
             }
             return lekari.Count() == 0 ? null : lekari.First();
+        }
+
+        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara)
+        {
+            Lekar lekar = lekarRepository.PregledLekara(zaLekara.Jmbg);
+            foreach (Specijalizacija specijalizacija in lekar.GetSpecijalizacija())
+            {
+                if (specijalizacija.Naziv.Equals(this.specijalizacija.Naziv))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void OtkaziTerminButton_Click(object sender, RoutedEventArgs e)

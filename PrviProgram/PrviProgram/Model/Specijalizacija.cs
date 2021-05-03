@@ -1,12 +1,12 @@
 namespace Model
 {
-    public class Alergen
+    public class Specijalizacija
     {
         public string Naziv { get; set; }
+        
         public override string ToString()
         {
             return Naziv;
         }
-
     }
 }

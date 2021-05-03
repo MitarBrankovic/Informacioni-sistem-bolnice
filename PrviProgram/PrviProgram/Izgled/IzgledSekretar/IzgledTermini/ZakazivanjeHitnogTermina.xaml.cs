@@ -13,6 +13,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
     {
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
+        private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
@@ -22,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         {
             InitializeComponent();
             this.termini = termini;
-            // todo specijalizacija lekara
+            comboBoxSpecijalizacija.ItemsSource = specijalizacijeRepository.PregledSvihSpecijalizacija();
             comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
             TipTerminaText.ItemsSource = tipTermina;
             vremeText.ItemsSource = constVreme;
@@ -47,7 +48,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             termin.lekar = PronadjiLekaraSaSlobodnimTerminom(termin);
             if (termin.lekar == null)
             {
-                PregledTerminaHitnoZakazivanje pregledTerminaHitnoZakazivanje = new PregledTerminaHitnoZakazivanje(termini, termin);
+                PregledTerminaHitnoZakazivanje pregledTerminaHitnoZakazivanje = new PregledTerminaHitnoZakazivanje(termini, termin, (Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
                 pregledTerminaHitnoZakazivanje.Show();
             }
             else
@@ -63,19 +64,36 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             List<Lekar> lekari = lekarRepository.PregledSvihLekara();
             foreach (Termin t in termini)
             {
-                if (// Uslov za specijalizaciju lekara termin.lekar.spec != spec ||
-                    t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
+                if (ProveriSpecijalizacijuLekara(t.lekar) == false)
                 {
-                    lekari.Remove(lekari.Single(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
+                    lekari.Remove(lekari.SingleOrDefault(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
+                }
+                else if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
+                {
+                    lekari.Remove(lekari.SingleOrDefault(lekar => lekar.Jmbg.Equals(t.lekar.Jmbg)));
                 }
             }
             return lekari.Count() == 0 ? null : lekari.First();
         }
 
+        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara)
+        {
+            Lekar lekar = lekarRepository.PregledLekara(zaLekara.Jmbg);
+            foreach (Specijalizacija specijalizacija in lekar.GetSpecijalizacija())
+            {
+                Specijalizacija specijalizacijaCombo = (Specijalizacija)comboBoxSpecijalizacija.SelectedItem;
+                if (specijalizacija.Naziv.Equals(specijalizacijaCombo.Naziv))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private Termin PreuzmiTerminIzForme()
         {
             Termin termin = new Termin();
-            termin.Datum = DateTime.Now.AddDays(-3);
+            termin.Datum = DateTime.Now.AddDays(-4);
             termin.Vreme = vremeText.Text;
             if (guestPacijent == null)
             {
