@@ -30,32 +30,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             izmenjenLek.ZamenaZaLek = new List<Lek>();
             this.lek = lek;
             this.lekovi = lekovi;
-            prikazPodatakaLeka();
-            inicijalizacijaComboBoxaSala();
-            prikazAlternativnihLekova();
+            PrikazPodatakaLeka();
+            InicijalizacijaComboBoxaSala();
+            PrikazAlternativnihLekova();
         }
 
-        private void prikazPodatakaLeka() 
-        {
-            Naziv.Text = this.lek.Naziv;
-            Sifra.Text = this.lek.Sifra;
-            Opis.Text = this.lek.Opis;
-            Sastojci.Text = this.lek.Sastojci;
-        }
-
-        private void prikazAlternativnihLekova() 
-        {
-            foreach (Lek l in this.lek.ZamenaZaLek)
-            {
-                foreach (var lekBrojac in alternativniLekovi)
-                {
-                    if (l.Sifra.Equals(lekBrojac.selektovanAlternativniLek.Sifra))
-                    {
-                        lekBrojac.IsSelected = true;
-                    }
-                }
-            }
-        }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
@@ -80,17 +59,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                izmenaPodatakaLeka();
-                if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
-                {
-                    this.lekovi.Remove(lek);
-                    this.lekovi.Add(izmenjenLek);
-                }
+                IzmenaPodatakaLeka();
+                IzvrsavanjeIzmene();
                 this.Close();
             }
         }
 
-        private void izmenaPodatakaLeka() 
+        private void IzmenaPodatakaLeka() 
         {
             izmenjenLek.Naziv = Naziv.Text;
             izmenjenLek.Sifra = Sifra.Text;
@@ -101,30 +76,61 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (lekBrojac.IsSelected == true)
                 {
-                    izmenjenLek.ZamenaZaLek.Add(lekBrojac.selektovanAlternativniLek);
+                    izmenjenLek.ZamenaZaLek.Add(lekBrojac.SelektovanAlternativniLek);
                 }
+            }
+        }
+
+        private void IzvrsavanjeIzmene()
+        {
+            if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
+            {
+                this.lekovi.Remove(lek);
+                this.lekovi.Add(izmenjenLek);
             }
         }
 
         public class CheckBoxSelektovanLek
         {
             public bool IsSelected { get; set; }
-            public Lek selektovanAlternativniLek { get; set; }
+            public Lek SelektovanAlternativniLek { get; set; }
         }
 
-        private void inicijalizacijaComboBoxaSala()
+        private void InicijalizacijaComboBoxaSala()
         {
             foreach (Lek lekBrojac in lekovi)
             {
                 CheckBoxSelektovanLek check = new CheckBoxSelektovanLek();
-                check.selektovanAlternativniLek = lekBrojac;
+                check.SelektovanAlternativniLek = lekBrojac;
                 alternativniLekovi.Add(check);
-                if (check.selektovanAlternativniLek.Naziv.Equals(Naziv.Text))
+                if (check.SelektovanAlternativniLek.Naziv.Equals(Naziv.Text))
                 {
                     alternativniLekovi.Remove(check);
                 }
             }
             ComboAlternativni.ItemsSource = alternativniLekovi;
+        }
+
+        private void PrikazPodatakaLeka()
+        {
+            Naziv.Text = this.lek.Naziv;
+            Sifra.Text = this.lek.Sifra;
+            Opis.Text = this.lek.Opis;
+            Sastojci.Text = this.lek.Sastojci;
+        }
+
+        private void PrikazAlternativnihLekova()
+        {
+            foreach (Lek l in this.lek.ZamenaZaLek)
+            {
+                foreach (var lekBrojac in alternativniLekovi)
+                {
+                    if (l.Sifra.Equals(lekBrojac.SelektovanAlternativniLek.Sifra))
+                    {
+                        lekBrojac.IsSelected = true;
+                    }
+                }
+            }
         }
     }
 }

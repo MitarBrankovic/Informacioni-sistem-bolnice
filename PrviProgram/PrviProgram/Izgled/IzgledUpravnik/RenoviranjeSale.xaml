@@ -13,9 +13,9 @@
         <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="302,363,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
         <TextBox x:Name="TrenutnaSala" IsEnabled="False" HorizontalAlignment="Left" Margin="300,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <Label Content="Renoviranje sale" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <DatePicker x:Name="KrajRenoviranja" HorizontalAlignment="Left" Height="24" Margin="302,235,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="KrajRenoviranja_SelectedDateChanged" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <DatePicker x:Name="KrajRenoviranja" HorizontalAlignment="Left" Height="24" Margin="302,235,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
         <Label Content="Kraj:" HorizontalAlignment="Left" Height="24" Margin="153,235,0,0" VerticalAlignment="Top" Width="122"/>
-        <DatePicker x:Name="PocetakRenoviranja" HorizontalAlignment="Left" Height="25" Margin="302,183,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="PocetakRenoviranja_SelectedDateChanged" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <DatePicker x:Name="PocetakRenoviranja" HorizontalAlignment="Left" Height="25" Margin="302,183,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Height="25" Margin="153,183,0,0" VerticalAlignment="Top" Width="122"/>
 
     </Grid>

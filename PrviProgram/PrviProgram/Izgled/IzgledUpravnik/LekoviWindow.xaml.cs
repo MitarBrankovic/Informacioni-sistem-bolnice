@@ -63,8 +63,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (dataGridLekovi.SelectedIndex != -1)
             {
                 Lek lekZaBrisanje = (Lek)dataGridLekovi.SelectedItem;
-                //lekoviService.BrisanjeLeka(lekZaBrisanje);
-                //lekoviService.BrisanjeAlternativnihLekova(lekZaBrisanje);
                 upravnikController.BrisanjeLeka(lekZaBrisanje);
                 lekovi.Remove(lekZaBrisanje);
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Controller;
 using Model;
 using Service;
 using Service.LekarService;
@@ -9,27 +10,54 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class IzmenaSale : Window
     {
+        private UpravnikController upravnikController = new UpravnikController();
+        private ObservableCollection<Sala> sale;
+        private Sala sala;
+        private Sala izmenjenaSala = new Sala();
 
-        private SaleService upr;
-        private ObservableCollection<Model.Sala> sale;
-        private Model.Sala sala;
-
-
-        public IzmenaSale(ObservableCollection<Model.Sala> sale, Model.Sala sala)
+        public IzmenaSale(ObservableCollection<Sala> sale, Sala sala)
         {
             InitializeComponent();
-
-            upr = new SaleService();
             this.sale = sale;
             this.sala = sala;
+            PrikazPodatakaSale();
+        }
 
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
+        {
+            if (Naziv.Text == "" && Sifra.Text == "" && Sprat.Text == "")
+            {
+                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
+            {
+                MessageBox.Show("Naziv nije dobro unet!", "Greska");
+                Naziv.Text.Remove(Naziv.Text.Length - 1);
+            }
+            else if (IsNumber(Sprat.Text) == false)
+            {
+                MessageBox.Show("Sprat nije dobro unet!", "Greska");
+            }
+            else
+            {
+                IzmenaPodatakaSale();
+                IzvrsavanjeIzmene();
+                this.Close();
+            }
+        }
+
+        private void Odustani_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void PrikazPodatakaSale()
+        {
             Naziv.Text = sala.Naziv;
             Sifra.Text = sala.Sifra;
             Sprat.Text = sala.Sprat.ToString();
             Naziv.Text = sala.Naziv;
-
             String tip = sala.Tip.ToString();
-            //MessageBox.Show(tip);
             if (tip.Equals("Operaciona"))
             {
                 Tip.SelectedIndex = 0;
@@ -50,7 +78,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Tip.SelectedIndex = 4;
             }
-
             String dostupnost = sala.Dostupnost.ToString();
             if (dostupnost.Equals("True"))
             {
@@ -60,89 +87,63 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Dostupnost.SelectedIndex = 1;
             }
-
         }
 
-        private void Potvrdi_Click(object sender, RoutedEventArgs e)
+        private void IzmenaPodatakaSale()
         {
+            izmenjenaSala.Naziv = Naziv.Text;
+            izmenjenaSala.Sifra = Sifra.Text;
+            izmenjenaSala.Sprat = int.Parse(Sprat.Text);
+            //novaSala.oprema = sala.GetOprema();
+            izmenjenaSala.SetOprema(sala.GetOprema());
 
-            if (Naziv.Text == "" && Sifra.Text == "" && Sprat.Text == "")
+
+            String tip = Tip.Text;
+            if (tip.Equals("Operaciona"))
             {
-                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+                izmenjenaSala.Tip = TipSale.Operaciona;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
+            else if (tip.Equals("Kancelarija"))
             {
-                MessageBox.Show("Naziv nije dobro unet!", "Greska");
-                Naziv.Text.Remove(Naziv.Text.Length - 1);
+                izmenjenaSala.Tip = TipSale.Kancelarija;
             }
-            else if (isNumber(Sprat.Text) == false)
+            else if (tip.Equals("Sala za odmor"))
             {
-                MessageBox.Show("Sprat nije dobro unet!", "Greska");
+                izmenjenaSala.Tip = TipSale.SalaZaOdmor;
             }
-            else
+            else if (tip.Equals("Sala sa krevetima"))
             {
-                Sala novaSala = new Sala();
+                izmenjenaSala.Tip = TipSale.SalaSaKrevetima;
+            }
+            else if (tip.Equals("Magacin"))
+            {
+                izmenjenaSala.Tip = TipSale.Magacin;
+            }
 
-
-                novaSala.Naziv = Naziv.Text;
-                novaSala.Sifra = Sifra.Text;
-                novaSala.Sprat = int.Parse(Sprat.Text);
-                //novaSala.oprema = sala.GetOprema();
-                novaSala.SetOprema(sala.GetOprema());
-
-
-                String tip = Tip.Text;
-                if (tip.Equals("Operaciona"))
-                {
-                    novaSala.Tip = TipSale.Operaciona;
-                }
-                else if (tip.Equals("Kancelarija"))
-                {
-                    novaSala.Tip = TipSale.Kancelarija;
-                }
-                else if (tip.Equals("Sala za odmor"))
-                {
-                    novaSala.Tip = TipSale.SalaZaOdmor;
-                }
-                else if (tip.Equals("Sala sa krevetima"))
-                {
-                    novaSala.Tip = TipSale.SalaSaKrevetima;
-                }
-                else if (tip.Equals("Magacin"))
-                {
-                    novaSala.Tip = TipSale.Magacin;
-                }
-
-                String dostupnost = Dostupnost.Text;
-                if (dostupnost.Equals("Da"))
-                {
-                    novaSala.Dostupnost = true;
-                }
-                else if (dostupnost.Equals("Ne"))
-                {
-                    novaSala.Dostupnost = false;
-                }
-
-
-                if (upr.IzmenaSale(this.sala, novaSala) == true)
-                {
-                    this.sale.Remove(this.sala);
-                    this.sale.Add(novaSala);
-                    TerminiService.getInstance().IzmenaSale(this.sala, novaSala);
-                    PreglediService.getInstance().IzmenaSale(this.sala, novaSala);
-                }
-
-                this.Close();
+            String dostupnost = Dostupnost.Text;
+            if (dostupnost.Equals("Da"))
+            {
+                izmenjenaSala.Dostupnost = true;
+            }
+            else if (dostupnost.Equals("Ne"))
+            {
+                izmenjenaSala.Dostupnost = false;
             }
         }
 
-        private void Odustani_Click(object sender, RoutedEventArgs e)
+        private void IzvrsavanjeIzmene()
         {
-            this.Close();
+            if (upravnikController.IzmenaSale(this.sala, izmenjenaSala) == true)
+            {
+                this.sale.Remove(this.sala);
+                this.sale.Add(izmenjenaSala);
+                TerminiService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
+                PreglediService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
+            }
         }
 
 
-        public bool isNumber(String st)
+        public bool IsNumber(String st)
         {
             try
             {

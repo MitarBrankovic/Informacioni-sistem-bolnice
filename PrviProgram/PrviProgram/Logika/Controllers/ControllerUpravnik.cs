@@ -40,7 +40,7 @@ namespace PrviProgram.Logika
 
         public void BrisanjeSale(Sala sala, ObservableCollection<Model.Sala> sale)
         {
-            SaleService.getInstance().BrisanjeSale(sala);
+            SaleService.GetInstance().BrisanjeSale(sala);
             sale.Remove(sala);
 
             List<Termin> termini = new List<Termin>();

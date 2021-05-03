@@ -28,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             InitializeComponent();
             noviLek.ZamenaZaLek = new List<Lek>();
             this.lekovi = lekovi;
-            inicijalizacijaComboBoxaSala();
+            InicijalizacijaComboBoxaSala();
         }
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
@@ -53,16 +53,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                formiranjeNovogLeka();
-                if (upravnikController.DodavanjeLeka(noviLek) == true)
-                {
-                    this.lekovi.Add(noviLek);
-                }
+                FormiranjeNovogLeka();
+                DodavanjeNovogLeka();
                 this.Close();
             }
         }
 
-        private void formiranjeNovogLeka() 
+        private void FormiranjeNovogLeka() 
         {
             noviLek.Naziv = Naziv.Text;
             noviLek.Sifra = Sifra.Text;
@@ -72,23 +69,31 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (lekBrojac.IsSelected == true)
                 {
-                    noviLek.ZamenaZaLek.Add(lekBrojac.selektovanAlternativniLek);
+                    noviLek.ZamenaZaLek.Add(lekBrojac.SelektovanAlternativniLek);
                 }
+            }
+        }
+
+        private void DodavanjeNovogLeka()
+        {
+            if (upravnikController.DodavanjeLeka(noviLek) == true)
+            {
+                this.lekovi.Add(noviLek);
             }
         }
 
         public class CheckBoxSelektovanLek
         {
             public bool IsSelected { get; set; }
-            public Lek selektovanAlternativniLek { get; set; }
+            public Lek SelektovanAlternativniLek { get; set; }
         }
 
-        private void inicijalizacijaComboBoxaSala()
+        private void InicijalizacijaComboBoxaSala()
         {
             foreach (Lek lekBrojac in lekovi)
             {
                 CheckBoxSelektovanLek check = new CheckBoxSelektovanLek();
-                check.selektovanAlternativniLek = lekBrojac;
+                check.SelektovanAlternativniLek = lekBrojac;
                 alternativniLekovi.Add(check);
             }
             ComboAlternativni.ItemsSource = alternativniLekovi;

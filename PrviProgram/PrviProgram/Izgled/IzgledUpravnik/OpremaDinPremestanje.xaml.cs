@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -15,42 +16,26 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for OpremaDinPremestanje.xaml
-    /// </summary>
     public partial class OpremaDinPremestanje : Window
     {
-        private OpremaService upr;
-        private ObservableCollection<Model.Oprema> opreme;
-        private Sala sala;
-        private Oprema opremaa;
-        private ObservableCollection<Model.Sala> sale;
+        private UpravnikController upravnikController = new UpravnikController();
+        private Sala trenutnaSala;
+        private Oprema trenutnaOprema;
+        private ObservableCollection<Sala> sveSale;
+        private ObservableCollection<Oprema> svaOpremaIzTabele;
+        private Oprema opremaZaPremestanje = new Oprema();
+        private Oprema preostalaOprema = new Oprema();
+        private Sala novaSala = new Sala();
 
 
-        public OpremaDinPremestanje(ObservableCollection<Model.Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Model.Sala> sale)
+        public OpremaDinPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Sala> sale)
         {
             InitializeComponent();
-
-            upr = new OpremaService();
-            this.opreme = opreme;
-            this.opremaa = oprema;
-            this.sala = sala;
-            this.sale = sale;
-            TrenutnaSala.Text = sala.Naziv;
-            NazivOpreme.Text = oprema.Naziv;
-
-            List<Sala> comboSale = new List<Sala>(sale);
-            //comboSale.Remove(sala);
-            foreach (Sala s in comboSale.ToArray())
-            {
-                if (s.Sifra.Equals(sala.Sifra))
-                {
-                    comboSale.Remove(s);
-                    break;
-                }
-            }
-            ComboSala.ItemsSource = comboSale;
-
+            this.svaOpremaIzTabele = opreme;
+            this.trenutnaOprema = oprema;
+            this.trenutnaSala = sala;
+            this.sveSale = sale;
+            PrikazPodatakaOpreme();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -59,7 +44,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
-            else if (isNumber(Kolicina.Text) == false)
+            else if (IsNumber(Kolicina.Text) == false)
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
@@ -68,62 +53,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                Oprema oprema = new Oprema();
-                oprema.Naziv = NazivOpreme.Text;
-                oprema.Kolicina = int.Parse(Kolicina.Text);
-                oprema.Tip = TipOpreme.Dinamicka;
-
-                Sala novaSala = new Sala();
                 novaSala = (Sala)ComboSala.SelectedItem;
-
-
-                if (upr.PremestanjeOpreme(oprema, sala, novaSala) == true)
-                {
-                    if (oprema.Kolicina == 0)
-                    {
-                        this.opreme.Remove(this.opremaa);
-                    }
-                    else
-                    {
-                        this.opreme.Remove(this.opremaa);
-                        Oprema op = new Oprema();
-                        op.Naziv = oprema.Naziv;
-                        op.Tip = oprema.Tip;
-                        op.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
-
-
-                        if (op.Kolicina != 0)
-                        {
-                            this.opreme.Add(op);
-                        }
-                    }
-
-                    foreach (Oprema o in sala.oprema.ToArray())
-                    {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            sala.GetOprema().Remove(o);
-                            //sala.GetOprema().Add(oprema);
-                        }
-                    }
-                    Oprema opr = new Oprema();
-                    opr.Naziv = oprema.Naziv;
-                    opr.Tip = oprema.Tip;
-                    opr.Kolicina = this.opremaa.Kolicina - oprema.Kolicina;
-                    sala.oprema.Add(opr);
-                    //this.sala.oprema.Add(opr);
-
-                    foreach (Sala s in sale) {
-                        if (s.Sifra.Equals(novaSala.Sifra)) {
-                            s.oprema.Add(oprema);
-                        }
-                    }
-
-                }
-                else {
-                    MessageBox.Show("Uneli ste pogresnu kolicinu!");
-                }
-
+                FormiranjeOpremeZaPremestanje();
+                PremestanjeOpreme();
                 this.Close();
             }
         }
@@ -133,8 +65,102 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             this.Close();
         }
 
+        private void PrikazPodatakaOpreme()
+        {
+            TrenutnaSala.Text = trenutnaSala.Naziv;
+            NazivOpreme.Text = trenutnaOprema.Naziv;
+            List<Sala> comboSale = new List<Sala>(sveSale);
+            foreach (Sala s in comboSale.ToArray())
+            {
+                if (s.Sifra.Equals(trenutnaSala.Sifra))
+                {
+                    comboSale.Remove(s);
+                    break;
+                }
+            }
+            ComboSala.ItemsSource = comboSale;
+        }
 
-        public bool isNumber(String st)
+        private void FormiranjeOpremeZaPremestanje()
+        {
+            opremaZaPremestanje.Naziv = NazivOpreme.Text;
+            opremaZaPremestanje.Kolicina = int.Parse(Kolicina.Text);
+            opremaZaPremestanje.Tip = TipOpreme.Dinamicka;
+            opremaZaPremestanje.NazivSale = novaSala.Naziv;
+        }
+
+        private void ProveraPreostaleOpreme()
+        {
+            preostalaOprema.Naziv = opremaZaPremestanje.Naziv;
+            preostalaOprema.Tip = opremaZaPremestanje.Tip;
+            preostalaOprema.Kolicina = this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina;
+            preostalaOprema.NazivSale = this.trenutnaSala.Naziv;
+            if (preostalaOprema.Kolicina != 0)
+            {
+                this.svaOpremaIzTabele.Add(preostalaOprema);
+            }
+        }
+
+        private void BrisanjeOpremeIzStareSale()
+        {
+            foreach (Oprema o in trenutnaSala.oprema.ToArray())
+            {
+                if (o.Naziv.Equals(opremaZaPremestanje.Naziv))
+                {
+                    trenutnaSala.GetOprema().Remove(o);
+                }
+            }
+        }
+        private void DodavanjePreostaleOpremeUStaruSalu() 
+        {
+            Oprema preostalaOprema = new Oprema();
+            preostalaOprema.Naziv = opremaZaPremestanje.Naziv;
+            preostalaOprema.Tip = opremaZaPremestanje.Tip;
+            preostalaOprema.Kolicina = this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina;
+            preostalaOprema.NazivSale = this.trenutnaSala.Naziv;
+            trenutnaSala.oprema.Add(preostalaOprema);
+        }
+
+        private void DodavanjaOpremeZaPremestanjeUNovuSalu()
+        {
+            foreach (Sala s in sveSale)
+            {
+                if (s.Sifra.Equals(novaSala.Sifra))
+                {
+                    s.oprema.Add(opremaZaPremestanje);
+                }
+            }
+        }
+
+        private void OsvezavanjeTabele()
+        {
+            if (opremaZaPremestanje.Kolicina == 0)
+            {
+                this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
+            }
+            else
+            {
+                this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
+                ProveraPreostaleOpreme();
+            }
+            BrisanjeOpremeIzStareSale();
+            DodavanjePreostaleOpremeUStaruSalu();
+            DodavanjaOpremeZaPremestanjeUNovuSalu();
+        }
+
+        private void PremestanjeOpreme()
+        {
+            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala) == true)
+            {
+                OsvezavanjeTabele();
+            }
+            else
+            {
+                MessageBox.Show("Uneli ste pogresnu kolicinu!");
+            }
+        }
+
+        public bool IsNumber(String st)
         {
             try
             {

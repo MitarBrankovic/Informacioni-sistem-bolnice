@@ -18,25 +18,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class RenoviranjeSale : Window
     {
-        private SaleService saleService;
+        private SaleService saleService = new SaleService();
         private Sala selektovanaSala;
-        private DateTime pocetakRenoviranja;
-        private DateTime krajRenoviranja;
-        TerminiRepository datotekaTermini;
-
+        private TerminiRepository terminiRepository = new TerminiRepository();
 
         public RenoviranjeSale(ObservableCollection<Sala> sale, Sala sala)
         {
             InitializeComponent();
-
-            saleService = new SaleService();
-            datotekaTermini = new TerminiRepository();
-
             this.selektovanaSala = sala;
             TrenutnaSala.Text = sala.Naziv;
-
-            proveraIIzbacivanjeDatumaPregleda();
-
+            ProveraIIzbacivanjeDatumaPregleda();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
@@ -51,33 +42,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
             else{
-                this.pocetakRenoviranja = (DateTime)(PocetakRenoviranja.SelectedDate);
-                this.krajRenoviranja = (DateTime)(KrajRenoviranja.SelectedDate);
-
-                if (saleService.RenoviranjeSale(selektovanaSala, this.pocetakRenoviranja, this.krajRenoviranja) == false) {
+                if (saleService.RenoviranjeSale(selektovanaSala, (DateTime)(PocetakRenoviranja.SelectedDate), (DateTime)(KrajRenoviranja.SelectedDate)) == false) {
                     MessageBox.Show("Ponovo izaberite datume");
-
                 }
             }
             this.Close();
-
         }
 
-        private void PocetakRenoviranja_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void ProveraIIzbacivanjeDatumaPregleda() 
         {
-
-        }
-
-        private void KrajRenoviranja_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-
-        private void proveraIIzbacivanjeDatumaPregleda() 
-        {
-            List<Termin> termini = datotekaTermini.CitanjeIzFajla();
-
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin tt in termini)
             {
                 if (tt.sala.Sifra.Equals(selektovanaSala.Sifra))
@@ -86,8 +60,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     KrajRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
                 }
             }
-
-
         }
     }
 }

@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  OpremaService.cs
- * Author:  Nesa
- * Purpose: Definition of the Class Service.LogikaUpravnik.OpremaService
- ***********************************************************************/
-
 using System;
 using Model;
 using Service;
@@ -12,40 +6,68 @@ namespace Controller
 {
     public class UpravnikController
    {
-      public void DodavanjeOpreme(Oprema oprema, Sala sala)
+      public bool DodavanjeOpreme(Oprema oprema, Sala sala)
       {
-            OpremaService.getInstance().DodavanjeOpreme(oprema, sala);
-      }
+            if (OpremaService.GetInstance().DodavanjeOpreme(oprema, sala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void BrisanjeOpreme(Oprema oprema, Sala sala)
+      public bool BrisanjeOpreme(Oprema oprema, Sala sala)
       {
-            OpremaService.getInstance().BrisanjeOpreme(oprema, sala);
-      }
+            if (OpremaService.GetInstance().BrisanjeOpreme(oprema, sala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
+      public bool IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
       {
-            OpremaService.getInstance().IzmenaOpreme(staraOprema, novaOprema, sala);
-      }
+            if (OpremaService.GetInstance().IzmenaOpreme(staraOprema, novaOprema, sala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
+      public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
       {
-            OpremaService.getInstance().PremestanjeOpreme(oprema, staraSala, novaSala);
-      }
+            if (OpremaService.GetInstance().PremestanjeOpreme(oprema, staraSala, novaSala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void DodavanjeSale(Sala sala)
+      public bool DodavanjeSale(Sala sala)
       {
-            SaleService.getInstance().DodavanjeSale(sala);
-      }
+            if (SaleService.GetInstance().DodavanjeSale(sala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void BrisanjeSale(Sala sala)
+      public bool BrisanjeSale(Sala sala)
       {
-            SaleService.getInstance().BrisanjeSale(sala);
-      }
+            if (SaleService.GetInstance().BrisanjeSale(sala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
       
-      public void IzmenaSale(Sala stara, Sala nova)
+      public bool IzmenaSale(Sala staraSala, Sala novaSala)
       {
-            SaleService.getInstance().IzmenaSale(stara, nova);
-      }
+            if (SaleService.GetInstance().IzmenaSale(staraSala, novaSala) == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
 
         public bool RenoviranjeSale(Sala sala)
         {

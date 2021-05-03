@@ -17,23 +17,19 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class CelaOpremaWindow : Window
     {
-        public SalaRepository saleRep;
+        public SalaRepository saleRepository = new SalaRepository();
         public ObservableCollection<Oprema> opreme;
         public ObservableCollection<Oprema> pomocnaOprema;
-        List<Oprema> ukupnaOprema;
-        List<Sala> sale;
+        private List<Oprema> ukupnaOprema;
+        private List<Sala> sale;
 
         public CelaOpremaWindow()
         {
             InitializeComponent();
-
-            saleRep = new SalaRepository();
-            sale = saleRep.CitanjeIzFajla();
+            sale = saleRepository.CitanjeIzFajla();
             ukupnaOprema = new List<Oprema>();
-
-
-            inicijalizacijaTabele();
-            inicijalizacijaComboBoxaSala();
+            InicijalizacijaTabele();
+            InicijalizacijaComboBoxaSala();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -41,10 +37,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             String search;
             search = Textbox.Text;
             String[] splited = search.Split(" ");
-
             if (search == "")
             {
-                resetovanjeTabele();
+                ResetovanjeTabele();
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
             }
             else if (splited.Length == 1) {
                 foreach (Oprema o in pomocnaOprema) {
@@ -52,13 +49,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     {
                         opreme.Add(o);
                     }
-
-
                     if (!o.Naziv.ToLower().Contains(splited[0].ToLower())) {
                         opreme.Remove(o);
                     }
                 }
-
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
             }
             else if (splited.Length == 2) {
                 foreach (Oprema o in pomocnaOprema)
@@ -67,54 +63,50 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     {
                         opreme.Add(o);
                     }
-
                     if (!o.Naziv.ToLower().Contains(splited[0].ToLower()) || !o.NazivSale.ToLower().Contains(splited[1].ToLower()))
                     {
                         opreme.Remove(o);
                     }
                 }
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
             }
         }
 
 
         private void Staticka_Checked(object sender, RoutedEventArgs e)
         {
-            prikaziStatickuOpremu();
+            PrikaziStatickuOpremu();
         }
 
         private void Dinamicka_Checked(object sender, RoutedEventArgs e)
         {
-            prikaziDinamickuOpremu();
+            PrikaziDinamickuOpremu();
         }
 
         private void Obe_Checked(object sender, RoutedEventArgs e)
         {
-            resetovanjeTabele();
-
-            proveraKolicineOpreme();
+            ResetovanjeTabele();
+            ProveraKolicineOpreme();
         }
-
-
         private void Do5_Checked(object sender, RoutedEventArgs e)
         {
-            prikaziOpremuKolicineDo5();
+            PrikaziOpremuKolicineDo5();
         }
 
         private void Do10_Checked(object sender, RoutedEventArgs e)
         {
-            prikaziOpremuKolicineDo10();
+            PrikaziOpremuKolicineDo10();
         }
 
         private void Preko10_Checked(object sender, RoutedEventArgs e)
         {
-            prikaziOpremuKolicinePreko10();
+            PrikaziOpremuKolicinePreko10();
         }
-
         private void Sve_Checked(object sender, RoutedEventArgs e)
         {
-            resetovanjeTabele();
-
-            proveraTipaOpreme();
+            ResetovanjeTabele();
+            ProveraTipaOpreme();
         }
 
 
@@ -122,14 +114,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             string nazivIzabraneSale;
             nazivIzabraneSale = ComboSala.SelectedItem.ToString();
-
-            resetovanjeTabele();
-
-
+            ResetovanjeTabele();
             if (nazivIzabraneSale.Equals("Sve")) {
-                resetovanjeTabele();
-                proveraTipaOpreme();
-                proveraKolicineOpreme();
+                ResetovanjeTabele();
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
             } else{
                 foreach (Oprema o in ukupnaOprema)
                 {
@@ -137,16 +126,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     {
                         opreme.Remove(o);
                     }
-
                 }
-                proveraTipaOpreme();
-                proveraKolicineOpreme();
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
             }
         }
 
 
 
-        private void resetovanjeTabele()
+        private void ResetovanjeTabele()
         {
             foreach (Oprema o in pomocnaOprema)
             {
@@ -157,7 +145,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void prikaziStatickuOpremu()
+        private void PrikaziStatickuOpremu()
         {        
             foreach (Oprema o in ukupnaOprema)
             {
@@ -168,7 +156,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void prikaziDinamickuOpremu()
+        private void PrikaziDinamickuOpremu()
         {
             foreach (Oprema o in ukupnaOprema)
             {
@@ -179,7 +167,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void prikaziOpremuKolicineDo5() 
+        private void PrikaziOpremuKolicineDo5() 
         {
             foreach (Oprema o in pomocnaOprema)
             {
@@ -191,7 +179,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         }
 
 
-        private void prikaziOpremuKolicineDo10()
+        private void PrikaziOpremuKolicineDo10()
         {
             foreach (Oprema o in pomocnaOprema)
             {
@@ -202,8 +190,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-
-        private void prikaziOpremuKolicinePreko10()
+        private void PrikaziOpremuKolicinePreko10()
         {
             foreach (Oprema o in pomocnaOprema)
             {
@@ -214,40 +201,38 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void proveraTipaOpreme() 
+        private void ProveraTipaOpreme() 
         {
             if (Staticka.IsChecked == true)
             {
-                prikaziStatickuOpremu();
+                PrikaziStatickuOpremu();
             }
 
             if (Dinamicka.IsChecked == true)
             {
-                prikaziDinamickuOpremu();
+                PrikaziDinamickuOpremu();
             }
         }
 
-        private void proveraKolicineOpreme()
+        private void ProveraKolicineOpreme()
         {
             if (Do5.IsChecked == true)
             {
-                prikaziOpremuKolicineDo5();
+                PrikaziOpremuKolicineDo5();
             }
 
             if (Do10.IsChecked == true)
             {
-                prikaziOpremuKolicineDo10();
+                PrikaziOpremuKolicineDo10();
             }
 
             if (Preko10.IsChecked == true)
             {
-                prikaziOpremuKolicinePreko10();
+                PrikaziOpremuKolicinePreko10();
             }
         }
 
-
-
-        private void inicijalizacijaComboBoxaSala() 
+        private void InicijalizacijaComboBoxaSala() 
         {
             Sala sve = new Sala();
             sve.Naziv = "Sve";
@@ -255,21 +240,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             List<Sala> pomocnaLista = new List<Sala>(sale);
             comboSale.Add(sve);
             comboSale.AddRange(pomocnaLista);
-
             ComboSala.ItemsSource = comboSale;
         }
 
-        private void inicijalizacijaTabele() 
+        private void InicijalizacijaTabele() 
         {
             foreach (Sala s in sale)
             {
-                ukupnaOprema.AddRange(saleRep.PregledSvihOpremaPoSali(s));
+                ukupnaOprema.AddRange(saleRepository.PregledSvihOpremaPoSali(s));
             }
-
             opreme = new ObservableCollection<Model.Oprema>(ukupnaOprema);
             pomocnaOprema = new ObservableCollection<Model.Oprema>(ukupnaOprema);
             dataGridOprema.ItemsSource = opreme;
-
         }
     }
 }

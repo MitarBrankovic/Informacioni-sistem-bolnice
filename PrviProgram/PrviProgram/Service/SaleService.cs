@@ -9,7 +9,7 @@ namespace Service
     public class SaleService
     {
         private static SaleService instance = null;
-        public static SaleService getInstance()
+        public static SaleService GetInstance()
         {
             if (instance == null)
             {
@@ -75,7 +75,7 @@ namespace Service
 
             TerminRenoviranjaSale termin = new TerminRenoviranjaSale();
 
-            if (proveraTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
+            if (ProveraTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
             {
                 termin.sala = sala;
                 termin.PocetakRenoviranja = pocetakRenoviranja;
@@ -88,7 +88,6 @@ namespace Service
                 if (t.sala.Sifra.Equals(sala.Sifra))
                 {
                     return false;
-                    break;
                 }
             }
             terminiRenoviranja.Add(termin);
@@ -97,7 +96,7 @@ namespace Service
 
         }
 
-        public bool proveraTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja) {
+        public bool ProveraTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja) {
             TerminiRepository datoteka = new TerminiRepository();
             List<Termin> termini = datoteka.CitanjeIzFajla();
 

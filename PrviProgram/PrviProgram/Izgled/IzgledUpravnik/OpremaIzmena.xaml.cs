@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -15,40 +16,21 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for OpremaIzmena.xaml
-    /// </summary>
     public partial class OpremaIzmena : Window
     {
-        private OpremaService upr;
-        private ObservableCollection<Model.Oprema> opreme;
-        private Sala sala;
-        private Oprema oprema;
+        private UpravnikController upravnikController = new UpravnikController();
+        private ObservableCollection<Oprema> svaOpremaIzTabele;
+        private Sala trenutnaSala;
+        private Oprema trenutnaOprema;
+        private Oprema izmenjenaOprema = new Oprema();
 
-        public OpremaIzmena(ObservableCollection<Model.Oprema> opreme, Oprema oprema, Sala sala)
+        public OpremaIzmena(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala)
         {
             InitializeComponent();
-
-            upr = new OpremaService();
-            this.opreme = opreme;
-            this.oprema = oprema;
-            this.sala = sala;
-
-            Naziv.Text = oprema.Naziv;
-            Kolicina.Text = oprema.Kolicina.ToString();
-            Sala.Text = sala.Naziv;
-
-            String tip = oprema.Tip.ToString();
-
-            if (tip.Equals("Staticka"))
-            {
-                Tip.SelectedIndex = 0;
-            }
-            else if (tip.Equals("Dinamicka"))
-            {
-                Tip.SelectedIndex = 1;
-            }
-
+            this.svaOpremaIzTabele = opreme;
+            this.trenutnaOprema = oprema;
+            this.trenutnaSala = sala;
+            PrikazPodatakaOpreme();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -62,45 +44,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (isNumber(Kolicina.Text) == false)
+            else if (IsNumber(Kolicina.Text) == false)
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
             else
             {
-                Oprema novaOprema = new Oprema();
-
-                novaOprema.Naziv = Naziv.Text;
-                novaOprema.Kolicina = int.Parse(Kolicina.Text);
-                
-                String tip = Tip.Text;
-                if (tip.Equals("Staticka"))
-                {
-                    novaOprema.Tip = TipOpreme.Staticka;
-                }
-                else if (tip.Equals("Dinamicka"))
-                {
-                    novaOprema.Tip = TipOpreme.Dinamicka;
-                }
-                novaOprema.NazivSale = sala.Naziv;
-
-                if (upr.IzmenaOpreme(this.oprema, novaOprema, sala) == true)
-                {
-                    this.opreme.Remove(this.oprema);
-                    this.opreme.Add(novaOprema);
-
-                    foreach (Oprema o in sala.oprema.ToArray())
-                    {
-                        if (o.Naziv.Equals(this.oprema.Naziv))
-                        {
-                            sala.GetOprema().Remove(o);
-                        }
-                    }
-                    sala.oprema.Add(novaOprema);
-                }
-
+                IzmenaPodatakaOpreme();
+                IzvrsavanjeIzmeneOpreme();
                 this.Close();
-
             }
         }
 
@@ -109,8 +61,61 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             this.Close();
         }
 
+        private void PrikazPodatakaOpreme() 
+        {
+            Naziv.Text = trenutnaOprema.Naziv;
+            Kolicina.Text = trenutnaOprema.Kolicina.ToString();
+            Sala.Text = trenutnaSala.Naziv;
+            String tip = trenutnaOprema.Tip.ToString();
+            if (tip.Equals("Staticka"))
+            {
+                Tip.SelectedIndex = 0;
+            }
+            else if (tip.Equals("Dinamicka"))
+            {
+                Tip.SelectedIndex = 1;
+            }
+        }
 
-        public bool isNumber(String st)
+        private void IzmenaPodatakaOpreme() 
+        {
+            izmenjenaOprema.Naziv = Naziv.Text;
+            izmenjenaOprema.Kolicina = int.Parse(Kolicina.Text);
+            String tip = Tip.Text;
+            if (tip.Equals("Staticka"))
+            {
+                izmenjenaOprema.Tip = TipOpreme.Staticka;
+            }
+            else if (tip.Equals("Dinamicka"))
+            {
+                izmenjenaOprema.Tip = TipOpreme.Dinamicka;
+            }
+            izmenjenaOprema.NazivSale = trenutnaSala.Naziv;
+        }
+
+        private void OsvezavanjeTabele()
+        {
+            this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
+            this.svaOpremaIzTabele.Add(izmenjenaOprema);
+            foreach (Oprema o in trenutnaSala.oprema.ToArray())
+            {
+                if (o.Naziv.Equals(this.trenutnaOprema.Naziv))
+                {
+                    trenutnaSala.GetOprema().Remove(o);
+                }
+            }
+            trenutnaSala.oprema.Add(izmenjenaOprema);
+        }
+
+        private void IzvrsavanjeIzmeneOpreme() 
+        {
+            if (upravnikController.IzmenaOpreme(this.trenutnaOprema, izmenjenaOprema, trenutnaSala) == true)
+            {
+                OsvezavanjeTabele();
+            }
+        }
+
+        public bool IsNumber(String st)
         {
             try
             {
@@ -122,6 +127,5 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 return false;
             }
         }
-
     }
 }

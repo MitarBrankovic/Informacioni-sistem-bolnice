@@ -22,21 +22,20 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             InitializeComponent();
             this.lek = lek;
-            prikazPodataka();
+            PrikazPodataka();
         }
 
-        private void prikazPodataka()
+        private void Odustani_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void PrikazPodataka()
         {
             Naziv.Text = this.lek.Naziv;
             Sifra.Text = this.lek.Sifra;
             Opis.Text = this.lek.Opis;
             Sastojci.Text = this.lek.Sastojci;
             alternativniListView.ItemsSource = this.lek.ZamenaZaLek;
-        }
-
-        private void Odustani_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

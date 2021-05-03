@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using Service;
 using System;
@@ -20,33 +21,20 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
     public partial class OpremaWindow : Window
     {
-        public SaleService upravljanje;
-        public SalaRepository saleRep;
-        public ObservableCollection<Model.Oprema> opreme;
-        public Sala sala;
-        OpremaService opremaService;
-        public ObservableCollection<Model.Sala> sale;
+        private UpravnikController upravnikController = new UpravnikController();
+        private SalaRepository saleRepository = new SalaRepository();
+        private ObservableCollection<Oprema> svaOpremaIzTabele;
+        private Sala trenutnaSala;
+        private ObservableCollection<Sala> sveSale;
         public DispatcherTimer timer;
 
-        public OpremaWindow(ObservableCollection<Model.Sala> sale, Model.Sala sala)
+        public OpremaWindow(ObservableCollection<Sala> sale, Sala sala)
         {
             InitializeComponent();
-
-            saleRep = new SalaRepository();
-
-            this.sale = sale;
-            this.sala = sala;
-
-
-            upravljanje = new SaleService();
-            opremaService = new OpremaService();
-            opreme = new ObservableCollection<Model.Oprema>(saleRep.PregledSvihOpremaPoSali(sala));
-
-         
-
-            dataGridOprema.ItemsSource = opreme;
-
-
+            this.sveSale = sale;
+            this.trenutnaSala = sala;
+            svaOpremaIzTabele = new ObservableCollection<Oprema>(saleRepository.PregledSvihOpremaPoSali(sala));
+            dataGridOprema.ItemsSource = svaOpremaIzTabele;
             labela.Content = sala.Naziv;
         }
 
@@ -55,36 +43,32 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridOprema.SelectedIndex != -1)
             {
-                Oprema op = (Oprema)dataGridOprema.SelectedItem;
-                if (op.Tip == TipOpreme.Dinamicka)
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                if (selektovanaOprema.Tip == TipOpreme.Dinamicka)
                 {
-                    OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, op, sala, sale);
+                    OpremaDinPremestanje win = new OpremaDinPremestanje(svaOpremaIzTabele, selektovanaOprema, trenutnaSala, sveSale);
                     win.Show();
                 }
                 else {
-                    OpremaStatPremestanje win = new OpremaStatPremestanje(opreme, op, sala, sale);
+                    OpremaStatPremestanje win = new OpremaStatPremestanje(svaOpremaIzTabele, selektovanaOprema, trenutnaSala, sveSale);
                     win.Show();
                 }
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati opremu!");
-            }
-
+            else{ MessageBox.Show("Morate izabrati opremu!"); }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridOprema.SelectedIndex != -1)
             {
-                Oprema op = (Oprema)dataGridOprema.SelectedItem;
-                foreach (Oprema o in sala.oprema.ToArray()) {
-                    if (o.Naziv.Equals(op.Naziv)) {
-                        sala.GetOprema().Remove(o);
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                foreach (Oprema opremaBrojac in trenutnaSala.oprema.ToArray()) {
+                    if (opremaBrojac.Naziv.Equals(selektovanaOprema.Naziv)) {
+                        trenutnaSala.GetOprema().Remove(opremaBrojac);
                     }
                 }
-                opremaService.BrisanjeOpreme(op, sala);
-                opreme.Remove(op);
+                upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                svaOpremaIzTabele.Remove(selektovanaOprema);
             }
             else { MessageBox.Show("Morate izabrati opremu!"); }
         }
@@ -93,18 +77,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridOprema.SelectedIndex != -1)
             {
-                Oprema op = (Oprema)dataGridOprema.SelectedItem;
-                OpremaIzmena win = new OpremaIzmena(opreme, op, sala);
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                OpremaIzmena win = new OpremaIzmena(svaOpremaIzTabele, selektovanaOprema, trenutnaSala);
                 win.Show();
             }
             else { MessageBox.Show("Morate izabrati opremu!");
             }
-
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            OpremaDodavanje win = new OpremaDodavanje(opreme, sala);
+            OpremaDodavanje win = new OpremaDodavanje(svaOpremaIzTabele, trenutnaSala);
             win.Show();
         }
     }

@@ -90,6 +90,12 @@
         "Kolicina": 10,
         "Tip": 1,
         "NazivSale": "OP1"
+      },
+      {
+        "Naziv": "Zavoji",
+        "Kolicina": 2,
+        "Tip": 1,
+        "NazivSale": "OP1"
       }
     ],
     "Tip": 0,
@@ -103,7 +109,7 @@
     "oprema": [
       {
         "Naziv": "Flasteri",
-        "Kolicina": 6,
+        "Kolicina": 3,
         "Tip": 1,
         "NazivSale": "OP2"
       }
@@ -116,7 +122,20 @@
     "NazivSprat": "OP2 2"
   },
   {
-    "oprema": [],
+    "oprema": [
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 1,
+        "Tip": 1,
+        "NazivSale": "OP3"
+      },
+      {
+        "Naziv": "nekaStaticka",
+        "Kolicina": 4,
+        "Tip": 0,
+        "NazivSale": "OP3"
+      }
+    ],
     "Tip": 0,
     "Naziv": "OP3",
     "Sprat": 3,

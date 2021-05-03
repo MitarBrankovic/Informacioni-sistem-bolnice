@@ -48,29 +48,6 @@
       {
         "ZamenaZaLek": [
           {
-            "ZamenaZaLek": [],
-            "Sifra": "paracet",
-            "Naziv": "Paracetamol",
-            "Sastojci": "nesa",
-            "Opis": "nes"
-          }
-        ],
-        "Sifra": "bruh",
-        "Naziv": "Brufen",
-        "Sastojci": "nesto",
-        "Opis": "nesto"
-      }
-    ],
-    "Sifra": "paracet",
-    "Naziv": "Paracetamol",
-    "Sastojci": "nesa",
-    "Opis": "nes"
-  },
-  {
-    "ZamenaZaLek": [
-      {
-        "ZamenaZaLek": [
-          {
             "ZamenaZaLek": [
               {
                 "ZamenaZaLek": [],
@@ -96,5 +73,44 @@
     "Naziv": "Brufen",
     "Sastojci": "nesto",
     "Opis": "nesto"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [
+              {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [],
+                    "Sifra": "paracet",
+                    "Naziv": "Paracetamol",
+                    "Sastojci": "nesa",
+                    "Opis": "nes"
+                  }
+                ],
+                "Sifra": "bruh",
+                "Naziv": "Brufen",
+                "Sastojci": "nesto",
+                "Opis": "nesto"
+              }
+            ],
+            "Sifra": "paracet",
+            "Naziv": "Paracetamol",
+            "Sastojci": "nesa",
+            "Opis": "nes"
+          }
+        ],
+        "Sifra": "bruf",
+        "Naziv": "Brufen",
+        "Sastojci": "nesto",
+        "Opis": "nesto"
+      }
+    ],
+    "Sifra": "par",
+    "Naziv": "Paracetamol",
+    "Sastojci": "nesa",
+    "Opis": "nes"
   }
 ]

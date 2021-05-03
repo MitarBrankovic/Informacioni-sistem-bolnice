@@ -19,7 +19,7 @@
         <TextBox x:Name="TrenutnaSala" IsEnabled="False" HorizontalAlignment="Left" Margin="300,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <Label Content="Premestanje staticke" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" FontSize="24"/>
         <TextBox x:Name="NazivOpreme" IsEnabled="False" HorizontalAlignment="Left" Margin="300,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <DatePicker x:Name="TerminDatum" HorizontalAlignment="Left" Height="25" Margin="302,289,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="DatumText_SelectedDateChanged" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+        <DatePicker x:Name="TerminDatum" HorizontalAlignment="Left" Height="25" Margin="302,289,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
         <Label Content="Termin:" HorizontalAlignment="Left" Height="25" Margin="153,289,0,0" VerticalAlignment="Top" Width="122"/>
 
     </Grid>

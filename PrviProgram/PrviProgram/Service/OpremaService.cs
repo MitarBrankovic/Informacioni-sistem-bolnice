@@ -15,7 +15,7 @@ namespace Service
     public class OpremaService
     {
         private static OpremaService instance = null;
-        public static OpremaService getInstance()
+        public static OpremaService GetInstance()
         {
             if (instance == null)
             {
@@ -112,6 +112,7 @@ namespace Service
                             op.Naziv = o.Naziv;
                             op.Tip = o.Tip;
                             op.Kolicina = o.Kolicina - oprema.Kolicina;
+                            op.NazivSale = o.NazivSale;
                             if (op.Kolicina > 0)
                             {
                                 s.oprema.Add(op);
@@ -123,7 +124,6 @@ namespace Service
                             {
                                 return false;
                             }
-
                             datoteka.UpisivanjeUFajl(sale);
                             break;
                         }
@@ -143,7 +143,7 @@ namespace Service
                             op.Naziv = oprema.Naziv;
                             op.Tip = oprema.Tip;
                             op.Kolicina = o.Kolicina + oprema.Kolicina;
-
+                            op.NazivSale = o.NazivSale;
                             s.oprema.Add(op);
                             datoteka.UpisivanjeUFajl(sale);
                             return true;
@@ -158,22 +158,17 @@ namespace Service
         }
 
 
-        public bool dodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
+        public bool DodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
         {
-
             TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
             List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
-
-
             TerminPremestanjaOpreme termin = new TerminPremestanjaOpreme();
             termin.oprema = oprema;
             termin.sala = novaSala;
             termin.datumPremestaja = datumTermina;
             termin.staraSala = stara;
-
             termini.Add(termin);
             datoteka.UpisivanjeUFajl(termini);
-
             return true;
         }
 
