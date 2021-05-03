@@ -56,8 +56,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                FormiranjeOpremeZaPremestanje();
                 novaSala = (Sala)ComboSala.SelectedItem;
+                FormiranjeOpremeZaPremestanje();
                 FormiranjeStatickogPremestanja();
                 this.Close();
             }
@@ -131,10 +131,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 OsvezavanjeTabele();
                 opremaService.DodavanjeTermina(novaSala, this.trenutnaSala, opremaZaPremestanje, this.datumPremestaja);
             }
-            else
-            {
-                MessageBox.Show("Uneli ste pogresnu kolicinu!");
-            }
+            else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
         }
 
         public bool IsNumber(String st)

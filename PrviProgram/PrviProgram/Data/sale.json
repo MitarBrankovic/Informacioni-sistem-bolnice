@@ -128,12 +128,6 @@
         "Kolicina": 1,
         "Tip": 1,
         "NazivSale": "OP3"
-      },
-      {
-        "Naziv": "nekaStaticka",
-        "Kolicina": 4,
-        "Tip": 0,
-        "NazivSale": "OP3"
       }
     ],
     "Tip": 0,
