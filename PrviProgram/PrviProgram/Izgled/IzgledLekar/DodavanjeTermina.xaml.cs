@@ -42,8 +42,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         }
 
-        private bool datum = false;
-        private bool vreme = false;
+        private bool datum;
+        private bool vreme;
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {

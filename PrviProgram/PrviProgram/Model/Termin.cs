@@ -11,6 +11,12 @@ namespace Model
         public string Vreme { get; set; }
         public GuestPacijent guestPacijent { get; set; }
         public bool izvrsen { get; set; }
+
+        public override string ToString()
+        {
+            return  Datum.Day+"/"+Datum.Month+"/"+Datum.Year + " " + Vreme;
+        }
+
         public Lekar lekar
         {
             get; set;

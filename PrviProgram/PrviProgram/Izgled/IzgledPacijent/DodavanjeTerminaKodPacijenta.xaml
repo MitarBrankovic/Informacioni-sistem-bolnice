@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="PrviProgram.Izgled.IzgledPacijent.DodavanjeTerminaKodPacijenta"
         mc:Ignorable="d"
-        Title="Dodavanje Termina Kod Pacijenta" Height="294" Width="348">
+        Title="Dodavanje Termina Kod Pacijenta" Height="294" Width="348" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-1,1">
 
         <Label Content="Od datuma:"  HorizontalAlignment="Left" Height="25" Margin="19,20,0,0" VerticalAlignment="Top" Width="122"/>

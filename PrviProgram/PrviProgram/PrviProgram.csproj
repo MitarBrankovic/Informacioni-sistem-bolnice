@@ -7,20 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Slike\arrow-105-64.png" />
+    <None Remove="Slike\avatarPacijenta.jpg" />
     <None Remove="Slike\hospital-2.jpg" />
+    <None Remove="Slike\logout-64.png" />
     <None Remove="Slike\Pacijent.jpg" />
+    <None Remove="Slike\pozadinaPacijent.jpg" />
     <None Remove="Slike\upravnik.jpg" />
+    <None Remove="Slike\znakBolnice.png" />
     <None Remove="upravnik.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Slike\arrow-105-64.png" />
+    <Resource Include="Slike\avatarPacijenta.jpg" />
     <Resource Include="Slike\hospital-2.jpg" />
+    <Resource Include="Slike\logout-64.png" />
     <Resource Include="Slike\Pacijent.jpg" />
+    <Resource Include="Slike\pozadinaPacijent.jpg" />
     <Resource Include="Slike\upravnik.jpg" />
+    <Resource Include="Slike\znakBolnice.png" />
   </ItemGroup>
 
 </Project>

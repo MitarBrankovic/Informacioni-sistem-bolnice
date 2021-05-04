@@ -8,11 +8,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
-    public partial class PregledTermina : Window
+    public partial class PregledTermina : Page
     {
         public DateTime trenutniDatum { get; set; }
         public DateTime datumTermina { get; set; }
@@ -83,7 +84,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     }
                 }
             }
-            //timer1.Stop();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -165,12 +165,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 }
             }
 
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            kreiranjeNotifikacije kr = new kreiranjeNotifikacije(this.pacijent);
-            kr.Show();
         }
     }
 
