@@ -25,11 +25,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
         private Lek izmenjenLek = new Lek();
         private UpravnikController upravnikController = new UpravnikController();
-
+        private bool izmenaClick = false;
 
         public InformacijeLek(ObservableCollection<Lek> lekovi, Lek lek)
         {
             InitializeComponent();
+            ProveraIzmene();
             izmenjenLek.ZamenaZaLek = new List<Lek>();
             this.lekovi = lekovi;
             this.lek = lek;
@@ -142,6 +143,40 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 this.lekovi.Remove(lek);
                 this.lekovi.Add(izmenjenLek);
+            }
+        }
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
+        {
+            if(izmenaClick == false)
+            {
+                izmenaClick = true;
+                ProveraIzmene();
+            }
+            else
+            {
+                izmenaClick = false;
+                ProveraIzmene();
+            }
+        }
+
+        private void ProveraIzmene()
+        {
+            if(izmenaClick == false)
+            {
+                Naziv.IsEnabled = false;
+                Sifra.IsEnabled = false;
+                Sastojci.IsEnabled = false;
+                Opis.IsEnabled = false;
+                ComboAlternativni.IsEnabled = false;
+            }
+            else
+            {
+                Naziv.IsEnabled = true;
+                Sifra.IsEnabled = true;
+                Sastojci.IsEnabled = true;
+                Opis.IsEnabled = true;
+                ComboAlternativni.IsEnabled = true;
             }
         }
     }

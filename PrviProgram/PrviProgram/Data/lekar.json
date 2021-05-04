@@ -1,7 +1,11 @@
 [
   {
     "termin": null,
-    "specijalizacija": [],
+    "specijalizacija": [
+      {
+        "Naziv": "Hirurgija"
+      }
+    ],
     "MestoRodjenja": null,
     "Korisnik": {
       "KorisnickoIme": "srdjan",

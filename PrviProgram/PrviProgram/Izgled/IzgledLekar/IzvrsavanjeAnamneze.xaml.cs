@@ -40,7 +40,12 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 InicijalizacijaIzvrsenogTermina();
             }
+            PopuniTextboxPacijenta();
+            
+        }
 
+        private void PopuniTextboxPacijenta()
+        {
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
             if (izvrseniPregled != null && izvrseniPregled.anamneza != null)
                 TextboxAnamneza.Text = izvrseniPregled.anamneza.Opis;
@@ -55,17 +60,21 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private void ZavrsiAnamnezu_Click(object sender, RoutedEventArgs e)
         {
+            KreiranjeAnamneze();
             if (!proveraIzvrsenostiTermina())
             {       
                 termin.izvrsen = true;
                 terminiService.IzmenaTermina(termin);
             }
-            Anamneza anamneza = new Anamneza();
-            anamneza.Opis = TextboxAnamneza.Text;
-            izvrseniPregled.anamneza = anamneza;
             AzuriranjePrikazaTermina(termini, izvrseniPregled);
             KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
             this.Close();
+        }
+        private void KreiranjeAnamneze()
+        {
+            Anamneza anamneza = new Anamneza();
+            anamneza.Opis = TextboxAnamneza.Text;
+            izvrseniPregled.anamneza = anamneza;
         }
         private bool proveraIzvrsenostiTermina()
         {
@@ -110,6 +119,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             ZdravstveniKarton karton = new ZdravstveniKarton(pacijent, termini);
             karton.Show();
+        }
+
+        private void Uput_Click(object sender, RoutedEventArgs e)
+        {
+            UputWindow uputWindow = new UputWindow(pacijent, termin.lekar);
+            uputWindow.Show();
         }
     }
 }

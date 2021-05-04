@@ -1,47 +1,10 @@
 [
   {
     "ZamenaZaLek": [],
-    "Sifra": "asp",
-    "Naziv": "Aspirin",
-    "Sastojci": "a",
-    "Opis": "a"
-  },
-  {
-    "ZamenaZaLek": [],
     "Sifra": "bio",
     "Naziv": "Bio Oil",
     "Sastojci": "a",
     "Opis": "a"
-  },
-  {
-    "ZamenaZaLek": [],
-    "Sifra": "B",
-    "Naziv": "B",
-    "Sastojci": "b",
-    "Opis": "b"
-  },
-  {
-    "ZamenaZaLek": [
-      {
-        "ZamenaZaLek": [
-          {
-            "ZamenaZaLek": [],
-            "Sifra": "A",
-            "Naziv": "A",
-            "Sastojci": "a",
-            "Opis": "a"
-          }
-        ],
-        "Sifra": "B",
-        "Naziv": "B",
-        "Sastojci": "b",
-        "Opis": "b"
-      }
-    ],
-    "Sifra": "C",
-    "Naziv": "C",
-    "Sastojci": "C",
-    "Opis": "C"
   },
   {
     "ZamenaZaLek": [
@@ -112,5 +75,26 @@
     "Naziv": "Paracetamol",
     "Sastojci": "nesa",
     "Opis": "nes"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "andol",
+    "Naziv": "Andol",
+    "Sastojci": "asdad",
+    "Opis": "sadasas"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "cardiop23",
+    "Naziv": "Cardiopirin",
+    "Sastojci": "swwwww",
+    "Opis": "aakskkkkkkskk"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "asp",
+    "Naziv": "Aspirin",
+    "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
+    "Opis": "a"
   }
 ]
