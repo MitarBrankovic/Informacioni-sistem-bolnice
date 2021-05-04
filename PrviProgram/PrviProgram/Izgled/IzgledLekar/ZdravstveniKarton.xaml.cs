@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
         public ObservableCollection<Termin> termini;
         public PacijentRepository pacijentRepository = new PacijentRepository();
+        private TerminiRepository terminiRepository = new TerminiRepository();
         private Pacijent pacijent;
         public ZdravstveniKarton(Pacijent pacijent, ObservableCollection<Termin> termini)
         {
@@ -44,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             if (dataGridKarton.SelectedIndex != -1)
             {
                 IzvrseniPregled izvrseniPregled = (IzvrseniPregled)dataGridKarton.SelectedItem;
-                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent, termini);
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent, termini, terminiRepository.PregledTermina(izvrseniPregled.Sifra));
                 anamneza.Show();
             }
             else

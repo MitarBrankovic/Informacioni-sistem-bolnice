@@ -13,6 +13,7 @@
           "TipTermina": 1,
           "Lekar": {
             "termin": null,
+            "specijalizacija": null,
             "MestoRodjenja": null,
             "Korisnik": {
               "KorisnickoIme": "srdjan",
@@ -34,6 +35,43 @@
           },
           "recept": null,
           "terapija": null
+        },
+        {
+          "Sifra": "paB",
+          "Datum": "2021-04-29T00:00:00",
+          "TipTermina": 2,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": null,
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bol u ledjima i nozi"
+          },
+          "recept": {
+            "Lekovi": "Brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "Vezbe za donja ledja",
+            "Datum": "0001-01-01T00:00:00"
+          }
         }
       ],
       "Sifra": null,
