@@ -123,7 +123,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Uput_Click(object sender, RoutedEventArgs e)
         {
-            UputWindow uputWindow = new UputWindow(pacijent);
+            UputWindow uputWindow = new UputWindow(pacijent, termin.lekar);
             uputWindow.Show();
         }
     }

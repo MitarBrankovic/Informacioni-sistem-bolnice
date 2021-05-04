@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Repository;
 using Service;
 using System;
@@ -23,15 +24,18 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
+        private TerminiRepository terminiRepository = new TerminiRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
         private List<string> constVreme = new List<string>() { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
         private ObservableCollection<string> vreme = new ObservableCollection<string> { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
         private ObservableCollection<TipTermina> tipTermina = new ObservableCollection<TipTermina> { TipTermina.Pregled, TipTermina.Operacija, TipTermina.Kontrola };
         private Pacijent pacijent;
-        public UputWindow(Pacijent pacijent)
+        private Lekar lekar;
+        public UputWindow(Pacijent pacijent, Lekar lekar)
         {
             InitializeComponent();
             this.pacijent = pacijent;
+            this.lekar = lekar;
             comboBoxSpecijalizacija.ItemsSource = specijalizacijeRepository.PregledSvihSpecijalizacija();
             SelektovanaSpecijalizacija();
             //comboBoxLekari.ItemsSource = PronadjiLekareOdredjeneSpecijalizacije();
@@ -68,7 +72,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             List<Lekar> lekari = lekarRepository.PregledSvihLekara();
             foreach (Lekar lekar in lekari.ToArray())
             {
-                if (ProveriSpecijalizacijuLekara(lekar) == false)
+                if (ProveriSpecijalizacijuLekara(lekar) == false || lekar.Jmbg == this.lekar.Jmbg)
                 {
                     lekari.Remove(lekar);
                 }
@@ -93,7 +97,28 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = PreuzmiTerminIzForme();
+            if(terminiService.ProvaraZauzatostiTermina(termin) == false)
+            {
+                terminiService.DodavanjeTermina(termin);
+                this.Close();
+            }
+            else
+            {
+                BrisanjeZauzetogTermina(termin);
+                terminiService.DodavanjeTermina(termin);
+                this.Close();
+            }
 
+        }
+        private void BrisanjeZauzetogTermina(Termin termin)
+        {
+            foreach(Termin t in terminiRepository.PregledSvihTermina())
+            {
+                if(t.lekar.Jmbg == termin.lekar.Jmbg && t.Datum == termin.Datum && t.Vreme == termin.Vreme)
+                {
+                    terminiService.BrisanjeTermina(t);
+                }
+            }
         }
         private Termin PreuzmiTerminIzForme()
         {
