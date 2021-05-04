@@ -48,8 +48,8 @@ namespace PrviProgram
                         Pacijent pacijent = pacijentRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
                         if (pacijent != null)
                         {
-                            PregledTermina win = new PregledTermina(pacijent);
-                            win.Show();
+                            Glavni_prozor_pacijenta glavniProzor = new Glavni_prozor_pacijenta(pacijent);
+                            glavniProzor.Show();
                         }
                         break;
                     }

@@ -11,8 +11,10 @@ namespace Service
     {
         public List<Termin> terminiSlobodni = new List<Termin>();
         string[] nizVremena = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
-
+        private List<Termin> termini = new List<Termin>();
+        public List<Termin> izvrseniTermini = new List<Termin>();
         private static TerminiService instance = null;
+        public Lekar lekar = new Lekar();
         public static TerminiService getInstance()
         {
             if (instance == null)
@@ -126,8 +128,6 @@ namespace Service
                     }
                 }
             }
-
-
             return popunjeniNiz;
         }
 
@@ -142,6 +142,12 @@ namespace Service
             SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = datoteka.CitanjeIzFajla();
             return sale;
+        }
+        public List<AnketiranjePacijenta> citanjeAnketa()
+        {
+            AnketiranjePacijentaRepository datoteka = new AnketiranjePacijentaRepository();
+            List<AnketiranjePacijenta> ankete = datoteka.CitanjeIzFajla();
+            return ankete;
         }
         public List<Lekar> citanjeLekara()
         {
@@ -282,21 +288,75 @@ namespace Service
         public List<Termin> proveraLekaraKodVremena(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
         {
             List<Lekar> lekari = citanjeLekara();
-            List<Termin> termini = new List<Termin>();
-            foreach(Lekar l in lekari)
+            foreach(Lekar lekar in lekari)
             {
-                if (!l.Jmbg.Equals(selektovaniLekar.Jmbg))
+                if (!lekar.Jmbg.Equals(selektovaniLekar.Jmbg))
                 {
-
-                    if (proveraZauzetostiKodLekara(min, max, l))
+                    if (proveraZauzetostiKodLekara(min, max, lekar))
                     {
-                        termini = sviSlobodniTermini(min, max, l, tipTermina);
+                        termini = sviSlobodniTermini(min, max, lekar, tipTermina);
                     }
                 }
             }
             return this.terminiSlobodni;
+        }
 
 
+        public bool daLiPostojiBarJedanIzvrsenTermin(Pacijent pacijent)
+        {
+            List<Termin> termini = citanjeTermina();
+            foreach(Termin termin in termini)
+            {
+                if(termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.izvrsen==true && daLiJePregledVecAnketiran(termin))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<Termin> sviTerminiKojiSuIzvrseni(Pacijent pacijent)
+        {
+            List<Termin> termini = citanjeTermina();
+            List<Termin> izvrseniTermini = new List<Termin>();
+            
+            foreach (Termin termin in termini)
+            {
+                if (termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.izvrsen == true && daLiJePregledVecAnketiran(termin))
+                {
+                   izvrseniTermini.Add(termin);
+                }
+            }
+            return izvrseniTermini;
+        }
+
+        public bool daLiJePregledVecAnketiran(Termin termin)
+        {
+            List<AnketiranjePacijenta> ankete = citanjeAnketa();
+            foreach(AnketiranjePacijenta anketa in ankete)
+            {
+                if(termin.SifraTermina.Equals(anketa.termin.SifraTermina))
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        public Lekar lekarKojiJeZaduzenZaTermin(Termin selektovanitermin)
+        {
+            Lekar lekar = new Lekar();
+            List<Termin> termini = citanjeTermina();
+            foreach(Termin termin in termini)
+            {
+                if(termin.SifraTermina.Equals(selektovanitermin.SifraTermina))
+                {
+                    lekar = termin.lekar;
+                    return lekar;
+                }
+            }
+            return null;
         }
 
 

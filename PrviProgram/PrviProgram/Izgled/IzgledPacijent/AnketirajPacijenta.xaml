@@ -1,0 +1,68 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledPacijent.AnketirajPacijenta"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
+      mc:Ignorable="d" 
+      d:DesignHeight="560" d:DesignWidth="1000"
+      Title="Anketiranje Pacijenta">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Slike/pozadinaPacijent.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid Margin="28,70,28,20" Background="White">
+           
+            <Label Content="Pregled koji želite da anketirate:" HorizontalAlignment="Left" Height="35" Margin="20,30,0,0" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <ComboBox x:Name="terminComboBox"   HorizontalAlignment="Left" Margin="315,38,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="terminComboBox_SelectionChanged" >
+
+            </ComboBox>
+            <Label Content="Lekar:" HorizontalAlignment="Left" Height="35" Margin="20,85,0,0" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <TextBox x:Name="LekarTextBlock" HorizontalAlignment="Left" Height="25" Margin="315,85,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+            <Label Content="Ocenite lekara:" HorizontalAlignment="Left" Height="35" Margin="20,140,0,0" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <ComboBox x:Name="ocenaLekaraComboBox" HorizontalAlignment="Left" Margin="315,148,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="ocenaLekaraComboBox_SelectionChanged" >
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Primedbe na lekara:" HorizontalAlignment="Left" Height="35" Margin="20,200,0,0" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <TextBox x:Name="primedbaNaLekaraComboBox" HorizontalAlignment="Left" Height="110" Margin="315,200,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="185" TextChanged="primedbaNaLekaraComboBox_TextChanged"/>
+            <Label Content="Primedbe na pregled:" HorizontalAlignment="Left" Height="35" Margin="15,320,0,0" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <TextBox x:Name="primedbaNaPregledComboBox" HorizontalAlignment="Left" Height="110" Margin="310,330,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="190" TextChanged="primedbaNaPregledComboBox_TextChanged"/>
+            <Label Content="Da li se lekar prema &#xa;vama ljubazno ponašao?" HorizontalAlignment="Left" Height="70" Margin="518,30,0,0" VerticalAlignment="Top" Width="212" FontSize="16" Cursor="Hand"/>
+            <ComboBox x:Name="ljubaznostLekaraComboBox" Margin="735,40,29,0" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionChanged="ljubaznostLekaraComboBox_SelectionChanged" >
+                <ComboBoxItem Content="Da, apsolutno"/>
+                <ComboBoxItem Content="Da, ali moglo je bolje"/>
+                <ComboBoxItem Content="Ne"/>
+            </ComboBox>
+            <Label Content="Da li je lekar znao važne &#xA;informacije o vašoj &#xA;istoriji bolesti?" HorizontalAlignment="Left" Height="80" Margin="518,125,0,0" VerticalAlignment="Top" Width="212" FontSize="16" Cursor="Hand"/>
+            <Label Content="Da li vam je lekar na lak &#xA;i razumljiv način objasnio&#xA; kako da se lečite?" HorizontalAlignment="Left" Height="80" Margin="520,230,0,0" VerticalAlignment="Top" Width="212" FontSize="16" Cursor="Hand"/>
+            <ComboBox x:Name="informacijeOBolestiPacijentaComboBox" Margin="735,155,29,0" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionChanged="informacijeOBolestiPacijentaComboBox_SelectionChanged" >
+                <ComboBoxItem Content="Da, apsolutno"/>
+                <ComboBoxItem Content="Da, ali moglo je bolje"/>
+                <ComboBoxItem Content="Ne"/>
+            </ComboBox>
+            <ComboBox x:Name="objasnjenjeNacinaLecenjaComboBox" Margin="735,255,29,0" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionChanged="objasnjenjeNacinaLecenjaComboBox_SelectionChanged" >
+                <ComboBoxItem Content="Da, apsolutno"/>
+                <ComboBoxItem Content="Da, ali moglo je bolje"/>
+                <ComboBoxItem Content="Ne"/>
+            </ComboBox>
+            <Button x:Name="bolnicaAnketiranjeButton" Content="Anketiraj bolnicu" HorizontalAlignment="Left" Height="40" Margin="535,330,0,0" VerticalAlignment="Top" Width="150" Click="bolnicaAnketiranjeButton_Click"/>
+            <Button x:Name="potvrdiAnketiranjeButton" Content="Potvrdi" HorizontalAlignment="Left" Height="40" Margin="535,400,0,0" VerticalAlignment="Top" Width="150" Click="potvrdiAnketiranjeButton_Click"/>
+            <Button x:Name="otkaziAnketiranjeButton" Content="Otkaži" HorizontalAlignment="Left" Height="40" Margin="707,400,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="3" Click="otkaziAnketiranjeButton_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="1005" Background="White">
+            <Label Content="Anketiranje lekara i bolnice" HorizontalAlignment="Left" Margin="292,2,0,0" VerticalAlignment="Top" Width="460" FontSize="36" />
+        </Grid>
+
+
+    </Grid>
+</Page>

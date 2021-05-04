@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace PrviProgram.Izgled.IzgledPacijent
 {
 
-    public partial class kreiranjeNotifikacije : Window
+    public partial class kreiranjeNotifikacije : Page
     {
         public DateTime end;
         public DateTime start;
@@ -84,10 +84,10 @@ namespace PrviProgram.Izgled.IzgledPacijent
            this. notifikacija.PocetakDatuma = start;
            this.notifikacija.vremeObavestenja = comboBoxVreme.Text;
            this. notifikacija.opisNotifikacije="Morate popiti "+listaLekova.SelectedItem.ToString()+" za 1h.";
-     
             not.DodavanjeNotifikacije(notifikacija);
-            this.Close();
-
+            potvrdiButton.IsEnabled = false;
+            otkaziButton.IsEnabled = false;
+        
         }
 
         private void listaLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)

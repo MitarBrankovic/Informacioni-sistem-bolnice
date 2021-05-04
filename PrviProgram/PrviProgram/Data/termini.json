@@ -1,162 +1,21 @@
 [
   {
-    "Datum": "2021-04-29T00:00:00",
-    "TipTermina": 2,
-    "SifraTermina": "paB",
-    "sala": {
-      "oprema": [
-        {
-          "Naziv": "Zavoji",
-          "Kolicina": 5,
-          "Tip": 1,
-          "NazivSale": null
-        },
-        {
-          "Naziv": "Kreveti",
-          "Kolicina": 5,
-          "Tip": 0,
-          "NazivSale": null
-        }
-      ],
-      "Tip": 0,
-      "Naziv": "NTP 1",
-      "Sprat": 1,
-      "Dostupnost": true,
-      "Sifra": "ntp 1",
-      "NazivSprat": "NTP 1 1"
-    },
-    "Vreme": "19:00:00",
-    "guestPacijent": null,
-    "izvrsen": false,
-    "lekar": {
-      "termin": null,
-      "MestoRodjenja": null,
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": null,
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": null
-    },
-    "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
-        "alergen": null,
-        "anamneza": null,
-        "recept": null,
-        "terapija": null,
-        "izvrseniPregled": [
-          {
-            "Sifra": "Kt3MOveu",
-            "Datum": "2021-04-29T00:00:00",
-            "TipTermina": 1,
-            "Lekar": {
-              "termin": null,
-              "MestoRodjenja": null,
-              "Korisnik": {
-                "KorisnickoIme": "srdjan",
-                "Lozinka": "srdjan",
-                "TipKorisnika": 3,
-                "osoba": null
-              },
-              "AdresaStanovanja": null,
-              "Ime": "Srdjan",
-              "Prezime": "Beric",
-              "Email": null,
-              "Jmbg": "00012312",
-              "DatumRodjenja": "0001-01-01T00:00:00",
-              "Pol": 0,
-              "KontaktTelefon": null
-            },
-            "anamneza": {
-              "Opis": "anamneza12"
-            },
-            "recept": {
-              "Lekovi": "recept1",
-              "DatumIzdavanja": "0001-01-01T00:00:00",
-              "VremenskiPeriodUzimanjaLeka": 0,
-              "OpisLeka": null
-            },
-            "terapija": {
-              "Opis": "terapija1",
-              "Datum": "0001-01-01T00:00:00"
-            }
-          }
-        ],
-        "Sifra": null,
-        "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
-          "MestoRodjenja": null,
-          "Korisnik": null,
-          "AdresaStanovanja": null,
-          "Ime": null,
-          "Prezime": null,
-          "Email": null,
-          "Jmbg": "12313123",
-          "DatumRodjenja": "0001-01-01T00:00:00",
-          "Pol": 0,
-          "KontaktTelefon": null
-        }
-      },
-      "MestoRodjenja": {
-        "Ime": "Novi Sad",
-        "drzava": {
-          "Ime": "Srbija"
-        }
-      },
-      "Korisnik": {
-        "KorisnickoIme": "saska",
-        "Lozinka": "saska",
-        "TipKorisnika": 2,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": "aaaaa",
-        "Broj": 23,
-        "Sprat": 4,
-        "Stan": 44,
-        "grad": {
-          "Ime": "Novi Sad",
-          "drzava": {
-            "Ime": "Srbija"
-          }
-        }
-      },
-      "Ime": "Aleksandra",
-      "Prezime": "Mirkovic",
-      "Email": "aaa@gmail.com",
-      "Jmbg": "12313123",
-      "DatumRodjenja": "2021-04-17T00:00:00",
-      "Pol": 1,
-      "KontaktTelefon": "02130210"
-    }
-  },
-  {
-    "Datum": "2021-04-27T00:00:00",
+    "Datum": "2021-05-05T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "914",
+    "SifraTermina": "wti",
     "sala": {
       "oprema": [
         {
           "Naziv": "Zavoji",
           "Kolicina": 5,
           "Tip": 1,
-          "NazivSale": null
+          "NazivSale": "NTP 1"
         },
         {
           "Naziv": "Kreveti",
           "Kolicina": 5,
           "Tip": 0,
-          "NazivSale": null
+          "NazivSale": "NTP 1"
         }
       ],
       "Tip": 0,
@@ -166,7 +25,7 @@
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "09:30:00",
+    "Vreme": "12:30:00",
     "guestPacijent": null,
     "izvrsen": true,
     "lekar": {
@@ -196,8 +55,8 @@
         "terapija": null,
         "izvrseniPregled": [
           {
-            "Sifra": "Kt3MOveu",
-            "Datum": "2021-04-29T00:00:00",
+            "Sifra": "V2w3WXFF",
+            "Datum": "2021-05-12T00:00:00",
             "TipTermina": 1,
             "Lekar": {
               "termin": null,
@@ -218,16 +77,52 @@
               "KontaktTelefon": null
             },
             "anamneza": {
-              "Opis": "anamneza12"
+              "Opis": "Zali se na glavobolju i bol u ledjima"
             },
             "recept": {
-              "Lekovi": "recept1",
+              "Lekovi": "Brufen",
               "DatumIzdavanja": "0001-01-01T00:00:00",
               "VremenskiPeriodUzimanjaLeka": 0,
               "OpisLeka": null
             },
             "terapija": {
-              "Opis": "terapija1",
+              "Opis": "Morate popiti brufen u 17h svaki dan od 27.5 do 3.6",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "dMx",
+            "Datum": "2021-05-04T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Pacijent se zali na bolove u stomaku"
+            },
+            "recept": {
+              "Lekovi": "Buscopan",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Lek pijete svaki dan u 17h",
               "Datum": "0001-01-01T00:00:00"
             }
           }
@@ -242,7 +137,7 @@
           "Ime": null,
           "Prezime": null,
           "Email": null,
-          "Jmbg": "12313123",
+          "Jmbg": "1706999805047",
           "DatumRodjenja": "0001-01-01T00:00:00",
           "Pol": 0,
           "KontaktTelefon": null
@@ -261,10 +156,10 @@
         "osoba": null
       },
       "AdresaStanovanja": {
-        "Ulica": "aaaaa",
-        "Broj": 23,
-        "Sprat": 4,
-        "Stan": 44,
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
         "grad": {
           "Ime": "Novi Sad",
           "drzava": {
@@ -274,48 +169,42 @@
       },
       "Ime": "Aleksandra",
       "Prezime": "Mirkovic",
-      "Email": "aaa@gmail.com",
-      "Jmbg": "12313123",
-      "DatumRodjenja": "2021-04-17T00:00:00",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706999805047",
+      "DatumRodjenja": "1999-06-17T00:00:00",
       "Pol": 1,
-      "KontaktTelefon": "02130210"
+      "KontaktTelefon": "069652253"
     }
   },
   {
-    "Datum": "2021-04-14T00:00:00",
+    "Datum": "2021-05-03T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "cbl1ZUA3",
+    "SifraTermina": "S9S",
     "sala": {
       "oprema": [
         {
           "Naziv": "Zavoji",
-          "Kolicina": 2,
+          "Kolicina": 5,
           "Tip": 1,
-          "NazivSale": "NTP 2"
+          "NazivSale": "NTP 1"
         },
         {
           "Naziv": "Kreveti",
-          "Kolicina": 15,
-          "Tip": 0,
-          "NazivSale": "NTP 2"
-        },
-        {
-          "Naziv": "spricevi",
           "Kolicina": 5,
-          "Tip": 1,
-          "NazivSale": "NTP 2"
+          "Tip": 0,
+          "NazivSale": "NTP 1"
         }
       ],
-      "Tip": 4,
-      "Naziv": "NTP 2",
-      "Sprat": 2,
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
       "Dostupnost": true,
-      "Sifra": "ntp2",
-      "NazivSprat": "NTP 2 2"
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "10:00",
+    "Vreme": "11:00:00",
     "guestPacijent": null,
-    "izvrsen": false,
+    "izvrsen": true,
     "lekar": {
       "termin": null,
       "MestoRodjenja": null,
@@ -343,8 +232,8 @@
         "terapija": null,
         "izvrseniPregled": [
           {
-            "Sifra": "914",
-            "Datum": "2021-04-27T00:00:00",
+            "Sifra": "V2w3WXFF",
+            "Datum": "2021-05-12T00:00:00",
             "TipTermina": 1,
             "Lekar": {
               "termin": null,
@@ -365,10 +254,54 @@
               "KontaktTelefon": null
             },
             "anamneza": {
-              "Opis": "aaa"
+              "Opis": "Zali se na glavobolju i bol u ledjima"
             },
-            "recept": null,
-            "terapija": null
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Morate popiti brufen u 17h svaki dan od 27.5 do 3.6",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "dMx",
+            "Datum": "2021-05-04T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Pacijent se zali na bolove u stomaku"
+            },
+            "recept": {
+              "Lekovi": "Buscopan",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Lek pijete svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
           }
         ],
         "Sifra": null,
@@ -381,7 +314,7 @@
           "Ime": null,
           "Prezime": null,
           "Email": null,
-          "Jmbg": "12313123",
+          "Jmbg": "1706999805047",
           "DatumRodjenja": "0001-01-01T00:00:00",
           "Pol": 0,
           "KontaktTelefon": null
@@ -400,10 +333,10 @@
         "osoba": null
       },
       "AdresaStanovanja": {
-        "Ulica": "aaaaa",
-        "Broj": 23,
-        "Sprat": 4,
-        "Stan": 44,
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
         "grad": {
           "Ime": "Novi Sad",
           "drzava": {
@@ -413,11 +346,11 @@
       },
       "Ime": "Aleksandra",
       "Prezime": "Mirkovic",
-      "Email": "aaa@gmail.com",
-      "Jmbg": "12313123",
-      "DatumRodjenja": "2021-04-17T00:00:00",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706999805047",
+      "DatumRodjenja": "1999-06-17T00:00:00",
       "Pol": 1,
-      "KontaktTelefon": "02130210"
+      "KontaktTelefon": "069652253"
     }
   }
 ]
