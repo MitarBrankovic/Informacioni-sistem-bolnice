@@ -24,12 +24,12 @@
         </Grid>
         <Grid Height="80" Background="DarkSeaGreen">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                <Button Width="256" Content="Pregled termina" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_1"/>
-                <Button Width="256" Content="Notifikacije" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="Button_Click"/>
-                <Button Width="256" Content="Ankete" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="Button_Click_3"/>
+                <Button x:Name="pregledTerminaButton" Width="256" Content="Pregled termina" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_1"/>
+                <Button x:Name="notifikacijeButton" Width="256" Content="Notifikacije" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="Button_Click"/>
+                <Button x:Name="anketaButton" Width="256" Content="Ankete" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="Button_Click_3"/>
 
-                <Button Width="256" Content="Izmena profila"   Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold"/>
-                <Button Width="256" Content="Obaveštenja" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+                <Button x:Name="izmenProfilaButton" Width="256" Content="Izmena profila"   Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+                <Button x:Name="obavestenjaButton" Width="256" Content="Obaveštenja" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold"/>
 
             </StackPanel>
 

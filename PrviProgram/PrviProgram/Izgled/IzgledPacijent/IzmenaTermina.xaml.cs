@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Service;
 using Service;
 using Service.LekarService;
 using System;
@@ -97,6 +98,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
               //  PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
                 this.term.Add(this.noviTermin);
+                AntiTrollService.getInstance().PovecavanjeBrojacaPriIzmeniTermina(pacijent);
             }
             this.Close();
         }

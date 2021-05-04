@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Service;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 t.SifraTermina = finalString;
                 t.pacijent = pacijent;
                 TerminiService.getInstance().DodavanjeTermina(t);
+                AntiTrollService.getInstance().PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
                 this.termini1.Add(t);
                 this.Close();
                 // s.Show();
