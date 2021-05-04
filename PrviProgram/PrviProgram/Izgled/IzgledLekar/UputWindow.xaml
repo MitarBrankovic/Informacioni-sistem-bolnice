@@ -7,44 +7,20 @@
         mc:Ignorable="d"
         Title="UputWindow" Height="450" Width="400">
     <Grid>
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="200,89,0,0" x:Name="comboBoxSpecijalizacija" VerticalAlignment="Top" Width="162" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="200,89,0,0" x:Name="comboBoxSpecijalizacija" VerticalAlignment="Top" Width="162" SelectionChanged="comboBoxSpecijalizacija_SelectionChanged" />
         <Label Content="Specijalizacija Lekara"  HorizontalAlignment="Left" Height="25" Margin="49,88,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="49,147,0,0" VerticalAlignment="Top" Width="122"/>
-        <ComboBox x:Name="TipTerminaText" HorizontalAlignment="Left" Margin="200,144,0,0" VerticalAlignment="Top" Width="162" SelectedIndex="0" Height="28" />
-        <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="49,199,0,0" VerticalAlignment="Top" Width="122"/>
-        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="200,199,0,0" VerticalAlignment="Top" Width="162" />
-        <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="49,249,0,0" VerticalAlignment="Top" Width="122"/>
-        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="200,248,0,0" Height="26" >
-            <ComboBoxItem Content="08:00"/>
-            <ComboBoxItem Content="08:30"/>
-            <ComboBoxItem Content="09:00"/>
-            <ComboBoxItem Content="09:30"/>
-            <ComboBoxItem Content="10:00"/>
-            <ComboBoxItem Content="10:30"/>
-            <ComboBoxItem Content="11:00"/>
-            <ComboBoxItem Content="11:30"/>
-            <ComboBoxItem Content="12:00"/>
-            <ComboBoxItem Content="12:30"/>
-            <ComboBoxItem Content="13:00"/>
-            <ComboBoxItem Content="13:30"/>
-            <ComboBoxItem Content="14:00"/>
-            <ComboBoxItem Content="14:30"/>
-            <ComboBoxItem Content="15:00"/>
-            <ComboBoxItem Content="15:30"/>
-            <ComboBoxItem Content="16:00"/>
-            <ComboBoxItem Content="16:30"/>
-            <ComboBoxItem Content="17:00"/>
-            <ComboBoxItem Content="17:30"/>
-            <ComboBoxItem Content="18:00"/>
-            <ComboBoxItem Content="18:30"/>
-            <ComboBoxItem Content="19:00"/>
-            <ComboBoxItem Content="19:30"/>
-
-        </ComboBox>
+        <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="49,199,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="comboBoxTipTermina" HorizontalAlignment="Left" Margin="200,199,0,0" VerticalAlignment="Top" Width="162" SelectedIndex="0" Height="23" SelectionChanged="comboBoxTipTermina_SelectionChanged" />
+        <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="49,251,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Height="25" Margin="200,251,0,0" VerticalAlignment="Top" Width="162" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="49,301,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="200,300,0,0" Height="23" />
         <CheckBox Height="23" HorizontalAlignment="Left" Margin="198,43,0,0" x:Name="checkBoxHitanSlucaj" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="162" Checked="checkBoxHitanSlucaj_Checked" Unchecked="checkBoxHitanSlucaj_Unchecked"/>
         <Label Content="Hitan slucaj"  HorizontalAlignment="Left" Height="25" Margin="49,43,0,0" VerticalAlignment="Top" Width="122"/>
         <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="230,349,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
         <Button x:Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Height="27" Margin="59,349,0,0" VerticalAlignment="Top" Width="102" Click="Otkazi_Click"/>
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="200,142,0,0" x:Name="comboBoxLekari" VerticalAlignment="Top" Width="162" SelectionChanged="comboBoxLekari_SelectionChanged" />
+        <Label Content="Lekar"  HorizontalAlignment="Left" Height="25" Margin="49,142,0,0" VerticalAlignment="Top" Width="122"/>
 
     </Grid>
 </Window>
