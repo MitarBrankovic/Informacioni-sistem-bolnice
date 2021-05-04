@@ -70,7 +70,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         //anketa
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            if(!TerminiService.getInstance().daLiPostojiBarJedanIzvrsenTermin(pacijent))
+            if(!AnketaService.getInstance().DaLiPostojiBarJedanIzvrsenTermin(pacijent))
             {
                 MessageBox.Show("Ne možete da popunite anketu, jer nemate ni jedan izvršen pregled ili ste popunili sve ankete do sad");
             }

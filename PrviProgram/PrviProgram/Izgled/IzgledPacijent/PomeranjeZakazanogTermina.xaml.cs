@@ -104,7 +104,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             else
             {
                 string jmbg = this.l.Jmbg;
-                int[] noviNiz = (int[])TerminiService.getInstance().proveraZauzetostiLekara(jmbg, (DateTime)DatumText.SelectedDate, niz);
+                int[] noviNiz = (int[])TerminiService.getInstance().ProveraZauzetostiLekara(jmbg, (DateTime)DatumText.SelectedDate, niz);
                 brisanjeComboBoxova(noviNiz);
                 if (vremeText.Items.IsEmpty)
                 {

@@ -112,7 +112,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.guestPacijent = guestPacijent;
             }
-            termin.sala = terminiService.dobavljanjeSale(termin);
+            termin.sala = terminiService.DobavljanjeSale(termin);
             termin.SifraTermina = IzracunajSifruTermina();
             termin.TipTermina = (TipTermina)TipTerminaText.SelectedItem;
             return termin;

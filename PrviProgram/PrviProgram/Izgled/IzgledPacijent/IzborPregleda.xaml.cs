@@ -39,7 +39,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 Termin t = (Termin)dataGridIzborPregleda.SelectedItem;
                 Sala s = new Sala();
-                s = TerminiService.getInstance().dobavljanjeSale(t);
+                s = TerminiService.getInstance().DobavljanjeSale(t);
                 t.sala = s;
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                 var stringChars = new char[3];

@@ -6,7 +6,82 @@
       "anamneza": null,
       "recept": null,
       "terapija": null,
-      "izvrseniPregled": [],
+      "izvrseniPregled": [
+        {
+          "Sifra": "n4a",
+          "Datum": "2021-05-07T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Pacijent se zalio na bolove u ledjima"
+          },
+          "recept": {
+            "Lekovi": "Brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "Morate piti lek od 17h svaki dan",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Sifra": "69Z",
+          "Datum": "2021-05-04T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Skolioza"
+          },
+          "recept": {
+            "Lekovi": "Brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "Svaki dan u 17h",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        }
+      ],
       "Sifra": null,
       "pacijent": {
         "termin": null,

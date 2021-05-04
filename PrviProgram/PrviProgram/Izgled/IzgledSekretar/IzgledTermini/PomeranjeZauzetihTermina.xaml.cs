@@ -89,7 +89,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.guestPacijent = (GuestPacijent)comboBoxPacijenti.SelectedItem;
             }
-            termin.sala = TerminiService.getInstance().dobavljanjeSale(termin);
+            termin.sala = TerminiService.getInstance().DobavljanjeSale(termin);
             termin.SifraTermina = this.termin.SifraTermina;
             termin.TipTermina = (TipTermina)TipTerminaText.SelectedItem;
             return termin;

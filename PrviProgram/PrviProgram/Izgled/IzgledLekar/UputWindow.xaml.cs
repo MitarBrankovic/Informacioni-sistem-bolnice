@@ -127,7 +127,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             termin.Vreme = vremeText.Text;
             termin.lekar = (Model.Lekar)comboBoxLekari.SelectedItem;
             termin.pacijent = pacijent;
-            termin.sala = TerminiService.getInstance().dobavljanjeSale(termin);
+            termin.sala = TerminiService.getInstance().DobavljanjeSale(termin);
             termin.SifraTermina = IzracunajSifruTermina();
             termin.TipTermina = (TipTermina)comboBoxTipTermina.SelectedItem;
             return termin;

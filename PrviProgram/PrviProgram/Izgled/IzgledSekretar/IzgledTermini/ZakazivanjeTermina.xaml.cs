@@ -59,7 +59,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.guestPacijent = guestPacijent;
             }
-            termin.sala = TerminiService.getInstance().dobavljanjeSale(termin);
+            termin.sala = TerminiService.getInstance().DobavljanjeSale(termin);
             termin.SifraTermina = IzracunajSifruTermina();
             termin.TipTermina = (TipTermina)TipTerminaText.SelectedItem;
             return termin;

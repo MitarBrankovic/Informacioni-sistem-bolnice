@@ -47,7 +47,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             InitializeComponent();
             
             this.pacijent = pacijent;
-            this.termini = TerminiService.getInstance().sviTerminiKojiSuIzvrseni(pacijent);
+            this.termini = AnketaService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
  
             terminComboBox.ItemsSource = termini;
             LekarTextBlock.IsEnabled = false;
@@ -125,7 +125,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             else
             {
                 this.termin = (Termin)terminComboBox.SelectedItem;
-                this.lekar = TerminiService.getInstance().lekarKojiJeZaduzenZaTermin(this.termin);
+                this.lekar = TerminiService.getInstance().LekarKojiJeZaduzenZaTermin(this.termin);
                 LekarTextBlock.Text = lekar.ToString();         
                 ocenaLekaraComboBox.IsEnabled = true; 
             }
@@ -208,7 +208,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void potvrdiAnketiranjeButton_Click(object sender, RoutedEventArgs e)
         {
 
-            Model.AnketiranjePacijenta anketiranjePacijenta = new Model.AnketiranjePacijenta(this.termin, this.lekar, this.ocenaLekara, this.primedbaNaLekara, this.primedbaNaPregled, this.ljubaznostLekara, this.znanjeLekaraOIstorijiBolesti, this.objasnjenjeLekara);
+            AnketiranjePacijenta anketiranjePacijenta = new AnketiranjePacijenta(this.termin, this.lekar, this.ocenaLekara, this.primedbaNaLekara, this.primedbaNaPregled, this.ljubaznostLekara, this.znanjeLekaraOIstorijiBolesti, this.objasnjenjeLekara);
             anketa = datotekaAnkete.CitanjeIzFajla();
             anketa.Add(anketiranjePacijenta);
             datotekaAnkete.UpisivanjeUFajl(anketa);
