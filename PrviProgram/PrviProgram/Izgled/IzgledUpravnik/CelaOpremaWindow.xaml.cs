@@ -124,7 +124,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     if (!o.NazivSale.Equals(nazivIzabraneSale))
                     {
-                        opreme.Remove(o);
+                        this.opreme.Remove(o);
                     }
                 }
                 ProveraTipaOpreme();

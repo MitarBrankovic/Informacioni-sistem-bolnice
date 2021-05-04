@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Service;
 using Repository;
 using Service;
 using System;
@@ -88,6 +89,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 string tipTermina = TipTerminaText.Text;
                 List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().SviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,tipTermina));
                 TerminiService.getInstance().terminiSlobodni = new List<Termin>();
+              
                 IzborPregleda prozor = new IzborPregleda(termini11,termini,pacijent);
                 prozor.Show();
                 this.Close();
@@ -100,6 +102,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     string tipTermina = TipTerminaText.Text;
                     List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraVremenaKodLekara(minDatum, maxDatum, selektovaniLekar, tipTermina));
                     TerminiService.getInstance().terminiSlobodni = new List<Termin>();
+               
                     IzborPregleda prozor = new IzborPregleda(termini11, termini, pacijent);
                     prozor.Show();
                     this.Close();
@@ -109,6 +112,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     string tipTermina = TipTerminaText.Text;
                     List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraLekaraKodVremena(minDatum, maxDatum, selektovaniLekar, tipTermina));
                     TerminiService.getInstance().terminiSlobodni = new List<Termin>();
+                    
                     IzborPregleda prozor = new IzborPregleda(termini11, termini, pacijent);
                     prozor.Show();
                     this.Close();
