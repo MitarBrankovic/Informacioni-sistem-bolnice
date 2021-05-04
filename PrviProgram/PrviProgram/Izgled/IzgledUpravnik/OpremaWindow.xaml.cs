@@ -77,8 +77,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridOprema.SelectedIndex != -1)
             {
-                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
-                OpremaIzmena win = new OpremaIzmena(svaOpremaIzTabele, selektovanaOprema, trenutnaSala);
+                OpremaIzmena win = new OpremaIzmena(svaOpremaIzTabele, (Oprema)dataGridOprema.SelectedItem, trenutnaSala);
                 win.Show();
             }
             else { MessageBox.Show("Morate izabrati opremu!");

@@ -69,15 +69,18 @@ namespace Controller
             else { return false; }
         }
 
-        public bool RenoviranjeSale(Sala sala)
+        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
-            // TODO: implement
-            return false;
+            if (SaleService.GetInstance().RenoviranjeSale(sala, pocetakRenoviranja, krajRenoviranja) == true)
+            {
+                return true;
+            }
+            else { return false; }
         }
 
         public bool DodavanjeLeka(Lek lek)
         {
-            if (LekoviService.getInstance().DodavanjeLeka(lek) == true)
+            if (LekoviService.GetInstance().DodavanjeLeka(lek) == true)
             {
                 return true;
             }
@@ -86,9 +89,9 @@ namespace Controller
 
         public bool BrisanjeLeka(Lek lek)
         {
-            if (LekoviService.getInstance().BrisanjeLeka(lek) == true)
+            if (LekoviService.GetInstance().BrisanjeLeka(lek) == true)
             {
-                LekoviService.getInstance().BrisanjeAlternativnihLekova(lek);
+                LekoviService.GetInstance().BrisanjeAlternativnihLekova(lek);
                 return true;
             }
             else { return false; }
@@ -96,7 +99,7 @@ namespace Controller
 
         public bool IzmenaLeka(Lek stariLek, Lek noviLek)
         {
-            if (LekoviService.getInstance().IzmenaLeka(stariLek, noviLek) == true)
+            if (LekoviService.GetInstance().IzmenaLeka(stariLek, noviLek) == true)
             {
                 return true;
             }

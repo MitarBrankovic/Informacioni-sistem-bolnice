@@ -38,47 +38,33 @@ namespace PrviProgram.Repository
             return sale;
         }
 
-
-
         public Sala PregledSale(string sifraSale)
         {
-            //SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = CitanjeIzFajla();
-            foreach (Sala s in sale)
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sifraSale))
+                if (salaBrojac.Sifra.Equals(sifraSale))
                 {
-                    return s;
+                    return salaBrojac;
                 }
             }
             return null;
         }
 
-
         public List<Sala> PregledSvihSala()
         {
-            //SalaRepository datoteka = new SalaRepository();
             List<Sala> sale = CitanjeIzFajla();
             return sale;
         }
 
-
-
         public Oprema PregledOpremePoSali(string nazivOpreme, string sifraSale)
         {
-            //List<Oprema> opreme = CitanjeIzFajla();
             List<Sala> sale = CitanjeIzFajla();
-            foreach (Sala s in sale)
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sifraSale))
+                if (salaBrojac.Sifra.Equals(sifraSale))
                 {
-                    foreach (Oprema o in s.oprema)
-                    {
-                        if (o.Naziv.Equals(nazivOpreme))
-                        {
-                            return o;
-                        }
-                    }
+                    VracanjeOpremePoSali(nazivOpreme, salaBrojac);
                 }
             }
             return null;
@@ -87,11 +73,23 @@ namespace PrviProgram.Repository
         public List<Oprema> PregledSvihOpremaPoSali(Sala sala)
         {
             List<Sala> sale = CitanjeIzFajla();
-            foreach (Sala s in sale)
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    return s.GetOprema();
+                    return salaBrojac.GetOprema();
+                }
+            }
+            return null;
+        }
+
+        public Oprema VracanjeOpremePoSali(string nazivOpreme, Sala salaBrojac)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(nazivOpreme))
+                {
+                    return opremaBrojac;
                 }
             }
             return null;

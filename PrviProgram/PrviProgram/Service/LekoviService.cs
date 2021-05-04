@@ -9,7 +9,7 @@ namespace Service
    {
         private LekoviRepository lekoviRepository = new LekoviRepository();
         private static LekoviService instance = null;
-        public static LekoviService getInstance()
+        public static LekoviService GetInstance()
         {
             if (instance == null)
             {
@@ -17,7 +17,6 @@ namespace Service
             }
             return instance;
         }
-
 
         public bool DodavanjeLeka(Lek lek)
       {
@@ -31,7 +30,6 @@ namespace Service
             }
             lekovi.Add(lek);
             lekoviRepository.UpisivanjeUFajl(lekovi);
-
             return true;
         }
       
@@ -50,27 +48,19 @@ namespace Service
             return false;
       }
 
-
         public bool BrisanjeAlternativnihLekova(Lek lek)        
         {
             List<Lek> lekovi = lekoviRepository.CitanjeIzFajla();
             foreach (Lek lekBrojac in lekovi)
             {
-                foreach (Lek alternativniLek in lekBrojac.ZamenaZaLek) 
-                {
-                    if (alternativniLek.Sifra.Equals(lek.Sifra))
-                    {
-                        lekBrojac.ZamenaZaLek.Remove(alternativniLek);
-                        break;
-                    }
-                }
+                BrisanjeAlternativnog(lek, lekBrojac);
             }
             lekoviRepository.UpisivanjeUFajl(lekovi);
             return true;
         }
-      
-      public bool IzmenaLeka(Lek stariLek, Lek noviLek)
-      {
+
+        public bool IzmenaLeka(Lek stariLek, Lek noviLek)
+        {
             List<Lek> lekovi = lekoviRepository.CitanjeIzFajla();
             foreach (Lek lekBrojac in lekovi)
             {
@@ -84,6 +74,16 @@ namespace Service
             }
             return false;
         }
-   
-   }
+        public void BrisanjeAlternativnog(Lek lek, Lek lekBrojac)
+        {
+            foreach (Lek alternativniLek in lekBrojac.ZamenaZaLek)
+            {
+                if (alternativniLek.Sifra.Equals(lek.Sifra))
+                {
+                    lekBrojac.ZamenaZaLek.Remove(alternativniLek);
+                    break;
+                }
+            }
+        }
+    }
 }

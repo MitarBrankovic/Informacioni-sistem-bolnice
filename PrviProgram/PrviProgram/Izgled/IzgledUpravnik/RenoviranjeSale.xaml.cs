@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using Service;
 using System;
@@ -18,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class RenoviranjeSale : Window
     {
-        private SaleService saleService = new SaleService();
+        private UpravnikController upravnikController = new UpravnikController();
         private Sala selektovanaSala;
         private TerminiRepository terminiRepository = new TerminiRepository();
 
@@ -42,7 +43,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
             else{
-                if (saleService.RenoviranjeSale(selektovanaSala, (DateTime)(PocetakRenoviranja.SelectedDate), (DateTime)(KrajRenoviranja.SelectedDate)) == false) {
+                if (upravnikController.RenoviranjeSale(selektovanaSala, (DateTime)(PocetakRenoviranja.SelectedDate), (DateTime)(KrajRenoviranja.SelectedDate)) == false) {
                     MessageBox.Show("Ponovo izaberite datume");
                 }
             }

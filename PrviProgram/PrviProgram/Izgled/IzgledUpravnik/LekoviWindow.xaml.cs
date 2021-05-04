@@ -34,8 +34,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridLekovi.SelectedIndex != -1)
             {
-                Lek lekZaPregled = (Lek)dataGridLekovi.SelectedItem;
-                LekoviInformacije win = new LekoviInformacije(lekZaPregled);
+                Lek lek = (Lek)dataGridLekovi.SelectedItem;
+                LekoviInformacije win = new LekoviInformacije(lekoviRepository.PregledLeka(lek.Sifra));
                 win.Show();
             }
             else{ MessageBox.Show("Morate izabrati lek!"); }
@@ -51,8 +51,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridLekovi.SelectedIndex != -1)
             {
-                Lek lekZaIzmenu = (Lek)dataGridLekovi.SelectedItem;
-                LekoviIzmeni win = new LekoviIzmeni(lekovi, lekZaIzmenu);
+                LekoviIzmeni win = new LekoviIzmeni(lekovi, (Lek)dataGridLekovi.SelectedItem);
                 win.Show();
             }
             else{ MessageBox.Show("Morate izabrati lek!"); }
@@ -62,9 +61,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridLekovi.SelectedIndex != -1)
             {
-                Lek lekZaBrisanje = (Lek)dataGridLekovi.SelectedItem;
-                upravnikController.BrisanjeLeka(lekZaBrisanje);
-                lekovi.Remove(lekZaBrisanje);
+                upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
+                lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
         }

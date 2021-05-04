@@ -8,6 +8,11 @@ namespace Service
 {
     public class SaleService
     {
+        private SalaRepository salaRepository = new SalaRepository();
+        private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
+        private TerminiRepository terminiRepository = new TerminiRepository();
+        private TerminRenoviranjaSale terminRenoviranjaSale = new TerminRenoviranjaSale();
+
         private static SaleService instance = null;
         public static SaleService GetInstance()
         {
@@ -20,31 +25,28 @@ namespace Service
 
         public bool DodavanjeSale(Sala sala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
                     return false;
                 }
             }
             sale.Add(sala);
-            datoteka.UpisivanjeUFajl(sale);
-
+            salaRepository.UpisivanjeUFajl(sale);
             return true;
         }
 
         public bool BrisanjeSale(Sala sala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    sale.Remove(s);
-                    datoteka.UpisivanjeUFajl(sale);
+                    sale.Remove(salaBrojac);
+                    salaRepository.UpisivanjeUFajl(sale);
                     return true;
                 }
             }
@@ -53,15 +55,14 @@ namespace Service
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(staraSala.Sifra))
+                if (salaBrojac.Sifra.Equals(staraSala.Sifra))
                 {
-                    sale.Remove(s);
+                    sale.Remove(salaBrojac);
                     sale.Add(novaSala);
-                    datoteka.UpisivanjeUFajl(sale);
+                    salaRepository.UpisivanjeUFajl(sale);
                     return true;
                 }
             }
@@ -70,58 +71,67 @@ namespace Service
 
         public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
-            TerminiRenoviranjaRepository datoteka = new TerminiRenoviranjaRepository();
-            List<TerminRenoviranjaSale> terminiRenoviranja = datoteka.CitanjeIzFajla();
-
-            TerminRenoviranjaSale termin = new TerminRenoviranjaSale();
-
-            if (ProveraTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
+            List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
+            if (FormiranjeTerminaRenoviranjaNakonProvere(sala, pocetakRenoviranja, krajRenoviranja) == false || ProveraSaleTerminaRenoviranja(sala, terminiRenoviranja) == false) 
             {
-                termin.sala = sala;
-                termin.PocetakRenoviranja = pocetakRenoviranja;
-                termin.KrajRenoviranja = krajRenoviranja;
+                return false;
             }
-            else { return false; }
-
-
-            foreach (TerminRenoviranjaSale t in terminiRenoviranja) {
-                if (t.sala.Sifra.Equals(sala.Sifra))
-                {
-                    return false;
-                }
-            }
-            terminiRenoviranja.Add(termin);
-            datoteka.UpisivanjeUFajl(terminiRenoviranja);
+            terminiRenoviranja.Add(terminRenoviranjaSale);
+            terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
             return true;
-
         }
 
-        public bool ProveraTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja) {
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
-
-
-            var intervalRenoviranja = new List<DateTime>();
-
-            for (var dt = pocetakRenoviranja; dt <= krajRenoviranja; dt = dt.AddDays(1))
+        public bool FormiranjeTerminaRenoviranjaNakonProvere(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        {
+            if (ProveraDatumaTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
             {
-                intervalRenoviranja.Add(dt);
+                terminRenoviranjaSale.sala = sala;
+                terminRenoviranjaSale.PocetakRenoviranja = pocetakRenoviranja;
+                terminRenoviranjaSale.KrajRenoviranja = krajRenoviranja;
+                return true;
             }
-
-            foreach (Termin t in termini)
+            else
             {
-                if (t.sala.Sifra.Equals(sala.Sifra))
+                return false;
+            }
+        }
+
+        public bool ProveraDatumaTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        {
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
+            var intervalRenoviranja = FormiranjeIntervala(pocetakRenoviranja, krajRenoviranja);
+            foreach (Termin terminBrojac in termini)
+            {
+                if (terminBrojac.sala.Sifra.Equals(sala.Sifra))
                 {
-                    if (intervalRenoviranja.Contains(t.Datum))
+                    if (intervalRenoviranja.Contains(terminBrojac.Datum))
                     {
                         return false;
                     }
                 }
-
             }
             return true;
-
         }
 
+        public bool ProveraSaleTerminaRenoviranja(Sala sala, List<TerminRenoviranjaSale> terminiRenoviranja)
+        {
+            foreach (TerminRenoviranjaSale terminBrojac in terminiRenoviranja)
+            {
+                if (terminBrojac.sala.Sifra.Equals(sala.Sifra))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public List<DateTime> FormiranjeIntervala(DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        {
+            var intervalRenoviranja = new List<DateTime>();
+            for (var dt = pocetakRenoviranja; dt <= krajRenoviranja; dt = dt.AddDays(1))
+            {
+                intervalRenoviranja.Add(dt);
+            }
+            return intervalRenoviranja;
+        }
     }
 }

@@ -109,7 +109,7 @@
     "oprema": [
       {
         "Naziv": "Flasteri",
-        "Kolicina": 3,
+        "Kolicina": 5,
         "Tip": 1,
         "NazivSale": "OP2"
       }
@@ -125,8 +125,14 @@
     "oprema": [
       {
         "Naziv": "Flasteri",
-        "Kolicina": 1,
+        "Kolicina": 4,
         "Tip": 1,
+        "NazivSale": "OP3"
+      },
+      {
+        "Naziv": "neka",
+        "Kolicina": 2,
+        "Tip": 0,
         "NazivSale": "OP3"
       }
     ],

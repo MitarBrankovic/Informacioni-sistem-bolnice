@@ -2,10 +2,15 @@ namespace Model
 {
    public class Oprema
    {
-        public Oprema()
+        public Oprema(string Naziv, int Kolicina, TipOpreme Tip, string NazivSale)
         {
-            // TODO: implement
+            this.Naziv = Naziv;
+            this.Kolicina = Kolicina;
+            this.Tip = Tip;
+            this.NazivSale = NazivSale;
         }
+
+        public Oprema() { }
 
         ~Oprema()
         {

@@ -23,16 +23,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             return instance;
         }
-        public SaleService saleService;
-        public SalaRepository saleRepository;
-        public ObservableCollection<Sala> sale;
+        private SalaRepository saleRepository = new SalaRepository();
+        private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
+        private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
+        private ObservableCollection<Sala> sale;
         public DispatcherTimer timer = new DispatcherTimer();
 
         public WindowUpravnik()
         {
             InitializeComponent();
-            saleService = new SaleService();
-            saleRepository = new SalaRepository();
             InicijalizacijaTimera();
             sale = new ObservableCollection<Sala>(saleRepository.PregledSvihSala());
             dataGridUpravnik.ItemsSource = sale;
@@ -48,8 +47,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         public void IzvrsavanjePremestanjaOpreme(object sender, EventArgs e)
         {
-            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
-            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();        
+            List<TerminPremestanjaOpreme> termini = terminiPremestajaRepository.CitanjeIzFajla();        
             foreach (TerminPremestanjaOpreme terminBrojac in termini)
             {
                 if (DateTime.Today.Equals(terminBrojac.datumPremestaja))
@@ -57,22 +55,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     OpremaService.GetInstance().PremestanjeOpreme(terminBrojac.oprema, terminBrojac.staraSala, terminBrojac.sala);
                     //timer.Stop();
                     termini.Remove(terminBrojac);
-                    datoteka.UpisivanjeUFajl(termini);
+                    terminiPremestajaRepository.UpisivanjeUFajl(termini);
                     break;
                 }
             }
         }
 
         public void BrisanjeTerminaRenoviranja(object sender, EventArgs e) {
-            TerminiRenoviranjaRepository datoteka = new TerminiRenoviranjaRepository();
-            List<TerminRenoviranjaSale> terminiRenoviranja = datoteka.CitanjeIzFajla();
+            List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
             foreach (TerminRenoviranjaSale terminBrojac in terminiRenoviranja)
             {
                 if (DateTime.Today.Equals(terminBrojac.KrajRenoviranja))
                 {
                     //timer.Stop();
                     terminiRenoviranja.Remove(terminBrojac);
-                    datoteka.UpisivanjeUFajl(terminiRenoviranja);
+                    terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                     break;
                 }
             }
@@ -88,9 +85,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridUpravnik.SelectedIndex != -1)
             {
-                Sala sala = new Sala();
-                sala = (Sala)dataGridUpravnik.SelectedItem;
-                ControllerUpravnik.getInstance().BrisanjeSale(sala, sale);
+                ControllerUpravnik.getInstance().BrisanjeSale((Sala)dataGridUpravnik.SelectedItem, sale);
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
         }

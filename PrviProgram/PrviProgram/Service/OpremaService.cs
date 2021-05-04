@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  OpremaService.cs
- * Author:  Nesa
- * Purpose: Definition of the Class Service.UpravnikService.OpremaService
- ***********************************************************************/
-
 using Model;
 using PrviProgram.Repository;
 using Repository;
@@ -14,6 +8,8 @@ namespace Service
 {
     public class OpremaService
     {
+        private SalaRepository salaRepository = new SalaRepository();
+        private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
         private static OpremaService instance = null;
         public static OpremaService GetInstance()
         {
@@ -24,49 +20,62 @@ namespace Service
             return instance;
         }
 
-
-
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    foreach (Oprema o in s.oprema)
+                    if (ProveraPostojanjaOpreme(oprema, salaBrojac) == false) 
                     {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            return false;
-                        }
+                        return false;
                     }
-                    s.oprema.Add(oprema);
+                    salaBrojac.oprema.Add(oprema);
                     break;
                 }
             }
-            datoteka.UpisivanjeUFajl(sale);
+            salaRepository.UpisivanjeUFajl(sale);
+            return true;
+        }
 
+        public bool ProveraPostojanjaOpreme(Oprema oprema, Sala salaBrojac)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(oprema.Naziv))
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
         public bool BrisanjeOpreme(Oprema oprema, Sala sala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    foreach (Oprema o in s.oprema)
+                    if (BrisanjeOpremeUSali(salaBrojac, oprema, sale) == true)
                     {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            s.oprema.Remove(o);
-                            datoteka.UpisivanjeUFajl(sale);
-                            return true;
-                        }
+                        return true;
                     }
+                }
+            }
+            return false;
+        }
+
+        public bool BrisanjeOpremeUSali(Sala salaBrojac, Oprema oprema, List<Sala> sale)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(oprema.Naziv))
+                {
+                    salaBrojac.oprema.Remove(opremaBrojac);
+                    salaRepository.UpisivanjeUFajl(sale);
+                    return true;
                 }
             }
             return false;
@@ -74,22 +83,30 @@ namespace Service
 
         public bool IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sala.Sifra))
+                if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    foreach (Oprema o in s.oprema)
+                    if (IzmenaOpremeUSali(staraOprema, novaOprema, salaBrojac, sale) == true)
                     {
-                        if (o.Naziv.Equals(staraOprema.Naziv))
-                        {
-                            s.oprema.Remove(o);
-                            s.oprema.Add(novaOprema);
-                            datoteka.UpisivanjeUFajl(sale);
-                            return true;
-                        }
+                        return true;
                     }
+                }
+            }
+            return false;
+        }
+
+        public bool IzmenaOpremeUSali(Oprema staraOprema, Oprema novaOprema, Sala salaBrojac, List<Sala> sale)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(staraOprema.Naziv))
+                {
+                    salaBrojac.oprema.Remove(opremaBrojac);
+                    salaBrojac.oprema.Add(novaOprema);
+                    salaRepository.UpisivanjeUFajl(sale);
+                    return true;
                 }
             }
             return false;
@@ -97,82 +114,81 @@ namespace Service
 
         public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
         {
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(staraSala.Sifra))
+                if (salaBrojac.Sifra.Equals(staraSala.Sifra))
                 {
-                    foreach (Oprema o in s.oprema)
+                    if (PremestanjeOpremeIzStareSale(salaBrojac, oprema, sale) == false)
                     {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            s.oprema.Remove(o);
-                            Oprema op = new Oprema();   // ako postoji vec ta oprema, da se izmeni kolicina
-                            op.Naziv = o.Naziv;
-                            op.Tip = o.Tip;
-                            op.Kolicina = o.Kolicina - oprema.Kolicina;
-                            op.NazivSale = o.NazivSale;
-                            if (op.Kolicina > 0)
-                            {
-                                s.oprema.Add(op);
-                            }
-                            else if (op.Kolicina == 0)
-                            {
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                            datoteka.UpisivanjeUFajl(sale);
-                            break;
-                        }
+                        return false;
                     }
                 }
             }
-            foreach (Sala s in sale)
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(novaSala.Sifra))
+                if (salaBrojac.Sifra.Equals(novaSala.Sifra))
                 {
-                    foreach (Oprema o in s.oprema)
+                    if (PremestanjeOpremeUNovuSalu(salaBrojac, oprema, sale) == true)
                     {
-                        if (o.Naziv.Equals(oprema.Naziv))
-                        {
-                            s.oprema.Remove(o);
-                            Oprema op = new Oprema();   // ako postoji vec ta oprema, da se izmeni kolicina
-                            op.Naziv = oprema.Naziv;
-                            op.Tip = oprema.Tip;
-                            op.Kolicina = o.Kolicina + oprema.Kolicina;
-                            op.NazivSale = o.NazivSale;
-                            s.oprema.Add(op);
-                            datoteka.UpisivanjeUFajl(sale);
-                            return true;
-                        }
+                        return true;
                     }
-                    s.oprema.Add(oprema);
-                    datoteka.UpisivanjeUFajl(sale);
+                    salaBrojac.oprema.Add(oprema);
+                    salaRepository.UpisivanjeUFajl(sale);
                     return true;
                 }
             }
             return false;
         }
 
-
-        public bool DodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
+        public bool PremestanjeOpremeIzStareSale(Sala salaBrojac, Oprema oprema, List<Sala> sale)
         {
-            TerminiPremestajaRepository datoteka = new TerminiPremestajaRepository();
-            List<TerminPremestanjaOpreme> termini = datoteka.CitanjeIzFajla();
-            TerminPremestanjaOpreme termin = new TerminPremestanjaOpreme();
-            termin.oprema = oprema;
-            termin.sala = novaSala;
-            termin.datumPremestaja = datumTermina;
-            termin.staraSala = stara;
-            termini.Add(termin);
-            datoteka.UpisivanjeUFajl(termini);
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(oprema.Naziv))
+                {
+                    salaBrojac.oprema.Remove(opremaBrojac);
+                    Oprema ostatakOpremeUStarojSali = new Oprema(opremaBrojac.Naziv, opremaBrojac.Kolicina - oprema.Kolicina, opremaBrojac.Tip, opremaBrojac.NazivSale);
+                    if (ostatakOpremeUStarojSali.Kolicina > 0)
+                    {
+                        salaBrojac.oprema.Add(ostatakOpremeUStarojSali);
+                    }
+                    else if (ostatakOpremeUStarojSali.Kolicina == 0)
+                    {}
+                    else
+                    {
+                        return false;
+                    }
+                    salaRepository.UpisivanjeUFajl(sale);
+                    break;
+                }
+            }
             return true;
         }
 
-        public OpremaRepository opremaRepository;
+        public bool PremestanjeOpremeUNovuSalu(Sala salaBrojac, Oprema oprema, List<Sala> sale)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(oprema.Naziv))
+                {
+                    salaBrojac.oprema.Remove(opremaBrojac);
+                    Oprema prebacenaOprema = new Oprema(oprema.Naziv, opremaBrojac.Kolicina + oprema.Kolicina, oprema.Tip, opremaBrojac.NazivSale);
+                    salaBrojac.oprema.Add(prebacenaOprema);
+                    salaRepository.UpisivanjeUFajl(sale);
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        public bool DodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
+        {
+            List<TerminPremestanjaOpreme> termini = terminiPremestajaRepository.CitanjeIzFajla();
+            TerminPremestanjaOpreme termin = new TerminPremestanjaOpreme(oprema, novaSala, stara, datumTermina);
+            termini.Add(termin);
+            terminiPremestajaRepository.UpisivanjeUFajl(termini);
+            return true;
+        }
     }
 }

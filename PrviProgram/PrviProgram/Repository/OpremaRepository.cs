@@ -9,6 +9,7 @@ namespace Repository
    public class OpremaRepository
    {
         private string path;
+        private SalaRepository salaRepository = new SalaRepository();
 
         public OpremaRepository()
         {
@@ -42,18 +43,12 @@ namespace Repository
       
       public Oprema PregledOpremePoSali(string nazivOpreme, string sifraSale)
       {
-            //List<Oprema> opreme = CitanjeIzFajla();
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sifraSale))
+                if (salaBrojac.Sifra.Equals(sifraSale))
                 {
-                    foreach (Oprema o in s.oprema) {
-                        if (o.Naziv.Equals(nazivOpreme)){
-                            return o;
-                        }
-                    }
+                    VracanjeOpremePoSali(nazivOpreme, salaBrojac);
                 }
             }
             return null;
@@ -61,14 +56,12 @@ namespace Repository
       
       public List<Oprema> PregledSvihOpremaPoSali(string sifraSale)
       {
-            //List<Oprema> opreme = new List<Oprema>();
-            SalaRepository datoteka = new SalaRepository();
-            List<Sala> sale = datoteka.CitanjeIzFajla();
-            foreach (Sala s in sale)
+            List<Sala> sale = salaRepository.CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
             {
-                if (s.Sifra.Equals(sifraSale))
+                if (salaBrojac.Sifra.Equals(sifraSale))
                 {
-                    s.GetOprema();
+                    salaBrojac.GetOprema();
                 }
             }
             return null;
@@ -79,6 +72,19 @@ namespace Repository
         {
             List<Oprema> oprema = CitanjeIzFajla();
             return oprema;
+        }
+
+
+        public Oprema VracanjeOpremePoSali(string nazivOpreme, Sala salaBrojac)
+        {
+            foreach (Oprema opremaBrojac in salaBrojac.oprema)
+            {
+                if (opremaBrojac.Naziv.Equals(nazivOpreme))
+                {
+                    return opremaBrojac;
+                }
+            }
+            return null;
         }
     }
 }
