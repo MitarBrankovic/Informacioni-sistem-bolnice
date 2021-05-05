@@ -35,9 +35,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
             InitializeComponent();
             this.pacijent = pacijent;
             this.DataContext = this;
-            Page pocetna = new PregledTermina(pacijent);
             InicijalizacijaTimera();
             InicijalizacijaTimeraZaOtkljucavanjeAntiTrollMehanizma();
+            Page pocetna = new PregledTermina(pacijent);
             this.frame.NavigationService.Navigate(pocetna);
         }
 
@@ -75,18 +75,24 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                DateTime noviDatum = antiTrollPacijenta.vremeBanovanja.AddDays(5);
-                if (antiTrollPacijenta.daLiJeBanovan == true && noviDatum.Day.Equals(DateTime.Now.Day))
+                DateTime dateTime = antiTrollPacijenta.vremeBanovanja.AddDays(5);
+               if (antiTrollPacijenta.daLiJeBanovan == true && dateTime.Date.Equals(DateTime.Now.Date))
                 {
-                    PostavljanjeButtonaNaTrue();
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
-                    datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
-                    timerZaOtkljucavanjeAntiTrollMehanizma.Stop();
+                    OtkljucavanjeSistema(antiTrollPacijenata);
                     break;
 
                 }
 
             }
+        }
+
+        public void OtkljucavanjeSistema(List<AntiTrollPacijenta> antiTrollPacijenata)
+        {
+            PostavljanjeButtonaNaTrue();
+            datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
+            timerZaOtkljucavanjeAntiTrollMehanizma.Stop();
+
         }
 
         private void ProveraDaLiJePacijentMaliciozan(object sender, EventArgs e)
@@ -94,22 +100,25 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                if (antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg))
+                if ((antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 )&& antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan==false)
                 {
-                    PostavljanjeButtonaNaFalse();
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
-                    upisivanjeUFajlMalicioznogPacijenta(antiTrollPacijenta, antiTrollPacijenata);
-                    timerZaAntiTrollMehanizam.Stop();
+                    UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(antiTrollPacijenta, antiTrollPacijenata);
                     break;
                 }
+              if(antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan == true)
+                {
+                    PostavljanjeButtonaNaFalse();
+                }            
             }
-
         }
-        public void upisivanjeUFajlMalicioznogPacijenta(AntiTrollPacijenta antiTrollPacijenta, List<AntiTrollPacijenta> antiTrollPacijenata)
+        public void UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(AntiTrollPacijenta antiTrollPacijenta, List<AntiTrollPacijenta> antiTrollPacijenata)
         {
+            PostavljanjeButtonaNaFalse();
             AntiTrollPacijenta antiTroll = new AntiTrollPacijenta(antiTrollPacijenta.brojacDodavanihTermina, antiTrollPacijenta.brojacIzmenenjenihTermina, antiTrollPacijenta.brojacOtkazanihTermina, antiTrollPacijenta.pacijent, DateTime.Now, true);
             antiTrollPacijenata.Add(antiTroll);
             datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
+            timerZaAntiTrollMehanizam.Stop();
 
         }
 

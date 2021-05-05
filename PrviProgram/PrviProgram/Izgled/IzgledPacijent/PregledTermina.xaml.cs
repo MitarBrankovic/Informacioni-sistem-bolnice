@@ -75,15 +75,14 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                DateTime noviDatum = antiTrollPacijenta.vremeBanovanja.AddDays(5);
-                if (antiTrollPacijenta.daLiJeBanovan == true && noviDatum.Day.Equals(DateTime.Now.Day))
+              
+                if (antiTrollPacijenta.daLiJeBanovan == true && antiTrollPacijenta.vremeBanovanja.AddDays(5).Day.Equals(DateTime.Now.Day))
                 {
                     PostavljanjeButtonaNaTrue();
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
                     datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
                     timerZaOtkljucavanjeAntiTrollMehanizma.Stop();
                     break;
-
                 }
 
             }
@@ -94,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach(AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                if(antiTrollPacijenta.brojacDodavanihTermina>=3 || antiTrollPacijenta.brojacIzmenenjenihTermina>=3 || antiTrollPacijenta.brojacOtkazanihTermina>=3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg))
+                if(antiTrollPacijenta.brojacDodavanihTermina>=3 || antiTrollPacijenta.brojacIzmenenjenihTermina>=3 || antiTrollPacijenta.brojacOtkazanihTermina>=3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan==true)
                 {
                     PostavljanjeButtonaNaFalse();
                  
