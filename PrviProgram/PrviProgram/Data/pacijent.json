@@ -80,6 +80,170 @@
             "Opis": "Svaki dan u 17h",
             "Datum": "0001-01-01T00:00:00"
           }
+        },
+        {
+          "Sifra": "nXITT0kq",
+          "Datum": "2021-05-05T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bol u ledjima"
+          },
+          "recept": {
+            "Lekovi": "Brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "Pije u 17h svaki dan",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Sifra": "hAB",
+          "Datum": "2021-05-09T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bol u glavi"
+          },
+          "recept": {
+            "Lekovi": "Panadol",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "Panadol se pije svaki dan u 17h",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Sifra": "87tP6m9S",
+          "Datum": "2021-05-06T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bol u ledjima"
+          },
+          "recept": {
+            "Lekovi": "Brufen",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "U 17h svaki dan",
+            "Datum": "0001-01-01T00:00:00"
+          }
+        },
+        {
+          "Sifra": "bTo",
+          "Datum": "2021-05-10T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "cao"
+          },
+          "recept": {
+            "Lekovi": "Defrinol",
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 0,
+            "OpisLeka": null
+          },
+          "terapija": {
+            "Opis": "u 18h svaki dan",
+            "Datum": "0001-01-01T00:00:00"
+          }
         }
       ],
       "Sifra": null,
