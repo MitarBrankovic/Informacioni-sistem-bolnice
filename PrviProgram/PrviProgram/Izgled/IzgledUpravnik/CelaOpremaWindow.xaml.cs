@@ -22,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         public ObservableCollection<Oprema> pomocnaOprema;
         private List<Oprema> ukupnaOprema;
         private List<Sala> sale;
+        private string nazivIzabraneSale;
 
         public CelaOpremaWindow()
         {
@@ -42,6 +43,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 ResetovanjeTabele();
                 ProveraTipaOpreme();
                 ProveraKolicineOpreme();
+                ProveraComboSale();
             }
             else if (splited.Length == 1) {
                 foreach (Oprema o in pomocnaOprema) {
@@ -55,6 +57,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 ProveraTipaOpreme();
                 ProveraKolicineOpreme();
+                ProveraComboSale();
             }
             else if (splited.Length == 2) {
                 foreach (Oprema o in pomocnaOprema)
@@ -70,6 +73,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 ProveraTipaOpreme();
                 ProveraKolicineOpreme();
+                ProveraComboSale();
             }
         }
 
@@ -87,6 +91,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Obe_Checked(object sender, RoutedEventArgs e)
         {
             ResetovanjeTabele();
+            ProveraComboSale();
             ProveraKolicineOpreme();
         }
         private void Do5_Checked(object sender, RoutedEventArgs e)
@@ -106,13 +111,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Sve_Checked(object sender, RoutedEventArgs e)
         {
             ResetovanjeTabele();
+            ProveraComboSale();
             ProveraTipaOpreme();
         }
 
 
         private void ComboSala_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string nazivIzabraneSale;
             nazivIzabraneSale = ComboSala.SelectedItem.ToString();
             ResetovanjeTabele();
             if (nazivIzabraneSale.Equals("Sve")) {
@@ -124,14 +129,28 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     if (!o.NazivSale.Equals(nazivIzabraneSale))
                     {
-                        this.opreme.Remove(o);
+                        opreme.Remove(o);
                     }
                 }
                 ProveraTipaOpreme();
                 ProveraKolicineOpreme();
             }
         }
-
+        public void ProveraComboSale()
+        {
+            if (!nazivIzabraneSale.Equals("Sve"))
+            {
+                foreach (Oprema o in ukupnaOprema)
+                {
+                    if (!o.NazivSale.Equals(nazivIzabraneSale))
+                    {
+                        opreme.Remove(o);
+                    }
+                }
+                ProveraTipaOpreme();
+                ProveraKolicineOpreme();
+            }
+        }
 
 
         private void ResetovanjeTabele()
@@ -146,7 +165,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         }
 
         private void PrikaziStatickuOpremu()
-        {        
+        {
+            //ResetovanjeTabele();
             foreach (Oprema o in ukupnaOprema)
             {
                 if (o.Tip == TipOpreme.Dinamicka)
@@ -158,6 +178,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void PrikaziDinamickuOpremu()
         {
+            //ResetovanjeTabele();
             foreach (Oprema o in ukupnaOprema)
             {
                 if (o.Tip == TipOpreme.Staticka)

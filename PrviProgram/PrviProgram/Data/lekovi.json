@@ -85,16 +85,16 @@
   },
   {
     "ZamenaZaLek": [],
-    "Sifra": "cardiop23",
-    "Naziv": "Cardiopirin",
-    "Sastojci": "swwwww",
-    "Opis": "aakskkkkkkskk"
-  },
-  {
-    "ZamenaZaLek": [],
     "Sifra": "asp",
     "Naziv": "Aspirin",
     "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
     "Opis": "a"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "cardiop",
+    "Naziv": "Cardiopirin",
+    "Sastojci": "nesto",
+    "Opis": "nesto"
   }
 ]
