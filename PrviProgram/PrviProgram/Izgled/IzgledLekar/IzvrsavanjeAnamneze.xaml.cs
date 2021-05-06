@@ -24,15 +24,17 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private Termin termin;
         private ObservableCollection<Termin> termini;
+        public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
         private IzvrseniPregled izvrseniPregled;
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private TerminiService terminiService = new TerminiService();
         private Pacijent pacijent;
-        public IzvrsavanjeAnamneze(IzvrseniPregled izvrseniPregled, Pacijent pacijent, ObservableCollection<Termin> termini, Termin termin)
+        public IzvrsavanjeAnamneze(ObservableCollection<IzvrseniPregled> izvrseniPregledi, IzvrseniPregled izvrseniPregled, Pacijent pacijent, ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();
             this.termin = termin;
             this.izvrseniPregled = izvrseniPregled;
+            this.izvrseniPregledi = izvrseniPregledi;
             this.pacijent = pacijent;
             this.termini = termini;
 
@@ -61,13 +63,17 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void ZavrsiAnamnezu_Click(object sender, RoutedEventArgs e)
         {
             KreiranjeAnamneze();
+            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
             if (!proveraIzvrsenostiTermina())
             {       
                 termin.izvrsen = true;
                 terminiService.IzmenaTermina(termin);
+                AzuriranjePrikazaTermina(termini, izvrseniPregled);
             }
-            AzuriranjePrikazaTermina(termini, izvrseniPregled);
-            KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+            else
+            {
+                AzuriranjePrikazaIzvrsenihPregleda(izvrseniPregledi, izvrseniPregled);
+            }
             this.Close();
         }
         private void KreiranjeAnamneze()
@@ -78,13 +84,21 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private bool proveraIzvrsenostiTermina()
         {
-            if(termin.izvrsen == false)
+            //Ako je termin null, obrisan je, ali je bio izvrsen
+            if(termin == null)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                if(termin.izvrsen == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -100,6 +114,25 @@ namespace PrviProgram.Izgled.IzgledLekar
                     termini.Add(noviTermin);
                     break;
                 }
+            }
+        }
+
+        private void AzuriranjePrikazaIzvrsenihPregleda(ObservableCollection<IzvrseniPregled> izvrseniPregledi, IzvrseniPregled izvrseniPregled)
+        {
+            int counter = 0;
+            foreach(IzvrseniPregled i in izvrseniPregledi)
+            {
+                if(i.Sifra == izvrseniPregled.Sifra)
+                {
+                    IzvrseniPregled noviPregled = i;
+                    noviPregled.anamneza = izvrseniPregled.anamneza;
+                    noviPregled.terapija = izvrseniPregled.terapija;
+                    noviPregled.recept = izvrseniPregled.recept;
+                    izvrseniPregledi.Remove(i);
+                    izvrseniPregledi.Insert(counter, noviPregled);
+                    break;
+                }
+                counter++;
             }
         }
 

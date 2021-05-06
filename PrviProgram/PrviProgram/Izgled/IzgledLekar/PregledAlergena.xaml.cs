@@ -24,10 +24,10 @@ namespace PrviProgram.Izgled.IzgledLekar
         private ObservableCollection<Alergen> alergeni;
         private AlergeniRepository alergeniRepository = new AlergeniRepository();
 
-        public PregledAlergena()
+        public PregledAlergena(Pacijent pacijent)
         {
             InitializeComponent();
-            alergeni = new ObservableCollection<Alergen>(alergeniRepository.PregledSvihAlergena());
+            alergeni = new ObservableCollection<Alergen>(pacijent.kartonPacijenta.alergen);
             dgDataBinding1.ItemsSource = alergeni;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
 
         private ObservableCollection<Termin> termini;
+        private PacijentRepository pacijentRepository = new PacijentRepository();
         private Termin termin;
         public InformacijePacijent(ObservableCollection<Termin> termini, Termin termin)
         {
@@ -51,7 +53,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void zdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            ZdravstveniKarton zdravstveniKarton = new ZdravstveniKarton(termin.pacijent, termini);
+            ZdravstveniKarton zdravstveniKarton = new ZdravstveniKarton(pacijentRepository.PregledPacijenta(termin.pacijent.Jmbg), termini);
             zdravstveniKarton.Show();
         }
 

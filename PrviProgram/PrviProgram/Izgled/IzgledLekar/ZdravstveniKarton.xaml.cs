@@ -46,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             if (dataGridKarton.SelectedIndex != -1)
             {
                 IzvrseniPregled izvrseniPregled = (IzvrseniPregled)dataGridKarton.SelectedItem;
-                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregled, pacijent, termini, terminiRepository.PregledTermina(izvrseniPregled.Sifra));
+                IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregledi, izvrseniPregled, pacijent, termini, terminiRepository.PregledTermina(izvrseniPregled.Sifra));
                 anamneza.Show();
             }
             else
@@ -57,7 +57,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Alergeni_Click(object sender, RoutedEventArgs e)
         {
-            PregledAlergena pregledAlergena = new PregledAlergena();
+            PregledAlergena pregledAlergena = new PregledAlergena(pacijent);
             pregledAlergena.Show();
         }
     }
