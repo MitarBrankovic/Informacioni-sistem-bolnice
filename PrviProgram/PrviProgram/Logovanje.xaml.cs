@@ -69,6 +69,8 @@ namespace PrviProgram
                         if (sekretar != null)
                         {
                             Izgled.IzgledSekretar.PocetniPrikaz win = new Izgled.IzgledSekretar.PocetniPrikaz(sekretar);
+                            Aplikacija a = new Aplikacija();
+                            a.Show();
                             win.Show();
                         }
                         break;
