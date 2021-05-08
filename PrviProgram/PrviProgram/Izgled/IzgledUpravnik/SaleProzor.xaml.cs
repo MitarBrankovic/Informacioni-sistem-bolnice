@@ -107,5 +107,51 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             (this.Parent as Grid).Children.Remove(this);
         }
+
+        private void DodajSalu_Click(object sender, RoutedEventArgs e)
+        {
+            DodavanjeSale win = new DodavanjeSale(sale);
+            win.Show();
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Podesavanja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sale_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Oprema_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DodajLek_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pomoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

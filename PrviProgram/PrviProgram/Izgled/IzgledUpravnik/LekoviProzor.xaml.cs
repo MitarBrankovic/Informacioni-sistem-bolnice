@@ -80,5 +80,55 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             LekoviNeodobreni win = new LekoviNeodobreni();
             win.Show();
         }
+
+        private void Pomoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Podesavanja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sale_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DodajLek_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

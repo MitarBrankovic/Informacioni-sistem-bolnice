@@ -5,13 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
         mc:Ignorable="d"
-        Title="PocetniProzor" Height="600" Width="1100">
-    <Grid>
-        <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="159" FontFamily="Bahnschrift Light" FontSize="30"/>
-        <Button Content="Sale" HorizontalAlignment="Left" Margin="227,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click"/>
-        <Button Content="Izlogujte se" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click"/>
-        <Button Content="Lekovi" HorizontalAlignment="Left" Margin="736,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click"/>
-        <Button Content="Oprema" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click"/>
-        <Grid x:Name="gridMain" Grid.ColumnSpan="12" Grid.RowSpan="17" Visibility="Visible"/>
+        Title="Upravnik" Height="700" Width="1200"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
+
+    <Grid Background="SeaShell">
+        <DockPanel>
+            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+
+                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
+                    <MenuItem Header="Dodaj salu" InputGestureText="Ctrl+M"></MenuItem>
+                    <MenuItem Header="Dodaj opremu" InputGestureText="Ctrl+N"></MenuItem>
+                    <MenuItem Header="Dodaj lek" InputGestureText="Ctrl+B"></MenuItem>
+                    <MenuItem Header="Log out"  InputGestureText="Ctrl+D" ></MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Edit" Name="Edit_Name" Width="35">
+                    <MenuItem Name="PodesavanjaNaloga" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
+                    <MenuItem Name="Podesavanja" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="View" Name="ViewName" Width="35">
+                    <MenuItem Name="Sale" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
+                    <MenuItem Name="OpremaPrikaz" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
+                    <MenuItem Name="Lekovi" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
+                    <MenuItem Name="Help" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+
+            <Grid DockPanel.Dock="Bottom">
+                <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="160" FontFamily="Bahnschrift Light" FontSize="30" Grid.Column="1"/>
+                <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" Background="MistyRose" Content="Sale" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Prikaz svih sala
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Background="MistyRose" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Izlazak iz aplikacije
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Name="LekoviButton" Style="{StaticResource UpravnikButton }" Content="Lekovi" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Prikaz svih lekova
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Name="OpremaButton" Style="{StaticResource UpravnikButton }" Content="Oprema" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Prikaz sve opreme
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1028,49,0,0" VerticalAlignment="Top" Width="66" Grid.Column="1">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Deteljna uputstva za korisnjece aplikacije
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Grid>
+        </DockPanel>
+        <Grid x:Name="gridMain" Grid.ColumnSpan="2" Visibility="Visible"/>
     </Grid>
 </Window>

@@ -4,32 +4,109 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
-             Height="600" Width="1100">
+             Height="700" Width="1200"
+             Loaded="UserControl_Loaded"
+             KeyDown="UserControl_KeyDown">
 
     <UserControl.Background>
         <ImageBrush ImageSource="/Slike/upravnik.jpg" Stretch="UniformToFill"/>
     </UserControl.Background>
 
     <Grid>
-        <DataGrid x:Name="dataGridLekovi" Margin="167,136,236,104" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                </Style>
+        <DockPanel>
+            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
 
-            </DataGrid.Resources>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="167,89,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="281,89,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="398,89,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="522,89,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Neodobreni" Click="Neodobreni_Click"  Content="Neodobreni" HorizontalAlignment="Left" Height="26" Margin="651,89,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name="Nazad" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="32" Margin="37,527,0,0" VerticalAlignment="Top" Width="102"/>
+                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
+                    <MenuItem Name="DodajLek" Header="Dodaj lek" InputGestureText="Ctrl+B" Click="DodajLek_Click"></MenuItem>
+                    <MenuItem Name="LogOut" Header="Log out"  InputGestureText="Ctrl+D" Click="LogOut_Click" ></MenuItem>
+                </MenuItem>
 
+                <MenuItem Header="Edit" Name="Edit_Name" Width="35">
+                    <MenuItem Name="PodesavanjaNaloga" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
+                    <MenuItem Name="Podesavanja" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="View" Name="ViewName" Width="35">
+                    <MenuItem Name="Sale" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
+                    <MenuItem Name="OpremaPrikaz" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
+                    <MenuItem Name="Lekovi" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
+                    <MenuItem Name="Help" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <Grid DockPanel.Dock="Bottom">
+                <DataGrid x:Name="dataGridLekovi" Margin="216,208,187,148" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton }" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="216,155,0,0" VerticalAlignment="Top" Width="98" >
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Dodavanje novog leka
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name ="Izmeni" Style="{StaticResource UpravnikButton }" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="319,155,0,0" VerticalAlignment="Top" Width="98">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Izmena selektovanog leka
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name ="Izbrisi" Style="{StaticResource UpravnikButton }" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="422,155,0,0" VerticalAlignment="Top" Width="98">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Brisanje selektovanog leka
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name ="Informacije" Style="{StaticResource UpravnikButton }" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="525,155,0,0" VerticalAlignment="Top" Width="98">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Informacije o selektovanom leku
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name ="Neodobreni" Style="{StaticResource UpravnikButton }" Click="Neodobreni_Click"  Content="Neodobreni" HorizontalAlignment="Left" Height="26" Margin="628,155,0,0" VerticalAlignment="Top" Width="98">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Lista neodobrenih lekova
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="37,611,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,1.344">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Povratak na pocetni prozor
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1081,49,0,0" VerticalAlignment="Top" Width="66">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Deteljna uputstva za korisnjece aplikacije
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Label Content="Lekovi" HorizontalAlignment="Left" Height="56" Margin="574,32,0,0" VerticalAlignment="Top" Width="120" FontSize="26"/>
+            </Grid>
+        </DockPanel>
     </Grid>
 </UserControl>

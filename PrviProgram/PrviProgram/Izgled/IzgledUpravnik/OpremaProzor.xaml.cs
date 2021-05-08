@@ -379,5 +379,50 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else { MessageBox.Show("Morate izabrati opremu!"); }
         }
+
+        private void Pomoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Podesavanja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sale_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DodajOpremu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
