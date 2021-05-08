@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
         mc:Ignorable="d"
-        Title="PocetniProzor" Height="500" Width="900">
+        Title="PocetniProzor" Height="600" Width="1100">
     <Grid>
         <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="159" FontFamily="Bahnschrift Light" FontSize="30"/>
         <Button Content="Sale" HorizontalAlignment="Left" Margin="227,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click"/>
         <Button Content="Izlogujte se" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click"/>
-        <Button Content="Lekovi" HorizontalAlignment="Left" Margin="550,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click"/>
+        <Button Content="Lekovi" HorizontalAlignment="Left" Margin="736,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click"/>
         <Button Content="Oprema" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click"/>
+        <Grid x:Name="gridMain" Grid.ColumnSpan="12" Grid.RowSpan="17" Visibility="Visible"/>
     </Grid>
 </Window>

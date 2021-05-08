@@ -24,6 +24,12 @@
         "Kolicina": 13,
         "Tip": 1,
         "NazivSale": "Magacin"
+      },
+      {
+        "Naziv": "OPA",
+        "Kolicina": 1,
+        "Tip": 1,
+        "NazivSale": "Magacin"
       }
     ],
     "Tip": 2,
@@ -64,15 +70,15 @@
         "NazivSale": "NTP 2"
       },
       {
-        "Naziv": "Kreveti",
-        "Kolicina": 15,
-        "Tip": 0,
+        "Naziv": "Spricevi",
+        "Kolicina": 5,
+        "Tip": 1,
         "NazivSale": "NTP 2"
       },
       {
-        "Naziv": "spricevi",
-        "Kolicina": 5,
-        "Tip": 1,
+        "Naziv": "Kreveti",
+        "Kolicina": 10,
+        "Tip": 0,
         "NazivSale": "NTP 2"
       }
     ],
@@ -108,8 +114,14 @@
   {
     "oprema": [
       {
+        "Naziv": "a",
+        "Kolicina": 3,
+        "Tip": 1,
+        "NazivSale": "OP2"
+      },
+      {
         "Naziv": "Flasteri",
-        "Kolicina": 5,
+        "Kolicina": 8,
         "Tip": 1,
         "NazivSale": "OP2"
       }
@@ -125,13 +137,13 @@
     "oprema": [
       {
         "Naziv": "Flasteri",
-        "Kolicina": 4,
+        "Kolicina": 1,
         "Tip": 1,
         "NazivSale": "OP3"
       },
       {
-        "Naziv": "neka",
-        "Kolicina": 2,
+        "Naziv": "Kreveti",
+        "Kolicina": 5,
         "Tip": 0,
         "NazivSale": "OP3"
       }

@@ -1,10 +1,5 @@
-﻿using Controller;
-using Model;
-using Repository;
-using Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,32 +8,34 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controller;
+using Model;
+using Repository;
+using System.Collections.ObjectModel;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    public partial class LekoviWindow : Window
+    /// <summary>
+    /// Interaction logic for LekoviProzor.xaml
+    /// </summary>
+    public partial class LekoviProzor : UserControl
     {
         private ObservableCollection<Lek> lekovi;
         private LekoviRepository lekoviRepository = new LekoviRepository();
         private UpravnikController upravnikController = new UpravnikController();
 
-        public LekoviWindow()
+        public LekoviProzor()
         {
             InitializeComponent();
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
             dataGridLekovi.ItemsSource = lekovi;
         }
 
-        private void Informacije_Click(object sender, RoutedEventArgs e)
+        private void Nazad_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridLekovi.SelectedIndex != -1)
-            {
-                Lek lek = (Lek)dataGridLekovi.SelectedItem;
-                LekoviInformacije win = new LekoviInformacije(lekoviRepository.PregledLeka(lek.Sifra));
-                win.Show();
-            }
-            else{ MessageBox.Show("Morate izabrati lek!"); }
+            (this.Parent as Grid).Children.Remove(this);
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -54,7 +51,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 LekoviIzmeni win = new LekoviIzmeni(lekovi, (Lek)dataGridLekovi.SelectedItem);
                 win.Show();
             }
-            else{ MessageBox.Show("Morate izabrati lek!"); }
+            else { MessageBox.Show("Morate izabrati lek!"); }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -63,6 +60,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
                 lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
+            }
+            else { MessageBox.Show("Morate izabrati lek!"); }
+        }
+
+        private void Informacije_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridLekovi.SelectedIndex != -1)
+            {
+                Lek lek = (Lek)dataGridLekovi.SelectedItem;
+                LekoviInformacije win = new LekoviInformacije(lekoviRepository.PregledLeka(lek.Sifra));
+                win.Show();
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
         }

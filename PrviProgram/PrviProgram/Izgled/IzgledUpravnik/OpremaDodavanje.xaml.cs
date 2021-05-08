@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Repository;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -22,13 +23,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Sala trenutnaSala;
         private Oprema novaOprema = new Oprema();
+        private SalaRepository salaRepository = new SalaRepository();
 
-        public OpremaDodavanje(ObservableCollection<Oprema> opreme, Sala sala)
+        public OpremaDodavanje(ObservableCollection<Oprema> opreme)
         {
             InitializeComponent();
             this.svaOpremaIzTabele = opreme;
-            this.trenutnaSala = sala;
-            Sala.Text = sala.Naziv;
+            ComboSala.ItemsSource = salaRepository.PregledSvihSala();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -48,6 +49,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
+                trenutnaSala = (Sala)ComboSala.SelectedItem;
                 FormiranjeNoveOpreme();
                 DodavanjeNoveOpreme();
                 this.Close();

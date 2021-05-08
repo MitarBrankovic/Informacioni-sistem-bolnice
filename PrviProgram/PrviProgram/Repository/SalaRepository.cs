@@ -51,6 +51,19 @@ namespace PrviProgram.Repository
             return null;
         }
 
+        public Sala PregledSalePoNazivu(string nazivSale)
+        {
+            List<Sala> sale = CitanjeIzFajla();
+            foreach (Sala salaBrojac in sale)
+            {
+                if (salaBrojac.Naziv.Equals(nazivSale))
+                {
+                    return salaBrojac;
+                }
+            }
+            return null;
+        }
+
         public List<Sala> PregledSvihSala()
         {
             List<Sala> sale = CitanjeIzFajla();

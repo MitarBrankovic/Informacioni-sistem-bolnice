@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Repository;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -21,20 +22,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private UpravnikController upravnikController = new UpravnikController();
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
-        private ObservableCollection<Sala> sveSale;
+        //private ObservableCollection<Sala> sveSale;
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Oprema opremaZaPremestanje = new Oprema();
         private Oprema preostalaOprema = new Oprema();
         private Sala novaSala = new Sala();
+        private SalaRepository salaRepository = new SalaRepository();
+        private List<Sala> sveSale = new List<Sala>();
 
-
-        public OpremaDinPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Sala> sale)
+        public OpremaDinPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala)
         {
             InitializeComponent();
             this.svaOpremaIzTabele = opreme;
             this.trenutnaOprema = oprema;
             this.trenutnaSala = sala;
-            this.sveSale = sale;
+            sveSale = salaRepository.PregledSvihSala();
             PrikazPodatakaOpreme();
         }
 
@@ -69,7 +71,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             TrenutnaSala.Text = trenutnaSala.Naziv;
             NazivOpreme.Text = trenutnaOprema.Naziv;
-            List<Sala> comboSale = new List<Sala>(sveSale);
+            List<Sala> comboSale = salaRepository.PregledSvihSala();
             foreach (Sala s in comboSale.ToArray())
             {
                 if (s.Sifra.Equals(trenutnaSala.Sifra))
@@ -137,15 +139,35 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (opremaZaPremestanje.Kolicina == 0)
             {
                 this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
+                this.svaOpremaIzTabele.Add(opremaZaPremestanje);
             }
             else
             {
                 this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
+                //this.svaOpremaIzTabele.Add(opremaZaPremestanje);
+                ProveraPostojanjaOpremeUNovojSali(opremaZaPremestanje);
                 ProveraPreostaleOpreme();
             }
             BrisanjeOpremeIzStareSale();
             DodavanjePreostaleOpremeUStaruSalu();
             DodavanjaOpremeZaPremestanjeUNovuSalu();
+        }
+
+        private bool ProveraPostojanjaOpremeUNovojSali(Oprema opremaZaPremestanje)
+        {
+            List<Oprema> svaOprema = new List<Oprema>(this.svaOpremaIzTabele);
+            foreach (Oprema opremaBrojac in svaOprema)
+            {
+                if (opremaBrojac.Naziv.Equals(opremaZaPremestanje.Naziv) && opremaBrojac.NazivSale.Equals(opremaZaPremestanje.NazivSale))
+                {
+                    this.svaOpremaIzTabele.Remove(opremaBrojac);
+                    Oprema prebacenaOprema = new Oprema(opremaZaPremestanje.Naziv, opremaBrojac.Kolicina + opremaZaPremestanje.Kolicina, opremaZaPremestanje.Tip, opremaBrojac.NazivSale);
+                    this.svaOpremaIzTabele.Add(prebacenaOprema);
+                    return true;
+                }
+            }
+            this.svaOpremaIzTabele.Add(opremaZaPremestanje);
+            return true;
         }
 
         private void PremestanjeOpreme()

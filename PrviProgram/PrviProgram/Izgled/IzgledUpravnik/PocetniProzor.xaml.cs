@@ -12,8 +12,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Sale_Click(object sender, RoutedEventArgs e)
         {
-            WindowUpravnik win = new WindowUpravnik();
-            win.Show();
+            var s = new SaleProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
         }
 
         private void IzlogujteSe_Click(object sender, RoutedEventArgs e)
@@ -23,14 +24,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Oprema_Click(object sender, RoutedEventArgs e)
         {
-            CelaOpremaWindow win = new CelaOpremaWindow();
-            win.Show();
+            var s = new OpremaProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
         }
 
         private void Lekovi_Click(object sender, RoutedEventArgs e)
         {
-            LekoviWindow win = new LekoviWindow();
-            win.Show();
+            var s = new LekoviProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
+        }
+
+        public void Ocisti()
+        {
+            gridMain.Children.Clear();
         }
     }
 }

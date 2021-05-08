@@ -3,6 +3,7 @@ using PrviProgram.Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,26 +12,66 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controller;
+using System.Windows.Threading;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    public partial class CelaOpremaWindow : Window
+    /// <summary>
+    /// Interaction logic for OpremaProzor.xaml
+    /// </summary>
+    public partial class OpremaProzor : UserControl
     {
-        public SalaRepository saleRepository = new SalaRepository();
-        public ObservableCollection<Oprema> opreme;
-        public ObservableCollection<Oprema> pomocnaOprema;
+        private UpravnikController upravnikController = new UpravnikController();
+        private SalaRepository salaRepository = new SalaRepository();
+        private ObservableCollection<Oprema> opreme;
+        private ObservableCollection<Oprema> pomocnaOprema;
         private List<Oprema> ukupnaOprema;
         private List<Sala> sale;
         private string nazivIzabraneSale;
+        public DispatcherTimer timer = new DispatcherTimer();
+        private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
 
-        public CelaOpremaWindow()
+        public OpremaProzor()
         {
             InitializeComponent();
-            sale = saleRepository.CitanjeIzFajla();
+            InicijalizacijaTimera();
+            sale = salaRepository.CitanjeIzFajla();
             ukupnaOprema = new List<Oprema>();
             InicijalizacijaTabele();
             InicijalizacijaComboBoxaSala();
+        }
+
+
+        private void InicijalizacijaTimera()
+        {
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += new EventHandler(IzvrsavanjePremestanjaOpreme);
+        }
+
+        public void IzvrsavanjePremestanjaOpreme(object sender, EventArgs e)
+        {
+            List<TerminPremestanjaOpreme> termini = terminiPremestajaRepository.CitanjeIzFajla();
+            foreach (TerminPremestanjaOpreme terminBrojac in termini)
+            {
+                if (DateTime.Today.Equals(terminBrojac.datumPremestaja))
+                {
+                    OpremaService.GetInstance().PremestanjeOpreme(terminBrojac.oprema, terminBrojac.staraSala, terminBrojac.sala);
+                    //timer.Stop();
+                    termini.Remove(terminBrojac);
+                    terminiPremestajaRepository.UpisivanjeUFajl(termini);
+                    break;
+                }
+            }
+        }
+
+        private void Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as Grid).Children.Remove(this);
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -45,13 +86,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 ProveraKolicineOpreme();
                 ProveraComboSale();
             }
-            else if (splited.Length == 1) {
-                foreach (Oprema o in pomocnaOprema) {
+            else if (splited.Length == 1)
+            {
+                foreach (Oprema o in pomocnaOprema)
+                {
                     if (!opreme.Contains(o))
                     {
                         opreme.Add(o);
                     }
-                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower())) {
+                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower()))
+                    {
                         opreme.Remove(o);
                     }
                 }
@@ -59,7 +103,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 ProveraKolicineOpreme();
                 ProveraComboSale();
             }
-            else if (splited.Length == 2) {
+            else if (splited.Length == 2)
+            {
                 foreach (Oprema o in pomocnaOprema)
                 {
                     if (!opreme.Contains(o))
@@ -120,11 +165,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             nazivIzabraneSale = ComboSala.SelectedItem.ToString();
             ResetovanjeTabele();
-            if (nazivIzabraneSale.Equals("Sve")) {
+            if (nazivIzabraneSale.Equals("Sve"))
+            {
                 ResetovanjeTabele();
                 ProveraTipaOpreme();
                 ProveraKolicineOpreme();
-            } else{
+            }
+            else
+            {
                 foreach (Oprema o in ukupnaOprema)
                 {
                     if (!o.NazivSale.Equals(nazivIzabraneSale))
@@ -188,7 +236,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void PrikaziOpremuKolicineDo5() 
+        private void PrikaziOpremuKolicineDo5()
         {
             foreach (Oprema o in pomocnaOprema)
             {
@@ -222,7 +270,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void ProveraTipaOpreme() 
+        private void ProveraTipaOpreme()
         {
             if (Staticka.IsChecked == true)
             {
@@ -253,7 +301,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
         }
 
-        private void InicijalizacijaComboBoxaSala() 
+        private void InicijalizacijaComboBoxaSala()
         {
             Sala sve = new Sala();
             sve.Naziv = "Sve";
@@ -264,15 +312,72 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             ComboSala.ItemsSource = comboSale;
         }
 
-        private void InicijalizacijaTabele() 
+        private void InicijalizacijaTabele()
         {
             foreach (Sala s in sale)
             {
-                ukupnaOprema.AddRange(saleRepository.PregledSvihOpremaPoSali(s));
+                ukupnaOprema.AddRange(salaRepository.PregledSvihOpremaPoSali(s));
             }
-            opreme = new ObservableCollection<Model.Oprema>(ukupnaOprema);
-            pomocnaOprema = new ObservableCollection<Model.Oprema>(ukupnaOprema);
+            opreme = new ObservableCollection<Oprema>(ukupnaOprema);
+            pomocnaOprema = new ObservableCollection<Oprema>(ukupnaOprema);
             dataGridOprema.ItemsSource = opreme;
+        }
+
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            OpremaDodavanje win = new OpremaDodavanje(opreme);
+            win.Show();
+        }
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridOprema.SelectedIndex != -1)
+            {
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                OpremaIzmena win = new OpremaIzmena(opreme, selektovanaOprema, trenutnaSala);
+                win.Show();
+            }
+            else { MessageBox.Show("Morate izabrati opremu!"); }
+        }
+
+        private void Izbrisi_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridOprema.SelectedIndex != -1)
+            {
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                foreach (Oprema opremaBrojac in trenutnaSala.oprema.ToArray())
+                {
+                    if (opremaBrojac.Naziv.Equals(selektovanaOprema.Naziv))
+                    {
+                        trenutnaSala.GetOprema().Remove(opremaBrojac);
+                    }
+                }
+                upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                opreme.Remove(selektovanaOprema);
+            }
+            else { MessageBox.Show("Morate izabrati opremu!"); }
+        }
+
+        private void Prebaci_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridOprema.SelectedIndex != -1)
+            {
+                Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                if (selektovanaOprema.Tip == TipOpreme.Dinamicka)
+                {
+                    OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, selektovanaOprema, trenutnaSala);
+                    win.Show();
+                }
+                else
+                {
+                    OpremaStatPremestanje win = new OpremaStatPremestanje(opreme, selektovanaOprema, trenutnaSala);
+                    win.Show();
+                }
+            }
+            else { MessageBox.Show("Morate izabrati opremu!"); }
         }
     }
 }

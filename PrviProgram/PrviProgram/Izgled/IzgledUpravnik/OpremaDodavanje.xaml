@@ -20,7 +20,7 @@
         </ComboBox>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="262,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Margin="262,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sala" HorizontalAlignment="Left" IsEnabled="False" Margin="262,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <ComboBox x:Name="ComboSala" HorizontalAlignment="Left" Margin="264,165,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
 
     </Grid>
 </Window>

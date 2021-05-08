@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Repository;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -22,21 +23,22 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private OpremaService opremaService;
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
-        private ObservableCollection<Sala> sveSale;
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Sala novaSala = new Sala();
+        private SalaRepository salaRepository = new SalaRepository();
         private Oprema opremaZaPremestanje = new Oprema();
         private Oprema preostalaOprema = new Oprema();
+        private List<Sala> sveSale = new List<Sala>();
         private DateTime datumPremestaja;
 
-        public OpremaStatPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala, ObservableCollection<Sala> sale)
+        public OpremaStatPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala)
         {
             InitializeComponent();
             opremaService = new OpremaService();
             this.svaOpremaIzTabele = opreme;
             this.trenutnaOprema = oprema;
             this.trenutnaSala = sala;
-            this.sveSale = sale;
+            sveSale = salaRepository.PregledSvihSala();
             PrikazPodatakaOpreme();
         }
 
@@ -128,7 +130,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina > -1)
             {
-                OsvezavanjeTabele();
+                //OsvezavanjeTabele();
                 opremaService.DodavanjeTermina(novaSala, this.trenutnaSala, opremaZaPremestanje, this.datumPremestaja);
             }
             else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
