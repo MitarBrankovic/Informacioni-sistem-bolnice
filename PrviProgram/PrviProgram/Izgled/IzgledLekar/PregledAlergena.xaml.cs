@@ -27,7 +27,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         public PregledAlergena(Pacijent pacijent)
         {
             InitializeComponent();
-            alergeni = new ObservableCollection<Alergen>(pacijent.kartonPacijenta.alergen);
+            List<Alergen> alergen = new List<Alergen>();
+            if (pacijent.kartonPacijenta.alergen != null)
+            {
+                alergen = pacijent.kartonPacijenta.alergen;
+            }
+            alergeni = new ObservableCollection<Alergen>(alergen);
             dgDataBinding1.ItemsSource = alergeni;
         }
     }

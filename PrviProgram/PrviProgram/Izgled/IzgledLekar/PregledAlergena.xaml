@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="Pregled Alergena" Height="450" Width="800">
+        Title="Pregled Alergena" Height="400" Width="300">
     <Grid>
-        <DataGrid x:Name="dgDataBinding1" AutoGenerateColumns="False" Margin="268,85,268,29" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
+        <DataGrid x:Name="dgDataBinding1" AutoGenerateColumns="False"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
