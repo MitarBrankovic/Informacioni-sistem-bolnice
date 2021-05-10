@@ -15,23 +15,6 @@
 
     <Window.Resources>
 
-        <!--// Text font style //-->
-        <Style x:Key="font_style" TargetType="TextBlock">
-
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
-
-            <Setter Property="HorizontalAlignment"
-                    Value="Left"/>
-
-            <Setter Property="Foreground"
-                    Value="White"/>
-
-            <Setter Property="FontSize"
-                    Value="20"/>
-
-        </Style>
-
         <!--// App Options Button Style Template //-->
         <Style x:Key="Options_btn" TargetType="{x:Type Button}">
 
@@ -177,7 +160,7 @@
                         <!--// Menu title text //-->
                         <TextBlock
                                     Margin="74,12,0,52"
-                                    Text="M E N U"
+                                    Text="M E N I"
                                     Foreground="White"
                                     FontSize="22"
                                     Background="Transparent"
@@ -216,7 +199,7 @@
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
-                                <TextBlock Text="Home"
+                                <TextBlock Text="Pocetna stranica"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -302,7 +285,7 @@
 
                         <!--// Sign Out //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,50,0,15">
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
@@ -311,7 +294,7 @@
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
-                                <TextBlock Text="Sign Out"
+                                <TextBlock Text="Odjavi se"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -434,7 +417,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="65" To="230"
+                                                From="65" To="250"
                                                 Duration="0:0:0.3">
 
                                     </DoubleAnimation>

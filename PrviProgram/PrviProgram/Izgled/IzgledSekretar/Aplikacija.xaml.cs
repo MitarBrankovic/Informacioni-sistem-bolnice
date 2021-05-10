@@ -1,13 +1,20 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Model;
 
 namespace PrviProgram.Izgled.IzgledSekretar
 {
     public partial class Aplikacija : Window
     {
-        public Aplikacija()
+        private Sekretar sekretar;
+
+        public Aplikacija(Sekretar sekretar)
         {
             InitializeComponent();
+            this.sekretar = sekretar;
+            PocetniPage pocetniPage = new PocetniPage(this.sekretar);
+            frame.NavigationService.Navigate(pocetniPage);
+            textBlockNaslov.Text = "Zdravo klinika";
         }
 
         private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
@@ -34,6 +41,9 @@ namespace PrviProgram.Izgled.IzgledSekretar
             switch (lv.SelectedIndex)
             {
                 case 0:
+                    PocetniPage pocetniPage = new PocetniPage(sekretar);
+                    frame.NavigationService.Navigate(pocetniPage);
+                    textBlockNaslov.Text = "Zdravo klinika";
                     break;
                 case 1:
                     break;

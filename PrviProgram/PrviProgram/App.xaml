@@ -5,6 +5,24 @@
              ShutdownMode="OnMainWindowClose"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!--// Darkovi stilovi //-->
+        
+        <!--// Text font style //-->
+        <Style x:Key="font_style" TargetType="TextBlock">
 
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="White"/>
+
+            <Setter Property="FontSize"
+                    Value="20"/>
+
+        </Style>
+        
     </Application.Resources>
 </Application>
