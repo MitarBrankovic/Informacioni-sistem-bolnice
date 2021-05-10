@@ -1,7 +1,9 @@
-﻿using Model;
-using Service;
+﻿using Controller;
+using Model;
+using PrviProgram.Repository;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,28 +16,21 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    public partial class LekoviInformacije : Window
+    /// <summary>
+    /// Interaction logic for SalaOprema.xaml
+    /// </summary>
+    public partial class SalaOprema : Window
     {
-        private Lek lek;
-
-        public LekoviInformacije(Lek lek)
+        public SalaOprema(Sala sala)
         {
             InitializeComponent();
-            this.lek = lek;
-            PrikazPodataka();
+            listViewOprema.ItemsSource = sala.oprema;
+            labela.Content = sala.Naziv;
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-        private void PrikazPodataka()
-        {
-            Naziv.Text = this.lek.Naziv;
-            Sifra.Text = this.lek.Sifra;
-            Opis.Text = this.lek.Opis;
-            Sastojci.Text = this.lek.Sastojci;
-            alternativniListView.ItemsSource = this.lek.ZamenaZaLek;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

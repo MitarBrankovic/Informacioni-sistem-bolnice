@@ -41,7 +41,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             LekoviDodaj win = new LekoviDodaj(lekovi);
-            win.Show();
+            win.ShowDialog();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (dataGridLekovi.SelectedIndex != -1)
             {
                 LekoviIzmeni win = new LekoviIzmeni(lekovi, (Lek)dataGridLekovi.SelectedItem);
-                win.Show();
+                win.ShowDialog();
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
         }
@@ -70,7 +70,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Lek lek = (Lek)dataGridLekovi.SelectedItem;
                 LekoviInformacije win = new LekoviInformacije(lekoviRepository.PregledLeka(lek.Sifra));
-                win.Show();
+                win.ShowDialog();
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
         }
@@ -128,7 +128,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (dataGridLekovi.IsFocused)
                 {
-                    Dodaj.Focus();
+                    Izmeni.Focus();
                 }
                 else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Neodobreni.IsFocused || !Nazad.IsFocused)
                 {
@@ -166,14 +166,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (dataGridLekovi.IsFocused)
                 {
-                    Dodaj.Focus();
+                    Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Neodobreni.IsFocused || !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Informacije.IsFocused && !Neodobreni.IsFocused && !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
                 else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
                     Dodaj.Focus();
+            }
+            else if (e.Key == Key.M)
+            {
+                File.Focus();
             }
             else if (e.Key == Key.Escape)
             {
@@ -182,12 +186,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (e.Key == Key.F1)
             {
                 MessageBox.Show(
-                    "- Use LEFT and RIGHT CTRL to move withind buttons.\n" +
-                    "- Use CTRL + O to select menu bar - FILE.\n" +
-                    "- Use ENTER to select the button.\n" +
+                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+                "- M: Selektovanje MenuBar-a - FILE.\n" +
+                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+                "- ESCAPE: Povratak na pocetni prozor. \n" +
+                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+                "- F1: Otvaranje Pomoc dijaloga. \n" +
+                "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
+                "- F3: Brisanje selektovanog leka. \n" +
+                "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
 
-                    "- Use ENTER/SPACE to close this message.\n"
-
+                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
                     , "HELP");
             }
             else if (e.Key == Key.F2)
@@ -195,9 +205,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (dataGridLekovi.SelectedIndex != -1)
                 {
                     LekoviIzmeni win = new LekoviIzmeni(lekovi, (Lek)dataGridLekovi.SelectedItem);
-                    win.Show();
+                    win.ShowDialog();
                 }
                 else { MessageBox.Show("Morate izabrati lek!"); }
+                Dodaj.Focus();
             }
             else if (e.Key == Key.F3)
             {
@@ -207,10 +218,32 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
                 }
                 else { MessageBox.Show("Morate izabrati lek!"); }
+                Dodaj.Focus();
+            }
+            else if (e.Key == Key.F4)
+            {
+                if (dataGridLekovi.SelectedIndex != -1)
+                {
+                    Lek lek = (Lek)dataGridLekovi.SelectedItem;
+                    LekoviInformacije win = new LekoviInformacije(lekoviRepository.PregledLeka(lek.Sifra));
+                    win.ShowDialog();
+                }
+                else { MessageBox.Show("Morate izabrati lek!"); }
+                Dodaj.Focus();
             }
             else if (Pomoc.IsFocused || Nazad.IsFocused)
             {
                 if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
+                    e.Handled = true;
+            }
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused)
+            {
+                if (e.Key == Key.Up)
+                    e.Handled = true;
+            }
+            else if (Neodobreni.IsFocused)
+            {
+                if (e.Key == Key.Up || e.Key == Key.Right)
                     e.Handled = true;
             }
             else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused || Neodobreni.IsFocused)
@@ -218,6 +251,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
+            else if (e.Key == Key.Space || e.Key == Key.N)
+                e.Handled = true;
         }
 
         private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)

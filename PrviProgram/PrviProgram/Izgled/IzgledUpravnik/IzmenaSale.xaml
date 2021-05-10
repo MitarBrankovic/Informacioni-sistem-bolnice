@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
         mc:Ignorable="d"
-        Title="IzmenaSale" Height="450" Width="500">
-    <Grid>
+        Title="IzmenaSale" Height="450" Width="500"
+        KeyDown="Window_KeyDown">
+    <Grid Background="SeaShell">
         <Label Content="Naziv" HorizontalAlignment="Left" Height="25" Margin="103,65,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="103,111,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sprat" HorizontalAlignment="Left" Height="25" Margin="103,159,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Tip" HorizontalAlignment="Left" Height="25" Margin="103,208,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Dostupnost" HorizontalAlignment="Left" Height="25" Margin="103,257,0,0" VerticalAlignment="Top" Width="122"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="123,350,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="252,350,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton }" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="123,350,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton }" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="252,350,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
         <ComboBox x:Name="Dostupnost" HorizontalAlignment="Left" Margin="252,257,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
             <ComboBoxItem Content="Da"/>
             <ComboBoxItem Content="Ne"/>

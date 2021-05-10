@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using Controller;
 using Model;
 using Service;
@@ -103,6 +104,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+            else if (e.Key == Key.Space)
+            {
+                Naziv.Focus();
             }
         }
     }

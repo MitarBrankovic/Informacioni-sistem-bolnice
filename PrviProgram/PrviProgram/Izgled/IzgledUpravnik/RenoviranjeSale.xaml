@@ -6,17 +6,18 @@
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="PrviProgram.Izgled.IzgledUpravnik.RenoviranjeSale"
         mc:Ignorable="d"
-        Title="RenoviranjeSale" Height="450" Width="550">
-    <Grid>
-        <Label Content="Trenutna sala:" HorizontalAlignment="Left" Height="25" Margin="153,131,0,0" VerticalAlignment="Top" Width="122"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="173,363,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="302,363,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
-        <TextBox x:Name="TrenutnaSala" IsEnabled="False" HorizontalAlignment="Left" Margin="300,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        Title="RenoviranjeSale" Height="450" Width="500"
+        KeyDown="Window_KeyDown">
+    <Grid Background="SeaShell">
+        <Label Content="Trenutna sala:" HorizontalAlignment="Left" Height="25" Margin="128,140,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton }" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="148,372,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton }" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="277,372,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
+        <TextBox x:Name="TrenutnaSala" IsEnabled="False" HorizontalAlignment="Left" Margin="275,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <Label Content="Renoviranje sale" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <DatePicker x:Name="KrajRenoviranja" HorizontalAlignment="Left" Height="24" Margin="302,235,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
-        <Label Content="Kraj:" HorizontalAlignment="Left" Height="24" Margin="153,235,0,0" VerticalAlignment="Top" Width="122"/>
-        <DatePicker x:Name="PocetakRenoviranja" HorizontalAlignment="Left" Height="25" Margin="302,183,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
-        <Label Content="Pocetak:" HorizontalAlignment="Left" Height="25" Margin="153,183,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="KrajRenoviranja" HorizontalAlignment="Left" Height="24" Margin="277,244,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Kraj:" HorizontalAlignment="Left" Height="24" Margin="128,244,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="PocetakRenoviranja" HorizontalAlignment="Left" Height="25" Margin="277,192,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Height="25" Margin="128,192,0,0" VerticalAlignment="Top" Width="122"/>
 
     </Grid>
 </Window>

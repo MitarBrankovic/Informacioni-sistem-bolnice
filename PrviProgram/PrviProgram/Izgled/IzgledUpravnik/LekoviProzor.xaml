@@ -8,20 +8,16 @@
              Loaded="UserControl_Loaded"
              KeyDown="UserControl_KeyDown">
 
-    <UserControl.Background>
-        <ImageBrush ImageSource="/Slike/upravnik.jpg" Stretch="UniformToFill"/>
-    </UserControl.Background>
-
-    <Grid>
+    <Grid Background="SeaShell">
         <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top">
+            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <DockPanel HorizontalAlignment="Stretch"></DockPanel>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
+                <MenuItem Header="File" InputGestureText="Ctrl" Name="File" Width="35">
                     <MenuItem Name="DodajLek" Header="Dodaj lek" InputGestureText="Ctrl+B" Click="DodajLek_Click"></MenuItem>
                     <MenuItem Name="LogOut" Header="Log out"  InputGestureText="Ctrl+D" Click="LogOut_Click" ></MenuItem>
                 </MenuItem>

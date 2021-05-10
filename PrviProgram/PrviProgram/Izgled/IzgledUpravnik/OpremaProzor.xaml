@@ -8,20 +8,16 @@
             Loaded="UserControl_Loaded"
             KeyDown="UserControl_KeyDown">
 
-    <UserControl.Background>
-        <ImageBrush ImageSource="/Slike/upravnik.jpg" Stretch="UniformToFill"/>
-    </UserControl.Background>
-
-    <Grid>
+    <Grid Background="SeaShell">
         <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top">
+            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <DockPanel HorizontalAlignment="Stretch"></DockPanel>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
+                <MenuItem Header="File" InputGestureText="Ctrl" Name="File" Width="35">
                     <MenuItem Name="DodajOpremu" Header="Dodaj opremu" InputGestureText="Ctrl+N" Click="DodajOpremu_Click" ></MenuItem>
                     <MenuItem Name="LogOut" Header="Log out"  InputGestureText="Ctrl+D" Click="LogOut_Click" ></MenuItem>
                 </MenuItem>
@@ -60,7 +56,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBox x:Name="Textbox" HorizontalAlignment="Left" Margin="963,124,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextSearch.Text="nesto"/>
-                <Button Content="Search" Style="{StaticResource UpravnikButton }" HorizontalAlignment="Left" Margin="1087,123,0,0" VerticalAlignment="Top" Click="Search_Click">
+                <Button Name="Search" Content="Search" Style="{StaticResource UpravnikButton }" HorizontalAlignment="Left" Margin="1087,123,0,0" VerticalAlignment="Top" Click="Search_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Pretraga opreme po nazivu
@@ -70,11 +66,11 @@
                 <Label Content="Oprema" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="96" FontSize="24"/>
                 <RadioButton x:Name="Staticka" Content="Staticka" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="977,194,0,0" VerticalAlignment="Top" Checked="Staticka_Checked"/>
                 <RadioButton x:Name="Dinamicka" Content="Dinamicka" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="977,214,0,0" VerticalAlignment="Top" Checked="Dinamicka_Checked"/>
-                <RadioButton Content="Sve" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="977,234,0,0" VerticalAlignment="Top" Checked="Obe_Checked"/>
+                <RadioButton x:Name="SveTip" Content="Sve" GroupName="TipOpreme" HorizontalAlignment="Left" Margin="977,234,0,0" VerticalAlignment="Top" Checked="Obe_Checked"/>
                 <RadioButton x:Name="Do5" Content="1-5" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="1087,194,0,0" VerticalAlignment="Top" Checked="Do5_Checked"/>
                 <RadioButton x:Name="Do10" Content="6-10" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="1087,214,0,0" VerticalAlignment="Top" Checked="Do10_Checked"/>
                 <RadioButton x:Name="Preko10" Content="10+" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="1087,234,0,0" VerticalAlignment="Top" Checked="Preko10_Checked"/>
-                <RadioButton Content="Sve" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="1086,254,0,0" VerticalAlignment="Top" Checked="Sve_Checked"/>
+                <RadioButton x:Name="SveKolicina" Content="Sve" GroupName="KolicinaOpreme" HorizontalAlignment="Left" Margin="1086,254,0,0" VerticalAlignment="Top" Checked="Sve_Checked"/>
                 <Label Content="Izaberite salu:" HorizontalAlignment="Left" Height="25" Margin="957,322,0,0" VerticalAlignment="Top" Width="82"/>
                 <ComboBox x:Name="ComboSala" HorizontalAlignment="Left" Margin="1068,324,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0" SelectionChanged="ComboSala_SelectionChanged"/>
                 <Label Content="Tip" HorizontalAlignment="Left" Margin="988,163,0,0" VerticalAlignment="Top"/>

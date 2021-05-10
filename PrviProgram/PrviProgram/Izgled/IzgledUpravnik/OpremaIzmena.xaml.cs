@@ -127,5 +127,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 return false;
             }
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+            else if (e.Key == Key.Space)
+            {
+                Naziv.Focus();
+            }
+        }
     }
 }

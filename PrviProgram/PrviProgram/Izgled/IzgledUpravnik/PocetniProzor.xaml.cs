@@ -61,12 +61,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(
-                "- Use LEFT and RIGHT CTRL to move withind buttons.\n" +
-                "- Use CTRL + O to select menu bar - FILE.\n" +
-                "- Use ENTER to select the button.\n" +
+                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+                "- N: Selektovanje MenuBar-a - FILE.\n" +
+                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+                "- SPACE: Vracanje fokusa na dugme nakon povratka na pocetni prozor.\n" +
+                "- END: Izlazak iz aplikacije. \n\n" +
 
-                "- Use ENTER/SPACE to close this message.\n"
-
+                "- ENTER/SPACE: Zatvaranje ove poruke.\n"+
+                "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
                 , "HELP");
         }
 
@@ -177,7 +179,25 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     SaleButton.Focus();
                 }
             }
-
+            else if (e.Key == Key.N)
+            {
+                File_Name.Focus();
+            }
+            else if (Pomoc.IsFocused)
+            {
+                if (e.Key == Key.Up || e.Key == Key.Right)
+                    e.Handled = true;
+            }
+            else if (LogOutButton.IsFocused)
+            {
+                if (e.Key == Key.Down)
+                    e.Handled = true;
+            }
+            else if (SaleButton.IsFocused || OpremaButton.IsFocused || LekoviButton.IsFocused)
+            {
+                if (e.Key == Key.Up)
+                    e.Handled = true;
+            }
         }
     }
 }
