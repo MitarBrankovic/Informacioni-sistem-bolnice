@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="Slike\arrow-105-64.png" />
     <None Remove="Slike\avatarPacijenta.jpg" />
+    <None Remove="Slike\Dania.jpg" />
     <None Remove="Slike\hospital-2.jpg" />
     <None Remove="Slike\logout-64.png" />
     <None Remove="Slike\Pacijent.jpg" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <Resource Include="Slike\arrow-105-64.png" />
     <Resource Include="Slike\avatarPacijenta.jpg" />
+    <Resource Include="Slike\Dania.jpg" />
     <Resource Include="Slike\hospital-2.jpg" />
     <Resource Include="Slike\logout-64.png" />
     <Resource Include="Slike\Pacijent.jpg" />

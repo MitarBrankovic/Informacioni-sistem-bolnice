@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="PrviProgram.Izgled.IzgledLekar.PacijentiPrikaz"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800">
+    <Grid>
+        <DataGrid x:Name="dgDataBinding" AutoGenerateColumns="False" Margin="41,91,41,63" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime" Width="0.2*" Binding="{Binding Ime}"/>
+                <DataGridTextColumn Header="Prezime" Width="0.2*" Binding="{Binding Prezime}"/>
+                <DataGridTextColumn Header="Jmbg" Width="0.2*" Binding="{Binding Jmbg}"/>
+                <DataGridTextColumn Header="Datum rodjenja" Width="0.2*" Binding="{Binding DatumRodjenja, StringFormat=\{0:dd.MM.yyyy.\}}"/>
+                <DataGridTextColumn Header="Pol" Width="0.2*" Binding="{Binding Pol}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="90,36,0,0" VerticalAlignment="Top" Width="98" />
+
+    </Grid>
+</UserControl>

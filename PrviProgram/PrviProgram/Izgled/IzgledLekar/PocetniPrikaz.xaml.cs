@@ -19,6 +19,15 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class PocetniPrikaz : Window
     {
         private Lekar lekar;
+        public UserControl stariUserControl;
+        public UserControl noviUserControl;
+        private TerminiPrikaz terminiPrikaz;
+        private LekoviPrikaz lekoviPrikaz;
+        private PacijentiPrikaz pacijentiPrikaz;
+        public StackPanel getContentArea()
+        {
+            return ContentArea;
+        }
         public PocetniPrikaz(Lekar lekar)
         {
             InitializeComponent();
@@ -27,14 +36,69 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Raspored_Click(object sender, RoutedEventArgs e)
         {
-            WindowTermini win = new WindowTermini(lekar);
-            win.Show();
+            terminiPrikaz = new TerminiPrikaz(this, ContentArea, lekar);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(terminiPrikaz);
         }
 
         private void PregledLekova_Click(object sender, RoutedEventArgs e)
         {
-            WindowLekovi win = new WindowLekovi(lekar);
-            win.Show();
+            lekoviPrikaz = new LekoviPrikaz(this, lekar);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(lekoviPrikaz);
         }
+        public void DugmeVisibilityTrue()
+        {
+            GoBack.Visibility = Visibility.Visible;
+        }
+
+        public void DugmeVisibilityFalse()
+        {
+            GoBack.Visibility = Visibility.Collapsed;
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (stariUserControl.Parent != null)
+            {
+                (stariUserControl.Parent as Panel).Children.Remove(stariUserControl);
+                ContentArea.Children.Add(noviUserControl);
+            }
+            ProveraKojiProzorJeOtvoren();
+        }
+        private void ProveraKojiProzorJeOtvoren()
+        {
+            foreach(var i in ContentArea.Children)
+            {
+                if(i == terminiPrikaz)
+                {
+                    DugmeVisibilityFalse();
+                }else if(i == lekoviPrikaz)
+                {
+                    DugmeVisibilityFalse();
+                }else if (i == pacijentiPrikaz)
+                {
+                    DugmeVisibilityFalse();
+                }
+            }
+        }
+
+        public void setUserControl(UserControl stariUserControl, UserControl noviUserControl)
+        {
+            this.stariUserControl = stariUserControl;
+            this.noviUserControl = noviUserControl;
+        }
+
+        private void Pacijenti_Click(object sender, RoutedEventArgs e)
+        {
+            pacijentiPrikaz = new PacijentiPrikaz(this, ContentArea);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(pacijentiPrikaz);
+        }
+        /*public void PovratakNazad(UserControl userControl)
+{
+   (userControl.Parent as Panel).Children.Remove(userControl);
+
+}*/
     }
 }

@@ -54,7 +54,9 @@ namespace Controller
             primedbeNaLekService.KreiranjePrimedbe(primedbaNaLek);
         }
    
-      public KartonPacijentaService kartonPacijentaService;
+        
+        
+        public KartonPacijentaService kartonPacijentaService;
    
    }
 }
