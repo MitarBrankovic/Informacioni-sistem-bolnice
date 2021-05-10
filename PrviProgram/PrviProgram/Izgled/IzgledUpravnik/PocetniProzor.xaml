@@ -22,57 +22,57 @@
                     <MenuItem Header="Dodaj salu" InputGestureText="Ctrl+M"></MenuItem>
                     <MenuItem Header="Dodaj opremu" InputGestureText="Ctrl+N"></MenuItem>
                     <MenuItem Header="Dodaj lek" InputGestureText="Ctrl+B"></MenuItem>
-                    <MenuItem Header="Log out"  InputGestureText="Ctrl+D" ></MenuItem>
+                    <MenuItem Name="LogOutMenu" Header="Log out"  InputGestureText="Ctrl+D" ></MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="Edit" Name="Edit_Name" Width="35">
-                    <MenuItem Name="PodesavanjaNaloga" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
-                    <MenuItem Name="Podesavanja" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
+                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
+                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="View" Name="ViewName" Width="35">
-                    <MenuItem Name="Sale" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
-                    <MenuItem Name="OpremaPrikaz" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
-                    <MenuItem Name="Lekovi" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
+                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
+                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
+                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
-                    <MenuItem Name="Help" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
+                    <MenuItem Name="HelpMenu" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
                 </MenuItem>
             </Menu>
 
 
             <Grid DockPanel.Dock="Bottom">
                 <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="160" FontFamily="Bahnschrift Light" FontSize="30" Grid.Column="1"/>
-                <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" Background="MistyRose" Content="Sale" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click">
+                <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" Content="Sale" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz svih sala
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Background="MistyRose" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
+                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Izlazak iz aplikacije
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Name="LekoviButton" Style="{StaticResource UpravnikButton }" Content="Lekovi" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click">
+                <Button Name="LekoviButton" Style="{StaticResource UpravnikButton }" Content="Lekovi" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz svih lekova
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Name="OpremaButton" Style="{StaticResource UpravnikButton }" Content="Oprema" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click">
+                <Button Name="OpremaButton" Style="{StaticResource UpravnikButton }" Content="Oprema" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz sve opreme
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Background="MistyRose" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1028,49,0,0" VerticalAlignment="Top" Width="66" Grid.Column="1">
+                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1028,49,0,0" VerticalAlignment="Top" Width="66" Grid.Column="1">
                     <Button.ToolTip>
                         <ToolTip>
                             Deteljna uputstva za korisnjece aplikacije

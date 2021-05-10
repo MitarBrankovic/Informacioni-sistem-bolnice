@@ -380,40 +380,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else { MessageBox.Show("Morate izabrati opremu!"); }
         }
 
-        private void Pomoc_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Podesavanja_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Sale_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Lekovi_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
@@ -421,6 +387,171 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         }
 
         private void DodajOpremu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dodaj.Focus();
+        }
+
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.RightCtrl)
+            {
+                if (Dodaj.IsFocused)
+                {
+                    Izmeni.Focus();
+                }
+                else if (Izmeni.IsFocused)
+                {
+                    Izbrisi.Focus();
+                }
+                else if (Izbrisi.IsFocused)
+                {
+                    Prebaci.Focus();
+                }
+                else if (Prebaci.IsFocused)
+                {
+                    Pomoc.Focus();
+                }
+                else if (Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (dataGridOprema.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Prebaci.IsFocused || !Pomoc.IsFocused || !Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
+                    Dodaj.Focus();
+
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
+            {
+                if (Pomoc.IsFocused)
+                {
+                    Prebaci.Focus();
+                }
+                else if (Prebaci.IsFocused)
+                {
+                    Izbrisi.Focus();
+                }
+                else if (Izbrisi.IsFocused)
+                {
+                    Izmeni.Focus();
+                }
+                else if (Izmeni.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (Dodaj.IsFocused)
+                {
+                    Nazad.Focus();
+                }
+                else if (dataGridOprema.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Prebaci.IsFocused || !Pomoc.IsFocused || !Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
+                    Dodaj.Focus();
+            }
+            else if (e.Key == Key.Escape)
+            {
+                (this.Parent as Grid).Children.Remove(this);
+            }
+            else if (e.Key == Key.F1)
+            {
+                MessageBox.Show(
+                    "- Use LEFT and RIGHT CTRL to move withind buttons.\n" +
+                    "- Use CTRL + O to select menu bar - FILE.\n" +
+                    "- Use ENTER to select the button.\n" +
+
+                    "- Use ENTER/SPACE to close this message.\n"
+
+                    , "HELP");
+            }
+            else if (e.Key == Key.F2)
+            {
+                if (dataGridOprema.SelectedIndex != -1)
+                {
+                    Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                    Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                    OpremaIzmena win = new OpremaIzmena(opreme, selektovanaOprema, trenutnaSala);
+                    win.Show();
+                }
+                else { MessageBox.Show("Morate izabrati opremu!"); }
+            }
+            else if (e.Key == Key.F3)
+            {
+                if (dataGridOprema.SelectedIndex != -1)
+                {
+                    Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                    Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                    foreach (Oprema opremaBrojac in trenutnaSala.oprema.ToArray())
+                    {
+                        if (opremaBrojac.Naziv.Equals(selektovanaOprema.Naziv))
+                        {
+                            trenutnaSala.GetOprema().Remove(opremaBrojac);
+                        }
+                    }
+                    upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                    opreme.Remove(selektovanaOprema);
+                }
+                else { MessageBox.Show("Morate izabrati opremu!"); }
+            }
+            else if (Pomoc.IsFocused || Nazad.IsFocused)
+            {
+                if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
+                    e.Handled = true;
+            }
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Prebaci.IsFocused)
+            {
+                if (e.Key == Key.Up)
+                    e.Handled = true;
+            }
+        }
+
+        private void HelpMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaleMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
 
         }

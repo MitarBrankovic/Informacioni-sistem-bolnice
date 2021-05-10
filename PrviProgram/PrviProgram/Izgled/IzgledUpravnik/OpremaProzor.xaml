@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
-            Height="700" Width="1200">
+            Height="700" Width="1200"
+            Loaded="UserControl_Loaded"
+            KeyDown="UserControl_KeyDown">
 
     <UserControl.Background>
         <ImageBrush ImageSource="/Slike/upravnik.jpg" Stretch="UniformToFill"/>
@@ -25,18 +27,18 @@
                 </MenuItem>
 
                 <MenuItem Header="Edit" Name="Edit_Name" Width="35">
-                    <MenuItem Name="PodesavanjaNaloga" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
-                    <MenuItem Name="Podesavanja" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
+                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNalogaMenu_Click"></MenuItem>
+                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="PodesavanjaMenu_Click"></MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="View" Name="ViewName" Width="35">
-                    <MenuItem Name="Sale" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
-                    <MenuItem Name="OpremaPrikaz" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
-                    <MenuItem Name="Lekovi" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
+                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="SaleMenu_Click"></MenuItem>
+                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaMenu_Click"></MenuItem>
+                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="LekoviMenu_Click"></MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
-                    <MenuItem Name="Help" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
+                    <MenuItem Name="HelpMenu" Header="Help"  InputGestureText="Ctrl+H" Click="HelpMenu_Click"></MenuItem>
                 </MenuItem>
             </Menu>
 

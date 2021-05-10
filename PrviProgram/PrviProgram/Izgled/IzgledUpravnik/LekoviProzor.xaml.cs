@@ -81,35 +81,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             win.Show();
         }
 
-        private void Pomoc_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void Lekovi_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Podesavanja_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Sale_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
@@ -123,10 +95,162 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Dodaj.Focus();
         }
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.RightCtrl)
+            {
+                if (Dodaj.IsFocused)
+                {
+                    Izmeni.Focus();
+                }
+                else if (Izmeni.IsFocused)
+                {
+                    Izbrisi.Focus();
+                }
+                else if (Izbrisi.IsFocused)
+                {
+                    Informacije.Focus();
+                }
+                else if (Informacije.IsFocused)
+                {
+                    Neodobreni.Focus();
+                }
+                else if (Neodobreni.IsFocused)
+                {
+                    Pomoc.Focus();
+                }
+                else if (Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (dataGridLekovi.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Neodobreni.IsFocused || !Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
+                    Dodaj.Focus();
+
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
+            {
+                if (Pomoc.IsFocused)
+                {
+                    Neodobreni.Focus();
+                }
+                else if (Neodobreni.IsFocused)
+                {
+                    Informacije.Focus();
+                }
+                else if (Informacije.IsFocused)
+                {
+                    Izbrisi.Focus();
+                }
+                else if (Izbrisi.IsFocused)
+                {
+                    Izmeni.Focus();
+                }
+                else if (Izmeni.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (Dodaj.IsFocused)
+                {
+                    Nazad.Focus();
+                }
+                else if (dataGridLekovi.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Neodobreni.IsFocused || !Nazad.IsFocused)
+                {
+                    Dodaj.Focus();
+                }
+                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
+                    Dodaj.Focus();
+            }
+            else if (e.Key == Key.Escape)
+            {
+                (this.Parent as Grid).Children.Remove(this);
+            }
+            else if (e.Key == Key.F1)
+            {
+                MessageBox.Show(
+                    "- Use LEFT and RIGHT CTRL to move withind buttons.\n" +
+                    "- Use CTRL + O to select menu bar - FILE.\n" +
+                    "- Use ENTER to select the button.\n" +
+
+                    "- Use ENTER/SPACE to close this message.\n"
+
+                    , "HELP");
+            }
+            else if (e.Key == Key.F2)
+            {
+                if (dataGridLekovi.SelectedIndex != -1)
+                {
+                    LekoviIzmeni win = new LekoviIzmeni(lekovi, (Lek)dataGridLekovi.SelectedItem);
+                    win.Show();
+                }
+                else { MessageBox.Show("Morate izabrati lek!"); }
+            }
+            else if (e.Key == Key.F3)
+            {
+                if (dataGridLekovi.SelectedIndex != -1)
+                {
+                    upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
+                    lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
+                }
+                else { MessageBox.Show("Morate izabrati lek!"); }
+            }
+            else if (Pomoc.IsFocused || Nazad.IsFocused)
+            {
+                if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
+                    e.Handled = true;
+            }
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused || Neodobreni.IsFocused)
+            {
+                if (e.Key == Key.Up)
+                    e.Handled = true;
+            }
+        }
+
+        private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PodesavanjaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaleMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HelpMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
 
         }
