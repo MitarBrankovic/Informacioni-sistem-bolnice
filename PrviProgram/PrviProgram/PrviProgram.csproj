@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Izgled\IzgledSekretar\Assets\dotsBtn_default.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_contact.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_home.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_map.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_message.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_setting.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\img_signout.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_checked.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
     <None Remove="Slike\arrow-105-64.png" />
     <None Remove="Slike\avatarPacijenta.jpg" />
     <None Remove="Slike\Dania.jpg" />
@@ -25,6 +36,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Izgled\IzgledSekretar\Assets\dotsBtn_default.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_contact.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_home.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_map.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_message.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_setting.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\img_signout.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_checked.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
     <Resource Include="Slike\arrow-105-64.png" />
     <Resource Include="Slike\avatarPacijenta.jpg" />
     <Resource Include="Slike\Dania.jpg" />

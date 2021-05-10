@@ -1,0 +1,36 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.PocetniPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="700"
+      d:DesignWidth="430"
+      Title="PocetniPage">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="textBlockDobrodosli"
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{Binding Path=Sekretar, StringFormat='Dobrodosli, {0}!'}"
+            Foreground="Black"
+            FontSize="22"
+            Background="Transparent"
+            Style="{StaticResource font_style}"
+            Width="350"
+            Height="80">
+        </TextBlock>
+
+    </Grid>
+</Page>

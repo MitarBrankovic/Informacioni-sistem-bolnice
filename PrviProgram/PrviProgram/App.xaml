@@ -5,6 +5,7 @@
              ShutdownMode="OnMainWindowClose"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
         <ResourceDictionary>
 
             <Style x:Key="UpravnikButton" TargetType="Button">
@@ -25,6 +26,27 @@
                 </Setter>
             </Style>
 
+            <!--// Darkovi stilovi //-->
+
+            <!--// Text font style //-->
+            <Style x:Key="font_style" TargetType="TextBlock">
+
+                <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+                <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+                <Setter Property="Foreground"
+                    Value="White"/>
+
+                <Setter Property="FontSize"
+                    Value="20"/>
+
+            </Style>
+
         </ResourceDictionary>
+
     </Application.Resources>
+    
 </Application>
