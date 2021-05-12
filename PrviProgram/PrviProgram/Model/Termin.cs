@@ -12,6 +12,19 @@ namespace Model
         public GuestPacijent guestPacijent { get; set; }
         public bool izvrsen { get; set; }
 
+        public Termin() { }
+
+        public Termin(DateTime datum, TipTermina tipTermina, string sifraTermina, string vreme, Lekar lekar, Pacijent pacijent)
+        {
+            this.Datum = datum;
+            this.TipTermina = tipTermina;
+            this.SifraTermina = sifraTermina;
+            this.Vreme = vreme;
+            this.lekar = lekar;
+            this.pacijent = pacijent;
+            this.izvrsen = false;
+        }
+
         public override string ToString()
         {
             return  Datum.Day+"/"+Datum.Month+"/"+Datum.Year + " " + Vreme;

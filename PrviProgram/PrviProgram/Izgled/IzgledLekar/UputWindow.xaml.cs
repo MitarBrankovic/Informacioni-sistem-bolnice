@@ -23,6 +23,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class UputWindow : Window
     {
         private LekarRepository lekarRepository = new LekarRepository();
+        private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();
         private TerminiRepository terminiRepository = new TerminiRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
@@ -128,23 +129,11 @@ namespace PrviProgram.Izgled.IzgledLekar
             termin.lekar = (Model.Lekar)comboBoxLekari.SelectedItem;
             termin.pacijent = pacijent;
             termin.sala = TerminiService.getInstance().DobavljanjeSale(termin);
-            termin.SifraTermina = IzracunajSifruTermina();
+            termin.SifraTermina = utilityService.GenerisanjeSifre();
             termin.TipTermina = (TipTermina)comboBoxTipTermina.SelectedItem;
             return termin;
         }
-        private static string IzracunajSifruTermina()
-        {
-            Random rnd = new Random();
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var stringChars = new char[8];
-            var Random = new Random();
-            for (int i = 0; i < stringChars.Length; i++)
-            {
-                stringChars[i] = chars[Random.Next(chars.Length)];
-            }
-            var finalString = new String(stringChars);
-            return finalString;
-        }
+        
         private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

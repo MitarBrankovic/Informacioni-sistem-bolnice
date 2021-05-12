@@ -24,10 +24,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         private TerminiPrikaz terminiPrikaz;
         private LekoviPrikaz lekoviPrikaz;
         private PacijentiPrikaz pacijentiPrikaz;
-        public StackPanel getContentArea()
-        {
-            return ContentArea;
-        }
         public PocetniPrikaz(Lekar lekar)
         {
             InitializeComponent();
@@ -95,10 +91,5 @@ namespace PrviProgram.Izgled.IzgledLekar
             ContentArea.Children.Clear();
             ContentArea.Children.Add(pacijentiPrikaz);
         }
-        /*public void PovratakNazad(UserControl userControl)
-{
-   (userControl.Parent as Panel).Children.Remove(userControl);
-
-}*/
     }
 }

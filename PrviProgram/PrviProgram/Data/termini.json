@@ -953,38 +953,26 @@
     "sala": {
       "oprema": [
         {
-          "Naziv": "Stolice",
-          "Kolicina": 30,
-          "Tip": 0,
-          "NazivSale": "Magacin"
-        },
-        {
-          "Naziv": "Gaze",
-          "Kolicina": 20,
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
           "Tip": 1,
-          "NazivSale": "Magacin"
+          "NazivSale": "NTP 1"
         },
         {
           "Naziv": "Kreveti",
-          "Kolicina": 20,
+          "Kolicina": 5,
           "Tip": 0,
-          "NazivSale": "Magacin"
-        },
-        {
-          "Naziv": "Zavoji",
-          "Kolicina": 13,
-          "Tip": 1,
-          "NazivSale": "Magacin"
+          "NazivSale": "NTP 1"
         }
       ],
-      "Tip": 2,
-      "Naziv": "Magacin",
+      "Tip": 0,
+      "Naziv": "NTP 1",
       "Sprat": 1,
       "Dostupnost": true,
-      "Sifra": "mag",
-      "NazivSprat": "Magacin 1"
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "12:00:00",
+    "Vreme": "08:00:00",
     "guestPacijent": null,
     "izvrsen": false,
     "lekar": {
@@ -1013,7 +1001,11 @@
     "pacijent": {
       "termin": [],
       "kartonPacijenta": {
-        "alergen": null,
+        "alergen": [
+          {
+            "Naziv": "Kikiriki"
+          }
+        ],
         "anamneza": null,
         "recept": null,
         "terapija": null,
@@ -1042,7 +1034,7 @@
               "KontaktTelefon": null
             },
             "anamneza": {
-              "Opis": "Pacijent se zalio na bolove u ledjima"
+              "Opis": "Pacijent se zalio na bolove u ledjima i nije mu bas dobro"
             },
             "recept": {
               "Lekovi": "Brufen",
@@ -1051,7 +1043,7 @@
               "OpisLeka": null
             },
             "terapija": {
-              "Opis": "Morate piti lek od 17h svaki dan",
+              "Opis": "Morate piti lek od 17h svaki dan, narednih 10 dana",
               "Datum": "0001-01-01T00:00:00"
             }
           },

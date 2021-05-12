@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Lek lek;
         private Lekar lekar;
         private LekarController lekarController = new LekarController();
+        private UtilityService utilityService = new UtilityService();
         public PrimedbaNaLekWindow(Lek lek, Lekar lekar)
         {
             InitializeComponent();
@@ -50,28 +52,14 @@ namespace PrviProgram.Izgled.IzgledLekar
         private PrimedbaNaLek kreiranjePrimedbe()
         {
             PrimedbaNaLek primedbaNaLek = new PrimedbaNaLek(
-                kreiranjeSifrePrimedbe(),
+
+                utilityService.GenerisanjeSifre(),
                 lekar,
                 lek,
                 TextboxPrimedba.Text,
                 DateTime.Today
                 );
             return primedbaNaLek;
-        }
-
-        private string kreiranjeSifrePrimedbe()
-        {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var stringChars = new char[8];
-            var Random = new Random();
-
-            for (int i = 0; i < stringChars.Length; i++)
-            {
-                stringChars[i] = chars[Random.Next(chars.Length)];
-            }
-
-            var finalString = new String(stringChars);
-            return finalString;
         }
     }
 }

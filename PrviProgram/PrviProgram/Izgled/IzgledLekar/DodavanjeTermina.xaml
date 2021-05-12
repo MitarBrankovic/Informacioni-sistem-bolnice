@@ -14,7 +14,6 @@
         <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="115,91,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="115,151,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="114,0,0,0" VerticalAlignment="Center" Width="122"/>
-        <Label Content="Sala" HorizontalAlignment="Left" Height="25" Margin="114,256,0,0" VerticalAlignment="Top" Width="122"/>
 
         <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="136,313,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
         <Button Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="294,313,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
@@ -25,9 +24,9 @@
             <ComboBoxItem>Operacija</ComboBoxItem>
             <ComboBoxItem>Kontrola</ComboBoxItem>
         </ComboBox>
-        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,151,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="datum_SelectedDateChanged"/>
+        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,151,0,0" VerticalAlignment="Top" Width="167" />
 
-        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Center" Width="165" Margin="262,0,0,0" Height="26" SelectionChanged="vreme_SelectionChanged">
+        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Center" Width="165" Margin="262,0,0,0" Height="26" >
             <ComboBoxItem>08:00:00</ComboBoxItem>
             <ComboBoxItem>08:30:00</ComboBoxItem>
             <ComboBoxItem>09:00:00</ComboBoxItem>
@@ -55,8 +54,6 @@
 
         </ComboBox>
         <ComboBox x:Name="ComboboxPacijent" HorizontalAlignment="Left" Margin="262,48,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
-        </ComboBox>
-        <ComboBox x:Name="ComboboxSala" HorizontalAlignment="Left" Margin="260,256,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
         </ComboBox>
 
     </Grid>

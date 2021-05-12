@@ -25,9 +25,9 @@
             <ComboBoxItem>Kontrola</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="Sifra" HorizontalAlignment="Left" IsEnabled="False" Margin="262,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"/>
-        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,220,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="DatumText_SelectedDateChanged"/>
+        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,220,0,0" VerticalAlignment="Top" Width="167" />
 
-        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="262,276,0,0" Height="26" SelectionChanged="vremeText_SelectionChanged">
+        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="262,276,0,0" Height="26" >
             <ComboBoxItem>08:00:00</ComboBoxItem>
             <ComboBoxItem>08:30:00</ComboBoxItem>
             <ComboBoxItem>09:00:00</ComboBoxItem>

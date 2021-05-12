@@ -19,7 +19,7 @@ namespace Service
             "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", 
             "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
         private List<Termin> termini = new List<Termin>();
-        public List<Termin> izvrseniTermini = new List<Termin>();
+        private List<Termin> izvrseniTermini = new List<Termin>();
 
         private static TerminiService instance = null;
         public Lekar lekar = new Lekar();
@@ -40,7 +40,6 @@ namespace Service
 
         public void BrisanjeTermina(Termin termin)
         {
-            TerminiRepository terminiRepository = new TerminiRepository();
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin t in termini)
             {
@@ -69,7 +68,6 @@ namespace Service
 
         public bool IzmenaTermina(Termin termin)
         {
-            TerminiRepository terminiRepository = new TerminiRepository();
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin t in termini)
             {
@@ -79,22 +77,20 @@ namespace Service
                     termini.Add(termin);
                     terminiRepository.UpisivanjeUFajl(termini);
                     return true;
-
                 }
             }
             return false;
         }
 
-        public List<Termin> PregledTermina(Pacijent p)
+        public List<Termin> PregledTermina(Pacijent pacijent)
         {
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
             foreach (Termin pp in termini)
             {
                 if (pp.pacijent != null)
                 {
-                    if (pp.pacijent.Jmbg.Equals(p.Jmbg))
+                    if (pp.pacijent.Jmbg.Equals(pacijent.Jmbg))
                     {
                         list.Add(pp);
 
@@ -107,22 +103,20 @@ namespace Service
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            TerminiRepository datoteka = new TerminiRepository();
-            List<Termin> termini = datoteka.CitanjeIzFajla();
+            List<Termin> termini = terminiRepository.CitanjeIzFajla();
             List<Termin> list = new List<Termin>();
             Sala s = new Sala();
 
-            foreach (Termin tt in termini)
+            foreach (Termin terminIterator in termini)
             {
-                list.Add(tt);
-                if (tt.sala.Sifra.Equals(staraSala.Sifra))
+                list.Add(terminIterator);
+                if (terminIterator.sala.Sifra.Equals(staraSala.Sifra))
                 {
-                    list.Remove(tt);
-                    tt.sala = novaSala;
-                    list.Add(tt);
-                    datoteka.UpisivanjeUFajl(list);
+                    list.Remove(terminIterator);
+                    terminIterator.sala = novaSala;
+                    list.Add(terminIterator);
+                    terminiRepository.UpisivanjeUFajl(list);
                     return true;
-
                 }
             }
             return false;

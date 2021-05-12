@@ -15,12 +15,6 @@ namespace PrviProgram.Izgled.IzgledLekar
     /// </summary>
     public partial class IzmenaTermina : Window
     {
-
-        private PacijentiService UpravljanjePacijentima;
-        private SaleService UpravljanjeSalama;
-        private SalaRepository saleRep;
-        private TerminiService UpravljanjeTerminima;
-        private PreglediService UpravljanjePregledima;
         private ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
@@ -34,102 +28,96 @@ namespace PrviProgram.Izgled.IzgledLekar
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();
-
-            UpravljanjePacijentima = new PacijentiService();
-            UpravljanjeSalama = new SaleService();
-            UpravljanjeTerminima = new TerminiService();
-            UpravljanjePregledima = new PreglediService();
-            saleRep = new SalaRepository();
-
             this.termini = termini;
             this.termin = termin;
+            this.terminiPacijent = new ObservableCollection<Termin>(terminiService.PregledTermina(this.termin.pacijent));
+            PopunjavanjePoljaSaPodacima();
 
-            this.terminiPacijent = new ObservableCollection<Termin>(UpravljanjeTerminima.PregledTermina(this.termin.pacijent));
-
-
-            /*if (termin.pacijent != null)
-            {
-                if (UpravljanjePacijentima.PregledPacijenta(termin.pacijent.Jmbg) != null)
-                {
-                    Pacijent.Text = termin.pacijent.Jmbg;
-                }
-            }*/
-
-            ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
-            ComboboxSala.ItemsSource = salaRepository.PregledSvihSala();
-
-            Sifra.Text = termin.SifraTermina;
-            DatumText.SelectedDate = termin.Datum;
-            //Datum.Text = termin.Datum.ToString();
-
-            ComboboxSala.SelectedItem = termin.sala;
-            ComboboxPacijent.SelectedItem = termin.pacijent;
-
-            string v = termin.Vreme;
-            for (int i = 0; i < niz.Length; i++)
-            {
-                if (niz[i].Equals(v))
-                {
-                    index = i;
-                }
-            }
-            vremeText.SelectedIndex = index;
-
-
-            String tip = termin.TipTermina.ToString();
-            if (tip.Equals("Pregled"))
-            {
-                TipTerm.SelectedIndex = 0;
-            }
-            else if (tip.Equals("Operacija"))
-            {
-                TipTerm.SelectedIndex = 1;
-            }
-            else if (tip.Equals("Kontrola"))
-            {
-                TipTerm.SelectedIndex = 2;
-            }
         }
+
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             this.termini.Remove(this.termin);
 
+            Termin tempTermin = new Termin((DateTime)(DatumText.SelectedDate), SelektovaniTipTermina(), termin.SifraTermina,
+                vremeText.Text, termin.lekar, IzmenjeniPacijent());
+            
             Sala tempSala = new Sala();
             tempSala = (Sala)ComboboxSala.SelectedItem;
-            termin.sala = tempSala;
-            this.termin.sala = tempSala;
+            tempTermin.sala = tempSala;
 
+            if (!terminiService.ProvaraZauzatostiTermina(tempTermin))
+            {
+                terminiService.IzmenaTermina(tempTermin);
+                this.termini.Add(tempTermin);
+                this.Close();
+            }
+            else MessageBox.Show("Greska!");            
+        }
+
+
+
+        private Pacijent IzmenjeniPacijent()
+        {
             Model.Pacijent tempPacijent = new Model.Pacijent();
-            tempPacijent = (Pacijent)ComboboxPacijent.SelectedItem;
+            tempPacijent = pacijentRepository.PregledPacijenta(((Pacijent)ComboboxPacijent.SelectedItem).Jmbg);
             termin.pacijent = tempPacijent;
+            return tempPacijent;
+        }
 
-            this.termin.SifraTermina = Sifra.Text;
-
-            this.termin.Datum = (DateTime)DatumText.SelectedDate;
-
-            this.termin.Vreme = vremeText.Text;
-
+        private TipTermina SelektovaniTipTermina()
+        {
             String tip = TipTerm.Text;
             if (tip.Equals("Pregled"))
-            {
-                this.termin.TipTermina = TipTermina.Pregled;
-            }
+                return TipTermina.Pregled;
             else if (tip.Equals("Operacija"))
+                return TipTermina.Operacija;
+            else
+                return TipTermina.Kontrola;
+        }
+
+        private void PopunjavanjePoljaSaPodacima()
+        {
+            ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
+            ComboboxSala.ItemsSource = salaRepository.PregledSvihSala();
+            Sifra.Text = termin.SifraTermina;
+            DatumText.SelectedDate = termin.Datum;
+            ComboboxSala.SelectedItem = termin.sala;
+            ComboboxPacijent.SelectedItem = termin.pacijent;
+            PostaviComboboxVremeNaPostojecuVrednost();
+            PostaviComboboxTipTerminaNaPostojecuVrednost();
+
+
+        }
+        private void PostaviComboboxTipTerminaNaPostojecuVrednost()
+        {
+            String tip = termin.TipTermina.ToString();
+            switch (tip)
             {
-                this.termin.TipTermina = TipTermina.Operacija;
-
+                case "Pregled":
+                    TipTerm.SelectedIndex = 0;
+                    break;
+                case "Operacija":
+                    TipTerm.SelectedIndex = 1;
+                    break;
+                case "Kontrola":
+                    TipTerm.SelectedIndex = 2;
+                    break;
             }
-            else if (tip.Equals("Kontrola"))
+        }
+
+        private void PostaviComboboxVremeNaPostojecuVrednost()
+        {
+            string vremeTermina = termin.Vreme;
+            for (int i = 0; i < niz.Length; i++)
             {
-                this.termin.TipTermina = TipTermina.Kontrola;
-
+                if (niz[i].Equals(vremeTermina))
+                {
+                    index = i;
+                }
             }
-
-            terminiService.IzmenaTermina(this.termin);
-            this.termini.Add(this.termin);
-
-            this.Close();
+            vremeText.SelectedIndex = index;
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
@@ -137,14 +125,5 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.Close();
         }
 
-        private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void vremeText_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
