@@ -13,16 +13,6 @@ namespace Service
         private TerminiRepository terminiRepository = new TerminiRepository();
         private TerminRenoviranjaSale terminRenoviranjaSale = new TerminRenoviranjaSale();
 
-        private static SaleService instance = null;
-        public static SaleService GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new SaleService();
-            }
-            return instance;
-        }
-
         public bool DodavanjeSale(Sala sala)
         {
             List<Sala> sale = salaRepository.CitanjeIzFajla();

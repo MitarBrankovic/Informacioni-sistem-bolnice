@@ -5,6 +5,7 @@ using Service.LekarService;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Repository;
+using Controller;
 
 namespace PrviProgram.Logika
 {
@@ -21,6 +22,7 @@ namespace PrviProgram.Logika
         }
 
         private PacijentRepository pacijentRepository = new PacijentRepository();
+        private UpravnikController upravnikController = new UpravnikController();
         public SaleService upravljanjeSalama;
         public PacijentiService upravljanjePacijentima;
         public PreglediService upravljanjePregledima;
@@ -40,7 +42,7 @@ namespace PrviProgram.Logika
 
         public void BrisanjeSale(Sala sala, ObservableCollection<Model.Sala> sale)
         {
-            SaleService.GetInstance().BrisanjeSale(sala);
+            upravnikController.BrisanjeSale(sala);
             sale.Remove(sala);
 
             List<Termin> termini = new List<Termin>();

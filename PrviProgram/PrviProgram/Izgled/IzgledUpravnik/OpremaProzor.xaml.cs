@@ -60,7 +60,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (DateTime.Today.Equals(terminBrojac.datumPremestaja))
                 {
-                    OpremaService.GetInstance().PremestanjeOpreme(terminBrojac.oprema, terminBrojac.staraSala, terminBrojac.sala);
+                    upravnikController.PremestanjeOpreme(terminBrojac.oprema, terminBrojac.staraSala, terminBrojac.sala);
                     //timer.Stop();
                     termini.Remove(terminBrojac);
                     terminiPremestajaRepository.UpisivanjeUFajl(termini);

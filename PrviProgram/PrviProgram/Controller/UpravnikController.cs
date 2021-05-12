@@ -6,109 +6,99 @@ namespace Controller
 {
     public class UpravnikController
    {
-      public bool DodavanjeOpreme(Oprema oprema, Sala sala)
+        private SaleService saleService = new SaleService();
+        private OpremaService opremaService = new OpremaService();
+        private LekoviService lekoviService = new LekoviService();
+
+        public bool DodavanjeOpreme(Oprema oprema, Sala sala)
       {
-            if (OpremaService.GetInstance().DodavanjeOpreme(oprema, sala) == true)
-            {
+            if (opremaService.DodavanjeOpreme(oprema, sala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool BrisanjeOpreme(Oprema oprema, Sala sala)
       {
-            if (OpremaService.GetInstance().BrisanjeOpreme(oprema, sala) == true)
-            {
+            if (opremaService.BrisanjeOpreme(oprema, sala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool IzmenaOpreme(Oprema staraOprema, Oprema novaOprema, Sala sala)
       {
-            if (OpremaService.GetInstance().IzmenaOpreme(staraOprema, novaOprema, sala) == true)
-            {
+            if (opremaService.IzmenaOpreme(staraOprema, novaOprema, sala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool PremestanjeOpreme(Oprema oprema, Sala staraSala, Sala novaSala)
       {
-            if (OpremaService.GetInstance().PremestanjeOpreme(oprema, staraSala, novaSala) == true)
-            {
+            if (opremaService.PremestanjeOpreme(oprema, staraSala, novaSala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool DodavanjeSale(Sala sala)
       {
-            if (SaleService.GetInstance().DodavanjeSale(sala) == true)
-            {
+            if (saleService.DodavanjeSale(sala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool BrisanjeSale(Sala sala)
       {
-            if (SaleService.GetInstance().BrisanjeSale(sala) == true)
-            {
+            if (saleService.BrisanjeSale(sala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
       
       public bool IzmenaSale(Sala staraSala, Sala novaSala)
       {
-            if (SaleService.GetInstance().IzmenaSale(staraSala, novaSala) == true)
-            {
+            if (saleService.IzmenaSale(staraSala, novaSala))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
 
         public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
-            if (SaleService.GetInstance().RenoviranjeSale(sala, pocetakRenoviranja, krajRenoviranja) == true)
-            {
+            if (saleService.RenoviranjeSale(sala, pocetakRenoviranja, krajRenoviranja))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
 
         public bool DodavanjeLeka(Lek lek)
         {
-            if (LekoviService.GetInstance().DodavanjeLeka(lek) == true)
-            {
+            if (lekoviService.DodavanjeLeka(lek))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
 
         public bool BrisanjeLeka(Lek lek)
         {
-            if (LekoviService.GetInstance().BrisanjeLeka(lek) == true)
+            if (lekoviService.BrisanjeLeka(lek))
             {
-                LekoviService.GetInstance().BrisanjeAlternativnihLekova(lek);
+                lekoviService.BrisanjeAlternativnihLekova(lek);
                 return true;
             }
-            else { return false; }
+            else 
+                return false;
         }
 
         public bool IzmenaLeka(Lek stariLek, Lek noviLek)
         {
-            if (LekoviService.GetInstance().IzmenaLeka(stariLek, noviLek) == true)
-            {
+            if (lekoviService.IzmenaLeka(stariLek, noviLek))
                 return true;
-            }
-            else { return false; }
+            else
+                return false;
         }
-
-        public SaleService saleService;
-        public OpremaService opremaService;
-        public LekoviService lekoviService;
-   
    }
 }

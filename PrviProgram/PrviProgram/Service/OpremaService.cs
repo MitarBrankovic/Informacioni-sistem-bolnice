@@ -10,15 +10,6 @@ namespace Service
     {
         private SalaRepository salaRepository = new SalaRepository();
         private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
-        private static OpremaService instance = null;
-        public static OpremaService GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new OpremaService();
-            }
-            return instance;
-        }
 
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
         {

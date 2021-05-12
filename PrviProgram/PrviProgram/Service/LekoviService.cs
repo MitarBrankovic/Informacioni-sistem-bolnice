@@ -8,15 +8,6 @@ namespace Service
    public class LekoviService
    {
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        private static LekoviService instance = null;
-        public static LekoviService GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new LekoviService();
-            }
-            return instance;
-        }
 
         public bool DodavanjeLeka(Lek lek)
       {
