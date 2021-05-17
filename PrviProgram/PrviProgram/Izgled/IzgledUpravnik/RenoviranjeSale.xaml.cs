@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private Sala selektovanaSala;
         private TerminiRepository terminiRepository = new TerminiRepository();
 
-        public RenoviranjeSale(ObservableCollection<Sala> sale, Sala sala)
+        public RenoviranjeSale(Sala sala)
         {
             InitializeComponent();
             this.selektovanaSala = sala;
@@ -38,16 +38,33 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if (PocetakRenoviranja.Text == "" && KrajRenoviranja.Text == "")
+            if (PocetakRenoviranja.Text == "" && KrajRenoviranja.Text == "" && TextNaziv1.Text == "" && TextNaziv2.Text == "" && TextSifra1.Text == "" && TextSifra2.Text == "")
             {
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
-            else{
-                if (upravnikController.RenoviranjeSale(selektovanaSala, (DateTime)(PocetakRenoviranja.SelectedDate), (DateTime)(KrajRenoviranja.SelectedDate)) == false) {
+            else
+            {
+                TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
+                if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
                     MessageBox.Show("Ponovo izaberite datume");
-                }
             }
             this.Close();
+        }
+
+        private TerminRenoviranjaSale FormiranjeTerminaRenoviranja()
+        {
+            Sala prvaSala = new Sala(selektovanaSala.Tip, TextNaziv1.Text, selektovanaSala.Sprat, selektovanaSala.Dostupnost, TextSifra1.Text);
+            Sala drugaSala = new Sala(selektovanaSala.Tip, TextNaziv2.Text, selektovanaSala.Sprat, selektovanaSala.Dostupnost, TextSifra2.Text);
+            prvaSala.oprema = selektovanaSala.oprema;
+            foreach (Oprema opremaBrojac in prvaSala.oprema)
+            {
+                opremaBrojac.NazivSale = prvaSala.Naziv;
+            }
+            drugaSala.oprema = new List<Oprema>();
+            TerminRenoviranjaSale terminRenoviranjaSale = new TerminRenoviranjaSale(selektovanaSala, (DateTime)(PocetakRenoviranja.SelectedDate),
+                (DateTime)(KrajRenoviranja.SelectedDate), prvaSala, drugaSala);
+            terminRenoviranjaSale.TipRenoviranja = TipRenoviranja.razdvajanje;
+            return terminRenoviranjaSale;
         }
 
         private void ProveraIIzbacivanjeDatumaPregleda() 

@@ -59,37 +59,30 @@ namespace Service
             return false;
         }
 
-        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja, Sala sala1, Sala sala2)
         {
-            List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
-            if (FormiranjeTerminaRenoviranjaNakonProvere(sala, pocetakRenoviranja, krajRenoviranja) == false || ProveraSaleTerminaRenoviranja(sala, terminiRenoviranja) == false) 
-            {
-                return false;
-            }
-            terminiRenoviranja.Add(terminRenoviranjaSale);
-            terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
-            return true;
+
+            return false;
         }
 
-        public bool FormiranjeTerminaRenoviranjaNakonProvere(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        public bool FormiranjeTerminaRenoviranjaNakonProvere(TerminRenoviranjaSale terminRenoviranjaSale)
         {
-            if (ProveraDatumaTerminaRenoviranja(sala, pocetakRenoviranja, krajRenoviranja) == true)
+            if (ProveraDatumaTerminaRenoviranja(terminRenoviranjaSale.sala, terminRenoviranjaSale.PocetakRenoviranja, terminRenoviranjaSale.KrajRenoviranja))
             {
-                terminRenoviranjaSale.sala = sala;
-                terminRenoviranjaSale.PocetakRenoviranja = pocetakRenoviranja;
-                terminRenoviranjaSale.KrajRenoviranja = krajRenoviranja;
+                terminRenoviranjaSale.sala = terminRenoviranjaSale.sala;
+                terminRenoviranjaSale.PocetakRenoviranja = terminRenoviranjaSale.PocetakRenoviranja;
+                terminRenoviranjaSale.KrajRenoviranja = terminRenoviranjaSale.KrajRenoviranja;
+                terminRenoviranjaSale.sala1 = terminRenoviranjaSale.sala1;
+                terminRenoviranjaSale.sala2 = terminRenoviranjaSale.sala2;
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            else return false;
         }
 
         public bool ProveraDatumaTerminaRenoviranja(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
-            var intervalRenoviranja = FormiranjeIntervala(pocetakRenoviranja, krajRenoviranja);
+            List<DateTime> intervalRenoviranja = FormiranjeIntervala(pocetakRenoviranja, krajRenoviranja);
             foreach (Termin terminBrojac in termini)
             {
                 if (terminBrojac.sala.Sifra.Equals(sala.Sifra))
@@ -116,12 +109,25 @@ namespace Service
         }
         public List<DateTime> FormiranjeIntervala(DateTime pocetakRenoviranja, DateTime krajRenoviranja)
         {
-            var intervalRenoviranja = new List<DateTime>();
-            for (var dt = pocetakRenoviranja; dt <= krajRenoviranja; dt = dt.AddDays(1))
+            List<DateTime> intervalRenoviranja = new List<DateTime>();
+            for (DateTime datumBrojac = pocetakRenoviranja; datumBrojac <= krajRenoviranja; datumBrojac = datumBrojac.AddDays(1))
             {
-                intervalRenoviranja.Add(dt);
+                intervalRenoviranja.Add(datumBrojac);
             }
             return intervalRenoviranja;
+        }
+
+        public bool RenoviranjeSale(TerminRenoviranjaSale terminRenoviranjaSale)
+        {
+            List<TerminRenoviranjaSale> termini = terminiRenoviranjaRepository.CitanjeIzFajla();
+            if (!FormiranjeTerminaRenoviranjaNakonProvere(terminRenoviranjaSale) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala, termini)
+                || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala1, termini) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala2, termini))
+            {
+                return false;
+            }
+            termini.Add(terminRenoviranjaSale);
+            terminiRenoviranjaRepository.UpisivanjeUFajl(termini);
+            return true;
         }
     }
 }

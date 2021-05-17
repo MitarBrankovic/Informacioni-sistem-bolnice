@@ -66,9 +66,9 @@ namespace Controller
                 return false;
         }
 
-        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja)
+        public bool RenoviranjeSale(TerminRenoviranjaSale terminRenoviranjaSale)
         {
-            if (saleService.RenoviranjeSale(sala, pocetakRenoviranja, krajRenoviranja))
+            if (saleService.RenoviranjeSale(terminRenoviranjaSale))
                 return true;
             else
                 return false;

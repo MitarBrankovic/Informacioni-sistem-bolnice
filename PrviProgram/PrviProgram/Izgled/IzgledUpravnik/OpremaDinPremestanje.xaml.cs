@@ -72,11 +72,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             TrenutnaSala.Text = trenutnaSala.Naziv;
             NazivOpreme.Text = trenutnaOprema.Naziv;
             List<Sala> comboSale = salaRepository.PregledSvihSala();
-            foreach (Sala s in comboSale.ToArray())
+            foreach (Sala salaBrojac in comboSale.ToArray())
             {
-                if (s.Sifra.Equals(trenutnaSala.Sifra))
+                if (salaBrojac.Sifra.Equals(trenutnaSala.Sifra))
                 {
-                    comboSale.Remove(s);
+                    comboSale.Remove(salaBrojac);
                     break;
                 }
             }

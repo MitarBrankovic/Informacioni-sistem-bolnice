@@ -114,12 +114,6 @@
   {
     "oprema": [
       {
-        "Naziv": "a",
-        "Kolicina": 3,
-        "Tip": 1,
-        "NazivSale": "OP2"
-      },
-      {
         "Naziv": "Flasteri",
         "Kolicina": 8,
         "Tip": 1,
@@ -154,5 +148,14 @@
     "Dostupnost": true,
     "Sifra": "op3",
     "NazivSprat": "OP3 3"
+  },
+  {
+    "oprema": [],
+    "Tip": 0,
+    "Naziv": "Test",
+    "Sprat": 2,
+    "Dostupnost": true,
+    "Sifra": "test",
+    "NazivSprat": "Test 2"
   }
 ]

@@ -17,11 +17,13 @@ using PrviProgram.Repository;
 using Repository;
 using Service;
 using System.Collections.ObjectModel;
+using Controller;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class SaleProzor : UserControl
     {
+        private UpravnikController upravnikController = new UpravnikController();
         private SalaRepository saleRepository = new SalaRepository();
         private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
         private ObservableCollection<Sala> sale;
@@ -49,10 +51,28 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (DateTime.Today.Equals(terminBrojac.KrajRenoviranja))
                 {
-                    //timer.Stop();
-                    terminiRenoviranja.Remove(terminBrojac);
-                    terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
-                    break;
+                    if (terminBrojac.TipRenoviranja.Equals(TipRenoviranja.razdvajanje))
+                    {
+                        //timer.Stop();
+                        upravnikController.BrisanjeSale(terminBrojac.sala);
+                        upravnikController.DodavanjeSale(terminBrojac.sala1);
+                        upravnikController.DodavanjeSale(terminBrojac.sala2);
+                        terminiRenoviranja.Remove(terminBrojac);
+                        terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
+                        break;
+
+                    }
+                    else
+                    {
+                        //timer.Stop();
+                        upravnikController.BrisanjeSale(terminBrojac.sala1);
+                        upravnikController.BrisanjeSale(terminBrojac.sala2);
+                        upravnikController.DodavanjeSale(terminBrojac.sala);
+                        terminiRenoviranja.Remove(terminBrojac);
+                        terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
+                        break;
+                    }
+
                 }
             }
         }
@@ -96,7 +116,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridUpravnik.SelectedIndex != -1)
             {
-                RenoviranjeSale win = new RenoviranjeSale(sale, (Sala)dataGridUpravnik.SelectedItem);
+                RenoviranjeSale win = new RenoviranjeSale((Sala)dataGridUpravnik.SelectedItem);
                 win.ShowDialog();
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
@@ -111,6 +131,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             DodavanjeSale win = new DodavanjeSale(sale);
             win.ShowDialog();
+        }
+        private void Spajanje_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridUpravnik.SelectedIndex != -1)
+            {
+                SaleSpajanje win = new SaleSpajanje((Sala)dataGridUpravnik.SelectedItem);
+                win.ShowDialog();
+            }
+            else { MessageBox.Show("Morate izabrati salu!"); }
+
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -175,6 +205,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Renoviranje.IsFocused)
                 {
+                    Spajanje.Focus();
+                }
+                else if (Spajanje.IsFocused)
+                {
                     Pomoc.Focus();
                 }
                 else if (Nazad.IsFocused)
@@ -196,6 +230,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
+                {
+                    Spajanje.Focus();
+                }
+                else if (Spajanje.IsFocused)
                 {
                     Renoviranje.Focus();
                 }
@@ -278,7 +316,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (dataGridUpravnik.SelectedIndex != -1)
                 {
-                    RenoviranjeSale win = new RenoviranjeSale(sale, (Sala)dataGridUpravnik.SelectedItem);
+                    RenoviranjeSale win = new RenoviranjeSale((Sala)dataGridUpravnik.SelectedItem);
                     win.ShowDialog();
                 }
                 else { MessageBox.Show("Morate izabrati salu!"); }
@@ -289,12 +327,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused)
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Renoviranje.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (Renoviranje.IsFocused)
+            else if (Spajanje.IsFocused)
             {
                 if (e.Key == Key.Up || e.Key == Key.Right)
                     e.Handled = true;

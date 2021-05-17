@@ -11,6 +11,15 @@ namespace Model
             oprema = new List<Oprema>();
         }
 
+        public Sala(TipSale tip, string naziv, int sprat, bool dostupnost, string sifra)
+        {
+            this.Naziv = naziv;
+            this.Tip = tip;
+            this.Sprat = sprat;
+            this.Dostupnost = dostupnost;
+            this.Sifra = sifra;
+        }
+
         ~Sala()
         {
             // TODO: implement

@@ -63,9 +63,9 @@
                 </DataGrid>
                 <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton }" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="149,121,0,0" VerticalAlignment="Top" Width="98">
                     <Button.ToolTip>
-                    <ToolTip>
-                        Dodavanje nove sale
-                    </ToolTip>
+                        <ToolTip>
+                            Dodavanje nove sale
+                        </ToolTip>
                     </Button.ToolTip>
                 </Button>
                 <Button x:Name ="Izmeni" Style="{StaticResource UpravnikButton }" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="263,121,0,0" VerticalAlignment="Top" Width="98">
@@ -111,6 +111,11 @@
                     </Button.ToolTip>
                 </Button>
                 <Label Content="Sale"  HorizontalAlignment="Left" Height="56" Margin="532,32,0,0" VerticalAlignment="Top" Width="62" FontSize="26"/>
+                <Button x:Name ="Spajanje" Style="{StaticResource UpravnikButton}" Click="Spajanje_Click"  Content="Spajanje" HorizontalAlignment="Left" Height="26" Margin="750,121,0,0" VerticalAlignment="Top" Width="98">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz opreme selektovane sale"/>
+                    </Button.ToolTip>
+                </Button>
             </Grid>
         </DockPanel>
     </Grid>
