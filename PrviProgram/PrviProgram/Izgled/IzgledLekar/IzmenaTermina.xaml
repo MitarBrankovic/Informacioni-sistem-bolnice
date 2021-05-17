@@ -4,58 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="IzmenaTermina" Height="450" Width="500">
     <Grid Margin="0,0,0,-6">
-        <Label Content="Pacijent" HorizontalAlignment="Left" Height="25" Margin="115,60,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="115,110,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="115,160,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="115,220,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="114,277,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Sala" HorizontalAlignment="Left" Height="25" Margin="114,325,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Pacijent" HorizontalAlignment="Left" Height="25" Margin="103,34,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="103,84,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="103,134,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="103,194,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="102,251,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Sala" HorizontalAlignment="Left" Height="25" Margin="102,299,0,0" VerticalAlignment="Top" Width="122"/>
 
-        <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="136,382,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-        <Button Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="294,382,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
+        <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="124,354,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
+        <Button Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="282,354,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
 
 
-        <ComboBox Name="TipTerm" HorizontalAlignment="Left" Margin="262,162,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
+        <ComboBox Name="TipTerm" HorizontalAlignment="Left" Margin="250,136,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25">
             <ComboBoxItem>Pregled</ComboBoxItem>
             <ComboBoxItem>Operacija</ComboBoxItem>
             <ComboBoxItem>Kontrola</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="Sifra" HorizontalAlignment="Left" IsEnabled="False" Margin="262,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"/>
-        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="262,220,0,0" VerticalAlignment="Top" Width="167" />
+        <TextBox x:Name="Sifra" HorizontalAlignment="Left" IsEnabled="False" Margin="250,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"/>
+        <DatePicker x:Name="DatumText" HorizontalAlignment="Left" Height="25" Margin="250,194,0,0" VerticalAlignment="Top" Width="167" SelectedDateChanged="DatumText_SelectedDateChanged"  DisplayDateStart="{x:Static sys:DateTime.Now}"/>
 
-        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="262,276,0,0" Height="26" >
-            <ComboBoxItem>08:00:00</ComboBoxItem>
-            <ComboBoxItem>08:30:00</ComboBoxItem>
-            <ComboBoxItem>09:00:00</ComboBoxItem>
-            <ComboBoxItem>09:30:00</ComboBoxItem>
-            <ComboBoxItem>10:00:00</ComboBoxItem>
-            <ComboBoxItem>10:30:00</ComboBoxItem>
-            <ComboBoxItem>11:00:00</ComboBoxItem>
-            <ComboBoxItem>11:30:00</ComboBoxItem>
-            <ComboBoxItem>12:00:00</ComboBoxItem>
-            <ComboBoxItem>12:30:00</ComboBoxItem>
-            <ComboBoxItem>13:00:00</ComboBoxItem>
-            <ComboBoxItem>13:30:00</ComboBoxItem>
-            <ComboBoxItem>14:00:00</ComboBoxItem>
-            <ComboBoxItem>14:30:00</ComboBoxItem>
-            <ComboBoxItem>15:00:00</ComboBoxItem>
-            <ComboBoxItem>15:30:00</ComboBoxItem>
-            <ComboBoxItem>16:00:00</ComboBoxItem>
-            <ComboBoxItem>16:30:00</ComboBoxItem>
-            <ComboBoxItem>17:00:00</ComboBoxItem>
-            <ComboBoxItem>17:30:00</ComboBoxItem>
-            <ComboBoxItem>18:00:00</ComboBoxItem>
-            <ComboBoxItem>18:30:00</ComboBoxItem>
-            <ComboBoxItem>19:00:00</ComboBoxItem>
-            <ComboBoxItem>19:30:00</ComboBoxItem>
+        <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Margin="250,253,0,0" Height="23" />
 
-        </ComboBox>
-        <ComboBox x:Name="ComboboxPacijent" HorizontalAlignment="Left" Margin="262,60,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25"/>
-        <ComboBox x:Name="ComboboxSala" HorizontalAlignment="Left" Margin="262,325,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25"/>
+        <ComboBox x:Name="ComboboxPacijent" HorizontalAlignment="Left" Margin="250,34,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25"/>
+        <ComboBox x:Name="ComboboxSala" HorizontalAlignment="Left" Margin="250,299,0,0" VerticalAlignment="Top" Width="167" SelectedIndex="0" Height="25"/>
 
     </Grid>
 </Window>

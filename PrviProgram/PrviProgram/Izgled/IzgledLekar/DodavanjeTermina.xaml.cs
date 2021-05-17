@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using PrviProgram.Service;
 using Repository;
@@ -17,9 +18,11 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private ObservableCollection<Termin> termini;
         private PacijentRepository pacijentRepository = new PacijentRepository();
+        private LekarController lekarController = new LekarController();
         private SalaRepository salaRepository = new SalaRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
+        private ObservableCollection<string> vreme;
         private Lekar lekar;
 
         public DodavanjeTermina(ObservableCollection<Termin> termini, Lekar lekar)
@@ -58,6 +61,18 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void DatumText_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            AzurirajVreme();
+        }
+
+        private void AzurirajVreme()
+        {
+            vreme = new ObservableCollection<string>(lekarController.DobavljanjeSlobodnihTerminaLekara(lekar, (DateTime)DatumText.SelectedDate));
+            vremeText.ItemsSource = vreme;
+            vremeText.SelectedItem = vremeText.Items[0];
         }
     }
 }

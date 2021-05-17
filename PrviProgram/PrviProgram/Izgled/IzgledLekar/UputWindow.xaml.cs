@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using Repository;
 using Service;
@@ -23,6 +24,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class UputWindow : Window
     {
         private LekarRepository lekarRepository = new LekarRepository();
+        private LekarController lekarController = new LekarController();
         private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();
         private TerminiRepository terminiRepository = new TerminiRepository();
@@ -160,8 +162,10 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if ((Lekar)comboBoxLekari.SelectedItem != null && datePicker.SelectedDate != null)
             {
-                PostaviVremenaNaSlobodna();
-                ObrisiZauzeteTermineLekara();
+                //PostaviVremenaNaSlobodna();
+                //ObrisiZauzeteTermineLekara();
+                vreme = new ObservableCollection<string>(lekarController.DobavljanjeSlobodnihTerminaLekara((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate));
+                vremeText.ItemsSource = vreme;
                 vremeText.SelectedItem = vremeText.Items[0];
             }
             else
@@ -202,7 +206,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             SelektovanaSpecijalizacija();
             comboBoxLekari.ItemsSource = PronadjiLekareOdredjeneSpecijalizacije();
-            vremeText.ItemsSource = vreme;
+            //vremeText.ItemsSource = vreme;
             vremeText.IsEnabled = false;
         }
 

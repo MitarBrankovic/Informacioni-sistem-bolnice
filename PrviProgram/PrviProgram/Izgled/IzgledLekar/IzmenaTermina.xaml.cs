@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using Repository;
 using Service;
@@ -16,13 +17,17 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class IzmenaTermina : Window
     {
         private ObservableCollection<Termin> termini;
+        private LekarController lekarController = new LekarController();
+        private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private SalaRepository salaRepository = new SalaRepository();
         private ObservableCollection<Termin> terminiPacijent;
         private Termin termin;
+        private ObservableCollection<string> vreme;
+        string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", 
+                        "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30" };
         int index;
-        string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30" };
 
 
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
@@ -47,13 +52,10 @@ namespace PrviProgram.Izgled.IzgledLekar
             tempSala = (Sala)ComboboxSala.SelectedItem;
             tempTermin.sala = tempSala;
 
-            if (!terminiService.ProvaraZauzatostiTermina(tempTermin))
-            {
-                terminiService.IzmenaTermina(tempTermin);
-                this.termini.Add(tempTermin);
-                this.Close();
-            }
-            else MessageBox.Show("Greska!");            
+            terminiService.IzmenaTermina(tempTermin);
+            this.termini.Add(tempTermin);
+            this.Close();
+                        
         }
 
 
@@ -125,5 +127,16 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.Close();
         }
 
+        private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AzurirajVreme();
+
+        }
+        private void AzurirajVreme()
+        {
+            vreme = new ObservableCollection<string>(lekarController.DobavljanjeSlobodnihTerminaLekaraZaIzmenuTermina(lekarRepository.PregledLekara(termin.lekar.Jmbg), (DateTime)DatumText.SelectedDate, termin));
+            vremeText.ItemsSource = vreme;
+            vremeText.SelectedItem = vremeText.Items[0];
+        }
     }
 }

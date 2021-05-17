@@ -17,16 +17,13 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for TerminiPrikaz.xaml
-    /// </summary>
     public partial class TerminiPrikaz : UserControl
     {
         public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
-        private IzvrseniPregled izvrseniPregled;
         private Lekar lekar;
+        private IzvrseniPregled izvrseniPregled;
         private StackPanel parent;
         private PocetniPrikaz pocetniPrikaz;
         public TerminiPrikaz(PocetniPrikaz pocetniPrikaz, StackPanel parent, Lekar lekar)
@@ -38,8 +35,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             upravljanje = new PreglediService();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
-            //termini = UpravljanjePregledima.getInstance().PregledSvihPregleda();
-            //dataGridLekar.ItemsSource = termini;
+            DisableButtons();
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -52,22 +48,23 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
 
-            if (termin.izvrsen != true)
+            if (dataGridLekar.SelectedIndex != -1)
             {
-                if (dataGridLekar.SelectedIndex != -1)
+                if (termin.izvrsen != true)
                 {
                     IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
                     izmena.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Morate izabrati termin!");
+                    MessageBox.Show("Ovaj termin ste vec izvrsili!");
                 }
             }
             else
             {
-                MessageBox.Show("Ovaj termin ste vec izvrsili!");
+                MessageBox.Show("Morate izabrati termin!");
             }
+
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -78,6 +75,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 terminiService.BrisanjeTermina(termin);
                 termini.Remove(termin);
                 MessageBox.Show("Uspesno ste obrisali termin!");
+                DisableButtons();
             }
             else
             {
@@ -90,11 +88,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if (dataGridLekar.SelectedIndex != -1)
             {
-                //InformacijePacijent info = new InformacijePacijent(termini, (Termin)dataGridLekar.SelectedItem);
-                //info.Show();
                 PacijentPrikaz pacijentPrikaz = new PacijentPrikaz(this, pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem).pacijent);
                 parent.Children.Remove(this);
-                //this.Visibility = Visibility.Collapsed;
                 parent.Children.Add(pacijentPrikaz);
             }
             else
@@ -131,9 +126,22 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            EnableButtons();
         }
 
-
+        private void EnableButtons()
+        {
+            Izmeni.IsEnabled = true;
+            Anamneza.IsEnabled = true;
+            Informacije.IsEnabled = true;
+            Izbrisi.IsEnabled = true;
+        }
+        private void DisableButtons()
+        {
+            Izmeni.IsEnabled = false;
+            Anamneza.IsEnabled = false;
+            Informacije.IsEnabled = false;
+            Izbrisi.IsEnabled = false;
+        }
     }
 }

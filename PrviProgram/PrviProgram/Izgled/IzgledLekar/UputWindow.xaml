@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
         Title="UputWindow" Height="450" Width="400">
@@ -12,7 +13,7 @@
         <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="49,199,0,0" VerticalAlignment="Top" Width="122"/>
         <ComboBox x:Name="comboBoxTipTermina" HorizontalAlignment="Left" Margin="200,199,0,0" VerticalAlignment="Top" Width="162" SelectedIndex="0" Height="23" SelectionChanged="comboBoxTipTermina_SelectionChanged" />
         <Label Content="Datum" HorizontalAlignment="Left" Height="25" Margin="49,251,0,0" VerticalAlignment="Top" Width="122"/>
-        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Height="25" Margin="200,251,0,0" VerticalAlignment="Top" Width="162" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Height="25" Margin="200,251,0,0" VerticalAlignment="Top" Width="162" SelectedDateChanged="DatePicker_SelectedDateChanged" DisplayDateStart="{x:Static sys:DateTime.Now}"/>
         <Label Content="Vreme" HorizontalAlignment="Left" Height="25" Margin="49,301,0,0" VerticalAlignment="Top" Width="122"/>
         <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="200,300,0,0" Height="23" />
         <CheckBox Height="23" HorizontalAlignment="Left" Margin="198,43,0,0" x:Name="checkBoxHitanSlucaj" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="162" Checked="checkBoxHitanSlucaj_Checked" Unchecked="checkBoxHitanSlucaj_Unchecked"/>
