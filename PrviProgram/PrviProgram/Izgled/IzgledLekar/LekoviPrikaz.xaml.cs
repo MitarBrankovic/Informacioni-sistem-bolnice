@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,20 @@ namespace PrviProgram.Izgled.IzgledLekar
         private ObservableCollection<Lek> lekovi;
         private Lek lek;
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
+        private ObservableCollection<CheckBoxSelektovanLek> alternativniLekovi = new ObservableCollection<CheckBoxSelektovanLek>();
         private Lekar lekar;
+        private bool azurirajPritisnut = false;
+        private UpravnikController upravnikController = new UpravnikController();
+        private Lek izmenjenLek = new Lek();
+
         public LekoviPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)
         {
             InitializeComponent();
             this.lekar = lekar;
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
+            Izmeni.IsEnabled = false;
+            izmenjenLek.ZamenaZaLek = new List<Lek>();
+            IzmenaStanjaTextBoxova();
             dataGridLekovi.ItemsSource = lekovi;
         }
 
@@ -50,7 +58,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             lek = (Lek)dataGridLekovi.SelectedItem;
+            Izmeni.IsEnabled = true;
             PrikazPodatakaLeka();
+            if(azurirajPritisnut == true)
+            {
+                IzmenaStanjaDugmetaAzuriranje();
+            }
         }
 
         private void PrikazPodatakaLeka()
@@ -104,6 +117,75 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
+            IzmenaStanjaDugmetaAzuriranje();
+            IzmenaStanjaTextBoxova();
+        }
+
+        private void IzmenaStanjaDugmetaAzuriranje()
+        {
+            if (dataGridLekovi.SelectedIndex != -1)
+            {
+                if (!azurirajPritisnut)
+                {
+                    azurirajPritisnut = true;
+                    Izmeni.Content = "Sacuvaj";
+                }
+                else
+                {
+                    azurirajPritisnut = false;
+                    Izmeni.Content = "Azuriraj";
+                    IzmenaPodatakaLeka();
+                    IzvrsavanjeIzmene();
+                }
+            }
+        }
+
+        private void IzmenaPodatakaLeka()
+        {
+            izmenjenLek.Naziv = Naziv.Text;
+            izmenjenLek.Sifra = Sifra.Text;
+            izmenjenLek.Opis = Opis.Text;
+            izmenjenLek.Sastojci = Sastojci.Text;
+            izmenjenLek.ZamenaZaLek.Clear();
+            foreach (var lekBrojac in alternativniLekovi)
+            {
+                if (lekBrojac.IsSelected == true)
+                {
+                    izmenjenLek.ZamenaZaLek.Add(lekBrojac.SelektovanAlternativniLek);
+                }
+            }
+        }
+
+        private void IzvrsavanjeIzmene()
+        {
+            if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
+            {
+                Lek selektovaniLek = lekovi[dataGridLekovi.SelectedIndex];
+                selektovaniLek.Naziv = izmenjenLek.Naziv;
+                selektovaniLek.Opis = izmenjenLek.Opis;
+                selektovaniLek.Sastojci = izmenjenLek.Sastojci;
+                selektovaniLek.Sifra = izmenjenLek.Sifra;
+            }
+        }
+
+        private void IzmenaStanjaTextBoxova()
+        {
+            if (azurirajPritisnut)
+            {
+                Naziv.IsEnabled = true;
+                Sifra.IsEnabled = true;
+                Sastojci.IsEnabled = true;
+                Opis.IsEnabled = true;
+                ComboAlternativni.IsEnabled = true;
+            }
+            else
+            {
+                Naziv.IsEnabled = false;
+                Sifra.IsEnabled = false;
+                Sastojci.IsEnabled = false;
+                Opis.IsEnabled = false;
+                ComboAlternativni.IsEnabled = false;
+            }
         }
     }
 }

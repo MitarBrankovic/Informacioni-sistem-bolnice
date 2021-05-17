@@ -83,7 +83,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if (TextboxInformacije != null)
             {
-                if (azurirajPritisnut == false)
+                if (!azurirajPritisnut)
                 {
                     azurirajPritisnut = true;
                     TextboxInformacije.IsEnabled = true;
