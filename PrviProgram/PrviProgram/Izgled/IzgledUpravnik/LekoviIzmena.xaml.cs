@@ -83,7 +83,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzvrsavanjeIzmene()
         {
-            if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
+            if (upravnikController.IzmenaLeka(lek, izmenjenLek))
             {
                 this.lekovi.Remove(lek);
                 this.lekovi.Add(izmenjenLek);

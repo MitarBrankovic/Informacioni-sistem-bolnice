@@ -15,9 +15,7 @@ namespace Service
             foreach (Lek lekBrojac in lekovi)
             {
                 if (lekBrojac.Sifra.Equals(lek.Sifra))
-                {
                     return false;
-                }
             }
             lekovi.Add(lek);
             lekoviRepository.UpisivanjeUFajl(lekovi);

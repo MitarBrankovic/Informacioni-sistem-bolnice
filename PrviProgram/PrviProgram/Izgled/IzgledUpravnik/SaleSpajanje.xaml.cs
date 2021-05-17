@@ -43,7 +43,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
                 if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
                     MessageBox.Show("Ponovo izaberite datume");
-                else if(terminRenoviranjaSale.sala1.Sprat != terminRenoviranjaSale.sala2.Sprat)
+                else if(terminRenoviranjaSale.PrvaSala.Sprat != terminRenoviranjaSale.DrugaSala.Sprat)
                     MessageBox.Show("Sale nisu na istom spratu");
             }
             this.Close();
@@ -64,7 +64,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private TerminRenoviranjaSale FormiranjeTerminaRenoviranja()
         {
-            Sala spojenaSala = new Sala(selektovanaSala.Tip, TextNaziv.Text, selektovanaSala.Sprat, selektovanaSala.Dostupnost, TextSifra.Text);
+            Sala spojenaSala = new Sala(selektovanaSala.Tip, TextNaziv.Text, selektovanaSala.Sprat, TextSifra.Text);
             spojenaSala.oprema = selektovanaSala.oprema;
             foreach (Oprema opremaBrojac in spojenaSala.oprema)
             {

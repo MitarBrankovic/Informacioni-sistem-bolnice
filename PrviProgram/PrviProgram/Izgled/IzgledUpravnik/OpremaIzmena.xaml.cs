@@ -18,6 +18,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class OpremaIzmena : Window
     {
+        private UtilityService utilityService = new UtilityService();
         private UpravnikController upravnikController = new UpravnikController();
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Sala trenutnaSala;
@@ -44,7 +45,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (IsNumber(Kolicina.Text) == false)
+            else if (!utilityService.IsNumber(Kolicina.Text))
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
@@ -109,22 +110,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzvrsavanjeIzmeneOpreme() 
         {
-            if (upravnikController.IzmenaOpreme(this.trenutnaOprema, izmenjenaOprema, trenutnaSala) == true)
+            if (upravnikController.IzmenaOpreme(this.trenutnaOprema, izmenjenaOprema, trenutnaSala))
             {
                 OsvezavanjeTabele();
-            }
-        }
-
-        public bool IsNumber(String st)
-        {
-            try
-            {
-                int.Parse(st);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
 

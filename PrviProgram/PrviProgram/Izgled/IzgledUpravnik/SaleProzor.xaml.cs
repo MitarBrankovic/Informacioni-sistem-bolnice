@@ -54,9 +54,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     if (terminBrojac.TipRenoviranja.Equals(TipRenoviranja.razdvajanje))
                     {
                         //timer.Stop();
-                        upravnikController.BrisanjeSale(terminBrojac.sala);
-                        upravnikController.DodavanjeSale(terminBrojac.sala1);
-                        upravnikController.DodavanjeSale(terminBrojac.sala2);
+                        upravnikController.BrisanjeSale(terminBrojac.Sala);
+                        upravnikController.DodavanjeSale(terminBrojac.PrvaSala);
+                        upravnikController.DodavanjeSale(terminBrojac.DrugaSala);
                         terminiRenoviranja.Remove(terminBrojac);
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;
@@ -65,9 +65,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     else
                     {
                         //timer.Stop();
-                        upravnikController.BrisanjeSale(terminBrojac.sala1);
-                        upravnikController.BrisanjeSale(terminBrojac.sala2);
-                        upravnikController.DodavanjeSale(terminBrojac.sala);
+                        upravnikController.BrisanjeSale(terminBrojac.PrvaSala);
+                        upravnikController.BrisanjeSale(terminBrojac.DrugaSala);
+                        upravnikController.DodavanjeSale(terminBrojac.Sala);
                         terminiRenoviranja.Remove(terminBrojac);
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;

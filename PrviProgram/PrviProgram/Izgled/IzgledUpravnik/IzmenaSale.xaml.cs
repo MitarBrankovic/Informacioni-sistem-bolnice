@@ -12,6 +12,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class IzmenaSale : Window
     {
         private UpravnikController upravnikController = new UpravnikController();
+        private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Sala> sale;
         private Sala sala;
         private Sala izmenjenaSala = new Sala();
@@ -35,7 +36,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (IsNumber(Sprat.Text) == false)
+            else if (utilityService.IsNumber(Sprat.Text) == false)
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }
@@ -79,15 +80,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Tip.SelectedIndex = 4;
             }
-            String dostupnost = sala.Dostupnost.ToString();
-            if (dostupnost.Equals("True"))
-            {
-                Dostupnost.SelectedIndex = 0;
-            }
-            else if (dostupnost.Equals("False"))
-            {
-                Dostupnost.SelectedIndex = 1;
-            }
         }
 
         private void IzmenaPodatakaSale()
@@ -120,16 +112,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 izmenjenaSala.Tip = TipSale.Magacin;
             }
-
-            String dostupnost = Dostupnost.Text;
-            if (dostupnost.Equals("Da"))
-            {
-                izmenjenaSala.Dostupnost = true;
-            }
-            else if (dostupnost.Equals("Ne"))
-            {
-                izmenjenaSala.Dostupnost = false;
-            }
         }
 
         private void IzvrsavanjeIzmene()
@@ -140,20 +122,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 this.sale.Add(izmenjenaSala);
                 TerminiService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
                 PreglediService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
-            }
-        }
-
-
-        public bool IsNumber(String st)
-        {
-            try
-            {
-                int.Parse(st);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
 

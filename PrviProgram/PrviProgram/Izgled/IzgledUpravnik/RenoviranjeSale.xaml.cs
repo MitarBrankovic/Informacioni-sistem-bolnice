@@ -53,8 +53,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private TerminRenoviranjaSale FormiranjeTerminaRenoviranja()
         {
-            Sala prvaSala = new Sala(selektovanaSala.Tip, TextNaziv1.Text, selektovanaSala.Sprat, selektovanaSala.Dostupnost, TextSifra1.Text);
-            Sala drugaSala = new Sala(selektovanaSala.Tip, TextNaziv2.Text, selektovanaSala.Sprat, selektovanaSala.Dostupnost, TextSifra2.Text);
+            Sala prvaSala = new Sala(selektovanaSala.Tip, TextNaziv1.Text, selektovanaSala.Sprat, TextSifra1.Text);
+            Sala drugaSala = new Sala(selektovanaSala.Tip, TextNaziv2.Text, selektovanaSala.Sprat, TextSifra2.Text);
             prvaSala.oprema = selektovanaSala.oprema;
             foreach (Oprema opremaBrojac in prvaSala.oprema)
             {

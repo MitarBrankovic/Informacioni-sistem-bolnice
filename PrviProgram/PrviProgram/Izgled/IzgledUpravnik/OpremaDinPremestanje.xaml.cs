@@ -19,10 +19,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class OpremaDinPremestanje : Window
     {
+        private UtilityService utilityService = new UtilityService();
         private UpravnikController upravnikController = new UpravnikController();
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
-        //private ObservableCollection<Sala> sveSale;
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Oprema opremaZaPremestanje = new Oprema();
         private Oprema preostalaOprema = new Oprema();
@@ -46,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
-            else if (IsNumber(Kolicina.Text) == false)
+            else if (!utilityService.IsNumber(Kolicina.Text))
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
@@ -172,24 +172,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void PremestanjeOpreme()
         {
-            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala) == true)
+            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala))
             {
                 OsvezavanjeTabele();
             }
             else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
-        }
-
-        public bool IsNumber(String st)
-        {
-            try
-            {
-                int.Parse(st);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

@@ -11,7 +11,6 @@ namespace Service
         private SalaRepository salaRepository = new SalaRepository();
         private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
         private TerminiRepository terminiRepository = new TerminiRepository();
-        private TerminRenoviranjaSale terminRenoviranjaSale = new TerminRenoviranjaSale();
 
         public bool DodavanjeSale(Sala sala)
         {
@@ -19,9 +18,7 @@ namespace Service
             foreach (Sala salaBrojac in sale)
             {
                 if (salaBrojac.Sifra.Equals(sala.Sifra))
-                {
                     return false;
-                }
             }
             sale.Add(sala);
             salaRepository.UpisivanjeUFajl(sale);
@@ -59,21 +56,15 @@ namespace Service
             return false;
         }
 
-        public bool RenoviranjeSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja, Sala sala1, Sala sala2)
-        {
-
-            return false;
-        }
-
         public bool FormiranjeTerminaRenoviranjaNakonProvere(TerminRenoviranjaSale terminRenoviranjaSale)
         {
-            if (ProveraDatumaTerminaRenoviranja(terminRenoviranjaSale.sala, terminRenoviranjaSale.PocetakRenoviranja, terminRenoviranjaSale.KrajRenoviranja))
+            if (ProveraDatumaTerminaRenoviranja(terminRenoviranjaSale.Sala, terminRenoviranjaSale.PocetakRenoviranja, terminRenoviranjaSale.KrajRenoviranja))
             {
-                terminRenoviranjaSale.sala = terminRenoviranjaSale.sala;
+                terminRenoviranjaSale.Sala = terminRenoviranjaSale.Sala;
                 terminRenoviranjaSale.PocetakRenoviranja = terminRenoviranjaSale.PocetakRenoviranja;
                 terminRenoviranjaSale.KrajRenoviranja = terminRenoviranjaSale.KrajRenoviranja;
-                terminRenoviranjaSale.sala1 = terminRenoviranjaSale.sala1;
-                terminRenoviranjaSale.sala2 = terminRenoviranjaSale.sala2;
+                terminRenoviranjaSale.PrvaSala = terminRenoviranjaSale.PrvaSala;
+                terminRenoviranjaSale.DrugaSala = terminRenoviranjaSale.DrugaSala;
                 return true;
             }
             else return false;
@@ -88,9 +79,7 @@ namespace Service
                 if (terminBrojac.sala.Sifra.Equals(sala.Sifra))
                 {
                     if (intervalRenoviranja.Contains(terminBrojac.Datum))
-                    {
                         return false;
-                    }
                 }
             }
             return true;
@@ -100,10 +89,8 @@ namespace Service
         {
             foreach (TerminRenoviranjaSale terminBrojac in terminiRenoviranja)
             {
-                if (terminBrojac.sala.Sifra.Equals(sala.Sifra))
-                {
+                if (terminBrojac.Sala.Sifra.Equals(sala.Sifra))
                     return false;
-                }
             }
             return true;
         }
@@ -120,8 +107,8 @@ namespace Service
         public bool RenoviranjeSale(TerminRenoviranjaSale terminRenoviranjaSale)
         {
             List<TerminRenoviranjaSale> termini = terminiRenoviranjaRepository.CitanjeIzFajla();
-            if (!FormiranjeTerminaRenoviranjaNakonProvere(terminRenoviranjaSale) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala, termini)
-                || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala1, termini) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.sala2, termini))
+            if (!FormiranjeTerminaRenoviranjaNakonProvere(terminRenoviranjaSale) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.Sala, termini)
+                || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.PrvaSala, termini) || !ProveraSaleTerminaRenoviranja(terminRenoviranjaSale.DrugaSala, termini))
             {
                 return false;
             }

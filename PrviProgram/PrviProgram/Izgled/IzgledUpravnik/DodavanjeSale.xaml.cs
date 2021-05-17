@@ -10,6 +10,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class DodavanjeSale : Window
     {
+        private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Sala> sale;
         private UpravnikController upravnikController = new UpravnikController();
         private Sala novaSala = new Sala();
@@ -37,7 +38,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (IsNumber(Sprat.Text) == false)
+            else if (utilityService.IsNumber(Sprat.Text) == false)
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }
@@ -75,15 +76,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 novaSala.Tip = TipSale.Magacin;
             }
-            String dostupnost = Dostupnost.Text;
-            if (dostupnost.Equals("Da"))
-            {
-                novaSala.Dostupnost = true;
-            }
-            else if (dostupnost.Equals("Ne"))
-            {
-                novaSala.Dostupnost = false;
-            }
         }
 
         private void DodavanjeNoveSale()
@@ -91,19 +83,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             if (upravnikController.DodavanjeSale(novaSala) == true)
             {
                 this.sale.Add(novaSala);
-            }
-        }
-
-        public bool IsNumber(String st)
-        {
-            try
-            {
-                int.Parse(st);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
 

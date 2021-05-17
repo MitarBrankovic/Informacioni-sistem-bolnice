@@ -6,10 +6,10 @@ namespace Model
    {
         public TerminPremestanjaOpreme(Oprema oprema, Sala sala, Sala staraSala, DateTime datumPremestaja)
         {
-            this.oprema = oprema;
-            this.sala = sala;
-            this.staraSala = staraSala;
-            this.datumPremestaja = datumPremestaja;
+            this.Oprema = oprema;
+            this.Sala = sala;
+            this.StaraSala = staraSala;
+            this.DatumPremestaja = datumPremestaja;
         }
 
         public TerminPremestanjaOpreme() { }
@@ -20,12 +20,12 @@ namespace Model
         }
 
 
-        public Oprema oprema { get; set; }
+        public Oprema Oprema { get; set; }
 
-      public Sala sala { get; set; }
-      public Sala staraSala { get; set; }
+      public Sala Sala { get; set; }
+      public Sala StaraSala { get; set; }
    
-      public DateTime datumPremestaja { get; set; }
+      public DateTime DatumPremestaja { get; set; }
    
    }
 }

@@ -11,12 +11,11 @@ namespace Model
             oprema = new List<Oprema>();
         }
 
-        public Sala(TipSale tip, string naziv, int sprat, bool dostupnost, string sifra)
+        public Sala(TipSale tip, string naziv, int sprat, string sifra)
         {
             this.Naziv = naziv;
             this.Tip = tip;
             this.Sprat = sprat;
-            this.Dostupnost = dostupnost;
             this.Sifra = sifra;
         }
 
@@ -28,7 +27,6 @@ namespace Model
         public TipSale Tip { get; set; }
         public string Naziv { get; set; }
         public int Sprat { get; set; }
-        public bool Dostupnost { get; set; }
         public string Sifra { get; set; }
 
         public string NazivSprat

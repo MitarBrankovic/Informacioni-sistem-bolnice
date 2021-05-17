@@ -11,14 +11,26 @@ namespace Service
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[8];
             var Random = new Random();
-
             for (int i = 0; i < stringChars.Length; i++)
             {
                 stringChars[i] = chars[Random.Next(chars.Length)];
             }
-
             var finalString = new String(stringChars);
             return finalString;
         }
+
+        public bool IsNumber(String st)
+        {
+            try
+            {
+                int.Parse(st);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }

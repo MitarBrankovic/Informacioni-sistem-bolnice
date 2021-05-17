@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  TerminRenoviranjaSale.cs
- * Author:  Brankovic
- * Purpose: Definition of the Class Model.TerminRenoviranjaSale
- ***********************************************************************/
-
 using System;
 
 namespace Model
@@ -11,23 +5,23 @@ namespace Model
     public enum TipRenoviranja{spajanje,razdvajanje}
     public class TerminRenoviranjaSale
     {
-        public TerminRenoviranjaSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja, Sala sala1, Sala sala2)
+        public TerminRenoviranjaSale(Sala sala, DateTime pocetakRenoviranja, DateTime krajRenoviranja, Sala prvaSala, Sala drugaSala)
         {
-            this.sala = sala;
+            this.Sala = sala;
             this.PocetakRenoviranja = pocetakRenoviranja;
             this.KrajRenoviranja = krajRenoviranja;
-            this.sala1 = sala1;
-            this.sala2 = sala2;
+            this.PrvaSala = prvaSala;
+            this.DrugaSala = drugaSala;
         }
         public TerminRenoviranjaSale() { }
 
         public DateTime PocetakRenoviranja { get; set; }
         public DateTime KrajRenoviranja { get; set; }
 
-        public Sala sala { get; set; }
+        public Sala Sala { get; set; }
 
-        public Sala sala1 { get; set; }
-        public Sala sala2 { get; set; }
+        public Sala PrvaSala { get; set; }
+        public Sala DrugaSala { get; set; }
 
         public TipRenoviranja TipRenoviranja { get; set; }
 

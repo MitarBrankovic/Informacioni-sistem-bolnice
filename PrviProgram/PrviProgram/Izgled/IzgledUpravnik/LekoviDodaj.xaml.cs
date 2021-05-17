@@ -76,7 +76,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void DodavanjeNovogLeka()
         {
-            if (upravnikController.DodavanjeLeka(noviLek) == true)
+            if (upravnikController.DodavanjeLeka(noviLek))
             {
                 this.lekovi.Add(noviLek);
             }

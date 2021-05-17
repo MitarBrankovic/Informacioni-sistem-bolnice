@@ -8,27 +8,23 @@
         Title="DodavanjeSale" Height="450" Width="524"
         KeyDown="Window_KeyDown">
     <Grid Margin="0,0,0,-6" Background="SeaShell">
-        <Label Content="Naziv" HorizontalAlignment="Left" Height="25" Margin="115,68,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="115,114,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Sprat" HorizontalAlignment="Left" Height="25" Margin="115,162,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Tip" HorizontalAlignment="Left" Height="25" Margin="115,211,0,0" VerticalAlignment="Top" Width="122"/>
-        <Label Content="Dostupnost" HorizontalAlignment="Left" Height="25" Margin="115,260,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Naziv" HorizontalAlignment="Left" Height="25" Margin="115,126,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="115,172,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Sprat" HorizontalAlignment="Left" Height="25" Margin="115,220,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Tip" HorizontalAlignment="Left" Height="25" Margin="115,269,0,0" VerticalAlignment="Top" Width="122"/>
         <Button Name="Potvrdi" Style="{StaticResource UpravnikButton }" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="135,353,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
         <Button Name="Odustani" Style="{StaticResource UpravnikButton }" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="264,353,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
-        <ComboBox Name="Dostupnost" HorizontalAlignment="Left" Margin="264,260,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
-            <ComboBoxItem>Da</ComboBoxItem>
-            <ComboBoxItem>Ne</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Name="Tip" HorizontalAlignment="Left" Margin="264,214,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+        <ComboBox Name="Tip" HorizontalAlignment="Left" Margin="264,272,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
             <ComboBoxItem>Operaciona</ComboBoxItem>
             <ComboBoxItem>Kancelarija</ComboBoxItem>
             <ComboBoxItem>Sala za odmor</ComboBoxItem>
             <ComboBoxItem>Sala sa krevetima</ComboBoxItem>
             <ComboBoxItem>Magacin</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="262,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sifra" HorizontalAlignment="Left" Margin="262,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sprat" HorizontalAlignment="Left" Margin="262,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="262,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <TextBox x:Name="Sifra" HorizontalAlignment="Left" Margin="262,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <TextBox x:Name="Sprat" HorizontalAlignment="Left" Margin="262,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <Label Content="Dodavanje sale" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="24"/>
 
 
     </Grid>

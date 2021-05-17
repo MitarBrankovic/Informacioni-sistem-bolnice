@@ -18,10 +18,8 @@ namespace Service
             {
                 if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    if (ProveraPostojanjaOpreme(oprema, salaBrojac) == false) 
-                    {
+                    if (!ProveraPostojanjaOpreme(oprema, salaBrojac)) 
                         return false;
-                    }
                     salaBrojac.oprema.Add(oprema);
                     break;
                 }
@@ -35,9 +33,7 @@ namespace Service
             foreach (Oprema opremaBrojac in salaBrojac.oprema)
             {
                 if (opremaBrojac.Naziv.Equals(oprema.Naziv))
-                {
                     return false;
-                }
             }
             return true;
         }
@@ -49,10 +45,8 @@ namespace Service
             {
                 if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    if (BrisanjeOpremeUSali(salaBrojac, oprema, sale) == true)
-                    {
+                    if (BrisanjeOpremeUSali(salaBrojac, oprema, sale))
                         return true;
-                    }
                 }
             }
             return false;
@@ -79,10 +73,8 @@ namespace Service
             {
                 if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    if (IzmenaOpremeUSali(staraOprema, novaOprema, salaBrojac, sale) == true)
-                    {
+                    if (IzmenaOpremeUSali(staraOprema, novaOprema, salaBrojac, sale))
                         return true;
-                    }
                 }
             }
             return false;
@@ -110,20 +102,16 @@ namespace Service
             {
                 if (salaBrojac.Sifra.Equals(staraSala.Sifra))
                 {
-                    if (PremestanjeOpremeIzStareSale(salaBrojac, oprema, sale) == false)
-                    {
+                    if (!PremestanjeOpremeIzStareSale(salaBrojac, oprema, sale))
                         return false;
-                    }
                 }
             }
             foreach (Sala salaBrojac in sale)
             {
                 if (salaBrojac.Sifra.Equals(novaSala.Sifra))
                 {
-                    if (PremestanjeOpremeUNovuSalu(salaBrojac, oprema, sale) == true)
-                    {
+                    if (PremestanjeOpremeUNovuSalu(salaBrojac, oprema, sale))
                         return true;
-                    }
                     salaBrojac.oprema.Add(oprema);
                     salaRepository.UpisivanjeUFajl(sale);
                     return true;
@@ -139,17 +127,14 @@ namespace Service
                 if (opremaBrojac.Naziv.Equals(oprema.Naziv))
                 {
                     salaBrojac.oprema.Remove(opremaBrojac);
-                    Oprema ostatakOpremeUStarojSali = new Oprema(opremaBrojac.Naziv, opremaBrojac.Kolicina - oprema.Kolicina, opremaBrojac.Tip, opremaBrojac.NazivSale);
+                    Oprema ostatakOpremeUStarojSali = new Oprema(opremaBrojac.Naziv, opremaBrojac.Kolicina - oprema.Kolicina,
+                        opremaBrojac.Tip, opremaBrojac.NazivSale);
                     if (ostatakOpremeUStarojSali.Kolicina > 0)
                     {
                         salaBrojac.oprema.Add(ostatakOpremeUStarojSali);
                     }
-                    else if (ostatakOpremeUStarojSali.Kolicina == 0)
-                    {}
-                    else
-                    {
-                        return false;
-                    }
+                    else if (ostatakOpremeUStarojSali.Kolicina == 0) {}
+                    else return false;
                     salaRepository.UpisivanjeUFajl(sale);
                     break;
                 }
@@ -164,7 +149,8 @@ namespace Service
                 if (opremaBrojac.Naziv.Equals(oprema.Naziv))
                 {
                     salaBrojac.oprema.Remove(opremaBrojac);
-                    Oprema prebacenaOprema = new Oprema(oprema.Naziv, opremaBrojac.Kolicina + oprema.Kolicina, oprema.Tip, opremaBrojac.NazivSale);
+                    Oprema prebacenaOprema = new Oprema(oprema.Naziv, opremaBrojac.Kolicina + oprema.Kolicina,
+                        oprema.Tip, opremaBrojac.NazivSale);
                     salaBrojac.oprema.Add(prebacenaOprema);
                     salaRepository.UpisivanjeUFajl(sale);
                     return true;

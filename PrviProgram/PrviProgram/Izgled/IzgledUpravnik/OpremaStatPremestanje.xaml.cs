@@ -19,23 +19,19 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class OpremaStatPremestanje : Window
     {
-        private UpravnikController upravnikController = new UpravnikController();
-        private OpremaService opremaService;
+        private UtilityService utilityService = new UtilityService();
+        private OpremaService opremaService = new OpremaService();
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
-        private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Sala novaSala = new Sala();
         private SalaRepository salaRepository = new SalaRepository();
         private Oprema opremaZaPremestanje = new Oprema();
-        private Oprema preostalaOprema = new Oprema();
         private List<Sala> sveSale = new List<Sala>();
         private DateTime datumPremestaja;
 
-        public OpremaStatPremestanje(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala)
+        public OpremaStatPremestanje(Oprema oprema, Sala sala)
         {
             InitializeComponent();
-            opremaService = new OpremaService();
-            this.svaOpremaIzTabele = opreme;
             this.trenutnaOprema = oprema;
             this.trenutnaSala = sala;
             sveSale = salaRepository.PregledSvihSala();
@@ -48,7 +44,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
-            else if (IsNumber(Kolicina.Text) == false)
+            else if (!utilityService.IsNumber(Kolicina.Text))
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
@@ -95,37 +91,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             this.datumPremestaja = (DateTime)(TerminDatum.SelectedDate);
         }
 
-        private void ProveraPreostaleOpreme()
-        {
-            preostalaOprema.Naziv = opremaZaPremestanje.Naziv;
-            preostalaOprema.Tip = opremaZaPremestanje.Tip;
-            preostalaOprema.Kolicina = this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina;
-            preostalaOprema.NazivSale = this.trenutnaSala.Naziv;
-            if (preostalaOprema.Kolicina != 0)
-            {
-                this.svaOpremaIzTabele.Add(preostalaOprema);
-            }
-        }
-
-        private void DodavanjaOpremeZaPremestanjeUNovuSalu()
-        {
-            foreach (Sala s in sveSale)
-            {
-                if (s.Sifra.Equals(novaSala.Sifra))
-                {
-                    s.oprema.Add(opremaZaPremestanje);
-                }
-            }
-        }
-
-        private void OsvezavanjeTabele()
-        {
-            this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
-            ProveraPreostaleOpreme();
-            trenutnaSala.oprema.Add(preostalaOprema);
-            DodavanjaOpremeZaPremestanjeUNovuSalu();
-        }
-
         private void FormiranjeStatickogPremestanja()
         {
             if (this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina > -1)
@@ -134,19 +99,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 opremaService.DodavanjeTermina(novaSala, this.trenutnaSala, opremaZaPremestanje, this.datumPremestaja);
             }
             else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
-        }
-
-        public bool IsNumber(String st)
-        {
-            try
-            {
-                int.Parse(st);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

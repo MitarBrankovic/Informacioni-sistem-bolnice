@@ -14,12 +14,6 @@
         "NazivSale": "Magacin"
       },
       {
-        "Naziv": "Kreveti",
-        "Kolicina": 20,
-        "Tip": 0,
-        "NazivSale": "Magacin"
-      },
-      {
         "Naziv": "Zavoji",
         "Kolicina": 13,
         "Tip": 1,
@@ -30,12 +24,17 @@
         "Kolicina": 1,
         "Tip": 1,
         "NazivSale": "Magacin"
+      },
+      {
+        "Naziv": "Kreveti",
+        "Kolicina": 15,
+        "Tip": 0,
+        "NazivSale": "Magacin"
       }
     ],
     "Tip": 2,
     "Naziv": "Magacin",
     "Sprat": 1,
-    "Dostupnost": true,
     "Sifra": "mag",
     "NazivSprat": "Magacin 1"
   },
@@ -57,7 +56,6 @@
     "Tip": 0,
     "Naziv": "NTP 1",
     "Sprat": 1,
-    "Dostupnost": true,
     "Sifra": "ntp 1",
     "NazivSprat": "NTP 1 1"
   },
@@ -85,7 +83,6 @@
     "Tip": 4,
     "Naziv": "NTP 2",
     "Sprat": 2,
-    "Dostupnost": true,
     "Sifra": "ntp2",
     "NazivSprat": "NTP 2 2"
   },
@@ -107,7 +104,6 @@
     "Tip": 0,
     "Naziv": "OP1",
     "Sprat": 1,
-    "Dostupnost": true,
     "Sifra": "op1",
     "NazivSprat": "OP1 1"
   },
@@ -123,7 +119,6 @@
     "Tip": 0,
     "Naziv": "OP2",
     "Sprat": 2,
-    "Dostupnost": true,
     "Sifra": "op2",
     "NazivSprat": "OP2 2"
   },
@@ -137,7 +132,7 @@
       },
       {
         "Naziv": "Kreveti",
-        "Kolicina": 5,
+        "Kolicina": 10,
         "Tip": 0,
         "NazivSale": "OP3"
       }
@@ -145,7 +140,6 @@
     "Tip": 0,
     "Naziv": "OP3",
     "Sprat": 3,
-    "Dostupnost": true,
     "Sifra": "op3",
     "NazivSprat": "OP3 3"
   },
@@ -154,8 +148,15 @@
     "Tip": 0,
     "Naziv": "Test",
     "Sprat": 2,
-    "Dostupnost": true,
     "Sifra": "test",
     "NazivSprat": "Test 2"
+  },
+  {
+    "oprema": [],
+    "Tip": 3,
+    "Naziv": "Test2",
+    "Sprat": 1,
+    "Sifra": "test2",
+    "NazivSprat": "Test2 1"
   }
 ]

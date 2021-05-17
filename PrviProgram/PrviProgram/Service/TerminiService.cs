@@ -191,7 +191,7 @@ namespace Service
             List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
             foreach (TerminRenoviranjaSale terminRenoviranja in terminiRenoviranja) 
             {
-                if (terminRenoviranja.sala.Naziv.Equals(sala.Naziv))
+                if (terminRenoviranja.Sala.Naziv.Equals(sala.Naziv))
                 {
                     var intervalRenoviranja = new List<DateTime>();
                     for (var dt = terminRenoviranja.PocetakRenoviranja; dt <= terminRenoviranja.KrajRenoviranja; dt = dt.AddDays(1))

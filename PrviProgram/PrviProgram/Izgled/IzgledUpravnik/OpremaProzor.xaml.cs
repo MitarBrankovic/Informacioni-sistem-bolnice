@@ -57,9 +57,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             List<TerminPremestanjaOpreme> termini = terminiPremestajaRepository.CitanjeIzFajla();
             foreach (TerminPremestanjaOpreme terminBrojac in termini)
             {
-                if (DateTime.Today.Equals(terminBrojac.datumPremestaja))
+                if (DateTime.Today.Equals(terminBrojac.DatumPremestaja))
                 {
-                    upravnikController.PremestanjeOpreme(terminBrojac.oprema, terminBrojac.staraSala, terminBrojac.sala);
+                    upravnikController.PremestanjeOpreme(terminBrojac.Oprema, terminBrojac.StaraSala, terminBrojac.Sala);
                     //timer.Stop();
                     termini.Remove(terminBrojac);
                     terminiPremestajaRepository.UpisivanjeUFajl(termini);
@@ -372,7 +372,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else
                 {
-                    OpremaStatPremestanje win = new OpremaStatPremestanje(opreme, selektovanaOprema, trenutnaSala);
+                    OpremaStatPremestanje win = new OpremaStatPremestanje(selektovanaOprema, trenutnaSala);
                     win.Show();
                 }
             }
@@ -565,7 +565,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     }
                     else
                     {
-                        OpremaStatPremestanje win = new OpremaStatPremestanje(opreme, selektovanaOprema, trenutnaSala);
+                        OpremaStatPremestanje win = new OpremaStatPremestanje(selektovanaOprema, trenutnaSala);
                         win.Show();
                     }
                 }

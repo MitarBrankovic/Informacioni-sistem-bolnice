@@ -54,11 +54,10 @@
 
                     </DataGrid.Resources>
                     <DataGrid.Columns>
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
                         <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
                         <DataGridTextColumn Header="Tip sale" Binding="{Binding Tip}" Width="*"/>
-                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
                         <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}" Width="*"/>
-                        <DataGridTextColumn Header="Dostupnost" Binding="{Binding Dostupnost}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton }" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="149,121,0,0" VerticalAlignment="Top" Width="98">
