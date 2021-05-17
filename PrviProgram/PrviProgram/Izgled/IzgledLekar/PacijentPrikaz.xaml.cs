@@ -38,8 +38,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             PopuniInformacijePacijenta();
             izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
             dataGridKartonPacijenta.ItemsSource = izvrseniPregledi;
-            pocetniPrikaz.DugmeVisibilityTrue();
-            pocetniPrikaz.setUserControl(this, prethodniUserControl);
+            pocetniPrikaz.DugmeZaPovratakNaPrethodnuStranicu(prethodniUserControl, pocetniPrikaz, this);
         }
         private void PopuniInformacijePacijenta()
         {

@@ -108,9 +108,12 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 if (dataGridLekar.SelectedIndex != -1)
                 {
-                    ObservableCollection<IzvrseniPregled> izvrseniPregledi = new ObservableCollection<IzvrseniPregled>();
-                    IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregledi, izvrseniPregled, termin.pacijent, termini, termin);
-                    anamneza.Show();
+                    //ObservableCollection<IzvrseniPregled> izvrseniPregledi = new ObservableCollection<IzvrseniPregled>();
+                    //IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregledi, izvrseniPregled, termin.pacijent, termini, termin);
+                    //anamneza.Show();
+                    AnamnezaPrikaz anamnezaPrikaz = new AnamnezaPrikaz(this, pocetniPrikaz);
+                    parent.Children.Remove(this);
+                    parent.Children.Add(anamnezaPrikaz);
                 }
                 else
                 {

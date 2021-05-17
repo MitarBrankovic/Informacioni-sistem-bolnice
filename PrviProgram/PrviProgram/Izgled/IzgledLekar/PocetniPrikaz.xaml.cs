@@ -91,5 +91,11 @@ namespace PrviProgram.Izgled.IzgledLekar
             ContentArea.Children.Clear();
             ContentArea.Children.Add(pacijentiPrikaz);
         }
+
+        public void DugmeZaPovratakNaPrethodnuStranicu(UserControl prethodniUserControl, PocetniPrikaz pocetniPrikaz, UserControl userControl)
+        {
+            pocetniPrikaz.DugmeVisibilityTrue();
+            pocetniPrikaz.setUserControl(userControl, prethodniUserControl);
+        }
     }
 }
