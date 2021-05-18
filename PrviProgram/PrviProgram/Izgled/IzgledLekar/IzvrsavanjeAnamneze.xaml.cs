@@ -144,8 +144,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void PrepisiLek_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiLek prepisi = new PrepisiLek(izvrseniPregled, pacijent);
-            prepisi.Show();
+            //PrepisiLek prepisi = new PrepisiLek(izvrseniPregled, pacijent);
+            //prepisi.Show();
         }
 
         private void ZdravstveniKarton_Click(object sender, RoutedEventArgs e)

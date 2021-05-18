@@ -24,15 +24,15 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.izvrseniPregled = izvrseniPregled;
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
-            if (izvrseniPregled != null && izvrseniPregled.recept != null)
-                TextboxRecept.Text = izvrseniPregled.recept.Lekovi;
+            //if (izvrseniPregled != null && izvrseniPregled.recept != null)
+                //TextboxRecept.Text = izvrseniPregled.recept.Lekovi;
 
         }
 
         private void ZavrsiIzdavenjeRecepta_Click(object sender, RoutedEventArgs e)
         {
             Recept recept = new Recept();
-            recept.Lekovi = TextboxRecept.Text;
+            //recept.Lekovi = TextboxRecept.Text;
             izvrseniPregled.recept = recept;
 
             this.Close();

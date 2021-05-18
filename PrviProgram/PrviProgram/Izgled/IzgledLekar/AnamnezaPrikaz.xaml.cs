@@ -4,6 +4,7 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -28,8 +29,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         private KartonPacijentaService kartonPacijentaService = new KartonPacijentaService();
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
         private TerminiService terminiService = new TerminiService();
+        private LekoviRepository lekoviRepository = new LekoviRepository();
         private string ReceptTextHolder = "";
-        private string TerapijaTextHolder = "";
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             pocetniPrikaz.DodajUserControl(this);
             pocetniPrikaz.GoBackButtonVisibilityTrue();
             PopuniInformacijePacijenta();
+            ComboboxLek.ItemsSource = lekoviRepository.PregledSvihLekova();
         }
         private void PopuniInformacijePacijenta()
         {
@@ -52,7 +54,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Zavrsi_Click(object sender, RoutedEventArgs e)
         {
             //TODO ne sacuva se posledji text holder
-            SacuvajPromeneReceptTerapija();
             InicijalizacijaIzvrsenogTermina();
             KreiranjeAnamneze();
             termin.izvrsen = true;
@@ -60,18 +61,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
 
         }
-        
-        private void SacuvajPromeneReceptTerapija()
-        {
-            if (radioButtonRecpet.IsChecked == true)
-            {
-                ReceptTextHolder = TextboxReceptTerapija.Text;
-            }
-            else if (radioButtonTerapija.IsChecked == true)
-            {
-                TerapijaTextHolder = TextboxReceptTerapija.Text;
-            }
-        }
+
 
         private void InicijalizacijaIzvrsenogTermina()
         {
@@ -85,11 +75,11 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void KreiranjeAnamneze()
         {
             Anamneza anamneza = new Anamneza(TextboxAnamneza.Text);
-            Terapija terapija = new Terapija(TerapijaTextHolder, DateTime.Today);
             Recept recept = new Recept();
-            recept.Lekovi = ReceptTextHolder;
+            recept.Lekovi = (Lek)ComboboxLek.SelectedItem;
+            recept.OpisLeka = TextboxOpisLeka.Text;
+            recept.VremenskiPeriodUzimanjaLeka = int.Parse(BrojDana.Text);
             izvrseniPregled.anamneza = anamneza;
-            izvrseniPregled.terapija = terapija;
             izvrseniPregled.recept = recept;
         }
 
@@ -106,26 +96,25 @@ namespace PrviProgram.Izgled.IzgledLekar
             uputWindow.Show();
         }
 
-        private void radioButtonRecpet_Checked(object sender, RoutedEventArgs e)
+        private void UputLecenje_Click(object sender, RoutedEventArgs e)
         {
-            PromenaStanjaRadioButtona();
+
         }
 
-        private void radioButtonTerapija_Checked(object sender, RoutedEventArgs e)
+        private void BrojDana_TextChanged(object sender, TextChangedEventArgs e)
         {
-            PromenaStanjaRadioButtona();
-        }
-
-        private void PromenaStanjaRadioButtona()
-        {
-            if (radioButtonRecpet.IsChecked ==  true)
+            int result = 0;
+            if (int.TryParse(BrojDana.Text, out result))
             {
-                TerapijaTextHolder = TextboxReceptTerapija.Text;
-                TextboxReceptTerapija.Text = ReceptTextHolder;
-            }else if(radioButtonTerapija.IsChecked == true)
+                // Your conditions
+                if (result > 0 && result < 1000)
+                {
+                    // Your number
+                }
+            }
+            else
             {
-                ReceptTextHolder = TextboxReceptTerapija.Text;
-                TextboxReceptTerapija.Text = TerapijaTextHolder;
+                BrojDana.Text = "";
             }
         }
     }

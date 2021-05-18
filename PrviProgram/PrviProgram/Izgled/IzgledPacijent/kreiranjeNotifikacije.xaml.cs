@@ -77,7 +77,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         {
             this.notifikacija.pacijent = this.pp;
             Recept r = new Recept();
-            r.Lekovi = listaLekova.SelectedItem.ToString();
+            //r.Lekovi = listaLekova.SelectedItem.ToString();
             r.OpisLeka = OpisLeka.Text;
             this.notifikacija.recept = r;
             this. notifikacija.KrajDatuma = end;
@@ -99,7 +99,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             else
             {
                 Recept r1 = new Recept();
-                r1.Lekovi = listaLekova.SelectedItem.ToString();
+                //r1.Lekovi = listaLekova.SelectedItem.ToString();
                 OpisLeka.IsEnabled = true;
                 OpisLeka.Text = not.PronadjiOpis(r1, this.pp);
             }

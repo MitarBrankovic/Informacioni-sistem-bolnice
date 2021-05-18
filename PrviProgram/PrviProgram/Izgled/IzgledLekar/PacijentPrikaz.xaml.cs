@@ -61,7 +61,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
             else if (radioButtonRecpet.IsChecked == true)
             {
-                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
+                //TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
             }
         }
 
@@ -115,7 +115,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
             else if (radioButtonRecpet.IsChecked == true)
             {
-                noviIzvrseniPregled.recept.Lekovi = TextboxInformacije.Text;
+                //noviIzvrseniPregled.recept.Lekovi = TextboxInformacije.Text;
             }
             return noviIzvrseniPregled;
         }
@@ -140,7 +140,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void radioButtonRecpet_Checked(object sender, RoutedEventArgs e)
         {
             if ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem != null)
-                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
+                //TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
             ResetAzurirajDugme();
         }
 
