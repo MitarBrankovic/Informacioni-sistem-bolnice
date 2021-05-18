@@ -28,7 +28,7 @@
         <TextBox  x:Name = "TextboxInformacije_Copy1" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="227" Margin="445,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
         <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="270" Margin="510,141,0,0">
             <Grid>
-                <RadioButton Height="23" Content="Recpet" HorizontalAlignment="Left" x:Name="radioButtonRecpet" VerticalAlignment="Top" VerticalContentAlignment="Center"  Width="80" Checked="radioButtonRecpet_Checked" IsChecked="True"/>
+                <RadioButton Height="23" Content="Recpet" HorizontalAlignment="Left" x:Name="radioButtonRecpet" VerticalAlignment="Top" VerticalContentAlignment="Center"  Width="80" Checked="radioButtonRecpet_Checked" IsChecked="true"/>
                 <RadioButton Height="23" Content="Terapija" HorizontalAlignment="Left" Margin="100,0,0,0" x:Name="radioButtonTerapija" VerticalAlignment="Top" VerticalContentAlignment="Center"  Width="80" Checked="radioButtonTerapija_Checked" />
             </Grid>
         </Border>

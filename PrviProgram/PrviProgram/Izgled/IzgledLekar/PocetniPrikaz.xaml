@@ -24,7 +24,15 @@
 
                 <Grid Height="240"/>
                 <Grid Height="50">
-                    <Button  Visibility="Collapsed" HorizontalContentAlignment="Left"  x:Name="GoBack" Content="Nazad" FontSize="18" Foreground="#e6eeff" Background="#007399" BorderThickness="0" Click="GoBack_Click">
+                    <Button x:Name="GoBack" 
+                            Visibility="Collapsed" 
+                            HorizontalContentAlignment="Left"   
+                            Content="Nazad" 
+                            FontSize="18" 
+                            Foreground="#e6eeff" 
+                            Background="#007399" 
+                            BorderThickness="0" 
+                            Click="GoBack_Click">
                     </Button>
                 </Grid>
             </StackPanel>

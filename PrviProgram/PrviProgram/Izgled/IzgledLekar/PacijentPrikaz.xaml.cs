@@ -22,15 +22,12 @@ namespace PrviProgram.Izgled.IzgledLekar
     /// </summary>
     public partial class PacijentPrikaz : UserControl
     {
-        private ObservableCollection<Termin> termini;
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
         private PacijentRepository pacijentRepository = new PacijentRepository();
-        private Termin termin;
         private Pacijent pacijent;
         private bool azurirajPritisnut = false;
         private PocetniPrikaz pocetniPrikaz;
-        private UserControl prethodniUserControl;
-        public PacijentPrikaz(UserControl prethodniUserControl, PocetniPrikaz pocetniPrikaz, Pacijent pacijent)
+        public PacijentPrikaz(PocetniPrikaz pocetniPrikaz, Pacijent pacijent)
         {
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
@@ -38,7 +35,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             PopuniInformacijePacijenta();
             izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
             dataGridKartonPacijenta.ItemsSource = izvrseniPregledi;
-            pocetniPrikaz.DugmeZaPovratakNaPrethodnuStranicu(prethodniUserControl, pocetniPrikaz, this);
+            pocetniPrikaz.GoBackButtonVisibilityTrue();
+            pocetniPrikaz.DodajUserControl(this);
         }
         private void PopuniInformacijePacijenta()
         {

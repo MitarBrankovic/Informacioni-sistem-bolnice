@@ -39,7 +39,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             if (dgDataBinding.SelectedIndex != -1)
             {
                 
-                PacijentPrikaz pacijentPrikaz = new PacijentPrikaz(this, pocetniPrikaz, (Pacijent)dgDataBinding.SelectedItem);
+                PacijentPrikaz pacijentPrikaz = new PacijentPrikaz(pocetniPrikaz, (Pacijent)dgDataBinding.SelectedItem);
                 parent.Children.Remove(this);
                 parent.Children.Add(pacijentPrikaz);
             }

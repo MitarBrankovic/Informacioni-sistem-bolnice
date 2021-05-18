@@ -19,11 +19,11 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class PocetniPrikaz : Window
     {
         private Lekar lekar;
-        public UserControl stariUserControl;
-        public UserControl noviUserControl;
+        private UserControl trenutniUserControl;
         private TerminiPrikaz terminiPrikaz;
         private LekoviPrikaz lekoviPrikaz;
         private PacijentiPrikaz pacijentiPrikaz;
+        private List<UserControl> listOfUserControls = new List<UserControl>();
         public PocetniPrikaz(Lekar lekar)
         {
             InitializeComponent();
@@ -32,9 +32,18 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Raspored_Click(object sender, RoutedEventArgs e)
         {
-            terminiPrikaz = new TerminiPrikaz(this, ContentArea, lekar);
+            terminiPrikaz = new TerminiPrikaz(this, lekar);
             ContentArea.Children.Clear();
             ContentArea.Children.Add(terminiPrikaz);
+            ProveraKojiProzorJeOtvoren();
+        }
+
+        private void Pacijenti_Click(object sender, RoutedEventArgs e)
+        {
+            pacijentiPrikaz = new PacijentiPrikaz(this, ContentArea);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(pacijentiPrikaz);
+            ProveraKojiProzorJeOtvoren();
         }
 
         private void PregledLekova_Click(object sender, RoutedEventArgs e)
@@ -42,6 +51,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             lekoviPrikaz = new LekoviPrikaz(this, lekar);
             ContentArea.Children.Clear();
             ContentArea.Children.Add(lekoviPrikaz);
+            ProveraKojiProzorJeOtvoren();
         }
         public void DugmeVisibilityTrue()
         {
@@ -55,11 +65,14 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (stariUserControl.Parent != null)
-            {
-                (stariUserControl.Parent as Panel).Children.Remove(stariUserControl);
-                ContentArea.Children.Add(noviUserControl);
-            }
+            //if (stariUserControl.Parent != null)
+            //{
+            //    (stariUserControl.Parent as Panel).Children.Remove(stariUserControl);
+            //    ContentArea.Children.Add(noviUserControl);
+            //}
+            ContentArea.Children.Remove(listOfUserControls[listOfUserControls.Count - 1]);
+            listOfUserControls.Remove(listOfUserControls[listOfUserControls.Count - 1]);
+            ContentArea.Children.Add(listOfUserControls[listOfUserControls.Count - 1]);
             ProveraKojiProzorJeOtvoren();
         }
         private void ProveraKojiProzorJeOtvoren()
@@ -79,23 +92,15 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
         }
 
-        public void setUserControl(UserControl stariUserControl, UserControl noviUserControl)
+        public void GoBackButtonVisibilityTrue()
         {
-            this.stariUserControl = stariUserControl;
-            this.noviUserControl = noviUserControl;
+            this.DugmeVisibilityTrue();
         }
 
-        private void Pacijenti_Click(object sender, RoutedEventArgs e)
+        public void DodajUserControl(UserControl noviUserControl)
         {
-            pacijentiPrikaz = new PacijentiPrikaz(this, ContentArea);
-            ContentArea.Children.Clear();
-            ContentArea.Children.Add(pacijentiPrikaz);
-        }
-
-        public void DugmeZaPovratakNaPrethodnuStranicu(UserControl prethodniUserControl, PocetniPrikaz pocetniPrikaz, UserControl userControl)
-        {
-            pocetniPrikaz.DugmeVisibilityTrue();
-            pocetniPrikaz.setUserControl(userControl, prethodniUserControl);
+            listOfUserControls.Add(noviUserControl);
+            trenutniUserControl = noviUserControl;
         }
     }
 }

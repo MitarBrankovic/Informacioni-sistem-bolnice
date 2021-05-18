@@ -23,18 +23,16 @@ namespace PrviProgram.Izgled.IzgledLekar
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
         private Lekar lekar;
-        private IzvrseniPregled izvrseniPregled;
-        private StackPanel parent;
         private PocetniPrikaz pocetniPrikaz;
-        public TerminiPrikaz(PocetniPrikaz pocetniPrikaz, StackPanel parent, Lekar lekar)
+        public TerminiPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)
         {
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
-            this.parent = parent;
             this.lekar = lekar;
             upravljanje = new PreglediService();
             termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
+            pocetniPrikaz.DodajUserControl(this);
             DisableButtons();
         }
 
@@ -88,9 +86,9 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             if (dataGridLekar.SelectedIndex != -1)
             {
-                PacijentPrikaz pacijentPrikaz = new PacijentPrikaz(this, pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem).pacijent);
-                parent.Children.Remove(this);
-                parent.Children.Add(pacijentPrikaz);
+                PacijentPrikaz pacijentPrikaz = new PacijentPrikaz(pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem).pacijent);
+                pocetniPrikaz.ContentArea.Children.Remove(this);
+                pocetniPrikaz.ContentArea.Children.Add(pacijentPrikaz);
             }
             else
             {
@@ -108,12 +106,9 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 if (dataGridLekar.SelectedIndex != -1)
                 {
-                    //ObservableCollection<IzvrseniPregled> izvrseniPregledi = new ObservableCollection<IzvrseniPregled>();
-                    //IzvrsavanjeAnamneze anamneza = new IzvrsavanjeAnamneze(izvrseniPregledi, izvrseniPregled, termin.pacijent, termini, termin);
-                    //anamneza.Show();
-                    AnamnezaPrikaz anamnezaPrikaz = new AnamnezaPrikaz(this, pocetniPrikaz);
-                    parent.Children.Remove(this);
-                    parent.Children.Add(anamnezaPrikaz);
+                    AnamnezaPrikaz anamnezaPrikaz = new AnamnezaPrikaz(pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem));
+                    pocetniPrikaz.ContentArea.Children.Remove(this);
+                    pocetniPrikaz.ContentArea.Children.Add(anamnezaPrikaz);
                 }
                 else
                 {
