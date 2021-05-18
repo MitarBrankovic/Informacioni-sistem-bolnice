@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <TextBox  x:Name = "TextboxInformacije" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="421" Margin="45,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" />
+        <TextBox  x:Name = "TextboxAnamneza" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="421" Margin="45,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="36,32,0,0" x:Name="textBlockIme" Text="Ime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="36,62,0,0" x:Name="textBlockPrezime" Text="Prezime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="419,32,0,0" x:Name="textBlockJMBG" Text="JMBG:" VerticalAlignment="Top" Width="110" />
@@ -25,7 +25,7 @@
 
             </Grid>
         </Border>
-        <TextBox  x:Name = "TextboxInformacije_Copy1" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="227" Margin="445,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
+        <TextBox  x:Name = "TextboxReceptTerapija" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="227" Margin="445,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
         <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="270" Margin="510,141,0,0">
             <Grid>
                 <RadioButton Height="23" Content="Recpet" HorizontalAlignment="Left" x:Name="radioButtonRecpet" VerticalAlignment="Top" VerticalContentAlignment="Center"  Width="80" Checked="radioButtonRecpet_Checked" IsChecked="true"/>

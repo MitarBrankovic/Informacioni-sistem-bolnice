@@ -32,8 +32,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void ZavrsiTerapiju_Click(object sender, RoutedEventArgs e)
         {
-            Terapija terapija = new Terapija();
-            terapija.Opis = TextboxTerapija.Text;
+            Terapija terapija = new Terapija(TextboxTerapija.Text, DateTime.Today);
+            //terapija.Opis = TextboxTerapija.Text;
             izvrseniPregled.terapija = terapija;
 
             this.Close();

@@ -65,11 +65,6 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            //if (stariUserControl.Parent != null)
-            //{
-            //    (stariUserControl.Parent as Panel).Children.Remove(stariUserControl);
-            //    ContentArea.Children.Add(noviUserControl);
-            //}
             ContentArea.Children.Remove(listOfUserControls[listOfUserControls.Count - 1]);
             listOfUserControls.Remove(listOfUserControls[listOfUserControls.Count - 1]);
             ContentArea.Children.Add(listOfUserControls[listOfUserControls.Count - 1]);

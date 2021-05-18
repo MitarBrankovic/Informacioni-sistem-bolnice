@@ -12,5 +12,9 @@ namespace Model
     {
         public String Opis { get; set; }
 
+        public Anamneza(String opis)
+        {
+            Opis = opis;
+        }
     }
 }

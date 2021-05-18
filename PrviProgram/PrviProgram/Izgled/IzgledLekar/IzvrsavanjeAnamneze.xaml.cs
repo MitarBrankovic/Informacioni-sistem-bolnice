@@ -78,8 +78,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private void KreiranjeAnamneze()
         {
-            Anamneza anamneza = new Anamneza();
-            anamneza.Opis = TextboxAnamneza.Text;
+            Anamneza anamneza = new Anamneza(TextboxAnamneza.Text);
+            //anamneza.Opis = TextboxAnamneza.Text;
             izvrseniPregled.anamneza = anamneza;
         }
         private bool proveraIzvrsenostiTermina()

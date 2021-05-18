@@ -1,5 +1,6 @@
 ﻿using Model;
 using Repository;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,8 +24,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         private PocetniPrikaz pocetniPrikaz;
         private Pacijent pacijent;
         private Termin termin;
-        private IzvrseniPregled izvrseniPregled;
         private PacijentRepository pacijentRepository = new PacijentRepository();
+        private KartonPacijentaService kartonPacijentaService = new KartonPacijentaService();
+        private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
+        private TerminiService terminiService = new TerminiService();
+        private string ReceptTextHolder = "";
+        private string TerapijaTextHolder = "";
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
             InitializeComponent();
@@ -46,7 +51,46 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private void Zavrsi_Click(object sender, RoutedEventArgs e)
         {
+            //TODO ne sacuva se posledji text holder
+            SacuvajPromeneReceptTerapija();
+            InicijalizacijaIzvrsenogTermina();
+            KreiranjeAnamneze();
+            termin.izvrsen = true;
+            terminiService.IzmenaTermina(termin);
+            kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
 
+        }
+        
+        private void SacuvajPromeneReceptTerapija()
+        {
+            if (radioButtonRecpet.IsChecked == true)
+            {
+                ReceptTextHolder = TextboxReceptTerapija.Text;
+            }
+            else if (radioButtonTerapija.IsChecked == true)
+            {
+                TerapijaTextHolder = TextboxReceptTerapija.Text;
+            }
+        }
+
+        private void InicijalizacijaIzvrsenogTermina()
+        {
+            izvrseniPregled = new IzvrseniPregled();
+            izvrseniPregled.Lekar = termin.lekar;
+            izvrseniPregled.Datum = termin.Datum;
+            izvrseniPregled.TipTermina = termin.TipTermina;
+            izvrseniPregled.Sifra = termin.SifraTermina;
+        }
+
+        private void KreiranjeAnamneze()
+        {
+            Anamneza anamneza = new Anamneza(TextboxAnamneza.Text);
+            Terapija terapija = new Terapija(TerapijaTextHolder, DateTime.Today);
+            Recept recept = new Recept();
+            recept.Lekovi = ReceptTextHolder;
+            izvrseniPregled.anamneza = anamneza;
+            izvrseniPregled.terapija = terapija;
+            izvrseniPregled.recept = recept;
         }
 
         private void Karton_Click(object sender, RoutedEventArgs e)
@@ -64,12 +108,25 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void radioButtonRecpet_Checked(object sender, RoutedEventArgs e)
         {
-
+            PromenaStanjaRadioButtona();
         }
 
         private void radioButtonTerapija_Checked(object sender, RoutedEventArgs e)
         {
+            PromenaStanjaRadioButtona();
+        }
 
+        private void PromenaStanjaRadioButtona()
+        {
+            if (radioButtonRecpet.IsChecked ==  true)
+            {
+                TerapijaTextHolder = TextboxReceptTerapija.Text;
+                TextboxReceptTerapija.Text = ReceptTextHolder;
+            }else if(radioButtonTerapija.IsChecked == true)
+            {
+                ReceptTextHolder = TextboxReceptTerapija.Text;
+                TextboxReceptTerapija.Text = TerapijaTextHolder;
+            }
         }
     }
 }

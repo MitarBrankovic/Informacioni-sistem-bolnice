@@ -8,7 +8,7 @@
         Title="PocetniPrikaz" Height="650" Width="950"
         WindowStartupLocation="CenterScreen">
     <Border>
-        <Grid>
+        <Grid Background=" #d9d9d9">
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -37,9 +37,11 @@
                 </Grid>
             </StackPanel>
             <StackPanel  Name="ContentArea" Grid.Column="1" />
-            <Grid.Background>
+            <!-- <Grid.Background>
                 <ImageBrush ImageSource="/Slike/Dania.jpg"></ImageBrush>
             </Grid.Background>
+                -->
+            
         </Grid>
         
     </Border>

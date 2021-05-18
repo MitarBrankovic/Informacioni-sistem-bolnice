@@ -13,5 +13,10 @@ namespace Model
       public string Opis { get; set; }
       public DateTime Datum { get; set; }
 
+        public Terapija(String opis, DateTime date)
+        {
+            Opis = opis;
+            Datum = date;
+        }
     }
 }
