@@ -1,5 +1,6 @@
 using System;
 using Model;
+using PrviProgram.Service;
 using Service;
 
 namespace Controller
@@ -9,6 +10,7 @@ namespace Controller
         private SaleService saleService = new SaleService();
         private OpremaService opremaService = new OpremaService();
         private LekoviService lekoviService = new LekoviService();
+        private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
 
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
       {
@@ -96,6 +98,14 @@ namespace Controller
         public bool IzmenaLeka(Lek stariLek, Lek noviLek)
         {
             if (lekoviService.IzmenaLeka(stariLek, noviLek))
+                return true;
+            else
+                return false;
+        }
+
+        public bool BrisanjePrimedbe(PrimedbaNaLek primedba)
+        {
+            if (primedbeNaLekService.BrisanjePrimedbe(primedba))
                 return true;
             else
                 return false;

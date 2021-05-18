@@ -45,7 +45,7 @@ namespace PrviProgram.Repository
             List<PrimedbaNaLek> primedbe = CitanjeIzFajla();
             foreach (PrimedbaNaLek i in primedbe)
             {
-                if (i.sifra.Equals(sifra))
+                if (i.Sifra.Equals(sifra))
                 {
                     return i;
                 }

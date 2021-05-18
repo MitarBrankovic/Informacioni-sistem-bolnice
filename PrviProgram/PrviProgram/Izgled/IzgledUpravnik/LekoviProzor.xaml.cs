@@ -20,6 +20,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     /// <summary>
     /// Interaction logic for LekoviProzor.xaml
     /// </summary>
+    /// 
     public partial class LekoviProzor : UserControl
     {
         private ObservableCollection<Lek> lekovi;
@@ -75,13 +76,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else { MessageBox.Show("Morate izabrati lek!"); }
         }
 
-        private void Neodobreni_Click(object sender, RoutedEventArgs e)
+        private void Primedbe_Click(object sender, RoutedEventArgs e)
         {
-            LekoviNeodobreni win = new LekoviNeodobreni();
-            win.Show();
+            LekoviPrimedbe win = new LekoviPrimedbe();
+            win.ShowDialog();
         }
-
-
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
@@ -116,9 +115,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Informacije.IsFocused)
                 {
-                    Neodobreni.Focus();
+                    Primedbe.Focus();
                 }
-                else if (Neodobreni.IsFocused)
+                else if (Primedbe.IsFocused)
                 {
                     Pomoc.Focus();
                 }
@@ -130,7 +129,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Neodobreni.IsFocused || !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Primedbe.IsFocused || !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -142,9 +141,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (Pomoc.IsFocused)
                 {
-                    Neodobreni.Focus();
+                    Primedbe.Focus();
                 }
-                else if (Neodobreni.IsFocused)
+                else if (Primedbe.IsFocused)
                 {
                     Informacije.Focus();
                 }
@@ -168,7 +167,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Informacije.IsFocused && !Neodobreni.IsFocused && !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Informacije.IsFocused && !Primedbe.IsFocused && !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -241,12 +240,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (Neodobreni.IsFocused)
+            else if (Primedbe.IsFocused)
             {
                 if (e.Key == Key.Up || e.Key == Key.Right)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused || Neodobreni.IsFocused)
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused || Primedbe.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;
@@ -287,7 +286,20 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- M: Selektovanje MenuBar-a - FILE.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+            "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
+            "- F3: Brisanje selektovanog leka. \n" +
+            "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
 
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+                , "HELP");
         }
     }
 }

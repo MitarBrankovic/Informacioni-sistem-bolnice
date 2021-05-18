@@ -7,19 +7,19 @@ namespace Model
 {
     public class PrimedbaNaLek
     {
-        public string sifra { get; set; }
-        public Lekar lekar { get; set; }
-        public Lek lek { get; set; }
-        public string primedba { get; set; }
-        public DateTime datum { get; set; }
+        public string Sifra { get; set; }
+        public Lekar Lekar { get; set; }
+        public Lek Lek { get; set; }
+        public string Primedba { get; set; }
+        public DateTime Datum { get; set; }
 
         public PrimedbaNaLek(string sifra, Lekar lekar, Lek lek, string primedba, DateTime datum)
         {
-            this.sifra = sifra;
-            this.lekar = lekar;
-            this.lek = lek;
-            this.primedba = primedba;
-            this.datum = datum;
+            this.Sifra = sifra;
+            this.Lekar = lekar;
+            this.Lek = lek;
+            this.Primedba = primedba;
+            this.Datum = datum;
         }
     }
 }

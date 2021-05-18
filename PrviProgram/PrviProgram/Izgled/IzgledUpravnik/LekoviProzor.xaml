@@ -80,7 +80,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name ="Neodobreni" Style="{StaticResource UpravnikButton }" Click="Neodobreni_Click"  Content="Neodobreni" HorizontalAlignment="Left" Height="26" Margin="628,155,0,0" VerticalAlignment="Top" Width="98">
+                <Button x:Name ="Primedbe" Style="{StaticResource UpravnikButton }" Click="Primedbe_Click"  Content="Primedbe" HorizontalAlignment="Left" Height="26" Margin="628,155,0,0" VerticalAlignment="Top" Width="98">
                     <Button.ToolTip>
                         <ToolTip>
                             Lista neodobrenih lekova
