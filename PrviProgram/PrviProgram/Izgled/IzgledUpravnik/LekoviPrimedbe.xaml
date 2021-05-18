@@ -1,0 +1,54 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledUpravnik.LekoviPrimedbe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
+        mc:Ignorable="d"
+        Title="Primedbe" Height="500" Width="850"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
+    <Grid Background="SeaShell">
+        <DataGrid x:Name="dataGridPrimedbe" Margin="152,73,108,73" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
+                <DataGridTextColumn Header="Lek" Binding="{Binding Lek}" Width="*"/>
+                <DataGridTextColumn Header="Lekar" Binding="{Binding Lekar}" Width="*"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" Width="*"/>
+                <DataGridTemplateColumn Header="Obrisi" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Obrisi_Click">Obrisi</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Prikaz" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Prikaz_Click">Prikazi</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Nazad" Style="{StaticResource UpravnikButton}" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="22,429,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,1.344">
+            <Button.ToolTip>
+                <ToolTip Content="Povratak na pocetni prozor"/>
+            </Button.ToolTip>
+        </Button>
+        <Label Content="Primedbe na lek" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="158" FontSize="20"/>
+        <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton}" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="748,21,0,0" VerticalAlignment="Top" Width="66">
+            <Button.ToolTip>
+                <ToolTip Content="Deteljna uputstva za korisnjece aplikacije"/>
+            </Button.ToolTip>
+        </Button>
+
+    </Grid>
+</Window>
