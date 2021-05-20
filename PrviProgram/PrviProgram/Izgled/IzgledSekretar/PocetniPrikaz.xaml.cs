@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Model;
 using PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni;
+using PrviProgram.Izgled.IzgledSekretar.IzgledLekari;
 using PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti;
 using PrviProgram.Izgled.IzgledSekretar.IzgledTermini;
 using PrviProgram.Izgled.IzgledSekretar.IzgledVesti;
@@ -40,5 +41,12 @@ namespace PrviProgram.Izgled.IzgledSekretar
             PregledSvihVesti pregledSvihVesti = new PregledSvihVesti(sekretar);
             pregledSvihVesti.Show();
         }
+
+        private void Button_Click_Lekari(object sender, RoutedEventArgs e)
+        {
+            PrikazLekara prikazLekara = new PrikazLekara();
+            prikazLekara.Show();
+        }
+
     }
 }
