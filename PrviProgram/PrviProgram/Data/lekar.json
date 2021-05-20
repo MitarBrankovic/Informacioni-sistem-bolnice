@@ -46,26 +46,42 @@
     "KontaktTelefon": null
   },
   {
-    "termin": null,
+    "termin": [],
     "specijalizacija": [
       {
         "Naziv": "Hirurgija"
       }
     ],
-    "MestoRodjenja": null,
+    "MestoRodjenja": {
+      "Ime": "Zrenjanin",
+      "drzava": {
+        "Ime": "Srbija"
+      }
+    },
     "Korisnik": {
-      "KorisnickoIme": "d",
-      "Lozinka": "v",
+      "KorisnickoIme": "darko",
+      "Lozinka": "darko",
       "TipKorisnika": 3,
       "osoba": null
     },
-    "AdresaStanovanja": null,
+    "AdresaStanovanja": {
+      "Ulica": "ulica",
+      "Broj": 32,
+      "Sprat": 1,
+      "Stan": 1,
+      "grad": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      }
+    },
     "Ime": "Darko",
     "Prezime": "Vrbaski",
-    "Email": null,
+    "Email": "darko@ac.rs",
     "Jmbg": "423234256",
-    "DatumRodjenja": "0001-01-01T00:00:00",
+    "DatumRodjenja": "1999-05-04T00:00:00",
     "Pol": 0,
-    "KontaktTelefon": null
+    "KontaktTelefon": "12412412"
   }
 ]

@@ -29,7 +29,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
         {
             if ((Lekar)dgDataBinding.SelectedItem != null)
             {
-
+                IzmenaLekara izmenaLekara = new IzmenaLekara(lekari, (Lekar)dgDataBinding.SelectedItem);
+                izmenaLekara.Show();
             }
         }
 
