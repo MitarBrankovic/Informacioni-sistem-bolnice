@@ -32,5 +32,11 @@ namespace Service
             }
         }
 
+        public int IntParser(string broj)
+        {
+            int retVal;
+            return int.TryParse(broj, out retVal) ? retVal : default;
+        }
+
     }
 }

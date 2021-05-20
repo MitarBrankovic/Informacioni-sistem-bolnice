@@ -10,7 +10,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
     {
         private SekretarController sekretarController = new SekretarController();
         private LekarRepository lekarRepository = new LekarRepository();
-        public ObservableCollection<Lekar> lekari;
+        private ObservableCollection<Lekar> lekari;
 
         public PrikazLekara()
         {
@@ -21,12 +21,16 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-
+            DodavanjeLekara dodavanjeLekara = new DodavanjeLekara(lekari);
+            dodavanjeLekara.Show();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
+            if ((Lekar)dgDataBinding.SelectedItem != null)
+            {
 
+            }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -39,7 +43,10 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
         }
         private void Specijalizacije_Click(object sender, RoutedEventArgs e)
         {
+            if ((Lekar)dgDataBinding.SelectedItem != null)
+            {
 
+            }
         }
 
     }
