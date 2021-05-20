@@ -45,7 +45,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
         {
             if ((Lekar)dgDataBinding.SelectedItem != null)
             {
-
+                PregledSpecijalizacijeLekara pregledSpecijalizacijeLekara = new PregledSpecijalizacijeLekara((Lekar)dgDataBinding.SelectedItem);
+                pregledSpecijalizacijeLekara.Show();
             }
         }
 
