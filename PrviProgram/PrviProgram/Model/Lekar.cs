@@ -5,17 +5,25 @@ namespace Model
     public class Lekar : Osoba
     {
 
-        public System.Collections.ArrayList termin;
+        public List<Termin> termin;
         public List<Specijalizacija> specijalizacija;
 
-        public System.Collections.ArrayList GetTermin()
+        public Lekar() { }
+
+        public Lekar(Osoba osoba, List<Specijalizacija> specijalizacije) : base(osoba)
+        {
+            specijalizacija = specijalizacije;
+            termin = new List<Termin>();
+        }
+
+        public List<Termin> GetTermin()
         {
             if (termin == null)
-                termin = new System.Collections.ArrayList();
+                termin = new List<Termin>();
             return termin;
         }
 
-        public void SetTermin(System.Collections.ArrayList newTermin)
+        public void SetTermin(List<Termin>  newTermin)
         {
             RemoveAllTermin();
             foreach (Termin oTermin in newTermin)
@@ -27,7 +35,7 @@ namespace Model
             if (newTermin == null)
                 return;
             if (this.termin == null)
-                this.termin = new System.Collections.ArrayList();
+                this.termin = new List<Termin>();
             if (!this.termin.Contains(newTermin))
             {
                 this.termin.Add(newTermin);
@@ -51,7 +59,7 @@ namespace Model
         {
             if (termin != null)
             {
-                System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
+                List<Termin> tmpTermin = new List<Termin>();
                 foreach (Termin oldTermin in termin)
                     tmpTermin.Add(oldTermin);
                 termin.Clear();

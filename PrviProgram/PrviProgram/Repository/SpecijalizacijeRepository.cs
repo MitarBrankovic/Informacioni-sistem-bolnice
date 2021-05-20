@@ -24,6 +24,7 @@ namespace Repository
             jWriter.Close();
             writer.Close();
         }
+
         public List<Specijalizacija> CitanjeIzFajla()
         {
             List<Specijalizacija> specijalizacije = new List<Specijalizacija>();
@@ -37,6 +38,19 @@ namespace Repository
             }
             return specijalizacije;
         }
+
+        public Specijalizacija PregledSpecijalizacije(string naziv)
+        {
+            foreach (Specijalizacija specijalizacija in CitanjeIzFajla())
+            {
+                if (specijalizacija.Naziv.Equals(naziv))
+                {
+                    return specijalizacija;
+                }
+            }
+            return null;
+        }
+
         public List<Specijalizacija> PregledSvihSpecijalizacija()
         {
             List<Specijalizacija> specijalizacije = this.CitanjeIzFajla();

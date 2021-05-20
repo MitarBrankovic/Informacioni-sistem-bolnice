@@ -11,6 +11,8 @@ namespace Controller
         private PacijentiService pacijentiService = new PacijentiService();
         private AlergeniService alergeniService = new AlergeniService();
         private VestiService vestiService = new VestiService();
+        private LekariService lekariService = new LekariService();
+        private SpecijalizacijeService specijalizacijeService = new SpecijalizacijeService();
 
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
@@ -65,6 +67,26 @@ namespace Controller
         public bool DodavanjeDrzave(Drzava drzava)
         {
             return drzaveService.DodavanjeDrzave(drzava);
+        }
+
+        public bool DodavanjeLekara(Lekar lekar)
+        {
+            return lekariService.DodavanjeLekara(lekar);
+        }
+
+        public bool BrisanjeLekara(Lekar lekar)
+        {
+            return lekariService.BrisanjeLekara(lekar);
+        }
+
+        public bool IzmenaLekara(Lekar stariLekar, Lekar noviLekar)
+        {
+            return lekariService.IzmenaLekara(stariLekar, noviLekar);
+        }
+
+        public bool DodavanjeSpecijalizacije(Specijalizacija specijalizacija)
+        {
+            return specijalizacijeService.DodavanjeSpecijalizacije(specijalizacija);
         }
 
     }

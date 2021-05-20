@@ -1,0 +1,24 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledSekretar.IzgledLekari.DodavanjeSpecijalizacije"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.IzgledLekari"
+        mc:Ignorable="d"
+        Title="DodavanjeSpecijalizacije" Height="222" Width="540">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+
+        <Label HorizontalAlignment="Left" Margin="59,10,0,0" Content="Dodajvanje specijalizacije:" VerticalAlignment="Top" Grid.Column="1" Height="26"/>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,57,0,0" x:Name="textBlockSpecijalizacija" Text="Specijalizacija:" VerticalAlignment="Top" Width="110" />
+
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="175,57,0,0" x:Name="comboBoxSpecijalizacija" VerticalAlignment="Top" Width="279" IsEditable="True" />
+
+        <Button Content="Potvrdi" Height="23" HorizontalAlignment="Left" Margin="175,122,0,0" x:Name="Potvrdi" VerticalAlignment="Top" Width="70" Click="Potvrdi_Click" />
+        <Button Content="Odustani" Height="23" HorizontalAlignment="Left" Margin="327,122,0,0" x:Name="Odustani" VerticalAlignment="Top" Width="70" Click="Odustani_Click" />
+
+    </Grid>
+</Window>

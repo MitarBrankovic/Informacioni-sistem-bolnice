@@ -11,6 +11,7 @@
         <Button Content="Alergeni" HorizontalAlignment="Left" Height="38" Margin="120,120,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click_Alergeni"/>
         <Button Content="Termini" HorizontalAlignment="Left" Height="38" Margin="120,190,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click_Termini"/>
         <Button Content="Vesti" HorizontalAlignment="Left" Height="38" Margin="120,260,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click_Vesti"/>
+        <Button Content="Lekari" HorizontalAlignment="Left" Height="38" Margin="120,330,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click_Lekari"/>
 
     </Grid>
 </Window>

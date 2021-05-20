@@ -7,5 +7,15 @@ namespace Model
         public TipKorisnika TipKorisnika { get; set; }
         public Osoba osoba { get; set; }
 
+        public Korisnik() { }
+
+        public Korisnik(string korisnickoIme, string lozinka, TipKorisnika tipKorisnika)
+        {
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            TipKorisnika = tipKorisnika;
+            osoba = null;
+        }
+
     }
 }
