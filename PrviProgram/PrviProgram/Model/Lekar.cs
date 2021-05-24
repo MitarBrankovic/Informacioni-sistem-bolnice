@@ -10,10 +10,10 @@ namespace Model
 
         public Lekar() { }
 
-        public Lekar(Osoba osoba, List<Specijalizacija> specijalizacije) : base(osoba)
+        public Lekar(Osoba osoba, List<Termin> termini, List<Specijalizacija> specijalizacije) : base(osoba)
         {
             specijalizacija = specijalizacije;
-            termin = new List<Termin>();
+            termin = termini;
         }
 
         public List<Termin> GetTermin()

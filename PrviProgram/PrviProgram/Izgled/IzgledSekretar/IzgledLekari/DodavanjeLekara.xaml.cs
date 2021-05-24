@@ -15,7 +15,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
         private GradoviRepository gradoviRepository = new GradoviRepository();
         private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Lekar> lekari;
-        private ObservableCollection<Specijalizacija> specijalizacije = new ObservableCollection<Specijalizacija>();
 
         public DodavanjeLekara(ObservableCollection<Lekar> lekari)
         {
@@ -36,32 +35,32 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
         {
             Korisnik korisnik = new Korisnik(textBoxKorisnickoIme.Text, textBoxLozinka.Password, TipKorisnika.Lekar);
 
-            Drzava drzavaRodjenja = new Drzava(textBoxMestoRodjenjaDrzava.Text);
-            Grad gradRodjenja = new Grad(textBoxMestoRodjenjaGrad.Text, drzavaRodjenja);
-            sekretarController.DodavanjeDrzave(drzavaRodjenja);
-            sekretarController.DodavanjeGrada(gradRodjenja);
-
-            Drzava drzavaStanovanja = new Drzava(textBoxDrzava.Text);
-            Grad gradStanovanja = new Grad(textBoxGrad.Text, drzavaStanovanja);
-            sekretarController.DodavanjeDrzave(drzavaStanovanja);
-            sekretarController.DodavanjeGrada(gradStanovanja);
-
             Adresa adresaStanovanja = new Adresa(textBoxUlica.Text, utilityService.IntParser(textBoxBroj.Text),
                                                  utilityService.IntParser(textBoxSprat.Text),
-                                                 utilityService.IntParser(textBoxStan.Text), gradStanovanja);
+                                                 utilityService.IntParser(textBoxStan.Text),
+                                                 GradIzForme(textBoxDrzava.Text, textBoxGrad.Text));
 
-            Osoba osoba = new Osoba(gradRodjenja, korisnik, adresaStanovanja, textBoxIme.Text, textBoxPrezime.Text,
-                                    textBoxEmail.Text, textBoxJMBG.Text,
-                                    datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
+            Osoba osoba = new Osoba(GradIzForme(textBoxMestoRodjenjaDrzava.Text, textBoxMestoRodjenjaGrad.Text),
+                                    korisnik, adresaStanovanja, textBoxIme.Text, textBoxPrezime.Text, textBoxEmail.Text,
+                                    textBoxJMBG.Text, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
                                     (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, textBoxKontaktTelefon.Text);
 
-            Lekar lekar = new Lekar(osoba, new List<Specijalizacija>(specijalizacije));
+            Lekar lekar = new Lekar(osoba, new List<Termin>(), new List<Specijalizacija>());
 
             if (sekretarController.DodavanjeLekara(lekar))
             {
                 lekari.Add(lekar);
+                Close();
             }
-            Close();
+        }
+
+        private Grad GradIzForme(string drzava, string grad)
+        {
+            Drzava drzavaDTO = new Drzava(drzava);
+            Grad gradDTO = new Grad(grad, drzavaDTO);
+            sekretarController.DodavanjeDrzave(drzavaDTO);
+            sekretarController.DodavanjeGrada(gradDTO);
+            return gradDTO;
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
