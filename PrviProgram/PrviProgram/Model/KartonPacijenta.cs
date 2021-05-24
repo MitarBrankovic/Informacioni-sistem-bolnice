@@ -13,6 +13,7 @@ namespace Model
         public Terapija terapija;
         public Pacijent pacijent { get; set; }
 
+
         public List<Alergen> GetAlergen()
         {
             if (alergen == null)

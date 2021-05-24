@@ -58,7 +58,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void InicijalizacijaTimera()
         {
             timerZaAntiTrollMehanizam = new DispatcherTimer();
-            timerZaAntiTrollMehanizam.Interval = TimeSpan.FromSeconds(1);
+            timerZaAntiTrollMehanizam.Interval = TimeSpan.FromSeconds(1000);
             timerZaAntiTrollMehanizam.Start();
             timerZaAntiTrollMehanizam.Tick += new EventHandler(ProveraDaLiJePacijentMaliciozan);
         }
@@ -66,7 +66,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void InicijalizacijaTimeraZaOtkljucavanjeAntiTrollMehanizma()
         {
             timerZaOtkljucavanjeAntiTrollMehanizma = new DispatcherTimer();
-            timerZaOtkljucavanjeAntiTrollMehanizma.Interval = TimeSpan.FromSeconds(1);
+            timerZaOtkljucavanjeAntiTrollMehanizma.Interval = TimeSpan.FromSeconds(1000);
             timerZaOtkljucavanjeAntiTrollMehanizma.Start();
             timerZaOtkljucavanjeAntiTrollMehanizma.Tick += new EventHandler(OtkljucavanjeAntiTrollMehanizma);
         }

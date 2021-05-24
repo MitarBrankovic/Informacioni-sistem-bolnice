@@ -1,8 +1,8 @@
 [
   {
-    "Datum": "2021-05-05T00:00:00",
+    "Datum": "2021-05-08T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "nXITT0kq",
+    "SifraTermina": "Qh8",
     "sala": {
       "oprema": [
         {
@@ -25,9 +25,9 @@
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "10:00:00",
+    "Vreme": "18:00:00",
     "guestPacijent": null,
-    "izvrsen": true,
+    "izvrsen": false,
     "lekar": {
       "termin": null,
       "specijalizacija": [
@@ -37,390 +37,16 @@
       ],
       "MestoRodjenja": null,
       "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
         "TipKorisnika": 3,
         "osoba": null
       },
       "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
       "Email": null,
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": null
-    },
-    "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
-        "alergen": null,
-        "anamneza": null,
-        "recept": null,
-        "terapija": null,
-        "izvrseniPregled": [
-          {
-            "Sifra": "n4a",
-            "Datum": "2021-05-07T00:00:00",
-            "TipTermina": 1,
-            "Lekar": {
-              "termin": null,
-              "specijalizacija": [],
-              "MestoRodjenja": null,
-              "Korisnik": {
-                "KorisnickoIme": "srdjan",
-                "Lozinka": "srdjan",
-                "TipKorisnika": 3,
-                "osoba": null
-              },
-              "AdresaStanovanja": null,
-              "Ime": "Srdjan",
-              "Prezime": "Beric",
-              "Email": null,
-              "Jmbg": "00012312",
-              "DatumRodjenja": "0001-01-01T00:00:00",
-              "Pol": 0,
-              "KontaktTelefon": null
-            },
-            "anamneza": {
-              "Opis": "Pacijent se zalio na bolove u ledjima"
-            },
-            "recept": {
-              "Lekovi": "Brufen",
-              "DatumIzdavanja": "0001-01-01T00:00:00",
-              "VremenskiPeriodUzimanjaLeka": 0,
-              "OpisLeka": null
-            },
-            "terapija": {
-              "Opis": "Morate piti lek od 17h svaki dan",
-              "Datum": "0001-01-01T00:00:00"
-            }
-          },
-          {
-            "Sifra": "69Z",
-            "Datum": "2021-05-04T00:00:00",
-            "TipTermina": 1,
-            "Lekar": {
-              "termin": null,
-              "specijalizacija": [],
-              "MestoRodjenja": null,
-              "Korisnik": {
-                "KorisnickoIme": "srdjan",
-                "Lozinka": "srdjan",
-                "TipKorisnika": 3,
-                "osoba": null
-              },
-              "AdresaStanovanja": null,
-              "Ime": "Srdjan",
-              "Prezime": "Beric",
-              "Email": null,
-              "Jmbg": "00012312",
-              "DatumRodjenja": "0001-01-01T00:00:00",
-              "Pol": 0,
-              "KontaktTelefon": null
-            },
-            "anamneza": {
-              "Opis": "Skolioza"
-            },
-            "recept": {
-              "Lekovi": "Brufen",
-              "DatumIzdavanja": "0001-01-01T00:00:00",
-              "VremenskiPeriodUzimanjaLeka": 0,
-              "OpisLeka": null
-            },
-            "terapija": {
-              "Opis": "Svaki dan u 17h",
-              "Datum": "0001-01-01T00:00:00"
-            }
-          }
-        ],
-        "Sifra": null,
-        "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
-          "MestoRodjenja": null,
-          "Korisnik": null,
-          "AdresaStanovanja": null,
-          "Ime": null,
-          "Prezime": null,
-          "Email": null,
-          "Jmbg": "1706999805047",
-          "DatumRodjenja": "0001-01-01T00:00:00",
-          "Pol": 0,
-          "KontaktTelefon": null
-        }
-      },
-      "MestoRodjenja": {
-        "Ime": "Novi Sad",
-        "drzava": {
-          "Ime": "Srbija"
-        }
-      },
-      "Korisnik": {
-        "KorisnickoIme": "saska",
-        "Lozinka": "saska",
-        "TipKorisnika": 2,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": "Tolstojeva",
-        "Broj": 10,
-        "Sprat": 5,
-        "Stan": 23,
-        "grad": {
-          "Ime": "Novi Sad",
-          "drzava": {
-            "Ime": "Srbija"
-          }
-        }
-      },
-      "Ime": "Aleksandra",
-      "Prezime": "Mirkovic",
-      "Email": "alex@gmail.com",
-      "Jmbg": "1706999805047",
-      "DatumRodjenja": "1999-06-17T00:00:00",
-      "Pol": 1,
-      "KontaktTelefon": "069652253"
-    }
-  },
-  {
-    "Datum": "2021-05-09T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "hAB",
-    "sala": {
-      "oprema": [
-        {
-          "Naziv": "Zavoji",
-          "Kolicina": 5,
-          "Tip": 1,
-          "NazivSale": "NTP 1"
-        },
-        {
-          "Naziv": "Kreveti",
-          "Kolicina": 5,
-          "Tip": 0,
-          "NazivSale": "NTP 1"
-        }
-      ],
-      "Tip": 0,
-      "Naziv": "NTP 1",
-      "Sprat": 1,
-      "Dostupnost": true,
-      "Sifra": "ntp 1",
-      "NazivSprat": "NTP 1 1"
-    },
-    "Vreme": "10:00:00",
-    "guestPacijent": null,
-    "izvrsen": true,
-    "lekar": {
-      "termin": null,
-      "specijalizacija": [
-        {
-          "Naziv": "Hirurgija"
-        }
-      ],
-      "MestoRodjenja": null,
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": null,
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": null
-    },
-    "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
-        "alergen": null,
-        "anamneza": null,
-        "recept": null,
-        "terapija": null,
-        "izvrseniPregled": [
-          {
-            "Sifra": "n4a",
-            "Datum": "2021-05-07T00:00:00",
-            "TipTermina": 1,
-            "Lekar": {
-              "termin": null,
-              "specijalizacija": [],
-              "MestoRodjenja": null,
-              "Korisnik": {
-                "KorisnickoIme": "srdjan",
-                "Lozinka": "srdjan",
-                "TipKorisnika": 3,
-                "osoba": null
-              },
-              "AdresaStanovanja": null,
-              "Ime": "Srdjan",
-              "Prezime": "Beric",
-              "Email": null,
-              "Jmbg": "00012312",
-              "DatumRodjenja": "0001-01-01T00:00:00",
-              "Pol": 0,
-              "KontaktTelefon": null
-            },
-            "anamneza": {
-              "Opis": "Pacijent se zalio na bolove u ledjima"
-            },
-            "recept": {
-              "Lekovi": "Brufen",
-              "DatumIzdavanja": "0001-01-01T00:00:00",
-              "VremenskiPeriodUzimanjaLeka": 0,
-              "OpisLeka": null
-            },
-            "terapija": {
-              "Opis": "Morate piti lek od 17h svaki dan",
-              "Datum": "0001-01-01T00:00:00"
-            }
-          },
-          {
-            "Sifra": "69Z",
-            "Datum": "2021-05-04T00:00:00",
-            "TipTermina": 1,
-            "Lekar": {
-              "termin": null,
-              "specijalizacija": [],
-              "MestoRodjenja": null,
-              "Korisnik": {
-                "KorisnickoIme": "srdjan",
-                "Lozinka": "srdjan",
-                "TipKorisnika": 3,
-                "osoba": null
-              },
-              "AdresaStanovanja": null,
-              "Ime": "Srdjan",
-              "Prezime": "Beric",
-              "Email": null,
-              "Jmbg": "00012312",
-              "DatumRodjenja": "0001-01-01T00:00:00",
-              "Pol": 0,
-              "KontaktTelefon": null
-            },
-            "anamneza": {
-              "Opis": "Skolioza"
-            },
-            "recept": {
-              "Lekovi": "Brufen",
-              "DatumIzdavanja": "0001-01-01T00:00:00",
-              "VremenskiPeriodUzimanjaLeka": 0,
-              "OpisLeka": null
-            },
-            "terapija": {
-              "Opis": "Svaki dan u 17h",
-              "Datum": "0001-01-01T00:00:00"
-            }
-          }
-        ],
-        "Sifra": null,
-        "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
-          "MestoRodjenja": null,
-          "Korisnik": null,
-          "AdresaStanovanja": null,
-          "Ime": null,
-          "Prezime": null,
-          "Email": null,
-          "Jmbg": "1706999805047",
-          "DatumRodjenja": "0001-01-01T00:00:00",
-          "Pol": 0,
-          "KontaktTelefon": null
-        }
-      },
-      "MestoRodjenja": {
-        "Ime": "Novi Sad",
-        "drzava": {
-          "Ime": "Srbija"
-        }
-      },
-      "Korisnik": {
-        "KorisnickoIme": "saska",
-        "Lozinka": "saska",
-        "TipKorisnika": 2,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": "Tolstojeva",
-        "Broj": 10,
-        "Sprat": 5,
-        "Stan": 23,
-        "grad": {
-          "Ime": "Novi Sad",
-          "drzava": {
-            "Ime": "Srbija"
-          }
-        }
-      },
-      "Ime": "Aleksandra",
-      "Prezime": "Mirkovic",
-      "Email": "alex@gmail.com",
-      "Jmbg": "1706999805047",
-      "DatumRodjenja": "1999-06-17T00:00:00",
-      "Pol": 1,
-      "KontaktTelefon": "069652253"
-    }
-  },
-  {
-    "Datum": "2021-05-06T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "87tP6m9S",
-    "sala": {
-      "oprema": [
-        {
-          "Naziv": "Zavoji",
-          "Kolicina": 2,
-          "Tip": 1,
-          "NazivSale": "NTP 2"
-        },
-        {
-          "Naziv": "Kreveti",
-          "Kolicina": 15,
-          "Tip": 0,
-          "NazivSale": "NTP 2"
-        },
-        {
-          "Naziv": "spricevi",
-          "Kolicina": 5,
-          "Tip": 1,
-          "NazivSale": "NTP 2"
-        }
-      ],
-      "Tip": 4,
-      "Naziv": "NTP 2",
-      "Sprat": 2,
-      "Dostupnost": true,
-      "Sifra": "ntp2",
-      "NazivSprat": "NTP 2 2"
-    },
-    "Vreme": "11:30:00",
-    "guestPacijent": null,
-    "izvrsen": true,
-    "lekar": {
-      "termin": null,
-      "specijalizacija": [
-        {
-          "Naziv": "Hirurgija"
-        }
-      ],
-      "MestoRodjenja": null,
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": null,
-      "Jmbg": "00012312",
+      "Jmbg": "170892634",
       "DatumRodjenja": "0001-01-01T00:00:00",
       "Pol": 0,
       "KontaktTelefon": null
@@ -588,6 +214,88 @@
               "Opis": "Panadol se pije svaki dan u 17h",
               "Datum": "0001-01-01T00:00:00"
             }
+          },
+          {
+            "Sifra": "87tP6m9S",
+            "Datum": "2021-05-06T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ledjima"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "U 17h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "bTo",
+            "Datum": "2021-05-10T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "cao"
+            },
+            "recept": {
+              "Lekovi": "Defrinol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "u 18h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
           }
         ],
         "Sifra": null,
@@ -640,9 +348,9 @@
     }
   },
   {
-    "Datum": "2021-05-10T00:00:00",
+    "Datum": "2021-05-08T00:00:00",
     "TipTermina": 1,
-    "SifraTermina": "bTo",
+    "SifraTermina": "yGt",
     "sala": {
       "oprema": [
         {
@@ -665,7 +373,7 @@
       "Sifra": "ntp 1",
       "NazivSprat": "NTP 1 1"
     },
-    "Vreme": "19:30:00",
+    "Vreme": "10:30:00",
     "guestPacijent": null,
     "izvrsen": true,
     "lekar": {
@@ -895,6 +603,47 @@
               "Opis": "U 17h svaki dan",
               "Datum": "0001-01-01T00:00:00"
             }
+          },
+          {
+            "Sifra": "bTo",
+            "Datum": "2021-05-10T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "cao"
+            },
+            "recept": {
+              "Lekovi": "Defrinol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "u 18h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
           }
         ],
         "Sifra": null,
@@ -944,6 +693,905 @@
       "DatumRodjenja": "1999-06-17T00:00:00",
       "Pol": 1,
       "KontaktTelefon": "069652253"
+    }
+  },
+  {
+    "Datum": "2021-05-10T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "3gB",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 1"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0,
+          "NazivSale": "NTP 1"
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "16:30:00",
+    "guestPacijent": null,
+    "izvrsen": true,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [
+          {
+            "Sifra": "n4a",
+            "Datum": "2021-05-07T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Pacijent se zalio na bolove u ledjima"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Morate piti lek od 17h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "69Z",
+            "Datum": "2021-05-04T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Skolioza"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "nXITT0kq",
+            "Datum": "2021-05-05T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ledjima"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Pije u 17h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "hAB",
+            "Datum": "2021-05-09T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u glavi"
+            },
+            "recept": {
+              "Lekovi": "Panadol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "Panadol se pije svaki dan u 17h",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "87tP6m9S",
+            "Datum": "2021-05-06T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u ledjima"
+            },
+            "recept": {
+              "Lekovi": "Brufen",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "U 17h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          },
+          {
+            "Sifra": "bTo",
+            "Datum": "2021-05-10T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "cao"
+            },
+            "recept": {
+              "Lekovi": "Defrinol",
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 0,
+              "OpisLeka": null
+            },
+            "terapija": {
+              "Opis": "u 18h svaki dan",
+              "Datum": "0001-01-01T00:00:00"
+            }
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1706999805047",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706999805047",
+      "DatumRodjenja": "1999-06-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "069652253"
+    }
+  },
+  {
+    "Datum": "2021-05-06T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "Uy9ct2MA",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 1"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0,
+          "NazivSale": "NTP 1"
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "11:00:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1414516118",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "marko",
+        "Lozinka": "marko",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Bulevar NS",
+        "Broj": 4,
+        "Sprat": 3,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": "markovic@gmail.com",
+      "Jmbg": "1414516118",
+      "DatumRodjenja": "2005-06-15T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06565342122"
+    }
+  },
+  {
+    "Datum": "2021-05-05T16:53:35.9915373+02:00",
+    "TipTermina": 1,
+    "SifraTermina": "vaWh3Qdq",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 1"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0,
+          "NazivSale": "NTP 1"
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "17:00:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "d",
+        "Lozinka": "v",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": null,
+      "Jmbg": "423234256",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1414516118",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "marko",
+        "Lozinka": "marko",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Bulevar NS",
+        "Broj": 4,
+        "Sprat": 3,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": "markovic@gmail.com",
+      "Jmbg": "1414516118",
+      "DatumRodjenja": "2005-06-15T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06565342122"
+    }
+  },
+  {
+    "Datum": "2021-05-05T16:54:10.1768808+02:00",
+    "TipTermina": 1,
+    "SifraTermina": "LYGUNnh6",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 1"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0,
+          "NazivSale": "NTP 1"
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "17:30:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1414516118",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "marko",
+        "Lozinka": "marko",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Bulevar NS",
+        "Broj": 4,
+        "Sprat": 3,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": "markovic@gmail.com",
+      "Jmbg": "1414516118",
+      "DatumRodjenja": "2005-06-15T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06565342122"
+    }
+  },
+  {
+    "Datum": "2021-05-05T16:54:17.3559489+02:00",
+    "TipTermina": 1,
+    "SifraTermina": "oNr4YpeH",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 1"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 5,
+          "Tip": 0,
+          "NazivSale": "NTP 1"
+        }
+      ],
+      "Tip": 0,
+      "Naziv": "NTP 1",
+      "Sprat": 1,
+      "Dostupnost": true,
+      "Sifra": "ntp 1",
+      "NazivSprat": "NTP 1 1"
+    },
+    "Vreme": "17:00:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": null,
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1414516118",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "marko",
+        "Lozinka": "marko",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Bulevar NS",
+        "Broj": 4,
+        "Sprat": 3,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": "markovic@gmail.com",
+      "Jmbg": "1414516118",
+      "DatumRodjenja": "2005-06-15T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06565342122"
+    }
+  },
+  {
+    "Datum": "2021-05-06T00:00:00",
+    "TipTermina": 1,
+    "SifraTermina": "117IWOOx",
+    "sala": {
+      "oprema": [
+        {
+          "Naziv": "Zavoji",
+          "Kolicina": 2,
+          "Tip": 1,
+          "NazivSale": "NTP 2"
+        },
+        {
+          "Naziv": "Kreveti",
+          "Kolicina": 15,
+          "Tip": 0,
+          "NazivSale": "NTP 2"
+        },
+        {
+          "Naziv": "spricevi",
+          "Kolicina": 5,
+          "Tip": 1,
+          "NazivSale": "NTP 2"
+        }
+      ],
+      "Tip": 4,
+      "Naziv": "NTP 2",
+      "Sprat": 2,
+      "Dostupnost": true,
+      "Sifra": "ntp2",
+      "NazivSprat": "NTP 2 2"
+    },
+    "Vreme": "11:00:00",
+    "guestPacijent": null,
+    "izvrsen": false,
+    "lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": null,
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": null,
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": null,
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": null
+    },
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1414516118",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "marko",
+        "Lozinka": "marko",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "Bulevar NS",
+        "Broj": 4,
+        "Sprat": 3,
+        "Stan": 12,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Marko",
+      "Prezime": "Markovic",
+      "Email": "markovic@gmail.com",
+      "Jmbg": "1414516118",
+      "DatumRodjenja": "2005-06-15T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "06565342122"
     }
   }
 ]

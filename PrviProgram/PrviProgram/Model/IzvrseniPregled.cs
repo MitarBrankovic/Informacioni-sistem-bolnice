@@ -20,5 +20,7 @@ namespace Model
         public Recept recept { get; set; }
         public Terapija terapija { get; set; }
 
+        public string Beleska;
+
     }
 }

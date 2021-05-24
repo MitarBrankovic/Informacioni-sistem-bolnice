@@ -26,14 +26,13 @@ namespace Service
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             if(antiTrollPacijenata.Count==0)
             {
-                AntiTrollPacijenta antiTrollPacijenta = new AntiTrollPacijenta(1,0,0,pacijent,DateTime.Now,false);
+                AntiTrollPacijenta antiTrollPacijenta = new AntiTrollPacijenta(1, 0, 0, pacijent, DateTime.Now, false);
                 antiTrollPacijenata.Add(antiTrollPacijenta);
                 datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
             }
             else
             {
                 PovecavanjeBrojacaDodavanjuTermina(antiTrollPacijenata, pacijent);
-                
             }
            
         }
@@ -45,8 +44,7 @@ namespace Service
                 if (antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg))
                 {
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
-                    AntiTrollPacijenta antiTroll = new AntiTrollPacijenta(antiTrollPacijenta.brojacDodavanihTermina + 1,antiTrollPacijenta.brojacIzmenenjenihTermina, antiTrollPacijenta.brojacOtkazanihTermina, antiTrollPacijenta.pacijent, DateTime.Now, false);
-                    antiTrollPacijenata.Add(antiTroll);
+                    antiTrollPacijenata.Add(new AntiTrollPacijenta(antiTrollPacijenta.brojacDodavanihTermina + 1, antiTrollPacijenta.brojacIzmenenjenihTermina, antiTrollPacijenta.brojacOtkazanihTermina, antiTrollPacijenta.pacijent, DateTime.Now, false));
                     datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
                     break;
                 }

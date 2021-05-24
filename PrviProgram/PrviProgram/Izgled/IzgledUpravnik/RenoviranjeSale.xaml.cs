@@ -53,12 +53,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void ProveraIIzbacivanjeDatumaPregleda() 
         {
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
-            foreach (Termin tt in termini)
+            foreach (Termin termin in termini)
             {
-                if (tt.sala.Sifra.Equals(selektovanaSala.Sifra))
+                if (termin.sala.Sifra.Equals(selektovanaSala.Sifra))
                 {
-                    PocetakRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
-                    KrajRenoviranja.BlackoutDates.Add(new CalendarDateRange(tt.Datum, tt.Datum));
+                    PocetakRenoviranja.BlackoutDates.Add(new CalendarDateRange(termin.Datum, termin.Datum));
+                    KrajRenoviranja.BlackoutDates.Add(new CalendarDateRange(termin.Datum, termin.Datum));
                 }
             }
         }

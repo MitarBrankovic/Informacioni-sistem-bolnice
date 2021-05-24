@@ -64,6 +64,20 @@ namespace Repository
             List<Korisnik> korisnici = pacijenti.Select(o => o.Korisnik).ToList();
             return korisnici;
         }
+        public List<Pacijent> PregledPacijenta(Pacijent selektovaniPacijent)
+        {
+
+            List<Pacijent> pacijenti = CitanjeIzFajla();
+            List<Pacijent> potrebniPacijenti = new List<Pacijent>();
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent != null && pacijent.Jmbg.Equals(selektovaniPacijent.Jmbg))
+                {
+                        potrebniPacijenti.Add(pacijent);
+                }
+            }
+            return potrebniPacijenti;
+        }
 
     }
 }

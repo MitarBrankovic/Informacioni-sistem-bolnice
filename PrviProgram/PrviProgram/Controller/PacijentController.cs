@@ -138,19 +138,19 @@ namespace Controller
             return false;
         }
 
-        public void PovecavanjeBrojacaPriDodavanjuTermina()
+        public void PovecavanjeBrojacaPriDodavanjuTermina(Pacijent pacijent)
         {
-            // TODO: implement
+            AntiTrollService.getInstance().PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
         }
 
-        public void PovecavanjeBrojacaPriIzmeniTermina()
+        public void PovecavanjeBrojacaPriIzmeniTermina(Pacijent pacijent)
         {
-            // TODO: implement
+            AntiTrollService.getInstance().PovecavanjeBrojacaPriIzmeniTermina(pacijent);
         }
 
-        public void PovecavanjeBrojacaPriOtkazivanjuTermina()
+        public void PovecavanjeBrojacaPriOtkazivanjuTermina(Pacijent pacijent)
         {
-            // TODO: implement
+            AntiTrollService.getInstance().PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
         }
 
         public Service.TerminiService terminiService;
