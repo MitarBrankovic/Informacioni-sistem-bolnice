@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
-using Service;
 using Repository;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
@@ -10,29 +10,29 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
     {
         public PacijentiService pacijentiService = new PacijentiService();
         public PacijentRepository pacijentRepository = new PacijentRepository();
-        public ObservableCollection<Model.Pacijent> pacijenti;
+        public ObservableCollection<Pacijent> pacijenti;
 
         public PrikazPacijenta()
         {
             InitializeComponent();
-            pacijenti = new ObservableCollection<Model.Pacijent>(pacijentRepository.PregledSvihPacijenata());
+            pacijenti = new ObservableCollection<Pacijent>(pacijentRepository.PregledSvihPacijenata());
             dgDataBinding.ItemsSource = pacijenti;
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if ((Model.Pacijent)dgDataBinding.SelectedItem != null)
+            if ((Pacijent)dgDataBinding.SelectedItem != null)
             {
-                pacijentiService.BrisanjePacijenta((Model.Pacijent)dgDataBinding.SelectedItem);
-                pacijenti.Remove((Model.Pacijent)dgDataBinding.SelectedItem);
+                pacijentiService.BrisanjePacijenta((Pacijent)dgDataBinding.SelectedItem);
+                pacijenti.Remove((Pacijent)dgDataBinding.SelectedItem);
             }
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            if ((Model.Pacijent)dgDataBinding.SelectedItem != null)
+            if ((Pacijent)dgDataBinding.SelectedItem != null)
             {
-                IzmenaPacijenta d = new IzmenaPacijenta(pacijenti, (Model.Pacijent)dgDataBinding.SelectedItem);
+                IzmenaPacijenta d = new IzmenaPacijenta(pacijenti, (Pacijent)dgDataBinding.SelectedItem);
                 d.Show();
             }
         }
@@ -51,5 +51,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
                 zdravstveniKarton.Show();
             }
         }
+
     }
 }

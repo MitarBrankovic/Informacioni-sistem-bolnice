@@ -1,26 +1,29 @@
-﻿using Model;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Controller;
+using Model;
 using Repository;
 using Service;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class Registracija : Window
     {
+        private SekretarController sekretarController = new SekretarController();
         private DrzaveRepository drzaveRepository = new DrzaveRepository();
         private GradoviRepository gradoviRepository = new GradoviRepository();
-        private PacijentiService pacijentiService = new PacijentiService();
-        private GradoviService gradoviService = new GradoviService();
-        private DrzaveService drzaveService = new DrzaveService();
+        private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Pacijent> pacijenti;
 
         public Registracija(ObservableCollection<Pacijent> pacijenti)
         {
             InitializeComponent();
             this.pacijenti = pacijenti;
+            InicijalizacijaCombo();
+        }
+
+        private void InicijalizacijaCombo()
+        {
             textBoxMestoRodjenjaGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
             textBoxGrad.ItemsSource = gradoviRepository.PregledSvihGradova();
             textBoxMestoRodjenjaDrzava.ItemsSource = drzaveRepository.PregledSvihDrzava();
@@ -29,72 +32,39 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik korisnik = new Korisnik();
-            korisnik.KorisnickoIme = textBoxKorisnickoIme.Text;
-            korisnik.Lozinka = textBoxLozinka.Password;
-            korisnik.TipKorisnika = TipKorisnika.Pacijent;
+            Korisnik korisnik = new Korisnik(textBoxKorisnickoIme.Text, textBoxLozinka.Password, TipKorisnika.Pacijent);
 
-            Pacijent pacijent = new Pacijent();
-            pacijent.Ime = textBoxIme.Text;
-            pacijent.Prezime = textBoxPrezime.Text;
-            pacijent.Jmbg = textBoxJMBG.Text;
-            if (datePickerDatumRodjenja.SelectedDate != null)
+            Adresa adresaStanovanja = new Adresa(textBoxUlica.Text, utilityService.IntParser(textBoxBroj.Text),
+                                                 utilityService.IntParser(textBoxSprat.Text),
+                                                 utilityService.IntParser(textBoxStan.Text),
+                                                 GradIzForme(textBoxDrzava.Text, textBoxGrad.Text));
+
+            Osoba osoba = new Osoba(GradIzForme(textBoxMestoRodjenjaDrzava.Text, textBoxMestoRodjenjaGrad.Text),
+                                    korisnik, adresaStanovanja, textBoxIme.Text, textBoxPrezime.Text, textBoxEmail.Text,
+                                    textBoxJMBG.Text, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
+                                    (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, textBoxKontaktTelefon.Text);
+
+            Pacijent pacijent = new Pacijent(osoba);
+
+            if (sekretarController.DodavanjePacijenta(pacijent))
             {
-                pacijent.DatumRodjenja = (DateTime)datePickerDatumRodjenja.SelectedDate;
+                pacijenti.Add(pacijent);
+                Close();
             }
+        }
 
-            Drzava drzavaRodjenja = new Drzava();
-            drzavaRodjenja.Ime = textBoxMestoRodjenjaDrzava.Text;
-            Grad gradRodjenja = new Grad();
-            gradRodjenja.Ime = textBoxMestoRodjenjaGrad.Text;
-            gradRodjenja.drzava = drzavaRodjenja;
-
-            pacijent.MestoRodjenja = gradRodjenja;
-            drzaveService.DodavanjeDrzave(drzavaRodjenja);
-            gradoviService.DodavanjeGrada(gradRodjenja);
-
-            Drzava drzava = new Drzava();
-            drzava.Ime = textBoxDrzava.Text;
-            Grad grad = new Grad();
-            grad.Ime = textBoxGrad.Text;
-            grad.drzava = drzava;
-
-            drzaveService.DodavanjeDrzave(drzava);
-            gradoviService.DodavanjeGrada(grad);
-
-            Adresa adresa = new Adresa();
-            adresa.Ulica = textBoxUlica.Text;
-            int temp;
-            adresa.Broj = int.TryParse(textBoxBroj.Text, out temp) ? temp : default;
-            adresa.Sprat = int.TryParse(textBoxSprat.Text, out temp) ? temp : default;
-            adresa.Stan = int.TryParse(textBoxStan.Text, out temp) ? temp : default;
-            adresa.grad = grad;
-
-            pacijent.AdresaStanovanja = adresa;
-
-            pacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Model.Pol.Muski : Model.Pol.Zenski);
-            pacijent.Email = textBoxEmail.Text;
-            pacijent.KontaktTelefon = textBoxKontaktTelefon.Text;
-
-            pacijent.termin = new List<Termin>();
-            pacijent.kartonPacijenta = new KartonPacijenta();
-            
-            pacijent.Korisnik = korisnik;
-            Pacijent tmpPacijent = new Pacijent();
-            tmpPacijent.Jmbg = pacijent.Jmbg;
-            pacijent.kartonPacijenta.pacijent = tmpPacijent;
-            
-            
-            if (pacijentiService.DodavanjePacijenta(pacijent) == true)
-            {
-                this.pacijenti.Add(pacijent);
-            }
-            this.Close();
+        private Grad GradIzForme(string drzava, string grad)
+        {
+            Drzava drzavaDTO = new Drzava(drzava);
+            Grad gradDTO = new Grad(grad, drzavaDTO);
+            sekretarController.DodavanjeDrzave(drzavaDTO);
+            sekretarController.DodavanjeGrada(gradDTO);
+            return gradDTO;
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void textBoxGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -114,5 +84,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
                 textBoxMestoRodjenjaDrzava.Text = grad.drzava.Ime;
             }
         }
+
     }
 }

@@ -7,6 +7,14 @@ namespace Model
         public List<Termin> termin;
         public KartonPacijenta kartonPacijenta { get; set; }
 
+        public Pacijent() { }
+
+        public Pacijent(Osoba osoba) : base(osoba)
+        {
+            termin = new List<Termin>();
+            kartonPacijenta = new KartonPacijenta();
+        }
+
         public List<Termin> GetTermin()
         {
             if (termin == null)
@@ -14,7 +22,7 @@ namespace Model
             return termin;
         }
 
-        public void SetTermin(System.Collections.ArrayList newTermin)
+        public void SetTermin(List<Termin> newTermin)
         {
             RemoveAllTermin();
             foreach (Termin oTermin in newTermin)
@@ -50,7 +58,7 @@ namespace Model
         {
             if (termin != null)
             {
-                System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
+                List<Termin> tmpTermin = new List<Termin>();
                 foreach (Termin oldTermin in termin)
                     tmpTermin.Add(oldTermin);
                 termin.Clear();
