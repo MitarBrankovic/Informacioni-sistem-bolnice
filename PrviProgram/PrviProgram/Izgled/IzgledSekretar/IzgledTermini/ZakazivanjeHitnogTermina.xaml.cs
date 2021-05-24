@@ -15,29 +15,34 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private LekarRepository lekarRepository = new LekarRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
         private TerminiService terminiService = new TerminiService();
+        private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
-        private List<string> constVreme = new List<string>() { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
-        private ObservableCollection<TipTermina> tipTermina = new ObservableCollection<TipTermina> { TipTermina.Pregled, TipTermina.Operacija, TipTermina.Kontrola };
+
         public ZakazivanjeHitnogTermina(ObservableCollection<Termin> termini)
         {
             InitializeComponent();
             this.termini = termini;
+            InicijalizacijaCombo();
+            PostaviVremeTerminaZaCombo();
+        }
+
+        private void InicijalizacijaCombo()
+        {
             comboBoxSpecijalizacija.ItemsSource = specijalizacijeRepository.PregledSvihSpecijalizacija();
             comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
-            TipTerminaText.ItemsSource = tipTermina;
-            vremeText.ItemsSource = constVreme;
-            PostaviVremeTerminaZaCombo();
+            TipTerminaText.ItemsSource = Enum.GetValues(typeof(TipTermina));
+            vremeText.ItemsSource = utilityService.termini;
         }
 
         private void PostaviVremeTerminaZaCombo()
         {
             string sledeciTermin = IzracunajPrvoSledeceVremeTermina(DateTime.Now);
-            foreach (string v in constVreme)
+            foreach (string vremeTermina in utilityService.termini)
             {
-                if (v.Equals(sledeciTermin))
+                if (vremeTermina.Equals(sledeciTermin))
                 {
-                    vremeText.SelectedIndex = constVreme.IndexOf(v);
+                    vremeText.SelectedIndex = utilityService.termini.IndexOf(vremeTermina);
                 }
             }
         }
@@ -56,12 +61,12 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 PotvrdaZakazivanjaTermina potvrdaZakazivanjaTermina = new PotvrdaZakazivanjaTermina(termini, termin);
                 potvrdaZakazivanjaTermina.Show();
             }
-            this.Close();
+            Close();
         }
 
         private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
         {
-            List<Lekar> lekari = PronadjiLekareOdredjeneSpecijalizacije();
+            List<Lekar> lekari = lekarRepository.PregledLekaraOdredjeneSpecijalizacije((Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
             foreach (Termin t in termini)
             {
                 if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
@@ -72,38 +77,10 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             return lekari.Count() == 0 ? null : lekari.First();
         }
 
-        private List<Lekar> PronadjiLekareOdredjeneSpecijalizacije()
-        {
-            List<Lekar> lekari = lekarRepository.PregledSvihLekara();
-            foreach (Lekar lekar in lekari.ToArray())
-            {
-                if (ProveriSpecijalizacijuLekara(lekar) == false)
-                {
-                    lekari.Remove(lekar);
-                }
-            }
-            return lekari;
-        }
-
-        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara)
-        {
-            Lekar lekar = lekarRepository.PregledLekara(zaLekara.Jmbg);
-            foreach (Specijalizacija specijalizacija in lekar.GetSpecijalizacija())
-            {
-                Specijalizacija specijalizacijaCombo = (Specijalizacija)comboBoxSpecijalizacija.SelectedItem;
-                if (specijalizacija.Naziv.Equals(specijalizacijaCombo.Naziv))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private Termin PreuzmiTerminIzForme()
         {
-            Termin termin = new Termin();
-            termin.Datum = DateTime.Now;
-            termin.Vreme = vremeText.Text;
+            Termin termin = new Termin((TipTermina)TipTerminaText.SelectedItem, utilityService.GenerisanjeSifre(),
+                                       vremeText.Text);
             if (guestPacijent == null)
             {
                 termin.pacijent = (Pacijent)comboBoxPacijenti.SelectedItem;
@@ -113,8 +90,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 termin.guestPacijent = guestPacijent;
             }
             termin.sala = terminiService.DobavljanjeSale(termin);
-            termin.SifraTermina = IzracunajSifruTermina();
-            termin.TipTermina = (TipTermina)TipTerminaText.SelectedItem;
             return termin;
         }
 
@@ -132,23 +107,9 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             return datumTermina.AddSeconds(-datum.Second).ToString("HH:mm:ss");
         }
 
-        private static string IzracunajSifruTermina()
-        {
-            Random rnd = new Random();
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var stringChars = new char[8];
-            var Random = new Random();
-            for (int i = 0; i < stringChars.Length; i++)
-            {
-                stringChars[i] = chars[Random.Next(chars.Length)];
-            }
-            var finalString = new String(stringChars);
-            return finalString;
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void GuestPacijent_Click(object sender, RoutedEventArgs e)

@@ -39,6 +39,17 @@ namespace Model
             guestPacijent = null;
             izvrsen = false;
         }
+        public Termin(TipTermina tipTermina, string sifraTermina, string vreme)
+        {
+            TipTermina = tipTermina;
+            SifraTermina = sifraTermina;
+            sala = null;
+            Vreme = vreme;
+            lekar = null;
+            pacijent = null;
+            guestPacijent = null;
+            izvrsen = false;
+        }
 
         public override string ToString()
         {

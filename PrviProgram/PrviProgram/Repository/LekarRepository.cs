@@ -67,5 +67,32 @@ namespace Repository
             return korisnici;
         }
 
+        public List<Lekar> PregledLekaraOdredjeneSpecijalizacije(Specijalizacija specijalizacija)
+        {
+            List<Lekar> lekari = CitanjeIzFajla();
+            List<Lekar> lekariSpecijalizacije = new List<Lekar>();
+            foreach (Lekar lekar in lekari)
+            {
+                if (ProveriSpecijalizacijuLekara(lekar, specijalizacija))
+                {
+                    lekariSpecijalizacije.Add(lekar);
+                }
+            }
+            return lekariSpecijalizacije;
+        }
+
+        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara, Specijalizacija specijalizacija)
+        {
+            Lekar lekar = PregledLekara(zaLekara.Jmbg);
+            foreach (Specijalizacija specijalizacijaLekara in lekar.GetSpecijalizacija())
+            {
+                if (specijalizacijaLekara.Naziv.Equals(specijalizacija.Naziv))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
