@@ -81,7 +81,7 @@ namespace Repository
             return lekariSpecijalizacije;
         }
 
-        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara, Specijalizacija specijalizacija)
+        public bool ProveriSpecijalizacijuLekara(Lekar zaLekara, Specijalizacija specijalizacija)
         {
             Lekar lekar = PregledLekara(zaLekara.Jmbg);
             foreach (Specijalizacija specijalizacijaLekara in lekar.GetSpecijalizacija())

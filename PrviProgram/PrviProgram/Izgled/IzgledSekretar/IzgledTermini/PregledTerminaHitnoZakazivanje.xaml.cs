@@ -12,6 +12,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
     public partial class PregledTerminaHitnoZakazivanje : Window
     {
         private TerminiService terminiService = new TerminiService();
+        private UtilityService utilityService = new UtilityService();
         private LekarRepository lekarRepository = new LekarRepository();
         private ObservableCollection<Termin> sviTermini;
         private ObservableCollection<Termin> termini;
@@ -39,18 +40,15 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         {
             List<Termin> terminiLekara = new List<Termin>();
             string[] terminVreme = termin.Vreme.Split(":");
-            int terminSat = int.Parse(terminVreme[0]);
-            int terminMinut = int.Parse(terminVreme[1]);
-            foreach (Termin t in sviTermini)
+            foreach (Termin zauzetiTermini in sviTermini)
             {
-                string[] tVreme = t.Vreme.Split(":");
-                int tSat = int.Parse(tVreme[0]);
-                int tMinut = int.Parse(tVreme[1]);
-                if (ProveriSpecijalizacijuLekara(t.lekar) &&
-                    tSat >= terminSat && t.Datum.Date.Equals(termin.Datum.Date)
-                    && !(terminMinut == 30 && tSat == terminSat && tMinut == 0))
+                string[] tVreme = zauzetiTermini.Vreme.Split(":");
+                if (lekarRepository.ProveriSpecijalizacijuLekara(zauzetiTermini.lekar, specijalizacija)
+                    && int.Parse(tVreme[0]) >= int.Parse(terminVreme[0])
+                    && zauzetiTermini.Datum.Date.Equals(termin.Datum.Date)
+                    && !(int.Parse(terminVreme[1]) == 30 && int.Parse(tVreme[0]) == int.Parse(terminVreme[0]) && int.Parse(tVreme[1]) == 0))
                 {
-                    terminiLekara.Add(t);
+                    terminiLekara.Add(zauzetiTermini);
                 }
             }
             return terminiLekara;
@@ -77,27 +75,29 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private Termin PronadjiPrviSledeciSlobodanTerminKodLekara(Termin zaTermin)
         {
-            List<string> constVreme = new List<string>() { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
-            Termin termin = new Termin();
-            termin.Datum = zaTermin.Datum;
-            termin.Vreme = zaTermin.Vreme;
-            termin.lekar = zaTermin.lekar;
-            int indexVreme = constVreme.FindIndex(i => i == zaTermin.Vreme);
+            List<string> vremeTermina = utilityService.termini;
+            Termin terminDTO = new Termin
+            {
+                Datum = zaTermin.Datum,
+                Vreme = zaTermin.Vreme,
+                lekar = zaTermin.lekar
+            };
+            int indexVreme = vremeTermina.FindIndex(i => i == zaTermin.Vreme);
             while (true)
             {
-                foreach (string v in constVreme)
+                foreach (string v in vremeTermina)
                 {
-                    int indexV = constVreme.IndexOf(v);
+                    int indexV = vremeTermina.IndexOf(v);
                     if (indexV > indexVreme)
                     {
-                        termin.Vreme = v;
-                        if (terminiService.ProvaraZauzatostiTermina(termin) == false)
+                        terminDTO.Vreme = v;
+                        if (terminiService.ProvaraZauzatostiTermina(terminDTO) == false)
                         {
-                            return termin;
+                            return terminDTO;
                         }
                     }
                 }
-                termin.Datum = termin.Datum.AddDays(1);
+                terminDTO.Datum = terminDTO.Datum.AddDays(1);
             }
         }
 
@@ -118,7 +118,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
         {
-            List<Lekar> lekari = PronadjiLekareOdredjeneSpecijalizacije();
+            List<Lekar> lekari = lekarRepository.PregledLekaraOdredjeneSpecijalizacije(specijalizacija);
             foreach (Termin t in termini)
             {
                 if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
@@ -129,40 +129,14 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             return lekari.Count() == 0 ? null : lekari.First();
         }
 
-        private List<Lekar> PronadjiLekareOdredjeneSpecijalizacije()
-        {
-            List<Lekar> lekari = lekarRepository.PregledSvihLekara();
-            foreach (Lekar lekar in lekari.ToArray())
-            {
-                if (ProveriSpecijalizacijuLekara(lekar) == false)
-                {
-                    lekari.Remove(lekar);
-                }
-            }
-            return lekari;
-        }
-
-        private bool ProveriSpecijalizacijuLekara(Lekar zaLekara)
-        {
-            Lekar lekar = lekarRepository.PregledLekara(zaLekara.Jmbg);
-            foreach (Specijalizacija specijalizacija in lekar.GetSpecijalizacija())
-            {
-                if (specijalizacija.Naziv.Equals(this.specijalizacija.Naziv))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void OtkaziTerminButton_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridPacijenta.SelectedItem != null)
             {
                 Termin termin = (Termin)dataGridPacijenta.SelectedItem;
                 terminiService.BrisanjeTermina(termin);
-                this.termini.Remove(termin);
-                this.sviTermini.Remove(termin);
+                termini.Remove(termin);
+                sviTermini.Remove(termin);
             }
         }
 

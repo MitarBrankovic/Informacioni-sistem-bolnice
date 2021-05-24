@@ -24,18 +24,15 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         {
             List<Termin> terminiZaLekara = new List<Termin>();
             string[] terminVreme = termin.Vreme.Split(":");
-            int terminSat = int.Parse(terminVreme[0]);
-            int terminMinut = int.Parse(terminVreme[1]);
-            foreach (Termin t in sviTermini)
+            foreach (Termin zauzetTermin in sviTermini)
             {
-                string[] tVreme = t.Vreme.Split(":");
-                int tSat = int.Parse(tVreme[0]);
-                int tMinut = int.Parse(tVreme[1]);
-                if (t.lekar.Jmbg.Equals(termin.lekar.Jmbg) 
-                    && tSat >= terminSat && t.Datum.Date.Equals(termin.Datum.Date)
-                    && !(terminMinut == 30 && tSat == terminSat && tMinut == 0))
+                string[] tVreme = zauzetTermin.Vreme.Split(":");
+                if (zauzetTermin.lekar.Jmbg.Equals(termin.lekar.Jmbg)
+                    && int.Parse(tVreme[0]) >= int.Parse(terminVreme[0])
+                    && zauzetTermin.Datum.Date.Equals(termin.Datum.Date)
+                    && !(int.Parse(terminVreme[1]) == 30 && int.Parse(tVreme[0]) == int.Parse(terminVreme[0]) && int.Parse(tVreme[1]) == 0))
                 {
-                        terminiZaLekara.Add(t);
+                    terminiZaLekara.Add(zauzetTermin);
                 }
             }
             return terminiZaLekara;
@@ -61,5 +58,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 this.sviTermini.Remove(termin);
             }
         }
+
     }
 }
