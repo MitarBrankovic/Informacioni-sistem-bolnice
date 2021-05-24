@@ -7,45 +7,6 @@
     "Opis": "a"
   },
   {
-    "ZamenaZaLek": [
-      {
-        "ZamenaZaLek": [
-          {
-            "ZamenaZaLek": [
-              {
-                "ZamenaZaLek": [
-                  {
-                    "ZamenaZaLek": [],
-                    "Sifra": "paracet",
-                    "Naziv": "Paracetamol",
-                    "Sastojci": "nesa",
-                    "Opis": "nes"
-                  }
-                ],
-                "Sifra": "bruh",
-                "Naziv": "Brufen",
-                "Sastojci": "nesto",
-                "Opis": "nesto"
-              }
-            ],
-            "Sifra": "paracet",
-            "Naziv": "Paracetamol",
-            "Sastojci": "nesa",
-            "Opis": "nes"
-          }
-        ],
-        "Sifra": "bruf",
-        "Naziv": "Brufen",
-        "Sastojci": "nesto",
-        "Opis": "nesto"
-      }
-    ],
-    "Sifra": "paracet",
-    "Naziv": "Paracetamol",
-    "Sastojci": "nesa",
-    "Opis": "nes"
-  },
-  {
     "ZamenaZaLek": [],
     "Sifra": "andol",
     "Naziv": "Andol",
@@ -180,5 +141,74 @@
     "Naziv": "Defrinol",
     "Sastojci": "aaaa",
     "Opis": "aaaa"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "bio",
+            "Naziv": "Bio Oil",
+            "Sastojci": "a",
+            "Opis": "a"
+          },
+          {
+            "ZamenaZaLek": [
+              {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [
+                      {
+                        "ZamenaZaLek": [
+                          {
+                            "ZamenaZaLek": [],
+                            "Sifra": "paracet",
+                            "Naziv": "Paracetamol",
+                            "Sastojci": "nesa",
+                            "Opis": "nes"
+                          }
+                        ],
+                        "Sifra": "bruh",
+                        "Naziv": "Brufen",
+                        "Sastojci": "nesto",
+                        "Opis": "nesto"
+                      }
+                    ],
+                    "Sifra": "paracet",
+                    "Naziv": "Paracetamol",
+                    "Sastojci": "nesa",
+                    "Opis": "nes"
+                  }
+                ],
+                "Sifra": "bruf",
+                "Naziv": "Brufen",
+                "Sastojci": "nesto",
+                "Opis": "nesto"
+              }
+            ],
+            "Sifra": "paracet",
+            "Naziv": "Paracetamol",
+            "Sastojci": "nesa",
+            "Opis": "nes"
+          },
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "andol",
+            "Naziv": "Andol",
+            "Sastojci": "asdad",
+            "Opis": "sadasas"
+          }
+        ],
+        "Sifra": "bruf",
+        "Naziv": "Brufen",
+        "Sastojci": "nesto",
+        "Opis": "nesto"
+      }
+    ],
+    "Sifra": "paracet",
+    "Naziv": "Paracetamol",
+    "Sastojci": "nesa",
+    "Opis": "nes"
   }
 ]
