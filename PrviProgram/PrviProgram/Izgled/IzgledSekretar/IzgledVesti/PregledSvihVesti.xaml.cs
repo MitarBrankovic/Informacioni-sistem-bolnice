@@ -31,8 +31,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledVesti
         {
             if (dgDataBinding.SelectedItem != null)
             {
-                Vest vest = (Vest)dgDataBinding.SelectedItem;
-                IzmenaVesti izmenaVesti = new IzmenaVesti(vesti, vest);
+                IzmenaVesti izmenaVesti = new IzmenaVesti(vesti, (Vest)dgDataBinding.SelectedItem);
                 izmenaVesti.Show();
             }
         }
@@ -42,7 +41,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledVesti
             if (dgDataBinding.SelectedItem != null)
             {
                 Vest vest = (Vest)dgDataBinding.SelectedItem;
-                sekretarController.BrisanjeVesti(vest);
+                sekretarController.BrisanjeVesti((Vest)dgDataBinding.SelectedItem);
                 vesti.Remove(vest);
             }
         }

@@ -22,28 +22,19 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledVesti
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Vest vest = PreuzmiVestIzForme();
-            sekretarController.IzmenaVesti(vest);
-            int indexVesti = vesti.IndexOf(this.vest);
-            vesti.Remove(this.vest);
-            vesti.Insert(indexVesti, vest);
-            Close();
+            Vest vest = new Vest(this.vest.Datum, textBoxText.Text, this.vest.SifraVesti, this.vest.Autor, textBoxNaslov.Text);
+            if (sekretarController.IzmenaVesti(vest))
+            {
+                int indexVesti = vesti.IndexOf(this.vest);
+                vesti.Remove(this.vest);
+                vesti.Insert(indexVesti, vest);
+                Close();
+            }
         }
 
         private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private Vest PreuzmiVestIzForme()
-        {
-            Vest vest = new Vest();
-            vest.Autor = this.vest.Autor;
-            vest.Datum = this.vest.Datum;
-            vest.Naslov = textBoxNaslov.Text;
-            vest.SifraVesti = this.vest.SifraVesti;
-            vest.Tekst = textBoxText.Text;
-            return vest;
         }
 
     }

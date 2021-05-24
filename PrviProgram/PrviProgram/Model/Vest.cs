@@ -10,5 +10,16 @@ namespace Model
         public Sekretar Autor { get; set; }
         public string Naslov { get; set; }
 
+        public Vest() { }
+
+        public Vest(DateTime datum, string tekst, string sifraVesti, Sekretar autor, string naslov)
+        {
+            Datum = datum;
+            Tekst = tekst;
+            SifraVesti = sifraVesti;
+            Autor = autor;
+            Naslov = naslov;
+        }
+
     }
 }
