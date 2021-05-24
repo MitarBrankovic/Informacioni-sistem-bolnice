@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using Model;
-using PrviProgram.Izgled.IzgledLekar;
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
 using PrviProgram.Izgled.IzgledUpravnik;
@@ -12,6 +11,11 @@ namespace PrviProgram
 {
     public partial class Logovanje : Window
     {
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+        private UpravnikRepository upravnikRepository = new UpravnikRepository();
+        private SekretarRepository sekretarRepository = new SekretarRepository();
+        private LekarRepository lekarRepository = new LekarRepository();
+
         public Logovanje()
         {
             InitializeComponent();
@@ -20,75 +24,67 @@ namespace PrviProgram
 
         private void LogovanjeButton_Click(object sender, RoutedEventArgs e)
         {
-            string ime = korisnickoImeText.Text;
-            string sifra = sifraText.Password;
-
-            List<Korisnik> korisnici = new List<Korisnik>();
-            PacijentRepository pacijentRepository = new PacijentRepository();
-            List<Korisnik> pacijenti = pacijentRepository.PregledSvihKorisnika();
-            UpravnikRepository upravnikRepository = new UpravnikRepository();
-            List<Korisnik> upravnici = upravnikRepository.PregledSvihKorisnika();
-            SekretarRepository sekretarRepository = new SekretarRepository();
-            List<Korisnik> sekretari = sekretarRepository.PregledSvihKorisnika();
-            LekarRepository lekarRepository = new LekarRepository();
-            List<Korisnik> lekari = lekarRepository.PregledSvihKorisnika();
-
-            korisnici.AddRange(pacijenti);
-            korisnici.AddRange(upravnici);
-            korisnici.AddRange(sekretari);
-            korisnici.AddRange(lekari);
-
-
-            foreach (Korisnik k in korisnici)
+            List<Korisnik> korisnici = UcitaKorisnike();
+            foreach (Korisnik korisnik in korisnici)
             {
-                if (k.KorisnickoIme.Equals(ime) && k.Lozinka.Equals(sifra))
+                if (korisnik.KorisnickoIme.Equals(korisnickoImeText.Text) && korisnik.Lozinka.Equals(sifraText.Password))
                 {
-                    if (k.TipKorisnika == TipKorisnika.Pacijent)
-                    {
-                        Pacijent pacijent = pacijentRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
-                        if (pacijent != null)
-                        {
-                            Glavni_prozor_pacijenta glavniProzor = new Glavni_prozor_pacijenta(pacijent);
-                            glavniProzor.Show();
-                        }
-                        break;
-                    }
-                    else if (k.TipKorisnika == TipKorisnika.Upravnik)
-                    {
-                        Model.Upravnik upravnik = upravnikRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
-                        if (upravnik != null)
-                        {
-                            PocetniProzor win = new PocetniProzor(upravnik);
-                            win.Show();
-                        }
-                        break;
-                    }
-                    else if (k.TipKorisnika == TipKorisnika.Sekretar)
-                    {
-                        Sekretar sekretar = sekretarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
-                        if (sekretar != null)
-                        {
-                            Izgled.IzgledSekretar.PocetniPrikaz win = new Izgled.IzgledSekretar.PocetniPrikaz(sekretar);
-                            Aplikacija aplikacija = new Aplikacija(sekretar);
-                            aplikacija.Show();
-                            win.Show();
-                        }
-                        break;
-                    }
-                    else if (k.TipKorisnika == TipKorisnika.Lekar)
-                    {
-                        Model.Lekar lekar = lekarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == k.KorisnickoIme);
-                        if (lekar != null)
-                        {
-                            Izgled.IzgledLekar.PocetniPrikaz win = new Izgled.IzgledLekar.PocetniPrikaz(lekar);
-                            win.Show();
-                        }
-                        break;
-                    }
+                    UlogujSe(korisnik);
+                    break;
                 }
             }
+            Close();
+        }
 
-            this.Close();
+        private void UlogujSe(Korisnik korisnik)
+        {
+            switch (korisnik.TipKorisnika)
+            {
+                case TipKorisnika.Pacijent:
+                    Pacijent pacijent = pacijentRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == korisnik.KorisnickoIme);
+                    if (pacijent != null)
+                    {
+                        Glavni_prozor_pacijenta glavniProzor = new Glavni_prozor_pacijenta(pacijent);
+                        glavniProzor.Show();
+                    }
+                    break;
+                case TipKorisnika.Upravnik:
+                    Upravnik upravnik = upravnikRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == korisnik.KorisnickoIme);
+                    if (upravnik != null)
+                    {
+                        PocetniProzor win = new PocetniProzor(upravnik);
+                        win.Show();
+                    }
+                    break;
+                case TipKorisnika.Sekretar:
+                    Sekretar sekretar = sekretarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == korisnik.KorisnickoIme);
+                    if (sekretar != null)
+                    {
+                        PocetniPrikaz win = new PocetniPrikaz(sekretar);
+                        win.Show();
+                        Aplikacija aplikacija = new Aplikacija(sekretar);
+                        aplikacija.Show();
+                    }
+                    break;
+                case TipKorisnika.Lekar:
+                    Lekar lekar = lekarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == korisnik.KorisnickoIme);
+                    if (lekar != null)
+                    {
+                        Izgled.IzgledLekar.PocetniPrikaz win = new Izgled.IzgledLekar.PocetniPrikaz(lekar);
+                        win.Show();
+                    }
+                    break;
+            }
+        }
+
+        private List<Korisnik> UcitaKorisnike()
+        {
+            List<Korisnik> korisnici = new List<Korisnik>();
+            korisnici.AddRange(pacijentRepository.PregledSvihKorisnika());
+            korisnici.AddRange(upravnikRepository.PregledSvihKorisnika());
+            korisnici.AddRange(sekretarRepository.PregledSvihKorisnika());
+            korisnici.AddRange(lekarRepository.PregledSvihKorisnika());
+            return korisnici;
         }
 
     }
