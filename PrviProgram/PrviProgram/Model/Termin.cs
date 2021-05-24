@@ -19,15 +19,30 @@ namespace Model
             this.Datum = datum;
             this.TipTermina = tipTermina;
             this.SifraTermina = sifraTermina;
+            sala = null;
             this.Vreme = vreme;
             this.lekar = lekar;
             this.pacijent = pacijent;
+            guestPacijent = null;
             this.izvrsen = false;
+        }
+
+        public Termin(DateTime datum, TipTermina tipTermina, string sifraTermina, string vreme, Lekar lekar)
+        {
+            Datum = datum;
+            TipTermina = tipTermina;
+            SifraTermina = sifraTermina;
+            sala = null;
+            Vreme = vreme;
+            this.lekar = lekar;
+            pacijent = null;
+            guestPacijent = null;
+            izvrsen = false;
         }
 
         public override string ToString()
         {
-            return  Datum.Day+"/"+Datum.Month+"/"+Datum.Year + " " + Vreme;
+            return Datum.Day + "/" + Datum.Month + "/" + Datum.Year + " " + Vreme;
         }
 
         public Lekar lekar
@@ -35,21 +50,11 @@ namespace Model
             get; set;
         }
 
-
-        public string getSalaSifra()
-        {
-            return sala.Sifra;
-        }
-
-
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Lekar GetLekar()
         {
             return lekar;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newLekar</param>
         public void SetLekar(Lekar newLekar)
         {
             if (this.lekar != newLekar)
@@ -67,16 +72,14 @@ namespace Model
                 }
             }
         }
+
         public Pacijent pacijent { get; set; }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Pacijent GetPacijent()
         {
             return pacijent;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newPacijent</param>
         public void SetPacijent(Pacijent newPacijent)
         {
             if (this.pacijent != newPacijent)
@@ -95,10 +98,5 @@ namespace Model
             }
         }
 
-
-        public string getPacijentJmbg()
-        {
-            return pacijent.Jmbg;
-        }
     }
 }
