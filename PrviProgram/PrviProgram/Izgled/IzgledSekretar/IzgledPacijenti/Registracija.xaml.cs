@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using Controller;
 using Model;
@@ -44,7 +45,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
                                     textBoxJMBG.Text, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
                                     (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, textBoxKontaktTelefon.Text);
 
-            Pacijent pacijent = new Pacijent(osoba);
+            Pacijent pacijent = new Pacijent(osoba, new List<Termin>(), new KartonPacijenta());
 
             if (sekretarController.DodavanjePacijenta(pacijent))
             {

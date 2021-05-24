@@ -9,10 +9,10 @@ namespace Model
 
         public Pacijent() { }
 
-        public Pacijent(Osoba osoba) : base(osoba)
+        public Pacijent(Osoba osoba, List<Termin> termini, KartonPacijenta kartonPacijenta) : base(osoba)
         {
-            termin = new List<Termin>();
-            kartonPacijenta = new KartonPacijenta();
+            termin = termini;
+            this.kartonPacijenta = kartonPacijenta;
         }
 
         public List<Termin> GetTermin()
