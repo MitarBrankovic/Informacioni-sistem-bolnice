@@ -10,14 +10,11 @@ namespace Service
 
         public bool DodavanjeVesti(Vest vest)
         {
-            List<Vest> vesti = vestiRepository.PregledSvihVesti();
-            foreach (Vest v in vesti)
+            if (vestiRepository.PregledVesti(vest.SifraVesti) != null)
             {
-                if (v.SifraVesti.Equals(vest.SifraVesti))
-                {
-                    return false;
-                }
+                return false;
             }
+            List<Vest> vesti = vestiRepository.PregledSvihVesti();
             vesti.Add(vest);
             vestiRepository.UpisivanjeUFajl(vesti);
             return true;
@@ -26,11 +23,11 @@ namespace Service
         public bool BrisanjeVesti(Vest vest)
         {
             List<Vest> vesti = vestiRepository.PregledSvihVesti();
-            foreach (Vest v in vesti)
+            foreach (Vest vestToRemove in vesti)
             {
-                if (v.SifraVesti.Equals(vest.SifraVesti))
+                if (vestToRemove.SifraVesti.Equals(vest.SifraVesti))
                 {
-                    vesti.Remove(v);
+                    vesti.Remove(vestToRemove);
                     vestiRepository.UpisivanjeUFajl(vesti);
                     return true;
                 }
@@ -41,11 +38,11 @@ namespace Service
         public bool IzmenaVesti(Vest vest)
         {
             List<Vest> vesti = vestiRepository.PregledSvihVesti();
-            foreach (Vest v in vesti)
+            foreach (Vest vestToChange in vesti)
             {
-                if (v.SifraVesti.Equals(vest.SifraVesti))
+                if (vestToChange.SifraVesti.Equals(vest.SifraVesti))
                 {
-                    vesti.Remove(v);
+                    vesti.Remove(vestToChange);
                     vesti.Add(vest);
                     vestiRepository.UpisivanjeUFajl(vesti);
                     return true;
