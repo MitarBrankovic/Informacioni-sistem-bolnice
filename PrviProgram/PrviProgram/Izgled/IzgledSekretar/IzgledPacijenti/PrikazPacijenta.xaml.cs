@@ -1,14 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using Controller;
 using Model;
 using Repository;
-using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 {
     public partial class PrikazPacijenta : Window
     {
-        public PacijentiService pacijentiService = new PacijentiService();
+        private SekretarController sekretarController = new SekretarController();
         public PacijentRepository pacijentRepository = new PacijentRepository();
         public ObservableCollection<Pacijent> pacijenti;
 
@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
         {
             if ((Pacijent)dgDataBinding.SelectedItem != null)
             {
-                pacijentiService.BrisanjePacijenta((Pacijent)dgDataBinding.SelectedItem);
+                sekretarController.BrisanjePacijenta((Pacijent)dgDataBinding.SelectedItem);
                 pacijenti.Remove((Pacijent)dgDataBinding.SelectedItem);
             }
         }

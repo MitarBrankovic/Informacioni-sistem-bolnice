@@ -10,36 +10,43 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
     {
         private AlergeniRepository alergeniRepository = new AlergeniRepository();
         private ObservableCollection<Alergen> alergeni;
+
         public DodajAlergen(ObservableCollection<Alergen> alergeni)
         {
             InitializeComponent();
             this.alergeni = alergeni;
-            List<Alergen> al = new List<Alergen>(alergeniRepository.PregledSvihAlergena());
-            foreach (Alergen a in this.alergeni)
+            InicijalizacijaCombo();
+        }
+
+        private void InicijalizacijaCombo()
+        {
+            List<Alergen> comboAlergeni = new List<Alergen>(alergeniRepository.PregledSvihAlergena());
+            foreach (Alergen alergen in alergeni)
             {
-                foreach (Alergen aa in al.ToArray())
+                foreach (Alergen alergenToRemove in new List<Alergen>(comboAlergeni))
                 {
-                    if (aa.Naziv.Equals(a.Naziv))
+                    if (alergenToRemove.Naziv.Equals(alergen.Naziv))
                     {
-                        al.Remove(aa);
+                        comboAlergeni.Remove(alergenToRemove);
                     }
                 }
             }
-            comboBoxAlergen.ItemsSource = al;
+            comboBoxAlergen.ItemsSource = comboAlergeni;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxAlergen.SelectedItem != null)
             {
-                alergeni.Add((Alergen) comboBoxAlergen.SelectedItem);
+                alergeni.Add((Alergen)comboBoxAlergen.SelectedItem);
             }
-            this.Close();
+            Close();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
+
     }
 }
