@@ -10,14 +10,11 @@ namespace Service
 
         public bool DodavanjeAlergena(Alergen alergen)
         {
-            List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
-            foreach (Alergen a in alergeni)
+            if (alergeniRepository.PregledAlergena(alergen.Naziv) != null)
             {
-                if (a.Naziv.Equals(alergen.Naziv))
-                {
-                    return false;
-                }
+                return false;
             }
+            List<Alergen> alergeni = alergeniRepository.PregledSvihAlergena();
             alergeni.Add(alergen);
             alergeniRepository.UpisivanjeUFajl(alergeni);
             return true;
