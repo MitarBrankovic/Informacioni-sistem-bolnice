@@ -2,106 +2,11 @@
   {
     "termin": [],
     "kartonPacijenta": {
-      "alergen": [
-        {
-          "Naziv": "Kikiriki"
-        }
-      ],
+      "alergen": null,
       "anamneza": null,
       "recept": null,
       "terapija": null,
-      "izvrseniPregled": [
-        {
-          "Beleska": null,
-          "Sifra": "3oPToxUY",
-          "Datum": "2021-05-19T00:00:00",
-          "TipTermina": 1,
-          "Lekar": {
-            "termin": null,
-            "specijalizacija": [
-              {
-                "Naziv": "Hirurgija"
-              }
-            ],
-            "MestoRodjenja": null,
-            "Korisnik": {
-              "KorisnickoIme": "srdjan",
-              "Lozinka": "srdjan",
-              "TipKorisnika": 3,
-              "osoba": null
-            },
-            "AdresaStanovanja": null,
-            "Ime": "Srdjan",
-            "Prezime": "Beric",
-            "Email": null,
-            "Jmbg": "00012312",
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0,
-            "KontaktTelefon": null
-          },
-          "anamneza": {
-            "Opis": "Temperatura 37,8\r\nGrcevi u stomaku"
-          },
-          "recept": {
-            "Lekovi": {
-              "ZamenaZaLek": [],
-              "Sifra": "bio",
-              "Naziv": "Bio Oil",
-              "Sastojci": "a",
-              "Opis": "a"
-            },
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 7,
-            "OpisLeka": "Konzumirati dva puta dnevno pre svakog obroka"
-          },
-          "terapija": null
-        },
-        {
-          "Beleska": null,
-          "Sifra": "XcBx3eJl",
-          "Datum": "2021-05-29T00:00:00",
-          "TipTermina": 1,
-          "Lekar": {
-            "termin": null,
-            "specijalizacija": [
-              {
-                "Naziv": "Hirurgija"
-              }
-            ],
-            "MestoRodjenja": null,
-            "Korisnik": {
-              "KorisnickoIme": "srdjan",
-              "Lozinka": "srdjan",
-              "TipKorisnika": 3,
-              "osoba": null
-            },
-            "AdresaStanovanja": null,
-            "Ime": "Srdjan",
-            "Prezime": "Beric",
-            "Email": null,
-            "Jmbg": "00012312",
-            "DatumRodjenja": "0001-01-01T00:00:00",
-            "Pol": 0,
-            "KontaktTelefon": null
-          },
-          "anamneza": {
-            "Opis": "Temperatura"
-          },
-          "recept": {
-            "Lekovi": {
-              "ZamenaZaLek": [],
-              "Sifra": "andol",
-              "Naziv": "Andol",
-              "Sastojci": "asdad",
-              "Opis": "sadasas"
-            },
-            "DatumIzdavanja": "0001-01-01T00:00:00",
-            "VremenskiPeriodUzimanjaLeka": 2,
-            "OpisLeka": "uzmes kao pijes"
-          },
-          "terapija": null
-        }
-      ],
+      "izvrseniPregled": [],
       "Sifra": null,
       "pacijent": {
         "termin": null,
@@ -131,9 +36,9 @@
       "osoba": null
     },
     "AdresaStanovanja": {
-      "Ulica": "Tolstojeva",
+      "Ulica": "tolstojeva",
       "Broj": 10,
-      "Sprat": 5,
+      "Sprat": 4,
       "Stan": 23,
       "grad": {
         "Ime": "Novi Sad",

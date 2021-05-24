@@ -8,9 +8,7 @@ namespace Model
         public string Sifra { get; set; }
 
         public List<Alergen> alergen;
-        public Anamneza anamneza;
-        public Recept recept;
-        public Terapija terapija;
+       
         public Pacijent pacijent { get; set; }
 
 
@@ -62,7 +60,7 @@ namespace Model
                 if(ip.Sifra == izvrseni.Sifra)
                 {
                     ip.recept = izvrseni.recept;
-                    ip.terapija = izvrseni.terapija;
+                   
                     ip.anamneza = izvrseni.anamneza;
                 }
             }

@@ -44,7 +44,35 @@ namespace Service
             // TODO: implement
         }
 
-
+        public bool IzmenaIzvrsenogPregleda(IzvrseniPregled izvrseniPregled,Pacijent selektovaniPacijent)
+        {
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+         
+             foreach(Pacijent pacijent in pacijenti)
+            {
+                if(pacijent.Jmbg.Equals(selektovaniPacijent.Jmbg))
+                {
+                    pacijenti.Remove(pacijent);
+                    pacijenti.Add(DodavanjeBeleskeUKarton(selektovaniPacijent, izvrseniPregled));
+                    pacijentRepository.UpisivanjeUFajl(pacijenti);
+                    return true;
+                }
+            }
+          return false;            
+        }
+        public Pacijent DodavanjeBeleskeUKarton(Pacijent pacijent, IzvrseniPregled izvrsen)
+        {
+            foreach (IzvrseniPregled izvrseni in pacijent.kartonPacijenta.izvrseniPregled)
+            {
+                if (izvrseni.Sifra.Equals(izvrsen.Sifra))
+                {
+                    pacijent.kartonPacijenta.izvrseniPregled.Remove(izvrseni);
+                    pacijent.kartonPacijenta.izvrseniPregled.Add(izvrsen);
+                    return pacijent;
+                }
+            }
+            return null;
+        }
         public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
 

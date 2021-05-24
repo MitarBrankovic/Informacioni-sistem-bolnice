@@ -61,7 +61,7 @@ namespace Service
                     {
                         if (i.recept.Lekovi.Equals(r.Lekovi))
                         {
-                            return i.terapija.Opis.ToString();
+                            return i.recept.OpisLeka.ToString();
                         }
                     }
                 }
