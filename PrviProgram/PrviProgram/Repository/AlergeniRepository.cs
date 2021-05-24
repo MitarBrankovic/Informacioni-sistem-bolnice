@@ -43,11 +43,11 @@ namespace Repository
         public Alergen PregledAlergena(String naziv)
         {
             List<Alergen> alergeni = CitanjeIzFajla();
-            foreach (Alergen a in alergeni)
+            foreach (Alergen alergen in alergeni)
             {
-                if (a.Naziv.Equals(naziv))
+                if (alergen.Naziv.Equals(naziv))
                 {
-                    return a;
+                    return alergen;
                 }
             }
             return null;
