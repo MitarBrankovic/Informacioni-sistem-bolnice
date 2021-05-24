@@ -10,7 +10,52 @@
       "anamneza": null,
       "recept": null,
       "terapija": null,
-      "izvrseniPregled": [],
+      "izvrseniPregled": [
+        {
+          "Sifra": "3oPToxUY",
+          "Datum": "2021-05-19T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Temperatura 37,8\r\nGrcevi u stomaku"
+          },
+          "recept": {
+            "Lekovi": {
+              "ZamenaZaLek": [],
+              "Sifra": "bio",
+              "Naziv": "Bio Oil",
+              "Sastojci": "a",
+              "Opis": "a"
+            },
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 7,
+            "OpisLeka": "Konzumirati dva puta dnevno pre svakog obroka"
+          },
+          "terapija": null
+        }
+      ],
       "Sifra": null,
       "pacijent": {
         "termin": null,

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for PacijentPrikaz.xaml
-    /// </summary>
     public partial class PacijentPrikaz : UserControl
     {
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi;
@@ -27,6 +24,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Pacijent pacijent;
         private bool azurirajPritisnut = false;
         private PocetniPrikaz pocetniPrikaz;
+        private LekoviRepository lekoviRepository = new LekoviRepository();
         public PacijentPrikaz(PocetniPrikaz pocetniPrikaz, Pacijent pacijent)
         {
             InitializeComponent();
@@ -37,6 +35,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             dataGridKartonPacijenta.ItemsSource = izvrseniPregledi;
             pocetniPrikaz.GoBackButtonVisibilityTrue();
             pocetniPrikaz.DodajUserControl(this);
+            ComboboxLek.ItemsSource = lekoviRepository.PregledSvihLekova();
         }
         private void PopuniInformacijePacijenta()
         {
@@ -55,13 +54,26 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).anamneza.Opis;
             }
-            else if (radioButtonTerapija.IsChecked == true)
-            {
-                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).terapija.Opis;
-            }
             else if (radioButtonRecpet.IsChecked == true)
             {
-                //TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
+                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.OpisLeka;
+            }
+            //ComboboxLek.SelectedItem = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi.Naziv;
+            SelektujLekUComboboxu();
+            BrojDana.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.VremenskiPeriodUzimanjaLeka.ToString();
+        }
+
+        private void SelektujLekUComboboxu()
+        {
+            int count = 0;
+            foreach (Lek lek in ComboboxLek.Items)
+            {
+                if (lek.Sifra == ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi.Sifra)
+                {
+                    ComboboxLek.SelectedIndex = count;
+                    break;
+                }
+                count++;
             }
         }
 
@@ -84,12 +96,16 @@ namespace PrviProgram.Izgled.IzgledLekar
                 {
                     azurirajPritisnut = true;
                     TextboxInformacije.IsEnabled = true;
+                    BrojDana.IsEnabled = true;
+                    ComboboxLek.IsEnabled = true;
                     Azuriraj.Content = "Sacuvaj";
                 }
                 else
                 {
                     azurirajPritisnut = false;
                     TextboxInformacije.IsEnabled = false;
+                    BrojDana.IsEnabled = false;
+                    ComboboxLek.IsEnabled = false;
                     Azuriraj.Content = "Azuriraj";
                     AzuriranjeIzvrsenogPregleda();
                 }
@@ -100,7 +116,14 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             IzvrseniPregled selektovaniIzvrseniPregled = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem);
             selektovaniIzvrseniPregled = ProveraKojiRadioButtonJePritisnut(selektovaniIzvrseniPregled);
+            LekAzuriran(selektovaniIzvrseniPregled);
             KartonPacijentaService.getInstance().IzvrsenaAnamneza(selektovaniIzvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+        }
+
+        private void LekAzuriran(IzvrseniPregled noviIzvrseniPregled)
+        {
+            noviIzvrseniPregled.recept.Lekovi = (Lek)ComboboxLek.SelectedItem;
+            noviIzvrseniPregled.recept.VremenskiPeriodUzimanjaLeka = int.Parse(BrojDana.Text);
         }
 
         private IzvrseniPregled ProveraKojiRadioButtonJePritisnut(IzvrseniPregled noviIzvrseniPregled)
@@ -109,13 +132,9 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 noviIzvrseniPregled.anamneza.Opis = TextboxInformacije.Text;
             }
-            else if (radioButtonTerapija.IsChecked == true)
-            {
-                noviIzvrseniPregled.terapija.Opis = TextboxInformacije.Text;
-            }
             else if (radioButtonRecpet.IsChecked == true)
             {
-                //noviIzvrseniPregled.recept.Lekovi = TextboxInformacije.Text;
+                noviIzvrseniPregled.recept.OpisLeka = TextboxInformacije.Text;
             }
             return noviIzvrseniPregled;
         }
@@ -140,17 +159,13 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void radioButtonRecpet_Checked(object sender, RoutedEventArgs e)
         {
             if ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem != null)
-                //TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi;
+                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.OpisLeka;
             ResetAzurirajDugme();
         }
 
-        private void radioButtonTerapija_Checked(object sender, RoutedEventArgs e)
+        private void BrojDana_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem != null)
-                TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).terapija.Opis;
-            if (azurirajPritisnut == true)
-                ResetAzurirajDugme();
-        }
 
+        }
     }
 }

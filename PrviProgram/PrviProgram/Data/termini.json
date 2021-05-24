@@ -138,7 +138,7 @@
     },
     "Vreme": "08:30:00",
     "guestPacijent": null,
-    "izvrsen": false,
+    "izvrsen": true,
     "lekar": {
       "termin": null,
       "specijalizacija": [
