@@ -39,6 +39,20 @@ namespace Repository
 
             return gradovi;
         }
+
+        public Grad PregledGrada(string ime)
+        {
+            List<Grad> gradovi = CitanjeIzFajla();
+            foreach (Grad grad in gradovi)
+            {
+                if (grad.Ime.Equals(ime))
+                {
+                    return grad;
+                }
+            }
+            return null;
+        }
+
         public List<Grad> PregledSvihGradova()
         {
             List<Grad> gradovi = CitanjeIzFajla();

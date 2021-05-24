@@ -25,6 +25,7 @@ namespace Repository
             jWriter.Close();
             writer.Close();
         }
+
         public List<Pacijent> CitanjeIzFajla()
         {
             List<Pacijent> pacijenti = new List<Pacijent>();
@@ -42,11 +43,11 @@ namespace Repository
         public Pacijent PregledPacijenta(string jmbg)
         {
             List<Pacijent> pacijenti = CitanjeIzFajla();
-            foreach (Pacijent p in pacijenti)
+            foreach (Pacijent pacijent in pacijenti)
             {
-                if (p.Jmbg.Equals(jmbg))
+                if (pacijent.Jmbg.Equals(jmbg))
                 {
-                    return p;
+                    return pacijent;
                 }
             }
             return null;
@@ -64,6 +65,7 @@ namespace Repository
             List<Korisnik> korisnici = pacijenti.Select(o => o.Korisnik).ToList();
             return korisnici;
         }
+
         public List<Pacijent> PregledPacijenta(Pacijent selektovaniPacijent)
         {
 

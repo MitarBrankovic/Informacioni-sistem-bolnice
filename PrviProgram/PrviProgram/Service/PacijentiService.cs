@@ -10,14 +10,11 @@ namespace Service
 
         public bool DodavanjePacijenta(Pacijent pacijent)
         {
-            List<Pacijent> pacijenti = pacijentRepository.PregledSvihPacijenata();
-            foreach (Pacijent p in pacijenti)
+            if (pacijentRepository.PregledPacijenta(pacijent.Jmbg) != null)
             {
-                if (p.Jmbg.Equals(pacijent.Jmbg))
-                {
-                    return false;
-                }
+                return false;
             }
+            List<Pacijent> pacijenti = pacijentRepository.PregledSvihPacijenata();
             pacijenti.Add(pacijent);
             pacijentRepository.UpisivanjeUFajl(pacijenti);
             return true;

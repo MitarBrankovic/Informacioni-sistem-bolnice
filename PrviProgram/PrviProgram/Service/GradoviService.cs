@@ -10,14 +10,11 @@ namespace Service
 
         public bool DodavanjeGrada(Grad grad)
         {
-            List<Grad> gradovi = gradoviRepository.PregledSvihGradova();
-            foreach (Grad g in gradovi)
+            if (gradoviRepository.PregledGrada(grad.Ime) != null)
             {
-                if (g.Ime.Equals(grad.Ime))
-                {
-                    return false;
-                }
+                return false;
             }
+            List<Grad> gradovi = gradoviRepository.PregledSvihGradova();
             gradovi.Add(grad);
             gradoviRepository.UpisivanjeUFajl(gradovi);
             return true;

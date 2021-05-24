@@ -24,6 +24,7 @@ namespace Repository
             jWriter.Close();
             writer.Close();
         }
+
         public List<Drzava> CitanjeIzFajla()
         {
             List<Drzava> drzave = new List<Drzava>();
@@ -37,6 +38,20 @@ namespace Repository
             }
             return drzave;
         }
+
+        public Drzava PregledDrzave(string ime)
+        {
+            List<Drzava> drzave = CitanjeIzFajla();
+            foreach (Drzava drzava in drzave)
+            {
+                if (drzava.Ime.Equals(ime))
+                {
+                    return drzava;
+                }
+            }
+            return null;
+        }
+
         public List<Drzava> PregledSvihDrzava()
         {
             List<Drzava> drzave = CitanjeIzFajla();

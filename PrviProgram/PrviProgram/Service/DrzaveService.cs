@@ -10,17 +10,14 @@ namespace Service
 
         public bool DodavanjeDrzave(Drzava drzava)
         {
-            List<Drzava> drzave = drzaveRepository.PregledSvihDrzava();
-            foreach (Drzava d in drzave)
+            if (drzaveRepository.PregledDrzave(drzava.Ime) != null)
             {
-                if (d.Ime.Equals(drzava.Ime))
-                {
-                    return false;
-                }
+                return false;
             }
+            List<Drzava> drzave = drzaveRepository.PregledSvihDrzava();
             drzave.Add(drzava);
             drzaveRepository.UpisivanjeUFajl(drzave);
-            return false;
+            return true;
         }
         
     }
