@@ -1,0 +1,28 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.AlternativniLekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        mc:Ignorable="d"
+        Title="AlternativniLekWindow" Height="450" Width="400">
+    <Grid>
+        <Label Content="Pacijent je alergičan na lek, ili sastojak leka!" FontSize="18" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGridAlternativniLek" Margin="44,112,44,102" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Sifra}" Width="0.20*" SortDirection="Descending"/>
+                <DataGridTextColumn Header="Naziv leka" Binding="{Binding Naziv}" Width="0.20*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Izaberite alternativni lek:" HorizontalAlignment="Left" Margin="61,81,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Potrvrdi" Content="Potvrdi" Click="Potrvrdi_Click" HorizontalAlignment="Left" Margin="216,362,0,0" VerticalAlignment="Top" Height="41" Width="140" />
+        <Button x:Name="Zatvori" Content="Zatvori" Click="Zatvori_Click" HorizontalAlignment="Left" Margin="44,362,0,0" VerticalAlignment="Top" Height="41" Width="140" />
+    </Grid>
+</Window>

@@ -1,5 +1,6 @@
 using Model;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -56,6 +57,24 @@ namespace Repository
             List<Lek> lekovi = CitanjeIzFajla();
             return lekovi;
         }
- 
+
+        public List<string> DobavljanjeSastojakaLeka(Lek lekArg)
+        {
+            Lek lek = PregledLeka(lekArg.Sifra);
+            try
+            {
+                string[] sastojciLeka = lek.Sastojci.Split(",");
+                List<string> sastojciLekaList = new List<string>();
+                foreach(var sastojak in sastojciLeka)
+                {
+                    sastojciLekaList.Add(sastojak);
+                }
+                return sastojciLekaList;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
    }
 }

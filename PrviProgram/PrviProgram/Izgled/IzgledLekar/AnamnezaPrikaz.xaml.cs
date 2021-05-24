@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Repository;
 using Service;
 using System;
@@ -30,6 +31,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
         private TerminiService terminiService = new TerminiService();
         private LekoviRepository lekoviRepository = new LekoviRepository();
+        private LekarController lekarController = new LekarController();
         private string ReceptTextHolder = "";
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
@@ -56,12 +58,25 @@ namespace PrviProgram.Izgled.IzgledLekar
             //TODO ne sacuva se posledji text holder
             InicijalizacijaIzvrsenogTermina();
             KreiranjeAnamneze();
-            termin.izvrsen = true;
-            terminiService.IzmenaTermina(termin);
-            kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
-
+            if(!lekarController.PacijentAlergicanNaLek(pacijent, izvrseniPregled.recept.Lekovi)){
+                termin.izvrsen = true;
+                terminiService.IzmenaTermina(termin);
+                kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+            }
+            else
+            {
+                AlternativniLekWindow alternativniLekWindow = new AlternativniLekWindow(this, izvrseniPregled.recept.Lekovi);
+                alternativniLekWindow.Show();
+            }   
         }
 
+        public void IzaberiZamenuZaLek(Lek alternativniLek)
+        {
+            termin.izvrsen = true;
+            terminiService.IzmenaTermina(termin);
+            izvrseniPregled.recept.Lekovi = alternativniLek;
+            kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+        }
 
         private void InicijalizacijaIzvrsenogTermina()
         {
@@ -78,7 +93,13 @@ namespace PrviProgram.Izgled.IzgledLekar
             Recept recept = new Recept();
             recept.Lekovi = (Lek)ComboboxLek.SelectedItem;
             recept.OpisLeka = TextboxOpisLeka.Text;
-            recept.VremenskiPeriodUzimanjaLeka = int.Parse(BrojDana.Text);
+            try
+            {
+                recept.VremenskiPeriodUzimanjaLeka = int.Parse(BrojDana.Text);
+            }catch(Exception e)
+            {
+                
+            }
             izvrseniPregled.anamneza = anamneza;
             izvrseniPregled.recept = recept;
         }
