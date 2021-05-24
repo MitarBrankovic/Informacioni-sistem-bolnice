@@ -10,6 +10,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni
     {
         private SekretarController sekretarController = new SekretarController();
         private ObservableCollection<Alergen> alergeni;
+
         public DefinisanjeAlergena(ObservableCollection<Alergen> alergeni)
         {
             InitializeComponent();
@@ -18,18 +19,18 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Alergen alergen = new Alergen();
-            alergen.Naziv = textBoxAlergen.Text;
-            if (sekretarController.DodavanjeAlergena(alergen) == true)
+            Alergen alergen = new Alergen(textBoxAlergen.Text);
+            if (sekretarController.DodavanjeAlergena(alergen))
             {
-                this.alergeni.Add(alergen);
+                alergeni.Add(alergen);
             }
-            this.Close();
+            Close();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
+
     }
 }

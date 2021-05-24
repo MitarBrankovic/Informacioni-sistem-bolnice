@@ -27,7 +27,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            if ((Alergen) dgDataBinding.SelectedItem != null)
+            if ((Alergen)dgDataBinding.SelectedItem != null)
             {
                 IzmenaDefinicijeAlergena izmenaDefinicijeAlergena = new IzmenaDefinicijeAlergena(alergeni, (Alergen)dgDataBinding.SelectedItem);
                 izmenaDefinicijeAlergena.Show();
@@ -39,5 +39,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledAlergeni
             sekretarController.BrisanjeAlergena((Alergen)dgDataBinding.SelectedItem);
             alergeni.Remove((Alergen)dgDataBinding.SelectedItem);
         }
+
     }
 }
