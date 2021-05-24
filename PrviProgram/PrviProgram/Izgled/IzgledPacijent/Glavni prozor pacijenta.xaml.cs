@@ -59,14 +59,14 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void InicijalizacijaTimera()
         {
             timerZaAntiTrollMehanizam = new DispatcherTimer();
-            timerZaAntiTrollMehanizam.Interval = TimeSpan.FromSeconds(1);
+            timerZaAntiTrollMehanizam.Interval = TimeSpan.FromSeconds(10000);
             timerZaAntiTrollMehanizam.Start();
             timerZaAntiTrollMehanizam.Tick += new EventHandler(ProveraDaLiJePacijentMaliciozan);
         }
         private void InicijalizacijaTimeraZaOtkljucavanjeAntiTrollMehanizma()
         {
             timerZaOtkljucavanjeAntiTrollMehanizma = new DispatcherTimer();
-            timerZaOtkljucavanjeAntiTrollMehanizma.Interval = TimeSpan.FromSeconds(1);
+            timerZaOtkljucavanjeAntiTrollMehanizma.Interval = TimeSpan.FromSeconds(10000);
             timerZaOtkljucavanjeAntiTrollMehanizma.Start();
             timerZaOtkljucavanjeAntiTrollMehanizma.Tick += new EventHandler(OtkljucavanjeAntiTrollMehanizma);
         }
@@ -106,6 +106,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(antiTrollPacijenta, antiTrollPacijenata);
                     break;
                 }
+
               if(antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan == true)
                 {
                     PostavljanjeButtonaNaFalse();
@@ -173,6 +174,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 this.frame.NavigationService.Navigate(pocetna);
             }
             
+        }
+
+        private void izmenProfilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page pocetna = new PregledAnamneze(pacijent);
+            this.frame.NavigationService.Navigate(pocetna);
         }
     }
 }
