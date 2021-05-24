@@ -18,23 +18,12 @@ namespace Service
             {
                 if (salaBrojac.Sifra.Equals(sala.Sifra))
                 {
-                    if (!ProveraPostojanjaOpreme(oprema, salaBrojac)) 
-                        return false;
+                    if (salaRepository.PregledOpremePoSali(oprema.Naziv, salaBrojac.Sifra) != null) return false;
                     salaBrojac.oprema.Add(oprema);
                     break;
                 }
             }
             salaRepository.UpisivanjeUFajl(sale);
-            return true;
-        }
-
-        public bool ProveraPostojanjaOpreme(Oprema oprema, Sala salaBrojac)
-        {
-            foreach (Oprema opremaBrojac in salaBrojac.oprema)
-            {
-                if (opremaBrojac.Naziv.Equals(oprema.Naziv))
-                    return false;
-            }
             return true;
         }
 
@@ -159,11 +148,10 @@ namespace Service
             return false;
         }
 
-        public bool DodavanjeTermina(Sala novaSala, Sala stara, Oprema oprema, DateTime datumTermina)
+        public bool DodavanjeTermina(TerminPremestanjaOpreme terminPremestatnjaOpreme)
         {
             List<TerminPremestanjaOpreme> termini = terminiPremestajaRepository.CitanjeIzFajla();
-            TerminPremestanjaOpreme termin = new TerminPremestanjaOpreme(oprema, novaSala, stara, datumTermina);
-            termini.Add(termin);
+            termini.Add(terminPremestatnjaOpreme);
             terminiPremestajaRepository.UpisivanjeUFajl(termini);
             return true;
         }

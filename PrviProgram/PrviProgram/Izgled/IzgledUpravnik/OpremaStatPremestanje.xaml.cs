@@ -25,9 +25,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private Oprema trenutnaOprema;
         private Sala novaSala = new Sala();
         private SalaRepository salaRepository = new SalaRepository();
-        private Oprema opremaZaPremestanje = new Oprema();
+        private Oprema opremaZaPremestanje;
         private List<Sala> sveSale = new List<Sala>();
-        private DateTime datumPremestaja;
 
         public OpremaStatPremestanje(Oprema oprema, Sala sala)
         {
@@ -55,7 +54,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 novaSala = (Sala)ComboSala.SelectedItem;
-                FormiranjeOpremeZaPremestanje();
                 FormiranjeStatickogPremestanja();
                 this.Close();
             }
@@ -82,21 +80,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             ComboSala.ItemsSource = comboSale;
         }
 
-        private void FormiranjeOpremeZaPremestanje()
-        {
-            opremaZaPremestanje.Naziv = NazivOpreme.Text;
-            opremaZaPremestanje.Kolicina = int.Parse(Kolicina.Text);
-            opremaZaPremestanje.Tip = TipOpreme.Staticka;
-            opremaZaPremestanje.NazivSale = novaSala.Naziv;
-            this.datumPremestaja = (DateTime)(TerminDatum.SelectedDate);
-        }
-
         private void FormiranjeStatickogPremestanja()
         {
+            opremaZaPremestanje = new Oprema(NazivOpreme.Text, int.Parse(Kolicina.Text), TipOpreme.Staticka, novaSala.Naziv);
             if (this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina > -1)
             {
-                //OsvezavanjeTabele();
-                opremaService.DodavanjeTermina(novaSala, this.trenutnaSala, opremaZaPremestanje, this.datumPremestaja);
+                opremaService.DodavanjeTermina(new TerminPremestanjaOpreme(opremaZaPremestanje, novaSala,
+                    this.trenutnaSala, (DateTime)(TerminDatum.SelectedDate)));
             }
             else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
         }

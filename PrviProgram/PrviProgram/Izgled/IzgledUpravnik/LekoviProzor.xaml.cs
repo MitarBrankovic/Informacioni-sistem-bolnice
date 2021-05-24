@@ -17,10 +17,6 @@ using System.Collections.ObjectModel;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for LekoviProzor.xaml
-    /// </summary>
-    /// 
     public partial class LekoviProzor : UserControl
     {
         private ObservableCollection<Lek> lekovi;

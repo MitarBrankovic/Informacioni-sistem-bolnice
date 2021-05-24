@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for SalaOprema.xaml
-    /// </summary>
     public partial class SalaOprema : Window
     {
         public SalaOprema(Sala sala)

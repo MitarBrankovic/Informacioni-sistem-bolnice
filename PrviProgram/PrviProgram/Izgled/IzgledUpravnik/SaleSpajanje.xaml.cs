@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for SaleSpajanje.xaml
-    /// </summary>
     public partial class SaleSpajanje : Window
     {
         private Sala selektovanaSala;

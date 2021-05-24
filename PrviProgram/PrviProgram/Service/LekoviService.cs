@@ -10,18 +10,14 @@ namespace Service
         private LekoviRepository lekoviRepository = new LekoviRepository();
 
         public bool DodavanjeLeka(Lek lek)
-      {
+        {
             List<Lek> lekovi = lekoviRepository.CitanjeIzFajla();
-            foreach (Lek lekBrojac in lekovi)
-            {
-                if (lekBrojac.Sifra.Equals(lek.Sifra))
-                    return false;
-            }
+            if (lekoviRepository.PregledLeka(lek.Sifra) != null) return false;
             lekovi.Add(lek);
             lekoviRepository.UpisivanjeUFajl(lekovi);
             return true;
         }
-      
+
       public bool BrisanjeLeka(Lek lek)
       {
             List<Lek> lekovi = lekoviRepository.CitanjeIzFajla();

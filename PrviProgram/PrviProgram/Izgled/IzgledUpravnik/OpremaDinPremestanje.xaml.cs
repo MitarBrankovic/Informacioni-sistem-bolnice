@@ -24,8 +24,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
         private ObservableCollection<Oprema> svaOpremaIzTabele;
-        private Oprema opremaZaPremestanje = new Oprema();
-        private Oprema preostalaOprema = new Oprema();
+        private Oprema opremaZaPremestanje;
+        private Oprema preostalaOprema;
         private Sala novaSala = new Sala();
         private SalaRepository salaRepository = new SalaRepository();
         private List<Sala> sveSale = new List<Sala>();
@@ -56,7 +56,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 novaSala = (Sala)ComboSala.SelectedItem;
-                FormiranjeOpremeZaPremestanje();
+                opremaZaPremestanje = new Oprema(NazivOpreme.Text, int.Parse(Kolicina.Text), TipOpreme.Dinamicka, novaSala.Naziv);
                 PremestanjeOpreme();
                 this.Close();
             }
@@ -83,20 +83,19 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             ComboSala.ItemsSource = comboSale;
         }
 
-        private void FormiranjeOpremeZaPremestanje()
+        private void PremestanjeOpreme()
         {
-            opremaZaPremestanje.Naziv = NazivOpreme.Text;
-            opremaZaPremestanje.Kolicina = int.Parse(Kolicina.Text);
-            opremaZaPremestanje.Tip = TipOpreme.Dinamicka;
-            opremaZaPremestanje.NazivSale = novaSala.Naziv;
+            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala))
+            {
+                OsvezavanjeTabele();
+            }
+            else { MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
         }
 
         private void ProveraPreostaleOpreme()
         {
-            preostalaOprema.Naziv = opremaZaPremestanje.Naziv;
-            preostalaOprema.Tip = opremaZaPremestanje.Tip;
-            preostalaOprema.Kolicina = this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina;
-            preostalaOprema.NazivSale = this.trenutnaSala.Naziv;
+            preostalaOprema = new Oprema(opremaZaPremestanje.Naziv, this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina,
+                opremaZaPremestanje.Tip, this.trenutnaSala.Naziv);
             if (preostalaOprema.Kolicina != 0)
             {
                 this.svaOpremaIzTabele.Add(preostalaOprema);
@@ -115,11 +114,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         }
         private void DodavanjePreostaleOpremeUStaruSalu() 
         {
-            Oprema preostalaOprema = new Oprema();
-            preostalaOprema.Naziv = opremaZaPremestanje.Naziv;
-            preostalaOprema.Tip = opremaZaPremestanje.Tip;
-            preostalaOprema.Kolicina = this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina;
-            preostalaOprema.NazivSale = this.trenutnaSala.Naziv;
+            Oprema preostalaOprema = new Oprema(opremaZaPremestanje.Naziv, this.trenutnaOprema.Kolicina - opremaZaPremestanje.Kolicina,
+                opremaZaPremestanje.Tip, this.trenutnaSala.Naziv);
             trenutnaSala.oprema.Add(preostalaOprema);
         }
 
@@ -144,7 +140,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 this.svaOpremaIzTabele.Remove(this.trenutnaOprema);
-                //this.svaOpremaIzTabele.Add(opremaZaPremestanje);
                 ProveraPostojanjaOpremeUNovojSali(opremaZaPremestanje);
                 ProveraPreostaleOpreme();
             }
@@ -161,22 +156,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (opremaBrojac.Naziv.Equals(opremaZaPremestanje.Naziv) && opremaBrojac.NazivSale.Equals(opremaZaPremestanje.NazivSale))
                 {
                     this.svaOpremaIzTabele.Remove(opremaBrojac);
-                    Oprema prebacenaOprema = new Oprema(opremaZaPremestanje.Naziv, opremaBrojac.Kolicina + opremaZaPremestanje.Kolicina, opremaZaPremestanje.Tip, opremaBrojac.NazivSale);
+                    Oprema prebacenaOprema = new Oprema(opremaZaPremestanje.Naziv, opremaBrojac.Kolicina + opremaZaPremestanje.Kolicina,
+                        opremaZaPremestanje.Tip, opremaBrojac.NazivSale);
                     this.svaOpremaIzTabele.Add(prebacenaOprema);
                     return true;
                 }
             }
             this.svaOpremaIzTabele.Add(opremaZaPremestanje);
             return true;
-        }
-
-        private void PremestanjeOpreme()
-        {
-            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala))
-            {
-                OsvezavanjeTabele();
-            }
-            else{ MessageBox.Show("Uneli ste pogresnu kolicinu!"); }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

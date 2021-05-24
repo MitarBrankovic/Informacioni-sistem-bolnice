@@ -14,13 +14,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<Sala> sale;
         private UpravnikController upravnikController = new UpravnikController();
         private Sala novaSala = new Sala();
+        private ObservableCollection<TipSale> tipSale = new ObservableCollection<TipSale> { TipSale.Operaciona, TipSale.Magacin,
+            TipSale.Kancelarija, TipSale.SalaZaOdmor, TipSale.SalaSaKrevetima};
 
         public DodavanjeSale(ObservableCollection<Sala> sale)
         {
             InitializeComponent();
+            Tip.ItemsSource = tipSale;
             this.sale = sale;
         }
-
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
@@ -38,7 +40,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (utilityService.IsNumber(Sprat.Text) == false)
+            else if (!utilityService.IsNumber(Sprat.Text))
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }
@@ -55,32 +57,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             novaSala.Naziv = Naziv.Text;
             novaSala.Sifra = Sifra.Text;
             novaSala.Sprat = int.Parse(Sprat.Text);
-            String tip = Tip.Text;
-            if (tip.Equals("Operaciona"))
-            {
-                novaSala.Tip = TipSale.Operaciona;
-            }
-            else if (tip.Equals("Kancelarija"))
-            {
-                novaSala.Tip = TipSale.Kancelarija;
-            }
-            else if (tip.Equals("Sala za odmor"))
-            {
-                novaSala.Tip = TipSale.SalaZaOdmor;
-            }
-            else if (tip.Equals("Sala sa krevetima"))
-            {
-                novaSala.Tip = TipSale.SalaSaKrevetima;
-            }
-            else if (tip.Equals("Magacin"))
-            {
-                novaSala.Tip = TipSale.Magacin;
-            }
+            novaSala.Tip = (TipSale)Tip.SelectedItem;
         }
 
         private void DodavanjeNoveSale()
         {
-            if (upravnikController.DodavanjeSale(novaSala) == true)
+            if (upravnikController.DodavanjeSale(novaSala))
             {
                 this.sale.Add(novaSala);
             }

@@ -67,7 +67,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             noviLek.Sastojci = Sastojci.Text;
             foreach (var lekBrojac in alternativniLekovi)
             {
-                if (lekBrojac.IsSelected == true)
+                if (lekBrojac.IsSelected)
                 {
                     noviLek.ZamenaZaLek.Add(lekBrojac.SelektovanAlternativniLek);
                 }

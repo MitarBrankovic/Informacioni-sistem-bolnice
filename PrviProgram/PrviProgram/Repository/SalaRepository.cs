@@ -77,7 +77,7 @@ namespace PrviProgram.Repository
             {
                 if (salaBrojac.Sifra.Equals(sifraSale))
                 {
-                    VracanjeOpremePoSali(nazivOpreme, salaBrojac);
+                    return VracanjeOpremePoSali(nazivOpreme, salaBrojac);
                 }
             }
             return null;

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for LekoviPrimedbe.xaml
-    /// </summary>
     public partial class LekoviPrimedbe : Window
     {
         private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository();
@@ -27,7 +24,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private UpravnikController upravnikController = new UpravnikController();
         private ObservableCollection<Lek> lekovi;
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        private LekoviProzor lekoviProzor;
 
         public LekoviPrimedbe()
         {

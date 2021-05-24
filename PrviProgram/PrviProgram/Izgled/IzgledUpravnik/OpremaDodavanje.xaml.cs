@@ -23,13 +23,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private UpravnikController upravnikController = new UpravnikController();
         private ObservableCollection<Oprema> svaOpremaIzTabele;
         private Sala trenutnaSala;
-        private Oprema novaOprema = new Oprema();
+        private Oprema novaOprema;
         private SalaRepository salaRepository = new SalaRepository();
+        private ObservableCollection<TipOpreme> tipOpreme = new ObservableCollection<TipOpreme> { TipOpreme.Dinamicka, TipOpreme.Staticka};
 
         public OpremaDodavanje(ObservableCollection<Oprema> opreme)
         {
             InitializeComponent();
             this.svaOpremaIzTabele = opreme;
+            Tip.ItemsSource = tipOpreme;
             ComboSala.ItemsSource = salaRepository.PregledSvihSala();
         }
 
@@ -51,7 +53,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 trenutnaSala = (Sala)ComboSala.SelectedItem;
-                FormiranjeNoveOpreme();
+                novaOprema = new Oprema(Naziv.Text, int.Parse(Kolicina.Text), (TipOpreme)Tip.SelectedItem, trenutnaSala.Naziv);
                 DodavanjeNoveOpreme();
                 this.Close();
             }
@@ -60,22 +62,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void FormiranjeNoveOpreme() 
-        {
-            novaOprema.Naziv = Naziv.Text;
-            novaOprema.Kolicina = int.Parse(Kolicina.Text);
-            String tip = Tip.Text;
-            if (tip.Equals("Staticka"))
-            {
-                novaOprema.Tip = TipOpreme.Staticka;
-            }
-            else if (tip.Equals("Dinamicka"))
-            {
-                novaOprema.Tip = TipOpreme.Dinamicka;
-            }
-            novaOprema.NazivSale = trenutnaSala.Naziv;
         }
 
         private void DodavanjeNoveOpreme() 

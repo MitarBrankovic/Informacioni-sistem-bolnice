@@ -38,7 +38,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if (PocetakRenoviranja.Text == "" && KrajRenoviranja.Text == "" && TextNaziv1.Text == "" && TextNaziv2.Text == "" && TextSifra1.Text == "" && TextSifra2.Text == "")
+            if (PocetakRenoviranja.Text == "" && KrajRenoviranja.Text == "" && TextNaziv1.Text == "" 
+                && TextNaziv2.Text == "" && TextSifra1.Text == "" && TextSifra2.Text == "")
             {
                 MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }

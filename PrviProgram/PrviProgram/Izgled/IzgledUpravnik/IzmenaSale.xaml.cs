@@ -16,6 +16,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<Sala> sale;
         private Sala sala;
         private Sala izmenjenaSala = new Sala();
+        private ObservableCollection<TipSale> tipSale = new ObservableCollection<TipSale> { TipSale.Operaciona, TipSale.Magacin,
+            TipSale.Kancelarija, TipSale.SalaZaOdmor, TipSale.SalaSaKrevetima};
 
         public IzmenaSale(ObservableCollection<Sala> sale, Sala sala)
         {
@@ -29,14 +31,14 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (Naziv.Text == "" && Sifra.Text == "" && Sprat.Text == "")
             {
-                MessageBox.Show("Nisu popunjena sva polja!", "Greska"); //, MessageBoxButtons.OK, MessageBoxIcon.Error
+                MessageBox.Show("Nisu popunjena sva polja!", "Greska");
             }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(Naziv.Text, "^[a-zA-Z ]"))
             {
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (utilityService.IsNumber(Sprat.Text) == false)
+            else if (!utilityService.IsNumber(Sprat.Text))
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }
@@ -59,27 +61,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             Sifra.Text = sala.Sifra;
             Sprat.Text = sala.Sprat.ToString();
             Naziv.Text = sala.Naziv;
-            String tip = sala.Tip.ToString();
-            if (tip.Equals("Operaciona"))
-            {
-                Tip.SelectedIndex = 0;
-            }
-            else if (tip.Equals("Kancelarija"))
-            {
-                Tip.SelectedIndex = 1;
-            }
-            else if (tip.Equals("SalaZaOdmor"))
-            {
-                Tip.SelectedIndex = 2;
-            }
-            else if (tip.Equals("SalaSaKrevetima"))
-            {
-                Tip.SelectedIndex = 3;
-            }
-            else if (tip.Equals("Magacin"))
-            {
-                Tip.SelectedIndex = 4;
-            }
+            Tip.ItemsSource = tipSale;
+            Tip.SelectedIndex = tipSale.IndexOf(sala.Tip);
         }
 
         private void IzmenaPodatakaSale()
@@ -87,36 +70,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             izmenjenaSala.Naziv = Naziv.Text;
             izmenjenaSala.Sifra = Sifra.Text;
             izmenjenaSala.Sprat = int.Parse(Sprat.Text);
-            //novaSala.oprema = sala.GetOprema();
             izmenjenaSala.SetOprema(sala.GetOprema());
-
-
-            String tip = Tip.Text;
-            if (tip.Equals("Operaciona"))
-            {
-                izmenjenaSala.Tip = TipSale.Operaciona;
-            }
-            else if (tip.Equals("Kancelarija"))
-            {
-                izmenjenaSala.Tip = TipSale.Kancelarija;
-            }
-            else if (tip.Equals("Sala za odmor"))
-            {
-                izmenjenaSala.Tip = TipSale.SalaZaOdmor;
-            }
-            else if (tip.Equals("Sala sa krevetima"))
-            {
-                izmenjenaSala.Tip = TipSale.SalaSaKrevetima;
-            }
-            else if (tip.Equals("Magacin"))
-            {
-                izmenjenaSala.Tip = TipSale.Magacin;
-            }
+            izmenjenaSala.Tip = (TipSale)Tip.SelectedItem;
         }
 
         private void IzvrsavanjeIzmene()
         {
-            if (upravnikController.IzmenaSale(this.sala, izmenjenaSala) == true)
+            if (upravnikController.IzmenaSale(this.sala, izmenjenaSala))
             {
                 this.sale.Remove(this.sala);
                 this.sale.Add(izmenjenaSala);

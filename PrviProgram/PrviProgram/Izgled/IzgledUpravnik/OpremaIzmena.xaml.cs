@@ -24,6 +24,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
         private Oprema izmenjenaOprema = new Oprema();
+        private ObservableCollection<TipOpreme> tipOpreme = new ObservableCollection<TipOpreme> { TipOpreme.Dinamicka, TipOpreme.Staticka };
+
 
         public OpremaIzmena(ObservableCollection<Oprema> opreme, Oprema oprema, Sala sala)
         {
@@ -67,30 +69,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             Naziv.Text = trenutnaOprema.Naziv;
             Kolicina.Text = trenutnaOprema.Kolicina.ToString();
             Sala.Text = trenutnaSala.Naziv;
-            String tip = trenutnaOprema.Tip.ToString();
-            if (tip.Equals("Staticka"))
-            {
-                Tip.SelectedIndex = 0;
-            }
-            else if (tip.Equals("Dinamicka"))
-            {
-                Tip.SelectedIndex = 1;
-            }
+            Tip.ItemsSource = tipOpreme;
+            Tip.SelectedIndex = tipOpreme.IndexOf(trenutnaOprema.Tip);
         }
 
         private void IzmenaPodatakaOpreme() 
         {
             izmenjenaOprema.Naziv = Naziv.Text;
             izmenjenaOprema.Kolicina = int.Parse(Kolicina.Text);
-            String tip = Tip.Text;
-            if (tip.Equals("Staticka"))
-            {
-                izmenjenaOprema.Tip = TipOpreme.Staticka;
-            }
-            else if (tip.Equals("Dinamicka"))
-            {
-                izmenjenaOprema.Tip = TipOpreme.Dinamicka;
-            }
+            izmenjenaOprema.Tip = (TipOpreme)Tip.SelectedItem;
             izmenjenaOprema.NazivSale = trenutnaSala.Naziv;
         }
 

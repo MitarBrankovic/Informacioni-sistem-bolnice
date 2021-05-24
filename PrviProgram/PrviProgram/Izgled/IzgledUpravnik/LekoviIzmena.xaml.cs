@@ -74,7 +74,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             izmenjenLek.ZamenaZaLek.Clear();
             foreach (var lekBrojac in alternativniLekovi)
             {
-                if (lekBrojac.IsSelected == true)
+                if (lekBrojac.IsSelected)
                 {
                     izmenjenLek.ZamenaZaLek.Add(lekBrojac.SelektovanAlternativniLek);
                 }
