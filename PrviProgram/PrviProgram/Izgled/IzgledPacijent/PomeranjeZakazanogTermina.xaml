@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="PomeranjeZakazanogTermina" Height="385" Width="494">
+        Title="PomeranjeZakazanogTermina" Height="385" Width="494" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible">
     <Grid HorizontalAlignment="Left" Width="502">
 
         <Grid.ColumnDefinitions>

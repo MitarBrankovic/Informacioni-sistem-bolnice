@@ -1,0 +1,100 @@
+[
+  {
+    "termin": [],
+    "kartonPacijenta": {
+      "alergen": null,
+      "izvrseniPregled": [
+        {
+          "Sifra": "mvl",
+          "Datum": "2021-05-24T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Pacijent ima bolove u ledjima"
+          },
+          "recept": {
+            "Lekovi": {
+              "ZamenaZaLek": [],
+              "Sifra": "asp",
+              "Naziv": "Aspirin",
+              "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
+              "Opis": "a"
+            },
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 23,
+            "OpisLeka": "Aspir treba da pijete svaki dan od 30.5 do 6.6."
+          },
+          "Beleska": "popij vitamin"
+        }
+      ],
+      "Sifra": null,
+      "pacijent": {
+        "termin": null,
+        "kartonPacijenta": null,
+        "MestoRodjenja": null,
+        "Korisnik": null,
+        "AdresaStanovanja": null,
+        "Ime": null,
+        "Prezime": null,
+        "Email": null,
+        "Jmbg": "1706999805047",
+        "DatumRodjenja": "0001-01-01T00:00:00",
+        "Pol": 0,
+        "KontaktTelefon": null
+      }
+    },
+    "MestoRodjenja": {
+      "Ime": "Novi Sad",
+      "drzava": {
+        "Ime": "Srbija"
+      }
+    },
+    "Korisnik": {
+      "KorisnickoIme": "saska",
+      "Lozinka": "saska",
+      "TipKorisnika": 2,
+      "osoba": null
+    },
+    "AdresaStanovanja": {
+      "Ulica": "tolstojeva",
+      "Broj": 10,
+      "Sprat": 4,
+      "Stan": 23,
+      "grad": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      }
+    },
+    "Ime": "Aleksandra",
+    "Prezime": "Mirkovic",
+    "Email": "alex@gmail.com",
+    "Jmbg": "1706999805047",
+    "DatumRodjenja": "1999-06-17T00:00:00",
+    "Pol": 1,
+    "KontaktTelefon": "069652253"
+  }
+]

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
         mc:Ignorable="d"
-       Title="Izmena Termina " Height="350" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+       Title="Izmena Termina " Height="350" Width="430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="59*"/>

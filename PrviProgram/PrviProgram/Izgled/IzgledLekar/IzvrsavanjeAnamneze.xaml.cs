@@ -126,7 +126,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 {
                     IzvrseniPregled noviPregled = i;
                     noviPregled.anamneza = izvrseniPregled.anamneza;
-                    noviPregled.terapija = izvrseniPregled.terapija;
+                  
                     noviPregled.recept = izvrseniPregled.recept;
                     izvrseniPregledi.Remove(i);
                     izvrseniPregledi.Insert(counter, noviPregled);
@@ -138,8 +138,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void PrepisiTerapiju_Click(object sender, RoutedEventArgs e)
         {
-            PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled, pacijent);
-            prepisi.Show();
+            //PrepisiTerapiju prepisi = new PrepisiTerapiju(izvrseniPregled, pacijent);
+           // prepisi.Show();
         }
 
         private void PrepisiLek_Click(object sender, RoutedEventArgs e)
