@@ -18,9 +18,9 @@ namespace Model
         public Lekar Lekar { get; set; }
         public Anamneza anamneza { get; set; }
         public Recept recept { get; set; }
-        public Terapija terapija { get; set; }
 
-        public string Beleska;
+
+        public string Beleska { get; set; }
 
     }
 }

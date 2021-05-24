@@ -24,12 +24,24 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public ObservableCollection<Pacijent> pacijenti { get; set; }
         public PacijentRepository datotekaPacijent = new PacijentRepository();
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi { get; set; }
+        public Pacijent selektovaniPacijent = new Pacijent();
         public PregledAnamneze(Pacijent selektovaniPacijent)
         {
             InitializeComponent();
             this.izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(selektovaniPacijent.kartonPacijenta.izvrseniPregled);
-           
-            dataGridPacijenta.ItemsSource = izvrseniPregledi;
+            this.selektovaniPacijent = selektovaniPacijent;
+            dataGridAnamneze.ItemsSource = izvrseniPregledi;
+        }
+
+        private void DodajBeleskuName_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridAnamneze.SelectedIndex != -1)
+            {
+                IzvrseniPregled izvrsenPregled = (IzvrseniPregled)dataGridAnamneze.SelectedItem;
+                DodavanjeBeleske prozorZaDodavanjeBeleske = new DodavanjeBeleske(izvrsenPregled, izvrseniPregledi,selektovaniPacijent);
+                prozorZaDodavanjeBeleske.Show();
+            }
+          
         }
     }
 }

@@ -25,16 +25,16 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.izvrseniPregled = izvrseniPregled;
 
             TextboxPacijent.Text = pacijent.Ime + " " + pacijent.Prezime;
-            if (izvrseniPregled != null && izvrseniPregled.terapija != null)
-                TextboxTerapija.Text = izvrseniPregled.terapija.Opis;
+            /*if (izvrseniPregled != null && izvrseniPregled.terapija != null)
+                TextboxTerapija.Text = izvrseniPregled.terapija.Opis;*/
 
         }
 
         private void ZavrsiTerapiju_Click(object sender, RoutedEventArgs e)
         {
-            Terapija terapija = new Terapija(TextboxTerapija.Text, DateTime.Today);
+            //Terapija terapija = new Terapija(TextboxTerapija.Text, DateTime.Today);
             //terapija.Opis = TextboxTerapija.Text;
-            izvrseniPregled.terapija = terapija;
+            //izvrseniPregled.terapija = terapija;
 
             this.Close();
         }

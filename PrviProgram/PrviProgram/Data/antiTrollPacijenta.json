@@ -1,0 +1,65 @@
+[
+  {
+    "brojacOtkazanihTermina": 0,
+    "brojacIzmenenjenihTermina": 0,
+    "brojacDodavanihTermina": 1,
+    "vremeBanovanja": "2021-05-24T15:50:59.3758855+02:00",
+    "daLiJeBanovan": false,
+    "pacijent": {
+      "termin": [],
+      "kartonPacijenta": {
+        "alergen": null,
+        "anamneza": null,
+        "recept": null,
+        "terapija": null,
+        "izvrseniPregled": [],
+        "Sifra": null,
+        "pacijent": {
+          "termin": null,
+          "kartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1706999805047",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706999805047",
+      "DatumRodjenja": "1999-06-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "069652253"
+    }
+  }
+]
