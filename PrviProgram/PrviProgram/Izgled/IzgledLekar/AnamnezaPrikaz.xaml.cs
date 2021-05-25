@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Service;
 using Repository;
 using Service;
 using System;
@@ -28,6 +29,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Termin termin;
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private KartonPacijentaService kartonPacijentaService = new KartonPacijentaService();
+        private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
         private TerminiService terminiService = new TerminiService();
         private LekoviRepository lekoviRepository = new LekoviRepository();
@@ -43,6 +45,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             pocetniPrikaz.GoBackButtonVisibilityTrue();
             PopuniInformacijePacijenta();
             ComboboxLek.ItemsSource = lekoviRepository.PregledSvihLekova();
+            DaLiPacijentImaZakazanoLecenje();
         }
         private void PopuniInformacijePacijenta()
         {
@@ -123,6 +126,14 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             UputNaBolnickoLecenjeWindow uputNaBolnickoLecenjeWindow = new UputNaBolnickoLecenjeWindow(pacijent);
             uputNaBolnickoLecenjeWindow.Show();
+        }
+
+        private void DaLiPacijentImaZakazanoLecenje()
+        {
+            if (bolnickoLecenjeService.ProveraDaLiPacijentImaZakazanoBolnickoLecenje(pacijent))
+            {
+                UputLecenje.IsEnabled = false;
+            }
         }
 
         private void BrojDana_TextChanged(object sender, TextChangedEventArgs e)

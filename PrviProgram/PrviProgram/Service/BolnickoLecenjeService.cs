@@ -31,5 +31,33 @@ namespace PrviProgram.Service
                 }
             }
         }
+
+        public BolnickoLecenje ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(Pacijent pacijent)
+        {
+            foreach (BolnickoLecenje bolnickoLecenje in bolnickoLecenjeRepository.PregledSvihBolnickihLecenjaPacijenta(pacijent.Jmbg))
+            {
+                if (bolnickoLecenje.DatumPocetka < DateTime.Now && bolnickoLecenje.DatumZavrsetka > DateTime.Now)
+                {
+                    return bolnickoLecenje;
+                }
+            }
+            return null;
+        }
+
+        public bool ProveraDaLiPacijentImaZakazanoBolnickoLecenje(Pacijent pacijent)
+        {
+            foreach (BolnickoLecenje bolnickoLecenje in bolnickoLecenjeRepository.PregledSvihBolnickihLecenjaPacijenta(pacijent.Jmbg))
+            {
+                if (bolnickoLecenje.DatumPocetka > DateTime.Now)
+                {
+                    return true;
+                }
+                else if (bolnickoLecenje.DatumPocetka < DateTime.Now && bolnickoLecenje.DatumZavrsetka > DateTime.Now)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

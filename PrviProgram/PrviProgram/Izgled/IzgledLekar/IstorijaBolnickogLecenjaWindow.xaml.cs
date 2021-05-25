@@ -25,10 +25,12 @@ namespace PrviProgram.Izgled.IzgledLekar
         private SalaRepository salaRepository = new SalaRepository();
         private List<BolnickoLecenje> bolnickoLecenjePacijenta;
         private BolnickoLecenje trenutnoBolnickoLecenje;
+        private Pacijent pacijent;
         private bool izmeniPritisnut = false;
         public IstorijaBolnickogLecenjaWindow(Pacijent pacijent)
         {
             InitializeComponent();
+            this.pacijent = pacijent;
             bolnickoLecenjePacijenta = bolnickoLecenjeRepository.PregledSvihBolnickihLecenjaPacijenta(pacijent.Jmbg);
             dataGridIstorijaBolnickogLecenja.ItemsSource = bolnickoLecenjePacijenta;
             ProveraDaLiJeTrenutnoNaLecenju();
@@ -36,6 +38,13 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void ProveraDaLiJeTrenutnoNaLecenju()
         {
+            if (bolnickoLecenjeService.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent) != null)
+            {
+                trenutnoBolnickoLecenje = bolnickoLecenjeService.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent);
+                PostaviVrednostPoljaSaInformacijama();
+                DozvoliMenjanjeInformacija();
+            }
+            
             foreach(BolnickoLecenje bolnickoLecenje in bolnickoLecenjePacijenta)
             {
                 if(bolnickoLecenje.DatumPocetka < DateTime.Now && bolnickoLecenje.DatumZavrsetka > DateTime.Now)
