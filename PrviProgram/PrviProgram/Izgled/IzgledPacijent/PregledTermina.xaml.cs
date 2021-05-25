@@ -76,7 +76,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
               
-                if (antiTrollPacijenta.daLiJeBanovan == true && antiTrollPacijenta.vremeBanovanja.AddDays(5).Day.Equals(DateTime.Now.Day))
+                if (antiTrollPacijenta.DaLiJeBanovan == true && antiTrollPacijenta.VremeBanovanja.AddDays(5).Day.Equals(DateTime.Now.Day))
                 {
                     PostavljanjeButtonaNaTrue();
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
@@ -93,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach(AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                if(antiTrollPacijenta.brojacDodavanihTermina>=3 || antiTrollPacijenta.brojacIzmenenjenihTermina>=3 || antiTrollPacijenta.brojacOtkazanihTermina>=3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan==true)
+                if(antiTrollPacijenta.BrojacDodavanihTermina>=3 || antiTrollPacijenta.BrojacIzmenenjenihTermina>=3 || antiTrollPacijenta.BrojacOtkazanihTermina>=3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan==true)
                 {
                     PostavljanjeButtonaNaFalse();
                  
@@ -128,11 +128,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
             foreach (NotifikacijePacijenta n in this.notifikacije)
             {
 
-                if (n.pacijent.Jmbg.Equals(this.pacijent.Jmbg))
+                if (n.Pacijent.Jmbg.Equals(this.pacijent.Jmbg))
                 {
                     if (DateTime.Today >= n.PocetakDatuma && DateTime.Today <= n.KrajDatuma)
                     {
-                        this.vremenotifikacije = Convert.ToDateTime(n.vremeObavestenja);
+                        this.vremenotifikacije = Convert.ToDateTime(n.VremeObavestenja);
 
                         if ((DateTime.Now.Hour == vremenotifikacije.Hour) && (DateTime.Now.Minute == vremenotifikacije.Minute))
                         {
@@ -166,7 +166,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             string nova="";
             foreach (NotifikacijePacijenta n in trenutna)
             {
-                nova += n.opisNotifikacije + " ";
+                nova += n.OpisNotifikacije + " ";
                 
             }
             MessageBox.Show(nova);

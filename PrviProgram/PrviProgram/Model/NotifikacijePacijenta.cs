@@ -11,12 +11,12 @@ namespace Model
 {
    public class NotifikacijePacijenta
    {
-        public Pacijent pacijent;
+        public Pacijent Pacijent;
         public DateTime PocetakDatuma;
         public DateTime KrajDatuma;
-        public Recept recept;
-        public string vremeObavestenja;
-        public string opisNotifikacije;
+        public Recept Recept;
+        public string VremeObavestenja;
+        public string OpisNotifikacije;
 
     }
 }

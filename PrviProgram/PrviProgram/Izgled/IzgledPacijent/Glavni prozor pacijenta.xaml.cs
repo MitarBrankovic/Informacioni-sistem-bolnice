@@ -27,7 +27,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public Pacijent pacijent = new Pacijent();
         public DispatcherTimer timerZaAntiTrollMehanizam;
         public DispatcherTimer timerZaOtkljucavanjeAntiTrollMehanizma;
+        public BeleskaRepository datotekaBeleska = new BeleskaRepository();
+        public DispatcherTimer timerZaNotifikacijuBeleska;
         public AntiTrollRepository datotekaAnitTrollMehanizma = new AntiTrollRepository();
+        public List<Beleska> beleskeKojeSuUIstoVreme = new List<Beleska>();
+        public DispatcherTimer timerZaPrikazNotifikacije;
         public Glavni_prozor_pacijenta(Pacijent pacijent )
         {
             Checker = false;
@@ -37,6 +41,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.DataContext = this;
             InicijalizacijaTimera();
             InicijalizacijaTimeraZaOtkljucavanjeAntiTrollMehanizma();
+            InicijalizacijaTimeraZaNotifikacijuBeleska();
+            
             Page pocetna = new PregledTermina(pacijent);
             this.frame.NavigationService.Navigate(pocetna);
         }
@@ -55,6 +61,55 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 OnPropertyChanged();
             }
         }
+        private void InicijalizacijaTimeraZaNotifikacijuBeleska()
+        {
+            timerZaNotifikacijuBeleska = new DispatcherTimer();
+            timerZaNotifikacijuBeleska.Interval = TimeSpan.FromSeconds(1);
+            timerZaNotifikacijuBeleska.Start();
+            timerZaNotifikacijuBeleska.Tick += new EventHandler(ObavestenjeZaBelesku);
+        }
+    
+
+        private void ObavestenjeZaBelesku(object sender, EventArgs e)
+        {
+            timerZaPrikazNotifikacije = new DispatcherTimer();
+            timerZaPrikazNotifikacije.Interval = TimeSpan.FromSeconds(1);
+            int brojNotifikacija = 0;
+            List<Beleska> beleske = datotekaBeleska.CitanjeIzFajla();
+            foreach(Beleska beleska in beleske)
+            {
+                if(beleska.Jmbg.Equals(pacijent.Jmbg) && DateTime.Today>=beleska.PocetakStizanjaNotifikacije &&
+                    DateTime.Today<=beleska.KrajStizanjaNotifikacije && DateTime.Now.Hour==Convert.ToDateTime(beleska.VremeObavestenja).Hour && 
+                    DateTime.Now.Minute == Convert.ToDateTime(beleska.VremeObavestenja).Minute)
+                {
+                    this.beleskeKojeSuUIstoVreme.Add(beleska);
+                    if (brojNotifikacija < 1)
+                    {
+                        brojNotifikacija++;
+                        timerZaPrikazNotifikacije.Start();
+                        timerZaPrikazNotifikacije.Tick += new EventHandler(OpisNotifikacijeBeleska);
+                    }
+                }
+            }
+
+        }
+        private void OpisNotifikacijeBeleska(object sender, EventArgs e)
+        {
+            timerZaNotifikacijuBeleska.Stop();
+            string noviOpisNotifikacije = "";
+            foreach (Beleska beleska in beleskeKojeSuUIstoVreme)
+            {
+                noviOpisNotifikacije += beleska.OpisBeleske + " ";
+
+            }
+            MessageBox.Show(noviOpisNotifikacije);
+            timerZaPrikazNotifikacije.Stop();
+            timerZaNotifikacijuBeleska.Stop();
+            timerZaNotifikacijuBeleska.Interval = TimeSpan.FromMinutes(1);
+            timerZaNotifikacijuBeleska.Start();
+
+        }
+
 
         private void InicijalizacijaTimera()
         {
@@ -75,15 +130,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                DateTime dateTime = antiTrollPacijenta.vremeBanovanja.AddDays(5);
-               if (antiTrollPacijenta.daLiJeBanovan == true && dateTime.Date.Equals(DateTime.Now.Date))
+               if (antiTrollPacijenta.DaLiJeBanovan == true && antiTrollPacijenta.VremeBanovanja.AddDays(5).Date.Equals(DateTime.Now.Date))
                 {
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
                     OtkljucavanjeSistema(antiTrollPacijenata);
                     break;
-
                 }
-
             }
         }
 
@@ -92,7 +144,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             PostavljanjeButtonaNaTrue();
             datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
             timerZaOtkljucavanjeAntiTrollMehanizma.Stop();
-
         }
 
         private void ProveraDaLiJePacijentMaliciozan(object sender, EventArgs e)
@@ -100,14 +151,13 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-                if ((antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 )&& antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan==false)
+                if ((antiTrollPacijenta.BrojacDodavanihTermina >= 3 || antiTrollPacijenta.BrojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.BrojacOtkazanihTermina >= 3 )&& antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan==false)
                 {
                     antiTrollPacijenata.Remove(antiTrollPacijenta);
                     UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(antiTrollPacijenta, antiTrollPacijenata);
                     break;
                 }
-
-              if(antiTrollPacijenta.brojacDodavanihTermina >= 3 || antiTrollPacijenta.brojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.brojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.daLiJeBanovan == true)
+              if(antiTrollPacijenta.BrojacDodavanihTermina >= 3 || antiTrollPacijenta.BrojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.BrojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan == true)
                 {
                     PostavljanjeButtonaNaFalse();
                 }            
@@ -116,11 +166,10 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public void UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(AntiTrollPacijenta antiTrollPacijenta, List<AntiTrollPacijenta> antiTrollPacijenata)
         {
             PostavljanjeButtonaNaFalse();
-            AntiTrollPacijenta antiTroll = new AntiTrollPacijenta(antiTrollPacijenta.brojacDodavanihTermina, antiTrollPacijenta.brojacIzmenenjenihTermina, antiTrollPacijenta.brojacOtkazanihTermina, antiTrollPacijenta.pacijent, DateTime.Now, true);
+            AntiTrollPacijenta antiTroll = new AntiTrollPacijenta(antiTrollPacijenta.BrojacDodavanihTermina, antiTrollPacijenta.BrojacIzmenenjenihTermina, antiTrollPacijenta.BrojacOtkazanihTermina, antiTrollPacijenta.pacijent, DateTime.Now, true);
             antiTrollPacijenata.Add(antiTroll);
             datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
             timerZaAntiTrollMehanizam.Stop();
-
         }
 
         public void PostavljanjeButtonaNaFalse()
@@ -130,7 +179,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             anketaButton.IsEnabled = false;
             izmenProfilaButton.IsEnabled = false;
             obavestenjaButton.IsEnabled = false;
-
         }
         public void PostavljanjeButtonaNaTrue()
         {
@@ -139,7 +187,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             anketaButton.IsEnabled = true;
             izmenProfilaButton.IsEnabled = true;
             obavestenjaButton.IsEnabled = true;
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

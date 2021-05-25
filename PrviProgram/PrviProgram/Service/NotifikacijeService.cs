@@ -41,7 +41,7 @@ namespace Service
             {
                 if (pp.Jmbg.Equals(p.Jmbg))
                 {
-                    foreach (IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    foreach (IzvrseniPregled i in pp.KartonPacijenta.izvrseniPregled)
                     {
                         recepti.Add(i.recept);
                     }
@@ -57,7 +57,7 @@ namespace Service
             {
                 if (p.Jmbg.Equals(pp.Jmbg))
                 {
-                    foreach (IzvrseniPregled i in pp.kartonPacijenta.izvrseniPregled)
+                    foreach (IzvrseniPregled i in pp.KartonPacijenta.izvrseniPregled)
                     {
                         if (i.recept.Lekovi.Equals(r.Lekovi))
                         {

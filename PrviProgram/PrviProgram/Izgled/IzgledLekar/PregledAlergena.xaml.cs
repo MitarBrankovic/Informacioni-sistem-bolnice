@@ -28,9 +28,9 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             InitializeComponent();
             List<Alergen> alergen = new List<Alergen>();
-            if (pacijent.kartonPacijenta.alergen != null)
+            if (pacijent.KartonPacijenta.alergen != null)
             {
-                alergen = pacijent.kartonPacijenta.alergen;
+                alergen = pacijent.KartonPacijenta.alergen;
             }
             alergeni = new ObservableCollection<Alergen>(alergen);
             dgDataBinding1.ItemsSource = alergeni;

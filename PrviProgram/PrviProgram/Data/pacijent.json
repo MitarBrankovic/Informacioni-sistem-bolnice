@@ -1,7 +1,7 @@
 [
   {
-    "termin": [],
-    "kartonPacijenta": {
+    "Termin": [],
+    "KartonPacijenta": {
       "alergen": [
         {
           "Naziv": "Kikiriki"
@@ -66,13 +66,13 @@
             "VremenskiPeriodUzimanjaLeka": 2,
             "OpisLeka": "ssss"
           },
-          "Beleska": null
+          "Beleska": "prosetaj "
         }
       ],
       "Sifra": null,
       "pacijent": {
-        "termin": null,
-        "kartonPacijenta": null,
+        "Termin": null,
+        "KartonPacijenta": null,
         "MestoRodjenja": null,
         "Korisnik": null,
         "AdresaStanovanja": null,

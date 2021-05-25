@@ -9,12 +9,12 @@ namespace Model
     {
         public Termin termin { get; set; }
         public Lekar lekar { get; set; }
-        public string ocenaLekara { get; set; }
-        public string primedbaNaLekara { get; set; }
-        public string primedbaNaPregled { get; set; }
-        public string ljubaznostLekara { get; set; }
-        public string znanjeLekaraOIstorijiBolesti { get; set; }
-        public string objasnjenjeLekara { get; set; }
+        public string OcenaLekara { get; set; }
+        public string PrimedbaNaLekara { get; set; }
+        public string PrimedbaNaPregled { get; set; }
+        public string LjubaznostLekara { get; set; }
+        public string ZnanjeLekaraOIstorijiBolesti { get; set; }
+        public string ObjasnjenjeLekara { get; set; }
 
 
         public AnketiranjePacijenta(Termin termin, Lekar lekar,string ocenaLekara,
@@ -23,12 +23,12 @@ namespace Model
         {
             this.termin = termin;
             this.lekar = lekar;
-            this.ocenaLekara = ocenaLekara;
-            this.primedbaNaLekara = primedbaNaLekara;
-            this.primedbaNaPregled = primedbaNaPregled;
-            this.ljubaznostLekara = ljubaznostLekara;
-            this.znanjeLekaraOIstorijiBolesti = znanjeLekara;
-            this.objasnjenjeLekara = objasnjenjeLekara;
+            this.OcenaLekara = ocenaLekara;
+            this.PrimedbaNaLekara = primedbaNaLekara;
+            this.PrimedbaNaPregled = primedbaNaPregled;
+            this.LjubaznostLekara = ljubaznostLekara;
+            this.ZnanjeLekaraOIstorijiBolesti = znanjeLekara;
+            this.ObjasnjenjeLekara = objasnjenjeLekara;
            
         }
 

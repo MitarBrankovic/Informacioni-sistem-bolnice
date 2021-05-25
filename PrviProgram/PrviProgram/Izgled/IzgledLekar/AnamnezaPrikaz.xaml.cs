@@ -59,7 +59,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InicijalizacijaIzvrsenogTermina();
             KreiranjeAnamneze();
             if(!lekarController.PacijentAlergicanNaLek(pacijent, izvrseniPregled.recept.Lekovi)){
-                termin.izvrsen = true;
+                termin.Izvrsen = true;
                 terminiService.IzmenaTermina(termin);
                 kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
                 Zavrsi.IsEnabled = false;
@@ -73,7 +73,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         public void IzaberiZamenuZaLek(Lek alternativniLek)
         {
-            termin.izvrsen = true;
+            termin.Izvrsen = true;
             terminiService.IzmenaTermina(termin);
             izvrseniPregled.recept.Lekovi = alternativniLek;
             kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
