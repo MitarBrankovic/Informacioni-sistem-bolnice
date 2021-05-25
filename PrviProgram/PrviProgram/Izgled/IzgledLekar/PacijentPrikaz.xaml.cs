@@ -167,5 +167,11 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
 
         }
+
+        private void BolnickoLecenje_Click(object sender, RoutedEventArgs e)
+        {
+            IstorijaBolnickogLecenjaWindow istorijaBolnickogLecenjaWindow = new IstorijaBolnickogLecenjaWindow(pacijent);
+            istorijaBolnickogLecenjaWindow.Show();
+        }
     }
 }

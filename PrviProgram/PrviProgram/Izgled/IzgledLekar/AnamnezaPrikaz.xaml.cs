@@ -121,7 +121,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void UputLecenje_Click(object sender, RoutedEventArgs e)
         {
-
+            UputNaBolnickoLecenjeWindow uputNaBolnickoLecenjeWindow = new UputNaBolnickoLecenjeWindow(pacijent);
+            uputNaBolnickoLecenjeWindow.Show();
         }
 
         private void BrojDana_TextChanged(object sender, TextChangedEventArgs e)

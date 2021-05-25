@@ -40,7 +40,7 @@ namespace PrviProgram.Logika
             datotekaTermini = new TerminiRepository();
         }
 
-        public void BrisanjeSale(Sala sala, ObservableCollection<Model.Sala> sale)
+        public void BrisanjeSale(Sala sala, ObservableCollection<Sala> sale)
         {
             upravnikController.BrisanjeSale(sala);
             sale.Remove(sala);

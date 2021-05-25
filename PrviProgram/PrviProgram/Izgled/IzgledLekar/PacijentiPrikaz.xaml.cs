@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class PacijentiPrikaz : UserControl
     {
         public PacijentRepository pacijentRepository = new PacijentRepository();
-        public ObservableCollection<Model.Pacijent> pacijenti;
+        public ObservableCollection<Pacijent> pacijenti;
         private PocetniPrikaz pocetniPrikaz;
         private StackPanel parent;
         public PacijentiPrikaz(PocetniPrikaz pocetniPrikaz, StackPanel parent)
