@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Service;
 using Service;
 using System;
@@ -22,44 +23,40 @@ namespace PrviProgram.Izgled.IzgledPacijent
     public partial class IzborPregleda : Window
     { 
 
-       public ObservableCollection<Termin> termini1 = new ObservableCollection<Termin>();
+        public ObservableCollection<Termin> termini = new ObservableCollection<Termin>();
         public Pacijent pacijent = new Pacijent();
-        public IzborPregleda(List<Termin> termini, ObservableCollection<Termin> termini1,Pacijent pacijent)
+        public UtilityService utilityService = new UtilityService();
+        public PacijentControler pacijentControler = new PacijentControler();
+        public IzborPregleda(List<Termin> slobodniTermini, ObservableCollection<Termin> termini,Pacijent pacijent)
         {
             InitializeComponent();
 
-            this.termini1 = termini1;
+            this.termini = termini;
             this.pacijent = pacijent;
-            dataGridIzborPregleda.ItemsSource = termini;
+            dataGridIzborPregleda.ItemsSource = slobodniTermini;
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridIzborPregleda.SelectedIndex != -1)
             {
-                Termin t = (Termin)dataGridIzborPregleda.SelectedItem;
-                Sala s = new Sala();
-                s = TerminiService.getInstance().DobavljanjeSale(t);
-                t.sala = s;
-                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                var stringChars = new char[3];
-                var Random = new Random();
-
-                for (int i = 0; i < stringChars.Length; i++)
-                {
-                    stringChars[i] = chars[Random.Next(chars.Length)];
-                }
-
-                var finalString = new String(stringChars);
-                t.SifraTermina = finalString;
-                t.pacijent = pacijent;
-                TerminiService.getInstance().DodavanjeTermina(t);
-                AntiTrollService.getInstance().PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
-                this.termini1.Add(t);
+                Termin termin = (Termin)dataGridIzborPregleda.SelectedItem;
+                Sala sala = new Sala();
+                sala = TerminiService.getInstance().DobavljanjeSale(termin);
+                termin.sala = sala;
+                termin.SifraTermina = utilityService.GenerisanjeSifre();
+                termin.pacijent = pacijent;
+                pacijentControler.DodavanjeTermina(termin);
+                pacijentControler.PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
+                this.termini.Add(termin);
                 this.Close();
-                // s.Show();
             }
+        }
+
+        private void Otkaži_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

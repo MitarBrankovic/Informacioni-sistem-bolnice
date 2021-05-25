@@ -36,11 +36,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.termini = termini;
             this.pacijent = pacijent;
             lekarComboBox.ItemsSource = citanjeLekara();
+            PostavljanjeButtonNaFalse();
+
+        }
+        public void PostavljanjeButtonNaFalse()
+        {
             DoDatumText.IsEnabled = false;
             lekarComboBox.IsEnabled = false;
             PrioritetComboBox.IsEnabled = false;
             PotvrdiButton.IsEnabled = false;
-
         }
          
         public List<Lekar> citanjeLekara()
@@ -86,8 +90,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
             if(TerminiService.getInstance().ProveraZauzetostiKodLekara(minDatum,maxDatum,selektovaniLekar))
             {
-                string tipTermina = TipTerminaText.Text;
-                List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().SviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,tipTermina));
+                
+                List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().SviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,(TipTermina)TipTerminaText.SelectedItem));
                 TerminiService.getInstance().terminiSlobodni = new List<Termin>();
               
                 IzborPregleda prozor = new IzborPregleda(termini11,termini,pacijent);
@@ -100,7 +104,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 if(selektovani.Equals("Lekar"))
                 {
                     string tipTermina = TipTerminaText.Text;
-                    List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraVremenaKodLekara(minDatum, maxDatum, selektovaniLekar, tipTermina));
+                    List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraVremenaKodLekara(minDatum, maxDatum, selektovaniLekar, (TipTermina)TipTerminaText.SelectedItem));
                     TerminiService.getInstance().terminiSlobodni = new List<Termin>();
                
                     IzborPregleda prozor = new IzborPregleda(termini11, termini, pacijent);
@@ -110,7 +114,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 else
                 {
                     string tipTermina = TipTerminaText.Text;
-                    List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraLekaraKodVremena(minDatum, maxDatum, selektovaniLekar, tipTermina));
+                    List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().ProveraLekaraKodVremena(minDatum, maxDatum, selektovaniLekar, (TipTermina)TipTerminaText.SelectedItem));
                     TerminiService.getInstance().terminiSlobodni = new List<Termin>();
                     
                     IzborPregleda prozor = new IzborPregleda(termini11, termini, pacijent);

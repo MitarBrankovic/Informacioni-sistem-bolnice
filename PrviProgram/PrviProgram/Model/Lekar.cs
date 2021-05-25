@@ -9,6 +9,11 @@ namespace Model
         public List<Specijalizacija> specijalizacija;
 
         public Lekar() { }
+        public Lekar(string ime, string prezime)
+        {
+            Ime = ime;
+            Prezime = prezime;
+        }
 
         public Lekar(Osoba osoba, List<Termin> termini, List<Specijalizacija> specijalizacije) : base(osoba)
         {

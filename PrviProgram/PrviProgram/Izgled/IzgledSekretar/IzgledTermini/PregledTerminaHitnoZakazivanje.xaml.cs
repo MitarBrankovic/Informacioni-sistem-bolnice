@@ -75,7 +75,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private Termin PronadjiPrviSledeciSlobodanTerminKodLekara(Termin zaTermin)
         {
-            List<string> vremeTermina = utilityService.termini;
+            List<string> vremeTermina = utilityService.nizVremena;
             Termin terminDTO = new Termin
             {
                 Datum = zaTermin.Datum,
@@ -91,7 +91,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                     if (indexV > indexVreme)
                     {
                         terminDTO.Vreme = v;
-                        if (terminiService.ProvaraZauzatostiTermina(terminDTO) == false)
+                        if (terminiService.ProveraZauzetostiTermina(terminDTO) == false)
                         {
                             return terminDTO;
                         }

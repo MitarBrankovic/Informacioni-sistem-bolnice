@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public PacijentRepository datotekaPacijent = new PacijentRepository();
         public ObservableCollection<IzvrseniPregled> izvrseniPregledi { get; set; }
         public Pacijent selektovaniPacijent = new Pacijent();
+        public PacijentControler pacijentControler = new PacijentControler();
         public PregledAnamneze(Pacijent selektovaniPacijent)
         {
             InitializeComponent();

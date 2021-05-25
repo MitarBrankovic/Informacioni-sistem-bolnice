@@ -32,17 +32,17 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             comboBoxSpecijalizacija.ItemsSource = specijalizacijeRepository.PregledSvihSpecijalizacija();
             comboBoxPacijenti.ItemsSource = pacijentRepository.PregledSvihPacijenata();
             TipTerminaText.ItemsSource = Enum.GetValues(typeof(TipTermina));
-            vremeText.ItemsSource = utilityService.termini;
+            vremeText.ItemsSource = utilityService.nizVremena;
         }
 
         private void PostaviVremeTerminaZaCombo()
         {
             string sledeciTermin = IzracunajPrvoSledeceVremeTermina(DateTime.Now);
-            foreach (string vremeTermina in utilityService.termini)
+            foreach (string vremeTermina in utilityService.nizVremena)
             {
                 if (vremeTermina.Equals(sledeciTermin))
                 {
-                    vremeText.SelectedIndex = utilityService.termini.IndexOf(vremeTermina);
+                    vremeText.SelectedIndex = utilityService.nizVremena.IndexOf(vremeTermina);
                 }
             }
         }

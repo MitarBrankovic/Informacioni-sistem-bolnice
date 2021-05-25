@@ -67,6 +67,112 @@
             "OpisLeka": "ssss"
           },
           "Beleska": "prosetaj "
+        },
+        {
+          "Sifra": "RO9MeC4g",
+          "Datum": "2021-05-28T00:00:00",
+          "TipTermina": 2,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bol u stomaku"
+          },
+          "recept": {
+            "Lekovi": {
+              "ZamenaZaLek": [
+                {
+                  "ZamenaZaLek": [
+                    {
+                      "ZamenaZaLek": [],
+                      "Sifra": "bio",
+                      "Naziv": "Bio Oil",
+                      "Sastojci": "a",
+                      "Opis": "a"
+                    },
+                    {
+                      "ZamenaZaLek": [
+                        {
+                          "ZamenaZaLek": [
+                            {
+                              "ZamenaZaLek": [
+                                {
+                                  "ZamenaZaLek": [
+                                    {
+                                      "ZamenaZaLek": [],
+                                      "Sifra": "paracet",
+                                      "Naziv": "Paracetamol",
+                                      "Sastojci": "nesa",
+                                      "Opis": "nes"
+                                    }
+                                  ],
+                                  "Sifra": "bruh",
+                                  "Naziv": "Brufen",
+                                  "Sastojci": "nesto",
+                                  "Opis": "nesto"
+                                }
+                              ],
+                              "Sifra": "paracet",
+                              "Naziv": "Paracetamol",
+                              "Sastojci": "nesa",
+                              "Opis": "nes"
+                            }
+                          ],
+                          "Sifra": "bruf",
+                          "Naziv": "Brufen",
+                          "Sastojci": "nesto",
+                          "Opis": "nesto"
+                        }
+                      ],
+                      "Sifra": "paracet",
+                      "Naziv": "Paracetamol",
+                      "Sastojci": "nesa",
+                      "Opis": "nes"
+                    },
+                    {
+                      "ZamenaZaLek": [],
+                      "Sifra": "andol",
+                      "Naziv": "Andol",
+                      "Sastojci": "asdad",
+                      "Opis": "sadasas"
+                    }
+                  ],
+                  "Sifra": "bruf",
+                  "Naziv": "Brufen",
+                  "Sastojci": "nesto",
+                  "Opis": "nesto"
+                }
+              ],
+              "Sifra": "paracet",
+              "Naziv": "Paracetamol",
+              "Sastojci": "nesa",
+              "Opis": "nes"
+            },
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 4,
+            "OpisLeka": "Morate da pijete 5 dana"
+          },
+          "Beleska": "Popij paracetamol u 10h."
         }
       ],
       "Sifra": null,

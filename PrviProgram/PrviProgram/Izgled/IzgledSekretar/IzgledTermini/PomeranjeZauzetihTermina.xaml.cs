@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         public PomeranjeZauzetihTermina(ObservableCollection<Termin> sviTermini, ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();
-            vremeTermina = new ObservableCollection<string>(utilityService.termini);
+            vremeTermina = new ObservableCollection<string>(utilityService.nizVremena);
             this.termini = termini;
             this.sviTermini = sviTermini;
             this.termin = termin;
@@ -117,7 +117,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         {
             if ((Lekar)comboBoxLekari.SelectedItem != null && datePicker.SelectedDate != null)
             {
-                vremeTermina = new ObservableCollection<string>(utilityService.termini);
+                vremeTermina = new ObservableCollection<string>(utilityService.nizVremena);
                 vremeText.ItemsSource = vremeTermina;
                 vremeText.IsEnabled = true;
                 ObrisiZauzeteTermineLekara();
@@ -132,7 +132,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private void ObrisiZauzeteTermineLekara()
         {
             List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
-            foreach (String vremeTerminaZaBrisanje in utilityService.termini)
+            foreach (String vremeTerminaZaBrisanje in utilityService.nizVremena)
             {
                 foreach (String zauzetiT in zauzetiTermini)
                 {

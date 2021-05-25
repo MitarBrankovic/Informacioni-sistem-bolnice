@@ -157,8 +157,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     UpisivanjeUFajlMalicioznogPacijentaIZakljucavanjeSistema(antiTrollPacijenta, antiTrollPacijenata);
                     break;
                 }
-              if(antiTrollPacijenta.BrojacDodavanihTermina >= 3 || antiTrollPacijenta.BrojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.BrojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan == true)
-                {
+                 if(antiTrollPacijenta.BrojacDodavanihTermina >= 3 || antiTrollPacijenta.BrojacIzmenenjenihTermina >= 3 || antiTrollPacijenta.BrojacOtkazanihTermina >= 3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan == true)
+                 {
                     PostavljanjeButtonaNaFalse();
                 }            
             }

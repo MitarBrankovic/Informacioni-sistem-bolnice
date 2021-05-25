@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Repository;
 using Service;
 using System;
@@ -18,73 +19,63 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
     public partial class kreiranjeNotifikacije : Page
     {
-        public DateTime end;
-        public DateTime start;
-        public Pacijent pp;
-        public NotifikacijePacijenta notifikacija = new NotifikacijePacijenta();
-        public NotifikacijeService not = new NotifikacijeService();
-        public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();
-        List<Pacijent> pacijenti = new List<Pacijent>();
-        List<Recept> recepti = new List<Recept>();
-        
-        public kreiranjeNotifikacije(Pacijent p)
-        {
+        public DateTime pocetakDatum;
+        public DateTime krajDatum;
+        public Pacijent pacijent;
 
-            
+        public PacijentControler pacijentControler = new PacijentControler();
+        public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();
+        public List<Pacijent> pacijenti = new List<Pacijent>();
+        public List<Recept> recepti = new List<Recept>();
+        
+        public kreiranjeNotifikacije(Pacijent pacijent)
+        {
             InitializeComponent();
-            
-            endDate.IsEnabled = false;
+            krajDatumText.IsEnabled = false;
             potvrdiButton.IsEnabled = false;
-            this.pp = p;
-            this.recepti=not.pregledRecepata(p);
-            foreach(Recept r in recepti)
+            this.pacijent = pacijent;
+            this.recepti=pacijentControler.PregledRecepata(pacijent);
+            foreach(Recept recepti in recepti)
             {
-                listaLekova.Items.Add(r.Lekovi);
+                listaLekova.Items.Add(recepti.Lekovi);
             }
             OpisLeka.IsEnabled = false;
             potvrdiButton.IsEnabled = false;
-            
         }
 
-        private void startDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void pocetakDatum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(startDate.Text.Equals(""))
+            if(pocetakDatumText.Text.Equals(""))
             {
-                endDate.IsEnabled = false;
+                krajDatumText.IsEnabled = false;
             }
             else
             {
-                endDate.IsEnabled = true;
-                this.start = (DateTime)startDate.SelectedDate;
-                endDate.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, (DateTime)startDate.SelectedDate));
+                krajDatumText.IsEnabled = true;
+                this.krajDatum = (DateTime)pocetakDatumText.SelectedDate;
+                krajDatumText.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, (DateTime)pocetakDatumText.SelectedDate));
             }
         }
 
-        private void endDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void krajDatum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(endDate.Text.Equals(""))
+            if(krajDatumText.Text.Equals(""))
             {
                 potvrdiButton.IsEnabled = false;
             }
             else
             {
-                this.end = (DateTime)endDate.SelectedDate;
+                this.pocetakDatum = (DateTime)krajDatumText.SelectedDate;
                 potvrdiButton.IsEnabled = true;
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.notifikacija.Pacijent = this.pp;
-            Recept r = new Recept();
-            //r.Lekovi = listaLekova.SelectedItem.ToString();
-            r.OpisLeka = OpisLeka.Text;
-            this.notifikacija.Recept = r;
-            this. notifikacija.KrajDatuma = end;
-           this. notifikacija.PocetakDatuma = start;
-           this.notifikacija.VremeObavestenja = comboBoxVreme.Text;
-           this. notifikacija.OpisNotifikacije="Morate popiti "+listaLekova.SelectedItem.ToString()+" za 1h.";
-            not.DodavanjeNotifikacije(notifikacija);
+            Recept recept = new Recept(OpisLeka.Text);
+
+            NotifikacijePacijenta novaNotifikacijaPacijenta = new NotifikacijePacijenta(this.pacijent, pocetakDatum, krajDatum, recept, comboBoxVreme.Text, "Morate popiti " + listaLekova.SelectedItem.ToString() + " za 1h.");
+            pacijentControler.DodavanjeNotifikacije(novaNotifikacijaPacijenta);
             potvrdiButton.IsEnabled = false;
             otkaziButton.IsEnabled = false;
         
@@ -98,11 +89,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             else
             {
-                Recept r1 = new Recept();
-                //r1.Lekovi = listaLekova.SelectedItem.ToString();
+                Recept recept= new Recept();
                 OpisLeka.IsEnabled = true;
-                OpisLeka.Text = not.PronadjiOpis(r1, this.pp);
+                OpisLeka.Text = pacijentControler.PronadjiOpis(this.pacijent, recept);
             }
+        }
+
+        private void otkaziButton_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

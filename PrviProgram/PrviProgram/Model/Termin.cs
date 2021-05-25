@@ -26,6 +26,18 @@ namespace Model
             guestPacijent = null;
             this.Izvrsen = false;
         }
+        public Termin(DateTime datum, TipTermina tipTermina, string sifraTermina, Sala sala,string vreme, Lekar lekar, Pacijent pacijent)
+        {
+            this.Datum = datum;
+            this.TipTermina = tipTermina;
+            this.SifraTermina = sifraTermina;
+            this.sala = sala;
+            this.Vreme = vreme;
+            this.lekar = lekar;
+            this.pacijent = pacijent;
+            guestPacijent = null;
+            this.Izvrsen = false;
+        }
 
         public Termin(DateTime datum, TipTermina tipTermina, string sifraTermina, string vreme, Lekar lekar)
         {
@@ -50,6 +62,19 @@ namespace Model
             guestPacijent = null;
             Izvrsen = false;
         }
+        public Termin(TipTermina tipTermina, string vreme, DateTime datum,Lekar lekar)
+        {
+            this.TipTermina = tipTermina;
+            this.SifraTermina = null;
+            this.sala = null;
+            this.Vreme = vreme;
+            this.lekar = lekar;
+            this.pacijent = null;
+            this.guestPacijent = null;
+            this.Datum = datum;
+            this.Izvrsen = false;
+        }
+
 
         public override string ToString()
         {

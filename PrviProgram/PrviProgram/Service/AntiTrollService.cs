@@ -33,7 +33,6 @@ namespace Service
             {
                 PovecavanjeBrojacaDodavanjuTermina(antiTrollPacijenata, pacijent);
             }
-           
         }
 
         public void PovecavanjeBrojacaDodavanjuTermina(List<AntiTrollPacijenta> antiTrollPacijenata,Pacijent pacijent)
@@ -58,14 +57,12 @@ namespace Service
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             if (antiTrollPacijenata.Count == 0)
             {
-                
                 antiTrollPacijenata.Add(new AntiTrollPacijenta(0, 1, 0, pacijent, DateTime.Now, false));
                 datotekaAnitTrollMehanizma.UpisivanjeUFajl(antiTrollPacijenata);
             }
             else
             {
                 PovecavanjeBrojacaIzmeniTermina(antiTrollPacijenata, pacijent);
-
             }
 
         }

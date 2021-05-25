@@ -10,132 +10,112 @@ namespace Controller
 {
     public class PacijentControler
     {
-        public void DodavanjeTermina(Termin termin, Pacijent p)
+ 
+        public void DodavanjeTermina(Termin termin)
         {
-            // TODO: implement
+            TerminiService.getInstance().DodavanjeTermina(termin);
         }
 
-        public void BrisanjeTermina(Termin t, Pacijent p)
+
+        public void BrisanjeTermina(Termin termin)
         {
-            // TODO: implement
+            TerminiService.getInstance().BrisanjeTermina(termin);
         }
 
-        public bool IzmenaTermina(Termin t, Pacijent p)
+        public bool IzmenaTermina(Termin termin)
         {
-            // TODO: implement
-            return false;
+            return TerminiService.getInstance().IzmenaTermina(termin);
         }
 
-        public List<Termin> PregledTermina(Pacijent p)
+        public List<Termin> PregledTermina(Pacijent pacijent)
         {
             // TODO: implement
-            return null;
+            return TerminiService.getInstance().PregledTermina(pacijent);
         }
-
+        public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
+        {
+            return TerminiService.getInstance().ZauzetiTerminiLekaraDatuma(lekar, datumTermina);
+        }
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            // TODO: implement
-            return false;
+
+            return TerminiService.getInstance().IzmenaSale(staraSala, novaSala);
         }
 
-        public int[] ProveraZauzetostiLekara(Lekar lekar, DateTime datum, string[] niz)
+        public int[] ProveraZauzetostiLekara(string jmbg, DateTime datum, string[] nizSlobodnihTermina)
         {
-            // TODO: implement
-            return null;
+            return TerminiService.getInstance().ProveraZauzetostiLekara(jmbg, datum, nizSlobodnihTermina);
         }
 
         public Sala DobavljanjeSale(Termin noviTermin)
         {
-            // TODO: implement
-            return null;
+            return TerminiService.getInstance().DobavljanjeSale(noviTermin);
         }
 
         public bool ProveraSale(Sala sala, List<Termin> termini, Termin noviTermin)
         {
-            // TODO: implement
-            return false;
+            return TerminiService.getInstance().ProveraSale(sala,termini,noviTermin);
         }
 
-        public List<Termin> SviSlobodniTermini(DateTime min, DateTime max, Lekar selektovaniLekar, string tipeTermina)
+        public List<Termin> SviSlobodniTermini(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar, TipTermina tipTermina)
         {
-            // TODO: implement
-            return null;
+            return TerminiService.getInstance().SviSlobodniTermini(pocetakDatum, krajDatum, selektovaniLekar, tipTermina);
         }
 
-        public bool ProveraTermina(DateTime datum, string vreme)
+        public bool ProveraZauzetostiKodLekara(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar)
         {
-            // TODO: implement
-            return false;
+            
+            return TerminiService.getInstance().ProveraZauzetostiKodLekara(pocetakDatum,krajDatum,selektovaniLekar);
         }
 
-        public bool ProveraZauzetostiKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar)
+        public List<Termin> ProveraVremenaKodLekara(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar, TipTermina tipTermina)
         {
-            // TODO: implement
-            return false;
-        }
-
-        public List<Termin> ProveraVremenaKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
-        {
-            // TODO: implement
-            return null;
+ 
+            return TerminiService.getInstance().ProveraVremenaKodLekara(pocetakDatum,krajDatum,selektovaniLekar,tipTermina);
         }
 
         public bool ProveraZauzetostiTermina(Termin termin)
         {
-            // TODO: implement
-            return false;
+            return TerminiService.getInstance().ProveraZauzetostiTermina(termin);
         }
 
-        public List<Termin> ProveraLekaraKodVremena(DateTime min, DateTime max, Lekar selektovaniLekar, string tipTermina)
+        public List<Termin> ProveraLekaraKodVremena(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar, TipTermina tipTermina)
         {
             // TODO: implement
-            return null;
+            return TerminiService.getInstance().ProveraLekaraKodVremena( pocetakDatum,  krajDatum,  selektovaniLekar,  tipTermina);
         }
 
         public Lekar LekarKojiJeZaduzenZaTermin(Termin selektovanitermin)
         {
-            // TODO: implement
-            return null;
+            return TerminiService.getInstance().LekarKojiJeZaduzenZaTermin(selektovanitermin);
         }
 
-        public void DodavanjeNotifikacije(KartonPacijenta karton)
+        public void DodavanjeNotifikacije(NotifikacijePacijenta notifikacija)
         {
-            // TODO: implement
-        }
-
-        public void IzmeniNotifikaciju(KartonPacijenta karton)
-        {
-            // TODO: implement
+            notifikacijeService.DodavanjeNotifikacije(notifikacija);
         }
 
         public List<Recept> PregledRecepata(Pacijent pacijent)
         {
-            // TODO: implement
-            return null;
+            return notifikacijeService.PregledRecepata(pacijent);
         }
 
         public string PronadjiOpis(Pacijent pacijent, Recept recept)
         {
-            // TODO: implement
-            return "";
+          
+            return notifikacijeService.PronadjiOpis(recept,pacijent);
         }
 
         public bool DaLiPostojiBarJedanIzvrsenTermin(Pacijent pacijent)
         {
             // TODO: implement
-            return false;
+            return AnketaService.getInstance().DaLiPostojiBarJedanIzvrsenTermin(pacijent);
         }
 
-        public List<Termin> SviTerminiKojiSuIzvrseni(Pacijent pacijent, Lek noviLek)
+        public List<Termin> SviTerminiKojiSuIzvrseni(Pacijent pacijent)
         {
             // TODO: implement
-            return null;
-        }
-
-        public bool DaLiJePregledVecAnketiran(Termin termin)
-        {
-            // TODO: implement
-            return false;
+            return AnketaService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
         }
 
         public void PovecavanjeBrojacaPriDodavanjuTermina(Pacijent pacijent)
@@ -151,6 +131,14 @@ namespace Controller
         public void PovecavanjeBrojacaPriOtkazivanjuTermina(Pacijent pacijent)
         {
             AntiTrollService.getInstance().PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
+        }
+        public void DodavanjeBeleske(Beleska beleska)
+        {
+            BeleskaService.getInstance().DodavanjeBeleske(beleska);
+        }
+        public Pacijent DodavanjeBeleskeUKarton(Pacijent pacijent, IzvrseniPregled izvrsen)
+        {
+            return KartonPacijentaService.getInstance().DodavanjeBeleskeUKarton(pacijent, izvrsen);
         }
 
         public Service.TerminiService terminiService;

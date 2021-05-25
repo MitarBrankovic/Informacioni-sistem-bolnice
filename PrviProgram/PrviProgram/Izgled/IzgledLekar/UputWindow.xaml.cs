@@ -100,7 +100,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = PreuzmiTerminIzForme();
-            if(terminiService.ProvaraZauzatostiTermina(termin) == false)
+            if(terminiService.ProveraZauzetostiTermina(termin) == false)
             {
                 terminiService.DodavanjeTermina(termin);
                 this.Close();

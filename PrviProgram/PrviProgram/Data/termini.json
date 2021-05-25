@@ -26,7 +26,7 @@
     },
     "Vreme": "08:00:00",
     "guestPacijent": null,
-    "izvrsen": true,
+    "Izvrsen": true,
     "lekar": {
       "termin": null,
       "specijalizacija": [
@@ -51,14 +51,14 @@
       "KontaktTelefon": null
     },
     "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
+      "Termin": [],
+      "KartonPacijenta": {
         "alergen": null,
         "izvrseniPregled": [],
         "Sifra": null,
         "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
+          "Termin": null,
+          "KartonPacijenta": null,
           "MestoRodjenja": null,
           "Korisnik": null,
           "AdresaStanovanja": null,
@@ -131,7 +131,7 @@
     },
     "Vreme": "12:00:00",
     "guestPacijent": null,
-    "izvrsen": false,
+    "Izvrsen": true,
     "lekar": {
       "termin": null,
       "specijalizacija": [
@@ -156,8 +156,8 @@
       "KontaktTelefon": null
     },
     "pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
+      "Termin": [],
+      "KartonPacijenta": {
         "alergen": [
           {
             "Naziv": "Kikiriki"
@@ -227,8 +227,8 @@
         ],
         "Sifra": null,
         "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
+          "Termin": null,
+          "KartonPacijenta": null,
           "MestoRodjenja": null,
           "Korisnik": null,
           "AdresaStanovanja": null,

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using PrviProgram.Service;
 using Repository;
@@ -18,43 +19,41 @@ namespace PrviProgram.Izgled.IzgledPacijent
     public partial class PregledTermina : Page
     {
         public DateTime trenutniDatum { get; set; }
-        public DateTime datumTermina { get; set; }
-
+        public DateTime selektovaniTermin { get; set; }
         public DateTime trenutnoVreme { get; set; }
         public DateTime vremeTermina { get; set; }
         public DateTime vremenotifikacije { get; set; }
 
-        ObservableCollection<Termin> termini { get; set; }
-
-        public NotifikacijeObavestenjaRepository not = new NotifikacijeObavestenjaRepository();
+        public ObservableCollection<Termin> termini { get; set; }
+        public NotifikacijeObavestenjaRepository notifikacijeDatoteka = new NotifikacijeObavestenjaRepository();
         public List<NotifikacijePacijenta> notifikacije = new List<NotifikacijePacijenta>();
-        public List<NotifikacijePacijenta> trenutna = new List<NotifikacijePacijenta>();
-        public DispatcherTimer timer;
-        public DispatcherTimer timer1;
+        public List<NotifikacijePacijenta> notifikacijeKojeSuUIstoVreme = new List<NotifikacijePacijenta>();
+        public DispatcherTimer timerZaPrikazNotifikacije;
+        public DispatcherTimer timerZaNotifikacijuLeka;
         public DispatcherTimer timerZaAntiTrollMehanizam;
         public AntiTrollRepository datotekaAnitTrollMehanizma = new AntiTrollRepository();
         public DispatcherTimer timerZaOtkljucavanjeAntiTrollMehanizma;
+        public PacijentControler pacijentController = new PacijentControler();
 
 
         public PregledTermina(Pacijent p)
         {
-
             InitializeComponent();
-            this.notifikacije = not.CitanjeIzFajla();
+            this.notifikacije = notifikacijeDatoteka.CitanjeIzFajla();
             this.pacijent = p;
-            termini = new ObservableCollection<Termin>(TerminiService.getInstance().PregledTermina(p));
-
-            timer1 = new DispatcherTimer();
-            timer1.Interval = TimeSpan.FromSeconds(10000);
-            timer1.Start();
-            timer1.Tick += new EventHandler(timer_Tick);
+            termini = new ObservableCollection<Termin>(pacijentController.PregledTermina(p));
+            InicijalizacijaTimeraZaNotifikacijuLeka();
             InicijalizacijaTimera();
             InicijalizacijaTimeraZaOtkljucavanjeAntiTrollMehanizma();
-
             dataGridPacijenta.ItemsSource = termini;
-
         }
-
+        private void InicijalizacijaTimeraZaNotifikacijuLeka()
+        {
+            timerZaNotifikacijuLeka = new DispatcherTimer();
+            timerZaNotifikacijuLeka.Interval = TimeSpan.FromSeconds(10000);
+            timerZaNotifikacijuLeka.Start();
+            timerZaNotifikacijuLeka.Tick += new EventHandler(ProveravaDaLiTrenutnoImaNotifikacija);
+        }
         private void InicijalizacijaTimera()
         {
             timerZaAntiTrollMehanizam = new DispatcherTimer();
@@ -75,7 +74,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<AntiTrollPacijenta> antiTrollPacijenata = datotekaAnitTrollMehanizma.CitanjeIzFajla();
             foreach (AntiTrollPacijenta antiTrollPacijenta in antiTrollPacijenata)
             {
-              
                 if (antiTrollPacijenta.DaLiJeBanovan == true && antiTrollPacijenta.VremeBanovanja.AddDays(5).Day.Equals(DateTime.Now.Day))
                 {
                     PostavljanjeButtonaNaTrue();
@@ -84,7 +82,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                     timerZaOtkljucavanjeAntiTrollMehanizma.Stop();
                     break;
                 }
-
             }
         }
 
@@ -96,11 +93,9 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 if(antiTrollPacijenta.BrojacDodavanihTermina>=3 || antiTrollPacijenta.BrojacIzmenenjenihTermina>=3 || antiTrollPacijenta.BrojacOtkazanihTermina>=3 && antiTrollPacijenta.pacijent.Jmbg.Equals(pacijent.Jmbg) && antiTrollPacijenta.DaLiJeBanovan==true)
                 {
                     PostavljanjeButtonaNaFalse();
-                 
                     timerZaAntiTrollMehanizam.Stop();
                 }
             }
-
         }
         public void PostavljanjeButtonaNaTrue()
         {
@@ -108,9 +103,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             IzmeniTerminButton.IsEnabled = true;
             IzbrisiButton.IsEnabled = true;
             PomeranjeZakazanogTerminaButton.IsEnabled = true;
-
         }
-
 
         public void PostavljanjeButtonaNaFalse()
         {
@@ -118,41 +111,27 @@ namespace PrviProgram.Izgled.IzgledPacijent
             IzmeniTerminButton.IsEnabled = false;
             IzbrisiButton.IsEnabled = false;
             PomeranjeZakazanogTerminaButton.IsEnabled = false;
-
         }
-        private void timer_Tick(object sender, EventArgs e)
+        private void ProveravaDaLiTrenutnoImaNotifikacija(object sender, EventArgs e)
         {
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            int tim = 0;
-            foreach (NotifikacijePacijenta n in this.notifikacije)
+            timerZaPrikazNotifikacije = new DispatcherTimer();
+            timerZaPrikazNotifikacije.Interval = TimeSpan.FromSeconds(1);
+            int brojNotifikacija = 0;
+            foreach (NotifikacijePacijenta notifikacija in this.notifikacije)
             {
-
-                if (n.Pacijent.Jmbg.Equals(this.pacijent.Jmbg))
+                if (notifikacija.Pacijent.Jmbg.Equals(this.pacijent.Jmbg) && DateTime.Today >= notifikacija.PocetakDatuma 
+                    && DateTime.Today <= notifikacija.KrajDatuma && (DateTime.Now.Hour == Convert.ToDateTime(notifikacija.VremeObavestenja).Hour) 
+                    && (DateTime.Now.Minute == Convert.ToDateTime(notifikacija.VremeObavestenja).Minute))
                 {
-                    if (DateTime.Today >= n.PocetakDatuma && DateTime.Today <= n.KrajDatuma)
+                    this.notifikacijeKojeSuUIstoVreme.Add(notifikacija);
+                    if (brojNotifikacija < 1)
                     {
-                        this.vremenotifikacije = Convert.ToDateTime(n.VremeObavestenja);
-
-                        if ((DateTime.Now.Hour == vremenotifikacije.Hour) && (DateTime.Now.Minute == vremenotifikacije.Minute))
-                        {
-                            this.trenutna.Add(n);
-                            if (tim <1)
-                            {
-                                timer.Start();
-                                timer.Tick += new EventHandler(timer_Tick1);
-                                ++tim;
-                               // timer1.Stop();
-                            }
-                        }
-                   
-                    }
-                    else
-                    {
-                        timer1.Stop();
+                        timerZaPrikazNotifikacije.Start();
+                        timerZaPrikazNotifikacije.Tick += new EventHandler(PrikazNotifikacijeZaLek);
+                        ++brojNotifikacija;
                     }
                 }
-            }
+            } 
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -160,36 +139,36 @@ namespace PrviProgram.Izgled.IzgledPacijent
             throw new NotImplementedException();
         }
 
-        private void timer_Tick1(object sender, EventArgs e)
+        private void PrikazNotifikacijeZaLek(object sender, EventArgs e)
         {
-            timer1.Stop();
-            string nova="";
-            foreach (NotifikacijePacijenta n in trenutna)
+            timerZaNotifikacijuLeka.Stop();
+            string opisNotifikacije="";
+            foreach (NotifikacijePacijenta notifikacija in notifikacijeKojeSuUIstoVreme)
             {
-                nova += n.OpisNotifikacije + " ";
+                opisNotifikacije += notifikacija.OpisNotifikacije + " ";
                 
             }
-            MessageBox.Show(nova);
-            timer.Stop();
-            timer1.Interval = TimeSpan.FromMinutes(1);
-            timer1.Start();
+            MessageBox.Show(opisNotifikacije);
+            timerZaPrikazNotifikacije.Stop();
+            timerZaNotifikacijuLeka.Interval = TimeSpan.FromMinutes(1);
+            timerZaNotifikacijuLeka.Start();
             
         }
      
         private Pacijent pacijent;
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            DodavanjeTerminaKodPacijenta win = new DodavanjeTerminaKodPacijenta(termini, pacijent);
-            win.Show();
+            DodavanjeTerminaKodPacijenta prozor = new DodavanjeTerminaKodPacijenta(termini, pacijent);
+            prozor.Show();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridPacijenta.SelectedIndex != -1)
             {
-                Termin t = (Termin)dataGridPacijenta.SelectedItem;
-                var s = new IzmenaTermina(t, pacijent, termini);
-                s.Show();
+                Termin termin = (Termin)dataGridPacijenta.SelectedItem;
+                IzmenaTermina prozor = new IzmenaTermina(termin, pacijent, termini);
+                prozor.Show();
             }
         }
 
@@ -197,14 +176,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
         {
             if ((Model.Termin) dataGridPacijenta.SelectedItem != null)
             {
-                TerminiService.getInstance().BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem);
-                //PreglediService.getInstance().BrisanjePregleda(((Model.Termin)dataGridPacijenta.SelectedItem).SifraTermina);
+                pacijentController.BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem);
                 termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
-                AntiTrollService.getInstance().PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
+                pacijentController.PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
             }
             else
             {
-
                 MessageBox.Show("Niste selektovali termin koji zelite da izbrisete!!");
             }
 
@@ -215,18 +192,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
             if (dataGridPacijenta.SelectedIndex != -1)
             {
                 Termin selektovaniTermin = (Termin)dataGridPacijenta.SelectedItem;
-                this.trenutniDatum = DateTime.Now;
-                this.datumTermina = selektovaniTermin.Datum;
-                this.vremeTermina = Convert.ToDateTime(selektovaniTermin.Vreme);
-                this.trenutnoVreme = DateTime.Now;
-                DateTime ceoDatumTermina = new DateTime(datumTermina.Year, datumTermina.Month, datumTermina.Day, vremeTermina.Hour, vremeTermina.Minute, vremeTermina.Second);
-                DateTime ceoTrenutniDatum = new DateTime(trenutniDatum.Year, trenutniDatum.Month, trenutniDatum.Day, trenutnoVreme.Hour, trenutnoVreme.Minute, trenutnoVreme.Second);
-                TimeSpan razlika = ceoDatumTermina - ceoTrenutniDatum;
-                if (razlika.TotalDays>1)
+                DateTime ceoDatumTermina = new DateTime(selektovaniTermin.Datum.Year,selektovaniTermin.Datum.Month
+                    ,selektovaniTermin.Datum.Day, Convert.ToDateTime(selektovaniTermin.Vreme).Hour,
+                    Convert.ToDateTime(selektovaniTermin.Vreme).Minute, Convert.ToDateTime(selektovaniTermin.Vreme).Second);
+                DateTime ceoTrenutniDatum = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 
+                    DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                if ((ceoDatumTermina - ceoTrenutniDatum).TotalDays>1)
                 {
-
-                    var s = new PomeranjeZakazanogTermina(selektovaniTermin, pacijent, termini);
-                    s.Show();
+                    PomeranjeZakazanogTermina prozor = new PomeranjeZakazanogTermina(selektovaniTermin, pacijent, termini);
+                    prozor.Show();
                 }
                 else
                 {

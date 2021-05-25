@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace PrviProgram.Repository
 {
-    class BolnicaAnketiranjeRepository
+    public class BolnicaAnketiranjeRepository
     {
         private string path;
 

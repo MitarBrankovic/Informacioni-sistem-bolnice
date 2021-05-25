@@ -38,7 +38,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             Termin tempTermin = new Termin((DateTime)(DatumText.SelectedDate), SelektovaniTipTermina(), utilityService.GenerisanjeSifre(),
                 vremeText.Text, lekar, (Pacijent)ComboboxPacijent.SelectedItem);
             tempTermin.sala = terminiService.DobavljanjeSale(tempTermin);
-            if (!terminiService.ProvaraZauzatostiTermina(tempTermin))
+            if (!terminiService.ProveraZauzetostiTermina(tempTermin))
             {
                 terminiService.DodavanjeTermina(tempTermin);
                 this.termini.Add(tempTermin);

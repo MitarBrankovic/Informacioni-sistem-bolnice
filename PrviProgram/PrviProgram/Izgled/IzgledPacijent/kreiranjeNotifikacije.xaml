@@ -40,15 +40,15 @@
                 <ComboBoxItem>19:00:00</ComboBoxItem>
                 <ComboBoxItem>19:30:00</ComboBoxItem>
             </ComboBox>
-            <DatePicker x:Name="startDate" HorizontalAlignment="Left" Height="24" Margin="149,198,0,0" VerticalAlignment="Top" Width="119" SelectedDateChanged="startDate_SelectedDateChanged"  DisplayDateStart="{x:Static sys:DateTime.Today}"/>
-            <DatePicker x:Name="endDate" HorizontalAlignment="Left" Height="24" Margin="148,236,0,0" VerticalAlignment="Top" Width="119" SelectedDateChanged="endDate_SelectedDateChanged"  DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+            <DatePicker x:Name="pocetakDatumText" HorizontalAlignment="Left" Height="24" Margin="149,198,0,0" VerticalAlignment="Top" Width="119" SelectedDateChanged="pocetakDatum_SelectedDateChanged"  DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+            <DatePicker x:Name="krajDatumText" HorizontalAlignment="Left" Height="24" Margin="148,236,0,0" VerticalAlignment="Top" Width="119" SelectedDateChanged="krajDatum_SelectedDateChanged"  DisplayDateStart="{x:Static sys:DateTime.Today}"/>
             <Label Content="Lek:" HorizontalAlignment="Left" Margin="28,14,0,0" VerticalAlignment="Top"/>
             <Label Content="Opis leka:" HorizontalAlignment="Left" Margin="30,52,0,0" VerticalAlignment="Top"/>
             <Label Content="Vreme obavestenja:" HorizontalAlignment="Left" Margin="28,161,0,0" VerticalAlignment="Top"/>
             <Label Content="Od:" HorizontalAlignment="Left" Margin="26,195,0,0" VerticalAlignment="Top"/>
             <Label Content="Do:" HorizontalAlignment="Left" Margin="26,233,0,0" VerticalAlignment="Top"/>
             <Button x:Name="potvrdiButton" Content="Potvrdi" HorizontalAlignment="Left" Height="24" Margin="79,285,0,0" VerticalAlignment="Top" Width="79" Click="Button_Click"/>
-            <Button x:Name="otkaziButton" Content="Otkazi" HorizontalAlignment="Left" Height="24" Margin="177,284,0,0" VerticalAlignment="Top" Width="86"/>
+            <Button x:Name="otkaziButton" Content="Otkazi" HorizontalAlignment="Left" Height="24" Margin="177,284,0,0" VerticalAlignment="Top" Width="86" Click="otkaziButton_Click"/>
 
             <ComboBox  x:Name="listaLekova"  HorizontalAlignment="Left" Margin="153,20,0,0" VerticalAlignment="Top" Width="120" IsEditable="true"  SelectionChanged="listaLekova_SelectionChanged"/>
         </Grid>

@@ -31,7 +31,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if (terminiService.ProvaraZauzatostiTermina(termin))
+            if (terminiService.ProveraZauzetostiTermina(termin))
             {
                 MessageBox.Show("Termin je zauzet.");
             }

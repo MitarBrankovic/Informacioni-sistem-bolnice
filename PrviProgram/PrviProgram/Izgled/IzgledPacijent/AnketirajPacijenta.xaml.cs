@@ -26,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public List<Termin> termini = new List<Termin>();
         public List<AnketiranjePacijenta> anketa = new List<AnketiranjePacijenta>();
         public AnketiranjePacijentaRepository datotekaAnkete = new AnketiranjePacijentaRepository();
+        public BolnicaAnketiranjeRepository datotekaBolnica = new BolnicaAnketiranjeRepository();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,8 +38,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public string ljubaznostLekara { get; set; }
         public string znanjeLekaraOIstorijiBolesti { get; set; }
         public string objasnjenjeLekara { get; set; }
-        public DispatcherTimer timer;
-        public DispatcherTimer timer1;
+        public DispatcherTimer timerZaOtkljcavanjeDugmetaAnketirajBolnicu;
+        public DispatcherTimer timerZaZakljucavanjeDugmetaAnkeetirajBolnicu;
 
 
 
@@ -48,8 +49,28 @@ namespace PrviProgram.Izgled.IzgledPacijent
             
             this.pacijent = pacijent;
             this.termini = AnketaService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
- 
-            terminComboBox.ItemsSource = termini;
+            inicijalizacijaTimeraZaOtkljucavanjeDugmetaBolnica();
+            inicijalizacijaTimeraZaZakljucavanjeDugmetaBolnica();
+
+
+
+        }
+        public void inicijalizacijaTimeraZaZakljucavanjeDugmetaBolnica()
+        {
+            timerZaZakljucavanjeDugmetaAnkeetirajBolnicu = new DispatcherTimer();
+            timerZaZakljucavanjeDugmetaAnkeetirajBolnicu.Interval = TimeSpan.FromSeconds(1);
+            timerZaZakljucavanjeDugmetaAnkeetirajBolnicu.Start();
+            timerZaZakljucavanjeDugmetaAnkeetirajBolnicu.Tick += new EventHandler(ProveraDaLiTrebaOtkljucatiBolnicaAnketiraj);
+        }
+        public void inicijalizacijaTimeraZaOtkljucavanjeDugmetaBolnica()
+        {
+            timerZaOtkljcavanjeDugmetaAnketirajBolnicu = new DispatcherTimer();
+            timerZaOtkljcavanjeDugmetaAnketirajBolnicu.Interval = TimeSpan.FromSeconds(1);
+            timerZaOtkljcavanjeDugmetaAnketirajBolnicu.Start();
+            timerZaOtkljcavanjeDugmetaAnketirajBolnicu.Tick += new EventHandler(OtkljucavanjeDugmetaAnketirajBolnicu);
+        }
+        public void PostavljanjeButtonaNaFalse()
+        {
             LekarTextBlock.IsEnabled = false;
             ocenaLekaraComboBox.IsEnabled = false;
             primedbaNaLekaraComboBox.IsEnabled = false;
@@ -60,17 +81,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
             potvrdiAnketiranjeButton.IsEnabled = false;
             bolnicaAnketiranjeButton.IsEnabled = false;
 
-            timer1 = new DispatcherTimer();
-            timer1.Interval = TimeSpan.FromSeconds(1);
-            timer1.Start();
-            timer1.Tick += new EventHandler(timer_Tick);
-
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Start();
-            timer.Tick += new EventHandler(timer_Tick1);
-
-
         }
         public List<BolnicaAnketiranje> citanjeAnketeBolnice()
         {
@@ -79,41 +89,44 @@ namespace PrviProgram.Izgled.IzgledPacijent
             return ankete;
 
         }
-        public void timer_Tick1(object sender, EventArgs e)
+        public void OtkljucavanjeDugmetaAnketirajBolnicu(object sender, EventArgs e)
         {
             List<BolnicaAnketiranje> anketa = citanjeAnketeBolnice();
             if (anketa.Count != 0 && objasnjenjeNacinaLecenjaComboBox.SelectedItem!=null)
             {
                 potvrdiAnketiranjeButton.IsEnabled = true;
-                timer.Stop();
+                timerZaOtkljcavanjeDugmetaAnketirajBolnicu.Stop();
             }
         }
-        public void timer_Tick(object sender, EventArgs e)
+        public void ProveraDaLiTrebaOtkljucatiBolnicaAnketiraj(object sender, EventArgs e)
         {
             List<BolnicaAnketiranje> ankete = citanjeAnketeBolnice();
-            BolnicaAnketiranjeRepository datoteka = new BolnicaAnketiranjeRepository();
+            
             if (ankete.Count!=0)
             {
-                foreach (BolnicaAnketiranje anketa in ankete)
-                {
-                    if (DateTime.Now.Day.Equals(anketa.datumANketiranja.AddDays(1).Day))
-                    {
-                        bolnicaAnketiranjeButton.IsEnabled = true;
-                        ankete.Remove(anketa);
-                        datoteka.UpisivanjeUFajl(ankete);
-                      
-
-                        //timer1.Interval = TimeSpan.FromDays(60);
-                        break;
-                    }
-                }
+                ProveraKadaJePoslednjiPutBolnicaAnketirana();
             }
             else
             {
                 bolnicaAnketiranjeButton.IsEnabled = true;
-                timer1.Stop();
+                timerZaZakljucavanjeDugmetaAnkeetirajBolnicu.Stop();
             }
-            timer1.Stop();
+            timerZaZakljucavanjeDugmetaAnkeetirajBolnicu.Stop();
+        }
+        public void ProveraKadaJePoslednjiPutBolnicaAnketirana()
+        {
+            List<BolnicaAnketiranje> ankete = citanjeAnketeBolnice();
+            foreach (BolnicaAnketiranje anketa in ankete)
+            {
+                if (DateTime.Now.Day.Equals(anketa.datumANketiranja.AddDays(1).Day))
+                {
+                    bolnicaAnketiranjeButton.IsEnabled = true;
+                    ankete.Remove(anketa);
+                    datotekaBolnica.UpisivanjeUFajl(ankete);
+                    break;
+                }
+            }
+
         }
 
         private void terminComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -207,23 +220,13 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void potvrdiAnketiranjeButton_Click(object sender, RoutedEventArgs e)
         {
-
             AnketiranjePacijenta anketiranjePacijenta = new AnketiranjePacijenta(this.termin, this.lekar, this.ocenaLekara, this.primedbaNaLekara, this.primedbaNaPregled, this.ljubaznostLekara, this.znanjeLekaraOIstorijiBolesti, this.objasnjenjeLekara);
             anketa = datotekaAnkete.CitanjeIzFajla();
             anketa.Add(anketiranjePacijenta);
             datotekaAnkete.UpisivanjeUFajl(anketa);
-            potvrdiAnketiranjeButton.IsEnabled = false;
-            LekarTextBlock.IsEnabled = false;
-            ocenaLekaraComboBox.IsEnabled = false;
-            primedbaNaLekaraComboBox.IsEnabled = false;
-            primedbaNaPregledComboBox.IsEnabled = false;
-            ljubaznostLekaraComboBox.IsEnabled = false;
-            informacijeOBolestiPacijentaComboBox.IsEnabled = false;
-            objasnjenjeNacinaLecenjaComboBox.IsEnabled = false;
-            otkaziAnketiranjeButton.IsEnabled = false;
-            bolnicaAnketiranjeButton.IsEnabled = false;
+            PostavljanjeButtonaNaFalse();
             terminComboBox.IsEnabled = false;
-         
+
         }
 
         private void otkaziAnketiranjeButton_Click(object sender, RoutedEventArgs e)

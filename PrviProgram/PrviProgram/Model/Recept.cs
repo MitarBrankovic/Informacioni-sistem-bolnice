@@ -15,6 +15,14 @@ namespace Model
       public DateTime DatumIzdavanja { get; set; }
       public int VremenskiPeriodUzimanjaLeka { get; set; }
       public String OpisLeka { get; set; }
+        public Recept(string opisLeka)
+        {
+            this.OpisLeka = opisLeka;
+        }
+        public Recept()
+        {
+
+        }
 
     }
 }

@@ -48,7 +48,7 @@ namespace Service
             List<Termin> termini = CitanjeTermina();
             foreach (Termin termin in termini)
             {
-                if (termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.Izvrsen == true && DaLiJePregledVecAnketiran(termin))
+                if (termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.Izvrsen && DaLiJePregledVecAnketiran(termin))
                 {
                     return true;
                 }
@@ -62,7 +62,7 @@ namespace Service
 
             foreach (Termin termin in termini)
             {
-                if (termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.Izvrsen == true && DaLiJePregledVecAnketiran(termin))
+                if (termin.pacijent.Jmbg.Equals(pacijent.Jmbg) && termin.Izvrsen && DaLiJePregledVecAnketiran(termin))
                 {
                     izvrseniTermini.Add(termin);
                 }

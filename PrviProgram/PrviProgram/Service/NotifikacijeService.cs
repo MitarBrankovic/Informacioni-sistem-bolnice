@@ -15,23 +15,13 @@ namespace Service
     {
         public void DodavanjeNotifikacije(NotifikacijePacijenta notifikacija)
         {
-
             NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
             List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
             notifikacije.Add(notifikacija);
-
             datoteka.UpisivanjeUFajl(notifikacije);
 
         }
-
-        public void IzmeniNotifikaciju(KartonPacijenta karton)
-        {
-
-        }
-
-
-
-        public List<Recept> pregledRecepata(Pacijent p)
+        public List<Recept> PregledRecepata(Pacijent p)
         {
             PacijentRepository datotetka = new PacijentRepository();
             List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();

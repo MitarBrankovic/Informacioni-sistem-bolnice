@@ -18,5 +18,15 @@ namespace Model
         public string VremeObavestenja;
         public string OpisNotifikacije;
 
+        public NotifikacijePacijenta(Pacijent pacijent, DateTime pocetakDatum, DateTime krajDatum, Recept recept, string vremeObavestenja, string opisNotifikacije)
+        {
+            this.Pacijent = pacijent;
+            this.PocetakDatuma = pocetakDatum;
+            this.KrajDatuma = krajDatum;
+            this.Recept = recept;
+            this.VremeObavestenja = vremeObavestenja;
+            this.OpisNotifikacije = opisNotifikacije;
+                                
+        }
     }
 }

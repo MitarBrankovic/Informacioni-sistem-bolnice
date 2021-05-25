@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -22,32 +23,38 @@ namespace PrviProgram.Izgled.IzgledPacijent
     {
         public DateTime trenutniDatum = new DateTime();
         public DateTime datumTermina=new DateTime();
-        public Lekar l = new Lekar();
-        public Termin t;
+
+        public Model.Lekar lekar = new Model.Lekar();
+        public Termin termin=new Termin();
+
 
         public DateTime trenutnoVreme = new DateTime();
         public DateTime vremeTermina = new DateTime();
-        private ObservableCollection<Termin> term;
+        private ObservableCollection<Termin> termini;
         private Pacijent pacijent;
         private Termin noviTermin = new Termin();
-        string[] niz = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        string[] nizVremena = { "08:00:00", "08:30:00", "09:00:00", "09:30:00", 
+            "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", 
+            "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", 
+            "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", 
+            "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
+        public PacijentControler pacijentControler = new PacijentControler();
 
 
-        public PomeranjeZakazanogTermina(Termin selektovaniTermin, Pacijent p, ObservableCollection<Termin> termini)
+        public PomeranjeZakazanogTermina(Termin selektovaniTermin, Pacijent pacijent, ObservableCollection<Termin> termini)
         {
             InitializeComponent();
 
             this.datumTermina = selektovaniTermin.Datum;
-            this.term = termini;
-            this.t = selektovaniTermin;
-            this.pacijent = p;
-            this.l.Ime = selektovaniTermin.lekar.Ime;
-            this.l.Prezime = selektovaniTermin.lekar.Prezime;
-            this.l.Jmbg = selektovaniTermin.lekar.Jmbg;
+            this.termini = termini;
+            this.termin = selektovaniTermin;
+            this.pacijent = pacijent;
+            this.lekar.Ime = selektovaniTermin.lekar.Ime;
+            this.lekar.Prezime = selektovaniTermin.lekar.Prezime;
+            this.lekar.Jmbg = selektovaniTermin.lekar.Jmbg;
             DatumText.BlackoutDates.Add(new CalendarDateRange(DateTime.Today, datumTermina.AddDays(-3)));
             DatumText.BlackoutDates.Add(new CalendarDateRange(datumTermina,datumTermina));
             DatumText.BlackoutDates.Add(new CalendarDateRange(datumTermina.AddDays(3), DateTime.MaxValue));
-            // vremeText.Items.RemoveAt(0);
             PotvrdiDugme.IsEnabled = false;
             vremeText.IsEnabled = false;
             ImeLekara.Text = selektovaniTermin.lekar.Ime;
@@ -76,23 +83,19 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 PotvrdiDugme.IsEnabled = true;
             }
         }
-        public void brisanjeComboBoxova(int[] niz)
+        public void brisanjeComboBoxova(int[] nizVremena)
         {
-            int j = 0;
-            int k = 0;
-            for (int i = 0; i < niz.Length; i++)
+            int indexObrisanogVremena = 0;
+            int brojacObrisanihVremena = 0;
+            for (int iteratorPetlje = 0; iteratorPetlje < nizVremena.Length; iteratorPetlje++)
             {
-
-                if (niz[i] == 1)
+                if (nizVremena[iteratorPetlje] == 1)
                 {
-                    j = i + k;
-                    vremeText.Items.RemoveAt(j);
-
-                    k--;
-
+                    indexObrisanogVremena = iteratorPetlje + brojacObrisanihVremena;
+                    vremeText.Items.RemoveAt(indexObrisanogVremena);
+                    brojacObrisanihVremena--;
                 }
             }
-
         }
         
         private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -103,9 +106,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             else
             {
-                string jmbg = this.l.Jmbg;
-                int[] noviNiz = (int[])TerminiService.getInstance().ProveraZauzetostiLekara(jmbg, (DateTime)DatumText.SelectedDate, niz);
-                brisanjeComboBoxova(noviNiz);
+                int[] noviNizSlobodnihIZauzetihVremena = pacijentControler.ProveraZauzetostiLekara(this.lekar.Jmbg, (DateTime)DatumText.SelectedDate, nizVremena);
+                brisanjeComboBoxova(noviNizSlobodnihIZauzetihVremena);
                 if (vremeText.Items.IsEmpty)
                 {
                     vremeText.IsEnabled = false;
@@ -119,37 +121,19 @@ namespace PrviProgram.Izgled.IzgledPacijent
         }
 
         //dugme potvrdi
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            this.term.Remove(this.t);
-            
-            this.noviTermin.lekar = l;
-            this.noviTermin.Datum = (DateTime)(DatumText.SelectedDate);
-            this.noviTermin.Vreme = vremeText.Text;
-            noviTermin.SifraTermina = t.SifraTermina;
-            noviTermin.sala = t.sala;
-
-            this.noviTermin.pacijent = this.pacijent;
-
-            String tip = TipTerminaText.Text;
-            if (tip.Equals("Pregled"))
-            {
-                this.noviTermin.TipTermina = TipTermina.Pregled;
-            }
-            if (tip.Equals("Kontrola"))
-            {
-                this.noviTermin.TipTermina = TipTermina.Kontrola;
-            }
-            if (TerminiService.getInstance().IzmenaTermina(this.noviTermin) == true)
-            {
-                //  PreglediService.getInstance().IzmenaPregleda(this.noviTermin);
-                this.term.Add(this.noviTermin);
+            this.termini.Remove(this.termin);
+            Termin noviTermin = new Termin ((DateTime)(DatumText.SelectedDate), (TipTermina)TipTerminaText.SelectedItem, termin.SifraTermina, termin.sala, vremeText.Text,lekar, pacijent);
+            if (pacijentControler.IzmenaTermina(this.noviTermin))
+            { 
+                this.termini.Add(this.noviTermin);
             }
             this.Close();
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
