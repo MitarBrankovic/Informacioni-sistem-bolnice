@@ -107,7 +107,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             Close();
         }
 
-        private void datePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             AzurirajVreme();
         }

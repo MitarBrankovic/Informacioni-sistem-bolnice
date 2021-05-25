@@ -139,12 +139,12 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             }
         }
 
-        private void comboBoxLekari_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ComboBoxLekari_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             AzurirajVreme();
         }
 
-        private void datePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             AzurirajVreme();
         }

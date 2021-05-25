@@ -54,15 +54,15 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             return terminiLekara;
         }
 
-        private int SortirajTerminePoVremenuPomeranja(Termin x, Termin y)
+        private int SortirajTerminePoVremenuPomeranja(Termin terminX, Termin terminY)
         {
-            Termin a = PronadjiPrviSledeciSlobodanTerminKodLekara(x);
-            Termin b = PronadjiPrviSledeciSlobodanTerminKodLekara(y);
-            int datumCompare = a.Datum.Date.CompareTo(b.Datum.Date);
+            Termin terminA = PronadjiPrviSledeciSlobodanTerminKodLekara(terminX);
+            Termin terminB = PronadjiPrviSledeciSlobodanTerminKodLekara(terminY);
+            int datumCompare = terminA.Datum.Date.CompareTo(terminB.Datum.Date);
             if (datumCompare == 0)
             {
-                string[] aVreme = a.Vreme.Split(":");
-                string[] bVreme = b.Vreme.Split(":");
+                string[] aVreme = terminA.Vreme.Split(":");
+                string[] bVreme = terminB.Vreme.Split(":");
                 int brojSatiCompare = int.Parse(aVreme[0]).CompareTo(int.Parse(bVreme[0]));
                 if (brojSatiCompare == 0)
                 {

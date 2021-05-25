@@ -79,27 +79,27 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             kreiranjeGuestPacijenta.Show();
         }
 
-        private void comboBoxLekari_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ComboBoxLekari_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (checkBoxHitanSlucaj.IsChecked == false)
+            if (checkBoxHitanSlucaj.IsChecked.Value)
             {
-                AzurirajVreme();
+                PostaviVremenaNaSlobodna();
             }
             else
             {
-                PostaviVremenaNaSlobodna();
+                AzurirajVreme();
             }
         }
 
-        private void datePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (checkBoxHitanSlucaj.IsChecked == false)
+            if (checkBoxHitanSlucaj.IsChecked.Value)
             {
-                AzurirajVreme();
+                PostaviVremenaNaSlobodna();
             }
             else
             {
-                PostaviVremenaNaSlobodna();
+                AzurirajVreme();
             }
         }
 
@@ -139,14 +139,15 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             }
         }
 
-        private void checkBoxHitanSlucaj_Checked(object sender, RoutedEventArgs e)
+        private void CheckBoxHitanSlucaj_Checked(object sender, RoutedEventArgs e)
         {
             PostaviVremenaNaSlobodna();
         }
 
-        private void checkBoxHitanSlucaj_Unchecked(object sender, RoutedEventArgs e)
+        private void CheckBoxHitanSlucaj_Unchecked(object sender, RoutedEventArgs e)
         {
             AzurirajVreme();
         }
+
     }
 }

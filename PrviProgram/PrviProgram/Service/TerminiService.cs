@@ -56,11 +56,11 @@ namespace Service
         {
             List<string> zauzetiTermini = new List<string>();
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
-            foreach (Termin t in termini)
+            foreach (Termin termin in termini)
             {
-                if (t.lekar.Jmbg.Equals(lekar.Jmbg) && t.Datum.Date.Equals(datumTermina.Date))
+                if (termin.lekar.Jmbg.Equals(lekar.Jmbg) && termin.Datum.Date.Equals(datumTermina.Date))
                 {
-                    zauzetiTermini.Add(t.Vreme);
+                    zauzetiTermini.Add(termin.Vreme);
                 }
             }
             return zauzetiTermini;
@@ -188,35 +188,57 @@ namespace Service
         }
         public bool ProveraSale(Sala sala, List<Termin> termini, Termin noviTermin)
         {
-            List<TerminRenoviranjaSale> terminiRenoviranja = terminiRenoviranjaRepository.CitanjeIzFajla();
-            foreach (TerminRenoviranjaSale terminRenoviranja in terminiRenoviranja) 
+            if (!ProveraRenoviranjaSale(sala, noviTermin))
             {
-                if (terminRenoviranja.Sala.Naziv.Equals(sala.Naziv))
-                {
-                    var intervalRenoviranja = new List<DateTime>();
-                    for (var dt = terminRenoviranja.PocetakRenoviranja; dt <= terminRenoviranja.KrajRenoviranja; dt = dt.AddDays(1))
-                    {
-                        intervalRenoviranja.Add(dt);
-                    }
-                    if (intervalRenoviranja.Contains(noviTermin.Datum))
-                    {
-                        return false;
-                    }
-                    intervalRenoviranja.Clear();
-                }
+                return false;
             }
+            if (!ProveraZauzetostTerminUSali(sala, termini, noviTermin))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool ProveraZauzetostTerminUSali(Sala sala, List<Termin> termini, Termin noviTermin)
+        {
             foreach (Termin termin in termini)
             {
                 if (termin.Datum.Equals(noviTermin.Datum) && termin.Vreme.Equals(noviTermin.Vreme) && termin.sala.Sifra.Equals(sala.Sifra))
                 {
                     return false;
                 }
-                if (sala.Tip == TipSale.Magacin || sala.Tip == TipSale.Kancelarija || sala.Tip == TipSale.SalaZaOdmor) 
+                if (sala.Tip == TipSale.Magacin || sala.Tip == TipSale.Kancelarija || sala.Tip == TipSale.SalaZaOdmor)
                 {
                     return false;
                 }
             }
             return true;
+        }
+
+        public bool ProveraRenoviranjaSale(Sala sala, Termin noviTermin)
+        {
+            foreach (TerminRenoviranjaSale terminRenoviranja in terminiRenoviranjaRepository.CitanjeIzFajla())
+            {
+                if (terminRenoviranja.Sala.Naziv.Equals(sala.Naziv))
+                {
+                    if (IzracunajIntervalRenoviranja(terminRenoviranja).Contains(noviTermin.Datum))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public List<DateTime> IzracunajIntervalRenoviranja(TerminRenoviranjaSale terminRenoviranja)
+        {
+            List<DateTime> intervalRenoviranja = new List<DateTime>();
+            for (DateTime datum = terminRenoviranja.PocetakRenoviranja; datum <= terminRenoviranja.KrajRenoviranja; datum = datum.AddDays(1))
+            {
+                intervalRenoviranja.Add(datum);
+            }
+
+            return intervalRenoviranja;
         }
 
         public List<Termin> SviSlobodniTermini(DateTime min, DateTime max, Lekar selektovaniLekar,string tipTermina)
@@ -253,6 +275,7 @@ namespace Service
             }
             return terminiSlobodni;
         }
+
         public bool ProveraTermina(DateTime datum, string vreme)
         {
             List<Termin> termini = CitanjeTermina();
@@ -266,6 +289,7 @@ namespace Service
             return true;
 
         }
+
         public bool ProveraZauzetostiKodLekara(DateTime min, DateTime max, Lekar selektovaniLekar)
         {
             List<Termin> termini = CitanjeTermina();
@@ -343,7 +367,6 @@ namespace Service
             return this.terminiSlobodni;
         }
 
-
         public Lekar LekarKojiJeZaduzenZaTermin(Termin selektovanitermin)
         {
             Lekar lekar = new Lekar();
@@ -358,6 +381,6 @@ namespace Service
             }
             return null;
         }
-    }
 
+    }
  }
