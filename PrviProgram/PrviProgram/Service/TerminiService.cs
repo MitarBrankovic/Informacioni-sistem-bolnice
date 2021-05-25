@@ -103,25 +103,39 @@ namespace Service
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
-            List<Termin> termini = terminiRepository.CitanjeIzFajla();
-            List<Termin> list = new List<Termin>();
-            Sala s = new Sala();
-
+            List<Termin> termini = terminiRepository.PregledSvihTermina();
+            List<Termin> novaListaTermina = new List<Termin>();
             foreach (Termin terminIterator in termini)
             {
-                list.Add(terminIterator);
+                novaListaTermina.Add(terminIterator);
                 if (terminIterator.sala.Sifra.Equals(staraSala.Sifra))
                 {
-                    list.Remove(terminIterator);
+                    novaListaTermina.Remove(terminIterator);
                     terminIterator.sala = novaSala;
-                    list.Add(terminIterator);
-                    terminiRepository.UpisivanjeUFajl(list);
+                    novaListaTermina.Add(terminIterator);
+                    terminiRepository.UpisivanjeUFajl(novaListaTermina);
                     return true;
                 }
             }
             return false;
-
         }
+
+        public void BrisanjeSaleIzTermina(Sala sala)
+        {
+            List<Termin> termini = terminiRepository.PregledSvihTermina();
+            foreach (Termin terminIterator in termini)
+            {
+                if (terminIterator != null)
+                {
+                    if (terminIterator.sala.Sifra == sala.Sifra)
+                    {
+                        terminIterator.sala = null;
+                        IzmenaTermina(terminIterator);
+                    }
+                }
+            }
+        }
+
         public int[] ProveraZauzetostiLekara(string jmbg, DateTime selektovaniDatum, string[] niz)
         {
             int[] popunjeniNiz = new int[24] { 0, 0, 0, 0, 0, 0, 0, 

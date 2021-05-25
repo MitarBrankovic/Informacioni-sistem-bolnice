@@ -12,7 +12,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Model;
-using PrviProgram.Logika;
 using PrviProgram.Repository;
 using Repository;
 using Service;
@@ -60,7 +59,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                         terminiRenoviranja.Remove(terminBrojac);
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;
-
                     }
                     else
                     {
@@ -72,7 +70,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;
                     }
-
                 }
             }
         }
@@ -87,7 +84,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridUpravnik.SelectedIndex != -1)
             {
-                ControllerUpravnik.getInstance().BrisanjeSale((Sala)dataGridUpravnik.SelectedItem, sale);
+                upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
+                sale.Remove((Sala)dataGridUpravnik.SelectedItem);
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
         }
@@ -307,7 +305,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (dataGridUpravnik.SelectedIndex != -1)
                 {
-                    ControllerUpravnik.getInstance().BrisanjeSale((Sala)dataGridUpravnik.SelectedItem, sale);
+                    upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
+                    sale.Remove((Sala)dataGridUpravnik.SelectedItem);
                 }
                 else { MessageBox.Show("Morate izabrati salu!"); }
                 Dodaj.Focus();

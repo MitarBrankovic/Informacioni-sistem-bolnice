@@ -11,6 +11,7 @@ namespace Controller
         private OpremaService opremaService = new OpremaService();
         private LekoviService lekoviService = new LekoviService();
         private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
+        private TerminiService terminiService = new TerminiService();
 
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
       {
@@ -55,8 +56,11 @@ namespace Controller
       public bool BrisanjeSale(Sala sala)
       {
             if (saleService.BrisanjeSale(sala))
+            {
+                terminiService.BrisanjeSaleIzTermina(sala);
                 return true;
-            else
+            }
+            else 
                 return false;
         }
       
