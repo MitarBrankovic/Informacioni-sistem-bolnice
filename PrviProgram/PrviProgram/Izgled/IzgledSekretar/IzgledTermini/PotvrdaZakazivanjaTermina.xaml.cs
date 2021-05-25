@@ -31,21 +31,21 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if (terminiService.ProvaraZauzatostiTermina(termin) == false)
-            {
-                terminiService.DodavanjeTermina(termin);
-                this.termini.Add(termin);
-            }
-            else
+            if (terminiService.ProvaraZauzatostiTermina(termin))
             {
                 MessageBox.Show("Termin je zauzet.");
             }
-            this.Close();
+            else
+            {
+                terminiService.DodavanjeTermina(termin);
+                termini.Add(termin);
+            }
+            Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
     }

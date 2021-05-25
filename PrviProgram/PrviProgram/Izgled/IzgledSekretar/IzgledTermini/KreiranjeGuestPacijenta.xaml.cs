@@ -17,23 +17,21 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            GuestPacijent guestPacijent = new GuestPacijent();
-            guestPacijent.Ime = textBoxIme.Text;
-            guestPacijent.Prezime = textBoxPrezime.Text;
-            guestPacijent.Jmbg = textBoxJMBG.Text;
-            guestPacijent.Pol = ((bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski);
-            guestPacijent.KontaktTelefon = textBoxKontaktTelefon.Text;
+            GuestPacijent guestPacijent = new GuestPacijent(textBoxIme.Text, textBoxPrezime.Text, textBoxJMBG.Text,
+                                                            textBoxKontaktTelefon.Text,
+                                                            (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski);
             ZakazivanjeTermina.guestPacijent = guestPacijent;
             ObservableCollection<GuestPacijent> guestPacijents = new ObservableCollection<GuestPacijent>();
             guestPacijents.Add(guestPacijent);
             comboBox.ItemsSource = guestPacijents;
             comboBox.SelectedIndex = 0;
-            this.Close();
+            Close();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
+
     }
 }
