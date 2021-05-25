@@ -1,19 +1,35 @@
 [
   {
-    "MestoRodjenja": null,
+    "MestoRodjenja": {
+      "Ime": "Novi Sad",
+      "drzava": {
+        "Ime": "Srbija"
+      }
+    },
     "Korisnik": {
       "KorisnickoIme": "mitar",
       "Lozinka": "mitar",
       "TipKorisnika": 0,
       "osoba": null
     },
-    "AdresaStanovanja": null,
+    "AdresaStanovanja": {
+      "Ulica": "tolstojeva",
+      "Broj": 10,
+      "Sprat": 5,
+      "Stan": 23,
+      "grad": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      }
+    },
     "Ime": "Mitar",
     "Prezime": "Brankovic",
-    "Email": null,
+    "Email": "mitar@gmail.com",
     "Jmbg": "1241254125",
     "DatumRodjenja": "0001-01-01T00:00:00",
     "Pol": 0,
-    "KontaktTelefon": null
+    "KontaktTelefon": "061212121"
   }
 ]

@@ -6,5 +6,10 @@ namespace Model
         {
             return Ime + " " + Prezime;
         }
+
+        public Upravnik(Osoba osoba) : base(osoba)
+        { }
+
+        public Upravnik() { }
     }
 }

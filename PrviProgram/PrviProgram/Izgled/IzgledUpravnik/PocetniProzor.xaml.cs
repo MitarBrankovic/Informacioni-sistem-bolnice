@@ -8,9 +8,27 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class PocetniProzor : Window
     {
+        private Upravnik upravnik;
         public PocetniProzor(Upravnik upravnik)
         {
             InitializeComponent();
+            this.upravnik = upravnik;
+        }
+
+        private void LogOutIzAplikacije()
+        {
+            MessageBoxResult rsltMessageBox = MessageBox.Show("Da li ste sigurni da zelite da se izlogujete?", "Log out",
+        MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+            switch (rsltMessageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
         }
 
         private void Sale_Click(object sender, RoutedEventArgs e)
@@ -22,21 +40,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzlogujteSe_Click(object sender, RoutedEventArgs e)
         {
-            string sMessageBoxText = "Da li ste sigurni da zelite da se izlogujete?";
-            string sCaption = "Log out";
-            MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
-            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
-            MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-            switch (rsltMessageBox)
-            {
-                case MessageBoxResult.Yes:
-                    this.Close();
-                    break;
-                case MessageBoxResult.No:
-                    break;
-                case MessageBoxResult.Cancel:
-                    break;
-            }
+            LogOutIzAplikacije();
         }
 
         private void Oprema_Click(object sender, RoutedEventArgs e)
@@ -53,9 +57,23 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             gridMain.Children.Add(s);
         }
 
-        public void Ocisti()
+        private void Zaposleni_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Tutorijal_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new TutorijalProzor();
             gridMain.Children.Clear();
+            gridMain.Children.Add(s);
+        }
+
+        private void Podesavanja_Click_1(object sender, RoutedEventArgs e)
+        {
+            var s = new Podesavanja(upravnik);
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
         }
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
@@ -107,70 +125,72 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (SaleButton.IsFocused)
                 {
+                    Zaposleni.Focus();
+                }
+                else if (Zaposleni.IsFocused)
+                {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
                 {
-                    LekoviButton.Focus();
+                    Podesavanja.Focus();
                 }
-                else if (LekoviButton.IsFocused)
+                else if (Podesavanja.IsFocused)
                 {
-                    Pomoc.Focus();
+                    LogOutButton.Focus();
                 }
                 else if (LogOutButton.IsFocused)
                 {
                     LekoviButton.Focus();
                 }
-                /*else if (!SaleButton.IsFocused || !OpremaButton.IsFocused || !LekoviButton.IsFocused || !LogOutButton.IsFocused || !Pomoc.IsFocused)
+                else if (LekoviButton.IsFocused)
                 {
-                    SaleButton.Focus();
-                }*/
+                    Tutorijal.Focus();
+                }
+                else if (Tutorijal.IsFocused)
+                {
+                    Pomoc.Focus();
+                }
                 else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
                     SaleButton.Focus();
 
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
-                if (SaleButton.IsFocused)
+                if (Pomoc.IsFocused)
+                {
+                    Tutorijal.Focus();
+                }
+                else if (Tutorijal.IsFocused)
+                {
+                    LekoviButton.Focus();
+                }
+                else if (LekoviButton.IsFocused)
                 {
                     LogOutButton.Focus();
                 }
                 else if (LogOutButton.IsFocused)
                 {
-                    SaleButton.Focus();
+                    Podesavanja.Focus();
                 }
-                else if (LekoviButton.IsFocused)
+                else if (Podesavanja.IsFocused)
                 {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
                 {
-                    SaleButton.Focus();
+                    Zaposleni.Focus();
                 }
-                else if (Pomoc.IsFocused)
+                else if (Zaposleni.IsFocused)
                 {
-                    LekoviButton.Focus();
+                    SaleButton.Focus();
                 }
                 else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
                     SaleButton.Focus();
             }
             else if (e.Key == Key.End)
             {
-                string sMessageBoxText = "Da li ste sigurni da zelite da se izlogujete?";
-                string sCaption = "Log out";
-                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
-                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
-                MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-                switch (rsltMessageBox)
-                {
-                    case MessageBoxResult.Yes:
-                        this.Close();
-                        break;
-                    case MessageBoxResult.No:
-                        break;
-                    case MessageBoxResult.Cancel:
-                        break;
-                }
+                LogOutIzAplikacije();
             }
             else if (e.Key == Key.Space)
             {

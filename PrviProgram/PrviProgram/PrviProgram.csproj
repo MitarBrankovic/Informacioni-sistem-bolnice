@@ -23,9 +23,14 @@
     <None Remove="Slike\Dania.jpg" />
     <None Remove="Slike\hospital-2.jpg" />
     <None Remove="Slike\logout-64.png" />
+    <None Remove="Slike\open.png" />
     <None Remove="Slike\Pacijent.jpg" />
+    <None Remove="Slike\pause.png" />
+    <None Remove="Slike\play.png" />
     <None Remove="Slike\pozadinaPacijent.jpg" />
+    <None Remove="Slike\stop.png" />
     <None Remove="Slike\upravnik.jpg" />
+    <None Remove="Slike\volume.png" />
     <None Remove="Slike\znakBolnice.png" />
     <None Remove="upravnik.jpg" />
   </ItemGroup>
@@ -52,9 +57,14 @@
     <Resource Include="Slike\Dania.jpg" />
     <Resource Include="Slike\hospital-2.jpg" />
     <Resource Include="Slike\logout-64.png" />
+    <Resource Include="Slike\open.png" />
     <Resource Include="Slike\Pacijent.jpg" />
+    <Resource Include="Slike\pause.png" />
+    <Resource Include="Slike\play.png" />
     <Resource Include="Slike\pozadinaPacijent.jpg" />
+    <Resource Include="Slike\stop.png" />
     <Resource Include="Slike\upravnik.jpg" />
+    <Resource Include="Slike\volume.png" />
     <Resource Include="Slike\znakBolnice.png" />
   </ItemGroup>
 

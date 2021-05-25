@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Service
 {
@@ -43,6 +46,32 @@ namespace Service
         {
             int retVal;
             return int.TryParse(broj, out retVal) ? retVal : default;
+        }
+
+        public void LogOutUpravnikaUserControl(UserControl user)
+        {
+            MessageBoxResult rsltMessageBox = MessageBox.Show("Da li ste sigurni da zelite da se izlogujete?", "Log out",
+        MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+            switch (rsltMessageBox)
+            {
+                case MessageBoxResult.Yes:
+                    Window parentWindow = Window.GetWindow(user);
+                    parentWindow.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
+        }
+
+        public void InicijalizacijaToolTipa(object sender)
+        {
+            ToolTip tooltip = (ToolTip)(sender as Control).ToolTip;
+            tooltip.PlacementTarget = (UIElement)sender;
+            tooltip.Placement = PlacementMode.Right;
+            tooltip.PlacementRectangle = new Rect(0, (sender as Control).Height, 0, 0);
+            tooltip.IsOpen = (sender as Control).IsKeyboardFocusWithin;
         }
 
     }

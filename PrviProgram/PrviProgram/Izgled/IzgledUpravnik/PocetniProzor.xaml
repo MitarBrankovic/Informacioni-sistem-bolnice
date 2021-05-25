@@ -51,7 +51,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
+                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Izlazak iz aplikacije
@@ -77,6 +77,21 @@
                         <ToolTip>
                             Deteljna uputstva za korisnjece aplikacije
                         </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Zaposleni" Style="{StaticResource UpravnikButton}" Content="Zaposleni" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Zaposleni_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz svih zaposlenih"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Tutorijal" Style="{StaticResource UpravnikButton}" Content="Tutorijal" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Tutorijal_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz svih lekova"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" Content="Podesavanja" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Podesavanja_Click_1">
+                    <Button.ToolTip>
+                        <ToolTip Content="Podesavanja aplikacije"/>
                     </Button.ToolTip>
                 </Button>
             </Grid>
