@@ -63,11 +63,11 @@ namespace Repository
             Lek lek = PregledLeka(lekArg.Sifra);
             try
             {
-                string[] sastojciLeka = lek.Sastojci.Split(",");
+                string[] sastojciLeka = lek.Sastojci.Split(new Char[] {',', '\n' });
                 List<string> sastojciLekaList = new List<string>();
                 foreach(var sastojak in sastojciLeka)
                 {
-                    sastojciLekaList.Add(sastojak);
+                    sastojciLekaList.Add(sastojak.ToLower());
                 }
                 return sastojciLekaList;
             }

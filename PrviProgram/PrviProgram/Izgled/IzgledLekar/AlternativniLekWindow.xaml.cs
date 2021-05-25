@@ -25,6 +25,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.anamnezaPrikaz = anamnezaPrikaz;
             dataGridAlternativniLek.ItemsSource = lek.ZamenaZaLek;
+            Potrvrdi.IsEnabled = false;
         }
 
         private void Potrvrdi_Click(object sender, RoutedEventArgs e)
@@ -36,6 +37,11 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Zatvori_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridAlternativniLek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Potrvrdi.IsEnabled = true;
         }
     }
 }

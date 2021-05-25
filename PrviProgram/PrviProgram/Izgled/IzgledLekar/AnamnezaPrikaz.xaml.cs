@@ -62,6 +62,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 termin.izvrsen = true;
                 terminiService.IzmenaTermina(termin);
                 kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+                Zavrsi.IsEnabled = false;
             }
             else
             {
@@ -76,6 +77,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             terminiService.IzmenaTermina(termin);
             izvrseniPregled.recept.Lekovi = alternativniLek;
             kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
+            Zavrsi.IsEnabled = false;
         }
 
         private void InicijalizacijaIzvrsenogTermina()

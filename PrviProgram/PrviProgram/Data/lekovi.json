@@ -1,33 +1,5 @@
 [
   {
-    "ZamenaZaLek": [],
-    "Sifra": "bio",
-    "Naziv": "Bio Oil",
-    "Sastojci": "a",
-    "Opis": "a"
-  },
-  {
-    "ZamenaZaLek": [],
-    "Sifra": "andol",
-    "Naziv": "Andol",
-    "Sastojci": "asdad",
-    "Opis": "sadasas"
-  },
-  {
-    "ZamenaZaLek": [],
-    "Sifra": "asp",
-    "Naziv": "Aspirin",
-    "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
-    "Opis": "a"
-  },
-  {
-    "ZamenaZaLek": [],
-    "Sifra": "cardiop",
-    "Naziv": "Cardiopirin",
-    "Sastojci": "nesto",
-    "Opis": "nesto"
-  },
-  {
     "ZamenaZaLek": [
       {
         "ZamenaZaLek": [],
@@ -210,5 +182,57 @@
     "Naziv": "Paracetamol",
     "Sastojci": "nesa",
     "Opis": "nes"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "asp",
+    "Naziv": "Aspirin",
+    "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
+    "Opis": "a"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [],
+        "Sifra": "bio",
+        "Naziv": "Bio Oil",
+        "Sastojci": "kikiriki, carape",
+        "Opis": "a"
+      }
+    ],
+    "Sifra": "andol",
+    "Naziv": "Andol",
+    "Sastojci": "kakao, so, paradajz",
+    "Opis": "sadasas"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [],
+            "Sifra": "bio",
+            "Naziv": "Bio Oil",
+            "Sastojci": "kikiriki, carape",
+            "Opis": "a"
+          }
+        ],
+        "Sifra": "andol",
+        "Naziv": "Andol",
+        "Sastojci": "kakao, so, paradajz",
+        "Opis": "sadasas"
+      }
+    ],
+    "Sifra": "bio",
+    "Naziv": "Bio Oil",
+    "Sastojci": "carape,\r\nkikiriki",
+    "Opis": "a"
+  },
+  {
+    "ZamenaZaLek": [],
+    "Sifra": "cardiop",
+    "Naziv": "Cardiopirin",
+    "Sastojci": "kecap,\r\nkikiriki",
+    "Opis": "nesto"
   }
 ]
