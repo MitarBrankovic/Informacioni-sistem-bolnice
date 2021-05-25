@@ -107,9 +107,9 @@ namespace Controller
         {
             Pacijent pacijent = pacijentRepository.PregledPacijenta(prosledjeniPacijent.Jmbg);
             List<String> sastojci = lekoviRepository.DobavljanjeSastojakaLeka(lek);
-            if(pacijent.kartonPacijenta.alergen != null)
+            if(pacijent.KartonPacijenta.alergen != null)
             {
-                foreach (Alergen alergen in pacijent.kartonPacijenta.alergen)
+                foreach (Alergen alergen in pacijent.KartonPacijenta.alergen)
                 {
                     if (sastojci.Contains(alergen.Naziv.ToLower()))
                     {

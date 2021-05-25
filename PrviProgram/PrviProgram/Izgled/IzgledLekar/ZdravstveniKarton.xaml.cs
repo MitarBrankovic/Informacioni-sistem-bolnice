@@ -32,7 +32,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pacijent = pacijent;
             this.termini = termini;
-            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
+            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled);
             dataGridKarton.ItemsSource = izvrseniPregledi;
         }
 

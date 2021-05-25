@@ -48,7 +48,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
             if (dataGridLekar.SelectedIndex != -1)
             {
-                if (termin.izvrsen != true)
+                if (termin.Izvrsen != true)
                 {
                     IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
                     izmena.Show();
@@ -102,7 +102,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
 
-            if (termin.izvrsen != true)
+            if (termin.Izvrsen != true)
             {
                 if (dataGridLekar.SelectedIndex != -1)
                 {

@@ -28,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public PregledAnamneze(Pacijent selektovaniPacijent)
         {
             InitializeComponent();
-            this.izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(selektovaniPacijent.kartonPacijenta.izvrseniPregled);
+            this.izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(selektovaniPacijent.KartonPacijenta.izvrseniPregled);
             this.selektovaniPacijent = selektovaniPacijent;
             dataGridAnamneze.ItemsSource = izvrseniPregledi;
         }
@@ -37,11 +37,21 @@ namespace PrviProgram.Izgled.IzgledPacijent
         {
             if (dataGridAnamneze.SelectedIndex != -1)
             {
-                IzvrseniPregled izvrsenPregled = (IzvrseniPregled)dataGridAnamneze.SelectedItem;
-                DodavanjeBeleske prozorZaDodavanjeBeleske = new DodavanjeBeleske(izvrsenPregled, izvrseniPregledi,selektovaniPacijent);
+             
+                DodavanjeBeleske prozorZaDodavanjeBeleske = new DodavanjeBeleske((IzvrseniPregled)dataGridAnamneze.SelectedItem, izvrseniPregledi,selektovaniPacijent);
                 prozorZaDodavanjeBeleske.Show();
             }
           
+        }
+
+        private void Notifikacija_Beleske_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridAnamneze.SelectedIndex != -1)
+            {
+                KreiranjeNotifikacijaBelske prozor = new KreiranjeNotifikacijaBelske((IzvrseniPregled)dataGridAnamneze.SelectedItem, selektovaniPacijent);
+                prozor.Show();
+            }
+
         }
     }
 }

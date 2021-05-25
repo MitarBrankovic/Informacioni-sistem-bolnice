@@ -75,15 +75,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.notifikacija.pacijent = this.pp;
+            this.notifikacija.Pacijent = this.pp;
             Recept r = new Recept();
             //r.Lekovi = listaLekova.SelectedItem.ToString();
             r.OpisLeka = OpisLeka.Text;
-            this.notifikacija.recept = r;
+            this.notifikacija.Recept = r;
             this. notifikacija.KrajDatuma = end;
            this. notifikacija.PocetakDatuma = start;
-           this.notifikacija.vremeObavestenja = comboBoxVreme.Text;
-           this. notifikacija.opisNotifikacije="Morate popiti "+listaLekova.SelectedItem.ToString()+" za 1h.";
+           this.notifikacija.VremeObavestenja = comboBoxVreme.Text;
+           this. notifikacija.OpisNotifikacije="Morate popiti "+listaLekova.SelectedItem.ToString()+" za 1h.";
             not.DodavanjeNotifikacije(notifikacija);
             potvrdiButton.IsEnabled = false;
             otkaziButton.IsEnabled = false;

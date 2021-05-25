@@ -4,22 +4,22 @@ namespace Model
 {
     public class Pacijent : Osoba
     {
-        public List<Termin> termin;
-        public KartonPacijenta kartonPacijenta { get; set; }
+        public List<Termin> Termin;
+        public KartonPacijenta KartonPacijenta { get; set; }
 
         public Pacijent() { }
 
         public Pacijent(Osoba osoba, List<Termin> termini, KartonPacijenta kartonPacijenta) : base(osoba)
         {
-            termin = termini;
-            this.kartonPacijenta = kartonPacijenta;
+            Termin = termini;
+            this.KartonPacijenta = kartonPacijenta;
         }
 
         public List<Termin> GetTermin()
         {
-            if (termin == null)
-                termin = new List<Termin>();
-            return termin;
+            if (Termin == null)
+                Termin = new List<Termin>();
+            return Termin;
         }
 
         public void SetTermin(List<Termin> newTermin)
@@ -33,11 +33,11 @@ namespace Model
         {
             if (newTermin == null)
                 return;
-            if (this.termin == null)
-                this.termin = new List<Termin>();
-            if (!this.termin.Contains(newTermin))
+            if (this.Termin == null)
+                this.Termin = new List<Termin>();
+            if (!this.Termin.Contains(newTermin))
             {
-                this.termin.Add(newTermin);
+                this.Termin.Add(newTermin);
                 newTermin.SetPacijent(this);
             }
         }
@@ -46,22 +46,22 @@ namespace Model
         {
             if (oldTermin == null)
                 return;
-            if (this.termin != null)
-                if (this.termin.Contains(oldTermin))
+            if (this.Termin != null)
+                if (this.Termin.Contains(oldTermin))
                 {
-                    this.termin.Remove(oldTermin);
+                    this.Termin.Remove(oldTermin);
                     oldTermin.SetPacijent((Pacijent)null);
                 }
         }
 
         public void RemoveAllTermin()
         {
-            if (termin != null)
+            if (Termin != null)
             {
                 List<Termin> tmpTermin = new List<Termin>();
-                foreach (Termin oldTermin in termin)
+                foreach (Termin oldTermin in Termin)
                     tmpTermin.Add(oldTermin);
-                termin.Clear();
+                Termin.Clear();
                 foreach (Termin oldTermin in tmpTermin)
                     oldTermin.SetPacijent((Pacijent)null);
                 tmpTermin.Clear();

@@ -40,7 +40,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
 
-            if (termin.izvrsen != true)
+            if (termin.Izvrsen != true)
             {
                 if (dataGridLekar.SelectedIndex != -1)
                 {
@@ -93,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
 
-            if (termin.izvrsen != true)
+            if (termin.Izvrsen != true)
             {
                 if (dataGridLekar.SelectedIndex != -1)
                 {

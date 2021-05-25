@@ -62,12 +62,12 @@ namespace Service
         }
         public Pacijent DodavanjeBeleskeUKarton(Pacijent pacijent, IzvrseniPregled izvrsen)
         {
-            foreach (IzvrseniPregled izvrseni in pacijent.kartonPacijenta.izvrseniPregled)
+            foreach (IzvrseniPregled izvrseni in pacijent.KartonPacijenta.izvrseniPregled)
             {
                 if (izvrseni.Sifra.Equals(izvrsen.Sifra))
                 {
-                    pacijent.kartonPacijenta.izvrseniPregled.Remove(izvrseni);
-                    pacijent.kartonPacijenta.izvrseniPregled.Add(izvrsen);
+                    pacijent.KartonPacijenta.izvrseniPregled.Remove(izvrseni);
+                    pacijent.KartonPacijenta.izvrseniPregled.Add(izvrsen);
                     return pacijent;
                 }
             }
@@ -80,16 +80,16 @@ namespace Service
             Pacijent pacijentNovi = pacijent;
             //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
             
-            foreach(IzvrseniPregled ip in pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled)
+            foreach(IzvrseniPregled ip in pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled)
             {
                 if(izvrseniPregled.Sifra == ip.Sifra)
                 {
-                    pacijent.kartonPacijenta.AzurirajIzvrseniPregled(izvrseniPregled);
+                    pacijent.KartonPacijenta.AzurirajIzvrseniPregled(izvrseniPregled);
                     pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
                     return;
                 }
             }
-            pacijent.kartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
+            pacijent.KartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
             pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
             //PreglediService.getInstance().IzmenaPregleda(termin);
 

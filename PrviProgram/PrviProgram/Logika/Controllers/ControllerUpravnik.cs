@@ -65,7 +65,7 @@ namespace PrviProgram.Logika
             {
                 if (p != null)
                 {
-                    foreach (Termin t in p.termin)
+                    foreach (Termin t in p.Termin)
                     {
                         if (t != null)
                         {

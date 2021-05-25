@@ -10,7 +10,7 @@ namespace Model
         public Sala sala { get; set; }
         public string Vreme { get; set; }
         public GuestPacijent guestPacijent { get; set; }
-        public bool izvrsen { get; set; }
+        public bool Izvrsen { get; set; }
 
         public Termin() { }
 
@@ -24,7 +24,7 @@ namespace Model
             this.lekar = lekar;
             this.pacijent = pacijent;
             guestPacijent = null;
-            this.izvrsen = false;
+            this.Izvrsen = false;
         }
 
         public Termin(DateTime datum, TipTermina tipTermina, string sifraTermina, string vreme, Lekar lekar)
@@ -37,7 +37,7 @@ namespace Model
             this.lekar = lekar;
             pacijent = null;
             guestPacijent = null;
-            izvrsen = false;
+            Izvrsen = false;
         }
         public Termin(TipTermina tipTermina, string sifraTermina, string vreme)
         {
@@ -48,7 +48,7 @@ namespace Model
             lekar = null;
             pacijent = null;
             guestPacijent = null;
-            izvrsen = false;
+            Izvrsen = false;
         }
 
         public override string ToString()

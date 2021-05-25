@@ -66,7 +66,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             KartonPacijentaService.getInstance().IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
             if (!proveraIzvrsenostiTermina())
             {       
-                termin.izvrsen = true;
+                termin.Izvrsen = true;
                 terminiService.IzmenaTermina(termin);
                 AzuriranjePrikazaTermina(termini, izvrseniPregled);
             }
@@ -91,7 +91,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
             else
             {
-                if(termin.izvrsen == true)
+                if(termin.Izvrsen == true)
                 {
                     return true;
                 }
@@ -109,7 +109,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 if (t.SifraTermina == izvrseniPregled.Sifra)
                 {
                     Termin noviTermin = t;
-                    noviTermin.izvrsen = true;
+                    noviTermin.Izvrsen = true;
                     termini.Remove(t);
                     termini.Add(noviTermin);
                     break;

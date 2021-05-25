@@ -6,28 +6,30 @@ namespace Model
 {
    public  class AntiTrollPacijenta
     {
-        public int brojacOtkazanihTermina { get; set; }
-        public int brojacIzmenenjenihTermina { get; set; }
-        public int brojacDodavanihTermina { get; set; }
-        public DateTime vremeBanovanja { get; set; }
-        public bool daLiJeBanovan { get; set; }
+        public int BrojacOtkazanihTermina { get; set; }
+        public int BrojacIzmenenjenihTermina { get; set; }
+        public int BrojacDodavanihTermina { get; set; }
+        public DateTime VremeBanovanja { get; set; }
+        public bool DaLiJeBanovan { get; set; }
         public Pacijent pacijent { get; set; }
 
-        public AntiTrollPacijenta(int brojacDodavanihTermina, int brojacIzmenenjenihTermina,int brojacOtkazanihTermina, Pacijent pacijent)
+        public AntiTrollPacijenta(int brojacDodavanihTermina, int brojacIzmenenjenihTermina,
+            int brojacOtkazanihTermina, Pacijent pacijent)
         {
-            this.brojacDodavanihTermina = brojacDodavanihTermina;
-            this.brojacIzmenenjenihTermina = brojacIzmenenjenihTermina;
-            this.brojacOtkazanihTermina = brojacOtkazanihTermina;
+            this.BrojacDodavanihTermina = brojacDodavanihTermina;
+            this.BrojacIzmenenjenihTermina = brojacIzmenenjenihTermina;
+            this.BrojacOtkazanihTermina = brojacOtkazanihTermina;
             this.pacijent = pacijent;
         }
-        public AntiTrollPacijenta(int brojacDodavanihTermina, int brojacIzmenenjenihTermina, int brojacOtkazanihTermina, Pacijent pacijent,DateTime vremeBanovanja,bool daLiJeBanovan)
+        public AntiTrollPacijenta(int brojacDodavanihTermina, int brojacIzmenenjenihTermina, 
+            int brojacOtkazanihTermina, Pacijent pacijent,DateTime vremeBanovanja,bool daLiJeBanovan)
         {
-            this.brojacDodavanihTermina = brojacDodavanihTermina;
-            this.brojacIzmenenjenihTermina = brojacIzmenenjenihTermina;
-            this.brojacOtkazanihTermina = brojacOtkazanihTermina;
+            this.BrojacDodavanihTermina = brojacDodavanihTermina;
+            this.BrojacIzmenenjenihTermina = brojacIzmenenjenihTermina;
+            this.BrojacOtkazanihTermina = brojacOtkazanihTermina;
             this.pacijent = pacijent;
-            this.vremeBanovanja = vremeBanovanja;
-            this.daLiJeBanovan = daLiJeBanovan;
+            this.VremeBanovanja = vremeBanovanja;
+            this.DaLiJeBanovan = daLiJeBanovan;
         }
         public AntiTrollPacijenta()
         {

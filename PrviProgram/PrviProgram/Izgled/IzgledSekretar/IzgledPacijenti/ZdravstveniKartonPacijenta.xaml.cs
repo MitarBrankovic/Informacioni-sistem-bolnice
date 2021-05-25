@@ -18,7 +18,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
         {
             InitializeComponent();
             this.pacijent = pacijent;
-            kartonPacijenta = pacijent.kartonPacijenta;
+            kartonPacijenta = pacijent.KartonPacijenta;
             alergeni = new ObservableCollection<Alergen>((IEnumerable<Alergen>)kartonPacijenta.GetAlergen());
             dgDataBinding.ItemsSource = alergeni;
         }
@@ -39,7 +39,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            pacijent.kartonPacijenta.SetAlergen(new List<Alergen>(alergeni));
+            pacijent.KartonPacijenta.SetAlergen(new List<Alergen>(alergeni));
             sekretarController.IzmenaPacijenta(pacijent, pacijent);
             Close();
         }

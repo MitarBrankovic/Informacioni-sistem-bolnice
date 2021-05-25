@@ -68,7 +68,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti
                         textBoxJMBG.Text, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
                         (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, textBoxKontaktTelefon.Text);
 
-            Pacijent noviPacijent = new Pacijent(osoba, pacijent.GetTermin(), pacijent.kartonPacijenta);
+            Pacijent noviPacijent = new Pacijent(osoba, pacijent.GetTermin(), pacijent.KartonPacijenta);
 
             if (sekretarController.IzmenaPacijenta(pacijent, noviPacijent))
             {

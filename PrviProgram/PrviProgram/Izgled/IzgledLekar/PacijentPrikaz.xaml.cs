@@ -31,7 +31,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.pocetniPrikaz = pocetniPrikaz;
             this.pacijent = pacijentRepository.PregledPacijenta(pacijent.Jmbg);
             PopuniInformacijePacijenta();
-            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).kartonPacijenta.izvrseniPregled);
+            izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled);
             dataGridKartonPacijenta.ItemsSource = izvrseniPregledi;
             pocetniPrikaz.GoBackButtonVisibilityTrue();
             pocetniPrikaz.DodajUserControl(this);
