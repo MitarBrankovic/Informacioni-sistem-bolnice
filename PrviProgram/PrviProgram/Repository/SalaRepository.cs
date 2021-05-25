@@ -107,5 +107,17 @@ namespace PrviProgram.Repository
             }
             return null;
         }
+
+        public List<Sala> SaleTipaSoba()
+        {
+            List<Sala> sale = CitanjeIzFajla();
+            List<Sala> sobe = new List<Sala>();
+            foreach(Sala sala in sale)
+            {
+                if (sala.Tip == TipSale.SalaSaKrevetima)
+                    sobe.Add(sala);
+            }
+            return sobe;
+        }
     }
 }
