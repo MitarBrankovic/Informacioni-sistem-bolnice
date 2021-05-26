@@ -15,13 +15,10 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for IstorijaBolnickogLecenjaWindow.xaml
-    /// </summary>
     public partial class IstorijaBolnickogLecenjaWindow : Window
     {
-        private BolnickoLecenjeRepository bolnickoLecenjeRepository = new BolnickoLecenjeRepository();
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
+        private BolnickoLecenjeRepository bolnickoLecenjeRepository = new BolnickoLecenjeRepository();
         private SalaRepository salaRepository = new SalaRepository();
         private List<BolnickoLecenje> bolnickoLecenjePacijenta;
         private BolnickoLecenje trenutnoBolnickoLecenje;

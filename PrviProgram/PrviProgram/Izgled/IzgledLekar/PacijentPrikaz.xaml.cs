@@ -58,7 +58,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 TextboxInformacije.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.OpisLeka;
             }
-            //ComboboxLek.SelectedItem = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.Lekovi.Naziv;
             SelektujLekUComboboxu();
             BrojDana.Text = ((IzvrseniPregled)dataGridKartonPacijenta.SelectedItem).recept.VremenskiPeriodUzimanjaLeka.ToString();
         }

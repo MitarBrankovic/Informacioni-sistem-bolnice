@@ -10,19 +10,16 @@ using System.Windows.Controls;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for IzmenaTermina.xaml
-    /// </summary>
     public partial class IzmenaTermina : Window
     {
-        private ObservableCollection<Termin> termini;
+        private TerminiService terminiService = new TerminiService();
         private TerminiRepository terminiRepository = new TerminiRepository();
         private LekarController lekarController = new LekarController();
         private LekarRepository lekarRepository = new LekarRepository();
-        private TerminiService terminiService = new TerminiService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private SalaRepository salaRepository = new SalaRepository();
         private ObservableCollection<Termin> terminiPacijent;
+        private ObservableCollection<Termin> termini;
         private Termin termin;
         private ObservableCollection<string> vreme;
         string[] niz = { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", 
@@ -44,18 +41,14 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             this.termini.Remove(this.termin);
-
             Termin tempTermin = new Termin((DateTime)(DatumText.SelectedDate), SelektovaniTipTermina(), termin.SifraTermina,
                 vremeText.Text, termin.lekar, IzmenjeniPacijent());
-            
             Sala tempSala = new Sala();
             tempSala = (Sala)ComboboxSala.SelectedItem;
             tempTermin.sala = tempSala;
-
             terminiService.IzmenaTermina(tempTermin);
             this.termini.Add(tempTermin);
-            this.Close();
-                        
+            this.Close();   
         }
 
 
@@ -130,11 +123,11 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void DatumText_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             AzurirajVreme();
-
         }
         private void AzurirajVreme()
         {
-            vreme = new ObservableCollection<string>(lekarController.DobavljanjeSlobodnihTerminaLekaraZaIzmenuTermina(lekarRepository.PregledLekara(termin.lekar.Jmbg), (DateTime)DatumText.SelectedDate, termin));
+            vreme = new ObservableCollection<string>(lekarController.DobavljanjeSlobodnihTerminaLekaraZaIzmenuTermina(lekarRepository.PregledLekara(termin.lekar.Jmbg),
+                (DateTime)DatumText.SelectedDate, termin));
             vremeText.ItemsSource = vreme;
             vremeText.SelectedItem = vremeText.Items[0];
         }

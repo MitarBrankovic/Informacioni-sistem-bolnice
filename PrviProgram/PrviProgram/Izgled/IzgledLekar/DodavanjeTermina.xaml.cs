@@ -11,17 +11,14 @@ using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for DodavanjeTermina.xaml
-    /// </summary>
     public partial class DodavanjeTermina : Window
     {
-        private ObservableCollection<Termin> termini;
-        private PacijentRepository pacijentRepository = new PacijentRepository();
-        private LekarController lekarController = new LekarController();
-        private SalaRepository salaRepository = new SalaRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+        private SalaRepository salaRepository = new SalaRepository();
+        private LekarController lekarController = new LekarController();
+        private ObservableCollection<Termin> termini;
         private ObservableCollection<string> vreme;
         private Lekar lekar;
 
