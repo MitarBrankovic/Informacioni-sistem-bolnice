@@ -57,7 +57,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private void Zavrsi_Click(object sender, RoutedEventArgs e)
         {
-            //TODO ne sacuva se posledji text holder
             InicijalizacijaIzvrsenogTermina();
             KreiranjeAnamneze();
             if(!lekarController.PacijentAlergicanNaLek(pacijent, izvrseniPregled.recept.Lekovi)){
@@ -102,7 +101,6 @@ namespace PrviProgram.Izgled.IzgledLekar
                 recept.VremenskiPeriodUzimanjaLeka = int.Parse(BrojDana.Text);
             }catch(Exception e)
             {
-                
             }
             izvrseniPregled.anamneza = anamneza;
             izvrseniPregled.recept = recept;

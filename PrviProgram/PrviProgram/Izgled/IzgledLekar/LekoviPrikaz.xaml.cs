@@ -26,7 +26,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private ObservableCollection<CheckBoxSelektovanLek> alternativniLekovi = new ObservableCollection<CheckBoxSelektovanLek>();
         private Lekar lekar;
         private bool azurirajPritisnut = false;
-        private Lek izmenjenLek = new Lek();
+        private Lek izmenjenLek;
 
         public LekoviPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)
         {
@@ -34,7 +34,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.lekar = lekar;
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
             Izmeni.IsEnabled = false;
-            izmenjenLek.ZamenaZaLek = new List<Lek>();
             IzmenaStanjaTextBoxova();
             dataGridLekovi.ItemsSource = lekovi;
         }
@@ -95,14 +94,19 @@ namespace PrviProgram.Izgled.IzgledLekar
         }
         private void PrikazAlternativnihLekova()
         {
-            foreach (Lek l in this.lek.ZamenaZaLek)
+            foreach (Lek lek in this.lek.ZamenaZaLek)
             {
-                foreach (var lekBrojac in alternativniLekovi)
+                SelektujAlternativneLekove(lek);
+            }
+        }
+
+        private void SelektujAlternativneLekove(Lek lek)
+        {
+            foreach (var lekBrojac in alternativniLekovi)
+            {
+                if (lek.Sifra.Equals(lekBrojac.SelektovanAlternativniLek.Sifra))
                 {
-                    if (l.Sifra.Equals(lekBrojac.SelektovanAlternativniLek.Sifra))
-                    {
-                        lekBrojac.IsSelected = true;
-                    }
+                    lekBrojac.IsSelected = true;
                 }
             }
         }
@@ -139,11 +143,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void IzmenaPodatakaLeka()
         {
-            izmenjenLek.Naziv = Naziv.Text;
-            izmenjenLek.Sifra = Sifra.Text;
-            izmenjenLek.Opis = Opis.Text;
-            izmenjenLek.Sastojci = Sastojci.Text;
-            izmenjenLek.ZamenaZaLek.Clear();
+            izmenjenLek = new Lek(Sifra.Text, Naziv.Text, Sastojci.Text, Opis.Text);
             foreach (var lekBrojac in alternativniLekovi)
             {
                 if (lekBrojac.IsSelected == true)

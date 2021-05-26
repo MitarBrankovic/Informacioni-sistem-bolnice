@@ -30,12 +30,12 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
             this.pacijent = pacijentRepository.PregledPacijenta(pacijent.Jmbg);
-            PopuniInformacijePacijenta();
             izvrseniPregledi = new ObservableCollection<IzvrseniPregled>(pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled);
             dataGridKartonPacijenta.ItemsSource = izvrseniPregledi;
+            ComboboxLek.ItemsSource = lekoviRepository.PregledSvihLekova();
+            PopuniInformacijePacijenta();
             pocetniPrikaz.GoBackButtonVisibilityTrue();
             pocetniPrikaz.DodajUserControl(this);
-            ComboboxLek.ItemsSource = lekoviRepository.PregledSvihLekova();
         }
         private void PopuniInformacijePacijenta()
         {

@@ -101,7 +101,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Anamneza_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
-
             if (termin.Izvrsen != true)
             {
                 KreirajProzorAnamnezaPrikaz();
