@@ -43,7 +43,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 this.izvrseniPregledi.Add(this.pregledSaBeleskom);
             }
             this.Close();
-
         }
 
         private void Otkaži_Click(object sender, RoutedEventArgs e)

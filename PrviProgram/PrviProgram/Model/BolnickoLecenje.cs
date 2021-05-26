@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    class BolnickoLecenje
+    public class BolnickoLecenje
     {
         public string Sifra { get; set; }
         public Pacijent Pacijent { get; set; }

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using PrviProgram.Service;
 using Service;
@@ -24,6 +25,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private SalaRepository salaRepository = new SalaRepository();
         private UtilityService utilityService = new UtilityService();
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
+        private LekarController lekarController = new LekarController();
         private Pacijent pacijent;
         public UputNaBolnickoLecenjeWindow(Pacijent pacijent)
         {
@@ -45,7 +47,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 (Sala)ComboboxSobe.SelectedItem, 
                 (DateTime)DatePickerPocetak.SelectedDate, 
                 (DateTime)DatePickerZavrsetak.SelectedDate);
-            bolnickoLecenjeService.DodavanjeBolnickogLecenja(bolnickoLecenje);
+            lekarController.DodavanjeBolnickogLecenja(bolnickoLecenje);
             this.Close();
         }
 

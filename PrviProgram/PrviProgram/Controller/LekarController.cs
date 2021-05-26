@@ -16,6 +16,7 @@ namespace Controller
     public class LekarController
    {
         private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
+        private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekoviRepository lekoviRepository = new LekoviRepository();
         private List<string> constVreme = new List<string>() {  "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00"
@@ -59,6 +60,25 @@ namespace Controller
       {
          // TODO: implement
       }
+        public void DodavanjeBolnickogLecenja(BolnickoLecenje bolnickoLecenje)
+        {
+            bolnickoLecenjeService.DodavanjeBolnickogLecenja(bolnickoLecenje);
+        }
+
+        public void IzmenaBolnickogLecenja(BolnickoLecenje izmenjenoBolnickoLecenje)
+        {
+            bolnickoLecenjeService.IzmenaBolnickogLecenja(izmenjenoBolnickoLecenje);
+        }
+
+        public BolnickoLecenje ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(Pacijent pacijent)
+        {
+            return bolnickoLecenjeService.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent);
+        }
+
+        public bool ProveraDaLiPacijentImaZakazanoBolnickoLecenje(Pacijent pacijent)
+        {
+            return bolnickoLecenjeService.ProveraDaLiPacijentImaZakazanoBolnickoLecenje(pacijent);
+        }
 
         public void KreiranjePrimedbe(PrimedbaNaLek primedbaNaLek)
         {
@@ -67,7 +87,6 @@ namespace Controller
    
         
         
-        public KartonPacijentaService kartonPacijentaService;
 
         public ObservableCollection<string> DobavljanjeSlobodnihTerminaLekara(Lekar lekar, DateTime datumTermina)
         {

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using PrviProgram.Repository;
 using PrviProgram.Service;
 using System;
@@ -17,6 +18,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 {
     public partial class IstorijaBolnickogLecenjaWindow : Window
     {
+        private LekarController lekarController = new LekarController();
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private BolnickoLecenjeRepository bolnickoLecenjeRepository = new BolnickoLecenjeRepository();
         private SalaRepository salaRepository = new SalaRepository();
@@ -35,9 +37,9 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void ProveraDaLiJeTrenutnoNaLecenju()
         {
-            if (bolnickoLecenjeService.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent) != null)
+            if (lekarController.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent) != null)
             {
-                trenutnoBolnickoLecenje = bolnickoLecenjeService.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent);
+                trenutnoBolnickoLecenje = lekarController.ProveraDaLiJePacijentTrenutnoNaBolnickomLecenju(pacijent);
                 PostaviVrednostPoljaSaInformacijama();
                 DozvoliMenjanjeInformacija();
             }
@@ -93,7 +95,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             trenutnoBolnickoLecenje.DatumZavrsetka = (DateTime)DatePickerZavrsetak.SelectedDate;
             trenutnoBolnickoLecenje.Sala = (Sala)ComboboxSobe.SelectedItem;
-            bolnickoLecenjeService.IzmenaBolnickogLecenja(trenutnoBolnickoLecenje);
+            lekarController.IzmenaBolnickogLecenja(trenutnoBolnickoLecenje);
         }
 
         private void DatePickerPocetak_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

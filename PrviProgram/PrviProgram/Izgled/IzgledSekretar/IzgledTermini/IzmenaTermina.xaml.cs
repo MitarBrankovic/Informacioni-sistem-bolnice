@@ -18,6 +18,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private ObservableCollection<string> vremeTermina;
         private ObservableCollection<TipTermina> tipTermina = new ObservableCollection<TipTermina>(Enum.GetValues(typeof(TipTermina)).Cast<TipTermina>());
         private Termin termin;
+        public KartonPacijentaService kartonPacijentaService;
+
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
         {
             InitializeComponent();

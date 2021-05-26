@@ -127,7 +127,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void DaLiPacijentImaZakazanoLecenje()
         {
-            if (bolnickoLecenjeService.ProveraDaLiPacijentImaZakazanoBolnickoLecenje(pacijent))
+            if (lekarController.ProveraDaLiPacijentImaZakazanoBolnickoLecenje(pacijent))
             {
                 UputLecenje.IsEnabled = false;
             }
