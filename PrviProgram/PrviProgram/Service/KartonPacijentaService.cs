@@ -47,8 +47,8 @@ namespace Service
         public bool IzmenaIzvrsenogPregleda(IzvrseniPregled izvrseniPregled,Pacijent selektovaniPacijent)
         {
             List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
-         
-             foreach(Pacijent pacijent in pacijenti)
+
+            foreach(Pacijent pacijent in pacijenti)
             {
                 if(pacijent.Jmbg.Equals(selektovaniPacijent.Jmbg))
                 {
@@ -75,24 +75,29 @@ namespace Service
         }
         public void IzvrsenaAnamneza(IzvrseniPregled izvrseniPregled, Pacijent pacijent)
         {
-
             Pacijent pacijentStari = pacijent;
             Pacijent pacijentNovi = pacijent;
-            //pacijentNovi.kartonPacijenta=pacijentRepository.PregledKartona(pacijentNovi.Jmbg);
-            
-            foreach(IzvrseniPregled ip in pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled)
+            foreach(IzvrseniPregled izvrseniPregledIterator in pacijentRepository.PregledPacijenta(pacijent.Jmbg).KartonPacijenta.izvrseniPregled)
             {
-                if(izvrseniPregled.Sifra == ip.Sifra)
+                if(izvrseniPregled.Sifra == izvrseniPregledIterator.Sifra)
                 {
-                    pacijent.KartonPacijenta.AzurirajIzvrseniPregled(izvrseniPregled);
-                    pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
+                    AzurirajPostojeciIzvrseniPregled(pacijent, pacijentStari, pacijentNovi, izvrseniPregled);
                     return;
                 }
             }
+            KreirajNoviIzvrseniPregled(pacijent, pacijentStari, pacijentNovi, izvrseniPregled);
+        }
+
+        private void AzurirajPostojeciIzvrseniPregled(Pacijent pacijent, Pacijent pacijentStari, Pacijent pacijentNovi,IzvrseniPregled izvrseniPregled)
+        {
+            pacijent.KartonPacijenta.AzurirajIzvrseniPregled(izvrseniPregled);
+            pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
+        }
+
+        private void KreirajNoviIzvrseniPregled(Pacijent pacijent, Pacijent pacijentStari, Pacijent pacijentNovi, IzvrseniPregled izvrseniPregled)
+        {
             pacijent.KartonPacijenta.izvrseniPregled.Add(izvrseniPregled);
             pacijentiService.IzmenaPacijenta(pacijentStari, pacijentNovi);
-            //PreglediService.getInstance().IzmenaPregleda(termin);
-
         }
 
         public KartonPacijentaRepository kartonPacijentaRepository;

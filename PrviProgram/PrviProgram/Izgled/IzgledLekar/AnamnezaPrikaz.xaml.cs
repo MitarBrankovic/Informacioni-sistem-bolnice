@@ -141,11 +141,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             int result = 0;
             if (int.TryParse(BrojDana.Text, out result))
             {
-                // Your conditions
-                if (result > 0 && result < 1000)
-                {
-                    // Your number
-                }
             }
             else
             {

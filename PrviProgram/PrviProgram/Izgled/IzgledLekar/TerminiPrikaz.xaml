@@ -23,7 +23,7 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Izvrsen" Binding="{Binding izvrsen}" Width="0.07*"/>
+                <DataGridTextColumn Header="Izvrsen" Binding="{Binding Izvrsen}" Width="0.07*"/>
                 <DataGridTextColumn Header="Sifra termina" Binding="{Binding SifraTermina}"  Width="0.14*"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="0.09*"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}" Width="0.14*"/>

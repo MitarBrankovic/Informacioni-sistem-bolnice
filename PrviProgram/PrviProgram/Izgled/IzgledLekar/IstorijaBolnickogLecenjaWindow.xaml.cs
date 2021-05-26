@@ -44,16 +44,6 @@ namespace PrviProgram.Izgled.IzgledLekar
                 PostaviVrednostPoljaSaInformacijama();
                 DozvoliMenjanjeInformacija();
             }
-            
-            foreach(BolnickoLecenje bolnickoLecenje in bolnickoLecenjePacijenta)
-            {
-                if(bolnickoLecenje.DatumPocetka < DateTime.Now && bolnickoLecenje.DatumZavrsetka > DateTime.Now)
-                {
-                    trenutnoBolnickoLecenje = bolnickoLecenje;
-                    PostaviVrednostPoljaSaInformacijama();
-                    DozvoliMenjanjeInformacija();
-                }
-            }
         }
 
         private void DozvoliMenjanjeInformacija()
