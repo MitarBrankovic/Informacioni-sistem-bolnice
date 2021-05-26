@@ -19,14 +19,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class LekoviDodaj : Window
     {
         private ObservableCollection<Lek> lekovi;
-        private Lek noviLek = new Lek();
+        private Lek noviLek;
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
         private UpravnikController upravnikController = new UpravnikController();
 
         public LekoviDodaj(ObservableCollection<Lek> lekovi)
         {
-            InitializeComponent();
-            noviLek.ZamenaZaLek = new List<Lek>();
+            InitializeComponent();            
             this.lekovi = lekovi;
             InicijalizacijaComboBoxaSala();
         }
@@ -61,10 +60,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void FormiranjeNovogLeka() 
         {
-            noviLek.Naziv = Naziv.Text;
-            noviLek.Sifra = Sifra.Text;
-            noviLek.Opis = Opis.Text;
-            noviLek.Sastojci = Sastojci.Text;
+            noviLek = new Lek(Sifra.Text, Naziv.Text, Sastojci.Text, Opis.Text);
+            noviLek.ZamenaZaLek = new List<Lek>();
             foreach (var lekBrojac in alternativniLekovi)
             {
                 if (lekBrojac.IsSelected)

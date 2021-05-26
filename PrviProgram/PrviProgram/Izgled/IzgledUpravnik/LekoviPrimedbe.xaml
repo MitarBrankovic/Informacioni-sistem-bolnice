@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
                 <DataGridTextColumn Header="Lek" Binding="{Binding Lek}" Width="*"/>
                 <DataGridTextColumn Header="Lekar" Binding="{Binding Lekar}" Width="*"/>
-                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" Width="*"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" Width="62"/>
                 <DataGridTemplateColumn Header="Obrisi" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

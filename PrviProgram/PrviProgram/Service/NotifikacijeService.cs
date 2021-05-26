@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  NotifikacijeService.cs
- * Author:  Saska WorkPC
- * Purpose: Definition of the Class Service.PacijentService.NotifikacijeService
- ***********************************************************************/
-
 using Model;
 using Repository;
 using System;
@@ -13,53 +7,62 @@ namespace Service
 {
     public class NotifikacijeService
     {
+        private NotifikacijeObavestenjaRepository notifikacijeObavestenjaRepository = new NotifikacijeObavestenjaRepository();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+
         public void DodavanjeNotifikacije(NotifikacijePacijenta notifikacija)
         {
-            NotifikacijeObavestenjaRepository datoteka = new NotifikacijeObavestenjaRepository();
-            List<NotifikacijePacijenta> notifikacije = datoteka.CitanjeIzFajla();
+            List<NotifikacijePacijenta> notifikacije = notifikacijeObavestenjaRepository.CitanjeIzFajla();
             notifikacije.Add(notifikacija);
-            datoteka.UpisivanjeUFajl(notifikacije);
-
+            notifikacijeObavestenjaRepository.UpisivanjeUFajl(notifikacije);
         }
-        public List<Recept> PregledRecepata(Pacijent p)
+
+        public List<Recept> PregledRecepata(Pacijent pacijent)
         {
-            PacijentRepository datotetka = new PacijentRepository();
-            List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
             List<Recept> recepti = new List<Recept>();
 
-            foreach (Pacijent pp in pacijenti)
+            foreach (Pacijent pacijentBrojac in pacijenti)
             {
-                if (pp.Jmbg.Equals(p.Jmbg))
+                if (pacijentBrojac.Jmbg.Equals(pacijent.Jmbg))
                 {
-                    foreach (IzvrseniPregled i in pp.KartonPacijenta.izvrseniPregled)
-                    {
-                        recepti.Add(i.recept);
-                    }
+                    DodavanjeIzvrsenogPregleda(pacijentBrojac, recepti);
                 }
             }
             return recepti;
         }
-        public string PronadjiOpis(Recept r, Pacijent p)
+
+        public void DodavanjeIzvrsenogPregleda(Pacijent pacijentBrojac, List<Recept> recepti) 
         {
-            PacijentRepository datotetka = new PacijentRepository();
-            List<Pacijent> pacijenti = datotetka.CitanjeIzFajla();
-            foreach (Pacijent pp in pacijenti)
+            foreach (IzvrseniPregled izvrseniPregledBrojac in pacijentBrojac.KartonPacijenta.izvrseniPregled)
             {
-                if (p.Jmbg.Equals(pp.Jmbg))
+                recepti.Add(izvrseniPregledBrojac.recept);
+            }
+        }
+
+        public string PronadjiOpis(Recept recept, Pacijent pacijent)
+        {
+            List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
+            foreach (Pacijent pacijentBrojac in pacijenti)
+            {
+                if (pacijent.Jmbg.Equals(pacijentBrojac.Jmbg))
                 {
-                    foreach (IzvrseniPregled i in pp.KartonPacijenta.izvrseniPregled)
-                    {
-                        if (i.recept.Lekovi.Equals(r.Lekovi))
-                        {
-                            return i.recept.OpisLeka.ToString();
-                        }
-                    }
+                    VracanjeOpisa(pacijentBrojac, recept);
                 }
             }
             return "";
         }
 
-        /// <pdGenerated>default getter</pdGenerated>
-
+        public string VracanjeOpisa(Pacijent pacijentBrojac, Recept recept)
+        {
+            foreach (IzvrseniPregled izvrseniPregledBrojac in pacijentBrojac.KartonPacijenta.izvrseniPregled)
+            {
+                if (izvrseniPregledBrojac.recept.Lekovi.Equals(recept.Lekovi))
+                {
+                    return izvrseniPregledBrojac.recept.OpisLeka.ToString();
+                }
+            }
+            return null;
+        }
     }
 }

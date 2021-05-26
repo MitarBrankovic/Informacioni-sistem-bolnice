@@ -1,54 +1,7 @@
 [
   {
-    "sifra": "8k34huvc",
-    "lekar": {
-      "termin": null,
-      "specijalizacija": null,
-      "MestoRodjenja": null,
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": null,
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": null
-    },
-    "lek": {
-      "ZamenaZaLek": [
-        {
-          "ZamenaZaLek": [
-            {
-              "ZamenaZaLek": [],
-              "Sifra": "A",
-              "Naziv": "A",
-              "Sastojci": "a",
-              "Opis": "a"
-            }
-          ],
-          "Sifra": "B",
-          "Naziv": "B",
-          "Sastojci": "b",
-          "Opis": "b"
-        }
-      ],
-      "Sifra": "C",
-      "Naziv": "C",
-      "Sastojci": "C",
-      "Opis": "C"
-    },
-    "primedba": "lek je budjav",
-    "datum": "2021-05-03T01:00:00+02:00"
-  },
-  {
-    "sifra": "GQHGhF4T",
-    "lekar": {
+    "Sifra": "GQHGhF4T",
+    "Lekar": {
       "termin": null,
       "specijalizacija": [
         {
@@ -71,19 +24,19 @@
       "Pol": 0,
       "KontaktTelefon": null
     },
-    "lek": {
+    "Lek": {
       "ZamenaZaLek": [],
       "Sifra": "andol",
       "Naziv": "Andol",
       "Sastojci": "asdad",
       "Opis": "sadasas"
     },
-    "primedba": "LOSA GRAMAZA",
-    "datum": "2021-05-05T00:00:00+02:00"
+    "Primedba": "Tekst neke primedbe",
+    "Datum": "2021-05-05T00:00:00+02:00"
   },
   {
-    "sifra": "3htO5y5L",
-    "lekar": {
+    "Sifra": "3htO5y5L",
+    "Lekar": {
       "termin": null,
       "specijalizacija": [
         {
@@ -106,14 +59,14 @@
       "Pol": 0,
       "KontaktTelefon": null
     },
-    "lek": {
+    "Lek": {
       "ZamenaZaLek": [],
       "Sifra": "asp",
       "Naziv": "Aspirin",
       "Sastojci": "asadasdsadasdasdasdasdasdds\r\nsdadasdsa\r\nsasd sadasd",
       "Opis": "a"
     },
-    "primedba": "nije dobra gramaza",
-    "datum": "2021-05-05T00:00:00+02:00"
+    "Primedba": "nije dobra gramaza",
+    "Datum": "2021-05-05T00:00:00+02:00"
   }
 ]

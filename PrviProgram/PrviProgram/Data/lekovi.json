@@ -193,21 +193,6 @@
   {
     "ZamenaZaLek": [
       {
-        "ZamenaZaLek": [],
-        "Sifra": "bio",
-        "Naziv": "Bio Oil",
-        "Sastojci": "kikiriki, carape",
-        "Opis": "a"
-      }
-    ],
-    "Sifra": "andol",
-    "Naziv": "Andol",
-    "Sastojci": "kakao, so, paradajz",
-    "Opis": "sadasas"
-  },
-  {
-    "ZamenaZaLek": [
-      {
         "ZamenaZaLek": [
           {
             "ZamenaZaLek": [],
@@ -234,5 +219,36 @@
     "Naziv": "Cardiopirin",
     "Sastojci": "kecap,\r\nkikiriki",
     "Opis": "nesto"
+  },
+  {
+    "ZamenaZaLek": [
+      {
+        "ZamenaZaLek": [
+          {
+            "ZamenaZaLek": [
+              {
+                "ZamenaZaLek": [],
+                "Sifra": "bio",
+                "Naziv": "Bio Oil",
+                "Sastojci": "kikiriki, carape",
+                "Opis": "a"
+              }
+            ],
+            "Sifra": "andol",
+            "Naziv": "Andol",
+            "Sastojci": "kakao, so, paradajz",
+            "Opis": "sadasas"
+          }
+        ],
+        "Sifra": "bio",
+        "Naziv": "Bio Oil",
+        "Sastojci": "carape,\r\nkikiriki",
+        "Opis": "a"
+      }
+    ],
+    "Sifra": "andol",
+    "Naziv": "Andol",
+    "Sastojci": "kakao, so, paradajz",
+    "Opis": "sadasasaa"
   }
 ]

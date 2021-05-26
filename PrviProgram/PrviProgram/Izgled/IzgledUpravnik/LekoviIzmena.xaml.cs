@@ -26,8 +26,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         public LekoviIzmeni(ObservableCollection<Lek> lekovi, Lek lek)
         {
-            InitializeComponent();
-            izmenjenLek.ZamenaZaLek = new List<Lek>();
+            InitializeComponent();         
             this.lek = lek;
             this.lekovi = lekovi;
             PrikazPodatakaLeka();
@@ -67,10 +66,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzmenaPodatakaLeka() 
         {
-            izmenjenLek.Naziv = Naziv.Text;
-            izmenjenLek.Sifra = Sifra.Text;
-            izmenjenLek.Opis = Opis.Text;
-            izmenjenLek.Sastojci = Sastojci.Text;
+            izmenjenLek = new Lek(Sifra.Text, Naziv.Text, Sastojci.Text, Opis.Text);
+            izmenjenLek.ZamenaZaLek = new List<Lek>();
             izmenjenLek.ZamenaZaLek.Clear();
             foreach (var lekBrojac in alternativniLekovi)
             {
@@ -121,11 +118,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void PrikazAlternativnihLekova()
         {
-            foreach (Lek l in this.lek.ZamenaZaLek)
+            foreach (Lek lekIterator in this.lek.ZamenaZaLek)
             {
                 foreach (var lekBrojac in alternativniLekovi)
                 {
-                    if (l.Sifra.Equals(lekBrojac.SelektovanAlternativniLek.Sifra))
+                    if (lekIterator.Sifra.Equals(lekBrojac.SelektovanAlternativniLek.Sifra))
                     {
                         lekBrojac.IsSelected = true;
                     }
