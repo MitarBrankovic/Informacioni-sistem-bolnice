@@ -29,11 +29,11 @@ namespace Service
             return finalString;
         }
 
-        public bool IsNumber(String st)
+        public bool IsNumber(String stringovi)
         {
             try
             {
-                int.Parse(st);
+                int.Parse(stringovi);
                 return true;
             }
             catch (Exception)

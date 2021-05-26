@@ -36,7 +36,7 @@ namespace Controller
         }
         public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
         {
-            return TerminiService.getInstance().ZauzetiTerminiLekaraDatuma(lekar, datumTermina);
+            return TerminiService.getInstance().ZauzetiTerminiLekara(lekar, datumTermina);
         }
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {

@@ -59,14 +59,14 @@ namespace Service
             }
           return false;            
         }
-        public Pacijent DodavanjeBeleskeUKarton(Pacijent pacijent, IzvrseniPregled izvrsen)
+        public Pacijent DodavanjeBeleskeUKarton(Pacijent pacijent, IzvrseniPregled izvrsenPregled)
         {
             foreach (IzvrseniPregled izvrseni in pacijent.KartonPacijenta.izvrseniPregled)
             {
-                if (izvrseni.Sifra.Equals(izvrsen.Sifra))
+                if (izvrseni.Sifra.Equals(izvrsenPregled.Sifra))
                 {
                     pacijent.KartonPacijenta.izvrseniPregled.Remove(izvrseni);
-                    pacijent.KartonPacijenta.izvrseniPregled.Add(izvrsen);
+                    pacijent.KartonPacijenta.izvrseniPregled.Add(izvrsenPregled);
                     return pacijent;
                 }
             }

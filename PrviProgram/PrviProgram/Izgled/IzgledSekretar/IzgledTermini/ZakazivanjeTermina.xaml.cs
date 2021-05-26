@@ -126,7 +126,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void ObrisiZauzeteTermineLekara()
         {
-            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekara((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
             foreach (String vremeTerminaZaBrisanje in utilityService.nizVremena)
             {
                 foreach (String zauzetiTermin in zauzetiTermini)

@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for UputWindow.xaml
-    /// </summary>
+  
     public partial class UputWindow : Window
     {
         private LekarRepository lekarRepository = new LekarRepository();
@@ -171,6 +169,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 vremeText.IsEnabled = false;
             }
         }
+
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -49,7 +49,7 @@ namespace Service
             }
         }
 
-        public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
+        public List<string> ZauzetiTerminiLekara(Lekar lekar, DateTime datumTermina)
         {
             List<string> zauzetiTermini = new List<string>();
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
