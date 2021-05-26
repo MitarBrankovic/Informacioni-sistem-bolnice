@@ -118,7 +118,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             List<BolnicaAnketiranje> ankete = citanjeAnketeBolnice();
             foreach (BolnicaAnketiranje anketa in ankete)
             {
-                if (DateTime.Now.Day.Equals(anketa.datumANketiranja.AddDays(1).Day))
+                if (DateTime.Now.Day.Equals(anketa.DatumANketiranja.AddDays(1).Day))
                 {
                     bolnicaAnketiranjeButton.IsEnabled = true;
                     ankete.Remove(anketa);

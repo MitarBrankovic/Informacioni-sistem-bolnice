@@ -15,10 +15,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for PregledAlergena.xaml
-    /// </summary>
-
     public partial class PregledAlergena : Window
     {
         private ObservableCollection<Alergen> alergeni;

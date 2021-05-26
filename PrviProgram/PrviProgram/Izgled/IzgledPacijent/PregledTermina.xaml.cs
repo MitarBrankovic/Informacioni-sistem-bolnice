@@ -4,7 +4,6 @@ using PrviProgram.Repository;
 using PrviProgram.Service;
 using Repository;
 using Service;
-using Service.LekarService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

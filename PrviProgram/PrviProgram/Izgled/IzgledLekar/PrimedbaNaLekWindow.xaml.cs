@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for PrimedbaNaLek.xaml
-    /// </summary>
     public partial class PrimedbaNaLekWindow : Window
     {
         private Lek lek;

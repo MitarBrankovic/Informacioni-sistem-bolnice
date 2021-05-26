@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for PocetniPrikaz.xaml
-    /// </summary>
     public partial class PocetniPrikaz : Window
     {
         private Lekar lekar;

@@ -17,18 +17,15 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for LekoviPrikaz.xaml
-    /// </summary>
     public partial class LekoviPrikaz : UserControl
     {
+        private LekoviRepository lekoviRepository = new LekoviRepository();
+        private UpravnikController upravnikController = new UpravnikController();
         private ObservableCollection<Lek> lekovi;
         private Lek lek;
-        private LekoviRepository lekoviRepository = new LekoviRepository();
         private ObservableCollection<CheckBoxSelektovanLek> alternativniLekovi = new ObservableCollection<CheckBoxSelektovanLek>();
         private Lekar lekar;
         private bool azurirajPritisnut = false;
-        private UpravnikController upravnikController = new UpravnikController();
         private Lek izmenjenLek = new Lek();
 
         public LekoviPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)

@@ -24,17 +24,16 @@ namespace PrviProgram.Izgled.IzgledLekar
     /// </summary>
     public partial class AnamnezaPrikaz : UserControl
     {
+        private KartonPacijentaService kartonPacijentaService = new KartonPacijentaService();
+        private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
+        private TerminiService terminiService = new TerminiService();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+        private LekoviRepository lekoviRepository = new LekoviRepository();
+        private LekarController lekarController = new LekarController();
         private PocetniPrikaz pocetniPrikaz;
         private Pacijent pacijent;
         private Termin termin;
-        private PacijentRepository pacijentRepository = new PacijentRepository();
-        private KartonPacijentaService kartonPacijentaService = new KartonPacijentaService();
-        private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
-        private TerminiService terminiService = new TerminiService();
-        private LekoviRepository lekoviRepository = new LekoviRepository();
-        private LekarController lekarController = new LekarController();
-        private string ReceptTextHolder = "";
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
             InitializeComponent();
@@ -141,11 +140,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             int result = 0;
             if (int.TryParse(BrojDana.Text, out result))
             {
-                // Your conditions
-                if (result > 0 && result < 1000)
-                {
-                    // Your number
-                }
             }
             else
             {

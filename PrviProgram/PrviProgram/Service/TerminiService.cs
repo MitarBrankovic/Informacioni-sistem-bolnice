@@ -78,21 +78,6 @@ namespace Service
             }
             return false;
         }
-        //MORA U REPOSITORY
-        public List<Termin> PregledTermina(Pacijent pacijent)
-        {
-            List<Termin> termini = terminiRepository.CitanjeIzFajla();
-            List<Termin> noviTermini = new List<Termin>();
-            foreach (Termin termin in termini)
-            {
-                if (termin.pacijent != null && termin.pacijent.Jmbg.Equals(pacijent.Jmbg))
-                {
-                    noviTermini.Add(termin);
-                }
-            }
-            return noviTermini;
-        }
-
 
         public bool IzmenaSale(Sala staraSala, Sala novaSala)
         {
@@ -367,6 +352,7 @@ namespace Service
             }
             return null;
         }
+
 
     }
  }

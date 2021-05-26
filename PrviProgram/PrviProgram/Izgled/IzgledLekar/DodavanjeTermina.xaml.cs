@@ -11,17 +11,14 @@ using System.Windows;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for DodavanjeTermina.xaml
-    /// </summary>
     public partial class DodavanjeTermina : Window
     {
-        private ObservableCollection<Termin> termini;
-        private PacijentRepository pacijentRepository = new PacijentRepository();
-        private LekarController lekarController = new LekarController();
-        private SalaRepository salaRepository = new SalaRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
+        private SalaRepository salaRepository = new SalaRepository();
+        private LekarController lekarController = new LekarController();
+        private ObservableCollection<Termin> termini;
         private ObservableCollection<string> vreme;
         private Lekar lekar;
 
@@ -35,13 +32,18 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Termin tempTermin = new Termin((DateTime)(DatumText.SelectedDate), SelektovaniTipTermina(), utilityService.GenerisanjeSifre(),
-                vremeText.Text, lekar, (Pacijent)ComboboxPacijent.SelectedItem);
-            tempTermin.sala = terminiService.DobavljanjeSale(tempTermin);
-            if (!terminiService.ProveraZauzetostiTermina(tempTermin))
+            Termin termin = new Termin(
+                (DateTime)(DatumText.SelectedDate),
+                SelektovaniTipTermina(),
+                utilityService.GenerisanjeSifre(),
+                vremeText.Text,
+                lekar,
+                (Pacijent)ComboboxPacijent.SelectedItem);
+            termin.sala = terminiService.DobavljanjeSale(termin);
+            if (!terminiService.ProveraZauzetostiTermina(termin))
             {
-                terminiService.DodavanjeTermina(tempTermin);
-                this.termini.Add(tempTermin);
+                terminiService.DodavanjeTermina(termin);
+                this.termini.Add(termin);
                 this.Close();
             }
             else MessageBox.Show("Greska!");

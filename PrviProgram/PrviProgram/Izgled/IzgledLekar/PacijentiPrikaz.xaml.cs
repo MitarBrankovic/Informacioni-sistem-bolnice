@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace PrviProgram.Izgled.IzgledLekar
 {
-    /// <summary>
-    /// Interaction logic for PacijentiPrikaz.xaml
-    /// </summary>
     public partial class PacijentiPrikaz : UserControl
     {
         public PacijentRepository pacijentRepository = new PacijentRepository();

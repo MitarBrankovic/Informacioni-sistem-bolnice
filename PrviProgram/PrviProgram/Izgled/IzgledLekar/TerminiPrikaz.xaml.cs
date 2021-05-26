@@ -1,6 +1,6 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Service;
-using Service.LekarService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,9 +19,9 @@ namespace PrviProgram.Izgled.IzgledLekar
 {
     public partial class TerminiPrikaz : UserControl
     {
-        public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
+        private TerminiRepository terminiRepository = new TerminiRepository();
         private Lekar lekar;
         private PocetniPrikaz pocetniPrikaz;
         public TerminiPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)
@@ -29,8 +29,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
             this.lekar = lekar;
-            upravljanje = new PreglediService();
-            termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
+            termini = new ObservableCollection<Termin>(terminiRepository.PregledTerminaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
             pocetniPrikaz.DodajUserControl(this);
             DisableButtons();
@@ -45,24 +44,28 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
-
             if (dataGridLekar.SelectedIndex != -1)
             {
-                if (termin.Izvrsen != true)
-                {
-                    IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
-                    izmena.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Ovaj termin ste vec izvrsili!");
-                }
+                KreirajProzorIzmenaTermina(termin);
             }
             else
             {
                 MessageBox.Show("Morate izabrati termin!");
             }
 
+        }
+
+        private void KreirajProzorIzmenaTermina(Termin termin)
+        {
+            if (termin.Izvrsen != true)
+            {
+                IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
+                izmena.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ovaj termin ste vec izvrsili!");
+            }
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -79,8 +82,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 MessageBox.Show("Morate izabrati termin!");
             }
-
-
         }
         private void Informacije_Click(object sender, RoutedEventArgs e)
         {
@@ -97,23 +98,13 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
         }
 
-
         private void Anamneza_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = (Termin)dataGridLekar.SelectedItem;
 
             if (termin.Izvrsen != true)
             {
-                if (dataGridLekar.SelectedIndex != -1)
-                {
-                    AnamnezaPrikaz anamnezaPrikaz = new AnamnezaPrikaz(pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem));
-                    pocetniPrikaz.ContentArea.Children.Remove(this);
-                    pocetniPrikaz.ContentArea.Children.Add(anamnezaPrikaz);
-                }
-                else
-                {
-                    MessageBox.Show("Morate izabrati termin!");
-                }
+                KreirajProzorAnamnezaPrikaz();
             }
             else
             {
@@ -121,6 +112,19 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
         }
 
+        private void KreirajProzorAnamnezaPrikaz()
+        {
+            if (dataGridLekar.SelectedIndex != -1)
+            {
+                AnamnezaPrikaz anamnezaPrikaz = new AnamnezaPrikaz(pocetniPrikaz, ((Termin)dataGridLekar.SelectedItem));
+                pocetniPrikaz.ContentArea.Children.Remove(this);
+                pocetniPrikaz.ContentArea.Children.Add(anamnezaPrikaz);
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati termin!");
+            }
+        }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

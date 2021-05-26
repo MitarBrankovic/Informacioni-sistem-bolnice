@@ -6,20 +6,20 @@ namespace Model
 {
     public class BolnicaAnketiranje
     {
-        public DateTime datumANketiranja { get; set; }
-        public string ocenaBolnice { get; set; }
-        public string zadovoljanHigijenom { get; set; }
-        public string zadovoljanOsobljem { get; set; }
-        public string zadovoljanUslugamaBolnice { get; set; }
+        public DateTime DatumANketiranja { get; set; }
+        public string OcenaBolnice { get; set; }
+        public string ZadovoljanHigijenom { get; set; }
+        public string ZadovoljanOsobljem { get; set; }
+        public string ZadovoljanUslugamaBolnice { get; set; }
 
 
         public BolnicaAnketiranje(DateTime datum, string ocena, string higijena, string osoblje, string usluge)
         {
-            this.datumANketiranja = datum;
-            this.ocenaBolnice = ocena;
-            this.zadovoljanHigijenom = higijena;
-            this.zadovoljanOsobljem = osoblje;
-            this.zadovoljanUslugamaBolnice = usluge;
+            this.DatumANketiranja = datum;
+            this.OcenaBolnice = ocena;
+            this.ZadovoljanHigijenom = higijena;
+            this.ZadovoljanOsobljem = osoblje;
+            this.ZadovoljanUslugamaBolnice = usluge;
         }
     }
     
