@@ -33,20 +33,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
         }
 
-        /*private void Potvrdi_Click(object sender, RoutedEventArgs e)
-        {
-            Termin tempTermin = new Termin((DateTime)(DatumText.SelectedDate), SelektovaniTipTermina(), utilityService.GenerisanjeSifre(),
-                vremeText.Text, lekar, (Pacijent)ComboboxPacijent.SelectedItem);
-            tempTermin.sala = terminiService.DobavljanjeSale(tempTermin);
-            if (!terminiService.ProveraZauzetostiTermina(tempTermin))
-            {
-                terminiService.DodavanjeTermina(tempTermin);
-                this.termini.Add(tempTermin);
-                this.Close();
-            }
-            else MessageBox.Show("Greska!");
-        }*/
-
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Termin termin = new Termin(

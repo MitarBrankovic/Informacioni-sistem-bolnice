@@ -5,7 +5,6 @@ using System.Windows.Input;
 using Controller;
 using Model;
 using Service;
-using Service.LekarService;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
@@ -13,6 +12,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private UpravnikController upravnikController = new UpravnikController();
         private UtilityService utilityService = new UtilityService();
+        private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Sala> sale;
         private Sala sala;
         private Sala izmenjenaSala = new Sala();
@@ -81,7 +81,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 this.sale.Remove(this.sala);
                 this.sale.Add(izmenjenaSala);
                 TerminiService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
-                PreglediService.getInstance().IzmenaSale(this.sala, izmenjenaSala);
             }
         }
 

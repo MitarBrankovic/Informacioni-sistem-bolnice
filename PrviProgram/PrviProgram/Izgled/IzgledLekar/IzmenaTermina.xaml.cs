@@ -3,7 +3,6 @@ using Model;
 using PrviProgram.Repository;
 using Repository;
 using Service;
-using Service.LekarService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -17,6 +16,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class IzmenaTermina : Window
     {
         private ObservableCollection<Termin> termini;
+        private TerminiRepository terminiRepository = new TerminiRepository();
         private LekarController lekarController = new LekarController();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
@@ -35,7 +35,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.termini = termini;
             this.termin = termin;
-            this.terminiPacijent = new ObservableCollection<Termin>(terminiService.PregledTermina(this.termin.pacijent));
+            this.terminiPacijent = new ObservableCollection<Termin>(terminiRepository.PregledTerminaPacijenta(this.termin.pacijent));
             PopunjavanjePoljaSaPodacima();
 
         }

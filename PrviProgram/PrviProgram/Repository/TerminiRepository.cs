@@ -8,7 +8,6 @@ namespace PrviProgram.Repository
     class TerminiRepository
     {
         private string path;
-
         public TerminiRepository()
         {
             path = @"..\..\..\data\termini.json";
@@ -52,7 +51,36 @@ namespace PrviProgram.Repository
             }
             return null;
         }
-        
+
+        public List<Termin> PregledTerminaPacijenta(Pacijent pacijent)
+        {
+            List<Termin> termini = CitanjeIzFajla();
+            List<Termin> noviTermini = new List<Termin>();
+            foreach (Termin termin in termini)
+            {
+                if (termin.pacijent != null && termin.pacijent.Jmbg.Equals(pacijent.Jmbg))
+                {
+                    noviTermini.Add(termin);
+                }
+            }
+            return noviTermini;
+        }
+
+        public List<Termin> PregledTerminaLekara(Lekar lekar)
+        {
+            List<Termin> termini = new List<Termin>();
+
+            foreach (Termin t in CitanjeIzFajla())
+            {
+                if (t.lekar.Jmbg == lekar.Jmbg)
+                {
+                    termini.Add(t);
+                }
+            }
+
+            return termini;
+        }
+
         public List<Termin> PregledSvihTermina()
         {
             List<Termin> termini = CitanjeIzFajla();

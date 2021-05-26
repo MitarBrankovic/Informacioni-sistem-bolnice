@@ -2,7 +2,6 @@
 using Model;
 using PrviProgram.Service;
 using Service;
-using Service.LekarService;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;

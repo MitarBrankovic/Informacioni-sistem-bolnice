@@ -1,5 +1,6 @@
 
 using Model;
+using PrviProgram.Repository;
 using PrviProgram.Service;
 using Service;
 using System;
@@ -10,7 +11,7 @@ namespace Controller
 {
     public class PacijentControler
     {
- 
+        private TerminiRepository terminiRepository = new TerminiRepository();
         public void DodavanjeTermina(Termin termin)
         {
             TerminiService.getInstance().DodavanjeTermina(termin);
@@ -30,7 +31,8 @@ namespace Controller
         public List<Termin> PregledTermina(Pacijent pacijent)
         {
             // TODO: implement
-            return TerminiService.getInstance().PregledTermina(pacijent);
+            //return TerminiService.getInstance().PregledTermina(pacijent);
+            return terminiRepository.PregledTerminaPacijenta(pacijent);
         }
         public List<string> ZauzetiTerminiLekaraDatuma(Lekar lekar, DateTime datumTermina)
         {

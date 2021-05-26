@@ -1,6 +1,6 @@
 ﻿using Model;
+using PrviProgram.Repository;
 using Service;
-using Service.LekarService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,9 +19,9 @@ namespace PrviProgram.Izgled.IzgledLekar
 {
     public partial class TerminiPrikaz : UserControl
     {
-        public PreglediService upravljanje;
         public ObservableCollection<Termin> termini;
         private TerminiService terminiService = new TerminiService();
+        private TerminiRepository terminiRepository = new TerminiRepository();
         private Lekar lekar;
         private PocetniPrikaz pocetniPrikaz;
         public TerminiPrikaz(PocetniPrikaz pocetniPrikaz, Lekar lekar)
@@ -29,8 +29,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
             this.lekar = lekar;
-            upravljanje = new PreglediService();
-            termini = new ObservableCollection<Termin>(upravljanje.PregledSvihPregledaLekara(lekar));
+            termini = new ObservableCollection<Termin>(terminiRepository.PregledTerminaLekara(lekar));
             dataGridLekar.ItemsSource = termini;
             pocetniPrikaz.DodajUserControl(this);
             DisableButtons();

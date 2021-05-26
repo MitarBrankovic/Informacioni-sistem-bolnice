@@ -47,7 +47,6 @@ namespace Service
         public bool IzmenaIzvrsenogPregleda(IzvrseniPregled izvrseniPregled,Pacijent selektovaniPacijent)
         {
             List<Pacijent> pacijenti = pacijentRepository.CitanjeIzFajla();
-
             foreach(Pacijent pacijent in pacijenti)
             {
                 if(pacijent.Jmbg.Equals(selektovaniPacijent.Jmbg))
