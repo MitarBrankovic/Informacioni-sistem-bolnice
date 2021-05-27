@@ -59,7 +59,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Zaposleni_Click(object sender, RoutedEventArgs e)
         {
-
+            var s = new ZaposleniProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
         }
 
         private void Tutorijal_Click(object sender, RoutedEventArgs e)

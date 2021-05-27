@@ -38,10 +38,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
-                if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
-                    MessageBox.Show("Ponovo izaberite datume");
-                else if(terminRenoviranjaSale.PrvaSala.Sprat != terminRenoviranjaSale.DrugaSala.Sprat)
-                    MessageBox.Show("Sale nisu na istom spratu");
+                if (terminRenoviranjaSale.PrvaSala.Sprat == terminRenoviranjaSale.DrugaSala.Sprat)
+                {
+                    if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
+                        MessageBox.Show("Ponovo izaberite datume");
+                }
+                else MessageBox.Show("Sale nisu na istom spratu");
             }
             this.Close();
         }
