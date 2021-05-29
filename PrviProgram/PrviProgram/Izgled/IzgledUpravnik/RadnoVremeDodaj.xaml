@@ -1,0 +1,28 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="PrviProgram.Izgled.IzgledUpravnik.RadnoVremeDodaj"
+        mc:Ignorable="d"
+        Title="RadnoVremeDodaj" Height="600" Width="550"
+        KeyDown="Window_KeyDown">
+    <Grid Background="SeaShell">
+        <Label Content="Lekar:" HorizontalAlignment="Left" Height="25" Margin="135,141,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label Content="Pocetni datum:" HorizontalAlignment="Left" Height="25" Margin="135,187,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton}" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="148,512,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="277,512,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
+        <ComboBox x:Name="ComboLekar" HorizontalAlignment="Left" Margin="275,141,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+
+        <DatePicker x:Name="PocetniDatum" HorizontalAlignment="Left" Height="25" Margin="275,187,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Kranji datum:" HorizontalAlignment="Left" Height="25" Margin="135,235,0,0" VerticalAlignment="Top" Width="122"/>
+        <DatePicker x:Name="KrajnjiDatum" HorizontalAlignment="Left" Height="25" Margin="275,235,0,0" VerticalAlignment="Top" Width="167" DisplayDateStart="{x:Static System:DateTime.Today}"/>
+        <Label Content="Pocetno vreme:" HorizontalAlignment="Left" Height="24" Margin="135,293,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="ComboPocetno" HorizontalAlignment="Left" Margin="275,293,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <Label Content="Krajnje vreme:" HorizontalAlignment="Left" Height="26" Margin="135,358,0,0" VerticalAlignment="Top" Width="122"/>
+        <ComboBox x:Name="ComboKrajnje" HorizontalAlignment="Left" Margin="275,358,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <Label Content="Dodavanje radnog vremena" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Window>

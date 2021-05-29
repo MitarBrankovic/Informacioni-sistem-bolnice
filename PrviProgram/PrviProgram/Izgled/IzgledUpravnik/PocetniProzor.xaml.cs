@@ -78,6 +78,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             gridMain.Children.Add(s);
         }
 
+        private void RadnoVreme_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new RadnoVremeProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
+        }
+
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(
@@ -221,5 +228,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     e.Handled = true;
             }
         }
+
     }
 }

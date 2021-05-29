@@ -51,7 +51,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
+                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Izlazak iz aplikacije
@@ -92,6 +92,11 @@
                 <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" Content="Podesavanja" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Podesavanja_Click_1">
                     <Button.ToolTip>
                         <ToolTip Content="Podesavanja aplikacije"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="RadnoVreme" Style="{StaticResource UpravnikButton}" Content="Radno vreme lekara" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,469,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="RadnoVreme_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz radnih vremena lekara"/>
                     </Button.ToolTip>
                 </Button>
             </Grid>
