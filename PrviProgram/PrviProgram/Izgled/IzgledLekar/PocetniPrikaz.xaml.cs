@@ -20,6 +20,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private TerminiPrikaz terminiPrikaz;
         private LekoviPrikaz lekoviPrikaz;
         private PacijentiPrikaz pacijentiPrikaz;
+        private NalogPrikaz nalogPrikaz;
         private List<UserControl> listOfUserControls = new List<UserControl>();
         public PocetniPrikaz(Lekar lekar)
         {
@@ -50,6 +51,15 @@ namespace PrviProgram.Izgled.IzgledLekar
             ContentArea.Children.Add(lekoviPrikaz);
             ProveraKojiProzorJeOtvoren();
         }
+
+        private void Nalog_Click(object sender, RoutedEventArgs e)
+        {
+            nalogPrikaz = new NalogPrikaz(this, lekar);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(nalogPrikaz);
+            ProveraKojiProzorJeOtvoren();
+        }
+
         public void DugmeVisibilityTrue()
         {
             GoBack.Visibility = Visibility.Visible;
@@ -94,5 +104,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             listOfUserControls.Add(noviUserControl);
             trenutniUserControl = noviUserControl;
         }
+
+        
     }
 }

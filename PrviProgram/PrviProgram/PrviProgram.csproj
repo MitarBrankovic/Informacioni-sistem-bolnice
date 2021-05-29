@@ -21,6 +21,7 @@
     <None Remove="Slike\arrow-105-64.png" />
     <None Remove="Slike\avatarPacijenta.jpg" />
     <None Remove="Slike\Dania.jpg" />
+    <None Remove="Slike\Doktor.png" />
     <None Remove="Slike\hospital-2.jpg" />
     <None Remove="Slike\logout-64.png" />
     <None Remove="Slike\open.png" />
@@ -55,6 +56,9 @@
     <Resource Include="Slike\arrow-105-64.png" />
     <Resource Include="Slike\avatarPacijenta.jpg" />
     <Resource Include="Slike\Dania.jpg" />
+    <Resource Include="Slike\Doktor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Slike\hospital-2.jpg" />
     <Resource Include="Slike\logout-64.png" />
     <Resource Include="Slike\open.png" />

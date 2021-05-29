@@ -20,7 +20,7 @@
                 <Button HorizontalContentAlignment="Left" FontSize="18" Foreground="#e6eeff" BorderThickness="0" Background="#006280" x:Name ="Pacijenti"  Content="Pacijenti" Height="50" Width="150" Click="Pacijenti_Click"/>
                 <Button HorizontalContentAlignment="Left" FontSize="18" Foreground="#e6eeff" BorderThickness="0" Background="#006280" x:Name ="PregledLekova" Click="PregledLekova_Click"  Content="Pregled lekova" Height="50" Width="150" />
                 <Button HorizontalContentAlignment="Left" FontSize="18" Foreground="#e6eeff" BorderThickness="0" Background="#006280" x:Name ="Obavestenja"   Content="Obavestenja" Height="50" Width="150" />
-                <Button HorizontalContentAlignment="Left" FontSize="18" Foreground="#e6eeff" BorderThickness="0" Background="#006280" x:Name ="Nalog"   Content="Nalog" Height="50" Width="150" />
+                <Button HorizontalContentAlignment="Left" FontSize="18" Foreground="#e6eeff" BorderThickness="0" Background="#006280" x:Name ="Nalog"   Content="Nalog" Height="50" Width="150"  Click="Nalog_Click"/>
 
                 <Grid Height="240"/>
                 <Grid Height="50">
