@@ -87,16 +87,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- N: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- SPACE: Vracanje fokusa na dugme nakon povratka na pocetni prozor.\n" +
-                "- END: Izlazak iz aplikacije. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"+
-                "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
-                , "HELP");
+            PrikazPomoci();
         }
 
         private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
@@ -138,6 +129,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Zaposleni.IsFocused)
                 {
+                    RadnoVreme.Focus();
+                }
+                else if (RadnoVreme.IsFocused)
+                {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
@@ -160,9 +155,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Pomoc.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    SaleButton.Focus();
-
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
@@ -188,14 +180,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (OpremaButton.IsFocused)
                 {
+                    RadnoVreme.Focus();
+                }
+                else if (RadnoVreme.IsFocused)
+                {
                     Zaposleni.Focus();
                 }
                 else if (Zaposleni.IsFocused)
                 {
                     SaleButton.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    SaleButton.Focus();
             }
             else if (e.Key == Key.End)
             {
@@ -207,10 +201,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     SaleButton.Focus();
                 }
-            }
-            else if (e.Key == Key.N)
-            {
-                File_Name.Focus();
             }
             else if (Pomoc.IsFocused)
             {
@@ -227,6 +217,20 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
+        }
+
+        private void PrikazPomoci()
+        {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- N: Selektovanje MenuBar-a - FILE.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- SPACE: Vracanje fokusa na dugme nakon povratka na pocetni prozor.\n" +
+            "- END: Izlazak iz aplikacije. \n\n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n" +
+            "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
+            , "HELP");
         }
 
     }

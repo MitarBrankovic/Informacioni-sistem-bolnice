@@ -49,7 +49,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
-
+            PrikazPomoci();
         }
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
@@ -156,20 +156,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- M: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-                "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
-                "- F3: Brisanje selektovanog leka. \n" +
-                "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                    , "HELP");
+                PrikazPomoci();
             }
             else if (e.Key == Key.F2)
             {
@@ -185,19 +172,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (dataGridRadnaVremena.SelectedIndex != -1)
                 {
-                    radnoVremeService.BrisanjeLeka((RadnoVremeLekara)dataGridRadnaVremena.SelectedItem);
-                    radnaVremenaLekara.Remove((RadnoVremeLekara)dataGridRadnaVremena.SelectedItem);
-                }
-                else { MessageBox.Show("Morate izabrati radno vreme!"); }
-                Dodaj.Focus();
-            }
-            else if (e.Key == Key.F4)
-            {
-                if (dataGridRadnaVremena.SelectedIndex != -1)
-                {
-                    Lek lek = (Lek)dataGridRadnaVremena.SelectedItem;
-                    //LekoviIzvestaj win = new LekoviIzvestaj(lekoviRepository.PregledLeka(lek.Sifra));
-                   // win.ShowDialog();
+
                 }
                 else { MessageBox.Show("Morate izabrati radno vreme!"); }
                 Dodaj.Focus();
@@ -228,7 +203,38 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Dodaj.Focus();
+        }
 
+        private void dataGridRadnaVremena_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (dataGridRadnaVremena.SelectedIndex != -1)
+                {
+                    radnoVremeService.BrisanjeLeka((RadnoVremeLekara)dataGridRadnaVremena.SelectedItem);
+                    radnaVremenaLekara.Remove((RadnoVremeLekara)dataGridRadnaVremena.SelectedItem);
+                }
+                else { MessageBox.Show("Morate izabrati radno vreme!"); }
+                Dodaj.Focus();
+            }
+        }
+
+        private void PrikazPomoci()
+        {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+            "- F2: Otvaranje dijaloga izmene selektovanog radnog vremena. \n" +
+            "- F3: Otvaranje dijaloga o informacijama selektovanog radnog vremena. \n" +
+            "- DEL: Brisanje selektovanog radnog vremena. \n\n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+                , "HELP");
         }
     }
 }

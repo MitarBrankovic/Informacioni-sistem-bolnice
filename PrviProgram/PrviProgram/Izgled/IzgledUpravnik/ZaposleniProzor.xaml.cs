@@ -92,19 +92,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-            "- ESCAPE: Povratak na pocetni prozor. \n" +
-            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-            "- F1: Otvaranje Pomoc dijaloga. \n" +
-            "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
-            "- F3: Brisanje selektovanog leka. \n" +
-            "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
-
-            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                , "HELP");
+            PrikazPomoci();
         }
 
 
@@ -184,19 +172,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-                "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
-                "- F3: Brisanje selektovanog leka. \n" +
-                "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                    , "HELP");
+                PrikazPomoci();
             }
             else if (e.Key == Key.F2)
             {
@@ -204,25 +180,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     ZaposleniIzmeni win = new ZaposleniIzmeni(zaposlenii, (Osoba)dataGridZaposleni.SelectedItem);
                     win.ShowDialog();
-                }
-                else { MessageBox.Show("Morate izabrati zaposlenog!"); }
-                Dodaj.Focus();
-            }
-            else if (e.Key == Key.F3)
-            {
-                if (dataGridZaposleni.SelectedIndex != -1)
-                {
-                    Osoba selektovanaOsoba = (Osoba)dataGridZaposleni.SelectedItem;
-                    if (selektovanaOsoba.Korisnik.TipKorisnika == TipKorisnika.Lekar)
-                    {
-                        sekretarController.BrisanjeLekara(lekarRepository.PregledLekara(selektovanaOsoba.Jmbg));
-                        zaposlenii.Remove(selektovanaOsoba);
-                    }
-                    else if (selektovanaOsoba.Korisnik.TipKorisnika == TipKorisnika.Sekretar)
-                    {
-                        sekretarService.BrisanjeSekretara(sekretarRepository.PregledSekretara(selektovanaOsoba.Jmbg));
-                        zaposlenii.Remove(selektovanaOsoba);
-                    }
                 }
                 else { MessageBox.Show("Morate izabrati zaposlenog!"); }
                 Dodaj.Focus();
@@ -244,6 +201,46 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.Space || e.Key == Key.N)
                 e.Handled = true;
+        }
+
+        private void dataGridZaposleni_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (dataGridZaposleni.SelectedIndex != -1)
+                {
+                    Osoba selektovanaOsoba = (Osoba)dataGridZaposleni.SelectedItem;
+                    if (selektovanaOsoba.Korisnik.TipKorisnika == TipKorisnika.Lekar)
+                    {
+                        sekretarController.BrisanjeLekara(lekarRepository.PregledLekara(selektovanaOsoba.Jmbg));
+                        zaposlenii.Remove(selektovanaOsoba);
+                    }
+                    else if (selektovanaOsoba.Korisnik.TipKorisnika == TipKorisnika.Sekretar)
+                    {
+                        sekretarService.BrisanjeSekretara(sekretarRepository.PregledSekretara(selektovanaOsoba.Jmbg));
+                        zaposlenii.Remove(selektovanaOsoba);
+                    }
+                }
+                else { MessageBox.Show("Morate izabrati zaposlenog!"); }
+                Dodaj.Focus();
+            }
+        }
+
+        private void PrikazPomoci()
+        {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+            "- F2: Otvaranje dijaloga izmene selektovanog zaposlenog. \n" +
+            "- F3: Otvaranje dijaloga o informacijama selektovanog zaposlenog. \n" +
+            "- DEL: Brisanje selektovanog zaposlenog. \n\n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+                , "HELP");
         }
     }
 }

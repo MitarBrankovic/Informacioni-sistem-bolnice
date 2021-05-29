@@ -137,10 +137,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     Nazad.Focus();
                 }
             }
-            else if (e.Key == Key.M)
-            {
-                File.Focus();
-            }
             else if (e.Key == Key.Escape)
             {
                 (this.Parent as Grid).Children.Remove(this);
@@ -175,31 +171,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             utilityService.LogOutUpravnikaUserControl(this);
-        }
-
-        private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaleMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HelpMenu_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

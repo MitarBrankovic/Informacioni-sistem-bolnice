@@ -73,6 +73,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Player.Source = new Uri(openFileDialog.FileName);
             }
+            Player.Play();
         }
 
         private void Play_Click(object sender, RoutedEventArgs e)

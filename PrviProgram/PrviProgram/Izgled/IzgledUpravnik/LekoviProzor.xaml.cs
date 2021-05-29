@@ -129,9 +129,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
@@ -167,12 +164,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-            }
-            else if (e.Key == Key.M)
-            {
-                File.Focus();
             }
             else if (e.Key == Key.Escape)
             {
@@ -180,20 +171,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- M: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-                "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
-                "- F3: Brisanje selektovanog leka. \n" +
-                "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                    , "HELP");
+                PrikazPomoci();
             }
             else if (e.Key == Key.F2)
             {
@@ -206,16 +184,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 Dodaj.Focus();
             }
             else if (e.Key == Key.F3)
-            {
-                if (dataGridLekovi.SelectedIndex != -1)
-                {
-                    upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
-                    lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
-                }
-                else { MessageBox.Show("Morate izabrati lek!"); }
-                Dodaj.Focus();
-            }
-            else if (e.Key == Key.F4)
             {
                 if (dataGridLekovi.SelectedIndex != -1)
                 {
@@ -250,37 +218,12 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 e.Handled = true;
         }
 
-        private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaleMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HelpMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Pomoc_Click(object sender, RoutedEventArgs e)
+        {
+            PrikazPomoci();
+        }
+
+        private void PrikazPomoci()
         {
             MessageBox.Show(
             "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
@@ -291,11 +234,25 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
             "- F1: Otvaranje Pomoc dijaloga. \n" +
             "- F2: Otvaranje dijaloga izmene selektovanog leka. \n" +
-            "- F3: Brisanje selektovanog leka. \n" +
-            "- F4: Otvaranje dijaloga o informacijama selektovanog leka. \n\n" +
+            "- F3: Otvaranje dijaloga o informacijama selektovanog leka. \n" +
+            "- DEL: Brisanje selektovanog leka. \n\n" +
 
             "- ENTER/SPACE: Zatvaranje ove poruke.\n"
                 , "HELP");
+        }
+
+        private void dataGridLekovi_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (dataGridLekovi.SelectedIndex != -1)
+                {
+                    upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
+                    lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
+                }
+                else { MessageBox.Show("Morate izabrati lek!"); }
+                Dodaj.Focus();
+            }
         }
     }
 }

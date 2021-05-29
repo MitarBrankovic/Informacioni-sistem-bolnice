@@ -9,37 +9,7 @@
              KeyDown="UserControl_KeyDown">
 
     <Grid Background="SeaShell">
-        <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File" Width="35">
-                    <MenuItem Name="DodajLek" Header="Dodaj lek" InputGestureText="Ctrl+B" Click="DodajLek_Click"></MenuItem>
-                    <MenuItem Name="LogOut" Header="Log out"  InputGestureText="Ctrl+D" Click="LogOut_Click" ></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Edit" Name="Edit_Name" Width="35">
-                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNalogaMenu_Click"></MenuItem>
-                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="PodesavanjaMenu_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="View" Name="ViewName" Width="35">
-                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="SaleMenu_Click"></MenuItem>
-                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaMenu_Click"></MenuItem>
-                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="LekoviMenu_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
-                    <MenuItem Name="HelpMenu" Header="Help"  InputGestureText="Ctrl+H" Click="HelpMenu_Click"></MenuItem>
-                </MenuItem>
-            </Menu>
-
-            <Grid DockPanel.Dock="Bottom">
-                <DataGrid x:Name="dataGridLekovi" Margin="216,208,187,148" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+        <DataGrid x:Name="dataGridLekovi" PreviewKeyDown="dataGridLekovi_PreviewKeyDown" Margin="216,208,187,148" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -101,8 +71,6 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Label Content="Lekovi" HorizontalAlignment="Left" Height="56" Margin="574,32,0,0" VerticalAlignment="Top" Width="120" FontSize="26"/>
-            </Grid>
-        </DockPanel>
+        <Label Content="Lekovi" HorizontalAlignment="Left" Height="56" Margin="574,32,0,0" VerticalAlignment="Top" Width="120" FontSize="26"/>
     </Grid>
 </UserControl>

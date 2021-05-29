@@ -11,38 +11,7 @@
 
     <Grid Background="SeaShell">
         <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
-                    <MenuItem Header="Dodaj salu" InputGestureText="Ctrl+M"></MenuItem>
-                    <MenuItem Header="Dodaj opremu" InputGestureText="Ctrl+N"></MenuItem>
-                    <MenuItem Header="Dodaj lek" InputGestureText="Ctrl+B"></MenuItem>
-                    <MenuItem Name="LogOutMenu" Header="Log out"  InputGestureText="Ctrl+D" ></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Edit" Name="Edit_Name" Width="35">
-                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
-                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="View" Name="ViewName" Width="35">
-                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
-                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
-                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
-                    <MenuItem Name="HelpMenu" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
-                </MenuItem>
-            </Menu>
-
-
-            <Grid DockPanel.Dock="Bottom">
+            <Grid>
                 <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="160" FontFamily="Bahnschrift Light" FontSize="30" Grid.Column="1"/>
                 <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" Content="Sale" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click">
                     <Button.ToolTip>

@@ -141,41 +141,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         }
 
-        private void LogOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Podesavanja_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HelpMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaleMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Dodaj.Focus();
@@ -221,9 +186,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
@@ -263,12 +225,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-            }
-            else if (e.Key == Key.M)
-            {
-                File.Focus();
             }
             else if (e.Key == Key.Escape)
             {
@@ -276,20 +232,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- M: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-                "- F2: Otvaranje dijaloga izmene selektovane sale. \n" +
-                "- F3: Brisanje selektovane sale. \n" +
-                "- F4: Otvaranje dijaloga renoviranja selektovane sale. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                , "HELP");
+                PrikazPomoci();
             }
             else if (e.Key == Key.F2)
             {
@@ -301,17 +244,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 else { MessageBox.Show("Morate izabrati salu!"); }
                 Dodaj.Focus();
             }
+
             else if (e.Key == Key.F3)
-            {
-                if (dataGridUpravnik.SelectedIndex != -1)
-                {
-                    upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
-                    sale.Remove((Sala)dataGridUpravnik.SelectedItem);
-                }
-                else { MessageBox.Show("Morate izabrati salu!"); }
-                Dodaj.Focus();
-            }
-            else if (e.Key == Key.F4)
             {
                 if (dataGridUpravnik.SelectedIndex != -1)
                 {
@@ -347,14 +281,39 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
+            PrikazPomoci();
+        }
+
+        private void PrikazPomoci()
+        {
             MessageBox.Show(
-                "- Use LEFT and RIGHT CTRL to move withind buttons.\n" +
-                "- Use CTRL + O to select menu bar - FILE.\n" +
-                "- Use ENTER to select the button.\n" +
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- M: Selektovanje MenuBar-a - FILE.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+            "- F2: Otvaranje dijaloga izmene selektovane sale. \n" +
+            "- F3: Otvaranje dijaloga renoviranja selektovane sale. \n" +
+            "- DEL: Brisanje Selektovane sale. \n\n" +
 
-                "- Use ENTER/SPACE to close this message.\n"
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+            , "HELP");
+        }
 
-                , "HELP");
+        private void dataGridUpravnik_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (dataGridUpravnik.SelectedIndex != -1)
+                {
+                    upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
+                    sale.Remove((Sala)dataGridUpravnik.SelectedItem);
+                }
+                else { MessageBox.Show("Morate izabrati salu!"); }
+                Dodaj.Focus();
+            }
         }
     }
 }
