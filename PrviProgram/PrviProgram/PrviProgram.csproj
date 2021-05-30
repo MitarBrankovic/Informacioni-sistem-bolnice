@@ -18,6 +18,8 @@
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
+    <None Remove="Izgled\IzgledSekretar\Resources\language.en-US.resources" />
+    <None Remove="Izgled\IzgledSekretar\Resources\language.sr-LATN.resources" />
     <None Remove="Slike\arrow-105-64.png" />
     <None Remove="Slike\avatarPacijenta.jpg" />
     <None Remove="Slike\Dania.jpg" />
@@ -37,9 +39,9 @@
     <None Remove="Slike\znakBolnice.png" />
     <None Remove="upravnik.jpg" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Syncfusion.DocToPDFConverter.Wpf" Version="19.1.0.65" />
   </ItemGroup>
@@ -56,6 +58,8 @@
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
+    <Resource Include="Izgled\IzgledSekretar\Resources\language.en-US.resources" />
+    <Resource Include="Izgled\IzgledSekretar\Resources\language.sr-LATN.resources" />
     <Resource Include="Slike\arrow-105-64.png" />
     <Resource Include="Slike\avatarPacijenta.jpg" />
     <Resource Include="Slike\Dania.jpg" />
@@ -75,6 +79,13 @@
     <Resource Include="Slike\upravnik.jpg" />
     <Resource Include="Slike\volume.png" />
     <Resource Include="Slike\znakBolnice.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Izgled\IzgledSekretar\Themes\Light.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

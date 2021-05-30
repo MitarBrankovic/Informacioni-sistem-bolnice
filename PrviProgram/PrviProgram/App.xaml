@@ -44,25 +44,14 @@
                 </Setter>
             </Style>
 
-            <!--// Darkovi stilovi //-->
-
-            <!--// Text font style //-->
-            <Style x:Key="font_style" TargetType="TextBlock">
-
-                <Setter Property="VerticalAlignment"
-                    Value="Center"/>
-
-                <Setter Property="HorizontalAlignment"
-                    Value="Left"/>
-
-                <Setter Property="Foreground"
-                    Value="White"/>
-
-                <Setter Property="FontSize"
-                    Value="20"/>
-
-            </Style>
-
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="ThemeDictionary">
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="Izgled/IzgledSekretar/Themes/Dark.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            
         </ResourceDictionary>
 
     </Application.Resources>
