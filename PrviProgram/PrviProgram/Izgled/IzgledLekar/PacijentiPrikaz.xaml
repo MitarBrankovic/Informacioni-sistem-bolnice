@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="dgDataBinding" AutoGenerateColumns="False" Margin="41,91,41,63" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True" MinHeight="450">
+        <DataGrid ToolTip="Lista pacijenata" x:Name="dgDataBinding" AutoGenerateColumns="False" Margin="41,91,41,63" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True" MinHeight="450">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,7 +23,7 @@
                 <DataGridTextColumn Header="Pol" Width="0.2*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="90,36,0,0" VerticalAlignment="Top" Width="98" />
+        <Button ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="26" Margin="90,36,0,0" VerticalAlignment="Top" Width="98" />
 
     </Grid>
 </UserControl>
