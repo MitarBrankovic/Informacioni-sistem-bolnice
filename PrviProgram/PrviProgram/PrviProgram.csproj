@@ -41,6 +41,7 @@
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Syncfusion.DocToPDFConverter.Wpf" Version="19.1.0.65" />
   </ItemGroup>
 
   <ItemGroup>

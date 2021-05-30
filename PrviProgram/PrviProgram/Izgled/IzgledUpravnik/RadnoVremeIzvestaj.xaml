@@ -10,7 +10,7 @@
     <Grid Background="SeaShell">
         <Label Content="Lekar:" HorizontalAlignment="Left" Height="25" Margin="135,141,0,0" VerticalAlignment="Top" Width="122"/>
         <Button x:Name="Konvertuj" Style="{StaticResource UpravnikButton}" Content="Konvertuj u PDF" HorizontalAlignment="Center" Height="47" Margin="0,256,0,0" VerticalAlignment="Top" Width="177" Click="Konvertuj_Click"/>
-        <ComboBox x:Name="ComboLekar" HorizontalAlignment="Left" Margin="275,141,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <ComboBox x:Name="ComboLekar" SelectedItem="0" HorizontalAlignment="Left" Margin="275,141,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
         <Label Content="Izvestaj radnog vremena izabranog lekara" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" Content="Odustani" HorizontalAlignment="Center" Height="47" Margin="0,320,0,0" VerticalAlignment="Top" Width="177" Click="Odustani_Click"/>
 

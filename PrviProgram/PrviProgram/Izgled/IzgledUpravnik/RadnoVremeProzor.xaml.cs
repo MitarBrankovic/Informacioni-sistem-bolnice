@@ -36,7 +36,8 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Izvestaj_Click(object sender, RoutedEventArgs e)
         {
-
+            RadnoVremeIzvestaj win = new RadnoVremeIzvestaj(radnaVremenaLekara);
+            win.ShowDialog();
         }
 
         private void Kalendar_Click(object sender, RoutedEventArgs e)
