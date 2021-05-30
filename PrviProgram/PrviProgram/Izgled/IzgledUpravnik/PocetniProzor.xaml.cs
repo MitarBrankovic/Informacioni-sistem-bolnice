@@ -14,7 +14,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             InitializeComponent();
             this.upravnik = upravnik;
         }
-
+                
         private void LogOutIzAplikacije()
         {
             MessageBoxResult rsltMessageBox = MessageBox.Show("Da li ste sigurni da zelite da se izlogujete?", "Log out",
@@ -90,21 +90,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             PrikazPomoci();
         }
 
-        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Podesavanja_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             ToolTip tooltip = (ToolTip)(sender as Control).ToolTip;
@@ -129,17 +114,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Zaposleni.IsFocused)
                 {
-                    RadnoVreme.Focus();
+                    Podesavanja.Focus();
                 }
-                else if (RadnoVreme.IsFocused)
+                else if (Podesavanja.IsFocused)
                 {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
                 {
-                    Podesavanja.Focus();
+                    RadnoVreme.Focus();
                 }
-                else if (Podesavanja.IsFocused)
+                else if (RadnoVreme.IsFocused)
                 {
                     LogOutButton.Focus();
                 }
@@ -152,6 +137,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     Tutorijal.Focus();
                 }
                 else if (Tutorijal.IsFocused)
+                {
+                    PovratneInformacije.Focus();
+                }
+                else if (PovratneInformacije.IsFocused)
                 {
                     Pomoc.Focus();
                 }
@@ -160,6 +149,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (Pomoc.IsFocused)
                 {
+                    PovratneInformacije.Focus();
+                }
+                else if (PovratneInformacije.IsFocused)
+                {
                     Tutorijal.Focus();
                 }
                 else if (Tutorijal.IsFocused)
@@ -172,17 +165,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (LogOutButton.IsFocused)
                 {
-                    Podesavanja.Focus();
+                    RadnoVreme.Focus();
                 }
-                else if (Podesavanja.IsFocused)
+                else if (RadnoVreme.IsFocused)
                 {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
                 {
-                    RadnoVreme.Focus();
+                    Podesavanja.Focus();
                 }
-                else if (RadnoVreme.IsFocused)
+                else if (Podesavanja.IsFocused)
                 {
                     Zaposleni.Focus();
                 }
@@ -233,5 +226,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             , "HELP");
         }
 
+        private void PovratneInformacije_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

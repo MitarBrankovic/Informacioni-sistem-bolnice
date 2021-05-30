@@ -58,14 +58,19 @@
                         <ToolTip Content="Prikaz svih lekova"/>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" Content="Podesavanja" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Podesavanja_Click_1">
+                <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" Content="Podesavanja" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,469,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Podesavanja_Click_1">
                     <Button.ToolTip>
                         <ToolTip Content="Podesavanja aplikacije"/>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="RadnoVreme" Style="{StaticResource UpravnikButton}" Content="Radno vreme lekara" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,469,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="RadnoVreme_Click">
+                <Button x:Name="RadnoVreme" Style="{StaticResource UpravnikButton}" Content="Radno vreme lekara" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="RadnoVreme_Click">
                     <Button.ToolTip>
                         <ToolTip Content="Prikaz radnih vremena lekara"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="PovratneInformacije" Style="{StaticResource UpravnikButton}" Content="Povratne informacije" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,469,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="PovratneInformacije_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz svih lekova"/>
                     </Button.ToolTip>
                 </Button>
             </Grid>
