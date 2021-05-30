@@ -21,6 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class RadnoVremeProzor : UserControl
     {
         private ObservableCollection<RadnoVremeLekara> radnaVremenaLekara;
+        private ObservableCollection<RadnoVremeLekara> pomocnaLista;
         private RadnoVremeLekaraRepository radnoVremeLekaraRepository = new RadnoVremeLekaraRepository();
         private RadnoVremeService radnoVremeService = new RadnoVremeService();
         private UpravnikController upravnikController = new UpravnikController();
@@ -29,6 +30,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             InitializeComponent();
             radnaVremenaLekara = new ObservableCollection<RadnoVremeLekara>(radnoVremeLekaraRepository.PregledSvihRadnihVremena());
+            pomocnaLista = new ObservableCollection<RadnoVremeLekara>(radnaVremenaLekara);
             dataGridRadnaVremena.ItemsSource = radnaVremenaLekara;
         }
 
@@ -78,6 +80,60 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             win.ShowDialog();
         }
 
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
+                {
+                    ResetovanjeTabele();
+                }
+                else if (splited.Length == 1)
+                {
+                    foreach (RadnoVremeLekara r in pomocnaLista)
+                    {
+                        if (!radnaVremenaLekara.Contains(r))
+                        {
+                            radnaVremenaLekara.Add(r);
+                        }
+                        if (!r.Lekar.Ime.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            radnaVremenaLekara.Remove(r);
+                        }
+                    }
+                }
+                else if (splited.Length == 2)
+                {
+                    foreach (RadnoVremeLekara r in pomocnaLista)
+                    {
+                        if (!radnaVremenaLekara.Contains(r))
+                        {
+                            radnaVremenaLekara.Add(r);
+                        }
+                        if (!r.Lekar.Ime.ToLower().Contains(splited[0].ToLower()) || !r.Lekar.Prezime.ToLower().Contains(splited[1].ToLower()))
+                        {
+                            radnaVremenaLekara.Remove(r);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ResetovanjeTabele()
+        {
+            foreach (RadnoVremeLekara r in pomocnaLista)
+            {
+                if (!radnaVremenaLekara.Contains(r))
+                {
+                    radnaVremenaLekara.Add(r);
+                }
+            }
+        }
+
+
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.RightCtrl)
@@ -100,6 +156,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Kalendar.IsFocused)
                 {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
+                {
                     Pomoc.Focus();
                 }
                 else if (Nazad.IsFocused)
@@ -118,6 +178,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
+                {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
                 {
                     Kalendar.Focus();
                 }
@@ -236,5 +300,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             "- ENTER/SPACE: Zatvaranje ove poruke.\n"
                 , "HELP");
         }
+
     }
 }

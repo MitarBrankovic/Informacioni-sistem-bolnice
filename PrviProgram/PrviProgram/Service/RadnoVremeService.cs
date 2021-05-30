@@ -13,7 +13,7 @@ namespace PrviProgram.Service
         public bool DodavanjeLeka(RadnoVremeLekara radnoVreme)
         {
             List<RadnoVremeLekara> radnaVremena = radnoVremeLekaraRepository.CitanjeIzFajla();
-            if (radnoVremeLekaraRepository.PregledRadnogVremenaLekara(radnoVreme.Lekar.Ime) != null) return false;
+            //if (radnoVremeLekaraRepository.PregledRadnogVremenaLekara(radnoVreme.Lekar.Ime) != null) return false;
             radnaVremena.Add(radnoVreme);
             radnoVremeLekaraRepository.UpisivanjeUFajl(radnaVremena);
             return true;

@@ -26,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private SalaRepository saleRepository = new SalaRepository();
         private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
         private ObservableCollection<Sala> sale;
+        private ObservableCollection<Sala> pomocnaLista;
         public DispatcherTimer timer = new DispatcherTimer();
 
         public SaleProzor()
@@ -33,6 +34,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             InitializeComponent();
             InicijalizacijaTimera();
             sale = new ObservableCollection<Sala>(saleRepository.PregledSvihSala());
+            pomocnaLista = new ObservableCollection<Sala>(sale);
             dataGridUpravnik.ItemsSource = sale;
         }
 
@@ -172,6 +174,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Spajanje.IsFocused)
                 {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
+                {
                     Pomoc.Focus();
                 }
                 else if (Nazad.IsFocused)
@@ -190,6 +196,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
+                {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
                 {
                     Spajanje.Focus();
                 }
@@ -275,7 +285,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (e.Key == Key.Space || e.Key == Key.N)
+            else if (e.Key == Key.Space)
                 e.Handled = true;
         }
 
@@ -313,6 +323,45 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else { MessageBox.Show("Morate izabrati salu!"); }
                 Dodaj.Focus();
+            }
+        }
+
+        private void ResetovanjeTabele()
+        {
+            foreach (Sala r in pomocnaLista)
+            {
+                if (!sale.Contains(r))
+                {
+                    sale.Add(r);
+                }
+            }
+        }
+
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
+                {
+                    ResetovanjeTabele();
+                }
+                else if (splited.Length == 1)
+                {
+                    foreach (Sala s in pomocnaLista)
+                    {
+                        if (!sale.Contains(s))
+                        {
+                            sale.Add(s);
+                        }
+                        if (!s.Naziv.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            sale.Remove(s);
+                        }
+                    }
+                }
             }
         }
     }

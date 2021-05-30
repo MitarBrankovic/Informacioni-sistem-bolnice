@@ -20,6 +20,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class LekoviProzor : UserControl
     {
         private ObservableCollection<Lek> lekovi;
+        private ObservableCollection<Lek> pomocnaLista;
         private LekoviRepository lekoviRepository = new LekoviRepository();
         private UpravnikController upravnikController = new UpravnikController();
 
@@ -27,6 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             InitializeComponent();
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
+            pomocnaLista = new ObservableCollection<Lek>(lekovi);
             dataGridLekovi.ItemsSource = lekovi;
         }
 
@@ -78,16 +80,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             win.ShowDialog();
         }
 
-        private void LogOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DodajLek_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Dodaj.Focus();
@@ -115,6 +107,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Primedbe.IsFocused)
                 {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
+                {
                     Pomoc.Focus();
                 }
                 else if (Nazad.IsFocused)
@@ -133,6 +129,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
+                {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
                 {
                     Primedbe.Focus();
                 }
@@ -214,7 +214,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (e.Key == Key.Space || e.Key == Key.N)
+            else if (e.Key == Key.Space)
                 e.Handled = true;
         }
 
@@ -252,6 +252,44 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else { MessageBox.Show("Morate izabrati lek!"); }
                 Dodaj.Focus();
+            }
+        }
+
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
+                {
+                    ResetovanjeTabele();
+                }
+                else if (splited.Length == 1)
+                {
+                    foreach (Lek l in pomocnaLista)
+                    {
+                        if (!lekovi.Contains(l))
+                        {
+                            lekovi.Add(l);
+                        }
+                        if (!l.Naziv.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            lekovi.Remove(l);
+                        }
+                    }
+                }
+            }
+        }
+        private void ResetovanjeTabele()
+        {
+            foreach (Lek l in pomocnaLista)
+            {
+                if (!lekovi.Contains(l))
+                {
+                    lekovi.Add(l);
+                }
             }
         }
     }

@@ -70,54 +70,56 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             (this.Parent as Grid).Children.Remove(this);
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
         {
-            String search;
-            search = Textbox.Text;
-            String[] splited = search.Split(" ");
-            if (search == "")
+            if (e.Key == Key.Enter)
             {
-                ResetovanjeTabele();
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
-            }
-            else if (splited.Length == 1)
-            {
-                foreach (Oprema o in pomocnaOprema)
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
                 {
-                    if (!opreme.Contains(o))
-                    {
-                        opreme.Add(o);
-                    }
-                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower()))
-                    {
-                        opreme.Remove(o);
-                    }
+                    ResetovanjeTabele();
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
                 }
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
-            }
-            else if (splited.Length == 2)
-            {
-                foreach (Oprema o in pomocnaOprema)
+                else if (splited.Length == 1)
                 {
-                    if (!opreme.Contains(o))
+                    foreach (Oprema o in pomocnaOprema)
                     {
-                        opreme.Add(o);
+                        if (!opreme.Contains(o))
+                        {
+                            opreme.Add(o);
+                        }
+                        if (!o.Naziv.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            opreme.Remove(o);
+                        }
                     }
-                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower()) || !o.NazivSale.ToLower().Contains(splited[1].ToLower()))
-                    {
-                        opreme.Remove(o);
-                    }
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
                 }
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
+                else if (splited.Length == 2)
+                {
+                    foreach (Oprema o in pomocnaOprema)
+                    {
+                        if (!opreme.Contains(o))
+                        {
+                            opreme.Add(o);
+                        }
+                        if (!o.Naziv.ToLower().Contains(splited[0].ToLower()) || !o.NazivSale.ToLower().Contains(splited[1].ToLower()))
+                        {
+                            opreme.Remove(o);
+                        }
+                    }
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
+                }
             }
         }
-
 
         private void Staticka_Checked(object sender, RoutedEventArgs e)
         {
@@ -407,10 +409,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Textbox.IsFocused)
                 {
-                    Search.Focus();
-                }
-                else if (Search.IsFocused)
-                {
                     Staticka.Focus();
                 }
                 else if (Staticka.IsFocused || Dinamicka.IsFocused || Do5.IsFocused || Do10.IsFocused || Preko10.IsFocused || SveTip.IsFocused || SveKolicina.IsFocused)
@@ -537,7 +535,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (e.Key == Key.Space || e.Key == Key.N)
+            else if (e.Key == Key.Space)
                 e.Handled = true;
         }
 

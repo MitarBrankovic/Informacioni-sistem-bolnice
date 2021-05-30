@@ -9,75 +9,79 @@
              KeyDown="UserControl_KeyDown">
 
     <Grid x:Name="gridMain" Visibility="Visible" Background="SeaShell">
-        <DataGrid x:Name="dataGridUpravnik" PreviewKeyDown="dataGridUpravnik_PreviewKeyDown" Margin="143,170,217,170" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        </Style>
+        <DataGrid x:Name="dataGridUpravnik" PreviewKeyDown="dataGridUpravnik_PreviewKeyDown" GridLinesVisibility="None" Margin="143,170,162,170" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
 
-                    </DataGrid.Resources>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
-                        <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
-                        <DataGridTextColumn Header="Tip sale" Binding="{Binding Tip}" Width="*"/>
-                        <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton }" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="149,121,0,0" VerticalAlignment="Top" Width="98">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Dodavanje nove sale
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name ="Izmeni" Style="{StaticResource UpravnikButton }" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="263,121,0,0" VerticalAlignment="Top" Width="98">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Izmena selektovane sale
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name ="Izbrisi" Style="{StaticResource UpravnikButton }" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="380,121,0,0" VerticalAlignment="Top" Width="98">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Brisanje selektovane sale
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name ="Oprema" Style="{StaticResource UpravnikButton }" Click="Oprema_Click"  Content="Oprema" HorizontalAlignment="Left" Height="26" Margin="502,121,0,0" VerticalAlignment="Top" Width="98">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Prikaz opreme selektovane sale
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name ="Renoviranje" Style="{StaticResource UpravnikButton }" Click="Renoviranje_Click"  Content="Renoviranje" HorizontalAlignment="Left" Height="26" Margin="622,121,0,0" VerticalAlignment="Top" Width="98" >
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Renoviranje selektovane sale
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Povratak na pocetni prozor
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1081,49,0,0" VerticalAlignment="Top" Width="66">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            Deteljna uputstva za korisnjece aplikacije
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Label Content="Sale"  HorizontalAlignment="Left" Height="56" Margin="532,32,0,0" VerticalAlignment="Top" Width="62" FontSize="26"/>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
+                <DataGridTextColumn Header="Tip sale" Binding="{Binding Tip}" Width="*"/>
+                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton }" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="149,121,0,0" VerticalAlignment="Top" Width="98">
+            <Button.ToolTip>
+                <ToolTip>
+                    Dodavanje nove sale
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name ="Izmeni" Style="{StaticResource UpravnikButton }" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="263,121,0,0" VerticalAlignment="Top" Width="98">
+            <Button.ToolTip>
+                <ToolTip>
+                    Izmena selektovane sale
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name ="Izbrisi" Style="{StaticResource UpravnikButton }" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="380,121,0,0" VerticalAlignment="Top" Width="98">
+            <Button.ToolTip>
+                <ToolTip>
+                    Brisanje selektovane sale
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name ="Oprema" Style="{StaticResource UpravnikButton }" Click="Oprema_Click"  Content="Oprema" HorizontalAlignment="Left" Height="26" Margin="502,121,0,0" VerticalAlignment="Top" Width="98">
+            <Button.ToolTip>
+                <ToolTip>
+                    Prikaz opreme selektovane sale
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name ="Renoviranje" Style="{StaticResource UpravnikButton }" Click="Renoviranje_Click"  Content="Renoviranje" HorizontalAlignment="Left" Height="26" Margin="622,121,0,0" VerticalAlignment="Top" Width="98" >
+            <Button.ToolTip>
+                <ToolTip>
+                    Renoviranje selektovane sale
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
+            <Button.ToolTip>
+                <ToolTip>
+                    Povratak na pocetni prozor
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1081,49,0,0" VerticalAlignment="Top" Width="66">
+            <Button.ToolTip>
+                <ToolTip>
+                    Deteljna uputstva za korisnjece aplikacije
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Label Content="Sale"  HorizontalAlignment="Left" Height="56" Margin="532,32,0,0" VerticalAlignment="Top" Width="62" FontSize="26"/>
         <Button x:Name ="Spajanje" Style="{StaticResource UpravnikButton}" Click="Spajanje_Click"  Content="Spajanje" HorizontalAlignment="Left" Height="26" Margin="750,121,0,0" VerticalAlignment="Top" Width="98">
             <Button.ToolTip>
                 <ToolTip Content="Prikaz opreme selektovane sale"/>
             </Button.ToolTip>
         </Button>
+        <TextBox x:Name="Textbox" KeyDown="Textbox_KeyDown" HorizontalAlignment="Left" Margin="918,125,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextSearch.Text="nesto"/>
+        <Label HorizontalAlignment="Left" BorderBrush="{x:Null}" Height="36" Margin="1038,116,0,0" VerticalAlignment="Top" Width="41">
+            <Image Source="/Slike/lupa.png" />
+        </Label>
     </Grid>
 </UserControl>

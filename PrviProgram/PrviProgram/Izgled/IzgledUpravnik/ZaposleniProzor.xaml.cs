@@ -22,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class ZaposleniProzor : UserControl
     {
         private ObservableCollection<Osoba> zaposlenii;
+        private ObservableCollection<Osoba> pomocnaLista;
         private LekarRepository lekarRepository = new LekarRepository();
         private SekretarRepository sekretarRepository = new SekretarRepository();
         private SekretarController sekretarController = new SekretarController();
@@ -43,6 +44,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             zaposleni.AddRange(lekari);
             zaposleni.AddRange(sekretari);
             zaposlenii = new ObservableCollection<Osoba>(zaposleni);
+            pomocnaLista = new ObservableCollection<Osoba>(zaposlenii);
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
@@ -119,6 +121,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Informacije.IsFocused)
                 {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
+                {
                     Pomoc.Focus();
                 }
                 else if (Nazad.IsFocused)
@@ -138,6 +144,10 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
+                {
+                    Textbox.Focus();
+                }
+                else if (Textbox.IsFocused)
                 {
                     Informacije.Focus();
                 }
@@ -199,7 +209,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (e.Key == Key.Space || e.Key == Key.N)
+            else if (e.Key == Key.Space)
                 e.Handled = true;
         }
 
@@ -241,6 +251,59 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
             "- ENTER/SPACE: Zatvaranje ove poruke.\n"
                 , "HELP");
+        }
+
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
+                {
+                    ResetovanjeTabele();
+                }
+                else if (splited.Length == 1)
+                {
+                    foreach (Osoba o in pomocnaLista)
+                    {
+                        if (!zaposlenii.Contains(o))
+                        {
+                            zaposlenii.Add(o);
+                        }
+                        if (!o.Ime.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            zaposlenii.Remove(o);
+                        }
+                    }
+                }
+                else if (splited.Length == 2)
+                {
+                    foreach (Osoba o in pomocnaLista)
+                    {
+                        if (!zaposlenii.Contains(o))
+                        {
+                            zaposlenii.Add(o);
+                        }
+                        if (!o.Ime.ToLower().Contains(splited[0].ToLower()) || !o.Prezime.ToLower().Contains(splited[1].ToLower()))
+                        {
+                            zaposlenii.Remove(o);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ResetovanjeTabele()
+        {
+            foreach (Osoba o in pomocnaLista)
+            {
+                if (!zaposlenii.Contains(o))
+                {
+                    zaposlenii.Add(o);
+                }
+            }
         }
     }
 }

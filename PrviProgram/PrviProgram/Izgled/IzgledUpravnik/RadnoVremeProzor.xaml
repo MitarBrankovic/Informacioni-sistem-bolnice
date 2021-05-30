@@ -9,7 +9,9 @@
              Loaded="UserControl_Loaded"
              KeyDown="UserControl_KeyDown">
     <Grid Background="SeaShell">
-        <DataGrid x:Name="dataGridRadnaVremena" PreviewKeyDown="dataGridRadnaVremena_PreviewKeyDown" Margin="216,208,187,168" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}">
+        <DataGrid x:Name="dataGridRadnaVremena" PreviewKeyDown="dataGridRadnaVremena_PreviewKeyDown" Margin="216,208,187,168" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"
+                  FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False"
+                  ItemsSource="{Binding dataSale}" GridLinesVisibility="None" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -61,6 +63,9 @@
             </Button.ToolTip>
         </Button>
         <Label Content="Radno vreme lekara" HorizontalAlignment="Left" Height="56" Margin="494,31,0,0" VerticalAlignment="Top" Width="242" FontSize="26"/>
-
+        <TextBox x:Name="Textbox" KeyDown="Textbox_KeyDown" HorizontalAlignment="Left" Margin="898,159,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextSearch.Text="nesto"/>
+        <Label HorizontalAlignment="Left" BorderBrush="{x:Null}" Height="36" Margin="1013,150,0,0" VerticalAlignment="Top" Width="41">
+            <Image Source="/Slike/lupa.png" />
+        </Label>
     </Grid>
 </UserControl>
