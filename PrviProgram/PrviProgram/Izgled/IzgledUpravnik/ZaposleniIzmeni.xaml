@@ -45,9 +45,18 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,489,0,0" x:Name="textBlockLozinka" Text="Lozinka:" VerticalAlignment="Top" Width="110" />
         <TextBox Height="22" HorizontalAlignment="Left" Margin="183,459,0,0" x:Name="textBoxKorisnickoIme" VerticalAlignment="Top" Width="222" />
         <PasswordBox Height="24" HorizontalAlignment="Left" Margin="183,489,0,0" x:Name="textBoxLozinka" VerticalAlignment="Top" Width="222" />
-
-        <Button Content="Potvrdi" Style="{StaticResource UpravnikButton}" Height="23" HorizontalAlignment="Left" Margin="187,575,0,0" x:Name="Potvrdi" VerticalAlignment="Top" Width="70" Click="Potvrdi_Click" />
-        <Button Content="Odustani" Style="{StaticResource UpravnikButton}" Height="23" HorizontalAlignment="Left" Margin="287,575,0,0" x:Name="Odustani" VerticalAlignment="Top" Width="70" Click="Odustani_Click" />
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Left" Height="27" Margin="134,572,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/potvrdi.png" Margin="0, 0, 10, 0" Height="26" Width="26"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center" Text="Potvrdi"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Left" Height="27" Margin="263,572,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/odustani.png" Margin="0, 0, 10, 0" Height="19" Width="22"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center" Text="Odustani"/>
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

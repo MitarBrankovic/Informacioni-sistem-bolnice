@@ -11,8 +11,6 @@
         <Label Content="Naziv" HorizontalAlignment="Left" Height="25" Margin="128,100,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="128,146,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sastojci" HorizontalAlignment="Left" Height="25" Margin="128,194,0,0" VerticalAlignment="Top" Width="122" />
-        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton }" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="148,512,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton }" Content="Odustani" HorizontalAlignment="Left" Height="27" Margin="277,512,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click"/>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="275,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <TextBox x:Name="Sifra" HorizontalAlignment="Left" Margin="275,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
         <TextBox x:Name="Sastojci" HorizontalAlignment="Left" Height="85" Margin="277,194,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
@@ -30,5 +28,17 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Label Content="Izmena leka" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="106" FontSize="18"/>
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Left" Height="27" Margin="146,508,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/potvrdi.png" Margin="0, 0, 10, 0" Height="26" Width="26"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center" Text="Potvrdi"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Left" Height="27" Margin="275,508,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/odustani.png" Margin="0, 0, 10, 0" Height="19" Width="22"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center" Text="Odustani"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

@@ -25,22 +25,22 @@
         </DataGrid>
         <Button x:Name ="Dodaj" Style="{StaticResource UpravnikButton}" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="216,155,0,0" VerticalAlignment="Top" Width="98" >
             <Button.ToolTip>
-                <ToolTip Content="Dodavanje novog leka"/>
+                <ToolTip Content="Dodavanje novog zaposlenog"/>
             </Button.ToolTip>
         </Button>
         <Button x:Name ="Izmeni" Style="{StaticResource UpravnikButton}" Click="Izmeni_Click" Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="319,155,0,0" VerticalAlignment="Top" Width="98">
             <Button.ToolTip>
-                <ToolTip Content="Izmena selektovanog leka"/>
+                <ToolTip Content="Izmena selektovanog zaposlenog"/>
             </Button.ToolTip>
         </Button>
         <Button x:Name ="Izbrisi" Style="{StaticResource UpravnikButton}" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="422,155,0,0" VerticalAlignment="Top" Width="98">
             <Button.ToolTip>
-                <ToolTip Content="Brisanje selektovanog leka"/>
+                <ToolTip Content="Brisanje selektovanog zaposlenog"/>
             </Button.ToolTip>
         </Button>
         <Button x:Name ="Informacije" Style="{StaticResource UpravnikButton}" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="525,155,0,0" VerticalAlignment="Top" Width="98">
             <Button.ToolTip>
-                <ToolTip Content="Informacije o selektovanom leku"/>
+                <ToolTip Content="Informacije o selektovanom zaposlenom"/>
             </Button.ToolTip>
         </Button>
         <Button x:Name="Nazad" Style="{StaticResource UpravnikButton}" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,589,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,1.344">
