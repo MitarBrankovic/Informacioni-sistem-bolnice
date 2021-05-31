@@ -57,6 +57,18 @@ namespace PrviProgram.Repository
             return null;
         }
 
+        public bool PogledaoWizard(Lekar lekar)
+        {
+            PodesavanjaLekar podesavanjaLekar = PregledPodesavanja(lekar.Jmbg);
+            return podesavanjaLekar.PogledaoWizard;
+        }
+
+        public bool IskljucioTooltip(Lekar lekar)
+        {
+            PodesavanjaLekar podesavanjaLekar = PregledPodesavanja(lekar.Jmbg);
+            return podesavanjaLekar.IskljucioToolTips;
+        }
+
         private void InicijalizujListu()
         {
             List<Lekar> lekari = lekarRepository.PregledSvihLekara();

@@ -28,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledLekar.LekarWizard
                 "4. Polje za unos broja koji se odnosi na broj dana koliko pacijent treba da konzumira lek.\n\n" +
                 "5. Polje za opis konzumacije leka. Odnosi se na nacin na koji se konzumira lek.\n\n" +
                 "6. Karton pacijenta - dugme koje otvara stranicu koja omogucava uvid u karton pacijenta.\n\n" +
-                "7. Uput na bolnicko lecenje - dugme koje otvara prozor na kome se nalaze polja vezana za informacije o datumima dolaska i odlaska pacijenta, kao i sobi u kojoj ce biti smesten" +
+                "7. Uput na bolnicko lecenje - dugme koje otvara prozor na kome se nalaze polja vezana za informacije o datumima dolaska i odlaska pacijenta, kao i sobi u kojoj ce biti smesten\n\n" +
                 "8. Uput za specijalistu - otvara prozor za upucivanje pacijenta kod specijaliste.\n\n" +
                 "9. Zavrsi anamnezu - anamneza je kreirana.";
         }

@@ -10,6 +10,8 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Controller
 {
@@ -142,5 +144,32 @@ namespace Controller
             }
             return false;
         }
-   }
+
+        public void TooltipManipulacija(bool _isToolTipVisible)
+        {
+            Style style = new Style(typeof(ToolTip));
+            style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+            style.Seal();
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (_isToolTipVisible)
+                {
+                    try
+                    {
+                        window.Resources.Add(typeof(ToolTip), style); //hide
+
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    window.Resources.Remove(typeof(ToolTip)); //show
+                }
+            }
+        }
+    }
 }

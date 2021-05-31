@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -62,7 +63,7 @@ namespace PrviProgram.Izgled.IzgledLekar.LekarWizard
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void PostaviUserControl()

@@ -8,8 +8,8 @@ namespace PrviProgram.Model
     public class PodesavanjaLekar
     {
         public Lekar Lekar { get; set; }
-        bool IskljucioToolTips { get; set; }
-        bool PogledaoWizard { get; set; }
+        public bool IskljucioToolTips { get; set; }
+        public bool PogledaoWizard { get; set; }
 
         public PodesavanjaLekar(Lekar lekar)
         {
