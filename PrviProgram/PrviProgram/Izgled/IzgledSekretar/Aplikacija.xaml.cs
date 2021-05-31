@@ -8,6 +8,8 @@ namespace PrviProgram.Izgled.IzgledSekretar
     public partial class Aplikacija : Window
     {
         private Sekretar sekretar;
+        private string CurrentLanguage { get; set; }
+        private string CurrentTheme { get; set; }
 
         public Aplikacija(Sekretar sekretar)
         {
@@ -16,20 +18,18 @@ namespace PrviProgram.Izgled.IzgledSekretar
             PocetniPage pocetniPage = new PocetniPage(this.sekretar);
             frame.NavigationService.Navigate(pocetniPage);
             textBlockNaslov.Text = "Zdravo klinika";
+            CurrentLanguage = "en-US";
+            CurrentTheme = "Dark";
         }
 
         private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
         {
-            //header.Opacity = 1;
-            //frame.Opacity = 1;
-            //optionsBtn.IsEnabled = true;
+            optionsBtn.IsEnabled = true;
         }
 
         private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
         {
-            //header.Opacity = 0.3;
-            //frame.Opacity = 0.3;
-            //optionsBtn.IsEnabled = false;
+            optionsBtn.IsEnabled = false;
         }
 
         private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -49,7 +49,6 @@ namespace PrviProgram.Izgled.IzgledSekretar
                 case 1:
                     break;
                 case 5:
-                    Close();
                     break;
             }
             tgBtn.IsChecked = false;
@@ -58,16 +57,35 @@ namespace PrviProgram.Izgled.IzgledSekretar
         private void ChangeTheme_Click(object sender, RoutedEventArgs e)
         {
             App app = (App)Application.Current;
-            if (themeButton.Content.ToString() == "Tema tamna")
+            if (CurrentTheme.Equals("Dark"))
             {
-                app.ChangeTheme(new Uri("Izgled/IzgledSekretar/Themes/Dark.xaml", UriKind.Relative));
-                themeButton.Content = "Tema svetla";
+                app.ChangeTheme(new Uri("Izgled/IzgledSekretar/Themes/Light.xaml", UriKind.Relative));
+                CurrentTheme = "Light";
             }
             else
             {
-                app.ChangeTheme(new Uri("Izgled/IzgledSekretar/Themes/Light.xaml", UriKind.Relative));
-                themeButton.Content = "Tema tamna";
+                app.ChangeTheme(new Uri("Izgled/IzgledSekretar/Themes/Dark.xaml", UriKind.Relative));
+                CurrentTheme = "Dark";
             }
+        }
+
+        private void SwitchLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            App app = (App)Application.Current;
+            if (CurrentLanguage.Equals("en-US"))
+            {
+                CurrentLanguage = "sr-LATN";
+            }
+            else
+            {
+                CurrentLanguage = "en-US";
+            }
+            app.ChangeLanguage(CurrentLanguage);
+        }
+
+        private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
     }

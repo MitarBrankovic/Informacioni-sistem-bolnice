@@ -17,8 +17,8 @@ namespace PrviProgram.Izgled.IzgledSekretar
         {
             get { return instance; }
         }
-
-        private readonly ResourceManager resManager;//KAKO OVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        private Assembly asm;
+        private ResourceManager resManager = new ResourceManager("PrviProgram.Izgled.IzgledSekretar.Resources.language", Assembly.GetExecutingAssembly());
         private CultureInfo currentCulture = null;
 
         public string this[string key]

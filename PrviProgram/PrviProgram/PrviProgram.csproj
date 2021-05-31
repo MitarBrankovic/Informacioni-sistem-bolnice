@@ -15,6 +15,7 @@
     <None Remove="Izgled\IzgledSekretar\Assets\img_setting.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\img_signout.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_checked.png" />
+    <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_checked_black.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
@@ -51,6 +52,7 @@
     <Resource Include="Izgled\IzgledSekretar\Assets\img_setting.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\img_signout.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_checked.png" />
+    <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_checked_black.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
@@ -77,6 +79,11 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Izgled\IzgledSekretar\ViewModels\" />
+    <Folder Include="Izgled\IzgledSekretar\Views\" />
   </ItemGroup>
 
 </Project>
