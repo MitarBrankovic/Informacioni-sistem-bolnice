@@ -23,6 +23,13 @@
     <None Remove="Slike\Dania.jpg" />
     <None Remove="Slike\Doktor.png" />
     <None Remove="Slike\hospital-2.jpg" />
+    <None Remove="Slike\LekarWizardSlike\Anamneza.png" />
+    <None Remove="Slike\LekarWizardSlike\GlavniProzor.png" />
+    <None Remove="Slike\LekarWizardSlike\KartonPacijenta.png" />
+    <None Remove="Slike\LekarWizardSlike\Lekovi.png" />
+    <None Remove="Slike\LekarWizardSlike\Nalog.png" />
+    <None Remove="Slike\LekarWizardSlike\Pacijent.png" />
+    <None Remove="Slike\LekarWizardSlike\Raspored.png" />
     <None Remove="Slike\logout-64.png" />
     <None Remove="Slike\lupa.png" />
     <None Remove="Slike\open.png" />
@@ -62,6 +69,27 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Slike\hospital-2.jpg" />
+    <Resource Include="Slike\LekarWizardSlike\Anamneza.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\GlavniProzor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\KartonPacijenta.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Lekovi.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Nalog.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Pacijent.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Raspored.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Slike\logout-64.png" />
     <Resource Include="Slike\lupa.png" />
     <Resource Include="Slike\open.png" />

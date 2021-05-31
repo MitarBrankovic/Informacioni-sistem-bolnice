@@ -173,10 +173,10 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if ((Model.Termin) dataGridPacijenta.SelectedItem != null)
+            if ((Termin) dataGridPacijenta.SelectedItem != null)
             {
-                pacijentController.BrisanjeTermina((Model.Termin)dataGridPacijenta.SelectedItem);
-                termini.Remove((Model.Termin)dataGridPacijenta.SelectedItem);
+                pacijentController.BrisanjeTermina((Termin)dataGridPacijenta.SelectedItem);
+                termini.Remove((Termin)dataGridPacijenta.SelectedItem);
                 pacijentController.PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
             }
             else

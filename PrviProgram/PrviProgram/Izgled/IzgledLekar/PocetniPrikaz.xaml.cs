@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.Izgled.IzgledLekar.LekarWizard;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -108,6 +109,8 @@ namespace PrviProgram.Izgled.IzgledLekar
         private bool _isToolTipVisible = true;
         private void Help_Click(object sender, RoutedEventArgs e)
         {
+            WizardWindow wizardWindow = new WizardWindow();
+            wizardWindow.Show();
             Style style = new Style(typeof(ToolTip));
             style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
             style.Seal();
