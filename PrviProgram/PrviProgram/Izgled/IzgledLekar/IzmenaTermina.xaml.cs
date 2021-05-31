@@ -55,7 +55,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private Pacijent IzmenjeniPacijent()
         {
-            Model.Pacijent tempPacijent = new Model.Pacijent();
+            Pacijent tempPacijent = new Pacijent();
             tempPacijent = pacijentRepository.PregledPacijenta(((Pacijent)ComboboxPacijent.SelectedItem).Jmbg);
             termin.pacijent = tempPacijent;
             return tempPacijent;

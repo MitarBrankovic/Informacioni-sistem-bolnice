@@ -43,8 +43,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             textBoxPrezime.Text = pacijent.Prezime;
             textBoxJMBG.Text = pacijent.Jmbg;
             datePickerDatumRodjenja.SelectedDate = pacijent.DatumRodjenja;
-            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Model.Pol.Muski);
-            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Model.Pol.Zenski);
+            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Pol.Muski);
+            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Pol.Zenski);
         }
 
         private void dataGridKarton_SelectionChanged(object sender, SelectionChangedEventArgs e)

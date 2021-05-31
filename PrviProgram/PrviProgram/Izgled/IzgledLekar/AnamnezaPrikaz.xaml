@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <TextBox  x:Name = "TextboxAnamneza" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="421" Margin="45,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" />
+        <TextBox ToolTip="Anamneza pacijenta" x:Name = "TextboxAnamneza" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="421" Margin="45,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="36,32,0,0" x:Name="textBlockIme" Text="Ime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="36,62,0,0" x:Name="textBlockPrezime" Text="Prezime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="419,32,0,0" x:Name="textBlockJMBG" Text="JMBG:" VerticalAlignment="Top" Width="110" />
@@ -25,14 +25,14 @@
 
             </Grid>
         </Border>
-        <TextBox  x:Name = "TextboxOpisLeka" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="189" Margin="445,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
+        <TextBox ToolTip="Način na koji se lek konzumira" x:Name = "TextboxOpisLeka" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="189" Margin="445,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
         <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="67,139,0,0" VerticalAlignment="Top" Height="27"/>
-        <Button x:Name ="Zavrsi" Click="Zavrsi_Click"  Content="Završi anamnezu" HorizontalAlignment="Left" Height="40" Margin="445,552,0,0" VerticalAlignment="Top" Width="312" />
-        <Button x:Name ="Karton" Click="Karton_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="43" Margin="445,427,0,0" VerticalAlignment="Top" Width="312" />
-        <Button x:Name ="UputSpecijalista" Click="Uput_Click"  Content="Uput za specijalistu" HorizontalAlignment="Left" Height="42" Margin="607,491,0,0" VerticalAlignment="Top" Width="150" />
-        <Button x:Name ="UputLecenje" Click="UputLecenje_Click"  Content="Uput na bolnicko lecenje" HorizontalAlignment="Left" Height="42" Margin="445,491,0,0" VerticalAlignment="Top" Width="150" />
-        <ComboBox x:Name = "ComboboxLek" HorizontalAlignment="Left" Margin="445,171,0,0" VerticalAlignment="Top" Width="237" Height="26"/>
-        <TextBox Height="26" HorizontalAlignment="Left" Margin="699,171,0,0" x:Name="BrojDana" VerticalAlignment="Top" Width="58" TextChanged="BrojDana_TextChanged" />
+        <Button ToolTip="Završi anamnezu" x:Name ="Zavrsi" Click="Zavrsi_Click"  Content="Završi anamnezu" HorizontalAlignment="Left" Height="40" Margin="445,552,0,0" VerticalAlignment="Top" Width="312" />
+        <Button ToolTip="Karton pacijenta" x:Name ="Karton" Click="Karton_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="43" Margin="445,427,0,0" VerticalAlignment="Top" Width="312" />
+        <Button ToolTip="Uput za specijalistu" x:Name ="UputSpecijalista" Click="Uput_Click"  Content="Uput za specijalistu" HorizontalAlignment="Left" Height="42" Margin="607,491,0,0" VerticalAlignment="Top" Width="150" />
+        <Button ToolTip="Uput na bolničko lečenje" x:Name ="UputLecenje" Click="UputLecenje_Click"  Content="Uput na bolnicko lecenje" HorizontalAlignment="Left" Height="42" Margin="445,491,0,0" VerticalAlignment="Top" Width="150" />
+        <ComboBox ToolTip="Izaberite lek" x:Name = "ComboboxLek" HorizontalAlignment="Left" Margin="445,171,0,0" VerticalAlignment="Top" Width="237" Height="26"/>
+        <TextBox ToolTip="Koliko dana se lek koristi" Height="26" HorizontalAlignment="Left" Margin="699,171,0,0" x:Name="BrojDana" VerticalAlignment="Top" Width="58" TextChanged="BrojDana_TextChanged" />
         <Label Content="Lek:" HorizontalAlignment="Left" Margin="474,139,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Dana:" HorizontalAlignment="Left" Margin="699,139,0,0" VerticalAlignment="Top" Height="27"/>
 

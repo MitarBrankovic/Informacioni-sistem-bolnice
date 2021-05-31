@@ -1,7 +1,12 @@
-﻿using Model;
+﻿using Controller;
+using Model;
+using PrviProgram.Izgled.IzgledLekar.LekarWizard;
+using PrviProgram.Repository;
+using PrviProgram.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +20,9 @@ namespace PrviProgram.Izgled.IzgledLekar
 {
     public partial class PocetniPrikaz : Window
     {
+        private PodesavanjaLekarRepository podesavanjaLekarRepository = new PodesavanjaLekarRepository();
+        private PodesavanjaLekarService podesavanjaLekaraService = new PodesavanjaLekarService();
+        private LekarController lekarController = new LekarController();
         private Lekar lekar;
         private UserControl trenutniUserControl;
         private TerminiPrikaz terminiPrikaz;
@@ -26,6 +34,26 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             InitializeComponent();
             this.lekar = lekar;
+            ProveraDaLiJePrviPutUlogovan();
+            EnableDisableTooltips();
+        }
+
+        private void EnableDisableTooltips()
+        {
+            if (podesavanjaLekarRepository.IskljucioTooltip(lekar))
+            {
+                lekarController.TooltipManipulacija(true);
+            }
+        }
+
+        private void ProveraDaLiJePrviPutUlogovan()
+        {
+            if (!podesavanjaLekarRepository.PogledaoWizard(lekar))
+            {
+                WizardWindow wizardWindow = new WizardWindow();
+                wizardWindow.Show();
+                podesavanjaLekaraService.IzmenaWizardPodesavanja(lekar);
+            }
         }
 
         private void Raspored_Click(object sender, RoutedEventArgs e)
@@ -105,6 +133,11 @@ namespace PrviProgram.Izgled.IzgledLekar
             trenutniUserControl = noviUserControl;
         }
 
-        
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            PodesavanjaWindow podesavanjaWindow = new PodesavanjaWindow(lekar);
+            podesavanjaWindow.Show();
+        }
+
     }
 }

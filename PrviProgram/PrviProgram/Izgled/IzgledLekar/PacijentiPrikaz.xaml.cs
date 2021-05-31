@@ -27,7 +27,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
             this.parent = parent;
-            pacijenti = new ObservableCollection<Model.Pacijent>(pacijentRepository.PregledSvihPacijenata());
+            pacijenti = new ObservableCollection<Pacijent>(pacijentRepository.PregledSvihPacijenata());
             dgDataBinding.ItemsSource = pacijenti;
         }
 
