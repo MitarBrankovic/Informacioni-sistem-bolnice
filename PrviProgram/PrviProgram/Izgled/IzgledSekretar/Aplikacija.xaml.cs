@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Model;
+using PrviProgram.Izgled.IzgledSekretar.Views;
 
 namespace PrviProgram.Izgled.IzgledSekretar
 {
@@ -47,8 +49,9 @@ namespace PrviProgram.Izgled.IzgledSekretar
                     textBlockNaslov.Text = "Zdravo klinika";
                     break;
                 case 1:
-                    break;
-                case 5:
+                    Page pacijenti = new PacijentiView();
+                    frame.NavigationService.Navigate(pacijenti);
+                    textBlockNaslov.Text = "Pacijenti";
                     break;
             }
             tgBtn.IsChecked = false;

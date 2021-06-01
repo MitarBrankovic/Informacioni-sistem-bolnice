@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+        xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
         xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
@@ -59,15 +60,15 @@
                         <StackPanel Width="150"
                                     Background="White">
                             <Button x:Name="themeButton"
-                                    Content="Tema"
+                                    Content="{loc:Loc Theme}"
                                     Click="ChangeTheme_Click"
                                     FontSize="16"/>
                             <Button x:Name="languageButton"
-                                    Content="Jezik"
+                                    Content="{loc:Loc Language}"
                                     Click="SwitchLanguage_Click"
                                     FontSize="16"/>
                             <Separator/>
-                            <Button Content="Log out"
+                            <Button Content="{loc:Loc Logout}"
                                     FontSize="16"
                                     Click="ButtonPopUpLogout_Click"/>
                         </StackPanel>
@@ -91,7 +92,7 @@
 
                         <!--// Menu title text //-->
                         <TextBlock Margin="74,12,0,52"
-                                   Text="{local:Loc Menu}"
+                                   Text="{loc:Loc Menu}"
                                    FontSize="22"
                                    Style="{DynamicResource font_style}"
                                    Height="26"
@@ -110,68 +111,26 @@
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
+                                        Width="250">
                                 <Image Source="Assets/img_home.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Pocetna stranica"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc HomePage}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
-                        <!--// Contacts //-->
+                        <!--// Patients //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
+                                        Width="250">
                                 <Image Source="Assets/img_contact.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Contacts"
-                                           Margin="25,0,0,0"
-                                           Style="{DynamicResource font_style}"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <!--// Messages //-->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_message.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-                                <TextBlock Text="Messages"
-                                           Margin="25,0,0,0"
-                                           Style="{DynamicResource font_style}"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <!--// Maps //-->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_map.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-                                <TextBlock Text="Maps"
-                                           Margin="25,0,0,0"
-                                           Style="{DynamicResource font_style}"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <!--// Settings //-->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_setting.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-                                <TextBlock Text="Settings"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc Patients}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
@@ -220,7 +179,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="230" To="0"
+                                                From="265" To="0"
                                                 Duration="0:0:0.2">
                                     </DoubleAnimation>
                                     <DoubleAnimation    
@@ -248,7 +207,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="65" To="250"
+                                                From="0" To="265"
                                                 Duration="0:0:0.3">
 
                                     </DoubleAnimation>

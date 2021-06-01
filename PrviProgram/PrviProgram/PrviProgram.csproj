@@ -83,7 +83,13 @@
 
   <ItemGroup>
     <Folder Include="Izgled\IzgledSekretar\ViewModels\" />
-    <Folder Include="Izgled\IzgledSekretar\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Izgled\IzgledSekretar\Views\RegistracijaPacijentaView - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>RegistracijaPacijentaView.xaml.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

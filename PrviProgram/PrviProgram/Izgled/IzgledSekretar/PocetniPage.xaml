@@ -19,15 +19,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock
-            x:Name="textBlockDobrodosli"
-            Grid.Row="1"
-            Grid.Column="1"
-            Text="{Binding Path=Sekretar, StringFormat='Dobrodosli {0}!'}"
-            FontSize="22"
-            Style="{DynamicResource font_style}"
-            Width="350"
-            Height="80">
+        <TextBlock x:Name="textBlockDobrodosli"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding Path=Sekretar, StringFormat='Dobrodosli {0}!'}"
+                   FontSize="22"
+                   Style="{DynamicResource font_style}"
+                   Width="350"
+                   Height="80">
         </TextBlock>
 
     </Grid>

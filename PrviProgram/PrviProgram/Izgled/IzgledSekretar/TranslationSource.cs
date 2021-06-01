@@ -8,8 +8,7 @@ using System.Windows.Data;
 
 namespace PrviProgram.Izgled.IzgledSekretar
 {
-    public class TranslationSource
-        : INotifyPropertyChanged
+    public class TranslationSource : INotifyPropertyChanged
     {
         private static readonly TranslationSource instance = new TranslationSource();
 
@@ -17,8 +16,8 @@ namespace PrviProgram.Izgled.IzgledSekretar
         {
             get { return instance; }
         }
-        private Assembly asm;
-        private ResourceManager resManager = new ResourceManager("PrviProgram.Izgled.IzgledSekretar.Resources.language", Assembly.GetExecutingAssembly());
+
+        private readonly ResourceManager resManager = new ResourceManager("PrviProgram.Izgled.IzgledSekretar.Resources.language", Assembly.GetExecutingAssembly());
         private CultureInfo currentCulture = null;
 
         public string this[string key]
@@ -58,6 +57,8 @@ namespace PrviProgram.Izgled.IzgledSekretar
     }
 }
 
-// resgen.exe language.sr-LATN-CS.resx
-// al -target:lib -embed:language.sr-LATN-CS.resources -culture:culture -out:culture/PrviProgram.resources.dll
+// resgen.exe language.sr-LATN.resx
+// al -target:lib -embed:language.sr-LATN.resources -culture:culture -out:sr-LATN/PrviProgram.resources.dll
+// resgen.exe language.en-US.resx
+// al -target:lib -embed:language.en-US.resources -culture:culture -out:en-US/PrviProgram.resources.dll
 
