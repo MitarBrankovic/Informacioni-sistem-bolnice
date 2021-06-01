@@ -40,11 +40,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             win.ShowDialog();
         }
 
-        private void Kalendar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Nazad_Click(object sender, RoutedEventArgs e)
         {
             (this.Parent as Grid).Children.Remove(this);
@@ -153,10 +148,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Izvestaj.IsFocused)
                 {
-                    Kalendar.Focus();
-                }
-                else if (Kalendar.IsFocused)
-                {
                     Textbox.Focus();
                 }
                 else if (Textbox.IsFocused)
@@ -171,7 +162,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Izvestaj.IsFocused || !Kalendar.IsFocused || !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Izvestaj.IsFocused || !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -183,10 +174,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     Textbox.Focus();
                 }
                 else if (Textbox.IsFocused)
-                {
-                    Kalendar.Focus();
-                }
-                else if (Kalendar.IsFocused)
                 {
                     Izvestaj.Focus();
                 }
@@ -210,7 +197,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Izvestaj.IsFocused && !Kalendar.IsFocused && !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Izvestaj.IsFocused && !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -247,17 +234,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Izvestaj.IsFocused)
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (Kalendar.IsFocused)
+            else if (Izvestaj.IsFocused)
             {
                 if (e.Key == Key.Up || e.Key == Key.Right)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Izvestaj.IsFocused || Kalendar.IsFocused)
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Izvestaj.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;

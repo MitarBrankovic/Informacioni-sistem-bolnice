@@ -38,11 +38,6 @@
                 <ToolTip Content="Brisanje selektovanog zaposlenog"/>
             </Button.ToolTip>
         </Button>
-        <Button x:Name ="Informacije" Style="{StaticResource UpravnikButton}" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="525,155,0,0" VerticalAlignment="Top" Width="98">
-            <Button.ToolTip>
-                <ToolTip Content="Informacije o selektovanom zaposlenom"/>
-            </Button.ToolTip>
-        </Button>
         <Button x:Name="Nazad" Style="{StaticResource UpravnikButton}" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,589,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,1.344">
             <Button.ToolTip>
                 <ToolTip Content="Povratak na pocetni prozor"/>

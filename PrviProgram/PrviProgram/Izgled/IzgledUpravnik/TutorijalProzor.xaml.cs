@@ -23,6 +23,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private DispatcherTimer timer;
         bool isDragging = false;
+        //bool otvorenFajlNeki = false;
         public TutorijalProzor()
         {
             InitializeComponent();
@@ -41,15 +42,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
          private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-            "- ESCAPE: Povratak na pocetni prozor. \n" +
-            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-            "- F1: Otvaranje Pomoc dijaloga. \n" +
-
-            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                , "HELP");
+            PrikazPomoci();
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)
@@ -74,11 +67,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 Player.Source = new Uri(openFileDialog.FileName);
             }
             Player.Play();
+            //otvorenFajlNeki = true;
         }
 
         private void Play_Click(object sender, RoutedEventArgs e)
         {
             Player.Play();
+            /*if (!otvorenFajlNeki)
+            {
+                Player.Source = new Uri("/Slike/mufasa.mp4", UriKind.Relative);
+                Player.Play();
+                otvorenFajlNeki = true;
+            }*/
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
@@ -191,15 +191,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                    , "HELP");
+                PrikazPomoci();
             }
             else if (Pomoc.IsFocused || Nazad.IsFocused || Open.IsFocused || Pause.IsFocused || Stop.IsFocused || Play.IsFocused)
             {
@@ -216,6 +208,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 volumeSlider.Focus();
             }
+        }
+
+        private void PrikazPomoci()
+        {
+            MessageBox.Show(
+            "Potrebno je prvo otvoriti video pomocu dugmeta Open.\n" +
+            "Video se nalazi u folderu \\Slike\\Tutorijal \n\n" +
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+                , "HELP");
         }
     }
 }

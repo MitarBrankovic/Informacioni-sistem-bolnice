@@ -21,6 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private bool isToolTipVisible = true;
         private UtilityService utilityService = new UtilityService();
         private Upravnik upravnik;
+        bool pritisnuto = false;
 
         public Podesavanja(Upravnik upravnik)
         {
@@ -30,40 +31,48 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Da_Click(object sender, RoutedEventArgs e)
         {
-            this.isToolTipVisible = true;
-            Style style = new Style(typeof(ToolTip));
-            style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
-            style.Seal();
-            foreach (Window window in Application.Current.Windows)
+            if (!pritisnuto)
             {
-                window.Resources.Remove(typeof(ToolTip));
-                isToolTipVisible = true;
+                this.isToolTipVisible = true;
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.Resources.Remove(typeof(ToolTip));
+                    isToolTipVisible = true;
+                }
+                pritisnuto = true;
             }
         }
 
         private void Ne_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult rsltMessageBox = MessageBox.Show("Are you sure you want to disable tooltips?", "Tooltips",
-                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
-            switch (rsltMessageBox)
+            if (pritisnuto)
             {
-                case MessageBoxResult.Yes:
-                    this.isToolTipVisible = false;
+                MessageBoxResult rsltMessageBox = MessageBox.Show("Are you sure you want to disable tooltips?", "Tooltips",
+                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.isToolTipVisible = false;
 
-                    Style style = new Style(typeof(ToolTip));
-                    style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
-                    style.Seal();
+                        Style style = new Style(typeof(ToolTip));
+                        style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                        style.Seal();
 
-                    foreach (Window window in Application.Current.Windows)
-                    {
-                        window.Resources.Add(typeof(ToolTip), style);
-                        isToolTipVisible = false;
-                    }
-                    break;
-                case MessageBoxResult.No:
-                    break;
-                case MessageBoxResult.Cancel:
-                    break;
+                        foreach (Window window in Application.Current.Windows)
+                        {
+                            window.Resources.Add(typeof(ToolTip), style);
+                            isToolTipVisible = false;
+                        }
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    case MessageBoxResult.Cancel:
+                        break;
+                }
+                pritisnuto = false;
             }
         }
 

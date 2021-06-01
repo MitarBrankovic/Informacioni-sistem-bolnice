@@ -47,11 +47,6 @@
                 <ToolTip Content="Izvestaj u vidu pdf-a o radnom vremenu lekara"/>
             </Button.ToolTip>
         </Button>
-        <Button x:Name ="Kalendar" Style="{StaticResource UpravnikButton}" Click="Kalendar_Click"  Content="Kalendar" HorizontalAlignment="Left" Height="26" Margin="628,155,0,0" VerticalAlignment="Top" Width="98">
-            <Button.ToolTip>
-                <ToolTip Content="Kalendar"/>
-            </Button.ToolTip>
-        </Button>
         <Button x:Name="Nazad" Style="{StaticResource UpravnikButton}" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,589,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,1.344">
             <Button.ToolTip>
                 <ToolTip Content="Povratak na pocetni prozor"/>

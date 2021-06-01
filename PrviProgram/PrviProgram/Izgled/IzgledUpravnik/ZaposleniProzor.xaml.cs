@@ -82,11 +82,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             win.ShowDialog();
         }
 
-        private void Informacije_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Nazad_Click(object sender, RoutedEventArgs e)
         {
             (this.Parent as Grid).Children.Remove(this);
@@ -117,10 +112,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Izbrisi.IsFocused)
                 {
-                    Informacije.Focus();
-                }
-                else if (Informacije.IsFocused)
-                {
                     Textbox.Focus();
                 }
                 else if (Textbox.IsFocused)
@@ -135,7 +126,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Informacije.IsFocused || !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused || !Izmeni.IsFocused || !Izbrisi.IsFocused || !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -148,10 +139,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     Textbox.Focus();
                 }
                 else if (Textbox.IsFocused)
-                {
-                    Informacije.Focus();
-                }
-                else if (Informacije.IsFocused)
                 {
                     Izbrisi.Focus();
                 }
@@ -171,7 +158,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Izmeni.Focus();
                 }
-                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Informacije.IsFocused && !Nazad.IsFocused)
+                else if (!Dodaj.IsFocused && !Izmeni.IsFocused && !Izbrisi.IsFocused && !Nazad.IsFocused)
                 {
                     Dodaj.Focus();
                 }
@@ -199,12 +186,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused)
+            else if (Dodaj.IsFocused || Izmeni.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused || Informacije.IsFocused)
+            else if (Izbrisi.IsFocused)
+            {
+                if (e.Key == Key.Up || e.Key == Key.Right)
+                    e.Handled = true;
+            }
+            else if (Dodaj.IsFocused || Izmeni.IsFocused || Izbrisi.IsFocused)
             {
                 if (e.Key == Key.Up)
                     e.Handled = true;
