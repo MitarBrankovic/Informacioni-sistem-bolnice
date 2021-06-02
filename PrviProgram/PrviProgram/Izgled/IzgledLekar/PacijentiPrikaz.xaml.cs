@@ -46,5 +46,13 @@ namespace PrviProgram.Izgled.IzgledLekar
 
             }
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            pacijenti.Clear();
+            ObservableCollection<Pacijent> pomocni;
+            pomocni = new ObservableCollection<Pacijent>(pacijentRepository.PretragaPacijent(TextboxSearch.Text));
+            dgDataBinding.ItemsSource = pomocni;
+        }
     }
 }

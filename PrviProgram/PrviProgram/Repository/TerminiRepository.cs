@@ -87,5 +87,18 @@ namespace PrviProgram.Repository
             return termini;
         }
 
+        public List<Termin> PretragaTermina(string tekst)
+        {
+            List<Termin> termini = CitanjeIzFajla();
+            List<Termin> pronadjeniTermini = new List<Termin>();
+            foreach (Termin terminIterator in termini)
+            {
+                if (terminIterator.pacijent.Ime.Contains(tekst) || terminIterator.pacijent.Prezime.Contains(tekst) || terminIterator.Vreme.Contains(tekst) || terminIterator.Datum.ToString().Contains(tekst))
+                {
+                    pronadjeniTermini.Add(terminIterator);
+                }
+            }
+            return pronadjeniTermini;
+        }
     }
 }

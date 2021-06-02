@@ -23,7 +23,8 @@
                 <DataGridTextColumn Header="Pol" Width="0.2*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="26" Margin="90,36,0,0" VerticalAlignment="Top" Width="98" />
+        <Button ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="50" Margin="41,19,0,0" VerticalAlignment="Top" Width="110" />
+        <TextBox x:Name="TextboxSearch" HorizontalAlignment="Left" FontSize="17" VerticalContentAlignment="Center" Margin="591,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="50" TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </UserControl>

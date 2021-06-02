@@ -144,5 +144,13 @@ namespace PrviProgram.Izgled.IzgledLekar
             Informacije.IsEnabled = false;
             Izbrisi.IsEnabled = false;
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            termini.Clear();
+            ObservableCollection<Termin> pomocni;
+            pomocni = new ObservableCollection<Termin>(terminiRepository.PretragaTermina(TextboxSearch.Text));
+            dataGridLekar.ItemsSource = pomocni;
+        }
     }
 }
