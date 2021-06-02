@@ -34,7 +34,7 @@
                     </Button>
 
                 </Grid>
-                <Button HorizontalContentAlignment="Center" FontSize="30" FontFamily="Gulim" Foreground="#e6eeff" BorderThickness="0" Background="#007399" x:Name ="Help" Content="?" Height="50" Width="50" Click="Help_Click"/>
+                <Button ToolTip="Podešavanja" HorizontalContentAlignment="Center" FontSize="30" FontFamily="Gulim" Foreground="#e6eeff" BorderThickness="0" Background="#007399" x:Name ="Help" Content="?" Height="50" Width="50" Click="Help_Click"/>
             </StackPanel>
             <StackPanel  Name="ContentArea" Grid.Column="1" />
             <!-- <Grid.Background>

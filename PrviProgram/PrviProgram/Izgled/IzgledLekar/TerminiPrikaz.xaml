@@ -43,6 +43,6 @@
                 <DataGridTextColumn Header="Sala" Binding="{ Binding sala.Sifra }"  Width="0.09*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="TextboxSearch" HorizontalAlignment="Left" FontSize="17" VerticalContentAlignment="Center" Margin="591,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Height="50" TextChanged="TextBox_TextChanged"/>
+        <TextBox ToolTip="Pretraži" x:Name="TextboxSearch" HorizontalAlignment="Left" FontSize="17" VerticalContentAlignment="Center" Margin="591,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Height="50" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </UserControl>

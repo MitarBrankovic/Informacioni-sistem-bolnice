@@ -77,7 +77,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
                 pdfLightTable.DataSource = table;
                 pdfLightTable.Draw(page, new PointF(0, 100));
-                doc.Save("C:\\Users\\Brankovic\\Desktop\\IzvestajRadnogVremenaLekara.pdf");
+                doc.Save(@"..\..\..\Izvestaji\IzvestajRadnoVremeLekara.pdf");
                 doc.Close(true);
             }
             MessageBox.Show("Uspesno kreiran izvestaj radnog vremena lekara, mozete ga pogledati u tekucem direktorijumu");
