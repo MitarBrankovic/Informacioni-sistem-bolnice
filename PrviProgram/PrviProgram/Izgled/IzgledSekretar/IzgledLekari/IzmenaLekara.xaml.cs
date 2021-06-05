@@ -50,8 +50,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
             textBoxStan.Text = lekar.AdresaStanovanja.Stan.ToString();
             textBoxGrad.Text = lekar.AdresaStanovanja.grad.Ime;
             textBoxDrzava.Text = lekar.AdresaStanovanja.grad.drzava.Ime;
-            radioButtonPolM.IsChecked = lekar.Pol.Equals(Model.Pol.Muski);
-            radioButtonPolZ.IsChecked = lekar.Pol.Equals(Model.Pol.Zenski);
+            radioButtonPolM.IsChecked = lekar.Pol.Equals(Pol.Muski);
+            radioButtonPolZ.IsChecked = lekar.Pol.Equals(Pol.Zenski);
             textBoxEmail.Text = lekar.Email;
             textBoxKontaktTelefon.Text = lekar.KontaktTelefon;
             textBoxKorisnickoIme.Text = lekar.Korisnik.KorisnickoIme;

@@ -19,9 +19,6 @@ using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
-    /// <summary>
-    /// Interaction logic for OpremaProzor.xaml
-    /// </summary>
     public partial class OpremaProzor : UserControl
     {
         private UpravnikController upravnikController = new UpravnikController();
@@ -73,54 +70,56 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             (this.Parent as Grid).Children.Remove(this);
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void Textbox_KeyDown(object sender, KeyEventArgs e)
         {
-            String search;
-            search = Textbox.Text;
-            String[] splited = search.Split(" ");
-            if (search == "")
+            if (e.Key == Key.Enter)
             {
-                ResetovanjeTabele();
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
-            }
-            else if (splited.Length == 1)
-            {
-                foreach (Oprema o in pomocnaOprema)
+                String search;
+                search = Textbox.Text;
+                String[] splited = search.Split(" ");
+                if (search == "")
                 {
-                    if (!opreme.Contains(o))
-                    {
-                        opreme.Add(o);
-                    }
-                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower()))
-                    {
-                        opreme.Remove(o);
-                    }
+                    ResetovanjeTabele();
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
                 }
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
-            }
-            else if (splited.Length == 2)
-            {
-                foreach (Oprema o in pomocnaOprema)
+                else if (splited.Length == 1)
                 {
-                    if (!opreme.Contains(o))
+                    foreach (Oprema o in pomocnaOprema)
                     {
-                        opreme.Add(o);
+                        if (!opreme.Contains(o))
+                        {
+                            opreme.Add(o);
+                        }
+                        if (!o.Naziv.ToLower().Contains(splited[0].ToLower()))
+                        {
+                            opreme.Remove(o);
+                        }
                     }
-                    if (!o.Naziv.ToLower().Contains(splited[0].ToLower()) || !o.NazivSale.ToLower().Contains(splited[1].ToLower()))
-                    {
-                        opreme.Remove(o);
-                    }
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
                 }
-                ProveraTipaOpreme();
-                ProveraKolicineOpreme();
-                ProveraComboSale();
+                else if (splited.Length == 2)
+                {
+                    foreach (Oprema o in pomocnaOprema)
+                    {
+                        if (!opreme.Contains(o))
+                        {
+                            opreme.Add(o);
+                        }
+                        if (!o.Naziv.ToLower().Contains(splited[0].ToLower()) || !o.NazivSale.ToLower().Contains(splited[1].ToLower()))
+                        {
+                            opreme.Remove(o);
+                        }
+                    }
+                    ProveraTipaOpreme();
+                    ProveraKolicineOpreme();
+                    ProveraComboSale();
+                }
             }
         }
-
 
         private void Staticka_Checked(object sender, RoutedEventArgs e)
         {
@@ -325,7 +324,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             OpremaDodavanje win = new OpremaDodavanje(opreme);
-            win.Show();
+            win.ShowDialog();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
@@ -335,7 +334,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
                 Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
                 OpremaIzmena win = new OpremaIzmena(opreme, selektovanaOprema, trenutnaSala);
-                win.Show();
+                win.ShowDialog();
             }
             else { MessageBox.Show("Morate izabrati opremu!"); }
         }
@@ -368,26 +367,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (selektovanaOprema.Tip == TipOpreme.Dinamicka)
                 {
                     OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, selektovanaOprema, trenutnaSala);
-                    win.Show();
+                    win.ShowDialog();
                 }
                 else
                 {
                     OpremaStatPremestanje win = new OpremaStatPremestanje(selektovanaOprema, trenutnaSala);
-                    win.Show();
+                    win.ShowDialog();
                 }
             }
             else { MessageBox.Show("Morate izabrati opremu!"); }
-        }
-
-
-        private void LogOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DodajOpremu_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -421,10 +409,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Textbox.IsFocused)
                 {
-                    Search.Focus();
-                }
-                else if (Search.IsFocused)
-                {
                     Staticka.Focus();
                 }
                 else if (Staticka.IsFocused || Dinamicka.IsFocused || Do5.IsFocused || Do10.IsFocused || Preko10.IsFocused || SveTip.IsFocused || SveKolicina.IsFocused)
@@ -443,9 +427,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
@@ -493,12 +474,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Dodaj.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    Dodaj.Focus();
-            }
-            else if (e.Key == Key.M)
-            {
-                File.Focus();
             }
             else if (e.Key == Key.Escape)
             {
@@ -506,20 +481,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else if (e.Key == Key.F1)
             {
-                MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- M: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- ESCAPE: Povratak na pocetni prozor. \n" +
-                "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
-                "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-                "- F1: Otvaranje Pomoc dijaloga. \n" +
-                "- F2: Otvaranje dijaloga izmene selektovane opreme. \n" +
-                "- F3: Brisanje selektovane opreme. \n" +
-                "- F4: Otvaranje dijaloga premestanja selektovane opreme. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-                    , "HELP");
+                PrikaziPomoc();
             }
             else if (e.Key == Key.F2)
             {
@@ -528,7 +490,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
                     Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
                     OpremaIzmena win = new OpremaIzmena(opreme, selektovanaOprema, trenutnaSala);
-                    win.Show();
+                    win.ShowDialog();
                 }
                 else { MessageBox.Show("Morate izabrati opremu!"); }
                 Dodaj.Focus();
@@ -539,34 +501,15 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
                     Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
-                    foreach (Oprema opremaBrojac in trenutnaSala.oprema.ToArray())
-                    {
-                        if (opremaBrojac.Naziv.Equals(selektovanaOprema.Naziv))
-                        {
-                            trenutnaSala.GetOprema().Remove(opremaBrojac);
-                        }
-                    }
-                    upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
-                    opreme.Remove(selektovanaOprema);
-                }
-                else { MessageBox.Show("Morate izabrati opremu!"); }
-                Dodaj.Focus();
-            }
-            else if (e.Key == Key.F4)
-            {
-                if (dataGridOprema.SelectedIndex != -1)
-                {
-                    Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
-                    Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
                     if (selektovanaOprema.Tip == TipOpreme.Dinamicka)
                     {
                         OpremaDinPremestanje win = new OpremaDinPremestanje(opreme, selektovanaOprema, trenutnaSala);
-                        win.Show();
+                        win.ShowDialog();
                     }
                     else
                     {
                         OpremaStatPremestanje win = new OpremaStatPremestanje(selektovanaOprema, trenutnaSala);
-                        win.Show();
+                        win.ShowDialog();
                     }
                 }
                 else { MessageBox.Show("Morate izabrati opremu!"); }
@@ -592,43 +535,54 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
-            else if (e.Key == Key.Space || e.Key == Key.N)
+            else if (e.Key == Key.Space)
                 e.Handled = true;
-        }
-
-        private void HelpMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LekoviMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaleMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PodesavanjaNalogaMenu_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
+            PrikaziPomoc();
+        }
 
+        private void PrikaziPomoc()
+        {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- M: Selektovanje MenuBar-a - FILE.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- ESCAPE: Povratak na pocetni prozor. \n" +
+            "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
+            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
+            "- F1: Otvaranje Pomoc dijaloga. \n" +
+            "- F2: Otvaranje dijaloga izmene selektovane opreme. \n" +
+            "- F3: Otvaranje dijaloga premestanja selektovane opreme. \n" +
+            "- DEL: Brisanje selektovane opreme. \n\n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
+                , "HELP");
+        }
+
+        private void dataGridOprema_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (dataGridOprema.SelectedIndex != -1)
+                {
+                    Oprema selektovanaOprema = (Oprema)dataGridOprema.SelectedItem;
+                    Sala trenutnaSala = salaRepository.PregledSalePoNazivu(selektovanaOprema.NazivSale);
+                    foreach (Oprema opremaBrojac in trenutnaSala.oprema.ToArray())
+                    {
+                        if (opremaBrojac.Naziv.Equals(selektovanaOprema.Naziv))
+                        {
+                            trenutnaSala.GetOprema().Remove(opremaBrojac);
+                        }
+                    }
+                    upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                    opreme.Remove(selektovanaOprema);
+                }
+                else { MessageBox.Show("Morate izabrati opremu!"); }
+                Dodaj.Focus();
+            }
         }
     }
 }

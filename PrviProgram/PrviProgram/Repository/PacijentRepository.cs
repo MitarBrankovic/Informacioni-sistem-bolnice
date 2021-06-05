@@ -81,5 +81,18 @@ namespace Repository
             return potrebniPacijenti;
         }
 
+        public List<Pacijent> PretragaPacijent(string tekst)
+        {
+            List<Pacijent> pacijenti = CitanjeIzFajla();
+            List<Pacijent> pronadjeniPacijenti = new List<Pacijent>();
+            foreach (Pacijent pacijentIterator in pacijenti)
+            {
+                if (pacijentIterator.Ime.Contains(tekst) || pacijentIterator.Prezime.Contains(tekst))
+                {
+                    pronadjeniPacijenti.Add(pacijentIterator);
+                }
+            }
+            return pronadjeniPacijenti;
+        }
     }
 }

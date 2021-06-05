@@ -27,7 +27,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             InitializeComponent();
             this.pocetniPrikaz = pocetniPrikaz;
             this.parent = parent;
-            pacijenti = new ObservableCollection<Model.Pacijent>(pacijentRepository.PregledSvihPacijenata());
+            pacijenti = new ObservableCollection<Pacijent>(pacijentRepository.PregledSvihPacijenata());
             dgDataBinding.ItemsSource = pacijenti;
         }
 
@@ -45,6 +45,14 @@ namespace PrviProgram.Izgled.IzgledLekar
                 MessageBox.Show("Morate izabrati pacijenta!");
 
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            pacijenti.Clear();
+            ObservableCollection<Pacijent> pomocni;
+            pomocni = new ObservableCollection<Pacijent>(pacijentRepository.PretragaPacijent(TextboxSearch.Text));
+            dgDataBinding.ItemsSource = pomocni;
         }
     }
 }

@@ -1,0 +1,272 @@
+[
+  {
+    "Lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": "srdjan@gmail.com",
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "1264512"
+    },
+    "PocetakRadnogVremena": "10:00:00",
+    "KrajRadnogVremena": "14:00:00",
+    "PocetniDatum": "2021-06-02T00:00:00",
+    "KrajnjiDatum": "2021-06-05T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": "asdasd",
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "a21312312"
+    },
+    "PocetakRadnogVremena": "08:00:00",
+    "KrajRadnogVremena": "14:30:00",
+    "PocetniDatum": "2021-06-01T00:00:00",
+    "KrajnjiDatum": "2021-06-02T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": "srdjan@gmail.com",
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "1264512"
+    },
+    "PocetakRadnogVremena": "08:00:00",
+    "KrajRadnogVremena": "08:00:00",
+    "PocetniDatum": "2021-05-31T00:00:00",
+    "KrajnjiDatum": "2021-06-01T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": [],
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "darko",
+        "Lozinka": "darko",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "ulica",
+        "Broj": 32,
+        "Sprat": 1,
+        "Stan": 1,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": "darko@ac.rs",
+      "Jmbg": "423234256",
+      "DatumRodjenja": "1999-05-04T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "12412412"
+    },
+    "PocetakRadnogVremena": "08:00:00",
+    "KrajRadnogVremena": "10:30:00",
+    "PocetniDatum": "2021-06-02T00:00:00",
+    "KrajnjiDatum": "2021-06-03T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": [],
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Zrenjanin",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "darko",
+        "Lozinka": "darko",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "ulica",
+        "Broj": 32,
+        "Sprat": 1,
+        "Stan": 1,
+        "grad": {
+          "Ime": "Zrenjanin",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Darko",
+      "Prezime": "Vrbaski",
+      "Email": "darko@ac.rs",
+      "Jmbg": "423234256",
+      "DatumRodjenja": "1999-05-04T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "12412412"
+    },
+    "PocetakRadnogVremena": "08:00:00",
+    "KrajRadnogVremena": "13:30:00",
+    "PocetniDatum": "2021-06-04T00:00:00",
+    "KrajnjiDatum": "2021-06-06T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "mitar",
+        "Lozinka": "m",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Mitar",
+      "Prezime": "Brankovic",
+      "Email": "asdasd",
+      "Jmbg": "170892634",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "a21312312"
+    },
+    "PocetakRadnogVremena": "10:30:00",
+    "KrajRadnogVremena": "13:00:00",
+    "PocetniDatum": "2021-06-05T00:00:00",
+    "KrajnjiDatum": "2021-06-06T00:00:00"
+  }
+]

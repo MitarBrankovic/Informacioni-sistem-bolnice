@@ -1,0 +1,29 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledUpravnik.RadnoVremeIzvestaj"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
+        mc:Ignorable="d"
+        Title="RadnoVremeIzvestaj" Height="500" Width="550"
+        KeyDown="Window_KeyDown">
+    <Grid Background="SeaShell">
+        <Label Content="Lekar:" HorizontalAlignment="Left" Height="25" Margin="135,141,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="Konvertuj" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Center" Height="47" Margin="0,256,0,0" VerticalAlignment="Top" Width="177" Click="Konvertuj_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/pdf.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">_Konvertuj u PDF</AccessText>
+            </StackPanel>
+        </Button>
+        <ComboBox x:Name="ComboLekar" SelectedItem="0" HorizontalAlignment="Left" Margin="275,141,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <Label Content="Izvestaj radnog vremena izabranog lekara" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Center" Height="47" Margin="0,320,0,0" VerticalAlignment="Top" Width="177" Click="Odustani_Click">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/Slike/odustani.png" Margin="0, 0, 10, 0" Height="19" Width="22"/>
+                <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Odustani</AccessText>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>

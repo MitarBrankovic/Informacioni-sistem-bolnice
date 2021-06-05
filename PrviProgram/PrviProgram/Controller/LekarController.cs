@@ -10,6 +10,8 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Controller
 {
@@ -19,6 +21,7 @@ namespace Controller
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekoviRepository lekoviRepository = new LekoviRepository();
+        private LekariService lekariService = new LekariService();
         private List<string> constVreme = new List<string>() {  "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00"
                                                                 , "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00"
                                                                 , "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00" };
@@ -84,9 +87,12 @@ namespace Controller
         {
             primedbeNaLekService.KreiranjePrimedbe(primedbaNaLek);
         }
-   
-        
-        
+
+        public bool IzmenaLekara(Lekar stariLekar, Lekar noviLekar)
+        {
+            return lekariService.IzmenaLekara(stariLekar, noviLekar);
+        }
+
 
         public ObservableCollection<string> DobavljanjeSlobodnihTerminaLekara(Lekar lekar, DateTime datumTermina)
         {
@@ -138,5 +144,32 @@ namespace Controller
             }
             return false;
         }
-   }
+
+        public void TooltipManipulacija(bool _isToolTipVisible)
+        {
+            Style style = new Style(typeof(ToolTip));
+            style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+            style.Seal();
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (_isToolTipVisible)
+                {
+                    try
+                    {
+                        window.Resources.Add(typeof(ToolTip), style); //hide
+
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    window.Resources.Remove(typeof(ToolTip)); //show
+                }
+            }
+        }
+    }
 }

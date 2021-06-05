@@ -11,66 +11,51 @@
 
     <Grid Background="SeaShell">
         <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File_Name" Width="35">
-                    <MenuItem Header="Dodaj salu" InputGestureText="Ctrl+M"></MenuItem>
-                    <MenuItem Header="Dodaj opremu" InputGestureText="Ctrl+N"></MenuItem>
-                    <MenuItem Header="Dodaj lek" InputGestureText="Ctrl+B"></MenuItem>
-                    <MenuItem Name="LogOutMenu" Header="Log out"  InputGestureText="Ctrl+D" ></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Edit" Name="Edit_Name" Width="35">
-                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNaloga_Click"></MenuItem>
-                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W" Click="Podesavanja_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="View" Name="ViewName" Width="35">
-                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="Sale_Click"></MenuItem>
-                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaPrikaz_Click"></MenuItem>
-                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="Lekovi_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left">
-                    <MenuItem Name="HelpMenu" Header="Help"  InputGestureText="Ctrl+H"></MenuItem>
-                </MenuItem>
-            </Menu>
-
-
-            <Grid DockPanel.Dock="Bottom">
+            <Grid>
                 <Label Content="Dobrodosli" HorizontalAlignment="Center" Height="51" Margin="0,33,0,0" VerticalAlignment="Top" Width="160" FontFamily="Bahnschrift Light" FontSize="30" Grid.Column="1"/>
-                <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" Content="Sale" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Sale_Click">
+                <Button Name="SaleButton" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="290,247,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Sale_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz svih sala
                         </ToolTip>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/sale.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Sale</AccessText>
+                    </StackPanel>
                 </Button>
-                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" Content="Izlogujte se" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="IzlogujteSe_Click">
+                <Button Name="LogOutButton" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="IzlogujteSe_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Izlazak iz aplikacije
                         </ToolTip>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/logout.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Izlogujte se</AccessText>
+                    </StackPanel>
                 </Button>
-                <Button Name="LekoviButton" Style="{StaticResource UpravnikButton }" Content="Lekovi" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Lekovi_Click">
+                <Button Name="LekoviButton" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="741,247,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Lekovi_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz svih lekova
                         </ToolTip>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/lekovi.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Lekovi</AccessText>
+                    </StackPanel>
                 </Button>
-                <Button Name="OpremaButton" Style="{StaticResource UpravnikButton }" Content="Oprema" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Oprema_Click">
+                <Button Name="OpremaButton" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Oprema_Click">
                     <Button.ToolTip>
                         <ToolTip>
                             Prikaz sve opreme
                         </ToolTip>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/oprema.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Oprema</AccessText>
+                    </StackPanel>
                 </Button>
                 <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1028,49,0,0" VerticalAlignment="Top" Width="66" Grid.Column="1">
                     <Button.ToolTip>
@@ -79,20 +64,50 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Zaposleni" Style="{StaticResource UpravnikButton}" Content="Zaposleni" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="348,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Zaposleni_Click">
+                <Button x:Name="Zaposleni" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="290,354,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Zaposleni_Click">
                     <Button.ToolTip>
                         <ToolTip Content="Prikaz svih zaposlenih"/>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/zaposleni.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Zaposleni</AccessText>
+                    </StackPanel>
                 </Button>
-                <Button x:Name="Tutorijal" Style="{StaticResource UpravnikButton}" Content="Tutorijal" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="724,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Tutorijal_Click">
+                <Button x:Name="Tutorijal" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="741,354,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Tutorijal_Click">
                     <Button.ToolTip>
                         <ToolTip Content="Prikaz svih lekova"/>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/tutorijal.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Tutorijal</AccessText>
+                    </StackPanel>
                 </Button>
-                <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" Content="Podesavanja" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="Podesavanja_Click_1">
+                <Button x:Name="Podesavanja" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="290,469,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="Podesavanja_Click_1">
                     <Button.ToolTip>
                         <ToolTip Content="Podesavanja aplikacije"/>
                     </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/settings.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Podesavanja</AccessText>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="RadnoVreme" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="RadnoVreme_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz radnih vremena lekara"/>
+                    </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/vreme.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Radno vreme lekara</AccessText>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="PovratneInformacije" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" HorizontalAlignment="Left" Margin="741,469,0,0" VerticalAlignment="Top" Height="52" Width="170" Click="PovratneInformacije_Click">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikaz svih lekova"/>
+                    </Button.ToolTip>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source="/Slike/feedback.png" Margin="0, 0, 10, 0" Height="32" Width="32"/>
+                        <AccessText VerticalAlignment="Center" HorizontalAlignment="Center">Povratne informacije</AccessText>
+                    </StackPanel>
                 </Button>
             </Grid>
         </DockPanel>

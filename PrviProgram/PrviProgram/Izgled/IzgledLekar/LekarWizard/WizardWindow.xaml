@@ -1,0 +1,23 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.LekarWizard.WizardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar.LekarWizard"
+        mc:Ignorable="d"
+        Title="Uputstvo za koriscenje" Height="580" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="490"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Dalje" Content="Dalje" HorizontalAlignment="Left" Height="43" Margin="812,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Dalje_Click"/>
+        <Button x:Name="Nazad" Content="Nazad" HorizontalAlignment="Left" Height="43" Margin="646,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Nazad_Click"/>
+        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="43" Grid.Row="1" VerticalAlignment="Center" Width="136" Margin="478,0,0,0" Click="Odustani_Click"/>
+
+        <StackPanel Name="ContentArea" Grid.Row="0"></StackPanel>
+
+
+    </Grid>
+</Window>

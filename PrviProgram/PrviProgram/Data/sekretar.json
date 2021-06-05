@@ -1,19 +1,35 @@
 [
   {
-    "MestoRodjenja": null,
+    "MestoRodjenja": {
+      "Ime": "Novi Sad",
+      "drzava": {
+        "Ime": "Srbija"
+      }
+    },
     "Korisnik": {
       "KorisnickoIme": "darko",
       "Lozinka": "darko",
       "TipKorisnika": 1,
       "osoba": null
     },
-    "AdresaStanovanja": null,
+    "AdresaStanovanja": {
+      "Ulica": "tolstojeva",
+      "Broj": 10,
+      "Sprat": 5,
+      "Stan": 23,
+      "grad": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      }
+    },
     "Ime": "Darko",
     "Prezime": "Vrbaski",
-    "Email": null,
+    "Email": "darko@gmail.com",
     "Jmbg": "2229292",
     "DatumRodjenja": "0001-01-01T00:00:00",
     "Pol": 0,
-    "KontaktTelefon": null
+    "KontaktTelefon": "12312521"
   }
 ]

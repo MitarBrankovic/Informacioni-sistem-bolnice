@@ -1,7 +1,12 @@
-﻿using Model;
+﻿using Controller;
+using Model;
+using PrviProgram.Izgled.IzgledLekar.LekarWizard;
+using PrviProgram.Repository;
+using PrviProgram.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,16 +20,40 @@ namespace PrviProgram.Izgled.IzgledLekar
 {
     public partial class PocetniPrikaz : Window
     {
+        private PodesavanjaLekarRepository podesavanjaLekarRepository = new PodesavanjaLekarRepository();
+        private PodesavanjaLekarService podesavanjaLekaraService = new PodesavanjaLekarService();
+        private LekarController lekarController = new LekarController();
         private Lekar lekar;
         private UserControl trenutniUserControl;
         private TerminiPrikaz terminiPrikaz;
         private LekoviPrikaz lekoviPrikaz;
         private PacijentiPrikaz pacijentiPrikaz;
+        private NalogPrikaz nalogPrikaz;
         private List<UserControl> listOfUserControls = new List<UserControl>();
         public PocetniPrikaz(Lekar lekar)
         {
             InitializeComponent();
             this.lekar = lekar;
+            ProveraDaLiJePrviPutUlogovan();
+            EnableDisableTooltips();
+        }
+
+        private void EnableDisableTooltips()
+        {
+            if (podesavanjaLekarRepository.IskljucioTooltip(lekar))
+            {
+                lekarController.TooltipManipulacija(true);
+            }
+        }
+
+        private void ProveraDaLiJePrviPutUlogovan()
+        {
+            if (!podesavanjaLekarRepository.PogledaoWizard(lekar))
+            {
+                WizardWindow wizardWindow = new WizardWindow();
+                wizardWindow.Show();
+                podesavanjaLekaraService.IzmenaWizardPodesavanja(lekar);
+            }
         }
 
         private void Raspored_Click(object sender, RoutedEventArgs e)
@@ -50,6 +79,15 @@ namespace PrviProgram.Izgled.IzgledLekar
             ContentArea.Children.Add(lekoviPrikaz);
             ProveraKojiProzorJeOtvoren();
         }
+
+        private void Nalog_Click(object sender, RoutedEventArgs e)
+        {
+            nalogPrikaz = new NalogPrikaz(this, lekar);
+            ContentArea.Children.Clear();
+            ContentArea.Children.Add(nalogPrikaz);
+            ProveraKojiProzorJeOtvoren();
+        }
+
         public void DugmeVisibilityTrue()
         {
             GoBack.Visibility = Visibility.Visible;
@@ -94,5 +132,12 @@ namespace PrviProgram.Izgled.IzgledLekar
             listOfUserControls.Add(noviUserControl);
             trenutniUserControl = noviUserControl;
         }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            PodesavanjaWindow podesavanjaWindow = new PodesavanjaWindow(lekar);
+            podesavanjaWindow.Show();
+        }
+
     }
 }

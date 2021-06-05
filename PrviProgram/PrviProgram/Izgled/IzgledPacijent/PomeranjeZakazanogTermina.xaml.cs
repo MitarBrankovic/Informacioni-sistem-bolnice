@@ -24,7 +24,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime trenutniDatum = new DateTime();
         public DateTime datumTermina=new DateTime();
 
-        public Model.Lekar lekar = new Model.Lekar();
+        public Lekar lekar = new Lekar();
         public Termin termin=new Termin();
 
 

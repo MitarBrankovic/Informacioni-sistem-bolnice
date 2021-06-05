@@ -28,6 +28,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.lekar = lekar;
             this.termini = termini;
             ComboboxPacijent.ItemsSource = pacijentRepository.PregledSvihPacijenata();
+            Potvrdi.IsEnabled = false;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -68,6 +69,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void DatumText_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             AzurirajVreme();
+            Potvrdi.IsEnabled = true;
         }
 
         private void AzurirajVreme()

@@ -8,7 +8,7 @@
       d:DesignHeight="700"
       d:DesignWidth="430"
       Title="PocetniPage">
-    <Grid Background="White">
+    <Grid Style="{DynamicResource surface_style}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*"/>
@@ -23,11 +23,9 @@
             x:Name="textBlockDobrodosli"
             Grid.Row="1"
             Grid.Column="1"
-            Text="{Binding Path=Sekretar, StringFormat='Dobrodosli, {0}!'}"
-            Foreground="Black"
+            Text="{Binding Path=Sekretar, StringFormat='Dobrodosli {0}!'}"
             FontSize="22"
-            Background="Transparent"
-            Style="{StaticResource font_style}"
+            Style="{DynamicResource font_style}"
             Width="350"
             Height="80">
         </TextBlock>

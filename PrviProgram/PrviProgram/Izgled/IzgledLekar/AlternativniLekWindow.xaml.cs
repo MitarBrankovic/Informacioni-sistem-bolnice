@@ -20,9 +20,11 @@ namespace PrviProgram.Izgled.IzgledLekar
     {
         private Lek lek;
         AnamnezaPrikaz anamnezaPrikaz;
-        public AlternativniLekWindow(AnamnezaPrikaz anamnezaPrikaz, Lek lek)
+        Button Izvestaj;
+        public AlternativniLekWindow(AnamnezaPrikaz anamnezaPrikaz, Lek lek, Button Izvestaj)
         {
             InitializeComponent();
+            this.Izvestaj = Izvestaj;
             this.anamnezaPrikaz = anamnezaPrikaz;
             dataGridAlternativniLek.ItemsSource = lek.ZamenaZaLek;
             Potrvrdi.IsEnabled = false;
@@ -32,6 +34,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             anamnezaPrikaz.IzaberiZamenuZaLek((Lek)dataGridAlternativniLek.SelectedItem);
             this.Close();
+            Izvestaj.IsEnabled = true;
         }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)

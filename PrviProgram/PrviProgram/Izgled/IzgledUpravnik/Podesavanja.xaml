@@ -9,35 +9,7 @@
              Loaded="UserControl_Loaded"
              KeyDown="UserControl_KeyDown">
     <Grid x:Name="gridMain" Visibility="Visible" Background="SeaShell">
-        <DockPanel>
-            <Menu DockPanel.Dock ="Top" Height="20" VerticalAlignment="Top" Background="SeaShell">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-
-                <MenuItem Header="File" InputGestureText="Ctrl" Name="File" Width="35" Background="SeaShell">
-                    <MenuItem Name="LogOut" Header="Log out"  InputGestureText="Ctrl+D" Click="LogOut_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Edit" Name="Edit_Name" Width="35" Background="SeaShell">
-                    <MenuItem Name="PodesavanjaNalogaMenu" Header="Podesavanja naloga"  InputGestureText="Ctrl + Q" Click="PodesavanjaNalogaMenu_Click"></MenuItem>
-                    <MenuItem Name="PodesavanjaMenu" Header="Podesavanja"  InputGestureText="Ctrl+W"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="View" Name="ViewName" Width="35" Background="SeaShell">
-                    <MenuItem Name="SaleMenu" Header="Sale"  InputGestureText="Ctrl+S" Click="SaleMenu_Click"></MenuItem>
-                    <MenuItem Name="OpremaMenu" Header="Oprema"  InputGestureText="Ctrl+O" Click="OpremaMenu_Click"></MenuItem>
-                    <MenuItem Name="LekoviMenu" Header="Lekovi"  InputGestureText="Ctrl+S" Click="LekoviMenu_Click"></MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Help" Name="Help_Name" Width="35" HorizontalAlignment="Left" Background="SeaShell">
-                    <MenuItem Name="HelpMenu" Header="Help" Click="HelpMenu_Click"  InputGestureText="Ctrl+H"></MenuItem>
-                </MenuItem>
-            </Menu>
-            <Grid DockPanel.Dock="Bottom">
-                <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
+        <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
                     <Button.ToolTip>
                         <ToolTip>
                             Povratak na pocetni prozor
@@ -64,13 +36,10 @@
                     </Button.ToolTip>
                 </Button>
                 <Label Content="Podesavanje podataka upravnika" HorizontalAlignment="Left" Height="30" Margin="388,0,0,0" VerticalAlignment="Center" Width="197"/>
-                <Button x:Name="Izmena" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Izmena_Click" Content="Izmena" HorizontalAlignment="Left" Height="22" Margin="600,0,0,0" VerticalAlignment="Center" Width="66">
-                    <Button.ToolTip>
-                        <ToolTip Content="Prikazi tooltip-ove"/>
-                    </Button.ToolTip>
-                </Button>
-            </Grid>
-
-        </DockPanel>
+        <Button x:Name="Izmena" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Izmena_Click" Content="Izmena" HorizontalAlignment="Left" Height="22" Margin="600,0,0,0" VerticalAlignment="Center" Width="66">
+            <Button.ToolTip>
+                <ToolTip Content="Prikazi tooltip-ove"/>
+            </Button.ToolTip>
+        </Button>
     </Grid>
 </UserControl>

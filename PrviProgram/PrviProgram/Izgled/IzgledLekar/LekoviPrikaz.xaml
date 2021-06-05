@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="dataGridLekovi" Margin="54,152,0,51" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}" HorizontalAlignment="Left" Width="283" SelectionChanged="dataGridLekovi_SelectionChanged">
+        <DataGrid ToolTip="Lista lekova" x:Name="dataGridLekovi" Margin="54,152,0,51" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding dataSale}" HorizontalAlignment="Left" Width="283" SelectionChanged="dataGridLekovi_SelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -25,7 +25,7 @@
         <Label Content="Opis" HorizontalAlignment="Left" Height="26" Margin="415,343,0,0" VerticalAlignment="Top" Width="122" />
         <TextBox x:Name="Opis" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="126" Margin="563,343,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
         <Label Content="Alternativni lekovi" HorizontalAlignment="Left" Height="25" Margin="415,484,0,0" VerticalAlignment="Top" Width="122" />
-        <ComboBox x:Name="ComboAlternativni" VerticalAlignment="Top" Margin="563,487,69,0" >
+        <ComboBox ToolTip="Izaberi alternativni lek" x:Name="ComboAlternativni" VerticalAlignment="Top" Margin="563,487,69,0" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -35,8 +35,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="Izmeni" Content="Azuriraj" HorizontalAlignment="Left" Height="40" Margin="54,72,0,0" VerticalAlignment="Top" Width="316" Click="Izmeni_Click"/>
-        <Button x:Name ="Primedba" Click="Primedba_Click"  Content="Primedba" HorizontalAlignment="Left" Height="40" Margin="415,72,0,0" VerticalAlignment="Top" Width="316"/>
+        <Button ToolTip="Ažuriraj informacije o leku" x:Name="Izmeni" Content="Azuriraj" HorizontalAlignment="Left" Height="40" Margin="54,72,0,0" VerticalAlignment="Top" Width="316" Click="Izmeni_Click"/>
+        <Button ToolTip="Uputi žalbu na lek" x:Name ="Primedba" Click="Primedba_Click"  Content="Primedba" HorizontalAlignment="Left" Height="40" Margin="415,72,0,0" VerticalAlignment="Top" Width="316"/>
         <Label Content="Naziv" HorizontalAlignment="Left" Height="24" Margin="417,157,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sifra" HorizontalAlignment="Left" Height="24" Margin="417,193,0,0" VerticalAlignment="Top" Width="122"/>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Margin="564,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="24"/>

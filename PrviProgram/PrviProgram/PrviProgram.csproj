@@ -18,26 +18,51 @@
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <None Remove="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
+    <None Remove="Izgled\IzgledSekretar\Resources\language.en-US.resources" />
+    <None Remove="Izgled\IzgledSekretar\Resources\language.sr-LATN.resources" />
     <None Remove="Slike\arrow-105-64.png" />
     <None Remove="Slike\avatarPacijenta.jpg" />
     <None Remove="Slike\Dania.jpg" />
+    <None Remove="Slike\Doktor.png" />
+    <None Remove="Slike\feedback.png" />
     <None Remove="Slike\hospital-2.jpg" />
+    <None Remove="Slike\LekarWizardSlike\Anamneza.png" />
+    <None Remove="Slike\LekarWizardSlike\GlavniProzor.png" />
+    <None Remove="Slike\LekarWizardSlike\KartonPacijenta.png" />
+    <None Remove="Slike\LekarWizardSlike\Lekovi.png" />
+    <None Remove="Slike\LekarWizardSlike\Nalog.png" />
+    <None Remove="Slike\LekarWizardSlike\Pacijent.png" />
+    <None Remove="Slike\LekarWizardSlike\Raspored.png" />
+    <None Remove="Slike\lekovi.png" />
     <None Remove="Slike\logout-64.png" />
+    <None Remove="Slike\logout.png" />
+    <None Remove="Slike\lupa.png" />
+    <None Remove="Slike\odustani.png" />
     <None Remove="Slike\open.png" />
+    <None Remove="Slike\oprema.png" />
     <None Remove="Slike\Pacijent.jpg" />
     <None Remove="Slike\pause.png" />
+    <None Remove="Slike\pdf.png" />
     <None Remove="Slike\play.png" />
+    <None Remove="Slike\potvrdi.png" />
     <None Remove="Slike\pozadinaPacijent.jpg" />
+    <None Remove="Slike\sale.png" />
+    <None Remove="Slike\search.png" />
+    <None Remove="Slike\settings.png" />
     <None Remove="Slike\stop.png" />
+    <None Remove="Slike\tutorijal.png" />
     <None Remove="Slike\upravnik.jpg" />
     <None Remove="Slike\volume.png" />
+    <None Remove="Slike\vreme.png" />
+    <None Remove="Slike\zaposleni.png" />
     <None Remove="Slike\znakBolnice.png" />
     <None Remove="upravnik.jpg" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Syncfusion.DocToPDFConverter.Wpf" Version="19.1.0.65" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,20 +77,67 @@
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_default1.png" />
     <Resource Include="Izgled\IzgledSekretar\Assets\tgBtn_MouseOver1.png" />
+    <Resource Include="Izgled\IzgledSekretar\Resources\language.en-US.resources" />
+    <Resource Include="Izgled\IzgledSekretar\Resources\language.sr-LATN.resources" />
     <Resource Include="Slike\arrow-105-64.png" />
     <Resource Include="Slike\avatarPacijenta.jpg" />
     <Resource Include="Slike\Dania.jpg" />
+    <Resource Include="Slike\Doktor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\feedback.png" />
     <Resource Include="Slike\hospital-2.jpg" />
+    <Resource Include="Slike\LekarWizardSlike\Anamneza.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\GlavniProzor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\KartonPacijenta.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Lekovi.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Nalog.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Pacijent.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\LekarWizardSlike\Raspored.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Slike\lekovi.png" />
     <Resource Include="Slike\logout-64.png" />
+    <Resource Include="Slike\logout.png" />
+    <Resource Include="Slike\lupa.png" />
+    <Resource Include="Slike\odustani.png" />
     <Resource Include="Slike\open.png" />
+    <Resource Include="Slike\oprema.png" />
     <Resource Include="Slike\Pacijent.jpg" />
     <Resource Include="Slike\pause.png" />
+    <Resource Include="Slike\pdf.png" />
     <Resource Include="Slike\play.png" />
+    <Resource Include="Slike\potvrdi.png" />
     <Resource Include="Slike\pozadinaPacijent.jpg" />
+    <Resource Include="Slike\sale.png" />
+    <Resource Include="Slike\search.png" />
+    <Resource Include="Slike\settings.png" />
     <Resource Include="Slike\stop.png" />
+    <Resource Include="Slike\tutorijal.png" />
     <Resource Include="Slike\upravnik.jpg" />
     <Resource Include="Slike\volume.png" />
+    <Resource Include="Slike\vreme.png" />
+    <Resource Include="Slike\zaposleni.png" />
     <Resource Include="Slike\znakBolnice.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Izgled\IzgledSekretar\Themes\Light.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

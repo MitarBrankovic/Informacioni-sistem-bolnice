@@ -3,8 +3,11 @@ using Model;
 using PrviProgram.Service;
 using Repository;
 using Service;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -52,8 +55,8 @@ namespace PrviProgram.Izgled.IzgledLekar
             textBoxPrezime.Text = pacijent.Prezime;
             textBoxJMBG.Text = pacijent.Jmbg;
             datePickerDatumRodjenja.SelectedDate = pacijent.DatumRodjenja;
-            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Model.Pol.Muski);
-            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Model.Pol.Zenski);
+            radioButtonPolM.IsChecked = pacijent.Pol.Equals(Pol.Muski);
+            radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Pol.Zenski);
         }
         private void Zavrsi_Click(object sender, RoutedEventArgs e)
         {
@@ -64,10 +67,11 @@ namespace PrviProgram.Izgled.IzgledLekar
                 terminiService.IzmenaTermina(termin);
                 kartonPacijentaService.IzvrsenaAnamneza(izvrseniPregled, pacijentRepository.PregledPacijenta(pacijent.Jmbg));
                 Zavrsi.IsEnabled = false;
+                Izvestaj.IsEnabled = true;
             }
             else
             {
-                AlternativniLekWindow alternativniLekWindow = new AlternativniLekWindow(this, izvrseniPregled.recept.Lekovi);
+                AlternativniLekWindow alternativniLekWindow = new AlternativniLekWindow(this, izvrseniPregled.recept.Lekovi, Izvestaj);
                 alternativniLekWindow.Show();
             }   
         }
@@ -143,6 +147,27 @@ namespace PrviProgram.Izgled.IzgledLekar
             {
                 BrojDana.Text = "";
             }
+        }
+
+        private void Izvestaj_Click(object sender, RoutedEventArgs e)
+        {
+            using (PdfDocument doc = new PdfDocument())
+            {
+                PdfPage page = doc.Pages.Add();
+                PdfGraphics graphics = page.Graphics;
+                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+                string textPDF = "Lekar: " + termin.lekar + 
+                    "\nPacijent: " + termin.pacijent + "\n\n\n" + 
+                    "----------------------------------------------------------------" +
+                    "\nAnamneza: \n" + izvrseniPregled.anamneza.Opis + "\n\n" + 
+                    "Recept: \n" + izvrseniPregled.recept.Lekovi + 
+                    "\nKonzumirati " + izvrseniPregled.recept.VremenskiPeriodUzimanjaLeka + " dana"
+                    + "\n" + izvrseniPregled.recept.OpisLeka;
+                graphics.DrawString(textPDF, font, PdfBrushes.Black, new PointF(0, 0));
+                doc.Save(@"..\..\..\Izvestaji\IzvestajAnamnezaRecept.pdf");
+                doc.Close(true);
+            }
+            MessageBox.Show("Uspesno obavljen izvestaj");
         }
     }
 }

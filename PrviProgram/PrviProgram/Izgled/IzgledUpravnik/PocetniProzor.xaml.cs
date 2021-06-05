@@ -14,7 +14,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             InitializeComponent();
             this.upravnik = upravnik;
         }
-
+                
         private void LogOutIzAplikacije()
         {
             MessageBoxResult rsltMessageBox = MessageBox.Show("Da li ste sigurni da zelite da se izlogujete?", "Log out",
@@ -59,7 +59,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Zaposleni_Click(object sender, RoutedEventArgs e)
         {
-
+            var s = new ZaposleniProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
         }
 
         private void Tutorijal_Click(object sender, RoutedEventArgs e)
@@ -76,33 +78,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             gridMain.Children.Add(s);
         }
 
+        private void RadnoVreme_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new RadnoVremeProzor();
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
+        }
+
         private void Pomoc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-                "- N: Selektovanje MenuBar-a - FILE.\n" +
-                "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-                "- SPACE: Vracanje fokusa na dugme nakon povratka na pocetni prozor.\n" +
-                "- END: Izlazak iz aplikacije. \n\n" +
-
-                "- ENTER/SPACE: Zatvaranje ove poruke.\n"+
-                "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
-                , "HELP");
-        }
-
-        private void PodesavanjaNaloga_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Podesavanja_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpremaPrikaz_Click(object sender, RoutedEventArgs e)
-        {
-
+            PrikazPomoci();
         }
 
         private void Button_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -129,13 +114,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Zaposleni.IsFocused)
                 {
+                    Podesavanja.Focus();
+                }
+                else if (Podesavanja.IsFocused)
+                {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
                 {
-                    Podesavanja.Focus();
+                    RadnoVreme.Focus();
                 }
-                else if (Podesavanja.IsFocused)
+                else if (RadnoVreme.IsFocused)
                 {
                     LogOutButton.Focus();
                 }
@@ -149,16 +138,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (Tutorijal.IsFocused)
                 {
+                    PovratneInformacije.Focus();
+                }
+                else if (PovratneInformacije.IsFocused)
+                {
                     Pomoc.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    SaleButton.Focus();
-
             }
             else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.LeftCtrl)
             {
                 if (Pomoc.IsFocused)
                 {
+                    PovratneInformacije.Focus();
+                }
+                else if (PovratneInformacije.IsFocused)
+                {
                     Tutorijal.Focus();
                 }
                 else if (Tutorijal.IsFocused)
@@ -171,13 +165,17 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 }
                 else if (LogOutButton.IsFocused)
                 {
-                    Podesavanja.Focus();
+                    RadnoVreme.Focus();
                 }
-                else if (Podesavanja.IsFocused)
+                else if (RadnoVreme.IsFocused)
                 {
                     OpremaButton.Focus();
                 }
                 else if (OpremaButton.IsFocused)
+                {
+                    Podesavanja.Focus();
+                }
+                else if (Podesavanja.IsFocused)
                 {
                     Zaposleni.Focus();
                 }
@@ -185,8 +183,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     SaleButton.Focus();
                 }
-                else if (SaleMenu.IsFocused || LekoviMenu.IsFocused || OpremaMenu.IsFocused || PodesavanjaMenu.IsFocused || PodesavanjaNalogaMenu.IsFocused || HelpMenu.IsFocused)
-                    SaleButton.Focus();
             }
             else if (e.Key == Key.End)
             {
@@ -198,10 +194,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 {
                     SaleButton.Focus();
                 }
-            }
-            else if (e.Key == Key.N)
-            {
-                File_Name.Focus();
             }
             else if (Pomoc.IsFocused)
             {
@@ -218,6 +210,25 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 if (e.Key == Key.Up)
                     e.Handled = true;
             }
+        }
+
+        private void PrikazPomoci()
+        {
+            MessageBox.Show(
+            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
+            "- N: Selektovanje MenuBar-a - FILE.\n" +
+            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
+            "- SPACE: Vracanje fokusa na dugme nakon povratka na pocetni prozor.\n" +
+            "- END: Izlazak iz aplikacije. \n\n" +
+
+            "- ENTER/SPACE: Zatvaranje ove poruke.\n" +
+            "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
+            , "HELP");
+        }
+
+        private void PovratneInformacije_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,14 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <Button x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Center" Height="26" Margin="0,36,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Izmeni" Click="Izmeni_Click"  Content="Izmeni" HorizontalAlignment="Left" Height="26" Margin="479,36,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="1.105,-0.451"/>
-        <Button x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="26" Margin="612,36,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button x:Name ="Informacije" Click="Informacije_Click"  Content="Informacije" HorizontalAlignment="Left" Height="26" Margin="90,36,0,0" VerticalAlignment="Top" Width="98" />
-        <Button x:Name ="Anamneza" Click="Anamneza_Click"  Content="Anamneza" HorizontalAlignment="Left" Height="26" Margin="219,36,0,0" VerticalAlignment="Top" Width="98" />
+        <Button ToolTip="Dodaj termin" x:Name ="Dodaj" Click="Dodaj_Click"  Content="Dodaj" HorizontalAlignment="Left" Height="50" Margin="261,19,0,0" VerticalAlignment="Top" Width="110" />
+        <Button ToolTip="Izmeni informacije o terminu" x:Name ="Izmeni" Click="Izmeni_Click"  Content="Izmeni" HorizontalAlignment="Left" Height="50" Margin="371,19,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="1.105,-0.451"/>
+        <Button ToolTip="Izbriši termin" x:Name ="Izbrisi" Click="Izbrisi_Click"  Content="Izbrisi" HorizontalAlignment="Left" Height="50" Margin="481,19,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="50" Margin="41,19,0,0" VerticalAlignment="Top" Width="110" />
+        <Button x:Name ="Anamneza" Click="Anamneza_Click"  Content="Anamneza" HorizontalAlignment="Left" Height="50" Margin="151,19,0,0" VerticalAlignment="Top" Width="110" />
 
 
-        <DataGrid x:Name="dataGridLekar" Margin="41,91,41,63" SelectionChanged="DataGrid_SelectionChanged" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" MinHeight="450">
+        <DataGrid ToolTip="Lista termina" x:Name="dataGridLekar" Margin="41,91,41,63" SelectionChanged="DataGrid_SelectionChanged" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" MinHeight="450">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,7 +23,7 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Izvrsen" Binding="{Binding Izvrsen}" Width="0.07*"/>
+                <DataGridCheckBoxColumn Header="Izvrsen" Binding="{Binding Izvrsen}" Width="0.07*"/>
                 <DataGridTextColumn Header="Sifra termina" Binding="{Binding SifraTermina}"  Width="0.14*"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="0.09*"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd/MM/yyyy}}" Width="0.14*"/>
@@ -43,5 +43,6 @@
                 <DataGridTextColumn Header="Sala" Binding="{ Binding sala.Sifra }"  Width="0.09*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox ToolTip="Pretraži" x:Name="TextboxSearch" HorizontalAlignment="Left" FontSize="17" VerticalContentAlignment="Center" Margin="591,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Height="50" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </UserControl>
