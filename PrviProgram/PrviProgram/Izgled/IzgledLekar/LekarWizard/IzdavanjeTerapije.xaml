@@ -1,0 +1,21 @@
+﻿<Window x:Class="PrviProgram.Izgled.IzgledLekar.IzdavanjeTerapije"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        mc:Ignorable="d"
+        Title="IzdavanjeTerapije" Height="450" Width="424">
+    <Grid>
+        <Label Content="Opis terapije:" HorizontalAlignment="Left" Height="35" Margin="30,44,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Pocetak uzimanje:" HorizontalAlignment="Left" Height="35" Margin="30,104,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Kraj uzimanja:" HorizontalAlignment="Left" Height="35" Margin="30,204,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox Name="textBlockOpis"  HorizontalAlignment="Left" Height="50" Margin="220,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+        <Button Content="Potvrdi" Name="potvrdiButton" HorizontalAlignment="Left" Height="35" Margin="105,329,0,0" VerticalAlignment="Top" Width="85" Click="potvrdiButton_Click" />
+        <Button Content="Otkazi" x:Name="otkaziButton" HorizontalAlignment="Left" Height="35" Margin="210,329,0,0" VerticalAlignment="Top" Width="85" Click="otkaziButton_Click" />
+        <DatePicker Name="datumPocetakKalendar" HorizontalAlignment="Left" Height="30" Margin="220,114,0,0" VerticalAlignment="Top" Width="130"/>
+        <DatePicker Name="datumKrajKalendara" HorizontalAlignment="Left" Height="30" Margin="220,209,0,0" VerticalAlignment="Top" Width="130"/>
+
+    </Grid>
+</Window>
+

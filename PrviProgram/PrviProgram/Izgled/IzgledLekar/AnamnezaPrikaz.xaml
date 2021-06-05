@@ -28,7 +28,7 @@
         <TextBox ToolTip="Način na koji se lek konzumira" x:Name = "TextboxOpisLeka" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="189" Margin="445,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" />
         <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="67,139,0,0" VerticalAlignment="Top" Height="27"/>
         <Button ToolTip="Završi anamnezu" x:Name ="Zavrsi" Click="Zavrsi_Click"  Content="Završi anamnezu" HorizontalAlignment="Left" Height="40" Margin="607,552,0,0" VerticalAlignment="Top" Width="150" />
-        <Button ToolTip="Karton pacijenta" x:Name ="Karton" Click="Karton_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="43" Margin="445,427,0,0" VerticalAlignment="Top" Width="312" />
+        <Button ToolTip="Karton pacijenta" x:Name ="Karton" Click="Karton_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="43" Margin="445,427,0,0" VerticalAlignment="Top" Width="150" />
         <Button ToolTip="Uput za specijalistu" x:Name ="UputSpecijalista" Click="Uput_Click"  Content="Uput za specijalistu" HorizontalAlignment="Left" Height="42" Margin="607,491,0,0" VerticalAlignment="Top" Width="150" />
         <Button ToolTip="Uput na bolničko lečenje" x:Name ="UputLecenje" Click="UputLecenje_Click"  Content="Uput na bolnicko lecenje" HorizontalAlignment="Left" Height="42" Margin="445,491,0,0" VerticalAlignment="Top" Width="150" />
         <ComboBox ToolTip="Izaberite lek" x:Name = "ComboboxLek" HorizontalAlignment="Left" Margin="445,171,0,0" VerticalAlignment="Top" Width="237" Height="26"/>
@@ -36,6 +36,7 @@
         <Label Content="Lek:" HorizontalAlignment="Left" Margin="474,139,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Dana:" HorizontalAlignment="Left" Margin="699,139,0,0" VerticalAlignment="Top" Height="27"/>
         <Button ToolTip="Izveštaj o anamnezi i receptu" x:Name ="Izvestaj" Click="Izvestaj_Click"  Content="Izveštaj" HorizontalAlignment="Left" Height="40" Margin="445,552,0,0" VerticalAlignment="Top" Width="150" IsEnabled="False"/>
+        <Button ToolTip="Terapija" x:Name ="Terapija" Click="Terapija_Click"  Content="Terapija" HorizontalAlignment="Left" Height="43" Margin="605,427,0,0" VerticalAlignment="Top" Width="150" />
 
     </Grid>
 </UserControl>

@@ -1,72 +1,9 @@
 [
   {
-    "Datum": "2021-06-06T00:00:00",
-    "TipTermina": 1,
-    "SifraTermina": "xmHTaWRc",
-    "sala": {
-      "oprema": [
-        {
-          "Naziv": "Zavoji",
-          "Kolicina": 5,
-          "Tip": 1,
-          "NazivSale": "NTP 1"
-        },
-        {
-          "Naziv": "Kreveti",
-          "Kolicina": 5,
-          "Tip": 0,
-          "NazivSale": "NTP 1"
-        }
-      ],
-      "Tip": 0,
-      "Naziv": "NTP 1",
-      "Sprat": 1,
-      "Sifra": "ntp 1",
-      "NazivSprat": "NTP 1 1"
-    },
-    "Vreme": "10:30:00",
-    "guestPacijent": null,
-    "Izvrsen": false,
-    "lekar": {
-      "termin": null,
-      "specijalizacija": [
-        {
-          "Naziv": "Hirurgija"
-        }
-      ],
-      "MestoRodjenja": {
-        "Ime": "Novi Sad",
-        "drzava": {
-          "Ime": "Srbija"
-        }
-      },
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": "tolstojeva",
-        "Broj": 10,
-        "Sprat": 5,
-        "Stan": 23,
-        "grad": {
-          "Ime": "Novi Sad",
-          "drzava": {
-            "Ime": "Srbija"
-          }
-        }
-      },
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": "srdjan@gmail.com",
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": "1264512"
-    },
-    "pacijent": {
+    "PocetakTerapije": "2021-06-16T00:00:00",
+    "KrajTerapije": "2021-06-26T00:00:00",
+    "OpisTerapije": "U 17h popiti brufen",
+    "Pacijent": {
       "Termin": [],
       "KartonPacijenta": {
         "alergen": [

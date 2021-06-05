@@ -169,5 +169,11 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
             MessageBox.Show("Uspesno obavljen izvestaj");
         }
+
+        private void Terapija_Click(object sender, RoutedEventArgs e)
+        {
+            IzdavanjeTerapije izdavanje = new IzdavanjeTerapije(pacijent);
+            izdavanje.Show();
+        }
     }
 }
