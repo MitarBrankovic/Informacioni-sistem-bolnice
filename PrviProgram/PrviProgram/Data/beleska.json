@@ -1,18 +1,11 @@
 [
+ 
   {
-    "OpisBeleske": "prosetaj ",
-    "PocetakStizanjaNotifikacije": "2021-05-25T00:00:00",
-    "KrajStizanjaNotifikacije": "2021-05-30T00:00:00",
+    "OpisBeleske": "Prosetaj i popij vitamin",
+    "PocetakStizanjaNotifikacije": "2021-05-26T00:00:00",
+    "KrajStizanjaNotifikacije": "2021-05-29T00:00:00",
     "Jmbg": "1706999805047",
     "SifraIzvrsenogPregleda": "IeSQPZQO",
-    "VremeObavestenja": "14:14:00"
-  },
-  {
-    "OpisBeleske": "Popij paracetamol u 10h.",
-    "PocetakStizanjaNotifikacije": "2021-05-25T00:00:00",
-    "KrajStizanjaNotifikacije": "2021-05-30T00:00:00",
-    "Jmbg": "1706999805047",
-    "SifraIzvrsenogPregleda": "RO9MeC4g",
-    "VremeObavestenja": "08:30:00"
+    "VremeObavestenja": "13:00:00"
   }
 ]

@@ -27,6 +27,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();
         public List<Pacijent> pacijenti = new List<Pacijent>();
         public List<Recept> recepti = new List<Recept>();
+        public NotifikacijeService notifikacija = new NotifikacijeService();
         
         public kreiranjeNotifikacije(Pacijent pacijent)
         {
@@ -34,7 +35,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             krajDatumText.IsEnabled = false;
             potvrdiButton.IsEnabled = false;
             this.pacijent = pacijent;
-            this.recepti=pacijentControler.PregledRecepata(pacijent);
+            this.recepti = notifikacija.PregledRecepata(pacijent);
             foreach(Recept recepti in recepti)
             {
                 listaLekova.Items.Add(recepti.Lekovi);
@@ -98,6 +99,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void otkaziButton_Click(object sender, RoutedEventArgs e)
         {
            
+        }
+
+        private void OpisLeka_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

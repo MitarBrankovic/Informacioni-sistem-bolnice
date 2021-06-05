@@ -15,11 +15,11 @@
         <Grid HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="1005" Background="White">
             <Label Content="Pregled anamneze" Margin="353,2,345,0" VerticalAlignment="Top" FontSize="36" />
         </Grid>
-        <Grid Margin="98,93,97,31" Background="White">
+        <Grid Margin="25,93,25,15" Background="White">
 
-            <Button x:Name ="DodajBeleskuName"  Background="White" Content="Dodaj belešku" Height="55" Margin="99,32,466,0" VerticalAlignment="Top" FontSize="16" Click="DodajBeleskuName_Click" />
+            <Button x:Name ="DodajBeleskuName"  Background="White" Content="Dodaj belešku" Height="55" Margin="43,32,522,0" VerticalAlignment="Top" FontSize="16" Click="DodajBeleskuName_Click" />
 
-            <DataGrid x:Name="dataGridAnamneze" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="42,112,43,30">
+            <DataGrid x:Name="dataGridAnamneze" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="43,112,43,30" FontSize="16">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -34,11 +34,11 @@
                     <DataGridTextColumn Header="Datum terpaije" Binding="{Binding Datum, StringFormat=\{0:d/M/yyyy\}}"  Width="*"/>
                     <DataGridTextColumn Header="Lekar" Binding="{Binding Lekar}"  Width="*"/>
                     <DataGridTextColumn Header="Beleske" Binding="{Binding Beleska}"  Width="*"/>
-                   
+
 
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name ="Notifikacija_Beleske"  Background="White" Content="Notifikacija beleske" Height="55" Margin="465,32,99,0" VerticalAlignment="Top" FontSize="16" Click="Notifikacija_Beleske_Click" />
+            <Button x:Name ="Notifikacija_Beleske"  Background="White" Content="Notifikacija beleske" Height="55" Margin="521,32,43,0" VerticalAlignment="Top" FontSize="16" Click="Notifikacija_Beleske_Click" />
         </Grid>
 
     </Grid>

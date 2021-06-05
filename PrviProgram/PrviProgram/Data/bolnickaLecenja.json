@@ -2,8 +2,8 @@
   {
     "Sifra": "GbKR5f4c",
     "Pacijent": {
-      "termin": [],
-      "kartonPacijenta": {
+      "Termin": [],
+      "KartonPacijenta": {
         "alergen": [
           {
             "Naziv": "Kikiriki"
@@ -73,8 +73,8 @@
         ],
         "Sifra": null,
         "pacijent": {
-          "termin": null,
-          "kartonPacijenta": null,
+          "Termin": null,
+          "KartonPacijenta": null,
           "MestoRodjenja": null,
           "Korisnik": null,
           "AdresaStanovanja": null,
@@ -147,6 +147,6 @@
       "NazivSprat": "NTP 2 2"
     },
     "DatumPocetka": "2021-05-24T00:00:00",
-    "DatumZavrsetka": "2021-05-29T00:00:00"
+    "DatumZavrsetka": "2021-05-28T00:00:00"
   }
 ]

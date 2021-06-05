@@ -230,25 +230,71 @@
                 "ZamenaZaLek": [],
                 "Sifra": "bio",
                 "Naziv": "Bio Oil",
-                "Sastojci": "kikiriki, carape",
+                "Sastojci": "a",
                 "Opis": "a"
+              },
+              {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [
+                      {
+                        "ZamenaZaLek": [
+                          {
+                            "ZamenaZaLek": [
+                              {
+                                "ZamenaZaLek": [],
+                                "Sifra": "paracet",
+                                "Naziv": "Paracetamol",
+                                "Sastojci": "nesa",
+                                "Opis": "nes"
+                              }
+                            ],
+                            "Sifra": "bruh",
+                            "Naziv": "Brufen",
+                            "Sastojci": "nesto",
+                            "Opis": "nesto"
+                          }
+                        ],
+                        "Sifra": "paracet",
+                        "Naziv": "Paracetamol",
+                        "Sastojci": "nesa",
+                        "Opis": "nes"
+                      }
+                    ],
+                    "Sifra": "bruf",
+                    "Naziv": "Brufen",
+                    "Sastojci": "nesto",
+                    "Opis": "nesto"
+                  }
+                ],
+                "Sifra": "paracet",
+                "Naziv": "Paracetamol",
+                "Sastojci": "nesa",
+                "Opis": "nes"
+              },
+              {
+                "ZamenaZaLek": [],
+                "Sifra": "andol",
+                "Naziv": "Andol",
+                "Sastojci": "asdad",
+                "Opis": "sadasas"
               }
             ],
-            "Sifra": "andol",
-            "Naziv": "Andol",
-            "Sastojci": "kakao, so, paradajz",
-            "Opis": "sadasas"
+            "Sifra": "bruf",
+            "Naziv": "Brufen",
+            "Sastojci": "nesto",
+            "Opis": "nesto"
           }
         ],
-        "Sifra": "bio",
-        "Naziv": "Bio Oil",
-        "Sastojci": "carape,\r\nkikiriki",
-        "Opis": "a"
+        "Sifra": "paracet",
+        "Naziv": "Paracetamol",
+        "Sastojci": "nesa",
+        "Opis": "nes"
       }
     ],
     "Sifra": "andol",
     "Naziv": "Andol",
-    "Sastojci": "kakao, so, paradajz",
-    "Opis": "sadasasaa"
+    "Sastojci": "asdad",
+    "Opis": "sadasas"
   }
 ]

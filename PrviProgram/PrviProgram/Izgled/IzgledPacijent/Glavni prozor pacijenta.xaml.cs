@@ -64,7 +64,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void InicijalizacijaTimeraZaNotifikacijuBeleska()
         {
             timerZaNotifikacijuBeleska = new DispatcherTimer();
-            timerZaNotifikacijuBeleska.Interval = TimeSpan.FromSeconds(1);
+            timerZaNotifikacijuBeleska.Interval = TimeSpan.FromSeconds(10000);
             timerZaNotifikacijuBeleska.Start();
             timerZaNotifikacijuBeleska.Tick += new EventHandler(ObavestenjeZaBelesku);
         }
@@ -73,7 +73,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void ObavestenjeZaBelesku(object sender, EventArgs e)
         {
             timerZaPrikazNotifikacije = new DispatcherTimer();
-            timerZaPrikazNotifikacije.Interval = TimeSpan.FromSeconds(1);
+            timerZaPrikazNotifikacije.Interval = TimeSpan.FromSeconds(100000);
             int brojNotifikacija = 0;
             List<Beleska> beleske = datotekaBeleska.CitanjeIzFajla();
             foreach(Beleska beleska in beleske)

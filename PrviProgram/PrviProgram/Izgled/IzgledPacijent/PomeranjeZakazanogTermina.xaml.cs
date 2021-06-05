@@ -137,5 +137,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
         {
             this.Close();
         }
+
+        private void PrezimeLekara_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TipTerminaText_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

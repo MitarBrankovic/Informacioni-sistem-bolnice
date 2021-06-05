@@ -226,7 +226,7 @@ namespace Service
 
         public List<Termin> SviSlobodniTermini(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar,TipTermina tipTermina)
         {
-            for(int i=0;i<= (int)(krajDatum - pocetakDatum).TotalDays; i++)
+            for(int i = 0;i <= (int)(krajDatum - pocetakDatum).TotalDays; i++)
             {
                     if (SlobodnoVreme(pocetakDatum)!=null)
                     {

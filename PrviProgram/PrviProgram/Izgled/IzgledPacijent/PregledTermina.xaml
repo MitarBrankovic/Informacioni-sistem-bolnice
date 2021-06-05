@@ -12,14 +12,14 @@
         </Grid.Background>
 
 
-        <Grid Margin="98,93,97,31" Background="White">
+        <Grid Margin="30,93,15,20" Background="White">
 
-            <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click" Background="White" Content="Pomeranje zakazanog termina" HorizontalAlignment="Left" Height="55" Margin="487,22,0,0" VerticalAlignment="Top" Width="240" FontSize="16" />
-            <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" HorizontalAlignment="Left" Height="55" Margin="72,22,0,0" VerticalAlignment="Top" Width="107" Background="White" FontSize="16"/>
-            <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" HorizontalAlignment="Left" Height="55" Margin="210,22,0,0" VerticalAlignment="Top" Width="114" Background="White" FontSize="16"/>
-            <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Background ="White"  Content="Izbrisi" HorizontalAlignment="Left" Height="55" Margin="355,22,0,0" VerticalAlignment="Top" Width="107" FontSize="16"/>
+            <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click" Background="White" Content="Pomeranje zakazanog termina" Height="55" Margin="690,17,25,0" VerticalAlignment="Top" FontSize="16" />
+            <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" Height="55" Margin="25,22,823,0" VerticalAlignment="Top" Background="White" FontSize="16"/>
+            <Button x:Name ="IzmeniTerminButton" Click="Izmeni_Click" Content="Izmeni termin" Height="55" Margin="247,17,594,0" VerticalAlignment="Top" Background="White" FontSize="16"/>
+            <Button x:Name ="IzbrisiButton" Click="Izbrisi_Click"  Background ="White"  Content="Izbrisi" Height="55" Margin="482,17,366,0" VerticalAlignment="Top" FontSize="16"/>
 
-            <DataGrid x:Name="dataGridPacijenta" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="42,112,43,30">
+            <DataGrid x:Name="dataGridPacijenta" AutoGenerateColumns="False" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" Margin="25,92,25,15" FontSize="16">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>

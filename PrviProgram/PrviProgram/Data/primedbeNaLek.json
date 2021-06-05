@@ -1,40 +1,5 @@
 [
   {
-    "Sifra": "GQHGhF4T",
-    "Lekar": {
-      "termin": null,
-      "specijalizacija": [
-        {
-          "Naziv": "Hirurgija"
-        }
-      ],
-      "MestoRodjenja": null,
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": null,
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": null,
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": null
-    },
-    "Lek": {
-      "ZamenaZaLek": [],
-      "Sifra": "andol",
-      "Naziv": "Andol",
-      "Sastojci": "asdad",
-      "Opis": "sadasas"
-    },
-    "Primedba": "Tekst neke primedbe",
-    "Datum": "2021-05-05T00:00:00+02:00"
-  },
-  {
     "Sifra": "3htO5y5L",
     "Lekar": {
       "termin": null,

@@ -24,20 +24,19 @@ namespace Service
 
             foreach (Pacijent pacijentBrojac in pacijenti)
             {
-                if (pacijentBrojac.Jmbg.Equals(pacijent.Jmbg))
-                {
-                    DodavanjeIzvrsenogPregleda(pacijentBrojac, recepti);
-                }
+                if (pacijentBrojac.Jmbg.Equals(pacijent.Jmbg)) recepti=DodavanjeIzvrsenogPregleda(pacijentBrojac, recepti);
+               
             }
             return recepti;
         }
 
-        public void DodavanjeIzvrsenogPregleda(Pacijent pacijentBrojac, List<Recept> recepti) 
+        public List<Recept> DodavanjeIzvrsenogPregleda(Pacijent pacijentBrojac, List<Recept> recepti) 
         {
             foreach (IzvrseniPregled izvrseniPregledBrojac in pacijentBrojac.KartonPacijenta.izvrseniPregled)
             {
                 recepti.Add(izvrseniPregledBrojac.recept);
             }
+            return recepti;
         }
 
         public string PronadjiOpis(Recept recept, Pacijent pacijent)
@@ -47,7 +46,7 @@ namespace Service
             {
                 if (pacijent.Jmbg.Equals(pacijentBrojac.Jmbg))
                 {
-                    VracanjeOpisa(pacijentBrojac, recept);
+                  return VracanjeOpisa(pacijentBrojac, recept);
                 }
             }
             return "";
@@ -57,10 +56,8 @@ namespace Service
         {
             foreach (IzvrseniPregled izvrseniPregledBrojac in pacijentBrojac.KartonPacijenta.izvrseniPregled)
             {
-                if (izvrseniPregledBrojac.recept.Lekovi.Equals(recept.Lekovi))
-                {
-                    return izvrseniPregledBrojac.recept.OpisLeka.ToString();
-                }
+                if (izvrseniPregledBrojac.recept.Lekovi.Equals(recept.Lekovi)) return izvrseniPregledBrojac.recept.OpisLeka.ToString();
+                
             }
             return null;
         }

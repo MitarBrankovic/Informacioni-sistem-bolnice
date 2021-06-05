@@ -146,17 +146,9 @@
   {
     "oprema": [],
     "Tip": 0,
-    "Naziv": "Test",
+    "Naziv": "vvvv",
     "Sprat": 2,
-    "Sifra": "test",
-    "NazivSprat": "Test 2"
-  },
-  {
-    "oprema": [],
-    "Tip": 3,
-    "Naziv": "Test2",
-    "Sprat": 1,
-    "Sifra": "test2",
-    "NazivSprat": "Test2 1"
+    "Sifra": "vv",
+    "NazivSprat": "vvvv 2"
   }
 ]

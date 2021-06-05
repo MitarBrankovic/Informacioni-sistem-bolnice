@@ -24,6 +24,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime vremenotifikacije { get; set; }
 
         public ObservableCollection<Termin> termini { get; set; }
+
         public NotifikacijeObavestenjaRepository notifikacijeDatoteka = new NotifikacijeObavestenjaRepository();
         public List<NotifikacijePacijenta> notifikacije = new List<NotifikacijePacijenta>();
         public List<NotifikacijePacijenta> notifikacijeKojeSuUIstoVreme = new List<NotifikacijePacijenta>();

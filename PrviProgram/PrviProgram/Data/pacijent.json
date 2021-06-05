@@ -66,7 +66,7 @@
             "VremenskiPeriodUzimanjaLeka": 2,
             "OpisLeka": "ssss"
           },
-          "Beleska": "prosetaj "
+          "Beleska": "Prosetaj i popij vitamin"
         },
         {
           "Sifra": "RO9MeC4g",
@@ -172,7 +172,59 @@
             "VremenskiPeriodUzimanjaLeka": 4,
             "OpisLeka": "Morate da pijete 5 dana"
           },
-          "Beleska": "Popij paracetamol u 10h."
+          "Beleska": "prosetaj"
+        },
+        {
+          "Sifra": "xQZcAexR",
+          "Datum": "2021-05-28T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": null,
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": null,
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": null,
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": null
+          },
+          "anamneza": {
+            "Opis": "Bolestan "
+          },
+          "recept": {
+            "Lekovi": {
+              "ZamenaZaLek": [
+                {
+                  "ZamenaZaLek": [],
+                  "Sifra": "bio",
+                  "Naziv": "Bio Oil",
+                  "Sastojci": "kikiriki, carape",
+                  "Opis": "a"
+                }
+              ],
+              "Sifra": "andol",
+              "Naziv": "Andol",
+              "Sastojci": "kakao, so, paradajz",
+              "Opis": "sadasas"
+            },
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 12,
+            "OpisLeka": "Pijte svaki dan"
+          },
+          "Beleska": null
         }
       ],
       "Sifra": null,

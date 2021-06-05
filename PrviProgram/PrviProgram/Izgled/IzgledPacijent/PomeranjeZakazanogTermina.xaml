@@ -19,17 +19,17 @@
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
-            <Label Content="Datum"  HorizontalAlignment="Left" Height="25" Margin="115,34,0,0" VerticalAlignment="Top" Width="122"/>
-            <Label Content="Ime lekara" HorizontalAlignment="Left" Height="25" Margin="115,127,0,0" VerticalAlignment="Top" Width="122"/>
-            <Label Content="Prezime lekara" HorizontalAlignment="Left" Height="25" Margin="105,10,0,0" VerticalAlignment="Top" Width="122" Grid.Row="1"/>
-            <Label Content="Tip termina" HorizontalAlignment="Left" Height="25" Margin="105,55,0,0" VerticalAlignment="Top" Width="122" Grid.Row="1"/>
+            <Label Content="Datum"  HorizontalAlignment="Left" Height="30" Margin="102,34,0,0" VerticalAlignment="Top" Width="135" FontSize="16"/>
+            <Label Content="Ime lekara" HorizontalAlignment="Left" Height="32" Margin="102,127,0,0" VerticalAlignment="Top" Width="122" FontSize="16"/>
+            <Label Content="Prezime lekara" HorizontalAlignment="Left" Height="37" Margin="102,9,0,0" VerticalAlignment="Top" Width="122" Grid.Row="1" FontSize="16"/>
+            <Label Content="Tip termina" HorizontalAlignment="Left" Height="37" Margin="102,55,0,0" VerticalAlignment="Top" Width="122" Grid.Row="1" FontSize="16"/>
 
-            <ComboBox Name="TipTerminaText" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,57,0,0" VerticalAlignment="Top" Width="165" SelectedIndex="0" Height="26" Grid.Row="1">
+            <ComboBox Name="TipTerminaText" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,57,0,0" VerticalAlignment="Top" Width="165" SelectedIndex="0" Height="33" Grid.Row="1" FontSize="16" SelectionChanged="TipTerminaText_SelectionChanged">
                 <ComboBoxItem>Pregled</ComboBoxItem>
                 <ComboBoxItem>Kontrola</ComboBoxItem>
 
             </ComboBox>
-            <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="264,76,0,0" Height="26" SelectionChanged="vremeText_SelectionChanged" >
+            <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="264,76,0,0" Height="33" SelectionChanged="vremeText_SelectionChanged" FontSize="16" >
                 <ComboBoxItem>08:00:00</ComboBoxItem>
                 <ComboBoxItem>08:30:00</ComboBoxItem>
                 <ComboBoxItem>09:00:00</ComboBoxItem>
@@ -55,13 +55,13 @@
                 <ComboBoxItem>19:00:00</ComboBoxItem>
                 <ComboBoxItem>19:30:00</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="ImeLekara"  IsReadOnly="True" HorizontalAlignment="Left" Margin="262,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25" />
-            <TextBox x:Name="PrezimeLekara" IsReadOnly="True" HorizontalAlignment="Left" Margin="264,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="26"  Grid.Row="1"/>
-            <DatePicker x:Name="DatumText"  HorizontalAlignment="Left" Height="25" Margin="262,34,0,0" VerticalAlignment="Top" Width="167"   DisplayDateStart="{x:Static sys:DateTime.Today}" SelectedDateChanged="DatumText_SelectedDateChanged">
+            <TextBox x:Name="ImeLekara"  IsReadOnly="True" HorizontalAlignment="Left" Margin="262,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="33" FontSize="16" />
+            <TextBox x:Name="PrezimeLekara" IsReadOnly="True" HorizontalAlignment="Left" Margin="264,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="33"  Grid.Row="1" FontSize="16" TextChanged="PrezimeLekara_TextChanged"/>
+            <DatePicker x:Name="DatumText"  HorizontalAlignment="Left" Height="30" Margin="262,34,0,0" VerticalAlignment="Top" Width="167"   DisplayDateStart="{x:Static sys:DateTime.Today}" SelectedDateChanged="DatumText_SelectedDateChanged" FontSize="16">
             </DatePicker>
-            <Label Content="Vreme"  HorizontalAlignment="Left" Height="25" Margin="115,79,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.495,0.562"/>
-            <Button x:Name="PotvrdiDugme" Content="Potvrdi" HorizontalAlignment="Left" Height="45" Margin="122,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-            <Button Content="Otkazi" HorizontalAlignment="Left" Height="45" Margin="282,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Otkazi_Click"/>
+            <Label Content="Vreme"  HorizontalAlignment="Left" Height="35" Margin="102,79,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.495,0.562" FontSize="16"/>
+            <Button x:Name="PotvrdiDugme"  Background="White" Content="Potvrdi" HorizontalAlignment="Left" Height="55" Margin="122,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click" FontSize="16"/>
+            <Button Content="Otkazi" Background="White" HorizontalAlignment="Left" Height="55" Margin="282,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" Click="Otkazi_Click" FontSize="16"/>
         </Grid>
 
     </Grid>
