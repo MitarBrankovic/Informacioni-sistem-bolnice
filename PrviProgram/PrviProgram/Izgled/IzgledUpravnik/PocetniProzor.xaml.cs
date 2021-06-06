@@ -90,6 +90,13 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             PrikazPomoci();
         }
 
+        private void PovratneInformacije_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new PovratneInformacijeProzor(upravnik);
+            gridMain.Children.Clear();
+            gridMain.Children.Add(s);
+        }
+
         private void Button_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             ToolTip tooltip = (ToolTip)(sender as Control).ToolTip;
@@ -224,11 +231,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             "- ENTER/SPACE: Zatvaranje ove poruke.\n" +
             "NAPOMENA: Postoji mogucnost kretanja uz pomoc strelica ali se preporucuje koriscenje LCTRL/RCTRL. Menu nije u potpunosti zavrsen."
             , "HELP");
-        }
-
-        private void PovratneInformacije_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

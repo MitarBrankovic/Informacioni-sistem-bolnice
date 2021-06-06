@@ -19,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class SaleSpajanje : Window
     {
         private Sala selektovanaSala;
-        private UpravnikController upravnikController = new UpravnikController();
+        private SaleController saleController = new SaleController();
         private SalaRepository salaRepository = new SalaRepository();
 
         public SaleSpajanje(Sala sala)
@@ -40,7 +40,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
                 if (terminRenoviranjaSale.PrvaSala.Sprat == terminRenoviranjaSale.DrugaSala.Sprat)
                 {
-                    if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
+                    if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
                         MessageBox.Show("Ponovo izaberite datume");
                 }
                 else MessageBox.Show("Sale nisu na istom spratu");

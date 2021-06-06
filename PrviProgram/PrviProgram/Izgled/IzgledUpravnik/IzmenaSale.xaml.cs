@@ -10,7 +10,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class IzmenaSale : Window
     {
-        private UpravnikController upravnikController = new UpravnikController();
+        private SaleController saleController = new SaleController();
         private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();
         private ObservableCollection<Sala> sale;
@@ -76,7 +76,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzvrsavanjeIzmene()
         {
-            if (upravnikController.IzmenaSale(this.sala, izmenjenaSala))
+            if (saleController.IzmenaSale(this.sala, izmenjenaSala))
             {
                 this.sale.Remove(this.sala);
                 this.sale.Add(izmenjenaSala);

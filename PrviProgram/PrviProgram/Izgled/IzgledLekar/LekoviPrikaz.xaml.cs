@@ -20,7 +20,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class LekoviPrikaz : UserControl
     {
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        private UpravnikController upravnikController = new UpravnikController();
+        private LekoviController lekoviController = new LekoviController();
         private ObservableCollection<Lek> lekovi;
         private Lek lek;
         private ObservableCollection<CheckBoxSelektovanLek> alternativniLekovi = new ObservableCollection<CheckBoxSelektovanLek>();
@@ -155,7 +155,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void IzvrsavanjeIzmene()
         {
-            if (upravnikController.IzmenaLeka(lek, izmenjenLek) == true)
+            if (lekoviController.IzmenaLeka(lek, izmenjenLek) == true)
             {
                 Lek selektovaniLek = lekovi[dataGridLekovi.SelectedIndex];
                 selektovaniLek.Naziv = izmenjenLek.Naziv;

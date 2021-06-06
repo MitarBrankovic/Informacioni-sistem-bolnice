@@ -24,7 +24,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<RadnoVremeLekara> pomocnaLista;
         private RadnoVremeLekaraRepository radnoVremeLekaraRepository = new RadnoVremeLekaraRepository();
         private RadnoVremeService radnoVremeService = new RadnoVremeService();
-        private UpravnikController upravnikController = new UpravnikController();
 
         public RadnoVremeProzor()
         {

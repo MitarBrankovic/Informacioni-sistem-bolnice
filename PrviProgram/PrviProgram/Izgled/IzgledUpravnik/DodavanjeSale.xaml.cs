@@ -12,7 +12,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Sala> sale;
-        private UpravnikController upravnikController = new UpravnikController();
+        private SaleController saleController = new SaleController();
         private Sala novaSala = new Sala();
         private ObservableCollection<TipSale> tipSale = new ObservableCollection<TipSale> { TipSale.Operaciona, TipSale.Magacin,
             TipSale.Kancelarija, TipSale.SalaZaOdmor, TipSale.SalaSaKrevetima};
@@ -62,7 +62,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void DodavanjeNoveSale()
         {
-            if (upravnikController.DodavanjeSale(novaSala))
+            if (saleController.DodavanjeSale(novaSala))
             {
                 this.sale.Add(novaSala);
             }

@@ -21,7 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class OpremaProzor : UserControl
     {
-        private UpravnikController upravnikController = new UpravnikController();
+        private OpremaController opremaController = new OpremaController();
         private SalaRepository salaRepository = new SalaRepository();
         private ObservableCollection<Oprema> opreme;
         private ObservableCollection<Oprema> pomocnaOprema;
@@ -56,7 +56,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (DateTime.Today.Equals(terminBrojac.DatumPremestaja))
                 {
-                    upravnikController.PremestanjeOpreme(terminBrojac.Oprema, terminBrojac.StaraSala, terminBrojac.Sala);
+                    opremaController.PremestanjeOpreme(terminBrojac.Oprema, terminBrojac.StaraSala, terminBrojac.Sala);
                     //timer.Stop();
                     termini.Remove(terminBrojac);
                     terminiPremestajaRepository.UpisivanjeUFajl(termini);
@@ -352,7 +352,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                         trenutnaSala.GetOprema().Remove(opremaBrojac);
                     }
                 }
-                upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                opremaController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
                 opreme.Remove(selektovanaOprema);
             }
             else { MessageBox.Show("Morate izabrati opremu!"); }
@@ -577,7 +577,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                             trenutnaSala.GetOprema().Remove(opremaBrojac);
                         }
                     }
-                    upravnikController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
+                    opremaController.BrisanjeOpreme(selektovanaOprema, trenutnaSala);
                     opreme.Remove(selektovanaOprema);
                 }
                 else { MessageBox.Show("Morate izabrati opremu!"); }

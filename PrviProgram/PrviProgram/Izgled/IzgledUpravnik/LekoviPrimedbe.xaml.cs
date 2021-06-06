@@ -21,7 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository();
         private ObservableCollection<PrimedbaNaLek> primedbe;
-        private UpravnikController upravnikController = new UpravnikController();
+        private LekoviController lekoviController = new LekoviController();
         private ObservableCollection<Lek> lekovi;
         private LekoviRepository lekoviRepository = new LekoviRepository();
 
@@ -42,7 +42,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Obrisi_Click(object sender, RoutedEventArgs e)
         {
             PrimedbaNaLek primedba = (PrimedbaNaLek)dataGridPrimedbe.SelectedItem;
-            upravnikController.BrisanjePrimedbe(primedba);
+            lekoviController.BrisanjePrimedbe(primedba);
             primedbe.Remove(primedba);
             LekoviIzmeni win = new LekoviIzmeni(lekovi, primedba.Lek);
             win.ShowDialog();

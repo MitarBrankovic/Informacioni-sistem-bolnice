@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private Lek lek;
         private Lek izmenjenLek = new Lek();
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
-        private UpravnikController upravnikController = new UpravnikController();
+        private LekoviController lekoviController = new LekoviController();
 
         public LekoviIzmeni(ObservableCollection<Lek> lekovi, Lek lek)
         {
@@ -80,7 +80,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void IzvrsavanjeIzmene()
         {
-            if (upravnikController.IzmenaLeka(lek, izmenjenLek))
+            if (lekoviController.IzmenaLeka(lek, izmenjenLek))
             {
                 this.lekovi.Remove(lek);
                 this.lekovi.Add(izmenjenLek);

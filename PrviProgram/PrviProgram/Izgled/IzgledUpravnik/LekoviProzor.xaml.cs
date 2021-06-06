@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<Lek> lekovi;
         private ObservableCollection<Lek> pomocnaLista;
         private LekoviRepository lekoviRepository = new LekoviRepository();
-        private UpravnikController upravnikController = new UpravnikController();
+        private LekoviController lekoviController = new LekoviController();
 
         public LekoviProzor()
         {
@@ -57,7 +57,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridLekovi.SelectedIndex != -1)
             {
-                upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
+                lekoviController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
                 lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
             }
             else { MessageBox.Show("Morate izabrati lek!"); }
@@ -227,7 +227,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             MessageBox.Show(
             "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-            "- M: Selektovanje MenuBar-a - FILE.\n" +
             "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
             "- ESCAPE: Povratak na pocetni prozor. \n" +
             "- DOWN: Selektovanje tabele kada dugmici iznad tabele imaju fokus. \n" +
@@ -247,7 +246,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (dataGridLekovi.SelectedIndex != -1)
                 {
-                    upravnikController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
+                    lekoviController.BrisanjeLeka((Lek)dataGridLekovi.SelectedItem);
                     lekovi.Remove((Lek)dataGridLekovi.SelectedItem);
                 }
                 else { MessageBox.Show("Morate izabrati lek!"); }

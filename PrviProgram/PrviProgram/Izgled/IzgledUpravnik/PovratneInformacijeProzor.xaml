@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PrviProgram.Izgled.IzgledUpravnik.PovratneInformacijeProzor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledUpravnik"
+             mc:Ignorable="d" 
+                         Height="700" Width="1200"
+            Loaded="UserControl_Loaded"
+            KeyDown="UserControl_KeyDown">
+    <Grid Background="SeaShell">
+        <Label Content="Povratne informacije" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="231" FontSize="24"/>
+        <Button x:Name="Nazad" Style="{StaticResource UpravnikButton}" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="37,574,0,0" VerticalAlignment="Top" Width="74">
+            <Button.ToolTip>
+                <ToolTip Content="Povratak na pocetni prozor"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton}" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1082,28,0,0" VerticalAlignment="Top" Width="66">
+            <Button.ToolTip>
+                <ToolTip Content="Deteljna uputstva za korisnjece aplikacije"/>
+            </Button.ToolTip>
+        </Button>
+        <Label Content="Koliko ste zadovoljni aplikacijom?" HorizontalAlignment="Left" Margin="356,158,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Jedan" Content="1" GroupName="Ocena" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Dva" Content="2" GroupName="Ocena" HorizontalAlignment="Left" Margin="649,164,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Tri" Content="3" GroupName="Ocena" HorizontalAlignment="Left" Margin="711,164,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Cetiri" Content="4" GroupName="Ocena" HorizontalAlignment="Left" Margin="778,164,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Pet" Content="5" GroupName="Ocena" HorizontalAlignment="Left" Margin="838,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="Da li ste se susreli sa problemima u aplikaciji?" HorizontalAlignment="Left" Margin="356,226,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Da" Content="Da" GroupName="Problemi" HorizontalAlignment="Left" Margin="649,232,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Ne" Content="Ne" GroupName="Problemi" HorizontalAlignment="Left" Margin="711,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Primedbe" HorizontalAlignment="Left" Margin="356,312,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Textbox" HorizontalAlignment="Left" Height="147" Margin="484,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="379"/>
+        <Button x:Name="Potvrdi" Style="{StaticResource UpravnikButton}" Click="Potvrdi_Click" Content="Potvrdi" HorizontalAlignment="Center" Height="40" Margin="0,522,0,0" VerticalAlignment="Top" Width="123">
+            <Button.ToolTip>
+                <ToolTip Content="Potvrda povratne informacije"/>
+            </Button.ToolTip>
+        </Button>
+
+    </Grid>
+</UserControl>

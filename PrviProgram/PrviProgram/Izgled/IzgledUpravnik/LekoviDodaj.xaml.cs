@@ -21,7 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private ObservableCollection<Lek> lekovi;
         private Lek noviLek;
         private List<CheckBoxSelektovanLek> alternativniLekovi = new List<CheckBoxSelektovanLek>();
-        private UpravnikController upravnikController = new UpravnikController();
+        private LekoviController lekoviController = new LekoviController();
 
         public LekoviDodaj(ObservableCollection<Lek> lekovi)
         {
@@ -73,7 +73,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void DodavanjeNovogLeka()
         {
-            if (upravnikController.DodavanjeLeka(noviLek))
+            if (lekoviController.DodavanjeLeka(noviLek))
             {
                 this.lekovi.Add(noviLek);
             }

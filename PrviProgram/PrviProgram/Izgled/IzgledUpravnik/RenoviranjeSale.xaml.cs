@@ -19,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class RenoviranjeSale : Window
     {
-        private UpravnikController upravnikController = new UpravnikController();
+        private SaleController saleController = new SaleController();
         private Sala selektovanaSala;
         private TerminiRepository terminiRepository = new TerminiRepository();
 
@@ -46,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             else
             {
                 TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
-                if (!upravnikController.RenoviranjeSale(terminRenoviranjaSale))
+                if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
                     MessageBox.Show("Ponovo izaberite datume");
             }
             this.Close();

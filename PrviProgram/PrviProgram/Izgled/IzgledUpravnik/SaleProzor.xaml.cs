@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class SaleProzor : UserControl
     {
-        private UpravnikController upravnikController = new UpravnikController();
+        private SaleController saleController = new SaleController();
         private SalaRepository saleRepository = new SalaRepository();
         private TerminiRenoviranjaRepository terminiRenoviranjaRepository = new TerminiRenoviranjaRepository();
         private ObservableCollection<Sala> sale;
@@ -55,9 +55,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     if (terminBrojac.TipRenoviranja.Equals(TipRenoviranja.razdvajanje))
                     {
                         //timer.Stop();
-                        upravnikController.BrisanjeSale(terminBrojac.Sala);
-                        upravnikController.DodavanjeSale(terminBrojac.PrvaSala);
-                        upravnikController.DodavanjeSale(terminBrojac.DrugaSala);
+                        saleController.BrisanjeSale(terminBrojac.Sala);
+                        saleController.DodavanjeSale(terminBrojac.PrvaSala);
+                        saleController.DodavanjeSale(terminBrojac.DrugaSala);
                         terminiRenoviranja.Remove(terminBrojac);
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;
@@ -65,9 +65,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                     else
                     {
                         //timer.Stop();
-                        upravnikController.BrisanjeSale(terminBrojac.PrvaSala);
-                        upravnikController.BrisanjeSale(terminBrojac.DrugaSala);
-                        upravnikController.DodavanjeSale(terminBrojac.Sala);
+                        saleController.BrisanjeSale(terminBrojac.PrvaSala);
+                        saleController.BrisanjeSale(terminBrojac.DrugaSala);
+                        saleController.DodavanjeSale(terminBrojac.Sala);
                         terminiRenoviranja.Remove(terminBrojac);
                         terminiRenoviranjaRepository.UpisivanjeUFajl(terminiRenoviranja);
                         break;
@@ -86,7 +86,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         {
             if (dataGridUpravnik.SelectedIndex != -1)
             {
-                upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
+                saleController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
                 sale.Remove((Sala)dataGridUpravnik.SelectedItem);
             }
             else { MessageBox.Show("Morate izabrati salu!"); }
@@ -318,7 +318,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 if (dataGridUpravnik.SelectedIndex != -1)
                 {
-                    upravnikController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
+                    saleController.BrisanjeSale((Sala)dataGridUpravnik.SelectedItem);
                     sale.Remove((Sala)dataGridUpravnik.SelectedItem);
                 }
                 else { MessageBox.Show("Morate izabrati salu!"); }

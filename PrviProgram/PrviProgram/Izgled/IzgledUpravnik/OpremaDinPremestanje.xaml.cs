@@ -20,7 +20,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class OpremaDinPremestanje : Window
     {
         private UtilityService utilityService = new UtilityService();
-        private UpravnikController upravnikController = new UpravnikController();
+        private OpremaController opremaController = new OpremaController();
         private Sala trenutnaSala;
         private Oprema trenutnaOprema;
         private ObservableCollection<Oprema> svaOpremaIzTabele;
@@ -85,7 +85,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void PremestanjeOpreme()
         {
-            if (upravnikController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala))
+            if (opremaController.PremestanjeOpreme(opremaZaPremestanje, trenutnaSala, novaSala))
             {
                 OsvezavanjeTabele();
             }
