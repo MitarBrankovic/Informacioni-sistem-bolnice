@@ -81,8 +81,8 @@
         <TextBox x:Name="textBoxKorisnickoIme" Style="{DynamicResource TextBoxStyle}" Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4"/>
         <PasswordBox x:Name="textBoxLozinka" Style="{DynamicResource PasswordBoxStyle}" Grid.Row="15" Grid.Column="3" Grid.ColumnSpan="4"/>
 
-        <Button Content="Potvrdi" x:Name="Submit" Click="Potvrdi_Click" Grid.Column="1" Grid.Row="17" />
-        <Button Content="Odustani" x:Name="button3" Click="Odustani_Click" Grid.Column="3" Grid.Row="17" Grid.ColumnSpan="4" />
+        <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click" Grid.Column="1" Grid.Row="17" />
+        <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="4" Grid.Row="17" Grid.ColumnSpan="3" />
 
 
     </Grid>

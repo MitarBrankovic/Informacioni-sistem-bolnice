@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddAllergen" xml:space="preserve">
+    <value>Dodajte alergen pacijentu:</value>
+  </data>
   <data name="Address" xml:space="preserve">
     <value>Adresa stanovanja</value>
   </data>
+  <data name="Allergens" xml:space="preserve">
+    <value>Alergeni</value>
+  </data>
   <data name="Apartment" xml:space="preserve">
     <value>Stan</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Odustani</value>
   </data>
   <data name="BirthDay" xml:space="preserve">
     <value>Datum rodjenja</value>
@@ -191,6 +203,9 @@
   </data>
   <data name="State" xml:space="preserve">
     <value>Drzava stanovanja</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Potvrdi</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Prezime</value>

@@ -50,8 +50,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
         {
             if (dgDataBinding.SelectedItem != null)
             {
-                //ZdravstveniKartonPacijenta zdravstveniKarton = new ZdravstveniKartonPacijenta((Pacijent)dgDataBinding.SelectedItem);
-                //zdravstveniKarton.Show();
+                Page karton = new KartonView((Pacijent)dgDataBinding.SelectedItem);
+                NavigationService.Navigate(karton);
             }
         }
 
