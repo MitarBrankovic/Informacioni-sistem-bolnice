@@ -1,8 +1,289 @@
 [
   {
-    "PocetakTerapije": "2021-06-16T00:00:00",
+    "PocetakTerapije": "2021-06-03T00:00:00",
     "KrajTerapije": "2021-06-26T00:00:00",
     "OpisTerapije": "U 17h popiti brufen",
+    "Pacijent": {
+      "Termin": [],
+      "KartonPacijenta": {
+        "alergen": [
+          {
+            "Naziv": "Kikiriki"
+          }
+        ],
+        "izvrseniPregled": [
+          {
+            "Sifra": "IeSQPZQO",
+            "Datum": "2021-05-28T00:00:00",
+            "TipTermina": 0,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "aaaa"
+            },
+            "recept": {
+              "Lekovi": {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [
+                      {
+                        "ZamenaZaLek": [],
+                        "Sifra": "bio",
+                        "Naziv": "Bio Oil",
+                        "Sastojci": "kikiriki, carape",
+                        "Opis": "a"
+                      }
+                    ],
+                    "Sifra": "andol",
+                    "Naziv": "Andol",
+                    "Sastojci": "kakao, so, paradajz",
+                    "Opis": "sadasas"
+                  }
+                ],
+                "Sifra": "bio",
+                "Naziv": "Bio Oil",
+                "Sastojci": "carape,\r\nkikiriki",
+                "Opis": "a"
+              },
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 2,
+              "OpisLeka": "ssss"
+            },
+            "Beleska": "Prosetaj i popij vitamin"
+          },
+          {
+            "Sifra": "RO9MeC4g",
+            "Datum": "2021-05-28T00:00:00",
+            "TipTermina": 2,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bol u stomaku"
+            },
+            "recept": {
+              "Lekovi": {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [
+                      {
+                        "ZamenaZaLek": [],
+                        "Sifra": "bio",
+                        "Naziv": "Bio Oil",
+                        "Sastojci": "a",
+                        "Opis": "a"
+                      },
+                      {
+                        "ZamenaZaLek": [
+                          {
+                            "ZamenaZaLek": [
+                              {
+                                "ZamenaZaLek": [
+                                  {
+                                    "ZamenaZaLek": [
+                                      {
+                                        "ZamenaZaLek": [],
+                                        "Sifra": "paracet",
+                                        "Naziv": "Paracetamol",
+                                        "Sastojci": "nesa",
+                                        "Opis": "nes"
+                                      }
+                                    ],
+                                    "Sifra": "bruh",
+                                    "Naziv": "Brufen",
+                                    "Sastojci": "nesto",
+                                    "Opis": "nesto"
+                                  }
+                                ],
+                                "Sifra": "paracet",
+                                "Naziv": "Paracetamol",
+                                "Sastojci": "nesa",
+                                "Opis": "nes"
+                              }
+                            ],
+                            "Sifra": "bruf",
+                            "Naziv": "Brufen",
+                            "Sastojci": "nesto",
+                            "Opis": "nesto"
+                          }
+                        ],
+                        "Sifra": "paracet",
+                        "Naziv": "Paracetamol",
+                        "Sastojci": "nesa",
+                        "Opis": "nes"
+                      },
+                      {
+                        "ZamenaZaLek": [],
+                        "Sifra": "andol",
+                        "Naziv": "Andol",
+                        "Sastojci": "asdad",
+                        "Opis": "sadasas"
+                      }
+                    ],
+                    "Sifra": "bruf",
+                    "Naziv": "Brufen",
+                    "Sastojci": "nesto",
+                    "Opis": "nesto"
+                  }
+                ],
+                "Sifra": "paracet",
+                "Naziv": "Paracetamol",
+                "Sastojci": "nesa",
+                "Opis": "nes"
+              },
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 4,
+              "OpisLeka": "Morate da pijete 5 dana"
+            },
+            "Beleska": "prosetaj"
+          },
+          {
+            "Sifra": "xQZcAexR",
+            "Datum": "2021-05-28T00:00:00",
+            "TipTermina": 1,
+            "Lekar": {
+              "termin": null,
+              "specijalizacija": [
+                {
+                  "Naziv": "Hirurgija"
+                }
+              ],
+              "MestoRodjenja": null,
+              "Korisnik": {
+                "KorisnickoIme": "srdjan",
+                "Lozinka": "srdjan",
+                "TipKorisnika": 3,
+                "osoba": null
+              },
+              "AdresaStanovanja": null,
+              "Ime": "Srdjan",
+              "Prezime": "Beric",
+              "Email": null,
+              "Jmbg": "00012312",
+              "DatumRodjenja": "0001-01-01T00:00:00",
+              "Pol": 0,
+              "KontaktTelefon": null
+            },
+            "anamneza": {
+              "Opis": "Bolestan "
+            },
+            "recept": {
+              "Lekovi": {
+                "ZamenaZaLek": [
+                  {
+                    "ZamenaZaLek": [],
+                    "Sifra": "bio",
+                    "Naziv": "Bio Oil",
+                    "Sastojci": "kikiriki, carape",
+                    "Opis": "a"
+                  }
+                ],
+                "Sifra": "andol",
+                "Naziv": "Andol",
+                "Sastojci": "kakao, so, paradajz",
+                "Opis": "sadasas"
+              },
+              "DatumIzdavanja": "0001-01-01T00:00:00",
+              "VremenskiPeriodUzimanjaLeka": 12,
+              "OpisLeka": "Pijte svaki dan"
+            },
+            "Beleska": null
+          }
+        ],
+        "Sifra": null,
+        "pacijent": {
+          "Termin": null,
+          "KartonPacijenta": null,
+          "MestoRodjenja": null,
+          "Korisnik": null,
+          "AdresaStanovanja": null,
+          "Ime": null,
+          "Prezime": null,
+          "Email": null,
+          "Jmbg": "1706999805047",
+          "DatumRodjenja": "0001-01-01T00:00:00",
+          "Pol": 0,
+          "KontaktTelefon": null
+        }
+      },
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "saska",
+        "Lozinka": "saska",
+        "TipKorisnika": 2,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 4,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Aleksandra",
+      "Prezime": "Mirkovic",
+      "Email": "alex@gmail.com",
+      "Jmbg": "1706999805047",
+      "DatumRodjenja": "1999-06-17T00:00:00",
+      "Pol": 1,
+      "KontaktTelefon": "069652253"
+    }
+  },
+  {
+    "PocetakTerapije": "2021-06-03T00:00:00",
+    "KrajTerapije": "2021-06-26T00:00:00",
+    "OpisTerapije": "U 14h popiti panadol",
     "Pacijent": {
       "Termin": [],
       "KartonPacijenta": {

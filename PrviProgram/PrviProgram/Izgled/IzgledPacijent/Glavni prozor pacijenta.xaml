@@ -29,20 +29,20 @@
                 <Button x:Name="anketaButton" Width="256" Content="Ankete" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="Button_Click_3"/>
 
                 <Button x:Name="izmenProfilaButton" Width="272" Content="Pregled anamneza"   Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="izmenProfilaButton_Click"/>
-                <Button x:Name="obavestenjaButton" Width="256" Content="Obaveštenja" Height="80" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+                <Button x:Name="obavestenjaButton" Width="215" Content="Terapija"  FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Click="obavestenjaButton_Click"/>
 
             </StackPanel>
 
         </Grid>
         <Grid Height="560">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="11*"/>
-                <ColumnDefinition Width="21*"/>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="101*"/>
             </Grid.ColumnDefinitions>
 
-            <Frame x:Name="frame"  NavigationUIVisibility="Hidden" Width="1000" Margin="280,0,0,0" Grid.ColumnSpan="2" />
+            <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="10,0,0,16" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
 
-            <Grid HorizontalAlignment="Left" Height="560" VerticalAlignment="Center" Width="280" Background="White">
+            <Grid HorizontalAlignment="Left" Height="562" VerticalAlignment="Center" Width="280" Background="White" Grid.ColumnSpan="2">
                 <Image  Source="/Slike/avatarPacijenta.jpg"        HorizontalAlignment="Left" Height="173" Margin="35,39,0,0" VerticalAlignment="Top" Width="195"/>
                 <Label Content="Aleksandra" HorizontalAlignment="Left" Margin="40,224,0,0" VerticalAlignment="Top" FontSize="36"/>
                 <Label Content="Mirković" HorizontalAlignment="Left" Margin="40,289,0,0" VerticalAlignment="Top" FontSize="36">

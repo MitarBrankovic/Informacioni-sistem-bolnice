@@ -228,5 +228,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
             Page pocetna = new PregledAnamneze(pacijent);
             this.frame.NavigationService.Navigate(pocetna);
         }
+
+        private void obavestenjaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page pocetna = new TerapijaPage(pacijent);
+            this.frame.NavigationService.Navigate(pocetna);
+
+        }
     }
 }

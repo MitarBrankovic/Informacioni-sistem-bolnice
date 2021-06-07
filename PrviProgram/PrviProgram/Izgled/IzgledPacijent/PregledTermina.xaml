@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
         mc:Ignorable="d"
-        Title="Pregled Termina" Height="560" Width="1000" >
-    <Grid>
+        Title="Pregled Termina" Height="550" Width="1000" >
+    <Grid Margin="0,0,5,0">
         <Grid.Background>
             <ImageBrush ImageSource="/Slike/pozadinaPacijent.jpg"></ImageBrush>
         </Grid.Background>
 
 
-        <Grid Margin="30,93,15,20" Background="White">
+        <Grid Margin="20,93,25,50" Background="White">
 
             <Button x:Name ="PomeranjeZakazanogTerminaButton" Click="Pomeraj_Click" Background="White" Content="Pomeranje zakazanog termina" Height="55" Margin="690,17,25,0" VerticalAlignment="Top" FontSize="16" />
             <Button x:Name ="DodajTerminButton" Click="Dodaj_Click"  Content="Dodaj termin" Height="55" Margin="25,22,823,0" VerticalAlignment="Top" Background="White" FontSize="16"/>
@@ -37,8 +37,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="1005" Background="White">
-            <Label Content="Termini predstojećih pregleda" HorizontalAlignment="Left" Margin="292,2,0,0" VerticalAlignment="Top" Width="460" FontSize="36" />
+        <Grid HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" Width="995" Background="White">
+            <Label Content="Termini predstojećih pregleda" Margin="248,2,210,0" VerticalAlignment="Top" FontSize="36" />
         </Grid>
 
 

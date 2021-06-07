@@ -37,5 +37,19 @@ namespace Repository
             }
             return terapije;
         }
+
+        public List<Terapija> PregledSvihTerapijaKodPacijenta(Pacijent pacijent)
+        {
+            List<Terapija> terapije = CitanjeIzFajla();
+            List<Terapija> terapijaKodPacijenta = new List<Terapija>();
+            foreach(Terapija terapija in terapije)
+            {
+                if(terapija.Pacijent.Jmbg.Equals(pacijent.Jmbg))
+                {
+                    terapijaKodPacijenta.Add(terapija);
+                }
+            }
+            return terapijaKodPacijenta;
+        }
     }
 }
