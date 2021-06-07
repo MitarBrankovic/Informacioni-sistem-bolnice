@@ -50,10 +50,12 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             if (dgDataBinding.SelectedItem != null)
             {
                 Delete.IsEnabled = true;
+                textBlockEditAleren.IsEnabled = true;
             }
             else
             {
                 Delete.IsEnabled = false;
+                textBlockEditAleren.IsEnabled = false;
             }
         }
 

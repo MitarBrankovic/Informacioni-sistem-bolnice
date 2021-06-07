@@ -1,0 +1,60 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.IzmenaTerminaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
+      xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      mc:Ignorable="d" 
+      Title="IzmenaTerminaView"
+      d:DesignHeight="700"
+      d:DesignWidth="480">
+
+    <Grid Style="{DynamicResource surface_style}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="165"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock x:Name="textBlockDatum" Style="{DynamicResource font_label_style}" Text="{loc:Loc Date}" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockPacijent" Style="{DynamicResource font_label_style}" Text="{loc:Loc Patient}" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockLekar" Style="{DynamicResource font_label_style}" Text="{loc:Loc Doctor}" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockTipTermina" Style="{DynamicResource font_label_style}" Text="{loc:Loc Type of term}" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockVreme" Style="{DynamicResource font_label_style}" Text="{loc:Loc Time}" Grid.Row="5" Grid.Column="1"/>
+
+        <DatePicker x:Name="datePicker" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <ComboBox x:Name="comboBoxPacijenti" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4"/>
+        <ComboBox x:Name="comboBoxLekari" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4" SelectionChanged="ComboBoxLekari_SelectionChanged"/>
+        <ComboBox x:Name="TipTerminaText" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="4"/>
+        <ComboBox x:Name="vremeText" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="4"/>
+
+        <Grid Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click"/>
+            <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="3"/>
+        </Grid>
+
+    </Grid>
+</Page>
