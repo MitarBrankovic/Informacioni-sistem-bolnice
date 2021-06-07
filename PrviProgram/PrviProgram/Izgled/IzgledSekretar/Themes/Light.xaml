@@ -376,7 +376,8 @@
     </Style>
     
     <!--// Listview items style template //-->
-    <Style TargetType="ListViewItem">
+    <Style x:Key="ListViewItem_style"
+           TargetType="ListViewItem">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">

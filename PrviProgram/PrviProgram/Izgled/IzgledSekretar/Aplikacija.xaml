@@ -109,7 +109,8 @@
 
                         <!--// Home //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_home.png"
@@ -123,7 +124,8 @@
 
                         <!--// News //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -137,7 +139,8 @@
 
                         <!--// Terms //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -151,7 +154,8 @@
 
                         <!--// Emergency Terms //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -165,7 +169,8 @@
 
                         <!--// Patients //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -179,7 +184,8 @@
 
                         <!--// Doctors //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -193,7 +199,8 @@
                         
                         <!--// Allergens //-->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="250">
                                 <Image Source="Assets/img_contact.png"
@@ -207,7 +214,8 @@
 
                         <!--// Sign Out //-->
                         <!--<ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,50,0,15">
+                                      Margin="0,50,0,15"
+                                      Style="{DynamicResource ListViewItem_style}">
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Assets/img_signout.png"
