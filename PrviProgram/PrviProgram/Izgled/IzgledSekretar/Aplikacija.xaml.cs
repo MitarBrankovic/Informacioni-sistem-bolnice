@@ -59,16 +59,21 @@ namespace PrviProgram.Izgled.IzgledSekretar
                     textBlockNaslov.Text = "Termini";
                     break;
                 case 3:
+                    Page hitan = new ZakazivanjeHitnogTerminaView();
+                    frame.NavigationService.Navigate(hitan);
+                    textBlockNaslov.Text = "Hitan termin";
+                    break;
+                case 4:
                     Page pacijenti = new PacijentiView();
                     frame.NavigationService.Navigate(pacijenti);
                     textBlockNaslov.Text = "Pacijenti";
                     break;
-                case 4:
+                case 5:
                     Page lekari = new LekariView();
                     frame.NavigationService.Navigate(lekari);
                     textBlockNaslov.Text = "Lekari";
                     break;
-                case 5:
+                case 6:
                     Page alergeni = new AlergeniView();
                     frame.NavigationService.Navigate(alergeni);
                     textBlockNaslov.Text = "Alergeni";

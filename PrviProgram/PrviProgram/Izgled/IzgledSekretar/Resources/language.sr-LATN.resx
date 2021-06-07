@@ -150,6 +150,9 @@
   <data name="BirthDayPlace" xml:space="preserve">
     <value>Mesto rodjenja</value>
   </data>
+  <data name="Cancel an appointment" xml:space="preserve">
+    <value>Otkazi termin</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>Mesto stanovanja</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="Emergency" xml:space="preserve">
     <value>Hitan slucaj</value>
+  </data>
+  <data name="Emergency term" xml:space="preserve">
+    <value>Hitan termin</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Zenski</value>
@@ -219,6 +225,9 @@
   <data name="Menu" xml:space="preserve">
     <value>MENI</value>
   </data>
+  <data name="Move an appointment" xml:space="preserve">
+    <value>Pomeri termin</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Ime</value>
   </data>
@@ -248,6 +257,9 @@
   </data>
   <data name="Room" xml:space="preserve">
     <value>Sala</value>
+  </data>
+  <data name="Schedule an appointment" xml:space="preserve">
+    <value>Zakazi termin</value>
   </data>
   <data name="Specialization" xml:space="preserve">
     <value>Specijalizacija</value>

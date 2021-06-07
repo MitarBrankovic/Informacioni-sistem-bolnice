@@ -150,6 +150,9 @@
   <data name="BirthDayPlace" xml:space="preserve">
     <value>Place of birth</value>
   </data>
+  <data name="Cancel an appointment" xml:space="preserve">
+    <value>Cancel an appointment</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>Residential city</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="Emergency" xml:space="preserve">
     <value>Emergency</value>
+  </data>
+  <data name="Emergency term" xml:space="preserve">
+    <value>Emergency term</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
@@ -219,6 +225,9 @@
   <data name="Menu" xml:space="preserve">
     <value>MENU</value>
   </data>
+  <data name="Move an appointment" xml:space="preserve">
+    <value>Move an appointment</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -248,6 +257,9 @@
   </data>
   <data name="Room" xml:space="preserve">
     <value>Room</value>
+  </data>
+  <data name="Schedule an appointment" xml:space="preserve">
+    <value>Schedule an appointment</value>
   </data>
   <data name="Specialization" xml:space="preserve">
     <value>Specialization</value>

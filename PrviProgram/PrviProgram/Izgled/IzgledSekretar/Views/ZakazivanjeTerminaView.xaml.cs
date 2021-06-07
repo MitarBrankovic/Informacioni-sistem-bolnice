@@ -41,8 +41,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             Termin termin = PreuzmiTerminIzForme();
             if (terminiService.ProveraZauzetostiTermina(termin))
             {
-                //PregledZauzetihTermina pregledZauzetihTermina = new PregledZauzetihTermina(termini, termin);
-                //pregledZauzetihTermina.Show();
+                Page zauzetiTermini = new TerminiZauzetiView(termini, termin);
+                NavigationService.Navigate(zauzetiTermini);
             }
             else
             {
