@@ -49,16 +49,21 @@ namespace PrviProgram.Izgled.IzgledSekretar
                     textBlockNaslov.Text = "Zdravo klinika";
                     break;
                 case 1:
+                    Page vesti = new VestiView(sekretar);
+                    frame.NavigationService.Navigate(vesti);
+                    textBlockNaslov.Text = "Vesti";
+                    break;
+                case 2:
                     Page pacijenti = new PacijentiView();
                     frame.NavigationService.Navigate(pacijenti);
                     textBlockNaslov.Text = "Pacijenti";
                     break;
-                case 2:
+                case 3:
                     Page lekari = new LekariView();
                     frame.NavigationService.Navigate(lekari);
                     textBlockNaslov.Text = "Lekari";
                     break;
-                case 3:
+                case 4:
                     Page alergeni = new AlergeniView();
                     frame.NavigationService.Navigate(alergeni);
                     textBlockNaslov.Text = "Alergeni";
