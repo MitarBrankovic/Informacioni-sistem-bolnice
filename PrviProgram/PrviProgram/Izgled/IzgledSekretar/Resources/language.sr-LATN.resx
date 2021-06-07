@@ -117,7 +117,184 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddAllergen" xml:space="preserve">
+    <value>Definisite alergen:</value>
+  </data>
+  <data name="AddAllergenPatient" xml:space="preserve">
+    <value>Dodajte alergen pacijentu:</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresa stanovanja</value>
+  </data>
+  <data name="AddSpecializations" xml:space="preserve">
+    <value>Dodajte specijalizaciju lekaru</value>
+  </data>
+  <data name="Allergens" xml:space="preserve">
+    <value>Alergeni</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>Stan</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="BirthDay" xml:space="preserve">
+    <value>Datum rodjenja</value>
+  </data>
+  <data name="BirthDayPlace" xml:space="preserve">
+    <value>Mesto rodjenja</value>
+  </data>
+  <data name="Cancel an appointment" xml:space="preserve">
+    <value>Otkazi termin</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Mesto stanovanja</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Sifra</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Broj telefona</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Izbrisi</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Lekar</value>
+  </data>
+  <data name="Doctors" xml:space="preserve">
+    <value>Lekari</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Izmeni</value>
+  </data>
+  <data name="EditAllergen" xml:space="preserve">
+    <value>Izmenite selektovani alergen:</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Hitan slucaj</value>
+  </data>
+  <data name="Emergency term" xml:space="preserve">
+    <value>Hitan termin</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Zenski</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Sprat</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Pol</value>
+  </data>
+  <data name="Guest patient" xml:space="preserve">
+    <value>Gostujuci pacijent</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Pocetna stranica</value>
+  </data>
+  <data name="JMBG" xml:space="preserve">
+    <value>JMBG</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Srpski</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Odjavi se</value>
+  </data>
+  <data name="Make an appointment" xml:space="preserve">
+    <value>Zakazite termin</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Muski</value>
+  </data>
+  <data name="Medical record" xml:space="preserve">
+    <value>Zravstveni karton</value>
+  </data>
   <data name="Menu" xml:space="preserve">
-    <value>M E N I</value>
+    <value>MENI</value>
+  </data>
+  <data name="Move an appointment" xml:space="preserve">
+    <value>Pomeri termin</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="New news" xml:space="preserve">
+    <value>Nova vest</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Vesti</value>
+  </data>
+  <data name="News text" xml:space="preserve">
+    <value>Tekst vesti:</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="Patient" xml:space="preserve">
+    <value>Pacijent</value>
+  </data>
+  <data name="Patient registration" xml:space="preserve">
+    <value>Registracija pacijenta</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Pacijenti</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registruj</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Sala</value>
+  </data>
+  <data name="Schedule an appointment" xml:space="preserve">
+    <value>Zakazi termin</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>Specijalizacija</value>
+  </data>
+  <data name="Specializations" xml:space="preserve">
+    <value>Specijalizacije</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Drzava stanovanja</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="Term" xml:space="preserve">
+    <value>Termin</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Termini</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Vreme</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="Type of term" xml:space="preserve">
+    <value>Tip termina</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Korisnicko ime</value>
   </data>
 </root>

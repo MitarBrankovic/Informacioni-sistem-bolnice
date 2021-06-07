@@ -1,0 +1,81 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.AlergeniView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
+      xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" 
+      d:DesignWidth="430"
+      Title="AlergeniView">
+
+    <Grid Style="{DynamicResource surface_style}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="dgDataBinding"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Grid.Row="5"
+                  Grid.Column="1"
+                  Grid.RowSpan="3"
+                  Grid.ColumnSpan="1"
+                  SelectionChanged="DgDataBinding_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{loc:Loc Allergens}"
+                                    Width="*"
+                                    Binding="{Binding Naziv}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock x:Name="textBlockAddAleren" Style="{DynamicResource font_label_style}" Text="{loc:Loc AddAllergen}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="textBoxAlergen" Style="{DynamicResource TextBoxStyle}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1"/>
+        <Button x:Name="Add" Content="{loc:Loc Add}" Click="Dodaj_Click" Grid.Column="3" Grid.Row="3"/>
+
+        <TextBlock x:Name="textBlockEditAleren" Style="{DynamicResource font_label_style}" Text="{loc:Loc EditAllergen}" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="textBoxEditAlergen" Style="{DynamicResource TextBoxStyle}" Text="{Binding SelectedItem.Naziv, ElementName=dgDataBinding, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="1"/>
+
+        <Button x:Name="Delete" Content="{loc:Loc Delete}" Click="Izbrisi_Click" Grid.Column="3" Grid.Row="6"/>
+
+
+        <Grid Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click"/>
+            <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="3"/>
+        </Grid>
+    </Grid>
+</Page>

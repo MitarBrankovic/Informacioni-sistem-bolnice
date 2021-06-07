@@ -1,0 +1,63 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.KreiranjeGuestPacijentaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
+      xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      mc:Ignorable="d" 
+      Title="RegistracijaPacijentaView"
+      d:DesignHeight="700"
+      d:DesignWidth="480">
+
+    <Grid Style="{DynamicResource surface_style}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="165"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textBlockIme" Style="{DynamicResource font_label_style}" Text="{loc:Loc Name}" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockPrezime" Style="{DynamicResource font_label_style}" Text="{loc:Loc Surname}" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockJMBG" Style="{DynamicResource font_label_style}" Text="{loc:Loc JMBG}" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockPol" Style="{DynamicResource font_label_style}" Text="{loc:Loc Gender}" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockKontaktTelefon" Style="{DynamicResource font_label_style}" Text="{loc:Loc Contact}" Grid.Row="5" Grid.Column="1"/>
+
+        <TextBox x:Name="textBoxIme" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="textBoxPrezime" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="textBoxJMBG" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4"/>
+        <RadioButton x:Name="radioButtonPolM" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Male}" IsChecked="True" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="radioButtonPolZ" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Female}" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxKontaktTelefon" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="4"/>
+
+        <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click" Grid.Column="1" Grid.Row="17" />
+        <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="4" Grid.Row="17" Grid.ColumnSpan="3" />
+
+    </Grid>
+</Page>

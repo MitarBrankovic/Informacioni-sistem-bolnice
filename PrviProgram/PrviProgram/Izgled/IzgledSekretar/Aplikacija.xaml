@@ -4,19 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+        xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
         xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="750" 
         Width="430"
         ResizeMode="NoResize"
-        Topmost="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
     
     <Grid>
-            
-            <!--// Background Color //-->
+        <!--// Background Color //-->
         <Grid Background="Black">
             <Grid PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
@@ -51,7 +50,9 @@
                         Style="{DynamicResource font_style}">
                     </TextBlock>
 
-                    <mdix:PopupBox Foreground="White"
+                    <!--// PopupBox //-->
+                    <mdix:PopupBox x:Name="optionsBtn"
+                                   Foreground="White"
                                    Grid.Column="2"
                                    Grid.Row="0"
                                    PlacementMode="BottomAndAlignRightEdges" 
@@ -59,10 +60,17 @@
                         <StackPanel Width="150"
                                     Background="White">
                             <Button x:Name="themeButton"
-                                    Content="Tema svetla"
-                                    Click="ChangeTheme_Click"/>
-                            <Button Content="Jezik"/>
-                            <Button Content="Log out"/>
+                                    Content="{loc:Loc Theme}"
+                                    Click="ChangeTheme_Click"
+                                    FontSize="16"/>
+                            <Button x:Name="languageButton"
+                                    Content="{loc:Loc Language}"
+                                    Click="SwitchLanguage_Click"
+                                    FontSize="16"/>
+                            <Separator/>
+                            <Button Content="{loc:Loc Logout}"
+                                    FontSize="16"
+                                    Click="ButtonPopUpLogout_Click"/>
                         </StackPanel>
                     </mdix:PopupBox>
 
@@ -84,7 +92,7 @@
 
                         <!--// Menu title text //-->
                         <TextBlock Margin="74,12,0,52"
-                                   Text="MENI"
+                                   Text="{loc:Loc Menu}"
                                    FontSize="22"
                                    Style="{DynamicResource font_style}"
                                    Height="26"
@@ -103,74 +111,102 @@
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
+                                        Width="250">
                                 <Image Source="Assets/img_home.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Pocetna stranica"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc HomePage}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
-                        <!--// Contacts //-->
+                        <!--// News //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
+                                        Width="250">
                                 <Image Source="Assets/img_contact.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Contacts"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc News}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
-                        <!--// Messages //-->
+                        <!--// Terms //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_message.png"
+                                        Width="250">
+                                <Image Source="Assets/img_contact.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Messages"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc Terms}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
-                        <!--// Maps //-->
+                        <!--// Emergency Terms //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_map.png"
+                                        Width="250">
+                                <Image Source="Assets/img_contact.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Maps"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc Emergency term}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
-                        <!--// Settings //-->
+                        <!--// Patients //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_setting.png"
+                                        Width="250">
+                                <Image Source="Assets/img_contact.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                <TextBlock Text="Settings"
-                                           Margin="25,0,0,0"
+                                <TextBlock Text="{loc:Loc Patients}"
+                                           Margin="20,0,0,0"
+                                           Style="{DynamicResource font_style}"/>
+                            </StackPanel>
+                        </ListViewItem>
+
+                        <!--// Doctors //-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="250">
+                                <Image Source="Assets/img_contact.png"
+                                       Stretch="None"
+                                       Margin="12,0,0,0"/>
+                                <TextBlock Text="{loc:Loc Doctors}"
+                                           Margin="20,0,0,0"
+                                           Style="{DynamicResource font_style}"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        
+                        <!--// Allergens //-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="250">
+                                <Image Source="Assets/img_contact.png"
+                                       Stretch="None"
+                                       Margin="12,0,0,0"/>
+                                <TextBlock Text="{loc:Loc Allergens}"
+                                           Margin="20,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <!--// Sign Out //-->
-                        <ListViewItem HorizontalAlignment="Left"
+                        <!--<ListViewItem HorizontalAlignment="Left"
                                       Margin="0,50,0,15">
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
@@ -181,45 +217,8 @@
                                            Margin="25,0,0,0"
                                            Style="{DynamicResource font_style}"/>
                             </StackPanel>
-                        </ListViewItem>
+                        </ListViewItem>-->
 
-                        <!--// Listview items style template //-->
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border x:Name="Bd"
-                                                    Height="50"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    Background="{TemplateBinding Background}"
-                                                    Padding="{TemplateBinding Padding}"
-                                                    SnapsToDevicePixels="True">
-                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="IsMouseOver"
-                                                                   Value="True"/>
-                                                    </MultiTrigger.Conditions>
-                                                    <Setter Property="Background"
-                                                            TargetName="Bd"
-                                                            Value="#404D5B"/>
-                                                    <Setter Property="BorderBrush"
-                                                            TargetName="Bd"
-                                                            Value="#404D5B"/>
-                                                </MultiTrigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        
                     </ListView>
                 </StackPanel>
             </Grid>
@@ -250,7 +249,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="230" To="0"
+                                                From="265" To="0"
                                                 Duration="0:0:0.2">
                                     </DoubleAnimation>
                                     <DoubleAnimation    
@@ -278,7 +277,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="65" To="250"
+                                                From="0" To="265"
                                                 Duration="0:0:0.3">
 
                                     </DoubleAnimation>

@@ -47,7 +47,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary x:Name="ThemeDictionary">
                     <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="Izgled/IzgledSekretar/Themes/Dark.xaml"/>
+                        <ResourceDictionary Source="Izgled/IzgledSekretar/Themes/Light.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

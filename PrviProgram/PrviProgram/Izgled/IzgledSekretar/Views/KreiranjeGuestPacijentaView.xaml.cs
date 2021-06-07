@@ -3,13 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using Model;
 
-namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
+namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
-    public partial class KreiranjeGuestPacijenta : Window
+    public partial class KreiranjeGuestPacijentaView : Page
     {
         private ComboBox comboBox;
 
-        public KreiranjeGuestPacijenta(ComboBox comboBox)
+        public KreiranjeGuestPacijentaView(ComboBox comboBox)
         {
             InitializeComponent();
             this.comboBox = comboBox;
@@ -20,18 +20,18 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             GuestPacijent guestPacijent = new GuestPacijent(textBoxIme.Text, textBoxPrezime.Text, textBoxJMBG.Text,
                                                             textBoxKontaktTelefon.Text,
                                                             (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski);
-            ZakazivanjeTermina.guestPacijent = guestPacijent;
-            ZakazivanjeHitnogTermina.guestPacijent = guestPacijent;
+            ZakazivanjeTerminaView.guestPacijent = guestPacijent;
+            ZakazivanjeHitnogTerminaView.guestPacijent = guestPacijent;
             ObservableCollection<GuestPacijent> guestPacijents = new ObservableCollection<GuestPacijent>();
             guestPacijents.Add(guestPacijent);
             comboBox.ItemsSource = guestPacijents;
             comboBox.SelectedIndex = 0;
-            Close();
+            NavigationService.GoBack();
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            NavigationService.GoBack();
         }
 
     }
