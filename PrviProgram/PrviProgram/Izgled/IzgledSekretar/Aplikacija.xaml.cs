@@ -53,6 +53,16 @@ namespace PrviProgram.Izgled.IzgledSekretar
                     frame.NavigationService.Navigate(pacijenti);
                     textBlockNaslov.Text = "Pacijenti";
                     break;
+                case 2:
+                    Page lekari = new LekariView();
+                    frame.NavigationService.Navigate(lekari);
+                    textBlockNaslov.Text = "Lekari";
+                    break;
+                case 3:
+                    Page alergeni = new AlergeniView();
+                    frame.NavigationService.Navigate(alergeni);
+                    textBlockNaslov.Text = "Alergeni";
+                    break;
             }
             tgBtn.IsChecked = false;
         }

@@ -1,4 +1,4 @@
-﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.IzmenaPacijentaView"
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.IzmenaLekaraView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
       xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
       mc:Ignorable="d" 
+      Title="IzmenaLekaraView"
       d:DesignHeight="700"
-      d:DesignWidth="480"
-      Title="IzmenaPacijentaView">
+      d:DesignWidth="480">
 
     <Grid Style="{DynamicResource surface_style}">
         <Grid.ColumnDefinitions>
@@ -93,3 +93,4 @@
 
     </Grid>
 </Page>
+

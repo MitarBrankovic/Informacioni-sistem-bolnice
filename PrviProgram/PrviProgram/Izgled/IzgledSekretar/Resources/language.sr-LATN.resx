@@ -121,10 +121,16 @@
     <value>Dodaj</value>
   </data>
   <data name="AddAllergen" xml:space="preserve">
+    <value>Definisite alergen:</value>
+  </data>
+  <data name="AddAllergenPatient" xml:space="preserve">
     <value>Dodajte alergen pacijentu:</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Adresa stanovanja</value>
+  </data>
+  <data name="AddSpecializations" xml:space="preserve">
+    <value>Dodajte specijalizaciju lekaru</value>
   </data>
   <data name="Allergens" xml:space="preserve">
     <value>Alergeni</value>
@@ -150,8 +156,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Izbrisi</value>
   </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Lekar</value>
+  </data>
+  <data name="Doctors" xml:space="preserve">
+    <value>Lekari</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Izmeni</value>
+  </data>
+  <data name="EditAllergen" xml:space="preserve">
+    <value>Izmenite selektovani alergen:</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
@@ -200,6 +215,12 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registruj</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>Specijalizacija</value>
+  </data>
+  <data name="Specializations" xml:space="preserve">
+    <value>Specijalizacije</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>Drzava stanovanja</value>

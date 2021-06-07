@@ -121,10 +121,16 @@
     <value>Add</value>
   </data>
   <data name="AddAllergen" xml:space="preserve">
+    <value>Define allergen:</value>
+  </data>
+  <data name="AddAllergenPatient" xml:space="preserve">
     <value>Add the allergen to the patient:</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Residential address</value>
+  </data>
+  <data name="AddSpecializations" xml:space="preserve">
+    <value>Add specialization to the doctor:</value>
   </data>
   <data name="Allergens" xml:space="preserve">
     <value>Allergens</value>
@@ -150,8 +156,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="Doctors" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="EditAllergen" xml:space="preserve">
+    <value>Modify the selected allergen:</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
@@ -200,6 +215,12 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="Specializations" xml:space="preserve">
+    <value>Specializations</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>Residential state</value>

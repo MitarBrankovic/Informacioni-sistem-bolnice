@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
       xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
       mc:Ignorable="d" 
+      Title="RegistracijaPacijentaView"
       d:DesignHeight="700"
-      d:DesignWidth="480"
-      Title="RegistracijaPacijentaView">
+      d:DesignWidth="480">
 
     <Grid Style="{DynamicResource surface_style}">
         <Grid.ColumnDefinitions>

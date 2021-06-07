@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using Controller;
 using Model;
-using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.IzgledLekari
 {
