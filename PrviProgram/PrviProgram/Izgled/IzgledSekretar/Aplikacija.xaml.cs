@@ -111,6 +111,13 @@ namespace PrviProgram.Izgled.IzgledSekretar
             app.ChangeLanguage(CurrentLanguage);
         }
 
+        private void FeedbackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page feedback = new PovratneInformacijeView(sekretar);
+            frame.NavigationService.Navigate(feedback);
+            textBlockNaslov.Text = "Povratne informacije";
+        }
+        
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
         {
             Close();

@@ -189,6 +189,12 @@
   <data name="Emergency term" xml:space="preserve">
     <value>Emergency term</value>
   </data>
+  <data name="EncounteredProblems" xml:space="preserve">
+    <value>Have you encountered any problems?</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
   </data>
@@ -240,6 +246,9 @@
   <data name="News text" xml:space="preserve">
     <value>News text:</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -252,8 +261,14 @@
   <data name="Patients" xml:space="preserve">
     <value>Patients</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate the application:</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Remarks:</value>
   </data>
   <data name="Room" xml:space="preserve">
     <value>Room</value>
@@ -296,5 +311,8 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

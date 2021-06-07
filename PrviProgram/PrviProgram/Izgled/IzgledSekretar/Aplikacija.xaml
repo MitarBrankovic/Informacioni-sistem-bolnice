@@ -67,6 +67,10 @@
                                     Content="{loc:Loc Language}"
                                     Click="SwitchLanguage_Click"
                                     FontSize="16"/>
+                            <Button x:Name="feedbackButton"
+                                    Content="{loc:Loc Feedback}"
+                                    Click="FeedbackButton_Click"
+                                    FontSize="16"/>
                             <Separator/>
                             <Button Content="{loc:Loc Logout}"
                                     FontSize="16"

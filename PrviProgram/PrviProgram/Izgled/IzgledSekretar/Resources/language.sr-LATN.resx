@@ -189,6 +189,12 @@
   <data name="Emergency term" xml:space="preserve">
     <value>Hitan termin</value>
   </data>
+  <data name="EncounteredProblems" xml:space="preserve">
+    <value>Da li ste se susreli sa problemima u aplikaciji?</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Povratne informacije</value>
+  </data>
   <data name="Female" xml:space="preserve">
     <value>Zenski</value>
   </data>
@@ -240,6 +246,9 @@
   <data name="News text" xml:space="preserve">
     <value>Tekst vesti:</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Ne</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Lozinka</value>
   </data>
@@ -252,8 +261,14 @@
   <data name="Patients" xml:space="preserve">
     <value>Pacijenti</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Ocenite aplikaciju:</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Registruj</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Primedbe:</value>
   </data>
   <data name="Room" xml:space="preserve">
     <value>Sala</value>
@@ -296,5 +311,8 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Korisnicko ime</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Da</value>
   </data>
 </root>
