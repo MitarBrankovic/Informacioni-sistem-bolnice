@@ -116,8 +116,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 
         private void GuestPacijent_Click(object sender, RoutedEventArgs e)
         {
-            //KreiranjeGuestPacijenta kreiranjeGuestPacijenta = new KreiranjeGuestPacijenta(comboBoxPacijenti);
-            //kreiranjeGuestPacijenta.Show();
+            Page kreiranjeGuest = new KreiranjeGuestPacijentaView(comboBoxPacijenti);
+            NavigationService.Navigate(kreiranjeGuest);
         }
 
     }
