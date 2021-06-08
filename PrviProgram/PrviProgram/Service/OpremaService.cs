@@ -9,7 +9,7 @@ namespace Service
     public class OpremaService
     {
         private SalaRepository salaRepository = new SalaRepository();
-        private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
+        private ITerminiPremestajaRepository terminiPremestajaRepository = Factory.KreirajTerminPremestajaRep();
 
         public bool DodavanjeOpreme(Oprema oprema, Sala sala)
         {

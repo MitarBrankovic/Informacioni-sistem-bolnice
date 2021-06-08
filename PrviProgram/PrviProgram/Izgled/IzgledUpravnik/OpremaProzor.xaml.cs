@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Controller;
 using System.Windows.Threading;
-using Service;
 
 namespace PrviProgram.Izgled.IzgledUpravnik
 {
@@ -29,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private List<Sala> sale;
         private string nazivIzabraneSale;
         public DispatcherTimer timer = new DispatcherTimer();
-        private TerminiPremestajaRepository terminiPremestajaRepository = new TerminiPremestajaRepository();
+        private ITerminiPremestajaRepository terminiPremestajaRepository = Factory.KreirajTerminPremestajaRep();
 
         public OpremaProzor()
         {

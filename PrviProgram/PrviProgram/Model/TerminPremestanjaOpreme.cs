@@ -2,7 +2,7 @@ using System;
 
 namespace Model
 {
-   public class TerminPremestanjaOpreme
+   public class TerminPremestanjaOpreme : Entity
    {
         public TerminPremestanjaOpreme(Oprema oprema, Sala sala, Sala staraSala, DateTime datumPremestaja)
         {
@@ -13,11 +13,6 @@ namespace Model
         }
 
         public TerminPremestanjaOpreme() { }
-
-        ~TerminPremestanjaOpreme()
-        {
-            // TODO: implement
-        }
 
 
         public Oprema Oprema { get; set; }

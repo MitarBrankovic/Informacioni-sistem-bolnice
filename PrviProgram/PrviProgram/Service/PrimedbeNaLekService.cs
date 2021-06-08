@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PrviProgram.Service
+namespace Service
 {
-    class PrimedbeNaLekService
+    public class PrimedbeNaLekService
     {
-        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository(@"..\..\..\data\primedbeNaLek.json");
+        private IPrimedbeNaLekRepository primedbeNaLekRepository = Factory.KreirajPrimedeRep();
         public void KreiranjePrimedbe(PrimedbaNaLek primedbaNaLek)
         {
             List<PrimedbaNaLek> primedbe = primedbeNaLekRepository.CitanjeIzFajla();

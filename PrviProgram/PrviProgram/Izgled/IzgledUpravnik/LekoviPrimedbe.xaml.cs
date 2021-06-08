@@ -19,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class LekoviPrimedbe : Window
     {
-        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository(@"..\..\..\data\primedbeNaLek.json");
+        private IPrimedbeNaLekRepository primedbeNaLekRepository = Factory.KreirajPrimedeRep();
         private ObservableCollection<PrimedbaNaLek> primedbe;
         private LekoviController lekoviController = new LekoviController();
         private ObservableCollection<Lek> lekovi;

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Repository
 {
-    public class GenericFileRepository<T> where T :Entity
+    public class GenericFileRepository<T> : IGenericFileRepository<T> where T : Entity
     {
         private String path;
 

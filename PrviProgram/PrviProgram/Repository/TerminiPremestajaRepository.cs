@@ -1,45 +1,30 @@
 ﻿using Model;
 using Newtonsoft.Json;
+using Repository;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace PrviProgram.Repository
 {
-    class TerminiPremestajaRepository
+    public class TerminiPremestajaRepository : GenericFileRepository<TerminPremestanjaOpreme>, ITerminiPremestajaRepository
     {
         private string path;
 
-        public TerminiPremestajaRepository()
-        {
-            path = @"..\..\..\data\terminiPremestaja.json";
-        }
+        public TerminiPremestajaRepository(string path) : base(path) { }
 
-        public void UpisivanjeUFajl(List<TerminPremestanjaOpreme> termini)
+        public TerminPremestanjaOpreme PregledPrimedbe(DateTime datum)
         {
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Formatting = Formatting.Indented;
-            StreamWriter writer = new StreamWriter(path);
-            JsonWriter jWriter = new JsonTextWriter(writer);
-            serializer.Serialize(jWriter, termini);
-            jWriter.Close();
-            writer.Close();
-        }
-
-        public List<TerminPremestanjaOpreme> CitanjeIzFajla()
-        {
-            List<TerminPremestanjaOpreme> termini = new List<TerminPremestanjaOpreme>();
-            if (File.Exists(path))
+            List<TerminPremestanjaOpreme> termini = CitanjeIzFajla();
+            foreach (TerminPremestanjaOpreme i in termini)
             {
-                string jsonText = File.ReadAllText(path);
-                if (!string.IsNullOrEmpty(jsonText))
+                if (i.DatumPremestaja.Equals(datum))
                 {
-                    termini = JsonConvert.DeserializeObject<List<TerminPremestanjaOpreme>>(jsonText);
+                    return i;
                 }
             }
-            return termini;
+            return null;
         }
-
-
 
 
 
