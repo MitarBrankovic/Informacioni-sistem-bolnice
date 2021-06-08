@@ -14,7 +14,7 @@
                 </Button.Background>
 
             </Button>
-            <Button HorizontalAlignment="Left" Width="64" Height="64"  BorderThickness="0" Margin="1186,8,0,8">
+            <Button HorizontalAlignment="Left" Width="64" Height="64"  BorderThickness="0" Margin="1186,8,0,8" Click="Button_Click_4">
                 <Button.Background>
                     <ImageBrush ImageSource="/Slike/logout-64.png"></ImageBrush>
                 </Button.Background>

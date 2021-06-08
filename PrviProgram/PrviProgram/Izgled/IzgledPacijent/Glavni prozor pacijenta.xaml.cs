@@ -235,5 +235,13 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.frame.NavigationService.Navigate(pocetna);
 
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Logovanje win = new Logovanje();
+            win.Show();
+
+        }
     }
 }

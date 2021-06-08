@@ -4,15 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledPacijent"
-    
+       
         mc:Ignorable="d"
         Title="Dodavanje beleske" Height="350" Width="430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible">
-
     <Grid>
 
         <TextBox HorizontalAlignment="Left" Name="OpisBeleskeText" Height="170" Margin="120,29,0,0" Text="{Binding Path=TeksBeleska, Mode=OneWayToSource}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="280"/>
         <Label Content="Opis beleške" HorizontalAlignment="Left" Height="30" Margin="10,29,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Content="Potvrdi"  Command="{Binding MyCommand}" HorizontalAlignment="Left" Height="40" Margin="30,264,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button Content="Potvrdi"  Command="{Binding Command}" HorizontalAlignment="Left" Height="40" Margin="30,264,0,0" VerticalAlignment="Top" Width="155"/>
         <Button Content="Otkaži" HorizontalAlignment="Left" Height="40" Margin="235,264,0,0" VerticalAlignment="Top" Width="155" />
 
     </Grid>

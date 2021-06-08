@@ -19,6 +19,8 @@ namespace PrviProgram.ViewModel
         
         private Pacijent selektovaniPacijent;
         private  String tekstBeleska;
+        public ICommand Command { get; set; }
+
      
 
         public IzvrseniPreglediViewModel(IzvrseniPregled selektovanaAnamneza, ObservableCollection<IzvrseniPregled> izvrseniPregledi, Pacijent selektovaniPacijent)
@@ -27,6 +29,8 @@ namespace PrviProgram.ViewModel
             this.izvrseniPregleds = izvrseniPregledi;
             this.pregledSaBeleskom = selektovanaAnamneza;
             this.selektovaniPacijent = selektovaniPacijent;
+            Command = new Commands(ExecuteMethod, canExecuteMethod);
+
 
         }
         public String TeksBeleska
@@ -87,7 +91,7 @@ namespace PrviProgram.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        private ICommand command;
+        /*private ICommand command;
         public ICommand MyCommand
         {
             get
@@ -98,7 +102,7 @@ namespace PrviProgram.ViewModel
                 }
                 return command;
             }
-        }
+        }*/
 
        
         private bool canExecuteMethod(object parametar)
