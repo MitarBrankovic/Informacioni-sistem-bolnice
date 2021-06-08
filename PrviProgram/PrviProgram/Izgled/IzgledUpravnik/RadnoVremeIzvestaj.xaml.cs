@@ -21,7 +21,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     public partial class RadnoVremeIzvestaj : Window
     {
         private LekarRepository lekarRepository = new LekarRepository();
-        private IzvestajUpravnikService izvestajUpravnikService = new IzvestajUpravnikService();
+        //private IzvestajUpravnikService izvestajUpravnikService = new IzvestajUpravnikService();
 
         public RadnoVremeIzvestaj()
         {
@@ -37,8 +37,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private void Konvertuj_Click(object sender, RoutedEventArgs e)
         {
             Lekar lekar = (Lekar)ComboLekar.SelectedItem;
-            izvestajUpravnikService.IzgenerisiIzvestaj(lekar.Jmbg);
-            MessageBox.Show("Uspesno kreiran izvestaj radnog vremena lekara!");
+            IzvestajAbstractService izvestajAbstractService = new IzvestajUpravnikService();
+            izvestajAbstractService.IzgenerisiIzvestaj(lekar.Jmbg);
+            //izvestajUpravnikService.IzgenerisiIzvestaj(lekar.Jmbg);
             this.Close();
         }
 

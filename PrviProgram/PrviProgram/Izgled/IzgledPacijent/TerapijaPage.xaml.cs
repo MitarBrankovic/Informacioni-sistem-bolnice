@@ -30,7 +30,6 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private TerapijaRepository terapijaRepository = new TerapijaRepository();
         private DateTime ponedeljak, utorak, sreda, cetvrtak, petak, subota, nedelja;
         private Pacijent pacijent;
-        private IzvestajPacijentService izvestajPacijentService = new IzvestajPacijentService();
 
         public TerapijaPage(Pacijent pacijent)
         {
@@ -45,8 +44,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         private void Izveštaj_Click(object sender, RoutedEventArgs e)
         {
-            izvestajPacijentService.IzgenerisiIzvestaj(pacijent.Jmbg);
-            MessageBox.Show("Uspesno kreiran izvestaj terapija na sedmicnom nivou");
+            IzvestajAbstractService izvestajAbstractService = new IzvestajPacijentService();
+            izvestajAbstractService.IzgenerisiIzvestaj(pacijent.Jmbg);
         }
 
         public void IspisivanjeTerapije()

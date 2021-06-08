@@ -17,7 +17,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
         private void ButtonIzvestaj_Click(object sender, RoutedEventArgs e)
         {
             izvestajService.IzgenerisiIzvestaj("");
-            MessageBox.Show("Uspesno ste kreirali izvestaj.");
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)

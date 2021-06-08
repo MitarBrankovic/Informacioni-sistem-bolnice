@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Windows;
 
 namespace Service
 {
@@ -17,7 +18,7 @@ namespace Service
         private RadnoVremeLekaraRepository radnoVremeLekaraRepository = new RadnoVremeLekaraRepository();
         private List<RadnoVremeLekara> pomocnaLista = new List<RadnoVremeLekara>();
 
-        public override void IzgenerisiIzvestaj(string sifra)
+        public override void FormiranjePDF(string sifra)
         {
             using (PdfDocument doc = new PdfDocument())
             {
@@ -59,6 +60,11 @@ namespace Service
                 doc.Save(@"..\..\..\Izvestaji\IzvestajRadnoVremeLekara.pdf");
                 doc.Close(true);
             }
+        }
+
+        public override void PosaljiPoruku()
+        {
+            MessageBox.Show("Uspesno kreiran izvestaj radnog vremena lekara!");
         }
     }
 }

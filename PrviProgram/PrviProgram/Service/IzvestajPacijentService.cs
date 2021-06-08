@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Windows;
 
 namespace Service
 {
@@ -19,7 +20,7 @@ namespace Service
         private DateTime ponedeljak, utorak, sreda, cetvrtak, petak, subota, nedelja;
         private String ponedeljakText, utorakText, sredaText, cetvrtakText, petakText, subotaText, nedeljaText;
 
-        public override void IzgenerisiIzvestaj(string sifra)
+        public override void FormiranjePDF(string sifra)
         {
             Pacijent pacijent = pacijentRepository.PregledPacijenta(sifra);
             PronalazenjeDana();
@@ -68,6 +69,11 @@ namespace Service
                 if (terapija.PocetakTerapije.Date <= nedelja.Date && terapija.KrajTerapije.Date >= nedelja.Date) nedeljaText += "- " + terapija.OpisTerapije + "\n";
 
             }
+        }
+
+        public override void PosaljiPoruku()
+        {
+            MessageBox.Show("Uspesno kreiran izvestaj terapija na sedmicnom nivou");
         }
 
         private void PronalazenjeDana()

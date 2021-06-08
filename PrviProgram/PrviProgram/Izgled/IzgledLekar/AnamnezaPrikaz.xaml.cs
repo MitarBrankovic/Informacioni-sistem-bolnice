@@ -37,7 +37,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Pacijent pacijent;
         private Termin termin;
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
-        private IzvestajLekarService izvestajLekarService = new IzvestajLekarService();
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
             InitializeComponent();
@@ -152,8 +151,8 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izvestaj_Click(object sender, RoutedEventArgs e)
         {
-            izvestajLekarService.IzgenerisiIzvestaj(termin.SifraTermina);
-            MessageBox.Show("Uspesno obavljen izvestaj");
+            IzvestajAbstractService izvestajAbstractService = new IzvestajLekarService();
+            izvestajAbstractService.IzgenerisiIzvestaj(termin.SifraTermina);
         }
 
         private void Terapija_Click(object sender, RoutedEventArgs e)

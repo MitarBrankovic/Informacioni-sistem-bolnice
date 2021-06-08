@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Windows;
 
 namespace Service
 {
@@ -16,7 +17,7 @@ namespace Service
         private TerminiRepository terminiRepository = new TerminiRepository();
         private PacijentRepository pacijentRepository = new PacijentRepository();
 
-        public override void IzgenerisiIzvestaj(string sifra)
+        public override void FormiranjePDF(string sifra)
         {
             Termin termin = terminiRepository.PregledTermina(sifra);
             IzvrseniPregled izvrseniPregled = pacijentRepository.PregledIzvrsenogPregleda(sifra);
@@ -37,6 +38,11 @@ namespace Service
                 doc.Save(@"..\..\..\Izvestaji\IzvestajAnamnezaRecept.pdf");
                 doc.Close(true);
             }
+        }
+
+        public override void PosaljiPoruku()
+        {
+            MessageBox.Show("Uspesno obavljen izvestaj");
         }
     }
 }

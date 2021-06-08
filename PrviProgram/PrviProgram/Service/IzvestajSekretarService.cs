@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Windows;
 using Model;
 using PrviProgram.Repository;
 using Syncfusion.Pdf;
@@ -14,7 +15,7 @@ namespace Service
         TerminiRepository terminiRepository = new TerminiRepository();
         private DateTime odDana, doDana;
 
-        public override void IzgenerisiIzvestaj(string sifra)
+        public override void FormiranjePDF(string sifra)
         {
             using (PdfDocument doc = new PdfDocument())
             {
@@ -50,6 +51,11 @@ namespace Service
                 doc.Save(@"..\..\..\Izvestaji\IzvestajZakazanihTermina.pdf");
                 doc.Close(true);
             }
+        }
+
+        public override void PosaljiPoruku()
+        {
+            MessageBox.Show("Uspesno ste kreirali izvestaj.");
         }
 
         private void OdredjivanjeDatuma()
