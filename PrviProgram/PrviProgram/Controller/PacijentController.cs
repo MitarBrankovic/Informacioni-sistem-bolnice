@@ -111,13 +111,13 @@ namespace Controller
         public bool DaLiPostojiBarJedanIzvrsenTermin(Pacijent pacijent)
         {
             // TODO: implement
-            return AnketaService.getInstance().DaLiPostojiBarJedanIzvrsenTermin(pacijent);
+            return TerminiZaAnketiranjeService.getInstance().DaLiPostojiBarJedanIzvrsenTermin(pacijent);
         }
 
         public List<Termin> SviTerminiKojiSuIzvrseni(Pacijent pacijent)
         {
             // TODO: implement
-            return AnketaService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
+            return TerminiZaAnketiranjeService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
         }
 
         public void PovecavanjeBrojacaPriDodavanjuTermina(Pacijent pacijent)

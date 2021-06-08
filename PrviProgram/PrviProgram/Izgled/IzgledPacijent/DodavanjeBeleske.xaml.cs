@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.ViewModel;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -20,34 +21,15 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class DodavanjeBeleske : Window
     {
-       public IzvrseniPregled selektovanaAnamneza = new IzvrseniPregled();
-        public ObservableCollection<IzvrseniPregled> izvrseniPregledi { get; set; }
-        public IzvrseniPregled pregledSaBeleskom = new IzvrseniPregled();
-        public Pacijent selektovaniPacijent = new Pacijent();
+        private IzvrseniPreglediViewModel izvrseniPreglediViewModel;
 
-        public DodavanjeBeleske(IzvrseniPregled selektovanaAnamneza, ObservableCollection<IzvrseniPregled>izvrseniPregledi,Pacijent selektovaniPacijent)
+        public DodavanjeBeleske(IzvrseniPregled selektovanaAnamneza, ObservableCollection<IzvrseniPregled> izvrseniPregledi, Pacijent selektovaniPacijent)
         {
+            izvrseniPreglediViewModel = new IzvrseniPreglediViewModel(selektovanaAnamneza, izvrseniPregledi, selektovaniPacijent);
             InitializeComponent();
-            this.selektovanaAnamneza = selektovanaAnamneza;
-            this.izvrseniPregledi = izvrseniPregledi;
-            this.pregledSaBeleskom = selektovanaAnamneza;
-            this.selektovaniPacijent = selektovaniPacijent;
+            this.DataContext = izvrseniPreglediViewModel;
         }
+          
 
-        private void Potvrdi_Click(object sender, RoutedEventArgs e)
-        {
-            this.izvrseniPregledi.Remove(this.selektovanaAnamneza);
-            this.pregledSaBeleskom.Beleska = OpisBeleskeText.Text;
-            if (KartonPacijentaService.getInstance().IzmenaIzvrsenogPregleda(pregledSaBeleskom, this.selektovaniPacijent))
-            {
-                this.izvrseniPregledi.Add(this.pregledSaBeleskom);
-            }
-            this.Close();
-        }
-
-        private void Otkaži_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

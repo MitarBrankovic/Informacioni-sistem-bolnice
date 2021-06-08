@@ -48,7 +48,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             InitializeComponent();
             
             this.pacijent = pacijent;
-            this.termini = AnketaService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
+            this.termini = TerminiZaAnketiranjeService.getInstance().SviTerminiKojiSuIzvrseni(pacijent);
             inicijalizacijaTimeraZaOtkljucavanjeDugmetaBolnica();
             inicijalizacijaTimeraZaZakljucavanjeDugmetaBolnica();
 
