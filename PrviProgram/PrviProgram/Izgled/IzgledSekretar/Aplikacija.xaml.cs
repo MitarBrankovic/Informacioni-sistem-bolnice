@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Model;
 using PrviProgram.Izgled.IzgledSekretar.Views;
+using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar
 {
@@ -77,6 +78,11 @@ namespace PrviProgram.Izgled.IzgledSekretar
                     Page alergeni = new AlergeniView();
                     frame.NavigationService.Navigate(alergeni);
                     textBlockNaslov.Text = "Alergeni";
+                    break;
+                case 7:
+                    Page izvestaj = new IzvestajView(new IzvestajSekretarService());
+                    frame.NavigationService.Navigate(izvestaj);
+                    textBlockNaslov.Text = "Izvestaji";
                     break;
             }
             tgBtn.IsChecked = false;

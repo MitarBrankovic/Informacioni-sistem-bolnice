@@ -1,0 +1,52 @@
+﻿<Page x:Class="PrviProgram.Izgled.IzgledSekretar.Views.IzvestajView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
+      xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="700"
+      d:DesignWidth="480"
+      Title="IzvestajPacijentaView">
+
+    <Grid Style="{DynamicResource surface_style}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textBlockGenerisi" Style="{DynamicResource font_label_style}" Text="{loc:Loc SelectReport}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="textBlockIzvestaj" Style="{DynamicResource font_label_style}" Text="{loc:Loc WeeklyReport}" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+        
+        <Button x:Name="buttonIzvestaj"
+                Grid.Column="2"
+                Grid.Row="3"
+                Click="ButtonIzvestaj_Click">
+            <StackPanel>
+                <Image Source="/Slike/pdf.png" Height="32" Width="32"/>
+            </StackPanel>
+        </Button>
+
+            <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="3"/>
+        </Grid>
+        
+    </Grid>
+</Page>
