@@ -270,11 +270,20 @@
   <data name="Remarks" xml:space="preserve">
     <value>Primedbe:</value>
   </data>
+  <data name="Report" xml:space="preserve">
+    <value>Izvestaj</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Izvestaji</value>
+  </data>
   <data name="Room" xml:space="preserve">
     <value>Sala</value>
   </data>
   <data name="Schedule an appointment" xml:space="preserve">
     <value>Zakazi termin</value>
+  </data>
+  <data name="SelectReport" xml:space="preserve">
+    <value>Izaberite izvetaj koji zelite da generisete:</value>
   </data>
   <data name="Specialization" xml:space="preserve">
     <value>Specijalizacija</value>
@@ -311,6 +320,9 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Korisnicko ime</value>
+  </data>
+  <data name="WeeklyReport" xml:space="preserve">
+    <value>Nedeljni izveštaj o zakazanim operacijama i pregledima</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Da</value>

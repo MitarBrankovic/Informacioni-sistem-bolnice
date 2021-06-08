@@ -1,5 +1,6 @@
 ﻿using Model;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -100,5 +101,20 @@ namespace PrviProgram.Repository
             }
             return pronadjeniTermini;
         }
+
+        public List<Termin> PregledSvihTerminaUPeriodu(DateTime odDana, DateTime doDana)
+        {
+            List<Termin> termini = new List<Termin>();
+            foreach (Termin termin in CitanjeIzFajla())
+            {
+                if (termin.Datum.Date >= odDana.Date && termin.Datum.Date <= doDana.Date)
+                {
+                    termini.Add(termin);
+                }
+
+            }
+            return termini;
+        }
+
     }
 }

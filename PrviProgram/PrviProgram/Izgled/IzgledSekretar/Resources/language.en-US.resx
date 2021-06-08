@@ -270,11 +270,20 @@
   <data name="Remarks" xml:space="preserve">
     <value>Remarks:</value>
   </data>
+  <data name="Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
   <data name="Room" xml:space="preserve">
     <value>Room</value>
   </data>
   <data name="Schedule an appointment" xml:space="preserve">
     <value>Schedule an appointment</value>
+  </data>
+  <data name="SelectReport" xml:space="preserve">
+    <value>Select the report you want to generate:</value>
   </data>
   <data name="Specialization" xml:space="preserve">
     <value>Specialization</value>
@@ -311,6 +320,9 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="WeeklyReport" xml:space="preserve">
+    <value>Weekly report on scheduled operations and examinations</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
