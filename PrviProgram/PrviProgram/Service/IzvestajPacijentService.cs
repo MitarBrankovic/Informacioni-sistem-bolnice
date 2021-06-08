@@ -1,6 +1,5 @@
 ﻿using Model;
 using Repository;
-using Service;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Tables;
@@ -9,65 +8,71 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace PrviProgram.Izgled.IzgledPacijent
+namespace Service
 {
-    /// <summary>
-    /// Interaction logic for TerapijaPage.xaml
-    /// </summary>
-    public partial class TerapijaPage : Page
+    public class IzvestajPacijentService : IzvestajAbstractService
     {
-        private List<Terapija> terapije = new List<Terapija>();
+        private List<Terapija> terapije;
         private TerapijaRepository terapijaRepository = new TerapijaRepository();
+        private PacijentRepository pacijentRepository = new PacijentRepository();
         private DateTime ponedeljak, utorak, sreda, cetvrtak, petak, subota, nedelja;
-        private Pacijent pacijent;
-        private IzvestajPacijentService izvestajPacijentService = new IzvestajPacijentService();
+        private String ponedeljakText, utorakText, sredaText, cetvrtakText, petakText, subotaText, nedeljaText;
 
-        public TerapijaPage(Pacijent pacijent)
+        public override void IzgenerisiIzvestaj(string sifra)
         {
-            InitializeComponent();
-            this.terapije = terapijaRepository.PregledSvihTerapijaKodPacijenta(pacijent);
-            this.pacijent = pacijent;
+            Pacijent pacijent = pacijentRepository.PregledPacijenta(sifra);
             PronalazenjeDana();
-            IspisivanjeTerapije();
-            odKogDoKogDatum.Text = ponedeljak.ToShortDateString() + " - " + nedelja.ToShortDateString();
+            IspisivanjeTerapije(sifra);
 
-        }
-
-        private void Izveštaj_Click(object sender, RoutedEventArgs e)
-        {
-            izvestajPacijentService.IzgenerisiIzvestaj(pacijent.Jmbg);
-            MessageBox.Show("Uspesno kreiran izvestaj terapija na sedmicnom nivou");
-        }
-
-        public void IspisivanjeTerapije()
-        {
-           
-            foreach(Terapija terapija in terapije)
+            using (PdfDocument doc = new PdfDocument())
             {
-                if (terapija.PocetakTerapije.Date <= ponedeljak.Date && terapija.KrajTerapije.Date>=ponedeljak.Date) ponedeljakText.Text +="- "+ terapija.OpisTerapije +"\n" ;
-                if (terapija.PocetakTerapije <= utorak && terapija.KrajTerapije >= utorak) utorakText.Text += "- " + terapija.OpisTerapije + "\n";
-                if (terapija.PocetakTerapije <= sreda && terapija.KrajTerapije >= sreda) sredaText.Text += "- " + terapija.OpisTerapije + "\n";
-                if (terapija.PocetakTerapije <= cetvrtak && terapija.KrajTerapije >= cetvrtak) cetvrtakText.Text += "- " + terapija.OpisTerapije + "\n";
-                if (terapija.PocetakTerapije <= petak && terapija.KrajTerapije >= petak) petakText.Text += "- " + terapija.OpisTerapije + "\n";
-                if (terapija.PocetakTerapije <= subota && terapija.KrajTerapije >= subota) subotaText.Text += "- " + terapija.OpisTerapije + "\n";
-                if (terapija.PocetakTerapije.Date <= nedelja.Date && terapija.KrajTerapije.Date >= nedelja.Date) nedeljaText.Text += "- " + terapija.OpisTerapije + "\n";
+                PdfPage page = doc.Pages.Add();
+                PdfGraphics graphics = page.Graphics;
+                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+                string textPDF = "Sedmicna terapija " + ponedeljak.ToShortDateString() + " - " + nedelja.ToShortDateString() + " \n Pacijenta: " + pacijent.Ime + " " + pacijent.Prezime;
+                graphics.DrawString(textPDF, font, PdfBrushes.Black, new PointF(180, 0));
+
+                PdfLightTable pdfLightTable = new PdfLightTable();
+                DataTable table = new DataTable();
+                table.Columns.Add("Ponedeljak");
+                table.Columns.Add("Utorak");
+                table.Columns.Add("Sreda");
+                table.Columns.Add("Cetvrtak");
+                table.Columns.Add("Petak");
+                table.Columns.Add("Subota");
+                table.Columns.Add("Nedelja");
+                table.Rows.Add(new string[] { "Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak", "Subota", "Nedelja" });
+                table.Rows.Add(new string[] { ponedeljakText, utorakText, sredaText, cetvrtakText, petakText, subotaText, nedeljaText });
+
+
+                pdfLightTable.DataSource = table;
+                pdfLightTable.Draw(page, new PointF(0, 100));
+                doc.Save(@"..\..\..\Izvestaji\IzvestajTerapija.pdf");
+                doc.Close(true);
+            }
+        }
+
+        public void IspisivanjeTerapije(string sifra)
+        {
+            Pacijent pacijent = pacijentRepository.PregledPacijenta(sifra);
+            terapije = terapijaRepository.PregledSvihTerapijaKodPacijenta(pacijent);
+            foreach (Terapija terapija in terapije)
+            {
+                if (terapija.PocetakTerapije.Date <= ponedeljak.Date && terapija.KrajTerapije.Date >= ponedeljak.Date) ponedeljakText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije <= utorak && terapija.KrajTerapije >= utorak) utorakText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije <= sreda && terapija.KrajTerapije >= sreda) sredaText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije <= cetvrtak && terapija.KrajTerapije >= cetvrtak) cetvrtakText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije <= petak && terapija.KrajTerapije >= petak) petakText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije <= subota && terapija.KrajTerapije >= subota) subotaText += "- " + terapija.OpisTerapije + "\n";
+                if (terapija.PocetakTerapije.Date <= nedelja.Date && terapija.KrajTerapije.Date >= nedelja.Date) nedeljaText += "- " + terapija.OpisTerapije + "\n";
 
             }
         }
 
-        public void PronalazenjeDana()
+        private void PronalazenjeDana()
         {
-            if(DateTime.Today.DayOfWeek==DayOfWeek.Monday)
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
             {
                 ponedeljak = DateTime.Today;
                 utorak = DateTime.Today.AddDays(1);
@@ -77,7 +82,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
                 subota = DateTime.Today.AddDays(5);
                 nedelja = DateTime.Today.AddDays(6);
             }
-            else if(DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
+            else if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
             {
                 ponedeljak = DateTime.Today.AddDays(-1);
                 utorak = DateTime.Today;

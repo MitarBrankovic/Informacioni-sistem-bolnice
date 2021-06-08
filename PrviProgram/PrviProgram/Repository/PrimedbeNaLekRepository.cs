@@ -1,5 +1,6 @@
 ﻿using Model;
 using Newtonsoft.Json;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,9 +8,17 @@ using System.Text;
 
 namespace PrviProgram.Repository
 {
-    class PrimedbeNaLekRepository
+    public class PrimedbeNaLekRepository : GenericFileRepository<PrimedbaNaLek>
     {
-        private string path;
+        private string path = @"..\..\..\data\primedbeNaLek.json";
+        public PrimedbeNaLekRepository(string path) : base(path) { }
+
+        /*public PrimedbeNaLekRepository() : base() {
+            this.path = @"..\..\..\data\primedbeNaLek.json";
+        }*/
+
+
+        /*private string path;
         public PrimedbeNaLekRepository()
         {
             path = @"..\..\..\data\primedbeNaLek.json";
@@ -57,6 +66,19 @@ namespace PrviProgram.Repository
         {
             List<PrimedbaNaLek> primedbe = CitanjeIzFajla();
             return primedbe;
+        }*/
+
+        public PrimedbaNaLek PregledPrimedbe(string sifra)
+        {
+            List<PrimedbaNaLek> primedbe = CitanjeIzFajla();
+            foreach (PrimedbaNaLek i in primedbe)
+            {
+                if (i.Sifra.Equals(sifra))
+                {
+                    return i;
+                }
+            }
+            return null;
         }
     }
 }

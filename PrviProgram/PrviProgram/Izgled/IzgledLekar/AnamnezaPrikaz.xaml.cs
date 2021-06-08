@@ -37,6 +37,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private Pacijent pacijent;
         private Termin termin;
         private IzvrseniPregled izvrseniPregled = new IzvrseniPregled();
+        private IzvestajLekarService izvestajLekarService = new IzvestajLekarService();
         public AnamnezaPrikaz(PocetniPrikaz pocetniPrikaz, Termin termin)
         {
             InitializeComponent();
@@ -151,22 +152,7 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izvestaj_Click(object sender, RoutedEventArgs e)
         {
-            using (PdfDocument doc = new PdfDocument())
-            {
-                PdfPage page = doc.Pages.Add();
-                PdfGraphics graphics = page.Graphics;
-                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-                string textPDF = "Lekar: " + termin.lekar + 
-                    "\nPacijent: " + termin.pacijent + "\n\n\n" + 
-                    "----------------------------------------------------------------" +
-                    "\nAnamneza: \n" + izvrseniPregled.anamneza.Opis + "\n\n" + 
-                    "Recept: \n" + izvrseniPregled.recept.Lekovi + 
-                    "\nKonzumirati " + izvrseniPregled.recept.VremenskiPeriodUzimanjaLeka + " dana"
-                    + "\n" + izvrseniPregled.recept.OpisLeka;
-                graphics.DrawString(textPDF, font, PdfBrushes.Black, new PointF(0, 0));
-                doc.Save(@"..\..\..\Izvestaji\IzvestajAnamnezaRecept.pdf");
-                doc.Close(true);
-            }
+            izvestajLekarService.IzgenerisiIzvestaj(termin.SifraTermina);
             MessageBox.Show("Uspesno obavljen izvestaj");
         }
 

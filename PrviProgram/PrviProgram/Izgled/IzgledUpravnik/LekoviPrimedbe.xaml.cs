@@ -19,7 +19,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class LekoviPrimedbe : Window
     {
-        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository();
+        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository(@"..\..\..\data\primedbeNaLek.json");
         private ObservableCollection<PrimedbaNaLek> primedbe;
         private LekoviController lekoviController = new LekoviController();
         private ObservableCollection<Lek> lekovi;
@@ -28,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         public LekoviPrimedbe()
         {
             InitializeComponent();
-            primedbe = new ObservableCollection<PrimedbaNaLek>(primedbeNaLekRepository.PregledSvihPrimedbi());
+            primedbe = new ObservableCollection<PrimedbaNaLek>(primedbeNaLekRepository.PregledSvih());
             lekovi = new ObservableCollection<Lek>(lekoviRepository.PregledSvihLekova());
             dataGridPrimedbe.ItemsSource = primedbe;
         }

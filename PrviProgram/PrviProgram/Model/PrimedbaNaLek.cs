@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Model
 {
-    public class PrimedbaNaLek
+    public class PrimedbaNaLek : Entity
     {
         public string Sifra { get; set; }
         public Lekar Lekar { get; set; }

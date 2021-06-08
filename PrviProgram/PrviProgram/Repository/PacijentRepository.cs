@@ -94,5 +94,19 @@ namespace Repository
             }
             return pronadjeniPacijenti;
         }
+
+        public IzvrseniPregled PregledIzvrsenogPregleda(string sifra)
+        {
+            List<Pacijent> pacijenti = CitanjeIzFajla();
+            foreach (Pacijent p in pacijenti) 
+            {
+                foreach (IzvrseniPregled i in p.KartonPacijenta.izvrseniPregled)
+                {
+                    if (i.Sifra.Equals(sifra))
+                        return i;
+                }
+            }
+            return null;
+        }
     }
 }

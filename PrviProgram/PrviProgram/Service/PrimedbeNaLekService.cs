@@ -8,7 +8,7 @@ namespace PrviProgram.Service
 {
     class PrimedbeNaLekService
     {
-        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository();
+        private PrimedbeNaLekRepository primedbeNaLekRepository = new PrimedbeNaLekRepository(@"..\..\..\data\primedbeNaLek.json");
         public void KreiranjePrimedbe(PrimedbaNaLek primedbaNaLek)
         {
             List<PrimedbaNaLek> primedbe = primedbeNaLekRepository.CitanjeIzFajla();
