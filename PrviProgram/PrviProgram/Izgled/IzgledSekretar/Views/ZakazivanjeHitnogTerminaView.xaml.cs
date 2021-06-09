@@ -92,6 +92,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             {
                 termin.guestPacijent = guestPacijent;
             }
+            termin.Datum = DateTime.Now;
             termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }
