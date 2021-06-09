@@ -17,7 +17,7 @@ namespace Controller
 {
     public class LekarController
    {
-        public TerminiLekarController terminiLekarController;
+        public TerminiLekarController terminiLekarController= new TerminiLekarController();
         private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private PacijentRepository pacijentRepository = new PacijentRepository();

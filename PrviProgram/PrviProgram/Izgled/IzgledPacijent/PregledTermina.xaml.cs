@@ -34,7 +34,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public AntiTrollRepository datotekaAnitTrollMehanizma = new AntiTrollRepository();
         public DispatcherTimer timerZaOtkljucavanjeAntiTrollMehanizma;
         public PacijentControler pacijentController = new PacijentControler();
-        public AntiTrollController antiTrollController;
+        public AntiTrollController antiTrollController = new AntiTrollController();
 
 
         public PregledTermina(Pacijent p)

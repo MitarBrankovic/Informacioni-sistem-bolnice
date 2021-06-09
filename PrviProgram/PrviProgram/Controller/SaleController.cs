@@ -10,7 +10,7 @@ namespace Controller
     {
         private SaleService saleService = new SaleService();
         private TerminiService terminiService = new TerminiService();
-        public TerminiSaleService terminiSaleService;
+        public TerminiSaleService terminiSaleService= new TerminiSaleService();
 
         public bool DodavanjeSale(Sala sala)
         {

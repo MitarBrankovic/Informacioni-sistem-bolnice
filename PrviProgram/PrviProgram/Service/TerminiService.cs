@@ -66,14 +66,18 @@ namespace Service
         }
 
         public List<Termin> SviSlobodniTermini(DateTime pocetakDatum, DateTime krajDatum, Lekar selektovaniLekar,TipTermina tipTermina)
-        {
+        { 
             for(int i = 0;i <= (int)(krajDatum - pocetakDatum).TotalDays; i++)
             {
-                    if (SlobodnoVreme(pocetakDatum)!=null)
-                    {
-                        Termin termin = new Termin(tipTermina, SlobodnoVreme(pocetakDatum), pocetakDatum, selektovaniLekar);
-                        terminiSlobodni.Add(termin);
-                    }
+                for(int j=0;j< utilityService.nizVremena.Count; j++)
+                {
+
+                   if (SlobodnoVreme(pocetakDatum) != null)
+                   {
+                      Termin termin = new Termin(tipTermina, SlobodnoVreme(pocetakDatum), pocetakDatum, selektovaniLekar);
+                      terminiSlobodni.Add(termin);
+                   }
+                }
                 
                 pocetakDatum = pocetakDatum.AddDays(+1);
             }

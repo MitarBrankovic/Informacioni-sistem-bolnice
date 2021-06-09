@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime pocetakDatum;
         public DateTime krajDatum;
         public Pacijent pacijent;
-        public NotifikacijeController notifikacijeController;
+        public NotifikacijeController notifikacijeController= new NotifikacijeController();
 
         public PacijentControler pacijentControler = new PacijentControler();
         public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();

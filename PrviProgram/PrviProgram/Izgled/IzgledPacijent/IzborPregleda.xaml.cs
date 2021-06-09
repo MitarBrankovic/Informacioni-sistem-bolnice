@@ -28,8 +28,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public Pacijent pacijent = new Pacijent();
         public UtilityService utilityService = new UtilityService();
         public PacijentControler pacijentControler = new PacijentControler();
-        public AntiTrollController anitTrollController;
-        public TerminiSaleController terminiSaleController;
+        public AntiTrollController anitTrollController = new AntiTrollController();
+        public TerminiSaleController terminiSaleController =new TerminiSaleController();
         public IzborPregleda(List<Termin> slobodniTermini, ObservableCollection<Termin> termini,Pacijent pacijent)
         {
             InitializeComponent();
