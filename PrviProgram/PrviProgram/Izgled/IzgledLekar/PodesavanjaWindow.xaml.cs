@@ -92,7 +92,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void PovratnaInformacija_Click(object sender, RoutedEventArgs e)
         {
             PovratneInformacijeWindow povratneInformacijeWindow = new PovratneInformacijeWindow(lekar);
-            povratneInformacijeWindow.Show();
+            povratneInformacijeWindow.ShowDialog();
         }
     }
 }

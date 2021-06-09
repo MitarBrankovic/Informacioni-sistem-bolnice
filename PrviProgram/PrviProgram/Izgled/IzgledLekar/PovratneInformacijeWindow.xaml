@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="Povratne informacije" Height="420" Width="450"
+        Title="Povratne informacije" Height="450" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Koliko ste zadovoljni aplikacijom?" HorizontalAlignment="Left" Margin="18,33,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Jedan" Content="1" GroupName="Ocena" HorizontalAlignment="Left" Margin="230,39,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Dva" Content="2" GroupName="Ocena" HorizontalAlignment="Left" Margin="270,39,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Tri" Content="3" GroupName="Ocena" HorizontalAlignment="Left" Margin="310,39,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Cetiri" Content="4" GroupName="Ocena" HorizontalAlignment="Left" Margin="350,39,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Pet" Content="5" GroupName="Ocena" HorizontalAlignment="Left" Margin="390,39,0,0" VerticalAlignment="Top"/>
-        <Label Content="Da li ste se susreli sa problemima u aplikaciji?" HorizontalAlignment="Left" Margin="18,83,0,0" VerticalAlignment="Top" Width="252"/>
-        <RadioButton x:Name="Da" Content="Da" GroupName="Problemi" HorizontalAlignment="Left" Margin="302,89,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Ne" Content="Ne" GroupName="Problemi" HorizontalAlignment="Left" Margin="368,89,0,0" VerticalAlignment="Top"/>
-        <Label Content="Primedbe" HorizontalAlignment="Left" Margin="18,160,0,0" VerticalAlignment="Top" Width="64"/>
-        <TextBox x:Name="Textbox" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="136" Margin="94,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="273,328,0,0" VerticalAlignment="Top" Height="36" Width="100" Click="Potvrdi_Click_1"/>
-        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Margin="83,328,0,0" VerticalAlignment="Top" Height="36" Width="100" Click="Odustani_Click"/>
+        <Label Content="Koliko ste zadovoljni aplikacijom?" HorizontalAlignment="Left" Margin="41,38,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Jedan" Content="1" GroupName="Ocena" HorizontalAlignment="Left" Margin="94,76,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Dva" Content="2" GroupName="Ocena" HorizontalAlignment="Left" Margin="134,76,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Tri" Content="3" GroupName="Ocena" HorizontalAlignment="Left" Margin="174,76,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Cetiri" Content="4" GroupName="Ocena" HorizontalAlignment="Left" Margin="214,76,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Pet" Content="5" GroupName="Ocena" HorizontalAlignment="Left" Margin="254,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="Da li ste se susreli sa problemima u aplikaciji?" HorizontalAlignment="Left" Margin="41,106,0,0" VerticalAlignment="Top" Width="252"/>
+        <RadioButton x:Name="Da" Content="Da" GroupName="Problemi" HorizontalAlignment="Left" Margin="148,149,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Ne" Content="Ne" GroupName="Problemi" HorizontalAlignment="Left" Margin="214,149,0,0" VerticalAlignment="Top"/>
+        <Label Content="Primedbe" HorizontalAlignment="Left" Margin="66,170,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBox x:Name="Textbox" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="136" Margin="50,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="219,359,0,0" VerticalAlignment="Top" Height="40" Width="140" Click="Potvrdi_Click_1"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Margin="50,359,0,0" VerticalAlignment="Top" Height="40" Width="140" Click="Odustani_Click"/>
 
     </Grid>
 </Window>

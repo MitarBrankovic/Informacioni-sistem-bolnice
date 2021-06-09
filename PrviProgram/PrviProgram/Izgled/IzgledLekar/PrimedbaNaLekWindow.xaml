@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="Primedba na lek" Height="450" Width="500"
+        Title="Primedba na lek" Height="450" Width="400"
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
-        <TextBox  x:Name = "TextboxNazivLeka" HorizontalAlignment="Left" Height="34" Margin="77,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
-        <TextBox  x:Name = "TextboxPrimedba" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="224" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="351"/>
-        <Label Content="Primedba:" HorizontalAlignment="Left" Margin="95,74,0,0" VerticalAlignment="Top"/>
-        <Button x:Name ="Posalji" Click="Posalji_Click"   Content="Posalji" HorizontalAlignment="Left" Height="45" Margin="324,354,0,0" VerticalAlignment="Top" Width="104" />
-        <Button x:Name ="Zatvori" Click="Zatvori_Click"   Content="Zatvori" HorizontalAlignment="Left" Height="45" Margin="77,354,0,0" VerticalAlignment="Top" Width="104" />
+        <TextBox  x:Name = "TextboxNazivLeka" HorizontalAlignment="Left" Height="34" Margin="32,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+        <TextBox  x:Name = "TextboxPrimedba" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="224" Margin="0,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="336"/>
+        <Label Content="Primedba:" HorizontalAlignment="Left" Margin="49,85,0,0" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource LekarButton }" x:Name ="Posalji" Click="Posalji_Click"   Content="Posalji" HorizontalAlignment="Left" Height="40" Margin="219,358,0,0" VerticalAlignment="Top" Width="140" />
+        <Button Style="{StaticResource LekarButton }" x:Name ="Zatvori" Click="Zatvori_Click"   Content="Zatvori" HorizontalAlignment="Left" Height="40" Margin="40,358,0,0" VerticalAlignment="Top" Width="140" />
 
     </Grid>
 </Window>

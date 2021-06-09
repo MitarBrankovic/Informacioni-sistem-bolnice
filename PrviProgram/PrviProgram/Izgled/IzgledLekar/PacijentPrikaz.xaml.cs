@@ -79,7 +79,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Alergeni_Click(object sender, RoutedEventArgs e)
         {
             PregledAlergena pregledAlergena = new PregledAlergena(pacijent);
-            pregledAlergena.Show();
+            pregledAlergena.ShowDialog();
         }
 
         private void Azuriraj_Click(object sender, RoutedEventArgs e)

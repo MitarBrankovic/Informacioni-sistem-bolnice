@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="AlternativniLekWindow" Height="450" Width="400"
+        Title="Alternativni lek" Height="450" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Pacijent je alergičan na lek, ili sastojak leka!" FontSize="18" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGridAlternativniLek" MinHeight="140" Margin="44,112,44,102" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGridAlternativniLek_SelectionChanged">
+        <DataGrid Style="{StaticResource DataGridDesign }" x:Name="dataGridAlternativniLek" MinHeight="140" Margin="44,112,44,102" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGridAlternativniLek_SelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,7 +23,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Izaberite alternativni lek:" HorizontalAlignment="Left" Margin="61,81,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Potrvrdi" Content="Potvrdi" Click="Potrvrdi_Click" HorizontalAlignment="Left" Margin="216,362,0,0" VerticalAlignment="Top" Height="41" Width="140" />
-        <Button x:Name="Zatvori" Content="Zatvori" Click="Zatvori_Click" HorizontalAlignment="Left" Margin="44,362,0,0" VerticalAlignment="Top" Height="41" Width="140" />
+        <Button x:Name="Potrvrdi" Style="{StaticResource LekarButton }" Content="Potvrdi" Click="Potrvrdi_Click" HorizontalAlignment="Left" Margin="216,362,0,0" VerticalAlignment="Top" Height="40" Width="140" />
+        <Button x:Name="Zatvori" Style="{StaticResource LekarButton }" Content="Zatvori" Click="Zatvori_Click" HorizontalAlignment="Left" Margin="44,362,0,0" VerticalAlignment="Top" Height="40" Width="140" />
     </Grid>
 </Window>

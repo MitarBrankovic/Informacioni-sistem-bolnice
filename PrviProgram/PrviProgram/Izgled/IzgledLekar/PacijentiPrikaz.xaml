@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <DataGrid ToolTip="Lista pacijenata" x:Name="dgDataBinding" AutoGenerateColumns="False" Margin="41,91,41,63" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True" MinHeight="450">
+        <DataGrid Style="{StaticResource DataGridDesign }" ToolTip="Lista pacijenata" x:Name="dgDataBinding" AutoGenerateColumns="False" Margin="41,91,41,63" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontWeight="Bold" IsReadOnly="True" MinHeight="450" HeadersVisibility="All">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -23,7 +23,7 @@
                 <DataGridTextColumn Header="Pol" Width="0.2*" Binding="{Binding Pol}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="50" Margin="41,19,0,0" VerticalAlignment="Top" Width="110" />
+        <Button Style="{StaticResource LekarButtonMenuBar }" ToolTip="Karton pacijenta" x:Name ="Informacije" Click="Informacije_Click"  Content="Karton pacijenta" HorizontalAlignment="Left" Height="50" Margin="41,19,0,0" VerticalAlignment="Top" Width="110" />
         <TextBox ToolTip="Pretraži" x:Name="TextboxSearch" HorizontalAlignment="Left" FontSize="17" VerticalContentAlignment="Center" Margin="591,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="50" TextChanged="TextBox_TextChanged"/>
 
     </Grid>

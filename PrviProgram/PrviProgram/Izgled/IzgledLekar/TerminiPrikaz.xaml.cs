@@ -38,7 +38,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             DodavanjeTermina dodavanje = new DodavanjeTermina(termini, lekar);
-            dodavanje.Show();
+            dodavanje.ShowDialog();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             if (termin.Izvrsen != true)
             {
                 IzmenaTermina izmena = new IzmenaTermina(termini, (Termin)dataGridLekar.SelectedItem);
-                izmena.Show();
+                izmena.ShowDialog();
             }
             else
             {

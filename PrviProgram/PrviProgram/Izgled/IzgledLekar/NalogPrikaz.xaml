@@ -8,7 +8,7 @@
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
         <Image Source="/Slike/Doktor.png" HorizontalAlignment="Left" Height="186" Margin="518,45,0,0" VerticalAlignment="Top" Width="143"/>
-        <Button ToolTip="Izloguj se" x:Name="IzlogujSe" Content="Izloguj se" HorizontalAlignment="Left" Margin="558,515,0,0" VerticalAlignment="Top" Height="48" Width="169" Click="IzlogujSe_Click"/>
+        <Button Style="{StaticResource LekarButton }" ToolTip="Izloguj se" x:Name="IzlogujSe" Content="Izloguj se" HorizontalAlignment="Left" Margin="558,515,0,0" VerticalAlignment="Top" Height="48" Width="169" Click="IzlogujSe_Click"/>
         <TextBlock Height="24" HorizontalAlignment="Left" Margin="59,45,0,0" x:Name="textBlockIme" Text="Ime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="24" HorizontalAlignment="Left" Margin="59,76,0,0" x:Name="textBlockPrezime" Text="Prezime:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="24" HorizontalAlignment="Left" Margin="59,107,0,0" x:Name="textBlockJMBG" Text="JMBG:" VerticalAlignment="Top" Width="110" />
@@ -42,7 +42,7 @@
         <TextBlock Height="24" HorizontalAlignment="Left" Margin="59,462,0,0" x:Name="textBlockLozinka" Text="Lozinka:" VerticalAlignment="Top" Width="110" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,431,0,0" x:Name="textBoxKorisnickoIme" VerticalAlignment="Top" Width="222" />
         <PasswordBox Height="25" HorizontalAlignment="Left" Margin="175,462,0,0" x:Name="textBoxLozinka" VerticalAlignment="Top" Width="222" />
-        <Button ToolTip="Izmeni informacije" x:Name="Izmeni" Content="Izmeni informacije" HorizontalAlignment="Left" Margin="59,515,0,0" VerticalAlignment="Top" Height="48" Width="338" Click="Izmeni_Click"/>
+        <Button Style="{StaticResource LekarButton }" ToolTip="Izmeni informacije" x:Name="Izmeni" Content="Izmeni informacije" HorizontalAlignment="Left" Margin="59,515,0,0" VerticalAlignment="Top" Height="48" Width="338" Click="Izmeni_Click"/>
 
     </Grid>
 </UserControl>

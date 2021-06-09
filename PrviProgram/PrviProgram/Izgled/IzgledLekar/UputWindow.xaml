@@ -20,8 +20,8 @@
         <ComboBox x:Name="vremeText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Margin="200,300,0,0" Height="23" />
         <CheckBox Height="23" HorizontalAlignment="Left" Margin="198,43,0,0" x:Name="checkBoxHitanSlucaj" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="162" Checked="checkBoxHitanSlucaj_Checked" Unchecked="checkBoxHitanSlucaj_Unchecked"/>
         <Label Content="Hitan slucaj"  HorizontalAlignment="Left" Height="25" Margin="49,43,0,0" VerticalAlignment="Top" Width="122"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="27" Margin="230,349,0,0" VerticalAlignment="Top" Width="102" Click="Potvrdi_Click"/>
-        <Button x:Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Height="27" Margin="59,349,0,0" VerticalAlignment="Top" Width="102" Click="Otkazi_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="40" Margin="222,364,0,0" VerticalAlignment="Top" Width="140" Click="Potvrdi_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Height="40" Margin="49,364,0,0" VerticalAlignment="Top" Width="140" Click="Otkazi_Click"/>
         <ComboBox Height="24" HorizontalAlignment="Left" Margin="200,142,0,0" x:Name="comboBoxLekari" VerticalAlignment="Top" Width="162" SelectionChanged="comboBoxLekari_SelectionChanged" />
         <Label Content="Lekar"  HorizontalAlignment="Left" Height="25" Margin="49,142,0,0" VerticalAlignment="Top" Width="122"/>
 

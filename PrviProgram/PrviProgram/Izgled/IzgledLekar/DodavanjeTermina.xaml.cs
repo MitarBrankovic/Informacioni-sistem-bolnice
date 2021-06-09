@@ -15,7 +15,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class DodavanjeTermina : Window
     {
         private TerminiService terminiService = new TerminiService();
-        public TerminiSaleController terminiSale;
+        public TerminiSaleController terminiSale = new TerminiSaleController();
         private UtilityService utilityService = new UtilityService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private SalaRepository salaRepository = new SalaRepository();

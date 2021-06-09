@@ -125,7 +125,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Help_Click(object sender, RoutedEventArgs e)
         {
             PodesavanjaWindow podesavanjaWindow = new PodesavanjaWindow(lekar);
-            podesavanjaWindow.Show();
+            podesavanjaWindow.ShowDialog();
         }
 
     }
