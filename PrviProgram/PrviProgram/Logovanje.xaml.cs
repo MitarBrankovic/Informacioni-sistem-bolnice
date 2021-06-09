@@ -60,8 +60,8 @@ namespace PrviProgram
                     Sekretar sekretar = sekretarRepository.CitanjeIzFajla().First(o => o.Korisnik.KorisnickoIme == korisnik.KorisnickoIme);
                     if (sekretar != null)
                     {
-                        PocetniPrikaz win = new PocetniPrikaz(sekretar);
-                        win.Show();
+                        //PocetniPrikaz win = new PocetniPrikaz(sekretar);
+                        //win.Show();
                         Aplikacija aplikacija = new Aplikacija(sekretar);
                         aplikacija.Show();
                     }

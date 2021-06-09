@@ -15,7 +15,8 @@
             <RowDefinition Height="0"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -28,7 +29,7 @@
         <DataGrid Name="dgDataBinding"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
-                  Grid.Row="4"
+                  Grid.Row="5"
                   Grid.ColumnSpan="4">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -73,5 +74,9 @@
                 Content="{loc:Loc Specialization}"
                 Grid.Column="3"
                 Grid.Row="2"/>
+
+        <TextBlock x:Name="TextBlokSearch" Style="{DynamicResource font_label_style}" Text="{loc:Loc Search}" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="TextboxSearch" Style="{DynamicResource TextBoxStyle}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" TextChanged="TextBox_TextChanged"/>
+
     </Grid>
 </Page>

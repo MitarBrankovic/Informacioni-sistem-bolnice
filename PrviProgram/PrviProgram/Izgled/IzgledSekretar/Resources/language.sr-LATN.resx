@@ -306,6 +306,9 @@
   <data name="Schedule an appointment" xml:space="preserve">
     <value>Zakazi termin</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraga:</value>
+  </data>
   <data name="SelectReport" xml:space="preserve">
     <value>Izaberite izvetaj koji zelite da generisete:</value>
   </data>
