@@ -89,5 +89,10 @@ namespace PrviProgram.Izgled.IzgledLekar
             this.Close();
         }
 
+        private void PovratnaInformacija_Click(object sender, RoutedEventArgs e)
+        {
+            PovratneInformacijeWindow povratneInformacijeWindow = new PovratneInformacijeWindow(lekar);
+            povratneInformacijeWindow.Show();
+        }
     }
 }

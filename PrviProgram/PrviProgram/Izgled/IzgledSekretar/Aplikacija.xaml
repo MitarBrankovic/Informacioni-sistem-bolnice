@@ -44,7 +44,7 @@
                     <TextBlock x:Name="textBlockNaslov"
                         Grid.Row="0"
                         Grid.Column="1"
-                        Text="Naslov"
+                        Text="{Binding CurrentTitle}"
                         FontSize="22"
                         Foreground="White"
                         Style="{DynamicResource font_style}">
