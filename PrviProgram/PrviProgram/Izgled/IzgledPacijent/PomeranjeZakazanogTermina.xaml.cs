@@ -26,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
 
         public Lekar lekar = new Lekar();
         public Termin termin=new Termin();
+        public TerminiLekarController terminiLekar;
 
 
         public DateTime trenutnoVreme = new DateTime();
@@ -106,7 +107,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             }
             else
             {
-                int[] noviNizSlobodnihIZauzetihVremena = pacijentControler.ProveraZauzetostiLekara(this.lekar.Jmbg, (DateTime)DatumText.SelectedDate, nizVremena);
+                int[] noviNizSlobodnihIZauzetihVremena = terminiLekar.ProveraZauzetostiLekara(this.lekar.Jmbg, (DateTime)DatumText.SelectedDate, nizVremena);
                 brisanjeComboBoxova(noviNizSlobodnihIZauzetihVremena);
                 if (vremeText.Items.IsEmpty)
                 {

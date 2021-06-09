@@ -22,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public DateTime pocetakDatum;
         public DateTime krajDatum;
         public Pacijent pacijent;
+        public NotifikacijeController notifikacijeController;
 
         public PacijentControler pacijentControler = new PacijentControler();
         public List<NotifikacijePacijenta> notifikacije=new List<NotifikacijePacijenta>();
@@ -76,7 +77,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             Recept recept = new Recept(OpisLeka.Text);
 
             NotifikacijePacijenta novaNotifikacijaPacijenta = new NotifikacijePacijenta(this.pacijent, pocetakDatum, krajDatum, recept, comboBoxVreme.Text, "Morate popiti " + listaLekova.SelectedItem.ToString() + " za 1h.");
-            pacijentControler.DodavanjeNotifikacije(novaNotifikacijaPacijenta);
+            notifikacijeController.DodavanjeNotifikacije(novaNotifikacijaPacijenta);
             potvrdiButton.IsEnabled = false;
             otkaziButton.IsEnabled = false;
         
@@ -92,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 Recept recept= new Recept();
                 OpisLeka.IsEnabled = true;
-                OpisLeka.Text = pacijentControler.PronadjiOpis(this.pacijent, recept);
+                OpisLeka.Text = notifikacijeController.PronadjiOpis(this.pacijent, recept);
             }
         }
 

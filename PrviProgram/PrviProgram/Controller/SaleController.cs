@@ -10,6 +10,7 @@ namespace Controller
     {
         private SaleService saleService = new SaleService();
         private TerminiService terminiService = new TerminiService();
+        public TerminiSaleService terminiSaleService;
 
         public bool DodavanjeSale(Sala sala)
         {
@@ -23,7 +24,7 @@ namespace Controller
         {
             if (saleService.BrisanjeSale(sala))
             {
-                terminiService.BrisanjeSaleIzTermina(sala);
+                terminiSaleService.BrisanjeSaleIzTermina(sala);
                 return true;
             }
             else

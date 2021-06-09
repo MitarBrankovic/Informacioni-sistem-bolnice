@@ -26,8 +26,7 @@
         <Button x:Name="OtkaziButton"  Content="Otkaži" HorizontalAlignment="Left" Height="30" Margin="181,228,0,0" VerticalAlignment="Top" Width="111" Click="otkazi_Click"/>
         <Label Content="Tip termina:" HorizontalAlignment="Left" Height="25" Margin="19,150,0,0" VerticalAlignment="Top" Width="122"/>
         <ComboBox x:Name="TipTerminaText" HorizontalAlignment="Left" Margin="156,151,0,0" VerticalAlignment="Top" Width="167"  Height="26" >
-            <ComboBoxItem Content="Pregled"/>
-            <ComboBoxItem Content="Kontrola"/>
+
         </ComboBox>
 
     </Grid>

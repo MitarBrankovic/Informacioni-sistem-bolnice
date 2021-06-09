@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Controller;
 using Model;
+using PrviProgram.Controller;
 using Repository;
 using Service;
 
@@ -10,6 +12,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {
     public partial class ZakazivanjeTermina : Window
     {
+        public TerminiLekarController terminiLekarController;
+        public TerminiSaleController terminiSaleController;
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
@@ -64,7 +68,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.guestPacijent = guestPacijent;
             }
-            termin.sala = terminiService.DobavljanjeSale(termin);
+            termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }
 
@@ -126,7 +130,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void ObrisiZauzeteTermineLekara()
         {
-            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekara((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+            List<string> zauzetiTermini = terminiLekarController.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
             foreach (String vremeTerminaZaBrisanje in utilityService.nizVremena)
             {
                 foreach (String zauzetiTermin in zauzetiTermini)

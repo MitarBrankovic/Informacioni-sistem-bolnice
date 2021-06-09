@@ -243,5 +243,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
             win.Show();
 
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Page pocetna = new PovratneInformacijePage(pacijent);
+            this.frame.NavigationService.Navigate(pocetna);
+        }
     }
 }

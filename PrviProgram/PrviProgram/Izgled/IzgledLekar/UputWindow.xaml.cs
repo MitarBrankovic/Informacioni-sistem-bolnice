@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Controller;
 using PrviProgram.Repository;
 using Repository;
 using Service;
@@ -25,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private LekarController lekarController = new LekarController();
         private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();
+        public TerminiSaleController terminiSaleController;
         private TerminiRepository terminiRepository = new TerminiRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
         private List<string> constVreme;
@@ -130,7 +132,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 vremeText.Text,
                 (Lekar)comboBoxLekari.SelectedItem,
                 pacijent);
-            termin.sala = TerminiService.getInstance().DobavljanjeSale(termin);
+            termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }
 

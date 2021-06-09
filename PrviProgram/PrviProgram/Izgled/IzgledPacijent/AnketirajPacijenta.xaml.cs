@@ -16,6 +16,7 @@ using Repository;
 using PrviProgram.Repository;
 using System.ComponentModel;
 using System.Windows.Threading;
+using Controller;
 
 namespace PrviProgram.Izgled.IzgledPacijent
 {
@@ -24,6 +25,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
     {
         public Pacijent pacijent = new Pacijent();
         public List<Termin> termini = new List<Termin>();
+        public TerminiLekarController terminiLekar;
         public List<AnketiranjePacijenta> anketa = new List<AnketiranjePacijenta>();
         public AnketiranjePacijentaRepository datotekaAnkete = new AnketiranjePacijentaRepository();
         public BolnicaAnketiranjeRepository datotekaBolnica = new BolnicaAnketiranjeRepository();
@@ -138,7 +140,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             else
             {
                 this.termin = (Termin)terminComboBox.SelectedItem;
-                this.lekar = TerminiService.getInstance().LekarKojiJeZaduzenZaTermin(this.termin);
+                this.lekar = terminiLekar.LekarKojiJeZaduzenZaTermin(this.termin);
                 LekarTextBlock.Text = lekar.ToString();         
                 ocenaLekaraComboBox.IsEnabled = true; 
             }

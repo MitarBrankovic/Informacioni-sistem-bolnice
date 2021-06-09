@@ -1,4 +1,6 @@
-﻿using Model;
+﻿using Controller;
+using Model;
+using PrviProgram.Controller;
 using PrviProgram.Service;
 using Repository;
 using Service;
@@ -22,8 +24,10 @@ namespace PrviProgram.Izgled.IzgledPacijent
     /// </summary>
     public partial class DodavanjeTerminaKodPacijenta : Window
     {
+        public TerminiLekarController terminiLekarController = new TerminiLekarController();
         public ObservableCollection<Termin> termini;
         public Pacijent pacijent;
+        public PacijentControler pacijentControler = new PacijentControler();
         public List<Lekar> lekari = new List<Lekar>();
         public DateTime minDatum = new DateTime();
         public DateTime maxDatum = new DateTime();
@@ -36,6 +40,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             this.termini = termini;
             this.pacijent = pacijent;
             lekarComboBox.ItemsSource = citanjeLekara();
+            TipTerminaText.ItemsSource = Enum.GetValues(typeof(TipTermina));
             PostavljanjeButtonNaFalse();
 
         }
@@ -88,10 +93,11 @@ namespace PrviProgram.Izgled.IzgledPacijent
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
 
-            if(TerminiService.getInstance().ProveraZauzetostiKodLekara(minDatum,maxDatum,selektovaniLekar))
+            if(terminiLekarController.ProveraZauzetostiKodLekara(minDatum,maxDatum,selektovaniLekar))
             {
+             
                 
-                List<Termin> termini11 = new List<Termin>(TerminiService.getInstance().SviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,(TipTermina)TipTerminaText.SelectedItem));
+                List<Termin> termini11 = new List<Termin>(pacijentControler.SviSlobodniTermini(minDatum, maxDatum, selektovaniLekar,(TipTermina)TipTerminaText.SelectedItem));
                 TerminiService.getInstance().terminiSlobodni = new List<Termin>();
               
                 IzborPregleda prozor = new IzborPregleda(termini11,termini,pacijent);

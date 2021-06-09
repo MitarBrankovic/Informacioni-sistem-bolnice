@@ -34,6 +34,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public AntiTrollRepository datotekaAnitTrollMehanizma = new AntiTrollRepository();
         public DispatcherTimer timerZaOtkljucavanjeAntiTrollMehanizma;
         public PacijentControler pacijentController = new PacijentControler();
+        public AntiTrollController antiTrollController;
 
 
         public PregledTermina(Pacijent p)
@@ -178,7 +179,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 pacijentController.BrisanjeTermina((Termin)dataGridPacijenta.SelectedItem);
                 termini.Remove((Termin)dataGridPacijenta.SelectedItem);
-                pacijentController.PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
+                antiTrollController.PovecavanjeBrojacaPriOtkazivanjuTermina(pacijent);
             }
             else
             {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using Controller;
 using Model;
+using PrviProgram.Controller;
 using Repository;
 using Service;
 
@@ -19,6 +21,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private ObservableCollection<TipTermina> tipTermina = new ObservableCollection<TipTermina>(Enum.GetValues(typeof(TipTermina)).Cast<TipTermina>());
         private Termin termin;
         public KartonPacijentaService kartonPacijentaService;
+        public TerminiSaleController terminiSaleController;
 
         public IzmenaTermina(ObservableCollection<Termin> termini, Termin termin)
         {
@@ -101,7 +104,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             {
                 termin.guestPacijent = (GuestPacijent)comboBoxPacijenti.SelectedItem;
             }
-            termin.sala = terminiService.DobavljanjeSale(termin);
+            termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }
 
@@ -128,7 +131,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private void ObrisiZauzeteTermineLekara()
         {
-            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekara((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
+            List<string> zauzetiTermini = terminiLekarController.ZauzetiTerminiLekaraDatuma((Lekar)comboBoxLekari.SelectedItem, (DateTime)datePicker.SelectedDate);
             foreach (String vremeTerminaZaBrisanje in utilityService.nizVremena)
             {
                 foreach (String zauzetiT in zauzetiTermini)
@@ -150,6 +153,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         {
             AzurirajVreme();
         }
+        public TerminiLekarController terminiLekarController;
 
     }
 }

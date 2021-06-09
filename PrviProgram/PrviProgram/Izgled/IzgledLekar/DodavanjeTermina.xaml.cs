@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Controller;
 using PrviProgram.Repository;
 using PrviProgram.Service;
 using Repository;
@@ -14,6 +15,7 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class DodavanjeTermina : Window
     {
         private TerminiService terminiService = new TerminiService();
+        public TerminiSaleController terminiSale;
         private UtilityService utilityService = new UtilityService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private SalaRepository salaRepository = new SalaRepository();
@@ -40,7 +42,7 @@ namespace PrviProgram.Izgled.IzgledLekar
                 vremeText.Text,
                 lekar,
                 (Pacijent)ComboboxPacijent.SelectedItem);
-            termin.sala = terminiService.DobavljanjeSale(termin);
+            termin.sala = terminiSale.DobavljanjeSale(termin);
             if (!terminiService.ProveraZauzetostiTermina(termin))
             {
                 terminiService.DodavanjeTermina(termin);

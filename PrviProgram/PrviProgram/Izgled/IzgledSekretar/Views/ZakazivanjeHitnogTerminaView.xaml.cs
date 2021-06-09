@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Model;
+using PrviProgram.Controller;
 using PrviProgram.Repository;
 using Repository;
 using Service;
@@ -21,6 +22,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
         private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
+        public TerminiSaleController terminiSaleController;
 
         public ZakazivanjeHitnogTerminaView()
         {
@@ -91,7 +93,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             {
                 termin.guestPacijent = guestPacijent;
             }
-            termin.sala = terminiService.DobavljanjeSale(termin);
+            termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }
 

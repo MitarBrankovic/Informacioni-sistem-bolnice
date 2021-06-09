@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using PrviProgram.Controller;
 using PrviProgram.Service;
 using Service;
 using System;
@@ -27,6 +28,8 @@ namespace PrviProgram.Izgled.IzgledPacijent
         public Pacijent pacijent = new Pacijent();
         public UtilityService utilityService = new UtilityService();
         public PacijentControler pacijentControler = new PacijentControler();
+        public AntiTrollController anitTrollController;
+        public TerminiSaleController terminiSaleController;
         public IzborPregleda(List<Termin> slobodniTermini, ObservableCollection<Termin> termini,Pacijent pacijent)
         {
             InitializeComponent();
@@ -43,12 +46,12 @@ namespace PrviProgram.Izgled.IzgledPacijent
             {
                 Termin termin = (Termin)dataGridIzborPregleda.SelectedItem;
                 Sala sala = new Sala();
-                sala = TerminiService.getInstance().DobavljanjeSale(termin);
+                sala = terminiSaleController.DobavljanjeSale(termin);
                 termin.sala = sala;
                 termin.SifraTermina = utilityService.GenerisanjeSifre();
                 termin.pacijent = pacijent;
                 pacijentControler.DodavanjeTermina(termin);
-                pacijentControler.PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
+                anitTrollController.PovecavanjeBrojacaPriDodavanjuTermina(pacijent);
                 this.termini.Add(termin);
                 this.Close();
             }

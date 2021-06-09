@@ -17,6 +17,7 @@ namespace Controller
 {
     public class LekarController
    {
+        public TerminiLekarController terminiLekarController;
         private PrimedbeNaLekService primedbeNaLekService = new PrimedbeNaLekService();
         private BolnickoLecenjeService bolnickoLecenjeService = new BolnickoLecenjeService();
         private PacijentRepository pacijentRepository = new PacijentRepository();
@@ -96,7 +97,7 @@ namespace Controller
 
         public ObservableCollection<string> DobavljanjeSlobodnihTerminaLekara(Lekar lekar, DateTime datumTermina)
         {
-            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekara(lekar, datumTermina);
+            List<string> zauzetiTermini = terminiLekarController.ZauzetiTerminiLekaraDatuma(lekar, datumTermina);
             ObservableCollection<string> slobodniTermini = new ObservableCollection<string>(constVreme);
             foreach (String vremeT in constVreme)
             {
@@ -113,7 +114,7 @@ namespace Controller
 
         public ObservableCollection<String> DobavljanjeSlobodnihTerminaLekaraZaIzmenuTermina(Lekar lekar, DateTime datumTermina, Termin termin)
         {
-            List<string> zauzetiTermini = terminiService.ZauzetiTerminiLekara(lekar, datumTermina);
+            List<string> zauzetiTermini = terminiLekarController.ZauzetiTerminiLekaraDatuma(lekar, datumTermina);
             ObservableCollection<string> slobodniTermini = new ObservableCollection<string>(constVreme);
             foreach (String vremeT in constVreme)
             {
