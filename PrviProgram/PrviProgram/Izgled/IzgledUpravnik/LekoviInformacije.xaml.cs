@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.ViewModel;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -16,28 +17,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class LekoviInformacije : Window
     {
-        private Lek lek;
-
+        public LekoviInformacijeViewModel lekoviInformacijeViewModel;
         public LekoviInformacije(Lek lek)
         {
+            lekoviInformacijeViewModel = new LekoviInformacijeViewModel(lek, this);
             InitializeComponent();
-            this.lek = lek;
-            PrikazPodataka();
+            this.DataContext = lekoviInformacijeViewModel;
+            alternativniListView.ItemsSource = lek.ZamenaZaLek;
         }
 
-        private void Odustani_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-        private void PrikazPodataka()
-        {
-            Naziv.Text = this.lek.Naziv;
-            Sifra.Text = this.lek.Sifra;
-            Opis.Text = this.lek.Opis;
-            Sastojci.Text = this.lek.Sastojci;
-            alternativniListView.ItemsSource = this.lek.ZamenaZaLek;
-        }
-
+        #region Navigacija kroz prozor
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
@@ -45,5 +34,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 this.Close();
             }
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Model;
+using PrviProgram.ViewModel;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -18,89 +19,16 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 {
     public partial class Podesavanja : UserControl
     {
-        private bool isToolTipVisible = true;
-        private UtilityService utilityService = new UtilityService();
-        private Upravnik upravnik;
-        bool pritisnuto = false;
+        public PodesavanjaViewModel podesavanjaViewModel;
 
         public Podesavanja(Upravnik upravnik)
         {
+            podesavanjaViewModel = new PodesavanjaViewModel(upravnik, this);
             InitializeComponent();
-            this.upravnik = upravnik;
+            this.DataContext = podesavanjaViewModel;
         }
 
-        private void Da_Click(object sender, RoutedEventArgs e)
-        {
-            if (!pritisnuto)
-            {
-                this.isToolTipVisible = true;
-                Style style = new Style(typeof(ToolTip));
-                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
-                style.Seal();
-                foreach (Window window in Application.Current.Windows)
-                {
-                    window.Resources.Remove(typeof(ToolTip));
-                    isToolTipVisible = true;
-                }
-                pritisnuto = true;
-            }
-        }
-
-        private void Ne_Click(object sender, RoutedEventArgs e)
-        {
-            if (pritisnuto)
-            {
-                MessageBoxResult rsltMessageBox = MessageBox.Show("Are you sure you want to disable tooltips?", "Tooltips",
-                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
-                switch (rsltMessageBox)
-                {
-                    case MessageBoxResult.Yes:
-                        this.isToolTipVisible = false;
-
-                        Style style = new Style(typeof(ToolTip));
-                        style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
-                        style.Seal();
-
-                        foreach (Window window in Application.Current.Windows)
-                        {
-                            window.Resources.Add(typeof(ToolTip), style);
-                            isToolTipVisible = false;
-                        }
-                        break;
-                    case MessageBoxResult.No:
-                        break;
-                    case MessageBoxResult.Cancel:
-                        break;
-                }
-                pritisnuto = false;
-            }
-        }
-
-        private void Izmena_Click(object sender, RoutedEventArgs e)
-        {
-            PodesavanjaNalogaUpravnika win = new PodesavanjaNalogaUpravnika(upravnik);
-            win.ShowDialog();
-        }
-
-        private void Pomoc_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(
-            "- LCTRL/RCTRL: Kretanje kroz aplikaciju.\n" +
-            "- M: Selektovanje MenuBar-a - FILE.\n" +
-            "- ENTER: Potvrda akcije selektovanog dugmeta. \n" +
-            "- ESCAPE: Povratak na pocetni prozor. \n" +
-            "- LCTRL/RCTRL: Vracanje fokusa na dugmice kada je fokus na tabeli.\n" +
-            "- F1: Otvaranje Pomoc dijaloga. \n" +
-
-            "- ENTER/SPACE: Zatvaranje ove poruke.\n"
-            , "HELP");
-        }
-
-        private void Nazad_Click(object sender, RoutedEventArgs e)
-        {
-            (this.Parent as Grid).Children.Remove(this);
-        }
-
+        #region Navigacija kroz prozor
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Da.Focus();
@@ -174,12 +102,9 @@ namespace PrviProgram.Izgled.IzgledUpravnik
 
         private void Button_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            UtilityService utilityService = new UtilityService();
             utilityService.InicijalizacijaToolTipa(sender);
         }
-
-        private void LogOut_Click(object sender, RoutedEventArgs e)
-        {
-            utilityService.LogOutUpravnikaUserControl(this);
-        }
+        #endregion
     }
 }

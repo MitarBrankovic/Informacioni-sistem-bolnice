@@ -11,20 +11,20 @@
         <Label Content="Naziv" HorizontalAlignment="Left" Height="25" Margin="103,46,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sifra" HorizontalAlignment="Left" Height="25" Margin="103,92,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Sastojci" HorizontalAlignment="Left" Height="25" Margin="103,140,0,0" VerticalAlignment="Top" Width="122" />
-        <TextBox x:Name="Naziv" IsEnabled="False" HorizontalAlignment="Left" Margin="250,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sifra" IsEnabled="False" HorizontalAlignment="Left" Margin="250,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
-        <TextBox x:Name="Sastojci" IsEnabled="False" HorizontalAlignment="Left" Height="70" Margin="252,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="Naziv" Text="{Binding Lek.Naziv}" IsEnabled="False" HorizontalAlignment="Left" Margin="250,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <TextBox x:Name="Sifra" Text="{Binding Lek.Sifra}" IsEnabled="False" HorizontalAlignment="Left" Margin="250,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="25"/>
+        <TextBox x:Name="Sastojci" Text="{Binding Lek.Sastojci}" IsEnabled="False" HorizontalAlignment="Left" Height="70" Margin="252,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <Label Content="Opis" HorizontalAlignment="Left" Height="25" Margin="103,242,0,0" VerticalAlignment="Top" Width="122" />
-        <TextBox x:Name="Opis" IsEnabled="False" HorizontalAlignment="Left" Height="70" Margin="252,242,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="Opis" Text="{Binding Lek.Opis}" IsEnabled="False" HorizontalAlignment="Left" Height="70" Margin="252,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <Label Content="Alternativni lekovi" HorizontalAlignment="Left" Height="25" Margin="103,343,0,0" VerticalAlignment="Top" Width="122" />
-        <ListView x:Name="alternativniListView"  HorizontalAlignment="Left" Height="102" Margin="250,343,0,0" VerticalAlignment="Top" Width="167">
+        <ListView x:Name="alternativniListView" ItemsSource="{Binding Lek.ZamenaZaLek}" HorizontalAlignment="Left" Height="102" Margin="250,343,0,0" VerticalAlignment="Top" Width="167">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naziv" Width="167" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" HorizontalAlignment="Center" Height="27" Margin="0,471,0,0" VerticalAlignment="Top" Width="102" Click="Odustani_Click">
+        <Button x:Name="Odustani" Style="{StaticResource UpravnikButton}" Command="{Binding OdustaniDugme}" HorizontalAlignment="Center" Height="27" Margin="0,471,0,0" VerticalAlignment="Top" Width="102">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="/Slike/odustani.png" Margin="0, 0, 10, 0" Height="19" Width="22"/>
                 <AccessText VerticalAlignment="Center" HorizontalAlignment="Center" Text="Odustani"/>

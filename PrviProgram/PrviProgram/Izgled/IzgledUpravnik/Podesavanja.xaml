@@ -9,14 +9,14 @@
              Loaded="UserControl_Loaded"
              KeyDown="UserControl_KeyDown">
     <Grid x:Name="gridMain" Visibility="Visible" Background="SeaShell">
-        <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Nazad_Click" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
+                <Button x:Name="Nazad" Style="{StaticResource UpravnikButton }" Command="{Binding NazadDugme}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Content="Nazad" HorizontalAlignment="Left" Height="24" Margin="35,591,0,0" VerticalAlignment="Top" Width="75">
                     <Button.ToolTip>
                         <ToolTip>
                             Povratak na pocetni prozor
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Pomoc_Click" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1081,49,0,0" VerticalAlignment="Top" Width="66">
+                <Button x:Name="Pomoc" Style="{StaticResource UpravnikButton }" Command="{Binding PomocDugme}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Content="Pomoc" HorizontalAlignment="Left" Height="21" Margin="1081,49,0,0" VerticalAlignment="Top" Width="66">
                     <Button.ToolTip>
                         <ToolTip>
                             Deteljna uputstva za korisnjece aplikacije
@@ -25,21 +25,21 @@
                 </Button>
                 <Label Content="Podesavanja"  HorizontalAlignment="Center" Height="56" Margin="0,37,0,0" VerticalAlignment="Top" Width="150" FontSize="26"/>
                 <Label Content="Prikazi tooltip-ove" HorizontalAlignment="Left" Height="30" Margin="388,257,0,0" VerticalAlignment="Top" Width="128"/>
-                <Button x:Name="Da" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Da_Click" Content="Da" HorizontalAlignment="Left" Height="22" Margin="552,261,0,0" VerticalAlignment="Top" Width="66">
+                <Button x:Name="Da" Style="{StaticResource UpravnikButton}" Command="{Binding DaDugme}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Content="Da" HorizontalAlignment="Left" Height="22" Margin="552,261,0,0" VerticalAlignment="Top" Width="66">
                     <Button.ToolTip>
                         <ToolTip Content="Prikazi tooltip-ove"/>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Ne" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Ne_Click" Content="Ne" HorizontalAlignment="Left" Height="21" Margin="648,261,0,0" VerticalAlignment="Top" Width="66">
+                <Button x:Name="Ne" Style="{StaticResource UpravnikButton}" Command="{Binding NeDugme}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Content="Ne" HorizontalAlignment="Left" Height="21" Margin="648,261,0,0" VerticalAlignment="Top" Width="66">
                     <Button.ToolTip>
                         <ToolTip Content="Obrisi tooltip-ove"/>
                     </Button.ToolTip>
                 </Button>
                 <Label Content="Podesavanje podataka upravnika" HorizontalAlignment="Left" Height="30" Margin="388,0,0,0" VerticalAlignment="Center" Width="197"/>
-        <Button x:Name="Izmena" Style="{StaticResource UpravnikButton}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Click="Izmena_Click" Content="Izmena" HorizontalAlignment="Left" Height="22" Margin="600,0,0,0" VerticalAlignment="Center" Width="66">
-            <Button.ToolTip>
-                <ToolTip Content="Prikazi tooltip-ove"/>
-            </Button.ToolTip>
-        </Button>
+                <Button x:Name="Izmena" Style="{StaticResource UpravnikButton}" Command="{Binding IzmenaDugme}" IsKeyboardFocusedChanged="Button_IsKeyboardFocusedChanged" Content="Izmena" HorizontalAlignment="Left" Height="22" Margin="600,0,0,0" VerticalAlignment="Center" Width="66">
+                    <Button.ToolTip>
+                        <ToolTip Content="Prikazi tooltip-ove"/>
+                    </Button.ToolTip>
+                </Button>
     </Grid>
 </UserControl>
