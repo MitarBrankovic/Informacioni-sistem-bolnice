@@ -51,8 +51,8 @@ namespace Service
                 table.Rows.Add(new string[] { "Lekar", "Pocetni datum", "Krajnji datum", "Pocetno vreme", "Krajnje vreme" });
                 foreach (RadnoVremeLekara radnoVreme in pomocnaLista)
                 {
-                    table.Rows.Add(new string[] { radnoVreme.Lekar.Ime+" "+radnoVreme.Lekar.Prezime, radnoVreme.PocetniDatum.ToString(),
-                        radnoVreme.KrajnjiDatum.ToString(), radnoVreme.PocetakRadnogVremena.ToString(), radnoVreme.KrajRadnogVremena.ToString() });
+                    table.Rows.Add(new string[] { radnoVreme.Lekar.Ime+" "+radnoVreme.Lekar.Prezime, radnoVreme.PocetniDatum.ToShortDateString(),
+                        radnoVreme.KrajnjiDatum.ToShortDateString(), radnoVreme.PocetakRadnogVremena.ToString(), radnoVreme.KrajRadnogVremena.ToString() });
                 }
 
                 pdfLightTable.DataSource = table;

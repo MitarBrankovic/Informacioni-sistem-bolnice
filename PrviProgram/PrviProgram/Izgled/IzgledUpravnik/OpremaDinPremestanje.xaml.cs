@@ -50,7 +50,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
-            else if(int.Parse(Kolicina.Text) < 0) {
+            else if(int.Parse(Kolicina.Text) < 1) {
                 MessageBox.Show("Kolicina nije dobro uneta!", "Greska");
             }
             else

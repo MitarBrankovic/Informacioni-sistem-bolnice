@@ -46,51 +46,6 @@
   },
   {
     "Lekar": {
-      "termin": null,
-      "specijalizacija": [
-        {
-          "Naziv": "Hirurgija"
-        }
-      ],
-      "MestoRodjenja": {
-        "Ime": "Novi Sad",
-        "drzava": {
-          "Ime": "Srbija"
-        }
-      },
-      "Korisnik": {
-        "KorisnickoIme": "srdjan",
-        "Lozinka": "srdjan",
-        "TipKorisnika": 3,
-        "osoba": null
-      },
-      "AdresaStanovanja": {
-        "Ulica": "tolstojeva",
-        "Broj": 10,
-        "Sprat": 5,
-        "Stan": 23,
-        "grad": {
-          "Ime": "Novi Sad",
-          "drzava": {
-            "Ime": "Srbija"
-          }
-        }
-      },
-      "Ime": "Srdjan",
-      "Prezime": "Beric",
-      "Email": "srdjan@gmail.com",
-      "Jmbg": "00012312",
-      "DatumRodjenja": "0001-01-01T00:00:00",
-      "Pol": 0,
-      "KontaktTelefon": "1264512"
-    },
-    "PocetakRadnogVremena": "08:00:00",
-    "KrajRadnogVremena": "08:00:00",
-    "PocetniDatum": "2021-05-31T00:00:00",
-    "KrajnjiDatum": "2021-06-01T00:00:00"
-  },
-  {
-    "Lekar": {
       "termin": [],
       "specijalizacija": [
         {
@@ -268,5 +223,50 @@
     "KrajRadnogVremena": "08:00:00",
     "PocetniDatum": "2021-06-10T00:00:00",
     "KrajnjiDatum": "2021-06-16T00:00:00"
+  },
+  {
+    "Lekar": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": "srdjan@gmail.com",
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "1264512"
+    },
+    "PocetakRadnogVremena": "08:00:00",
+    "KrajRadnogVremena": "08:00:00",
+    "PocetniDatum": "2021-06-09T00:00:00",
+    "KrajnjiDatum": "2021-06-09T00:00:00"
   }
 ]

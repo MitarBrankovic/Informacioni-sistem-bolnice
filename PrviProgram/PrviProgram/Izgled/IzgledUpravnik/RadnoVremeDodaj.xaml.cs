@@ -57,12 +57,21 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             RadnoVremeLekara radnoVremeLekara = new RadnoVremeLekara((Lekar)ComboLekar.SelectedItem, ComboPocetno.Text,
                 ComboKrajnje.Text, (DateTime)(PocetniDatum.SelectedDate), (DateTime)(KrajnjiDatum.SelectedDate));
 
-            if (radnoVremeService.DodavanjeLeka(radnoVremeLekara))
+            DateTime pocetak = (DateTime)PocetniDatum.SelectedDate;
+            DateTime kraj = (DateTime)KrajnjiDatum.SelectedDate;
+            if (DateTime.Compare(pocetak, kraj) > 0)
             {
-                radnaVremena.Add(radnoVremeLekara);
-                this.Close();
+                MessageBox.Show("Datumi nisu dobro selektovani!", "Greska");
             }
-            else { MessageBox.Show("Podaci nisu dobro uneti!"); }
+            else 
+            {
+                if (radnoVremeService.DodavanjeLeka(radnoVremeLekara))
+                {
+                    radnaVremena.Add(radnoVremeLekara);
+                    this.Close();
+                }
+                else { MessageBox.Show("Podaci nisu dobro uneti!"); }
+            }
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)

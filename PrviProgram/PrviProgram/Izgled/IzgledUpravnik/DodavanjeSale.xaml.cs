@@ -40,7 +40,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (!utilityService.IsNumber(Sprat.Text))
+            else if (!utilityService.IsNumber(Sprat.Text) || int.Parse(Sprat.Text) < 1)
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }
@@ -78,6 +78,11 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             {
                 Naziv.Focus();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Naziv.Focus();
         }
     }
 }

@@ -45,9 +45,18 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
-                if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
-                    MessageBox.Show("Ponovo izaberite datume");
+                DateTime pocetak = (DateTime)PocetakRenoviranja.SelectedDate;
+                DateTime kraj = (DateTime)KrajRenoviranja.SelectedDate;
+                if (DateTime.Compare(pocetak, kraj) > 0)
+                {
+                    MessageBox.Show("Datumi nisu dobro selektovani!", "Greska");
+                }
+                else 
+                {
+                    TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
+                    if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
+                        MessageBox.Show("Ponovo izaberite datume");
+                }
             }
             this.Close();
         }

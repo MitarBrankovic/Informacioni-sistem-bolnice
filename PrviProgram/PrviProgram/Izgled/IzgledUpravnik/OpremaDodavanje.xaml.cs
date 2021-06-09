@@ -46,7 +46,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (!utilityService.IsNumber(Kolicina.Text))
+            else if (!utilityService.IsNumber(Kolicina.Text) || int.Parse(Kolicina.Text) < 1)
             {
                 MessageBox.Show("Kolicina nije dobro unet!", "Greska");
             }

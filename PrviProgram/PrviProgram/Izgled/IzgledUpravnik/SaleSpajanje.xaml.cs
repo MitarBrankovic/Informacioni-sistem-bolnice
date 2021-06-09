@@ -37,13 +37,22 @@ namespace PrviProgram.Izgled.IzgledUpravnik
             }
             else
             {
-                TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
-                if (terminRenoviranjaSale.PrvaSala.Sprat == terminRenoviranjaSale.DrugaSala.Sprat)
+                DateTime pocetak = (DateTime)PocetakRenoviranja.SelectedDate;
+                DateTime kraj = (DateTime)KrajRenoviranja.SelectedDate;
+                if (DateTime.Compare(pocetak, kraj) > 0)
                 {
-                    if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
-                        MessageBox.Show("Ponovo izaberite datume");
+                    MessageBox.Show("Datumi nisu dobro selektovani!", "Greska");
                 }
-                else MessageBox.Show("Sale nisu na istom spratu");
+                else 
+                {
+                    TerminRenoviranjaSale terminRenoviranjaSale = FormiranjeTerminaRenoviranja();
+                    if (terminRenoviranjaSale.PrvaSala.Sprat == terminRenoviranjaSale.DrugaSala.Sprat)
+                    {
+                        if (!saleController.RenoviranjeSale(terminRenoviranjaSale))
+                            MessageBox.Show("Ponovo izaberite datume");
+                    }
+                    else MessageBox.Show("Sale nisu na istom spratu");
+                }
             }
             this.Close();
         }

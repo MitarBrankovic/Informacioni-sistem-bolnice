@@ -13,7 +13,6 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private SaleController saleController = new SaleController();
         private UtilityService utilityService = new UtilityService();
-        private TerminiService terminiService = new TerminiService();
         private TerminiSaleController terminiSale = new TerminiSaleController();
         private ObservableCollection<Sala> sale;
         private Sala sala;
@@ -40,7 +39,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
                 MessageBox.Show("Naziv nije dobro unet!", "Greska");
                 Naziv.Text.Remove(Naziv.Text.Length - 1);
             }
-            else if (!utilityService.IsNumber(Sprat.Text))
+            else if (!utilityService.IsNumber(Sprat.Text) || int.Parse(Sprat.Text) < 1)
             {
                 MessageBox.Show("Sprat nije dobro unet!", "Greska");
             }

@@ -30,6 +30,12 @@
         "Kolicina": 15,
         "Tip": 0,
         "NazivSale": "Magacin"
+      },
+      {
+        "Naziv": "Flasteri",
+        "Kolicina": 1,
+        "Tip": 1,
+        "NazivSale": "Magacin"
       }
     ],
     "Tip": 2,
@@ -125,12 +131,6 @@
   {
     "oprema": [
       {
-        "Naziv": "Flasteri",
-        "Kolicina": 1,
-        "Tip": 1,
-        "NazivSale": "OP3"
-      },
-      {
         "Naziv": "Kreveti",
         "Kolicina": 10,
         "Tip": 0,
@@ -147,8 +147,8 @@
     "oprema": [],
     "Tip": 0,
     "Naziv": "vvvv",
-    "Sprat": 2,
+    "Sprat": 3,
     "Sifra": "vvaass",
-    "NazivSprat": "vvvv 2"
+    "NazivSprat": "vvvv 3"
   }
 ]
