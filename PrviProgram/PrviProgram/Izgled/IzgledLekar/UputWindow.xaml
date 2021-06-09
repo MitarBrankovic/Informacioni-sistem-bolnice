@@ -6,7 +6,9 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="UputWindow" Height="450" Width="400">
+        Title="UputWindow" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="200,89,0,0" x:Name="comboBoxSpecijalizacija" VerticalAlignment="Top" Width="162" SelectionChanged="comboBoxSpecijalizacija_SelectionChanged" />
         <Label Content="Specijalizacija Lekara"  HorizontalAlignment="Left" Height="25" Margin="49,88,0,0" VerticalAlignment="Top" Width="122"/>

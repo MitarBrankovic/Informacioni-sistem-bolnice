@@ -2,9 +2,12 @@
 using System.Linq;
 using System.Windows;
 using Model;
+using PrviProgram.Izgled.IzgledLekar.LekarWizard;
 using PrviProgram.Izgled.IzgledPacijent;
 using PrviProgram.Izgled.IzgledSekretar;
 using PrviProgram.Izgled.IzgledUpravnik;
+using PrviProgram.Repository;
+using PrviProgram.Service;
 using Repository;
 
 namespace PrviProgram
@@ -14,6 +17,8 @@ namespace PrviProgram
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private UpravnikRepository upravnikRepository = new UpravnikRepository();
         private SekretarRepository sekretarRepository = new SekretarRepository();
+        private PodesavanjaLekarService podesavanjaLekaraService = new PodesavanjaLekarService();
+        private PodesavanjaLekarRepository podesavanjaLekarRepository = new PodesavanjaLekarRepository();
         private ILekarRepository lekarRepository = new LekarRepository();
 
         public Logovanje()
@@ -72,8 +77,19 @@ namespace PrviProgram
                     {
                         Izgled.IzgledLekar.PocetniPrikaz win = new Izgled.IzgledLekar.PocetniPrikaz(lekar);
                         win.Show();
+                        ProveraDaLiJePrviPutUlogovan(lekar);
                     }
                     break;
+            }
+        }
+
+        private void ProveraDaLiJePrviPutUlogovan(Lekar lekar)
+        {
+            if (!podesavanjaLekarRepository.PogledaoWizard(lekar))
+            {
+                WizardWindow wizardWindow = new WizardWindow();
+                wizardWindow.Show();
+                podesavanjaLekaraService.IzmenaWizardPodesavanja(lekar);
             }
         }
 

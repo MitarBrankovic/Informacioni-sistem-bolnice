@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
         mc:Ignorable="d"
-        Title="Primedba na lek" Height="450" Width="500">
+        Title="Primedba na lek" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
         <TextBox  x:Name = "TextboxNazivLeka" HorizontalAlignment="Left" Height="34" Margin="77,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
         <TextBox  x:Name = "TextboxPrimedba" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="224" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="351"/>
