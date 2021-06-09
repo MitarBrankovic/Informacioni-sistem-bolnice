@@ -81,13 +81,14 @@ namespace Repository
             return potrebniPacijenti;
         }
 
-        public List<Pacijent> PretragaPacijent(string tekst)
+        public List<Pacijent> PretragaPacijent(string pretraga)
         {
+            string tekst = pretraga.ToLower();
             List<Pacijent> pacijenti = CitanjeIzFajla();
             List<Pacijent> pronadjeniPacijenti = new List<Pacijent>();
             foreach (Pacijent pacijentIterator in pacijenti)
             {
-                if (pacijentIterator.Ime.Contains(tekst) || pacijentIterator.Prezime.Contains(tekst))
+                if (pacijentIterator.Ime.ToLower().Contains(tekst) || pacijentIterator.Prezime.ToLower().Contains(tekst) || pacijentIterator.Jmbg.Contains(tekst))
                 {
                     pronadjeniPacijenti.Add(pacijentIterator);
                 }

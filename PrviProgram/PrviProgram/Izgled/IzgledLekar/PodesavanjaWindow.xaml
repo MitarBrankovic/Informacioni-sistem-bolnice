@@ -9,12 +9,12 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Podešavanja" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tooltips:" FontSize="14" HorizontalAlignment="Left" Margin="54,67,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="On" Content="ON" HorizontalAlignment="Left" Margin="224,66,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="On_Click"/>
-        <Button x:Name="Off" Content="OFF" HorizontalAlignment="Left" Margin="274,66,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Off_Click"/>
-        <Button Style="{StaticResource LekarButton }" x:Name="Uputstvo" Content="Uputstvo za korišćenje" HorizontalAlignment="Center" Margin="0,132,0,0" VerticalAlignment="Top" Height="42" Width="196" Click="Uputstvo_Click"/>
+        <Label Content="Tooltips:" FontSize="14" HorizontalAlignment="Left" Margin="87,68,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="On" Content="ON" HorizontalAlignment="Left" Margin="213,67,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="On_Click"/>
+        <Button x:Name="Off" Content="OFF" HorizontalAlignment="Left" Margin="263,67,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Off_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Uputstvo" Content="Uputstvo za korišćenje" HorizontalAlignment="Center" Margin="0,132,0,0" VerticalAlignment="Top" Height="42" Width="226" Click="Uputstvo_Click"/>
         <Button Style="{StaticResource LekarButton }" x:Name="Zatvori" Content="Zatvori" HorizontalAlignment="Left" Margin="229,308,0,0" VerticalAlignment="Top" Height="40" Width="140" Click="Zatvori_Click"/>
-        <Button Style="{StaticResource LekarButton }" x:Name="PovratnaInformacija" Content="Povratne informacije" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Height="42" Width="196" Click="PovratnaInformacija_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="PovratnaInformacija" Content="Povratne informacije" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Height="42" Width="226" Click="PovratnaInformacija_Click"/>
 
     </Grid>
 </Window>

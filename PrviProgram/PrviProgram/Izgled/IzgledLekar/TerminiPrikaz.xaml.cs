@@ -70,17 +70,28 @@ namespace PrviProgram.Izgled.IzgledLekar
 
         private void Izbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridLekar.SelectedItem != null)
+            string message = "Da li ste sigurni da zelite da obrisete termin?";
+            string title = "Obrisi termin";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxResult result = MessageBox.Show(message, title, buttons);
+            if (result == MessageBoxResult.No)
             {
-                Termin termin = (Termin)dataGridLekar.SelectedItem;
-                terminiService.BrisanjeTermina(termin);
-                termini.Remove(termin);
-                MessageBox.Show("Uspesno ste obrisali termin!");
-                DisableButtons();
+                
             }
             else
             {
-                MessageBox.Show("Morate izabrati termin!");
+                if (dataGridLekar.SelectedItem != null)
+                {
+                    Termin termin = (Termin)dataGridLekar.SelectedItem;
+                    terminiService.BrisanjeTermina(termin);
+                    termini.Remove(termin);
+                    MessageBox.Show("Uspesno ste obrisali termin!");
+                    DisableButtons();
+                }
+                else
+                {
+                    MessageBox.Show("Morate izabrati termin!");
+                }
             }
         }
         private void Informacije_Click(object sender, RoutedEventArgs e)

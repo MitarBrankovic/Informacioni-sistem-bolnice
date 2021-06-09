@@ -41,7 +41,7 @@ namespace Service
             List<Termin> termini = terminiRepository.CitanjeIzFajla();
             foreach (Termin termin in termini)
             {
-                if (termin.SifraTermina.Equals(selektovaniTermin.SifraTermina) && !termin.Izvrsen)
+                if (termin.SifraTermina.Equals(selektovaniTermin.SifraTermina))
                 {
                     termini.Remove(termin);
                     terminiRepository.UpisivanjeUFajl(termini);

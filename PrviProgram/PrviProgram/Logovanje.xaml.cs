@@ -35,10 +35,14 @@ namespace PrviProgram
                 if (korisnik.KorisnickoIme.Equals(korisnickoImeText.Text) && korisnik.Lozinka.Equals(sifraText.Password))
                 {
                     UlogujSe(korisnik);
+                    Close();
                     break;
                 }
+                else
+                {
+                    GreskaLabel.Visibility = Visibility.Visible;
+                }
             }
-            Close();
         }
 
         private void UlogujSe(Korisnik korisnik)

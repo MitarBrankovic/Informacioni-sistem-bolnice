@@ -22,7 +22,8 @@
 
         <TextBox x:Name="korisnickoImeText" HorizontalAlignment="Left" Height="30" Margin="166,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" />
         <PasswordBox x:Name="sifraText" HorizontalAlignment="Left" Height="30" Margin="166,105,0,0" VerticalAlignment="Top" Width="154"/>
+        <Label x:Name="GreskaLabel" Visibility="Collapsed" Content="Pogresno korisnicko ime ili lozinka" Foreground="Red" HorizontalAlignment="Left" Height="27" Margin="131,149,0,0" VerticalAlignment="Top" Width="207" FontStyle="Italic" FontWeight="Bold" FontSize="12"/>
 
-        <Button x:Name="LogovanjeButton" Content="Uloguj se" HorizontalAlignment="Left" Height="31" Margin="188,181,0,0" VerticalAlignment="Top" Width="110" Click="LogovanjeButton_Click"/>
+        <Button x:Name="LogovanjeButton" Content="Uloguj se" HorizontalAlignment="Left" Height="31" Margin="180,181,0,0" VerticalAlignment="Top" Width="110" Click="LogovanjeButton_Click"/>
     </Grid>
 </Window>

@@ -132,9 +132,9 @@ namespace Controller
         public bool PacijentAlergicanNaLek(Pacijent prosledjeniPacijent, Lek lek)
         {
             Pacijent pacijent = pacijentRepository.PregledPacijenta(prosledjeniPacijent.Jmbg);
-            List<String> sastojci = lekoviRepository.DobavljanjeSastojakaLeka(lek);
-            if(pacijent.KartonPacijenta.alergen != null)
+            if(pacijent.KartonPacijenta.alergen != null && lek != null)
             {
+                List<String> sastojci = lekoviRepository.DobavljanjeSastojakaLeka(lek);
                 foreach (Alergen alergen in pacijent.KartonPacijenta.alergen)
                 {
                     if (sastojci.Contains(alergen.Naziv.ToLower()))
