@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Views"
       xmlns:loc="clr-namespace:PrviProgram.Izgled.IzgledSekretar"
+      xmlns:val="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Validation"
       mc:Ignorable="d" 
       Title="RegistracijaPacijentaView"
       d:DesignHeight="700"
@@ -58,27 +59,365 @@
         <TextBlock x:Name="textBlockEmail" Style="{DynamicResource font_label_style}" Text="{loc:Loc Email}" Grid.Row="11" Grid.Column="1"/>
         <TextBlock x:Name="textBlockKontaktTelefon" Style="{DynamicResource font_label_style}" Text="{loc:Loc Contact}" Grid.Row="12" Grid.Column="1"/>
 
-        <TextBox x:Name="textBoxIme" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4"/>
-        <TextBox x:Name="textBoxPrezime" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4"/>
-        <TextBox x:Name="textBoxJMBG" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="textBoxIme" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4">
+            <TextBox.Text>
+                <Binding Path="Ime" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="textBoxPrezime" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4">
+        <TextBox.Text>
+            <Binding Path="Prezime" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <val:SurnameValidationRule/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox.Text>
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                </Grid>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        
+        </TextBox>
+        <TextBox x:Name="textBoxJMBG" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4">
+            <TextBox.Text>
+                <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:UCINValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
         <DatePicker x:Name="datePickerDatumRodjenja" Style="{DynamicResource DatePickerStyle}" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="4"/>
-        <ComboBox x:Name="textBoxMestoRodjenjaGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxMestoRodjenjaGrad_SelectionChanged" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="textBoxMestoRodjenjaDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxUlica" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="textBoxBroj" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="6"/>
-        <TextBox x:Name="textBoxSprat" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="7"/>
-        <TextBox x:Name="textBoxStan" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="7"/>
-        <ComboBox x:Name="textBoxGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxGrad_SelectionChanged" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="4"/>
-        <ComboBox x:Name="textBoxDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="4"/>
+        
+        <ComboBox x:Name="textBoxMestoRodjenjaGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxMestoRodjenjaGrad_SelectionChanged" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2">
+            <ComboBox.Text>
+                <Binding Path="MestoRodjenjaGrad" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CityValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        
+        </ComboBox>
+            <ComboBox x:Name="textBoxMestoRodjenjaDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2">
+            <ComboBox.Text>
+                <Binding Path="MestoRodjenjaDrzava" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StateValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </ComboBox>
+
+        <TextBox x:Name="textBoxUlica" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3">
+            <TextBox.Text>
+                <Binding Path="Ulica" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:AddressValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="textBoxBroj" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="6">
+            <TextBox.Text>
+                <Binding Path="Broj" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:OnlyNumberValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="textBoxSprat" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="7">
+            <TextBox.Text>
+                <Binding Path="Sprat" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:OnlyNumberValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="textBoxStan" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="7">
+            <TextBox.Text>
+                <Binding Path="Stan" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:OnlyNumberValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <ComboBox x:Name="textBoxGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxGrad_SelectionChanged" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="4">
+            <ComboBox.Text>
+                <Binding Path="MestoStanovanjaGrad" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CityValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </ComboBox>
+        
+        <ComboBox x:Name="textBoxDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="4">
+            <ComboBox.Text>
+                <Binding Path="MestoStanovanjaDrzava" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StateValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </ComboBox>
+        
         <RadioButton x:Name="radioButtonPolM" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Male}" IsChecked="True" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="2"/>
         <RadioButton x:Name="radioButtonPolZ" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Female}" Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxEmail" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="4"/>
-        <TextBox x:Name="textBoxKontaktTelefon" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="4"/>
+        
+        <TextBox x:Name="textBoxEmail" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="4">
+            <TextBox.Text>
+                <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:EmailValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="textBoxKontaktTelefon" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="4">
+            <TextBox.Text>
+            <Binding Path="Kontakt" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <val:ContactValidationRule/>
+                </Binding.ValidationRules>
+            </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
 
         <!--For password-->
         <TextBlock x:Name="textBlockKorisnickoIme" Style="{DynamicResource font_label_style}" Text="{loc:Loc Username}" Grid.Row="14" Grid.Column="1"/>
         <TextBlock x:Name="textBlockLozinka" Style="{DynamicResource font_label_style}" Text="{loc:Loc Password}" Grid.Row="15" Grid.Column="1"/>
-        <TextBox x:Name="textBoxKorisnickoIme" Style="{DynamicResource TextBoxStyle}" Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4"/>
+        
+        <TextBox x:Name="textBoxKorisnickoIme" Style="{DynamicResource TextBoxStyle}" Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4">
+            <TextBox.Text>
+                <Binding Path="KorisnickoIme" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:UsernameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
         <PasswordBox x:Name="textBoxLozinka" Style="{DynamicResource PasswordBoxStyle}" Grid.Row="15" Grid.Column="3" Grid.ColumnSpan="4"/>
 
         <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click" Grid.Column="1" Grid.Row="17" />

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledSekretar.IzgledPacijenti"
+        xmlns:val="clr-namespace:PrviProgram.Izgled.IzgledSekretar.Validation"
         mc:Ignorable="d"
         Title="Registracija" Height="570" Width="480">
     <Grid Margin="0,0,0,0">
@@ -27,7 +28,31 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,345,0,0" x:Name="textBlockEmail" Text="Email:" VerticalAlignment="Top" Width="110" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,375,0,0" x:Name="textBlockKontaktTelefon" Text="Kontakt telefon:" VerticalAlignment="Top" Width="110" />
 
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="175,45,0,0" x:Name="textBoxIme" VerticalAlignment="Top" Width="222" Grid.Column="1" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="175,45,0,0" x:Name="textBoxIme" VerticalAlignment="Top" Width="222" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Ime" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NameValidationRule ValidationStep="ConvertedProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,75,0,0" x:Name="textBoxPrezime" VerticalAlignment="Top" Width="222" Grid.Column="1" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="175,105,0,0" x:Name="textBoxJMBG" VerticalAlignment="Top" Width="222" Grid.Column="1" />
         <DatePicker Height="23" HorizontalAlignment="Left" Margin="175,135,0,0" x:Name="datePickerDatumRodjenja" VerticalAlignment="Top" Width="222" Grid.Column="1" />

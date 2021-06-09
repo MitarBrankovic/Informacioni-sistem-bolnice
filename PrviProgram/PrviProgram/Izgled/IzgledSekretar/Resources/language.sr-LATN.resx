@@ -129,6 +129,9 @@
   <data name="Address" xml:space="preserve">
     <value>Adresa stanovanja</value>
   </data>
+  <data name="AddressError" xml:space="preserve">
+    <value>Unesite ispravno ime ulice.</value>
+  </data>
   <data name="AddSpecializations" xml:space="preserve">
     <value>Dodajte specijalizaciju lekaru</value>
   </data>
@@ -156,11 +159,17 @@
   <data name="City" xml:space="preserve">
     <value>Mesto stanovanja</value>
   </data>
+  <data name="CityError" xml:space="preserve">
+    <value>Unesite ispravno ime grada.</value>
+  </data>
   <data name="Code" xml:space="preserve">
     <value>Sifra</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Broj telefona</value>
+  </data>
+  <data name="ContactError" xml:space="preserve">
+    <value>Unesite ispravan kontakt telefon.</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Datum</value>
@@ -182,6 +191,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>Unesite ispravna email.</value>
   </data>
   <data name="Emergency" xml:space="preserve">
     <value>Hitan slucaj</value>
@@ -237,6 +249,9 @@
   <data name="Name" xml:space="preserve">
     <value>Ime</value>
   </data>
+  <data name="NameError" xml:space="preserve">
+    <value>Unesite ispravno ime.</value>
+  </data>
   <data name="New news" xml:space="preserve">
     <value>Nova vest</value>
   </data>
@@ -249,8 +264,14 @@
   <data name="No" xml:space="preserve">
     <value>Ne</value>
   </data>
+  <data name="OnlyNumbersError" xml:space="preserve">
+    <value>Unesite cifre.</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Lozinka</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Unesite ispravnu lozinku od minimum 6 karaktera.</value>
   </data>
   <data name="Patient" xml:space="preserve">
     <value>Pacijent</value>
@@ -294,11 +315,17 @@
   <data name="State" xml:space="preserve">
     <value>Drzava stanovanja</value>
   </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Unesite ispravno ime drzave.</value>
+  </data>
   <data name="Submit" xml:space="preserve">
     <value>Potvrdi</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Prezime</value>
+  </data>
+  <data name="SurnameError" xml:space="preserve">
+    <value>Unesite ispravno prezime.</value>
   </data>
   <data name="Term" xml:space="preserve">
     <value>Termin</value>
@@ -318,8 +345,17 @@
   <data name="Type of term" xml:space="preserve">
     <value>Tip termina</value>
   </data>
+  <data name="UCINError" xml:space="preserve">
+    <value>Unesite ispravan jmbg od 13 cifara.</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Doslo je do nepoznate greske.</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Korisnicko ime</value>
+  </data>
+  <data name="UsernameError" xml:space="preserve">
+    <value>Unesite ispravan korisnicko ime od 3-18 karaktera.</value>
   </data>
   <data name="WeeklyReport" xml:space="preserve">
     <value>Nedeljni izveštaj o zakazanim operacijama i pregledima</value>
