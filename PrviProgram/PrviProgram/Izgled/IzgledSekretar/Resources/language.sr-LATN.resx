@@ -162,6 +162,9 @@
   <data name="CityError" xml:space="preserve">
     <value>Unesite ispravno ime grada.</value>
   </data>
+  <data name="Clinic" xml:space="preserve">
+    <value>Zdravo klinika</value>
+  </data>
   <data name="Code" xml:space="preserve">
     <value>Sifra</value>
   </data>
