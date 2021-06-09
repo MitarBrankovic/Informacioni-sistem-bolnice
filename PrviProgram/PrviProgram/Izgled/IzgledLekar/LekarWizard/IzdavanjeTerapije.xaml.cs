@@ -26,6 +26,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             InitializeComponent();
             this.pacijent = pacijent;
+            potvrdiButton.IsEnabled = false;
         }
 
 
@@ -41,6 +42,17 @@ namespace PrviProgram.Izgled.IzgledLekar
             terapijaService.DodavanjeTerapije(terapija);
             this.Close();
             
+        }
+
+        private void datumPocetakKalendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datumKrajKalendara.IsEnabled = true;
+            datumKrajKalendara.DisplayDateStart = datumPocetakKalendar.SelectedDate;
+        }
+
+        private void datumKrajKalendara_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            potvrdiButton.IsEnabled = true;
         }
     }
 }

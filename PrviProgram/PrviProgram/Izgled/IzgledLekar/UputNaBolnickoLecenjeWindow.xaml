@@ -15,8 +15,8 @@
         <DatePicker x:Name="DatePickerPocetak" HorizontalAlignment="Left" Margin="180,43,0,0" VerticalAlignment="Top" Width="174" Height="30" DisplayDateStart="{x:Static sys:DateTime.Now}" SelectedDateChanged="DatePickerPocetak_SelectedDateChanged"/>
         <DatePicker x:Name="DatePickerZavrsetak" HorizontalAlignment="Left" Margin="180,143,0,0" VerticalAlignment="Top" Width="174" Height="30" SelectedDateChanged="DatePickerZavrsetak_SelectedDateChanged" IsEnabled="False"/>
         <ComboBox x:Name="ComboboxSobe" HorizontalAlignment="Left" Margin="180,243,0,0" VerticalAlignment="Top" Width="174" Height="30" SelectionChanged="ComboboxSobe_SelectionChanged"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" Click="Potvrdi_Click" HorizontalAlignment="Left" Margin="230,352,0,0" VerticalAlignment="Top" Height="44" Width="124" IsEnabled="False"/>
-        <Button x:Name="Zatvori" Content="Zatvori" Click="Zatvori_Click" HorizontalAlignment="Left" Margin="39,352,0,0" VerticalAlignment="Top" Height="44" Width="124"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Potvrdi" Content="Potvrdi" Click="Potvrdi_Click" HorizontalAlignment="Left" Margin="214,352,0,0" VerticalAlignment="Top" Height="40" Width="140" IsEnabled="False"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Zatvori" Content="Zatvori" Click="Zatvori_Click" HorizontalAlignment="Left" Margin="39,352,0,0" VerticalAlignment="Top" Height="40" Width="140"/>
 
     </Grid>
 </Window>

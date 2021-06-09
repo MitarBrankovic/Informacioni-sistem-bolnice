@@ -43,7 +43,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             if (dataGridLekovi.SelectedIndex != -1)
             {
                 PrimedbaNaLekWindow primedbaNaLek = new PrimedbaNaLekWindow((Lek)dataGridLekovi.SelectedItem, lekar);
-                primedbaNaLek.Show();
+                primedbaNaLek.ShowDialog();
             }
             else
             {

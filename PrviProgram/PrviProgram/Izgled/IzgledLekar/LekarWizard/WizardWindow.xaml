@@ -12,9 +12,9 @@
             <RowDefinition Height="490"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="Dalje" Content="Dalje" HorizontalAlignment="Left" Height="43" Margin="812,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Dalje_Click"/>
-        <Button x:Name="Nazad" Content="Nazad" HorizontalAlignment="Left" Height="43" Margin="646,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Nazad_Click"/>
-        <Button x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="43" Grid.Row="1" VerticalAlignment="Center" Width="136" Margin="478,0,0,0" Click="Odustani_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Dalje" Content="Dalje" HorizontalAlignment="Left" Height="43" Margin="812,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Dalje_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Nazad" Content="Nazad" HorizontalAlignment="Left" Height="43" Margin="646,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="136" Click="Nazad_Click"/>
+        <Button Style="{StaticResource LekarButton }" x:Name="Odustani" Content="Odustani" HorizontalAlignment="Left" Height="43" Grid.Row="1" VerticalAlignment="Center" Width="136" Margin="478,0,0,0" Click="Odustani_Click"/>
 
         <StackPanel Name="ContentArea" Grid.Row="0"></StackPanel>
 

@@ -26,7 +26,7 @@
             </Grid>
         </Border>
 
-        <DataGrid ToolTip="Istorija izvršenih pregleda" x:Name="dataGridKartonPacijenta" MinHeight="391" Margin="39,166,449,87" SelectionChanged="dataGridKarton_SelectionChanged"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid Style="{StaticResource DataGridDesign }" ToolTip="Istorija izvršenih pregleda" x:Name="dataGridKartonPacijenta" MinHeight="391" Margin="39,166,449,87" SelectionChanged="dataGridKarton_SelectionChanged"  HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" FontWeight="Bold" Opacity="0.99" IsSynchronizedWithCurrentItem="False" RenderTransformOrigin="0.487,0.503" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -35,7 +35,7 @@
 
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=\{0:dd/MM/yyyy\}}"  Width="0.20*" SortDirection="Descending"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=\{0:dd/MM/yyyy\}}"  Width="0.25*" SortDirection="Descending"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding TipTermina}" Width="0.20*"/>
                 <DataGridTextColumn Header="Lekar" Binding="{Binding Lekar}" Width="0.40*"/>
             </DataGrid.Columns>
@@ -47,12 +47,12 @@
             </Grid>
         </Border>
         <TextBox  x:Name = "TextboxInformacije" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="187" Margin="493,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" IsEnabled="False"/>
-        <Button ToolTip="Alergeni" x:Name ="Alergeni" Click="Alergeni_Click"  Content="Alergeni" HorizontalAlignment="Left" Height="92" Margin="587,471,0,0" VerticalAlignment="Top" Width="170" />
-        <Button ToolTip="Izmeni informacije o pregledu" x:Name ="Azuriraj" Click="Azuriraj_Click"  Content="Azuriraj" HorizontalAlignment="Left" Height="40" Margin="379,411,0,0" VerticalAlignment="Top" Width="381" IsEnabled="False"/>
-        <ComboBox ToolTip="Izabrani lek" x:Name = "ComboboxLek" HorizontalAlignment="Left" Margin="444,166,0,0" VerticalAlignment="Top" Width="242" Height="26" IsEnabled="False"/>
+        <Button Style="{StaticResource LekarButton }" ToolTip="Alergeni" x:Name ="Alergeni" Click="Alergeni_Click"  Content="Alergeni" HorizontalAlignment="Left" Height="92" Margin="587,471,0,0" VerticalAlignment="Top" Width="170" />
+        <Button Style="{StaticResource LekarButton }" ToolTip="Izmeni informacije o pregledu" x:Name ="Azuriraj" Click="Azuriraj_Click"  Content="Azuriraj" HorizontalAlignment="Left" Height="40" Margin="379,411,0,0" VerticalAlignment="Top" Width="381" IsEnabled="False"/>
+        <ComboBox ToolTip="Izabrani lek" x:Name = "ComboboxLek" HorizontalAlignment="Left" Margin="493,166,0,0" VerticalAlignment="Top" Width="193" Height="26" IsEnabled="False"/>
         <TextBox ToolTip="Koliko dana se koristi lek" Height="26" HorizontalAlignment="Left" Margin="703,166,0,0" x:Name="BrojDana" VerticalAlignment="Top" Width="58" TextChanged="BrojDana_TextChanged" IsEnabled="False"/>
-        <Label Content="Lek:" HorizontalAlignment="Left" Margin="478,134,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Lek:" HorizontalAlignment="Left" Margin="510,134,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Dana:" HorizontalAlignment="Left" Margin="703,134,0,0" VerticalAlignment="Top" Height="27"/>
-        <Button ToolTip="Istorija bolničkog lečenja" x:Name ="BolnickoLecenje" Click="BolnickoLecenje_Click"  Content="Bolnicko lecenje" HorizontalAlignment="Left" Height="92" Margin="379,471,0,0" VerticalAlignment="Top" Width="170" />
+        <Button Style="{StaticResource LekarButton }" ToolTip="Istorija bolničkog lečenja" x:Name ="BolnickoLecenje" Click="BolnickoLecenje_Click"  Content="Bolnicko lecenje" HorizontalAlignment="Left" Height="92" Margin="379,471,0,0" VerticalAlignment="Top" Width="170" />
     </Grid>
 </UserControl>

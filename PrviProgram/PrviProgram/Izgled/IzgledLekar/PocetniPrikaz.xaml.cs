@@ -21,7 +21,6 @@ namespace PrviProgram.Izgled.IzgledLekar
     public partial class PocetniPrikaz : Window
     {
         private PodesavanjaLekarRepository podesavanjaLekarRepository = new PodesavanjaLekarRepository();
-        private PodesavanjaLekarService podesavanjaLekaraService = new PodesavanjaLekarService();
         private LekarController lekarController = new LekarController();
         private Lekar lekar;
         private UserControl trenutniUserControl;
@@ -34,7 +33,6 @@ namespace PrviProgram.Izgled.IzgledLekar
         {
             InitializeComponent();
             this.lekar = lekar;
-            ProveraDaLiJePrviPutUlogovan();
             EnableDisableTooltips();
         }
 
@@ -46,15 +44,6 @@ namespace PrviProgram.Izgled.IzgledLekar
             }
         }
 
-        private void ProveraDaLiJePrviPutUlogovan()
-        {
-            if (!podesavanjaLekarRepository.PogledaoWizard(lekar))
-            {
-                WizardWindow wizardWindow = new WizardWindow();
-                wizardWindow.Show();
-                podesavanjaLekaraService.IzmenaWizardPodesavanja(lekar);
-            }
-        }
 
         private void Raspored_Click(object sender, RoutedEventArgs e)
         {
@@ -136,7 +125,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Help_Click(object sender, RoutedEventArgs e)
         {
             PodesavanjaWindow podesavanjaWindow = new PodesavanjaWindow(lekar);
-            podesavanjaWindow.Show();
+            podesavanjaWindow.ShowDialog();
         }
 
     }

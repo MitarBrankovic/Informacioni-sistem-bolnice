@@ -4,17 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrviProgram.Izgled.IzgledLekar"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="IzdavanjeTerapije" Height="450" Width="424">
+        Title="IzdavanjeTerapije" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
-        <Label Content="Opis terapije:" HorizontalAlignment="Left" Height="35" Margin="30,44,0,0" VerticalAlignment="Top" Width="125"/>
-        <Label Content="Pocetak uzimanje:" HorizontalAlignment="Left" Height="35" Margin="30,104,0,0" VerticalAlignment="Top" Width="125"/>
-        <Label Content="Kraj uzimanja:" HorizontalAlignment="Left" Height="35" Margin="30,204,0,0" VerticalAlignment="Top" Width="125"/>
-        <TextBox Name="textBlockOpis"  HorizontalAlignment="Left" Height="50" Margin="220,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
-        <Button Content="Potvrdi" Name="potvrdiButton" HorizontalAlignment="Left" Height="35" Margin="105,329,0,0" VerticalAlignment="Top" Width="85" Click="potvrdiButton_Click" />
-        <Button Content="Otkazi" x:Name="otkaziButton" HorizontalAlignment="Left" Height="35" Margin="210,329,0,0" VerticalAlignment="Top" Width="85" Click="otkaziButton_Click" />
-        <DatePicker Name="datumPocetakKalendar" HorizontalAlignment="Left" Height="30" Margin="220,114,0,0" VerticalAlignment="Top" Width="130"/>
-        <DatePicker Name="datumKrajKalendara" HorizontalAlignment="Left" Height="30" Margin="220,209,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Opis terapije:" HorizontalAlignment="Left" Height="36" Margin="49,28,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Pocetak uzimanje:" HorizontalAlignment="Left" Height="35" Margin="49,215,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Kraj uzimanja:" HorizontalAlignment="Left" Height="35" Margin="49,278,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox Name="textBlockOpis" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="122" Margin="46,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314"/>
+        <Button Style="{StaticResource LekarButton }" Content="Potvrdi" Name="potvrdiButton" HorizontalAlignment="Left" Height="40" Margin="220,344,0,0" VerticalAlignment="Top" Width="140" Click="potvrdiButton_Click" />
+        <Button Style="{StaticResource LekarButton }" Content="Otkazi" x:Name="otkaziButton" HorizontalAlignment="Left" Height="40" Margin="49,344,0,0" VerticalAlignment="Top" Width="140" Click="otkaziButton_Click" />
+        <DatePicker Name="datumPocetakKalendar" HorizontalAlignment="Left" Height="30" Margin="230,217,0,0" VerticalAlignment="Top" Width="130" DisplayDateStart="{x:Static sys:DateTime.Now}" SelectedDateChanged="datumPocetakKalendar_SelectedDateChanged"/>
+        <DatePicker Name="datumKrajKalendara" HorizontalAlignment="Left" Height="30" Margin="230,281,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="datumKrajKalendara_SelectedDateChanged" IsEnabled="False"/>
 
     </Grid>
 </Window>

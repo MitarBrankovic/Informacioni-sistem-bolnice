@@ -72,7 +72,7 @@ namespace PrviProgram.Izgled.IzgledLekar
             else
             {
                 AlternativniLekWindow alternativniLekWindow = new AlternativniLekWindow(this, izvrseniPregled.recept.Lekovi, Izvestaj);
-                alternativniLekWindow.Show();
+                alternativniLekWindow.ShowDialog();
             }   
         }
 
@@ -120,13 +120,13 @@ namespace PrviProgram.Izgled.IzgledLekar
         private void Uput_Click(object sender, RoutedEventArgs e)
         {
             UputWindow uputWindow = new UputWindow(pacijent, termin.lekar);
-            uputWindow.Show();
+            uputWindow.ShowDialog();
         }
 
         private void UputLecenje_Click(object sender, RoutedEventArgs e)
         {
             UputNaBolnickoLecenjeWindow uputNaBolnickoLecenjeWindow = new UputNaBolnickoLecenjeWindow(pacijent);
-            uputNaBolnickoLecenjeWindow.Show();
+            uputNaBolnickoLecenjeWindow.ShowDialog();
         }
 
         private void DaLiPacijentImaZakazanoLecenje()
