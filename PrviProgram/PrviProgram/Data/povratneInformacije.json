@@ -1,3 +1,46 @@
 [
-
+  {
+    "ImaProblem": false,
+    "Ocena": 3,
+    "Primedba": "sadasd",
+    "Osoba": {
+      "termin": null,
+      "specijalizacija": [
+        {
+          "Naziv": "Hirurgija"
+        }
+      ],
+      "MestoRodjenja": {
+        "Ime": "Novi Sad",
+        "drzava": {
+          "Ime": "Srbija"
+        }
+      },
+      "Korisnik": {
+        "KorisnickoIme": "srdjan",
+        "Lozinka": "srdjan",
+        "TipKorisnika": 3,
+        "osoba": null
+      },
+      "AdresaStanovanja": {
+        "Ulica": "tolstojeva",
+        "Broj": 10,
+        "Sprat": 5,
+        "Stan": 23,
+        "grad": {
+          "Ime": "Novi Sad",
+          "drzava": {
+            "Ime": "Srbija"
+          }
+        }
+      },
+      "Ime": "Srdjan",
+      "Prezime": "Beric",
+      "Email": "srdjan@gmail.com",
+      "Jmbg": "00012312",
+      "DatumRodjenja": "0001-01-01T00:00:00",
+      "Pol": 0,
+      "KontaktTelefon": "1264512"
+    }
+  }
 ]
