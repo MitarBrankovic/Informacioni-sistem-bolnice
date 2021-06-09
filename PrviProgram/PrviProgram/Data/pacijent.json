@@ -225,6 +225,120 @@
             "OpisLeka": "Morate da pijete 5 dana"
           },
           "Beleska": "dss"
+        },
+        {
+          "Sifra": "xmHTaWRc",
+          "Datum": "2021-06-06T00:00:00",
+          "TipTermina": 1,
+          "Lekar": {
+            "termin": null,
+            "specijalizacija": [
+              {
+                "Naziv": "Hirurgija"
+              }
+            ],
+            "MestoRodjenja": {
+              "Ime": "Novi Sad",
+              "drzava": {
+                "Ime": "Srbija"
+              }
+            },
+            "Korisnik": {
+              "KorisnickoIme": "srdjan",
+              "Lozinka": "srdjan",
+              "TipKorisnika": 3,
+              "osoba": null
+            },
+            "AdresaStanovanja": {
+              "Ulica": "tolstojeva",
+              "Broj": 10,
+              "Sprat": 5,
+              "Stan": 23,
+              "grad": {
+                "Ime": "Novi Sad",
+                "drzava": {
+                  "Ime": "Srbija"
+                }
+              }
+            },
+            "Ime": "Srdjan",
+            "Prezime": "Beric",
+            "Email": "srdjan@gmail.com",
+            "Jmbg": "00012312",
+            "DatumRodjenja": "0001-01-01T00:00:00",
+            "Pol": 0,
+            "KontaktTelefon": "1264512"
+          },
+          "anamneza": {
+            "Opis": "Temperatura 39\r\nPovracanje\r\nBolovi u stomaku"
+          },
+          "recept": {
+            "Lekovi": {
+              "ZamenaZaLek": [
+                {
+                  "ZamenaZaLek": [],
+                  "Sifra": "bio",
+                  "Naziv": "Bio Oil",
+                  "Sastojci": "a",
+                  "Opis": "a"
+                },
+                {
+                  "ZamenaZaLek": [
+                    {
+                      "ZamenaZaLek": [
+                        {
+                          "ZamenaZaLek": [
+                            {
+                              "ZamenaZaLek": [
+                                {
+                                  "ZamenaZaLek": [],
+                                  "Sifra": "paracet",
+                                  "Naziv": "Paracetamol",
+                                  "Sastojci": "nesa",
+                                  "Opis": "nes"
+                                }
+                              ],
+                              "Sifra": "bruh",
+                              "Naziv": "Brufen",
+                              "Sastojci": "nesto",
+                              "Opis": "nesto"
+                            }
+                          ],
+                          "Sifra": "paracet",
+                          "Naziv": "Paracetamol",
+                          "Sastojci": "nesa",
+                          "Opis": "nes"
+                        }
+                      ],
+                      "Sifra": "bruf",
+                      "Naziv": "Brufen",
+                      "Sastojci": "nesto",
+                      "Opis": "nesto"
+                    }
+                  ],
+                  "Sifra": "paracet",
+                  "Naziv": "Paracetamol",
+                  "Sastojci": "nesa",
+                  "Opis": "nes"
+                },
+                {
+                  "ZamenaZaLek": [],
+                  "Sifra": "andol",
+                  "Naziv": "Andol",
+                  "Sastojci": "asdad",
+                  "Opis": "sadasas"
+                }
+              ],
+              "Sifra": "bruf",
+              "Naziv": "Brufen",
+              "Sastojci": "nesto",
+              "Opis": "nesto"
+            },
+            "DatumIzdavanja": "0001-01-01T00:00:00",
+            "VremenskiPeriodUzimanjaLeka": 4,
+            "OpisLeka": "Pola sata pre rucka\r"
+          },
+          "Beleska": null
         }
       ],
       "Sifra": null,

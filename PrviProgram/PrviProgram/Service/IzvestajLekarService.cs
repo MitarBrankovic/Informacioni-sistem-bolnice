@@ -27,11 +27,17 @@ namespace Service
                 PdfPage page = doc.Pages.Add();
                 PdfGraphics graphics = page.Graphics;
                 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-                string textPDF = "Lekar: " + termin.lekar +
-                    "\nPacijent: " + termin.pacijent + "\n\n\n" +
-                    "----------------------------------------------------------------" +
-                    "\nAnamneza: \n" + izvrseniPregled.anamneza.Opis + "\n\n" +
-                    "Recept: \n" + izvrseniPregled.recept.Lekovi +
+                PdfFont naslov = new PdfStandardFont(PdfFontFamily.Helvetica, 30);
+
+                string naslovPDF = "IZVESTAJ O ANAMNEZI I RECEPTU" + "\n\n\n";
+                graphics.DrawString(naslovPDF, font, PdfBrushes.Black, new PointF(0, 0));
+
+                string textPDF = "\n\n\n\n" + "Lekar: " + termin.lekar +
+                    "\nPacijent: " + termin.pacijent +
+                    "\nDatum: " + izvrseniPregled.Datum.ToString("d") + "\n\n\n" +
+                    "-------------------------------------------------------------------" +
+                    "\n\nAnamneza: \n\n" + izvrseniPregled.anamneza.Opis + "\n\n\n" +
+                    "Recept: \n\n" + izvrseniPregled.recept.Lekovi +
                     "\nKonzumirati " + izvrseniPregled.recept.VremenskiPeriodUzimanjaLeka + " dana"
                     + "\n" + izvrseniPregled.recept.OpisLeka;
                 graphics.DrawString(textPDF, font, PdfBrushes.Black, new PointF(0, 0));

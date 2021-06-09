@@ -26,7 +26,7 @@
     },
     "Vreme": "10:30:00",
     "guestPacijent": null,
-    "Izvrsen": false,
+    "Izvrsen": true,
     "lekar": {
       "termin": null,
       "specijalizacija": [
