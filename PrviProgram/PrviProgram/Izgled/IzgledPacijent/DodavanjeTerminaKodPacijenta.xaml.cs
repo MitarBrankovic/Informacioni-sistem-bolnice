@@ -54,7 +54,7 @@ namespace PrviProgram.Izgled.IzgledPacijent
          
         public List<Lekar> citanjeLekara()
         {
-            LekarRepository datotekaLekar = new LekarRepository();
+            ILekarRepository datotekaLekar = new LekarRepository();
             this.lekari = datotekaLekar.CitanjeIzFajla();
             return lekari;
 

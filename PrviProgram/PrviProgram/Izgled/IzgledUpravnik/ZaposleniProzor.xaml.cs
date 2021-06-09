@@ -23,7 +23,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
     {
         private ObservableCollection<Osoba> zaposlenii;
         private ObservableCollection<Osoba> pomocnaLista;
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
         private SekretarRepository sekretarRepository = new SekretarRepository();
         private SekretarController sekretarController = new SekretarController();
         private SekretarService sekretarService = new SekretarService();

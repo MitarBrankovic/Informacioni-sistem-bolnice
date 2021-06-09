@@ -14,7 +14,7 @@ namespace PrviProgram
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private UpravnikRepository upravnikRepository = new UpravnikRepository();
         private SekretarRepository sekretarRepository = new SekretarRepository();
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
 
         public Logovanje()
         {

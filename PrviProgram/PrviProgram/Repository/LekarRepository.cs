@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Repository
 {
-    public class LekarRepository
+    public class LekarRepository : ILekarRepository, ILekarSpecijalizacija
     {
         private string path;
 

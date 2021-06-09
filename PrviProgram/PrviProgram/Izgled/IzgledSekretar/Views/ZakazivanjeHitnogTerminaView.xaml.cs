@@ -14,6 +14,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
     public partial class ZakazivanjeHitnogTerminaView : Page
     {
+        private ILekarSpecijalizacija lekarSpecijalizacija = new LekarRepository();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiRepository terminiRepository = new TerminiRepository();
@@ -70,7 +71,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 
         private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
         {
-            List<Lekar> lekari = lekarRepository.PregledLekaraOdredjeneSpecijalizacije((Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
+            List<Lekar> lekari = lekarSpecijalizacija.PregledLekaraOdredjeneSpecijalizacije((Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
             foreach (Termin t in termini)
             {
                 if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))

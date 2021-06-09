@@ -15,7 +15,7 @@ namespace PrviProgram.Izgled.IzgledLekar
         private TerminiService terminiService = new TerminiService();
         private TerminiRepository terminiRepository = new TerminiRepository();
         private LekarController lekarController = new LekarController();
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private SalaRepository salaRepository = new SalaRepository();
         private ObservableCollection<Termin> terminiPacijent;

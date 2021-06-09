@@ -12,6 +12,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {
     public partial class ZakazivanjeHitnogTermina : Window
     {
+        private ILekarSpecijalizacija lekarSpecijalizacija = new LekarRepository();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
@@ -19,7 +20,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
         private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
-        public TerminiSaleController terminiSaleController;
+        public TerminiSaleController terminiSaleController = new TerminiSaleController();
 
         public ZakazivanjeHitnogTermina(ObservableCollection<Termin> termini)
         {
@@ -68,7 +69,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
         {
-            List<Lekar> lekari = lekarRepository.PregledLekaraOdredjeneSpecijalizacije((Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
+            List<Lekar> lekari = lekarSpecijalizacija.PregledLekaraOdredjeneSpecijalizacije((Specijalizacija)comboBoxSpecijalizacija.SelectedItem);
             foreach (Termin t in termini)
             {
                 if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
@@ -92,6 +93,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
                 termin.guestPacijent = guestPacijent;
             }
             termin.sala = terminiSaleController.DobavljanjeSale(termin);
+            termin.Datum = DateTime.Today;
             return termin;
         }
 

@@ -28,7 +28,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private SekretarController sekretarController = new SekretarController();
         private DrzaveRepository drzaveRepository = new DrzaveRepository();
         private GradoviRepository gradoviRepository = new GradoviRepository();
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
         private SekretarRepository sekretarRepository = new SekretarRepository();
         private UtilityService utilityService = new UtilityService();
         private SekretarService sekretarService = new SekretarService();

@@ -22,7 +22,7 @@ namespace PrviProgram.Izgled.IzgledLekar
   
     public partial class UputWindow : Window
     {
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
         private LekarController lekarController = new LekarController();
         private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();

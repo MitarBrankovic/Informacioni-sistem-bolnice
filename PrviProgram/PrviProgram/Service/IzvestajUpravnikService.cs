@@ -14,7 +14,7 @@ namespace Service
 {
     public class IzvestajUpravnikService : IzvestajAbstractService
     {
-        private LekarRepository lekarRepository = new LekarRepository();
+        private ILekarRepository lekarRepository = new LekarRepository();
         private RadnoVremeLekaraRepository radnoVremeLekaraRepository = new RadnoVremeLekaraRepository();
         private List<RadnoVremeLekara> pomocnaLista = new List<RadnoVremeLekara>();
 

@@ -6,7 +6,7 @@ namespace Service
 {
     public class LekariService
     {
-        public LekarRepository lekarRepository = new LekarRepository();
+        public ILekarRepository lekarRepository = new LekarRepository();
 
         public bool DodavanjeLekara(Lekar lekar)
         {

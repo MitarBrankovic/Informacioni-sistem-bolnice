@@ -14,17 +14,6 @@ namespace Repository
 {
    public class KartonPacijentaRepository
    {
-
-        private static KartonPacijentaRepository instance = null;
-        public static KartonPacijentaRepository getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new KartonPacijentaRepository();
-            }
-            return instance;
-        }
-
         private string path;
 
         public KartonPacijentaRepository()

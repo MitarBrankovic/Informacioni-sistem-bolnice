@@ -49,7 +49,7 @@ namespace PrviProgram.Repository
         public BolnickoLecenje PregledBolnickogLecenja(String sifra)
         {
             List<BolnickoLecenje> bolnickoLecenjeLista = CitanjeIzFajla();
-            foreach(BolnickoLecenje bolnickoLecenje in bolnickoLecenjeLista)
+            foreach (BolnickoLecenje bolnickoLecenje in bolnickoLecenjeLista)
             {
                 if (bolnickoLecenje.Sifra.Equals(sifra))
                     return bolnickoLecenje;
@@ -61,7 +61,7 @@ namespace PrviProgram.Repository
         {
             List<BolnickoLecenje> bolnickoLecenjeLista = CitanjeIzFajla();
             List<BolnickoLecenje> bolnickoLecenjePacijentaLista = new List<BolnickoLecenje>();
-            foreach(BolnickoLecenje bolnickoLecenje in bolnickoLecenjeLista)
+            foreach (BolnickoLecenje bolnickoLecenje in bolnickoLecenjeLista)
             {
                 if (bolnickoLecenje.Pacijent.Jmbg.Equals(jmbg))
                 {

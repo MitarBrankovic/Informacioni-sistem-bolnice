@@ -11,6 +11,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 {
     public partial class PregledTerminaHitnoZakazivanje : Window
     {
+        private ILekarSpecijalizacija lekarSpecijalizacija = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
         private LekarRepository lekarRepository = new LekarRepository();
@@ -43,7 +44,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
             foreach (Termin zauzetiTermini in sviTermini)
             {
                 string[] tVreme = zauzetiTermini.Vreme.Split(":");
-                if (lekarRepository.ProveriSpecijalizacijuLekara(zauzetiTermini.lekar, specijalizacija)
+                if (lekarSpecijalizacija.ProveriSpecijalizacijuLekara(zauzetiTermini.lekar, specijalizacija)
                     && int.Parse(tVreme[0]) >= int.Parse(terminVreme[0])
                     && zauzetiTermini.Datum.Date.Equals(termin.Datum.Date)
                     && !(int.Parse(terminVreme[1]) == 30 && int.Parse(tVreme[0]) == int.Parse(terminVreme[0]) && int.Parse(tVreme[1]) == 0))
@@ -118,7 +119,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.IzgledTermini
 
         private Lekar PronadjiLekaraSaSlobodnimTerminom(Termin termin)
         {
-            List<Lekar> lekari = lekarRepository.PregledLekaraOdredjeneSpecijalizacije(specijalizacija);
+            List<Lekar> lekari = lekarSpecijalizacija.PregledLekaraOdredjeneSpecijalizacije(specijalizacija);
             foreach (Termin t in termini)
             {
                 if (t.Vreme == termin.Vreme && t.Datum.Date.Equals(termin.Datum.Date))
