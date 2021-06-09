@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Controller;
@@ -9,8 +10,18 @@ using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
-    public partial class RegistracijaPacijentaView : Page
+    public partial class RegistracijaPacijentaView : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         private SekretarController sekretarController = new SekretarController();
         private DrzaveRepository drzaveRepository = new DrzaveRepository();
         private GradoviRepository gradoviRepository = new GradoviRepository();
@@ -22,6 +33,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             InitializeComponent();
             this.pacijenti = pacijenti;
             InicijalizacijaCombo();
+            DataContext = this;
         }
 
         private void InicijalizacijaCombo()
@@ -86,6 +98,248 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
                 textBoxMestoRodjenjaDrzava.Text = grad.drzava.Ime;
             }
         }
+
+        public string Ime
+        {
+            get
+            {
+                return ime;
+            }
+            set
+            {
+                if (value != ime)
+                {
+                    ime = value;
+                    OnPropertyChanged("Ime");
+                }
+            }
+        }
+        public string Prezime
+        {
+            get
+            {
+                return prezime;
+            }
+            set
+            {
+                if (value != prezime)
+                {
+                    prezime = value;
+                    OnPropertyChanged("Prezime");
+                }
+            }
+        }
+        public string Jmbg
+        {
+            get
+            {
+                return jmbg;
+            }
+            set
+            {
+                if (value != jmbg)
+                {
+                    jmbg = value;
+                    OnPropertyChanged("Jmbg");
+                }
+            }
+        }
+        public string MestoRodjenjaGrad
+        {
+            get
+            {
+                return mestoRodjenjaGrad;
+            }
+            set
+            {
+                if (value != mestoRodjenjaGrad)
+                {
+                    mestoRodjenjaGrad = value;
+                    OnPropertyChanged("MestoRodjenjaGrad");
+                }
+            }
+        }
+        public string MestoRodjenjaDrzava
+        {
+            get
+            {
+                return mestoRodjenjaDrzava;
+            }
+            set
+            {
+                if (value != mestoRodjenjaDrzava)
+                {
+                    mestoRodjenjaDrzava = value;
+                    OnPropertyChanged("MestoRodjenjaDrzava");
+                }
+            }
+        }
+        public string Ulica
+        {
+            get
+            {
+                return ulica;
+            }
+            set
+            {
+                if (value != ulica)
+                {
+                    ulica = value;
+                    OnPropertyChanged("Ulica");
+                }
+            }
+        }
+        public string Broj
+        {
+            get
+            {
+                return broj;
+            }
+            set
+            {
+                if (value != broj)
+                {
+                    broj = value;
+                    OnPropertyChanged("Broj");
+                }
+            }
+        }
+        public string Sprat
+        {
+            get
+            {
+                return sprat;
+            }
+            set
+            {
+                if (value != sprat)
+                {
+                    sprat = value;
+                    OnPropertyChanged("Sprat");
+                }
+            }
+        }
+        public string Stan
+        {
+            get
+            {
+                return stan;
+            }
+            set
+            {
+                if (value != stan)
+                {
+                    stan = value;
+                    OnPropertyChanged("Stan");
+                }
+            }
+        }
+        public string MestoStanovanjaGrad
+        {
+            get
+            {
+                return mestoStanovanjaGrad;
+            }
+            set
+            {
+                if (value != mestoStanovanjaGrad)
+                {
+                    mestoStanovanjaGrad = value;
+                    OnPropertyChanged("MestoStanovanjaGrad");
+                }
+            }
+        }
+        public string MestoStanovanjaDrzava
+        {
+            get
+            {
+                return mestoStanovanjaDrzava;
+            }
+            set
+            {
+                if (value != mestoStanovanjaDrzava)
+                {
+                    mestoStanovanjaDrzava = value;
+                    OnPropertyChanged("MestoStanovanjaDrzava");
+                }
+            }
+        }
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                if (value != email)
+                {
+                    email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+        public string Kontakt
+        {
+            get
+            {
+                return kontakt;
+            }
+            set
+            {
+                if (value != kontakt)
+                {
+                    kontakt = value;
+                    OnPropertyChanged("Kontakt");
+                }
+            }
+        }
+        public string KorisnickoIme
+        {
+            get
+            {
+                return korisnickoIme;
+            }
+            set
+            {
+                if (value != korisnickoIme)
+                {
+                    korisnickoIme = value;
+                    OnPropertyChanged("KorisnickoIme");
+                }
+            }
+        }
+        public string Lozinka
+        {
+            get
+            {
+                return lozinka;
+            }
+            set
+            {
+                if (value != lozinka)
+                {
+                    lozinka = value;
+                    OnPropertyChanged("Lozinka");
+                }
+            }
+        }
+
+        private string ime;
+        private string prezime;
+        private string jmbg;
+        private string mestoRodjenjaGrad;
+        private string mestoRodjenjaDrzava;
+        private string ulica;
+        private string broj;
+        private string sprat;
+        private string stan;
+        private string mestoStanovanjaGrad;
+        private string mestoStanovanjaDrzava;
+        private string email;
+        private string kontakt;
+        private string korisnickoIme;
+        private string lozinka;
 
     }
 }

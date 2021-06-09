@@ -129,6 +129,9 @@
   <data name="Address" xml:space="preserve">
     <value>Residential address</value>
   </data>
+  <data name="AddressError" xml:space="preserve">
+    <value>Please enter valid street name</value>
+  </data>
   <data name="AddSpecializations" xml:space="preserve">
     <value>Add specialization to the doctor:</value>
   </data>
@@ -156,11 +159,18 @@
   <data name="City" xml:space="preserve">
     <value>Residential city</value>
   </data>
+  <data name="CityError" xml:space="preserve">
+    <value>Please enter a valid city name.</value>
+  </data>
   <data name="Code" xml:space="preserve">
     <value>Code</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact phone</value>
+  </data>
+  <data name="ContactError" xml:space="preserve">
+    <value>Please enter valid 
+contact phone.</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
@@ -182,6 +192,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>Please enter valid email.</value>
   </data>
   <data name="Emergency" xml:space="preserve">
     <value>Emergency</value>
@@ -237,6 +250,9 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NameError" xml:space="preserve">
+    <value>Please enter a valid name.</value>
+  </data>
   <data name="New news" xml:space="preserve">
     <value>New news</value>
   </data>
@@ -249,8 +265,15 @@
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="OnlyNumbersError" xml:space="preserve">
+    <value>Please enter numbers.</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Please enter valid 
+password of at least 6 characters.</value>
   </data>
   <data name="Patient" xml:space="preserve">
     <value>Patient</value>
@@ -294,11 +317,17 @@
   <data name="State" xml:space="preserve">
     <value>Residential state</value>
   </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Please enter a valid state name.</value>
+  </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Surname</value>
+  </data>
+  <data name="SurnameError" xml:space="preserve">
+    <value>Please enter a valid surname.</value>
   </data>
   <data name="Term" xml:space="preserve">
     <value>Term</value>
@@ -318,8 +347,18 @@
   <data name="Type of term" xml:space="preserve">
     <value>Type of term</value>
   </data>
+  <data name="UCINError" xml:space="preserve">
+    <value>Please enter a valid 13-digit UCIN.</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Unknown error occured.</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="UsernameError" xml:space="preserve">
+    <value>Please enter valid 
+username of 3 to 18 characters.</value>
   </data>
   <data name="WeeklyReport" xml:space="preserve">
     <value>Weekly report on scheduled operations and examinations</value>
