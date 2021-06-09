@@ -14,7 +14,7 @@ namespace PrviProgram.Izgled.IzgledUpravnik
         private SaleController saleController = new SaleController();
         private UtilityService utilityService = new UtilityService();
         private TerminiService terminiService = new TerminiService();
-        private TerminiSaleController terminiSale;
+        private TerminiSaleController terminiSale = new TerminiSaleController();
         private ObservableCollection<Sala> sale;
         private Sala sala;
         private Sala izmenjenaSala = new Sala();
