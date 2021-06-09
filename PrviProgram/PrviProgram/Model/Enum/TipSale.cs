@@ -1,3 +1,4 @@
+
 namespace Model
 {
     public enum TipSale

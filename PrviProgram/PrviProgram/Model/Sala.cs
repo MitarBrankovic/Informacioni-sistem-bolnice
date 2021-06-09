@@ -6,6 +6,7 @@ namespace Model
     {
         public List<Oprema> oprema;
 
+
         public Sala()
         {
             oprema = new List<Oprema>();
@@ -90,6 +91,26 @@ namespace Model
         {
             if (oprema != null)
                 oprema.Clear();
+        }
+
+        public string NadjiTip
+        {
+            get{
+                string nadjiTip = "";
+                if (this.Tip == TipSale.Kancelarija)
+                    nadjiTip = "Kancelarija";
+                else if (this.Tip == TipSale.Magacin)
+                    nadjiTip = "Magacin";
+                else if (this.Tip == TipSale.Operaciona)
+                    nadjiTip = "Operaciona";
+                else if (this.Tip == TipSale.SalaSaKrevetima)
+                    nadjiTip = "Sala sa krevetima";
+                else if (this.Tip == TipSale.SalaZaOdmor)
+                    nadjiTip = "Sala za odmor";
+
+                return nadjiTip;
+            }
+            set{ }
         }
 
     }

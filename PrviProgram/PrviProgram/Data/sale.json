@@ -42,7 +42,8 @@
     "Naziv": "Magacin",
     "Sprat": 1,
     "Sifra": "mag",
-    "NazivSprat": "Magacin 1"
+    "NazivSprat": "Magacin 1",
+    "NadjiTip": "Magacin"
   },
   {
     "oprema": [
@@ -63,7 +64,8 @@
     "Naziv": "NTP 1",
     "Sprat": 1,
     "Sifra": "ntp 1",
-    "NazivSprat": "NTP 1 1"
+    "NazivSprat": "NTP 1 1",
+    "NadjiTip": "Operaciona"
   },
   {
     "oprema": [
@@ -90,7 +92,8 @@
     "Naziv": "NTP 2",
     "Sprat": 2,
     "Sifra": "ntp2",
-    "NazivSprat": "NTP 2 2"
+    "NazivSprat": "NTP 2 2",
+    "NadjiTip": "Sala sa krevetima"
   },
   {
     "oprema": [
@@ -111,7 +114,8 @@
     "Naziv": "OP1",
     "Sprat": 1,
     "Sifra": "op1",
-    "NazivSprat": "OP1 1"
+    "NazivSprat": "OP1 1",
+    "NadjiTip": "Operaciona"
   },
   {
     "oprema": [
@@ -126,7 +130,8 @@
     "Naziv": "OP2",
     "Sprat": 2,
     "Sifra": "op2",
-    "NazivSprat": "OP2 2"
+    "NazivSprat": "OP2 2",
+    "NadjiTip": "Operaciona"
   },
   {
     "oprema": [
@@ -141,7 +146,8 @@
     "Naziv": "OP3",
     "Sprat": 3,
     "Sifra": "op3",
-    "NazivSprat": "OP3 3"
+    "NazivSprat": "OP3 3",
+    "NadjiTip": "Operaciona"
   },
   {
     "oprema": [],
@@ -149,6 +155,7 @@
     "Naziv": "vvvv",
     "Sprat": 3,
     "Sifra": "vvaass",
-    "NazivSprat": "vvvv 3"
+    "NazivSprat": "vvvv 3",
+    "NadjiTip": "Operaciona"
   }
 ]

@@ -20,7 +20,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*"/>
                 <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="*"/>
-                <DataGridTextColumn Header="Tip sale" Binding="{Binding Tip}" Width="*"/>
+                <DataGridTextColumn Header="Tip sale" Binding="{Binding NadjiTip}" Width="*"/>
                 <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
