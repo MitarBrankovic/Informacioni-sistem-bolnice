@@ -43,9 +43,9 @@
         <TextBlock x:Name="textBlockVreme" Style="{DynamicResource font_label_style}" Text="{loc:Loc Time}" Grid.Row="6" Grid.Column="1"/>
         <TextBlock x:Name="textBlockHitan" Style="{DynamicResource font_label_style}" Text="{loc:Loc Emergency}" Grid.Row="7" Grid.Column="1"/>
 
-        <DatePicker x:Name="datePicker" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker x:Name="datePicker" Style="{DynamicResource DatePickerStyle}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="4" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <ComboBox x:Name="comboBoxPacijenti" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4"/>
-        <Button Content="{loc:Loc Guest patient}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4" Click="GuestPacijent_Click"/>
+        <Button Content="{loc:Loc Guest patient}" Margin="3, 7" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4" Click="GuestPacijent_Click"/>
         <ComboBox x:Name="comboBoxLekari" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="4" SelectionChanged="ComboBoxLekari_SelectionChanged"/>
         <ComboBox x:Name="TipTerminaText" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="4"/>
         <ComboBox x:Name="vremeText" Style="{DynamicResource ComboBoxStyle}" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="4"/>

@@ -14,8 +14,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
     public partial class IzmenaTerminaView : Page
     {
-        public TerminiLekarController terminiLekarController;
-        public TerminiSaleController terminiSaleController;
+        public TerminiLekarController terminiLekarController = new TerminiLekarController();
+        public TerminiSaleController terminiSaleController = new TerminiSaleController();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
@@ -23,7 +23,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
         private ObservableCollection<string> vremeTermina;
         private ObservableCollection<TipTermina> tipTermina = new ObservableCollection<TipTermina>(Enum.GetValues(typeof(TipTermina)).Cast<TipTermina>());
         private Termin termin;
-        public KartonPacijentaService kartonPacijentaService;
 
         public IzmenaTerminaView(ObservableCollection<Termin> termini, Termin termin)
         {

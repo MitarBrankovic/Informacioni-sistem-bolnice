@@ -5,7 +5,7 @@
     <Style x:Key="CheckBox_stayle"
            TargetType="{x:Type CheckBox}">
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Margin" Value="3 7"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CheckBox}">
@@ -58,7 +58,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Margin" Value="3" />
+        <Setter Property="Margin" Value="3 7" />
     </Style>
 
     <!-- Fill Brushes -->
@@ -199,7 +199,7 @@
     <!--// ComboBox style //-->
     <Style x:Key="ComboBoxStyle"
            TargetType="ComboBox">
-        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Margin" Value="3 7"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -312,7 +312,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Margin" Value="3" />
+        <Setter Property="Margin" Value="3 7" />
     </Style>
 
     <!--// PasswordBox style //-->
@@ -323,14 +323,14 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Margin" Value="3" />
+        <Setter Property="Margin" Value="3 7" />
     </Style>
 
     <!--// RadioButton style template //-->
     <Style x:Key="radio_stayle"
            TargetType="{x:Type RadioButton}">
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Margin" Value="3 7"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">

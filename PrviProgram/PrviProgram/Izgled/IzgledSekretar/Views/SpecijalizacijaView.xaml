@@ -59,7 +59,7 @@
         <Button x:Name="Remove" Content="{loc:Loc Delete}" Click="Obrisi_Click" Grid.Column="5" Grid.Row="2"/>
 
         <TextBlock x:Name="textBlockAddSpecializations" Style="{DynamicResource font_label_style}" Text="{loc:Loc AddSpecializations}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="5"/>
-        <ComboBox x:Name="comboBoxSpecijalizacija" Style="{DynamicResource ComboBoxStyle}" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3"/>
+        <ComboBox x:Name="comboBoxSpecijalizacija" Style="{DynamicResource ComboBoxStyle}" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3" IsEditable="True"/>
         <Button x:Name="Add" Content="{loc:Loc Add}" Click="Dodaj_Click" Grid.Column="5" Grid.Row="7"/>
 
 
