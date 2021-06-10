@@ -81,7 +81,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             NavigationService.GoBack();
         }
 
-        private void textBoxGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void TextBoxGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Grad grad = (Grad)textBoxGrad.SelectedItem;
             if (grad != null)
@@ -90,7 +90,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             }
         }
 
-        private void textBoxMestoRodjenjaGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void TextBoxMestoRodjenjaGrad_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Grad grad = (Grad)textBoxMestoRodjenjaGrad.SelectedItem;
             if (grad != null)
