@@ -13,8 +13,8 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
     public partial class ZakazivanjeTerminaView : Page
     {
-        public TerminiLekarController terminiLekarController;
-        public TerminiSaleController terminiSaleController;
+        public TerminiLekarController terminiLekarController = new TerminiLekarController();
+        public TerminiSaleController terminiSaleController = new TerminiSaleController();
         private PacijentRepository pacijentRepository = new PacijentRepository();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();

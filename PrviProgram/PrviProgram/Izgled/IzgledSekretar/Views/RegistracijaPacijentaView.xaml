@@ -24,21 +24,21 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="42"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="42"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -83,31 +83,31 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        
+
         <TextBox x:Name="textBoxPrezime" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="4">
-        <TextBox.Text>
-            <Binding Path="Prezime" UpdateSourceTrigger="PropertyChanged">
-                <Binding.ValidationRules>
-                    <val:SurnameValidationRule/>
-                </Binding.ValidationRules>
-            </Binding>
-        </TextBox.Text>
-        <Validation.ErrorTemplate>
-            <ControlTemplate>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                </Grid>
-            </ControlTemplate>
-        </Validation.ErrorTemplate>
-        
+            <TextBox.Text>
+                <Binding Path="Prezime" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:SurnameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+
         </TextBox>
         <TextBox x:Name="textBoxJMBG" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4">
             <TextBox.Text>
@@ -133,10 +133,10 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        
+
         <DatePicker x:Name="datePickerDatumRodjenja" Style="{DynamicResource DatePickerStyle}" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="4"/>
-        
-        <ComboBox x:Name="textBoxMestoRodjenjaGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxMestoRodjenjaGrad_SelectionChanged" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2">
+
+        <ComboBox x:Name="textBoxMestoRodjenjaGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="TextBoxMestoRodjenjaGrad_SelectionChanged" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2">
             <ComboBox.Text>
                 <Binding Path="MestoRodjenjaGrad" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -159,9 +159,9 @@
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
-        
+
         </ComboBox>
-            <ComboBox x:Name="textBoxMestoRodjenjaDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2">
+        <ComboBox x:Name="textBoxMestoRodjenjaDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2">
             <ComboBox.Text>
                 <Binding Path="MestoRodjenjaDrzava" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -210,7 +210,7 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        
+
         <TextBox x:Name="textBoxBroj" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="6">
             <TextBox.Text>
                 <Binding Path="Broj" UpdateSourceTrigger="PropertyChanged">
@@ -219,23 +219,10 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
-            <Validation.ErrorTemplate>
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                    </Grid>
-                </ControlTemplate>
-            </Validation.ErrorTemplate>
         </TextBox>
-        
+        <TextBlock Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalAlignment="Center" Foreground="Red"
+                   Text="{Binding ElementName=textBoxBroj,Path=(Validation.Errors)[0].ErrorContent}" Visibility="{Binding ElementName=textBoxBroj}"/>
+
         <TextBox x:Name="textBoxSprat" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="7">
             <TextBox.Text>
                 <Binding Path="Sprat" UpdateSourceTrigger="PropertyChanged">
@@ -260,7 +247,7 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        
+
         <TextBox x:Name="textBoxStan" Style="{DynamicResource TextBoxStyle}" Grid.Column="6" Grid.Row="7">
             <TextBox.Text>
                 <Binding Path="Stan" UpdateSourceTrigger="PropertyChanged">
@@ -269,24 +256,11 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
-            <Validation.ErrorTemplate>
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                    </Grid>
-                </ControlTemplate>
-            </Validation.ErrorTemplate>
         </TextBox>
-        
-        <ComboBox x:Name="textBoxGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="textBoxGrad_SelectionChanged" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="4">
+        <TextBlock Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalAlignment="Center" Foreground="Red" 
+                   Text="{Binding ElementName=textBoxStan,Path=(Validation.Errors)[0].ErrorContent}" Visibility="{Binding ElementName=textBoxStan}"/>
+
+        <ComboBox x:Name="textBoxGrad" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" SelectionChanged="TextBoxGrad_SelectionChanged" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="4">
             <ComboBox.Text>
                 <Binding Path="MestoStanovanjaGrad" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -310,7 +284,7 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </ComboBox>
-        
+
         <ComboBox x:Name="textBoxDrzava" Style="{DynamicResource ComboBoxStyle}" IsEditable="True" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="4">
             <ComboBox.Text>
                 <Binding Path="MestoStanovanjaDrzava" UpdateSourceTrigger="PropertyChanged">
@@ -335,10 +309,10 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </ComboBox>
-        
+
         <RadioButton x:Name="radioButtonPolM" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Male}" IsChecked="True" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="2"/>
         <RadioButton x:Name="radioButtonPolZ" Style="{DynamicResource radio_stayle}" Content="{loc:Loc Female}" Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="2"/>
-        
+
         <TextBox x:Name="textBoxEmail" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="4">
             <TextBox.Text>
                 <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
@@ -363,14 +337,14 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        
+
         <TextBox x:Name="textBoxKontaktTelefon" Style="{DynamicResource TextBoxStyle}" Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="4">
             <TextBox.Text>
-            <Binding Path="Kontakt" UpdateSourceTrigger="PropertyChanged">
-                <Binding.ValidationRules>
-                    <val:ContactValidationRule/>
-                </Binding.ValidationRules>
-            </Binding>
+                <Binding Path="Kontakt" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ContactValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
             </TextBox.Text>
             <Validation.ErrorTemplate>
                 <ControlTemplate>
@@ -392,7 +366,7 @@
         <!--For password-->
         <TextBlock x:Name="textBlockKorisnickoIme" Style="{DynamicResource font_label_style}" Text="{loc:Loc Username}" Grid.Row="14" Grid.Column="1"/>
         <TextBlock x:Name="textBlockLozinka" Style="{DynamicResource font_label_style}" Text="{loc:Loc Password}" Grid.Row="15" Grid.Column="1"/>
-        
+
         <TextBox x:Name="textBoxKorisnickoIme" Style="{DynamicResource TextBoxStyle}" Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4">
             <TextBox.Text>
                 <Binding Path="KorisnickoIme" UpdateSourceTrigger="PropertyChanged">
@@ -422,7 +396,6 @@
 
         <Button x:Name="Submit" Content="{loc:Loc Submit}" Click="Potvrdi_Click" Grid.Column="1" Grid.Row="17" />
         <Button x:Name="Back" Content="{loc:Loc Back}" Click="Odustani_Click" Grid.Column="4" Grid.Row="17" Grid.ColumnSpan="3" />
-
 
     </Grid>
 </Page>

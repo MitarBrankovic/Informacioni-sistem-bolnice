@@ -308,6 +308,9 @@ password of at least 6 characters.</value>
   <data name="Schedule an appointment" xml:space="preserve">
     <value>Schedule an appointment</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search:</value>
+  </data>
   <data name="SelectReport" xml:space="preserve">
     <value>Select the report you want to generate:</value>
   </data>

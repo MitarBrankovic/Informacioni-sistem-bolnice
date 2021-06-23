@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Controller;
@@ -8,8 +9,17 @@ using Service;
 
 namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
-    public partial class IzmenaPacijentaView : Page
+    public partial class IzmenaPacijentaView : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
         private SekretarController sekretarController = new SekretarController();
         private DrzaveRepository drzaveRepository = new DrzaveRepository();
         private GradoviRepository gradoviRepository = new GradoviRepository();
@@ -24,6 +34,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             this.pacijent = pacijent;
             InicijalizacijaCombo();
             InicijalizacijaForme(pacijent);
+            DataContext = this;
         }
         private void InicijalizacijaCombo()
         {
@@ -35,39 +46,39 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 
         private void InicijalizacijaForme(Pacijent pacijent)
         {
-            textBoxIme.Text = pacijent.Ime;
-            textBoxPrezime.Text = pacijent.Prezime;
-            textBoxJMBG.Text = pacijent.Jmbg;
+            ime = pacijent.Ime;
+            prezime = pacijent.Prezime;
+            jmbg = pacijent.Jmbg;
             datePickerDatumRodjenja.SelectedDate = pacijent.DatumRodjenja;
-            textBoxMestoRodjenjaGrad.Text = pacijent.MestoRodjenja.Ime;
-            textBoxMestoRodjenjaDrzava.Text = pacijent.MestoRodjenja.drzava.Ime;
-            textBoxUlica.Text = pacijent.AdresaStanovanja.Ulica;
-            textBoxBroj.Text = pacijent.AdresaStanovanja.Broj.ToString();
-            textBoxSprat.Text = pacijent.AdresaStanovanja.Sprat.ToString();
-            textBoxStan.Text = pacijent.AdresaStanovanja.Stan.ToString();
-            textBoxGrad.Text = pacijent.AdresaStanovanja.grad.Ime;
-            textBoxDrzava.Text = pacijent.AdresaStanovanja.grad.drzava.Ime;
+            mestoRodjenjaGrad = pacijent.MestoRodjenja.Ime;
+            mestoRodjenjaDrzava = pacijent.MestoRodjenja.drzava.Ime;
+            ulica = pacijent.AdresaStanovanja.Ulica;
+            broj = pacijent.AdresaStanovanja.Broj.ToString();
+            sprat = pacijent.AdresaStanovanja.Sprat.ToString();
+            stan = pacijent.AdresaStanovanja.Stan.ToString();
+            mestoStanovanjaGrad = pacijent.AdresaStanovanja.grad.Ime;
+            mestoStanovanjaDrzava = pacijent.AdresaStanovanja.grad.drzava.Ime;
             radioButtonPolM.IsChecked = pacijent.Pol.Equals(Pol.Muski);
             radioButtonPolZ.IsChecked = pacijent.Pol.Equals(Pol.Zenski);
-            textBoxEmail.Text = pacijent.Email;
-            textBoxKontaktTelefon.Text = pacijent.KontaktTelefon;
-            textBoxKorisnickoIme.Text = pacijent.Korisnik.KorisnickoIme;
+            email = pacijent.Email;
+            kontakt = pacijent.KontaktTelefon;
+            korisnickoIme = pacijent.Korisnik.KorisnickoIme;
             textBoxLozinka.Password = pacijent.Korisnik.Lozinka;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik korisnik = new Korisnik(textBoxKorisnickoIme.Text, textBoxLozinka.Password, TipKorisnika.Pacijent);
+            Korisnik korisnik = new Korisnik(KorisnickoIme, textBoxLozinka.Password, TipKorisnika.Pacijent);
 
-            Adresa adresaStanovanja = new Adresa(textBoxUlica.Text, utilityService.IntParser(textBoxBroj.Text),
-                                     utilityService.IntParser(textBoxSprat.Text),
-                                     utilityService.IntParser(textBoxStan.Text),
-                                     GradIzForme(textBoxDrzava.Text, textBoxGrad.Text));
+            Adresa adresaStanovanja = new Adresa(Ulica, utilityService.IntParser(Broj),
+                                     utilityService.IntParser(Sprat),
+                                     utilityService.IntParser(Stan),
+                                     GradIzForme(MestoStanovanjaDrzava, MestoStanovanjaGrad));
 
-            Osoba osoba = new Osoba(GradIzForme(textBoxMestoRodjenjaDrzava.Text, textBoxMestoRodjenjaGrad.Text),
-                        korisnik, adresaStanovanja, textBoxIme.Text, textBoxPrezime.Text, textBoxEmail.Text,
-                        textBoxJMBG.Text, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
-                        (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, textBoxKontaktTelefon.Text);
+            Osoba osoba = new Osoba(GradIzForme(MestoRodjenjaDrzava, MestoRodjenjaGrad),
+                        korisnik, adresaStanovanja, Ime, Prezime, Email,
+                        Jmbg, datePickerDatumRodjenja.SelectedDate.GetValueOrDefault(),
+                        (bool)radioButtonPolM.IsChecked ? Pol.Muski : Pol.Zenski, Kontakt);
 
             Pacijent noviPacijent = new Pacijent(osoba, pacijent.GetTermin(), pacijent.KartonPacijenta);
 
@@ -111,6 +122,248 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
                 textBoxMestoRodjenjaDrzava.Text = grad.drzava.Ime;
             }
         }
+
+        public string Ime
+        {
+            get
+            {
+                return ime;
+            }
+            set
+            {
+                if (value != ime)
+                {
+                    ime = value;
+                    OnPropertyChanged("Ime");
+                }
+            }
+        }
+        public string Prezime
+        {
+            get
+            {
+                return prezime;
+            }
+            set
+            {
+                if (value != prezime)
+                {
+                    prezime = value;
+                    OnPropertyChanged("Prezime");
+                }
+            }
+        }
+        public string Jmbg
+        {
+            get
+            {
+                return jmbg;
+            }
+            set
+            {
+                if (value != jmbg)
+                {
+                    jmbg = value;
+                    OnPropertyChanged("Jmbg");
+                }
+            }
+        }
+        public string MestoRodjenjaGrad
+        {
+            get
+            {
+                return mestoRodjenjaGrad;
+            }
+            set
+            {
+                if (value != mestoRodjenjaGrad)
+                {
+                    mestoRodjenjaGrad = value;
+                    OnPropertyChanged("MestoRodjenjaGrad");
+                }
+            }
+        }
+        public string MestoRodjenjaDrzava
+        {
+            get
+            {
+                return mestoRodjenjaDrzava;
+            }
+            set
+            {
+                if (value != mestoRodjenjaDrzava)
+                {
+                    mestoRodjenjaDrzava = value;
+                    OnPropertyChanged("MestoRodjenjaDrzava");
+                }
+            }
+        }
+        public string Ulica
+        {
+            get
+            {
+                return ulica;
+            }
+            set
+            {
+                if (value != ulica)
+                {
+                    ulica = value;
+                    OnPropertyChanged("Ulica");
+                }
+            }
+        }
+        public string Broj
+        {
+            get
+            {
+                return broj;
+            }
+            set
+            {
+                if (value != broj)
+                {
+                    broj = value;
+                    OnPropertyChanged("Broj");
+                }
+            }
+        }
+        public string Sprat
+        {
+            get
+            {
+                return sprat;
+            }
+            set
+            {
+                if (value != sprat)
+                {
+                    sprat = value;
+                    OnPropertyChanged("Sprat");
+                }
+            }
+        }
+        public string Stan
+        {
+            get
+            {
+                return stan;
+            }
+            set
+            {
+                if (value != stan)
+                {
+                    stan = value;
+                    OnPropertyChanged("Stan");
+                }
+            }
+        }
+        public string MestoStanovanjaGrad
+        {
+            get
+            {
+                return mestoStanovanjaGrad;
+            }
+            set
+            {
+                if (value != mestoStanovanjaGrad)
+                {
+                    mestoStanovanjaGrad = value;
+                    OnPropertyChanged("MestoStanovanjaGrad");
+                }
+            }
+        }
+        public string MestoStanovanjaDrzava
+        {
+            get
+            {
+                return mestoStanovanjaDrzava;
+            }
+            set
+            {
+                if (value != mestoStanovanjaDrzava)
+                {
+                    mestoStanovanjaDrzava = value;
+                    OnPropertyChanged("MestoStanovanjaDrzava");
+                }
+            }
+        }
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                if (value != email)
+                {
+                    email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+        public string Kontakt
+        {
+            get
+            {
+                return kontakt;
+            }
+            set
+            {
+                if (value != kontakt)
+                {
+                    kontakt = value;
+                    OnPropertyChanged("Kontakt");
+                }
+            }
+        }
+        public string KorisnickoIme
+        {
+            get
+            {
+                return korisnickoIme;
+            }
+            set
+            {
+                if (value != korisnickoIme)
+                {
+                    korisnickoIme = value;
+                    OnPropertyChanged("KorisnickoIme");
+                }
+            }
+        }
+        public string Lozinka
+        {
+            get
+            {
+                return lozinka;
+            }
+            set
+            {
+                if (value != lozinka)
+                {
+                    lozinka = value;
+                    OnPropertyChanged("Lozinka");
+                }
+            }
+        }
+
+        private string ime;
+        private string prezime;
+        private string jmbg;
+        private string mestoRodjenjaGrad;
+        private string mestoRodjenjaDrzava;
+        private string ulica;
+        private string broj;
+        private string sprat;
+        private string stan;
+        private string mestoStanovanjaGrad;
+        private string mestoStanovanjaDrzava;
+        private string email;
+        private string kontakt;
+        private string korisnickoIme;
+        private string lozinka;
 
     }
 }

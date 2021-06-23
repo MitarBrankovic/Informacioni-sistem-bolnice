@@ -14,16 +14,14 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
     public partial class ZakazivanjeHitnogTerminaView : Page
     {
+        public TerminiSaleController terminiSaleController = new TerminiSaleController();
         private ILekarSpecijalizacija lekarSpecijalizacija = new LekarRepository();
         private PacijentRepository pacijentRepository = new PacijentRepository();
-        private LekarRepository lekarRepository = new LekarRepository();
         private TerminiRepository terminiRepository = new TerminiRepository();
         private SpecijalizacijeRepository specijalizacijeRepository = new SpecijalizacijeRepository();
-        private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
         private ObservableCollection<Termin> termini;
         public static GuestPacijent guestPacijent;
-        public TerminiSaleController terminiSaleController;
 
         public ZakazivanjeHitnogTerminaView()
         {
@@ -94,6 +92,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             {
                 termin.guestPacijent = guestPacijent;
             }
+            termin.Datum = DateTime.Now;
             termin.sala = terminiSaleController.DobavljanjeSale(termin);
             return termin;
         }

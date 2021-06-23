@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -79,6 +80,20 @@ namespace Repository
                 }
             }
             return lekariSpecijalizacije;
+        }
+
+        public IEnumerable<Lekar> PretragaLekara(string text)
+        {
+            List<Lekar> lekari = CitanjeIzFajla();
+            List<Lekar> pronadjeniLekari = new List<Lekar>();
+            foreach (Lekar lekar in lekari)
+            {
+                if (lekar.Ime.Contains(text) || lekar.Prezime.Contains(text))
+                {
+                    pronadjeniLekari.Add(lekar);
+                }
+            }
+            return pronadjeniLekari;
         }
 
         public bool ProveriSpecijalizacijuLekara(Lekar zaLekara, Specijalizacija specijalizacija)

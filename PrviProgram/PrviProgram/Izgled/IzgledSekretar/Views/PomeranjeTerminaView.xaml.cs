@@ -14,7 +14,7 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
 {
     public partial class PomeranjeTerminaView : Page
     {
-        public TerminiLekarController terminiLekarController;
+        public TerminiLekarController terminiLekarController = new TerminiLekarController();
         private LekarRepository lekarRepository = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();

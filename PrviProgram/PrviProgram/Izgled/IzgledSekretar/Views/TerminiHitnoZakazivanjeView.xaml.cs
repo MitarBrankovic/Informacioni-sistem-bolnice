@@ -14,7 +14,6 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
         private ILekarSpecijalizacija lekarSpecijalizacija = new LekarRepository();
         private TerminiService terminiService = new TerminiService();
         private UtilityService utilityService = new UtilityService();
-        private LekarRepository lekarRepository = new LekarRepository();
         private ObservableCollection<Termin> sviTermini;
         private ObservableCollection<Termin> termini;
         private Termin termin;

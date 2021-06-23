@@ -55,5 +55,12 @@ namespace PrviProgram.Izgled.IzgledSekretar.Views
             }
         }
 
+        private void TextBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            pacijenti.Clear();
+            ObservableCollection<Pacijent> pretrazeniPacijenti = new ObservableCollection<Pacijent>(pacijentRepository.PretragaPacijent(TextboxSearch.Text));
+            dgDataBinding.ItemsSource = pretrazeniPacijenti;
+        }
+
     }
 }
